@@ -1,5 +1,15 @@
 ## Upcoming Products > API Gateway > Release Notes
 
+### 2016.10.06
+#### 기능 개선/변경
+* [Console] Pre API 플러그인 기능 추가
+* [Console] Header 변경 플러그인 기능 추가
+* [API] 파일 업로드 지원
+
+#### 버그수정
+* [API] 타겟서버의 401 에러코드등 일부 응답을 처리하지 못하는 문제 수정
+
+
 ### 2016.08.30
 #### 버그 수정
 * [API] HMAC 인증 오류 수정
