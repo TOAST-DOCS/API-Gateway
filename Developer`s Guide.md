@@ -19,7 +19,7 @@ Domain에 추가한 플러그인은 Domain에 속한 모든 API에 대해서 동
 
 #### Domain 관리
 
-하나의 Domain은 대상 서버를 가르키는 Domain URL 하나에 대응됩니다. Domain은 생성, 편집, 삭제가 가능합니다. 그리고 Domain에 대해 플러그인을 설정할 수 있습니다.
+하나의 Domain은 대상 서버를 가리키는 Domain URL 하나에 대응됩니다. Domain은 생성, 편집, 삭제가 가능합니다. 그리고 Domain에 대해 플러그인을 설정할 수 있습니다.
 
 ![](http://static.toastoven.net/prod_apigateway/img_13.png)
 
