@@ -286,7 +286,7 @@ String authorization = jws.getCompactSerialization();
 Response Mock 을 반환하도록 합니다.
 
 ### Cache
-#### Endpoint > Mock Response
+#### Endpoint > Cache
 API 결과를 Caching 합니다.
 
 ###  Pre API
@@ -322,6 +322,7 @@ Pre API의 응답코드에 따라 200이면 Endpoint를 호출하고, 응답코�
 | 502 | 20008 | 20008 Pre api connection failed |
 
 ### Modify Headers
+#### Endpoint > Modify Headers
 요청/응답 헤더의 값을 추가 합니다.
 > [참고]
 > 설정한 헤더 키가 이미 존재한다면 덮어쓰게 됩니다.
