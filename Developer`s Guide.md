@@ -137,8 +137,9 @@ API 통계는 사용자가 등록한 Domain들에서 발생한 API call의 사�
 
 ![](http://static.toastoven.net/prod_apigateway/img_36.png)
 
-## 플러그인 동작 구조
+## 플러그인
 
+### 플러그인 동작 구조
 ![](http://static.toastoven.net/prod_apigateway/img_12.png)
 
 Domain에 추가한 플러그인은 Domain에 속한 모든 API에 대해서 동작합니다. 마찬가지로 Endpoint에 추가한 플러그인은 Endpoint에 대해 API call이 수행될 때 동작합니다.
@@ -151,7 +152,6 @@ IP 기반 Access Control 기능 입니다.
 ### Quota Limit
 #### Quota Limit > Usage Quota
 시간당 API 사용량을 제한할 수 있습니다.
-
 
 ### HMAC
 #### Authentification > HMAC
@@ -172,15 +172,18 @@ IP 기반 Access Control 기능 입니다.
 #### Authentification > HMAC > 인증 API 호출
 
 HMAC 인증을 사용하기 위해서 다음 값을 Request Header에 포함하여 요청해야 합니다.
+
 - Authorization : [Method + "\n "+ URL + "\n "+ Timestamp] 를 조합하여 HmacSHA1 알고리즘으로 암호화 한후 Base64로 인코딩 한 값
+
 - X-TC-Timestamp : ISO datetime format (yyyy-MM-dd'T'HH:mm:ssZZ)
 
 | 요청 | StringToSign |
 |-|-|
 | GET /test/1?query1=1&query2=2<br><br>X-TC-Timestamp: 2016-07-23T12:20:02+09:00<br><span style="color:red">Authorization: IqY8u/RZY8IMESwa/TPW9P9Z39Y=</span> | GET\n<br>/test/1?query1=1&query2=2\n<br>2016-07-23T12:20:02+09:00 |
+
 > [참고] 요청 시간은 ISO Datetime format (yyyy-MM-dd'T'hh:mm:ssZ)을 따릅니다.
 
-##### Authorization 생성 코드 (JAVA)
+#### Authorization 생성 코드 (JAVA)
 ```java
 String secretKey = "Console에서 설정한 Secret Key";
 SecretKeySpec signingKey = new SecretKeySpec(secretKey.getBytes(), "HmacSHA1");
@@ -193,7 +196,7 @@ rawHmac = mac.doFinal(message.getBytes());
 String authorization = new String(Base64.encodeBase64(rawHmac));
 ```
 
-##### 에러코드
+#### 에러코드
 ```
 {
   "header" : {
@@ -232,15 +235,14 @@ JWT(Json Web Token) 인증을 합니다.
 
 #### Authorization > JWT (JSON Web Token) > JWT 인증 API 호출
 
+JWT 인증을 사용하기 위해서 다음 값을 Request Header에 포함하여 요청해야 합니다.
+Authorization : Json Web Token
+
 | 요청 |
 |-|
 | GET /test/1?query1=1&query2=2<br><br><span style="color:red">Authorization: eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJpbnZhbGl...</span> |
 
-1.  JWT 인증을 사용하기 위해서 다음 값을 Request Header에 포함하여 요청해야 합니다.
-
-Authorization : Json Web Token
-
-##### Authorization 생성 코드 (JAVA)
+#### Authorization 생성 코드 (JAVA)
 
 ```
 <dependency>
@@ -268,7 +270,7 @@ jws.setAlgorithmHeaderValue(AlgorithmIdentifiers.HMAC_SHA256);
 String authorization = jws.getCompactSerialization();
 ```
 
-##### 에러코드
+#### 에러코드
 
 ```json
 {"header":{"resultCode":20002,"resultMessage":"20002 JWT authentication failed (Exceeded expiration time)","isSuccessful":false}}
@@ -292,10 +294,11 @@ API 결과를 Caching 합니다.
 ###  Pre API
 #### Endpoint > Pre API
 Pre API는 Endpoint를 호출하기 전에 호출되며 Pre API의 응답코드에 따라 Endpoint를 호출여부를 결정하는 인증역할을 합니다.
-API Gateway를 통해 들어온 요청 헤더를 포함하여 Pre API를 호출하고, Pre API에서는 전달 받은 헤더 내용에 따라 응답코드를 리턴하면 됩니다.
-Pre API의 응답코드에 따라 200이면 Endpoint를 호출하고, 응답코드가 200이 아니면 Pre API의 응답결과를 리턴합니다.
 
-만약, Pre API 호출에 실패할 경우 에러를 리턴한다.
+API Gateway를 통해 들어온 요청 헤더를 포함하여 Pre API를 호출하고, Pre API에서는 전달 받은 헤더 내용에 따라 응답코드를 리턴하면 됩니다.
+
+Pre API의 응답코드에 따라 200이면 Endpoint를 호출하고, 응답코드가 200이 아니면 Pre API의 응답결과를 리턴합니다.
+만약, Pre API 호출에 실패할 경우 에러를 리턴하게 됩니다.
 
 #### Pre API 설정
 
@@ -311,7 +314,7 @@ Pre API의 응답코드에 따라 200이면 Endpoint를 호출하고, 응답코�
 ![](http://static.toastoven.net/prod_apigateway/img_plugin_preapi_3.png)
 [그림] Pre API 플러그인 설정
 
-##### 에러코드
+#### 에러코드
 
 ``` json
 {"header":{"resultCode":20008,"resultMessage":"20008 Pre api connection failed","isSuccessful":false}}
@@ -339,8 +342,9 @@ Pre API의 응답코드에 따라 200이면 Endpoint를 호출하고, 응답코�
 
 3. Plugins > Modify Headers 플러그인 설정 정보를 입력합니다.
 ![](http://static.toastoven.net/prod_apigateway/img_plugin_modifyheaders_3.png)
-- Request Headers는 요청 헤더를 수정할 수 있습니다.
--  Response Headers는 응답 헤더를 수정할 수 있습니다.
 
-##### 에러코드
-Modify Headers 플러그인은 별도의 에러코드가 제공되지 않습니다.
+- Request Headers는 요청 헤더를 수정할 수 있습니다.
+- Response Headers는 응답 헤더를 수정할 수 있습니다.
+
+#### 에러코드
+Modify Headers 플러그인은 별도의 에러코드가 없습니다.
