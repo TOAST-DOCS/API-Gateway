@@ -236,7 +236,8 @@ JWT(Json Web Token) 인증을 합니다.
 #### Authorization > JWT (JSON Web Token) > JWT 인증 API 호출
 
 JWT 인증을 사용하기 위해서 다음 값을 Request Header에 포함하여 요청해야 합니다.
-Authorization : Json Web Token
+
+- Authorization : Json Web Token
 
 | 요청 |
 |-|
@@ -272,8 +273,14 @@ String authorization = jws.getCompactSerialization();
 
 #### 에러코드
 
-```json
-{"header":{"resultCode":20002,"resultMessage":"20002 JWT authentication failed (Exceeded expiration time)","isSuccessful":false}}
+```
+{  
+   "header":{  
+      "resultCode":20002,
+      "resultMessage":"20002 JWT authentication failed (Exceeded expiration time)",
+      "isSuccessful":false
+   }
+}
 ```
 
 | http status code | result code | result message |
@@ -316,8 +323,14 @@ Pre API의 응답코드에 따라 200이면 Endpoint를 호출하고, 응답코�
 
 #### 에러코드
 
-``` json
-{"header":{"resultCode":20008,"resultMessage":"20008 Pre api connection failed","isSuccessful":false}}
+```
+{  
+   "header":{  
+      "resultCode":20008,
+      "resultMessage":"20008 Pre api connection failed",
+      "isSuccessful":false
+   }
+}
 ```
 
 | http status code | result code | result message |
@@ -344,6 +357,7 @@ Pre API의 응답코드에 따라 200이면 Endpoint를 호출하고, 응답코�
 ![](http://static.toastoven.net/prod_apigateway/img_plugin_modifyheaders_3.png)
 
 - Request Headers는 요청 헤더를 수정할 수 있습니다.
+
 - Response Headers는 응답 헤더를 수정할 수 있습니다.
 
 #### 에러코드
