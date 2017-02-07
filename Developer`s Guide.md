@@ -153,6 +153,21 @@ IP 기반 Access Control 기능 입니다.
 #### Quota Limit > Usage Quota
 시간당 API 사용량을 제한할 수 있습니다.
 
+### Maintenance
+#### Maintenance > Maintenance Response
+정기점검등의 이유로 모든 Endpoint API 호출에 대해서 사용자가 정의한 Response를 반환하도록 설정합니다.
+
+1. [API Gateway > API Setting] 에서 도메인 셋팅을 위한 화면으로 이동합니다.
+![](http://static.toastoven.net/prod_apigateway/img_plugin_maintenance_1.png)
+[그림] 도메인 셋팅 이동
+
+2. [Plugin Setting > Maintenance] 에서 Maintenance Response 플러그인을 추가합니다.
+![](http://static.toastoven.net/prod_apigateway/img_plugin_maintenance_2.png)
+[그림] Maintenance Response 플러그인 설정
+
+3. Response 정의한 후에 Deploy를 하게되면 모든 Endpoint API 호출에 대해서 정의된 Response가 반환됩니다.
+
+
 ### HMAC
 #### Authentification > HMAC
 요청 URL과 시간을 메시지로 사용하여 HMAC 인증을 합니다.
