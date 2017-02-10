@@ -254,9 +254,8 @@ JWT 인증을 사용하기 위해서 다음 값을 Request Header에 포함하�
 
 - Authorization : Json Web Token
 
-| 요청 |
-|-|
-| GET /test/1?query1=1&query2=2<br><br><span style="color:red">Authorization: eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJpbnZhbGl...</span> |
+Request: GET /test/1?query1=1&query2=2<br>
+ <span style="color:red">Authorization: eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJpbnZhbGl...</span>
 
 #### Authorization 생성 코드 (JAVA)
 
