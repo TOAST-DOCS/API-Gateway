@@ -1,5 +1,14 @@
 ## Upcoming Products > API Gateway > Release Notes
 
+
+### 2017.02.23
+#### 기능 개선/변경
+* [Console] Maintenance 플러그인 기능 추가
+
+#### 버그 수정
+* [Console] 특정 Domain Deploy가 실패하는 오류 수정  
+  * Domain 삭제시 일부 데이터가 남아 동일한 Domain 등록할 경우 Deploy가 실패하는 문제 수정
+
 ### 2016.10.06
 #### 기능 개선/변경
 * [Console] Pre API 플러그인 기능 추가
