@@ -7,8 +7,8 @@
 
 ## 서비스 구조
 
-![](http://static.toastoven.net/prod_apigateway/img_11.png)
-
+![[그림1] 서비스 구조](http://static.toastoven.net/prod_apigateway/img_11.png)
+<center>[그림1] 서비스 구조</center>
 ## 기능
 
 #### Domain 관리
