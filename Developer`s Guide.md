@@ -9,12 +9,6 @@
 
 ![](http://static.toastoven.net/prod_apigateway/img_11.png)
 
-## 플러그인 동작 구조
-
-![](http://static.toastoven.net/prod_apigateway/img_12.png)
-
-Domain에 추가한 플러그인은 Domain에 속한 모든 API에 대해서 동작합니다. 마찬가지로 Endpoint에 추가한 플러그인은 Endpoint에 대해 API call이 수행될 때 동작합니다.
-
 ## 기능
 
 #### Domain 관리
@@ -143,22 +137,242 @@ API 통계는 사용자가 등록한 Domain들에서 발생한 API call의 사�
 
 ![](http://static.toastoven.net/prod_apigateway/img_36.png)
 
-### Domain Plugin
+## 플러그인
 
-#### Access Control
+### 플러그인 동작 구조
+![](http://static.toastoven.net/prod_apigateway/img_12.png)
 
-- IP ACL : IP 기반 Access Control
+Domain에 추가한 플러그인은 Domain에 속한 모든 API에 대해서 동작합니다. 마찬가지로 Endpoint에 추가한 플러그인은 Endpoint에 대해 API call이 수행될 때 동작합니다.
 
-#### Authentification
+### IP ACL
+#### Access Control > IP ACL
+IP 기반 Access Control 기능 입니다.
+특정 IP를 allow하거나 deny할 수 있습니다.
 
-- HMAC
-- JWT (JSON Web Token)
+### Quota Limit
+#### Quota Limit > Usage Quota
+시간당 API 사용량을 제한할 수 있습니다.
 
-#### Qouta Limit
+### Maintenance
+#### Maintenance > Maintenance Response
+정기점검등의 이유로 모든 Endpoint API 호출에 대해서 사용자가 정의한 Response를 반환하도록 설정합니다.
 
-- Usage Quota : 시간당 API 사용량 제한
+1. [API Gateway > API Setting] 에서 도메인 셋팅을 위한 화면으로 이동합니다.
+![](http://static.toastoven.net/prod_apigateway/img_plugin_maintenance_1.png)
+[그림] 도메인 셋팅 이동
 
-### Endpoint Plugin
+2. [Plugin Setting > Maintenance] 에서 Maintenance Response 플러그인을 추가합니다.
+![](http://static.toastoven.net/prod_apigateway/img_plugin_maintenance_2.png)
+[그림] Maintenance Response 플러그인 설정
 
-- Mock : Response Mock
-- Cache : API 결과 Cache
+3. Response 정의한 후에 Deploy를 하게되면 모든 Endpoint API 호출에 대해서 정의된 Response가 반환됩니다.
+
+
+### HMAC
+#### Authentification > HMAC
+요청 URL과 시간을 메시지로 사용하여 HMAC 인증을 합니다.
+
+1. [API Gateway > API Setting] 에서 도메인 셋팅을 위한 화면으로 이동합니다.
+![](http://static.toastoven.net/prod_apigateway/img_plugin_hmac_1.png)
+[그림] 도메인 셋팅 이동
+
+2. [Plugin Setting > Authentication] 에서 HMAC 플러그인을 추가합니다.
+![](http://static.toastoven.net/prod_apigateway/img_plugin_hmac_2.png)
+[그림] HMAC 플러그인 설정
+
+> [참고] Clock skew 설정
+> APIGW 서버의 시간과 Client에서 보낸 X-TC-Timestamp 사이의 차가 Clock Skew보다 크면 HMAC 인증에 실패하게 됩니다.
+> Clock Skew 값은 0~86400(sec)이며, 만약 0이라면 Clock Skew를 무시합니다.
+
+#### Authentification > HMAC > 인증 API 호출
+
+HMAC 인증을 사용하기 위해서 다음 값을 Request Header에 포함하여 요청해야 합니다.
+
+- Authorization : [Method + "\n "+ URL + "\n "+ Timestamp] 를 조합하여 HmacSHA1 알고리즘으로 암호화 한후 Base64로 인코딩 한 값
+
+- X-TC-Timestamp : ISO datetime format (yyyy-MM-dd'T'HH:mm:ssZZ)
+
+| 요청 | StringToSign |
+|-|-|
+| GET /test/1?query1=1&query2=2<br><br>X-TC-Timestamp: 2016-07-23T12:20:02+09:00<br><span style="color:red">Authorization: IqY8u/RZY8IMESwa/TPW9P9Z39Y=</span> | GET\n<br>/test/1?query1=1&query2=2\n<br>2016-07-23T12:20:02+09:00 |
+
+> [참고] 요청 시간은 ISO Datetime format (yyyy-MM-dd'T'hh:mm:ssZ)을 따릅니다.
+
+#### Authorization 생성 코드 (JAVA)
+```java
+String secretKey = "Console에서 설정한 Secret Key";
+SecretKeySpec signingKey = new SecretKeySpec(secretKey.getBytes(), "HmacSHA1");
+Mac mac = Mac.getInstance("HmacSHA1");
+mac.init(signingKey);
+
+String message = "StringToSign";
+byte[] rawHmac;
+rawHmac = mac.doFinal(message.getBytes());
+String authorization = new String(Base64.encodeBase64(rawHmac));
+```
+
+#### 에러코드
+```
+{
+  "header" : {
+    "resultCode" :  20001,
+    "resultMessage" :  "20001 HMAC authentication failed (Exceeded expiration time)",
+    "isSuccessful" :  false
+  }
+}
+```
+
+| http status code | result code | result message |
+|-|-|-|
+| 401 | 20001 | 20001 HMAC authentication failed (The timestamp field is empty) |
+| 401 | 20001 | 20001 HMAC authentication failed (Invalid timestamp format) |
+| 401 | 20001 | 20001 HMAC authentication failed (Exceeded expiration time) |
+| 401 | 20001 | 20001 HMAC authentication failed (The authorization field is empty) |
+| 401 | 20001 | 20001 HMAC authentication failed (Invalid authorization) |
+
+
+### JWT
+#### Authorization > JWT (JSON Web Token)
+JWT(Json Web Token) 인증을 합니다.
+
+1. [API Gateway > API Setting\] 에서 도메인 셋팅을 위한 화면으로 이동합니다.
+![](http://static.toastoven.net/prod_apigateway/img_plugin_jwt_1.png)
+[그림] 도메인 셋팅 이동
+
+
+2. [Plugin Setting > Authentication] 에서 JWT 플러그인을 추가합니다.
+![](http://static.toastoven.net/prod_apigateway/img_plugin_jwt_2.png)
+[그림]  JWT 플러그인 설정
+
+> [참고]
+> APIGW 서버의 시간과 Client에서 보낸 ExpirationTime 사이의 차가 Clock Skew보다 크면 JWT인증에 실패하게 됩니다.
+> Clock Skew 값은 0~86400 사이의 값을 입력할 수 있습니다.
+
+#### Authorization > JWT (JSON Web Token) > JWT 인증 API 호출
+
+JWT 인증을 사용하기 위해서 다음 값을 Request Header에 포함하여 요청해야 합니다.
+
+- Authorization : Json Web Token
+
+Request: GET /test/1?query1=1&query2=2<br>
+ <span style="color:red">Authorization: eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJpbnZhbGl...</span>
+
+#### Authorization 생성 코드 (JAVA)
+
+```
+<dependency>
+    <groupId>org.bitbucket.b_c</groupId>
+    <artifactId>jose4j</artifactId>
+	<version>0.5.0</version>
+</dependency>
+```
+
+```
+String secretKey = "Console에서 설정한 Secret Key";
+int expireTimeMinutes = "토큰만료시간 = 현재시간 + expireTimeMinutes";
+String issuer = "Console에서 설정한 issuer";
+
+JwtClaims claims = new JwtClaims();
+claims.setIssuer(issuer);
+claims.setExpirationTimeMinutesInTheFuture(expireTimeMinutes);
+
+JsonWebSignature jws = new JsonWebSignature();
+jws.setPayload(claims.toJson());
+jws.setKey(new HmacKey(secretKey.getBytes()));
+jws.setDoKeyValidation(false);
+jws.setAlgorithmHeaderValue(AlgorithmIdentifiers.HMAC_SHA256);
+
+String authorization = jws.getCompactSerialization();
+```
+
+#### 에러코드
+
+```
+{  
+   "header":{  
+      "resultCode":20002,
+      "resultMessage":"20002 JWT authentication failed (Exceeded expiration time)",
+      "isSuccessful":false
+   }
+}
+```
+
+| http status code | result code | result message |
+|-|-|-|-|
+| 401 | 20002 | 20002 JWT authentication failed (The authorization field is empty) |
+| 401 | 20002 | 20002 JWT authentication failed (Exceeded expiration time) |
+| 401 | 20002 | 20002 JWT authentication failed (Invalid authorization) |
+
+
+### Mock Response
+#### Endpoint > Mock Response
+Response Mock 을 반환하도록 합니다.
+
+### Cache
+#### Endpoint > Cache
+API 결과를 Caching 합니다.
+
+###  Pre API
+#### Endpoint > Pre API
+Pre API는 Endpoint를 호출하기 전에 호출되며 Pre API의 응답코드에 따라 Endpoint를 호출여부를 결정하는 인증역할을 합니다.
+
+API Gateway를 통해 들어온 요청 헤더를 포함하여 Pre API를 호출하고, Pre API에서는 전달 받은 헤더 내용에 따라 응답코드를 리턴하면 됩니다.
+
+Pre API의 응답코드에 따라 200이면 Endpoint를 호출하고, 응답코드가 200이 아니면 Pre API의 응답결과를 리턴합니다.
+만약, Pre API 호출에 실패할 경우 에러를 리턴하게 됩니다.
+
+#### Pre API 설정
+
+1. [API Gateway > Endpoint] 화면으로 이동
+![](http://static.toastoven.net/prod_apigateway/img_plugin_preapi_1.png)
+[그림] Endpoint 설정 화면 이동
+
+2. Plugins > Pre API를 추가합니다.
+![](http://static.toastoven.net/prod_apigateway/img_plugin_preapi_2.png)
+[그림] Pre API 플러그인 추가
+
+3. 호출한 Method type과 URL을 입력한 후 저장합니다.
+![](http://static.toastoven.net/prod_apigateway/img_plugin_preapi_3.png)
+[그림] Pre API 플러그인 설정
+
+#### 에러코드
+
+```
+{  
+   "header":{  
+      "resultCode":20008,
+      "resultMessage":"20008 Pre api connection failed",
+      "isSuccessful":false
+   }
+}
+```
+
+| http status code | result code | result message |
+| ---------------- | ----------- | -------------- |
+| 502 | 20008 | 20008 Pre api connection failed |
+
+### Modify Headers
+#### Endpoint > Modify Headers
+요청/응답 헤더의 값을 추가 합니다.
+> [참고]
+> 설정한 헤더 키가 이미 존재한다면 덮어쓰게 됩니다.
+
+#### Modify Headers 설정
+
+1. [API Gateway > Endpoint] 화면으로 이동합니다.
+![](http://static.toastoven.net/prod_apigateway/img_plugin_modifyheaders_1.png)
+[그림] Endpoint 설정 화면 이동
+
+2. Plugins > Modify Headers 플러그인을 추가합니다.
+![](http://static.toastoven.net/prod_apigateway/img_plugin_modifyheaders_2.png)
+[그림] Modify Headers 플러그인 추가
+
+3. Plugins > Modify Headers 플러그인 설정 정보를 입력합니다.
+![](http://static.toastoven.net/prod_apigateway/img_plugin_modifyheaders_3.png)
+
+- Request Headers는 요청 헤더를 수정할 수 있습니다.
+
+- Response Headers는 응답 헤더를 수정할 수 있습니다.
+
+#### 에러코드
+Modify Headers 플러그인은 별도의 에러코드가 없습니다.
