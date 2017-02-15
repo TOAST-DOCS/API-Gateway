@@ -4,7 +4,7 @@
 ### 2017.02.23
 #### 기능 개선/변경
 * [Console] Maintenance 플러그인 기능 추가
-* [Document] Developer's Guide > 플러그인: 플러그인 사용 상세 가이드 추가 
+	* 상세한 내용은 [Developer`s Guide > Maintenance Plugin](http://docs.cloud.toast.com/ko/Upcoming%20Products/API%20Gateway/Developer%60s%20Guide/#maintenance) 참고 
 
 #### 버그 수정
 * [Console] 특정 Domain Deploy가 실패하는 오류 수정  
