@@ -67,7 +67,7 @@ API 통계는 사용자가 등록한 Domain들에서 발생한 API call의 사�
 2.Domain 설정 폼을 채우고 [Save] 버튼을 클릭하여 Domain을 생성합니다.
 
 ![](http://static.toastoven.net/prod_apigateway/img_21.png)
-<center>[그림10] Domain 설정 정보 입력 </center>
+<center>[그림10] Domain 생성 정보 저장 </center>
 
 #### Domain 편집
 
@@ -79,7 +79,7 @@ API 통계는 사용자가 등록한 Domain들에서 발생한 API call의 사�
 2.Domain 설정을 변경하고 [Save] 버튼을 클릭하여 저장합니다.
 
 ![](http://static.toastoven.net/prod_apigateway/img_23.png)
-<center>[그림12] Domain 변경 저장 </center>
+<center>[그림12] Domain 폅집 정보 저장 </center>
 
 #### Domain 삭제
 
@@ -105,7 +105,7 @@ API 통계는 사용자가 등록한 Domain들에서 발생한 API call의 사�
 2.빈 칸을 채우고 우측에 있는 [Save] 버튼을 클릭하여 Endpoint를 생성합니다.
 
 ![](http://static.toastoven.net/prod_apigateway/img_27.png)
-<center>[그림16] Endpoint 설정 정보 입력</center>
+<center>[그림16] Endpoint 생성 정보 저장</center>
 
 #### Endpoint 편집
 
@@ -117,7 +117,7 @@ API 통계는 사용자가 등록한 Domain들에서 발생한 API call의 사�
 2.설정을 수정하고 우측에 있는 [Save] 버튼을 클릭하여 저장합니다.
 
 ![](http://static.toastoven.net/prod_apigateway/img_29.png)
-<center>[그림18] Endpoint 편집 저장</center>
+<center>[그림18] Endpoint 편집 정보 저장</center>
 #### Endpoint 삭제
 
 1.Endpoint 목록에서 삭제할 Endpoint 우측에 있는 [Delete] 버튼을 클릭하여 삭제합니다.
@@ -135,7 +135,7 @@ API 통계는 사용자가 등록한 Domain들에서 발생한 API call의 사�
 2.Plugin 설정 폼을 채우고 우측에 있는 [Save] 버튼을 클릭하여 저장합니다.
 
 ![](http://static.toastoven.net/prod_apigateway/img_32.png)
-<center>[그림21] Endpoint Plugin 저장</center>
+<center>[그림21] Endpoint Plugin 생성 저장</center>
 
 #### Endpoint Plugin 편집
 
@@ -403,3 +403,17 @@ Pre API의 응답코드에 따라 200이면 Endpoint를 호출하고, 응답코�
 
 #### 에러코드
 Modify Headers 플러그인은 별도의 에러코드가 없습니다.
+
+### Endpoint Usage Quota
+#### Endpoint > Usage Quota
+단위 시간동안 API 사용량을 제한할 수 있습니다.
+
+#### Usage Quota 설정
+
+1. [API Gateway > Endpoint] 화면으로 이동합니다.
+![](http://static.toastoven.net/prod_apigateway/img_plugin_usagequota_1.png)
+<center>[그림39] Endpoint 설정 화면 이동</center>
+
+2. Plugins > Usage Quota 플러그인을 추가한 후 단위 시간(sec) 동안 최대 호출 가능 횟수를 입력합니다.
+![](http://static.toastoven.net/prod_apigateway/img_plugin_usagequota_2.png)
+<center>[그림40] Usage Quota 플러그인 추가</center>
