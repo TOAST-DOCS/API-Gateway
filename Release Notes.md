@@ -5,7 +5,7 @@
 * [Console] 오류 발생시 상세 오류 메시지를 alert로 표시 
 * [Console] Deploy 수행시 순단이 발생되지 않도록 수정
 * [Console] Endpoint Plugin > Usage Quota 플러그인 추가 
-	* 상세한 내용은 <a href="/ko/Upcoming%20Products/API%20Gateway/Developer%60s%20Guide/#endpoint_usage_quota" target="_blank">Developer`s Guide > Endpoint Usage Quota</a> 참고
+	* 상세한 내용은 <a href="/ko/Upcoming%20Products/API%20Gateway/Developer%60s%20Guide/#endpoint-usage-quota" target="_blank">Developer`s Guide > Endpoint Usage Quota</a> 참고
 
 ### 2017.03.23
 #### 기능 개선/변경
