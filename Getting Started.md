@@ -167,7 +167,6 @@ swagger 파일을 import하여 domain을 등록하거나 등록된 domain을 swa
 ```
 
 3. Domain 기본 정보 입력
-
 * swagger : swagger 버전 정보를 입력합니다. (swagger 2.0 버전 기본 지원)
 * info: 기본 정보를 입력합니다.
 	* version: 버전 정보를 입력합니다.
@@ -178,7 +177,6 @@ swagger 파일을 import하여 domain을 등록하거나 등록된 domain을 swa
 * paths: endpoint path 정보를 입력합니다.
 
 4. Domain Plugin 정보 입력
-
 * Domain plugin은 최상위 레벨의 x-cloudtoast-apigw에 설정 정보를 입력합니다.
 	* HTTP_PROXY : Domain의 Targer server url을 입력합니다. (* 입력 필수)
 	* IPACL : Domain의 Access Control > IP ACL 플러그인 설정 정보를 입력합니다. (Access Control 그룹 중 하나만 입력 가능)
