@@ -6,7 +6,7 @@
 	* path 형태의 domain key는 지원하지 않고 있으므로 path 형태의 domain key를 입력하지 못하도록 변경하였습니다.  
 * [Console] Swagger import & export 지원 
 	* domain 설정 정보를 swagger 파일로 import & export 할 수 있습니다.  
-	* 상세한 내용은 <a href="/ko/Upcoming%20Products/API%20Gateway/Developer%60s%20Guide/#swagger" target="_blank">Developer`s Guide > Swagger Import & Export</a> 참고 
+	* 상세한 내용은 <a href="/ko/Upcoming%20Products/API%20Gateway/Getting%20Started/#swagger-import-export" target="_blank">Developer`s Guide > Swagger import & Export</a> 참고 
 
 #### 버그 수정
 * [Console] endpoint 삭제 후 Deploy 버튼이 활성화되지 않는 버그 수정 
