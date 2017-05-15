@@ -56,21 +56,20 @@ Console의 [Upcoming Products] > [API Gateway]를 선택한 후 [상품이용] �
 <center>[그림6] 복제 Domain 설정</center>
 
 
-### Swagger Import & Export 
-swagger 파일을 import하여 domain을 등록하거나 등록된 domain을 swagger 파일로 export 할 수 있습니다. 
+### Swagger Import & Export
+swagger 파일을 import하여 domain을 등록하거나 등록된 domain을 swagger 파일로 export 할 수 있습니다.
 
-#### Swagger Export 
+#### Swagger Export
 1. Export할 도메인의 [Setting] > [Export swagger]를 클릭하면 swagger 파일이 다운로드 됩니다. (기본 파일명: export.json)
 ![](http://static.toastoven.net/prod_apigateway/img_gettingstarted_7.png)
 <center>[그림7] Domain Export</center>
 
 
 #### Swagger Import
-1. swagger spec을 참고하여 swagger 파일을 작성합니다. 
+1. swagger spec을 참고하여 swagger 파일을 작성합니다.
 	- [Swagger Specification](http://swagger.io/docs/specification/what-is-swagger/)
-2. TOAST Cloud API Gateway 에서 제공하는 플러그인 설정을 추가하려면 x-toastcloud-apigw 확장 설정 정보를 추가합니다. 
-
-예시)
+2. TOAST Cloud API Gateway 에서 제공하는 플러그인 설정을 추가하려면 x-toastcloud-apigw 확장 설정 정보를 추가합니다.
+  - 예시)
 ```json
 {
 	"swagger": "2.0",
@@ -165,28 +164,27 @@ swagger 파일을 import하여 domain을 등록하거나 등록된 domain을 swa
 	}
 }
 ```
+3. Domain 기본 정보 설정
+  * swagger : swagger 버전 정보를 입력합니다. (swagger 2.0 버전 기본 지원)
+  * info: 기본 정보를 입력합니다.
+  	* version: 버전 정보를 입력합니다.
+  	* title: domain name 정보를 입력합니다.
+  * host: api gateway domain 정보를 입력합니다.
+  * basePath: domain key 정보를 입력합니다.
+  * schemes: scheme 정보를 입력합니다. (http/https 중 하나만 입력)
+  * paths: endpoint path 정보를 입력합니다.
 
-3. Domain 기본 정보 입력
-
-* swagger : swagger 버전 정보를 입력합니다. (swagger 2.0 버전 기본 지원)
-* info: 기본 정보를 입력합니다.
-	* version: 버전 정보를 입력합니다.
-	* title: domain name 정보를 입력합니다. 
-* host: api gateway domain 정보를 입력합니다.
-* basePath: domain key 정보를 입력합니다.
-* schemes: scheme 정보를 입력합니다. (http/https 중 하나만 입력)
-* paths: endpoint path 정보를 입력합니다.
-
-4. Domain Plugin 정보 입력
-
-* Domain plugin은 최상위 레벨의 x-cloudtoast-apigw에 설정 정보를 입력합니다.
+4. Domain Plugin 설정
+  * Domain plugin은 최상위 레벨의 x-cloudtoast-apigw에 설정 정보를 입력합니다.
 	* HTTP_PROXY : Domain의 Targer server url을 입력합니다. (* 입력 필수)
 	* IPACL : Domain의 Access Control > IP ACL 플러그인 설정 정보를 입력합니다. (Access Control 그룹 중 하나만 입력 가능)
 	* HMAC : Domain의 Authentication > HAMC 플러그인 설정 정보를 입력합니다. (Authentication 그룹 중 하나만 입력 가능)
 	* JWT : Domain의 Authentication > JSON Web Token (JWT) 플러그인 설정 정보를 입력합니다. (Authentication 그룹 중 하나만 입력 가능)
 	* USAGE_QUOTA : Domain의 Quota Limit > Usage Quota 플러그인 설정 정보를 입력합니다. (Quota Limit 그룹 중 하나만 입력 가능)
 	* MAINTENANCE : Domain의 Maintenance > Maintenance Response 플러그인 설정 정보를 입력합니다.  (Maintenance 그룹 중 하나만 입력 가능)
-* Endpoint plugin은 각 paths 레벨의 x-cloudtoast-apigw에 설정 정보를 입력합니다.
+
+5. Endpoint Plugin 설정
+  * Endpoint plugin은 각 paths 레벨의 x-cloudtoast-apigw에 설정 정보를 입력합니다.
 	* MOCK : Mock Response 플러그인 설정 정보를 입력합니다.
 	* ENDPOINT_USAGE_QUOTA: Usage Quota 플러그인 설정 정보를 입력합니다.
 	* PRE_API: Pre API 플러그인 설정 정보를 입력합니다.
@@ -194,14 +192,13 @@ swagger 파일을 import하여 domain을 등록하거나 등록된 domain을 swa
 	* CACHE: Cache 플러그인 설정 정보를 입력합니다.
 	* URI_REWRITE: URL Rewrite 플러그인 설정 정보를 입력합니다.
 
-5. Import domain 버튼을 클릭하고 import할 swagger file을 추가합니다. 
+6. Import domain 버튼을 클릭하고 import할 swagger file을 추가합니다.
 ![](http://static.toastoven.net/prod_apigateway/img_gettingstarted_8.png)
 <center>[그림8] Domain Import</center>
 
-6. Import 버튼을 클릭하면 swagger file의 설정 정보대로 Domain이 등록됩니다. 
+7. Import 버튼을 클릭하면 swagger file의 설정 정보대로 Domain이 등록됩니다.
 ![](http://static.toastoven.net/prod_apigateway/img_gettingstarted_9.png)
 <center>[그림9] Domain Import</center>
-
 
 ### API 배포하기
 
