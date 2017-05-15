@@ -1,5 +1,17 @@
 ## Upcoming Products > API Gateway > Release Notes
 
+### 2017.05.25
+#### 기능 개선/변경
+* [Console] domain key 입력시 path 형태 입력 불가하도록 변경 
+	* path 형태의 domain key는 지원하지 않고 있으므로 path 형태의 domain key를 입력하지 못하도록 변경하였습니다.  
+* [Console] Swagger import & export 지원 
+	* domain 설정 정보를 swagger 파일로 import & export 할 수 있습니다.  
+	* 상세한 내용은 <a href="/ko/Upcoming%20Products/API%20Gateway/Getting%20Started/#swagger-import-export" target="_blank">Developer`s Guide > Swagger import & Export</a> 참고 
+
+#### 버그 수정
+* [Console] endpoint 삭제 후 Deploy 버튼이 활성화되지 않는 버그 수정 
+	* endpoint가 삭제된 경우 설정 정보가 변경되었으므로 Deploy 버튼이 활성화되어야 하나 비활성화 상태로 남아있는 버그를 수정하였습니다.
+
 ### 2017.04.20
 #### 기능 개선/변경
 * [Console] 오류 발생시 상세 오류 메시지를 alert로 표시 
