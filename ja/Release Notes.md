@@ -2,34 +2,34 @@
 
 ### 2017.05.25
 #### 기능 개선/변경
-* [Console] domain key 입력시 path 형태 입력 불가하도록 변경 
+* [Console] domain key 입력시 path 형태 입력 불가하도록 변경
 	* path 형태의 domain key는 지원하지 않고 있으므로 path 형태의 domain key를 입력하지 못하도록 변경하였습니다.  
-* [Console] Swagger import & export 지원 
+* [Console] Swagger import & export 지원
 	* domain 설정 정보를 swagger 파일로 import & export 할 수 있습니다.  
-	* 상세한 내용은 <a href="/ko/Upcoming%20Products/API%20Gateway/Getting%20Started/#swagger-import-export" target="_blank">Developer`s Guide > Swagger import & Export</a> 참고 
+	* 상세한 내용은 <a href="/ja/Upcoming%20Products/API%20Gateway/ja/Getting%20Started/#swagger-import-export" target="_blank">Developer`s Guide > Swagger import & Export</a> 참고
 
 #### 버그 수정
-* [Console] endpoint 삭제 후 Deploy 버튼이 활성화되지 않는 버그 수정 
+* [Console] endpoint 삭제 후 Deploy 버튼이 활성화되지 않는 버그 수정
 	* endpoint가 삭제된 경우 설정 정보가 변경되었으므로 Deploy 버튼이 활성화되어야 하나 비활성화 상태로 남아있는 버그를 수정하였습니다.
 
 ### 2017.04.20
 #### 기능 개선/변경
-* [Console] 오류 발생시 상세 오류 메시지를 alert로 표시 
+* [Console] 오류 발생시 상세 오류 메시지를 alert로 표시
 * [Console] Deploy 수행시 순단이 발생되지 않도록 수정
-* [Console] Endpoint Plugin > Usage Quota 플러그인 추가 
-	* 상세한 내용은 <a href="/ko/Upcoming%20Products/API%20Gateway/Developer%60s%20Guide/#endpoint-usage-quota" target="_blank">Developer`s Guide > Endpoint Usage Quota</a> 참고
+* [Console] Endpoint Plugin > Usage Quota 플러그인 추가
+	* 상세한 내용은 <a href="/ja/Upcoming%20Products/API%20Gateway/ja/Developer%60s%20Guide/#endpoint-usage-quota" target="_blank">Developer`s Guide > Endpoint Usage Quota</a> 참고
 
 ### 2017.03.23
 #### 기능 개선/변경
 * [Console] Domain 복제 기능 추가
-	* 상세한 내용은 <a href="/ko/Upcoming%20Products/API%20Gateway/Getting%20Started/#domain_1" target="_blank">Developer`s Guide > Domain clone</a> 참고 
+	* 상세한 내용은 <a href="/ja/Upcoming%20Products/API%20Gateway/ja/Getting%20Started/#domain_1" target="_blank">Developer`s Guide > Domain clone</a> 참고
 
 * [API] Target Server API Connection 오류 발생시 상세 응답코드 반환하도록 변경
 
 ### 2017.02.23
 #### 기능 개선/변경
 * [Console] Maintenance 플러그인 기능 추가
-	* 상세한 내용은 <a href="/ko/Upcoming%20Products/API%20Gateway/Developer%60s%20Guide/#maintenance" target="_blank">Developer`s Guide > Maintenance Plugin</a> 참고 
+	* 상세한 내용은 <a href="/ja/Upcoming%20Products/API%20Gateway/ja/Developer%60s%20Guide/#maintenance" target="_blank">Developer`s Guide > Maintenance Plugin</a> 참고
 
 #### 버그 수정
 * [Console] 특정 Domain Deploy가 실패하는 오류 수정  
