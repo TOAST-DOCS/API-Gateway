@@ -329,6 +329,26 @@ String authorization = jws.getCompactSerialization();
 | 401 | 20002 | 20002 JWT authentication failed (Exceeded expiration time) |
 | 401 | 20002 | 20002 JWT authentication failed (Invalid authorization) |
 
+### CORS(Cross-Origin Resource Sharing)
+#### CORS
+Cross-Site의 방식 내에서의 XMLHttpRequest API 호출이 가능하도록 합니다.
+
+1. [API Gateway > API Setting\] 에서 도메인 셋팅을 위한 화면으로 이동합니다.
+![](http://static.toastoven.net/prod_apigateway/img_plugin_cors_1.png)
+<center>[그림33] 도메인 셋팅 이동</center>
+
+
+2. [Plugin Setting > CORS] 에서 CORS 플러그인을 추가합니다.
+![](http://static.toastoven.net/prod_apigateway/img_plugin_cors_2.png)
+<center>[그림34] CORS 플러그인 설정</center>
+
+- Allowed credentials: Request with Credential 방식을 사용할 수 있는지를 지정합니다.
+- Max credentials Age: Preflight Request의 결과가 캐시에 얼마나 오래 남아 있는지를 지정합니다. 초 단위이며 0~86400 사이의 값을 입력할 수 있습니다.
+- Allowed origins: 지정된 도메인만 서버의 리소스에 접근할 수 있도록 지정할 수 있습니다. `*`로 입력할 경우 모든 도메인에 대해서 허용합니다. (단, `*`로 지정할 경우 credentials를 지원하지 않으므로 구체적인 도메인을 지정하셔야 합니다.) 지정된 도메인에서만 허용하도록 할 경우 ,(comma)로 분리하여 입력합니다. 도메인은 URI(scheme, domain, port) 포맷으로 입력해야 합니다.(ex: http://api-gw.toast.com:8080)
+- Allowed methods: 지정된 HTTP Method만 서버 리소스의 접근을 허용합니다.
+- Allowed headers: 서버의 리소스의 접근을 허용할 HTTP Method를 지정합니다. 여러 Method를 입력할 경우 ,(comma)로 분리하여 입력합니다.
+- Exposed headers: 브라우저에서 접근할 수 있는 허용 헤더를 지정합니다. 여러 헤더를 입력할 경우 ,(comma)로 분리하여 입력합니다.
+- 자세한 CORS 규약은 https://www.w3.org/TR/cors/ 를 참고 해주세요.
 
 ### Mock Response
 #### Endpoint > Mock Response
@@ -351,15 +371,15 @@ Pre API의 응답코드에 따라 200이면 Endpoint를 호출하고, 응답코�
 
 1. [API Gateway > Endpoint] 화면으로 이동
 ![](http://static.toastoven.net/prod_apigateway/img_plugin_preapi_1.png)
-<center>[그림33] Endpoint 설정 화면 이동</center>
+<center>[그림35] Endpoint 설정 화면 이동</center>
 
 2. Plugins > Pre API를 추가합니다.
 ![](http://static.toastoven.net/prod_apigateway/img_plugin_preapi_2.png)
-<center>[그림34] Pre API 플러그인 추가</center>
+<center>[그림36] Pre API 플러그인 추가</center>
 
 3. 호출한 Method type과 URL을 입력한 후 저장합니다.
 ![](http://static.toastoven.net/prod_apigateway/img_plugin_preapi_3.png)
-<center>[그림35] Pre API 플러그인 설정</center>
+<center>[그림37] Pre API 플러그인 설정</center>
 
 #### 에러코드
 
@@ -387,15 +407,15 @@ Pre API의 응답코드에 따라 200이면 Endpoint를 호출하고, 응답코�
 
 1. [API Gateway > Endpoint] 화면으로 이동합니다.
 ![](http://static.toastoven.net/prod_apigateway/img_plugin_modifyheaders_1.png)
-<center>[그림36] Endpoint 설정 화면 이동</center>
+<center>[그림38] Endpoint 설정 화면 이동</center>
 
 2. Plugins > Modify Headers 플러그인을 추가합니다.
 ![](http://static.toastoven.net/prod_apigateway/img_plugin_modifyheaders_2.png)
-<center>[그림37] Modify Headers 플러그인 추가</center>
+<center>[그림39] Modify Headers 플러그인 추가</center>
 
 3. Plugins > Modify Headers 플러그인 설정 정보를 입력합니다.
 ![](http://static.toastoven.net/prod_apigateway/img_plugin_modifyheaders_3.png)
-<center>[그림38] Modify Headers 플러그인 설정 정보 입력</center>
+<center>[그림40] Modify Headers 플러그인 설정 정보 입력</center>
 
 - Request Headers는 요청 헤더를 수정할 수 있습니다.
 
@@ -412,8 +432,8 @@ Modify Headers 플러그인은 별도의 에러코드가 없습니다.
 
 1. [API Gateway > Endpoint] 화면으로 이동합니다.
 ![](http://static.toastoven.net/prod_apigateway/img_plugin_usagequota_1.png)
-<center>[그림39] Endpoint 설정 화면 이동</center>
+<center>[그림41] Endpoint 설정 화면 이동</center>
 
 2. Plugins > Usage Quota 플러그인을 추가한 후 단위 시간(sec) 동안 최대 호출 가능 횟수를 입력합니다.
 ![](http://static.toastoven.net/prod_apigateway/img_plugin_usagequota_2.png)
-<center>[그림40] Usage Quota 플러그인 추가</center>
+<center>[그림42] Usage Quota 플러그인 추가</center>
