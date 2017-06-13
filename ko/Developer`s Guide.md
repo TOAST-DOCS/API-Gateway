@@ -342,12 +342,19 @@ Cross-Site의 방식 내에서의 XMLHttpRequest API 호출이 가능하도록 �
 ![](http://static.toastoven.net/prod_apigateway/img_plugin_cors_2.png)
 <center>[그림34] CORS 플러그인 설정</center>
 
+
 - Allowed credentials: Request with Credential 방식을 사용할 수 있는지를 지정합니다.
+
 - Max credentials Age: Preflight Request의 결과가 캐시에 얼마나 오래 남아 있는지를 지정합니다. 초 단위이며 0~86400 사이의 값을 입력할 수 있습니다.
-- Allowed origins: 지정된 도메인만 서버의 리소스에 접근할 수 있도록 지정할 수 있습니다. `*`로 입력할 경우 모든 도메인에 대해서 허용합니다. (단, `*`로 지정할 경우 credentials를 지원하지 않으므로 구체적인 도메인을 지정하셔야 합니다.) 지정된 도메인에서만 허용하도록 할 경우 ,(comma)로 분리하여 입력합니다. 도메인은 URI(scheme, domain, port) 포맷으로 입력해야 합니다.(ex: http://api-gw.toast.com:8080)
+
+- Allowed origins: 지정된 도메인만 서버의 리소스에 접근할 수 있도록 지정할 수 있습니다. \*로 입력할 경우 모든 도메인에 대해서 허용합니다. (단, \*로 지정할 경우 credentials를 지원하지 않으므로 구체적인 도메인을 지정하셔야 합니다.) 지정된 도메인에서만 허용하도록 할 경우 ,(comma)로 분리하여 입력합니다. 도메인은 URI(scheme, domain, port) 포맷으로 입력해야 합니다.(ex: http://api-gw.toast.com:8080)
+
 - Allowed methods: 지정된 HTTP Method만 서버 리소스의 접근을 허용합니다.
+
 - Allowed headers: 서버의 리소스의 접근을 허용할 HTTP Method를 지정합니다. 여러 Method를 입력할 경우 ,(comma)로 분리하여 입력합니다.
+
 - Exposed headers: 브라우저에서 접근할 수 있는 허용 헤더를 지정합니다. 여러 헤더를 입력할 경우 ,(comma)로 분리하여 입력합니다.
+
 - 자세한 CORS 규약은 https://www.w3.org/TR/cors/ 를 참고 해주세요.
 
 ### Mock Response
