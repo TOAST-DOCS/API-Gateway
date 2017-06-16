@@ -6,10 +6,6 @@
 	* Cross-site간 HTTP Request가 가능하도록 설정할 수 있는 CORS 플러그인을 추가하였습니다.
 	* 상세한 내용은 <a href="/ko/Upcoming%20Products/API%20Gateway/ko/Developer%60s%20Guide/#cors" target="_blank">Developer`s Guide > Plugin > CORS</a> 참고
 
-#### 버그 수정
-* [Console] endpoint 삭제 후 Deploy 버튼이 활성화되지 않는 버그 수정
-	* endpoint가 삭제된 경우 설정 정보가 변경되었으므로 Deploy 버튼이 활성화되어야 하나 비활성화 상태로 남아있는 버그를 수정하였습니다.
-
 ### 2017.05.25
 #### 기능 개선/변경
 * [Console] domain key 입력시 path 형태 입력 불가하도록 변경
