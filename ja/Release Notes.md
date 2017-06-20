@@ -1,5 +1,11 @@
 ## Upcoming Products > API Gateway > Release Notes
 
+### 2017.06.22
+#### 기능 개선/변경
+* [Console] CORS 플러그인 추가
+	* Cross-site간 HTTP Request가 가능하도록 설정할 수 있는 CORS 플러그인을 추가하였습니다.
+	* 상세한 내용은 <a href="/ja/Upcoming%20Products/API%20Gateway/ja/Developer%60s%20Guide/#cors" target="_blank">Developer`s Guide > Plugin > CORS</a> 참고
+
 ### 2017.05.25
 #### 기능 개선/변경
 * [Console] domain key 입력시 path 형태 입력 불가하도록 변경
