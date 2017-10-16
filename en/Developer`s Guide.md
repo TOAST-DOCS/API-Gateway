@@ -324,7 +324,7 @@ String authorization = jws.getCompactSerialization();
 ```
 
 | http status code | result code | result message |
-|-|-|-|-|
+|-|-|-|
 | 401 | 20002 | 20002 JWT authentication failed (The authorization field is empty) |
 | 401 | 20002 | 20002 JWT authentication failed (Exceeded expiration time) |
 | 401 | 20002 | 20002 JWT authentication failed (Invalid authorization) |
