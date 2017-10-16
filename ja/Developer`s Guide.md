@@ -329,6 +329,7 @@ String authorization = jws.getCompactSerialization();
 | 401 | 20002 | 20002 JWT authentication failed (Exceeded expiration time) |
 | 401 | 20002 | 20002 JWT authentication failed (Invalid authorization) |
 
+
 ### CORS(Cross-Origin Resource Sharing)
 #### CORS
 Cross-Site의 방식 내에서의 XMLHttpRequest API 호출이 가능하도록 합니다.

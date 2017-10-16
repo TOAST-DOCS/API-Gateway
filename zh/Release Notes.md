@@ -1,5 +1,10 @@
 ## Upcoming Products > API Gateway > Release Notes
 
+### 2017.10.26
+#### 버그 수정
+* UriRewrite Plugin 버그 수정 
+	* [API] 유효한 Rewrite Pattern이 잘못된 패턴으로 인식하는 오류를 수정하였습니다. 
+
 ### 2017.06.22
 #### 기능 개선/변경
 * [Console] CORS 플러그인 추가
