@@ -49,7 +49,6 @@ Console의 [Upcoming Products] > [API Gateway]를 선택한 후 [상품이용] �
 2. 플러그인의 + 버튼을 클릭하여 Mock 플러그인을 추가합니다. 
    Mock Response Plugin은 플러그인이 사용자가 미리 설정한 response를 전송하도록 하는 플러그인 입니다. 
    ![](http://static.toastoven.net/prod_apigateway/img_add_mockplugin.png)
-
    <center>[그림6] Mock Response Plugin 추가 </center>
 
 3. http status code는 200으로 설정하고, response body에 "hi" 를 설정 합니다.
