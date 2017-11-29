@@ -44,16 +44,17 @@ Console의 [Upcoming Products] > [API Gateway]를 선택한 후 [상품이용] �
 
 
 ### Endpoint Plugin 추가하기 
-1. 앞 서 생성한 GET /hello Endpoint에 MOCK Plugin을 추가해보겠습니다. 
+1. 앞 서 생성한 GET /hello Endpoint에 MOCK Response Plugin을 추가해보겠습니다. 
 
-2. 플러그인의 + 버튼을 클릭하여 Mock 플러그인을 추가합니다. Mock Response Plugin은 플러그인이 설정된 endpoint의 path에 대해 사용자가 미리 설정한 response를 전송하도록 하는 플러그인 입니다. 
+2. 플러그인의 + 버튼을 클릭하여 Mock 플러그인을 추가합니다. 
+   Mock Response Plugin은 플러그인이 사용자가 미리 설정한 response를 전송하도록 하는 플러그인 입니다. 
    ![](http://static.toastoven.net/prod_apigateway/img_add_mockplugin.png)
 
    <center>[그림6] Mock Response Plugin 추가 </center>
 
 3. http status code는 200으로 설정하고, response body에 "hi" 를 설정 합니다.
 
-4.  [Save] 버튼을 클릭하여 Plugin 설정 정보를 저장 합니다. 
+4. [Save] 버튼을 클릭하여 Plugin 설정 정보를 저장 합니다. 
 
 ### Domain 복제하기 
 기존에 등록한 Domain과 하위 Endpoint 설정을 그대로 복제할 수 있습니다. 
