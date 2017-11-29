@@ -174,22 +174,60 @@ Domain에 추가한 플러그인은 Domain에 속한 모든 API에 대해서 동
 IP 기반 Access Control 기능 입니다.
 특정 IP를 allow하거나 deny할 수 있습니다.
 
+1. Domain 설정 페이지의 Plugin Setting > Access Control > IP ACL을 클릭합니다. 
+   ![](http://static.toastoven.net/prod_apigateway/img_domain_ip_acl.png)
+
+   <center>[그림27] IP ACL 설정</center>
+2. Permit을 통해 설정된 IP 목록에 대해 allow할 것인지 deny할 것인지 설정합니다. 
+- true로 설정할 경우 white list로 동작합니다. (설정된 IP에 대해서만 allow, 그 외 모든 IP는 block)
+- false로 설정할 경우 black list로 동작합니다. (설정된 IP에 대해서만 deny, 그 외 모든 IP는 allow)
+3. ipv4 형식의 IP를 입력 후 add 버튼을 클릭하여 IP 목록에 추가합니다. 
+4. [Save] 버튼을 클릭하여 설정 내용을 저장합니다. 
+
 ### Quota Limit
 #### Quota Limit > Usage Quota
-시간당 API 사용량을 제한할 수 있습니다.
+단위 시간당 API 사용량을 제한할 수 있습니다.
+
+1. [API Gateway > API Setting] 에서 도메인 셋팅을 위한 화면으로 이동합니다.
+   ![](http://static.toastoven.net/prod_apigateway/img_plugin_maintenance_1.png)
+   <center>[그림28] 도메인 셋팅 이동</center>
+2. Plugin Setting > Quota Limit > Usage Quota를 선택합니다. 
+   ![](http://static.toastoven.net/prod_apigateway/img_domain_usage_quota.png)<center>[그림28] Usage Quota 설정</center>
+3. 사용량 제한 조건 설정 합니다. 
+   - Max Usage Quota에 최대 API 호출가능 횟수를 지정합니다. 
+   - Per(sec)에 초 단위의 시간을 지정 합니다. 
+4. 단위 시간 동안 최대 호출 횟수를 초과 할 경우 API 사용이 제한됩니다. 
+   복 수개의  사용량 제한 조건을 추가 할 수 있으며, 설정된 제한 조건 중 하나 이상의 조건이 제한량을 초과 할 경우 사용이 제한됩니다. 
+
+> [주의]
+> Domain 설정 페이지에서 설정한 Usage Quota는 해당 도메인의 모든 Endpoint의 API 사용량에 대한 제한 입니다.  
+> Endpoint별로 사용량 제한이 필요하신 경우 Endpoint 설정의 EndPoint Usage Quota 플러그인을 적용하시면 됩니다. 
+
+호출 횟수를 초과하였을 경우 아래의 HTTP Status 403 response가 반환 됩니다. 
+
+```
+{
+  "header": {
+    "resultCode": 20004,
+    "resultMessage": "20004 Usage quota exceeded",
+    "isSuccessful": false
+  }
+}
+```
+
 
 ### Maintenance
 #### Maintenance > Maintenance Response
 정기점검등의 이유로 모든 Endpoint API 호출에 대해서 사용자가 정의한 Response를 반환하도록 설정합니다.
 
 1. [API Gateway > API Setting] 에서 도메인 셋팅을 위한 화면으로 이동합니다.
-![](http://static.toastoven.net/prod_apigateway/img_plugin_maintenance_1.png)
-<center>[그림27] 도메인 셋팅 이동</center>
+  ![](http://static.toastoven.net/prod_apigateway/img_plugin_maintenance_1.png)
+  <center>[그림29] 도메인 셋팅 이동</center>
 
 
 2. [Plugin Setting > Maintenance] 에서 Maintenance Response 플러그인을 추가합니다.
-![](http://static.toastoven.net/prod_apigateway/img_plugin_maintenance_2.png)
-<center>[그림28] Maintenance Response 플러그인 설정</center>
+  ![](http://static.toastoven.net/prod_apigateway/img_plugin_maintenance_2.png)
+  <center>[그림30] Maintenance Response 플러그인 설정</center>
 
 3. Response 정의한 후에 Deploy를 하게되면 모든 Endpoint API 호출에 대해서 정의된 Response가 반환됩니다.
 
@@ -199,16 +237,16 @@ IP 기반 Access Control 기능 입니다.
 요청 URL과 시간을 메시지로 사용하여 HMAC 인증을 합니다.
 
 1. [API Gateway > API Setting] 에서 도메인 셋팅을 위한 화면으로 이동합니다.
-![](http://static.toastoven.net/prod_apigateway/img_plugin_hmac_1.png)
-<center>[그림29] 도메인 셋팅 이동</center>
+  ![](http://static.toastoven.net/prod_apigateway/img_plugin_hmac_1.png)
+  <center>[그림31] 도메인 셋팅 이동</center>
 
 2. [Plugin Setting > Authentication] 에서 HMAC 플러그인을 추가합니다.
-![](http://static.toastoven.net/prod_apigateway/img_plugin_hmac_2.png)
-<center>[그림30] HMAC 플러그인 설정</center>
+  ![](http://static.toastoven.net/prod_apigateway/img_plugin_hmac_2.png)
+  <center>[그림32] HMAC 플러그인 설정</center>
 
 > [참고] Clock skew 설정
 > APIGW 서버의 시간과 Client에서 보낸 X-TC-Timestamp 사이의 차가 Clock Skew보다 크면 HMAC 인증에 실패하게 됩니다.
-> Clock Skew 값은 0~86400(sec)이며, 만약 0이라면 Clock Skew를 무시합니다.
+> Clock Skew 값으로 설정 가능한 범위는 0~86400(sec)이며, 만약 0이라면 Clock Skew를 무시합니다.
 
 #### Authentification > HMAC > 인증 API 호출
 
@@ -218,8 +256,8 @@ HMAC 인증을 사용하기 위해서 다음 값을 Request Header에 포함하�
 
 - X-TC-Timestamp : ISO datetime format (yyyy-MM-dd'T'HH:mm:ssZZ)
 
-| 요청 | StringToSign |
-|-|-|
+| 요청                                       | StringToSign                             |
+| ---------------------------------------- | ---------------------------------------- |
 | GET /test/1?query1=1&query2=2<br><br>X-TC-Timestamp: 2016-07-23T12:20:02+09:00<br><span style="color:red">Authorization: IqY8u/RZY8IMESwa/TPW9P9Z39Y=</span> | GET\n<br>/test/1?query1=1&query2=2\n<br>2016-07-23T12:20:02+09:00 |
 
 > [참고] 요청 시간은 ISO Datetime format (yyyy-MM-dd'T'hh:mm:ssZ)을 따릅니다.
@@ -248,13 +286,13 @@ String authorization = new String(Base64.encodeBase64(rawHmac));
 }
 ```
 
-| http status code | result code | result message |
-|-|-|-|
-| 401 | 20001 | 20001 HMAC authentication failed (The timestamp field is empty) |
-| 401 | 20001 | 20001 HMAC authentication failed (Invalid timestamp format) |
-| 401 | 20001 | 20001 HMAC authentication failed (Exceeded expiration time) |
-| 401 | 20001 | 20001 HMAC authentication failed (The authorization field is empty) |
-| 401 | 20001 | 20001 HMAC authentication failed (Invalid authorization) |
+| http status code | result code | result message                           |
+| ---------------- | ----------- | ---------------------------------------- |
+| 401              | 20001       | 20001 HMAC authentication failed (The timestamp field is empty) |
+| 401              | 20001       | 20001 HMAC authentication failed (Invalid timestamp format) |
+| 401              | 20001       | 20001 HMAC authentication failed (Exceeded expiration time) |
+| 401              | 20001       | 20001 HMAC authentication failed (The authorization field is empty) |
+| 401              | 20001       | 20001 HMAC authentication failed (Invalid authorization) |
 
 
 ### JWT
@@ -262,13 +300,13 @@ String authorization = new String(Base64.encodeBase64(rawHmac));
 JWT(Json Web Token) 인증을 합니다.
 
 1. [API Gateway > API Setting\] 에서 도메인 셋팅을 위한 화면으로 이동합니다.
-![](http://static.toastoven.net/prod_apigateway/img_plugin_jwt_1.png)
-<center>[그림31] 도메인 셋팅 이동</center>
+  ![](http://static.toastoven.net/prod_apigateway/img_plugin_jwt_1.png)
+  <center>[그림33] 도메인 셋팅 이동</center>
 
 
 2. [Plugin Setting > Authentication] 에서 JWT 플러그인을 추가합니다.
-![](http://static.toastoven.net/prod_apigateway/img_plugin_jwt_2.png)
-<center>[그림32] JWT 플러그인 설정</center>
+  ![](http://static.toastoven.net/prod_apigateway/img_plugin_jwt_2.png)
+  <center>[그림34] JWT 플러그인 설정</center>
 
 > [참고]
 > APIGW 서버의 시간과 Client에서 보낸 ExpirationTime 사이의 차가 Clock Skew보다 크면 JWT인증에 실패하게 됩니다.
@@ -323,11 +361,11 @@ String authorization = jws.getCompactSerialization();
 }
 ```
 
-| http status code | result code | result message |
-|-|-|-|
-| 401 | 20002 | 20002 JWT authentication failed (The authorization field is empty) |
-| 401 | 20002 | 20002 JWT authentication failed (Exceeded expiration time) |
-| 401 | 20002 | 20002 JWT authentication failed (Invalid authorization) |
+| http status code | result code | result message                           |
+| ---------------- | ----------- | ---------------------------------------- |
+| 401              | 20002       | 20002 JWT authentication failed (The authorization field is empty) |
+| 401              | 20002       | 20002 JWT authentication failed (Exceeded expiration time) |
+| 401              | 20002       | 20002 JWT authentication failed (Invalid authorization) |
 
 
 ### CORS(Cross-Origin Resource Sharing)
@@ -335,13 +373,13 @@ String authorization = jws.getCompactSerialization();
 Cross-Site의 방식 내에서의 XMLHttpRequest API 호출이 가능하도록 합니다.
 
 1. [API Gateway > API Setting\] 에서 도메인 셋팅을 위한 화면으로 이동합니다.
-![](http://static.toastoven.net/prod_apigateway/img_plugin_cors_1.png)
-<center>[그림33] 도메인 셋팅 이동</center>
+  ![](http://static.toastoven.net/prod_apigateway/img_plugin_cors_1.png)
+  <center>[그림35] 도메인 셋팅 이동</center>
 
 
 2. [Plugin Setting > CORS] 에서 CORS 플러그인을 추가합니다.
-![](http://static.toastoven.net/prod_apigateway/img_plugin_cors_2.png)
-<center>[그림34] CORS 플러그인 설정</center>
+  ![](http://static.toastoven.net/prod_apigateway/img_plugin_cors_2.png)
+  <center>[그림36] CORS 플러그인 설정</center>
 
 
 - Allowed credentials: Request with Credential 방식을 사용할 수 있는지를 지정합니다.
@@ -352,19 +390,45 @@ Cross-Site의 방식 내에서의 XMLHttpRequest API 호출이 가능하도록 �
 
 - Allowed methods: 지정된 HTTP Method만 서버 리소스의 접근을 허용합니다.
 
-- Allowed headers: 서버의 리소스의 접근을 허용할 HTTP Method를 지정합니다. 여러 Method를 입력할 경우 ,(comma)로 분리하여 입력합니다.
+- Allowed headers: 클라이언트가 리소스 요청시 사용할 수 있는 HTTP Header를 지정합니다. 여러 헤더를 입력할 경우 ,(comma)로 분리하여 입력합니다.
 
-- Exposed headers: 브라우저에서 접근할 수 있는 허용 헤더를 지정합니다. 여러 헤더를 입력할 경우 ,(comma)로 분리하여 입력합니다.
+- Exposed headers: 클라이언트에게 노출 할 헤더를 지정합니다. 여러 헤더를 입력할 경우 ,(comma)로 분리하여 입력합니다.
 
 - 자세한 CORS 규약은 https://www.w3.org/TR/cors/ 를 참고 해주세요.
 
 ### Mock Response
 #### Endpoint > Mock Response
-Response Mock 을 반환하도록 합니다.
+사용자가 미리 설정한 Response Mock 을 반환하도록 합니다.
+Endpoint Uri pattern에 해당 하는 request uri가 요청된 경우, 지정된 Target Server로의 HTTP Proxy를 하지 않고 사용자가 설정한 Mock Response가 response로 반환 됩니다. 
+
+![](http://static.toastoven.net/prod_apigateway/img_plugin_mock_response.png)
+
+<center>[그림37] Mock Response 설정</center>
+
+- HTTP Status: response 의 status code를 설정합니다.
+- Headers: response header에 추가할 헤더와 헤더 값을 설정합니다.
+- Body: response body 내용을 설정합니다. 
+
 
 ### Cache
 #### Endpoint > Cache
-API 결과를 Caching 합니다.
+사용자가 요청한 uri별로 HTTP Proxy 결과를 Caching 합니다. 
+
+1. [API Gateway > Endpoint] 화면으로 이동합니다.
+
+   ![](http://static.toastoven.net/prod_apigateway/img_plugin_preapi_1.png)
+
+   <center>[그림38] Usage Quota 설정</center>
+
+2. Plugins > Cache 플러그인을 추가합니다. 
+   ![](http://static.toastoven.net/prod_apigateway/img_plugin_cache.png)
+
+   <center>[그림38] Cache 설정</center>
+
+TTL(sec) 시간 동안 HTTP Proxy 결과를 Caching합니다. 
+TTL(sec) 시간은 0~300초 사이의 값을 지정 할 수 있습니다. 
+TTL(sec) 시간 이후 Caching 데이터는 자동 파기되며, 다음 요청시 Target Server에 요청 내용을 전달 후 Response를 다시 Caching 합니다. 
+
 
 ###  Pre API
 #### Endpoint > Pre API
@@ -378,16 +442,16 @@ Pre API의 응답코드에 따라 200이면 Endpoint를 호출하고, 응답코�
 #### Pre API 설정
 
 1. [API Gateway > Endpoint] 화면으로 이동
-![](http://static.toastoven.net/prod_apigateway/img_plugin_preapi_1.png)
-<center>[그림35] Endpoint 설정 화면 이동</center>
+  ![](http://static.toastoven.net/prod_apigateway/img_plugin_preapi_1.png)
+  <center>[그림39] Endpoint 설정 화면 이동</center>
 
 2. Plugins > Pre API를 추가합니다.
-![](http://static.toastoven.net/prod_apigateway/img_plugin_preapi_2.png)
-<center>[그림36] Pre API 플러그인 추가</center>
+  ![](http://static.toastoven.net/prod_apigateway/img_plugin_preapi_2.png)
+  <center>[그림40] Pre API 플러그인 추가</center>
 
 3. 호출한 Method type과 URL을 입력한 후 저장합니다.
-![](http://static.toastoven.net/prod_apigateway/img_plugin_preapi_3.png)
-<center>[그림37] Pre API 플러그인 설정</center>
+  ![](http://static.toastoven.net/prod_apigateway/img_plugin_preapi_3.png)
+  <center>[그림41] Pre API 플러그인 설정</center>
 
 #### 에러코드
 
@@ -401,9 +465,9 @@ Pre API의 응답코드에 따라 200이면 Endpoint를 호출하고, 응답코�
 }
 ```
 
-| http status code | result code | result message |
-| ---------------- | ----------- | -------------- |
-| 502 | 20008 | 20008 Pre api connection failed |
+| http status code | result code | result message                  |
+| ---------------- | ----------- | ------------------------------- |
+| 502              | 20008       | 20008 Pre api connection failed |
 
 ### Modify Headers
 #### Endpoint > Modify Headers
@@ -414,16 +478,16 @@ Pre API의 응답코드에 따라 200이면 Endpoint를 호출하고, 응답코�
 #### Modify Headers 설정
 
 1. [API Gateway > Endpoint] 화면으로 이동합니다.
-![](http://static.toastoven.net/prod_apigateway/img_plugin_modifyheaders_1.png)
-<center>[그림38] Endpoint 설정 화면 이동</center>
+  ![](http://static.toastoven.net/prod_apigateway/img_plugin_modifyheaders_1.png)
+  <center>[그림42] Endpoint 설정 화면 이동</center>
 
 2. Plugins > Modify Headers 플러그인을 추가합니다.
-![](http://static.toastoven.net/prod_apigateway/img_plugin_modifyheaders_2.png)
-<center>[그림39] Modify Headers 플러그인 추가</center>
+  ![](http://static.toastoven.net/prod_apigateway/img_plugin_modifyheaders_2.png)
+  <center>[그림43] Modify Headers 플러그인 추가</center>
 
 3. Plugins > Modify Headers 플러그인 설정 정보를 입력합니다.
-![](http://static.toastoven.net/prod_apigateway/img_plugin_modifyheaders_3.png)
-<center>[그림40] Modify Headers 플러그인 설정 정보 입력</center>
+  ![](http://static.toastoven.net/prod_apigateway/img_plugin_modifyheaders_3.png)
+  <center>[그림44] Modify Headers 플러그인 설정 정보 입력</center>
 
 - Request Headers는 요청 헤더를 수정할 수 있습니다.
 
@@ -434,14 +498,31 @@ Modify Headers 플러그인은 별도의 에러코드가 없습니다.
 
 ### Endpoint Usage Quota
 #### Endpoint > Usage Quota
-단위 시간동안 API 사용량을 제한할 수 있습니다.
+단위 시간동안 Endpoint URI Pattern 별  API 사용량을 제한할 수 있습니다.
 
 #### Usage Quota 설정
 
 1. [API Gateway > Endpoint] 화면으로 이동합니다.
-![](http://static.toastoven.net/prod_apigateway/img_plugin_usagequota_1.png)
-<center>[그림41] Endpoint 설정 화면 이동</center>
+  ![](http://static.toastoven.net/prod_apigateway/img_plugin_usagequota_1.png)
+  <center>[그림45] Endpoint 설정 화면 이동</center>
 
 2. Plugins > Usage Quota 플러그인을 추가한 후 단위 시간(sec) 동안 최대 호출 가능 횟수를 입력합니다.
-![](http://static.toastoven.net/prod_apigateway/img_plugin_usagequota_2.png)
-<center>[그림42] Usage Quota 플러그인 추가</center>
+  복 수개의  사용량 제한 조건을 추가 할 수 있으며, 설정된 제한 조건 중 하나 이상의 조건이 제한량을 초과 할 경우 사용이 제한됩니다. 
+  ![](http://static.toastoven.net/prod_apigateway/img_plugin_usagequota_2.png)
+  <center>[그림46] Endpoint Usage Quota 플러그인 추가</center>
+
+> [주의]
+> Endpoint Usage Quota는 Endpoint URI 별 사용량 제한이 아닌 URI Pattern별 사용량 제한입니다.  
+> Domain별 사용량 제한이 필요한 경우 Domain 설정 페이지의 Usage Quota를 설정하세요.  
+
+사용량 제한을 초과하였을 경우 아래의 HTTP STATUS 403 response가 반환 됩니다. 
+
+```
+{
+  "header": {
+    "resultCode": 20004,
+    "resultMessage": "20004 Usage quota exceeded",
+    "isSuccessful": false
+  }
+}
+```
