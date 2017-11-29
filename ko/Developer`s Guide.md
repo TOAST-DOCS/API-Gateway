@@ -177,10 +177,13 @@ IP 기반 Access Control 기능 입니다.
 1. Domain 설정 페이지의 Plugin Setting > Access Control > IP ACL을 클릭합니다. 
    ![](http://static.toastoven.net/prod_apigateway/img_domain_ip_acl.png)
    <center>[그림27] IP ACL 설정</center>
+
 2. Permit을 통해 설정된 IP 목록에 대해 allow할 것인지 deny할 것인지 설정합니다. 
   - true로 설정할 경우 white list로 동작합니다. (설정된 IP에 대해서만 allow, 그 외 모든 IP는 block)
   - false로 설정할 경우 black list로 동작합니다. (설정된 IP에 대해서만 deny, 그 외 모든 IP는 allow)
+
 3. ipv4 형식의 IP를 입력 후 add 버튼을 클릭하여 IP 목록에 추가합니다. 
+
 4. [Save] 버튼을 클릭하여 설정 내용을 저장합니다. 
 
 ### Quota Limit
@@ -190,11 +193,14 @@ IP 기반 Access Control 기능 입니다.
 1. [API Gateway > API Setting] 에서 도메인 셋팅을 위한 화면으로 이동합니다.
    ![](http://static.toastoven.net/prod_apigateway/img_plugin_maintenance_1.png)
    <center>[그림28] 도메인 셋팅 이동</center>
+
 2. Plugin Setting > Quota Limit > Usage Quota를 선택합니다. 
    ![](http://static.toastoven.net/prod_apigateway/img_domain_usage_quota.png)<center>[그림28] Usage Quota 설정</center>
+
 3. 사용량 제한 조건 설정 합니다. 
    - Max Usage Quota에 최대 API 호출가능 횟수를 지정합니다. 
    - Per(sec)에 초 단위의 시간을 지정 합니다. 
+
 4. 단위 시간 동안 최대 호출 횟수를 초과 할 경우 API 사용이 제한됩니다. 
    복 수개의  사용량 제한 조건을 추가 할 수 있으며, 설정된 제한 조건 중 하나 이상의 조건이 제한량을 초과 할 경우 사용이 제한됩니다. 
 
@@ -416,17 +422,13 @@ Endpoint Uri pattern에 해당 하는 request uri가 요청된 경우, 지정된
 사용자가 요청한 uri별로 HTTP Proxy 결과를 Caching 합니다. 
 
 1. [API Gateway > Endpoint] 화면으로 이동합니다.
-
    ![](http://static.toastoven.net/prod_apigateway/img_plugin_preapi_1.png)
-
    <center>[그림38] Usage Quota 설정</center>
-
 2. Plugins > Cache 플러그인을 추가합니다. 
    ![](http://static.toastoven.net/prod_apigateway/img_plugin_cache.png)
-
    <center>[그림38] Cache 설정</center>
-
-TTL(sec) 시간 동안 HTTP Proxy 결과를 Caching합니다. 
+3. TTL(sec)을 설정 합니다.  
+  - TTL(sec) 시간 동안 HTTP Proxy 결과를 Caching합니다. 
   - TTL(sec) 시간은 0~300초 사이의 값을 지정 할 수 있습니다. 
   - TTL(sec) 시간 이후 Caching 데이터는 자동 파기되며, 다음 요청시 Target Server에 요청 내용을 전달 후 Response를 다시 Caching 합니다. 
 
