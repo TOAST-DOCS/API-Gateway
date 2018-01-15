@@ -569,7 +569,6 @@ API Gateway Monitor 플러그인은 Response의 HTTP Status Code가 400 이상�
 특정 에러에 대해 알림을 받고 싶지 않은 경우 Response의 HTTP Status 코드와 Response Body 내용으로 필터를 할 수 있습니다. 
 
 > [참고]
->
 > Filter는 Status Code 또는 Filter String 둘 중 하나는 필수 입력입니다. 
 > Status Code 만 입력 할 경우, Response의 HTTP Status Code가 설정한 Status Code에 대해서 필터합니다.
 > Filter String 만 입력한 경우, Response 의 Body 내용에 filter String이 포함된 경우 필터합니다. (대소문자를 구분하지 않습니다.)
@@ -590,7 +589,6 @@ API Gateway Monitor 플러그인은 Response의 HTTP Status Code가 400 이상�
 - [Request/Response] : 마지막으로 오류가 발생한 Request와 Response의 정보입니다. Request와 Response의 데이터 크기가 클 경우 일부만 전송될 수 있습니다. 
 
 > [참고]
->
 > Error 발생 기준은 Response의 HTTP Status Code가 400 이상의 코드가 반환된 경우 입니다.
 > SMS의 경우 알림 확인 URL이 문자로 발송됩니다. 
 > 모니터링 플러그인에서 설정한 발신번호로 https://api-gw.cloud.toast.com/m/XXXX/YY 형식의 URL이 전송됩니다. URL을 반드시 확인 후 열어주세요. 
@@ -630,7 +628,6 @@ Pre API의 응답 코드에 따라 200이면 Endpoint를 호출하고, 응답 �
 만약, Pre API 호출에 실패할 경우 에러를 리턴하게 됩니다.
 
 > [참고]
->
 > API Gateway는 요청의 헤더 정보만 Pre API의 URL로 전달합니다. 
 > Request URL 또는 Body 정보는 전달하지 않습니다. 
 
@@ -673,7 +670,6 @@ Request Headers는 요청 헤더를 수정합니다.
 Response Headers는 응답 헤더를 수정합니다.
 
 > [참고]
->
 > 설정한 헤더 키가 이미 존재한다면 덮어쓰게 됩니다.
 
 
@@ -749,12 +745,12 @@ API 통계에서는 각 도메인 별 API Call 평균 응답시간, 네트워크
 도메인 목록의 도메인을 클릭하면 해당 도메인에 대한 통계를 차트와 URI 패턴 별 상세 통계 데이터를 확인할 수 있습니다. 
 차트는 검색 기간에 따라 10분/1시간/1일 단위의 데이터를 확인할 수 있습니다.
 
-[참고] 검색기간별 통계 시간 단위
-
-- 6시간 미만: 10분 단위 
-- 6시간 이상 ~ 7일 미만: 1시간 단위 
-- 7일 이상 ~ 30일: 1일 단위 
-  최대 검색 가능 기간은 한 달(30일) 이며, 10분 단위의 데이터에 대한 통계 데이터는 3개월 동안 보관됩니다. 
+> [참고] 검색기간별 통계 시간 단위
+> - 6시간 미만: 10분 단위 
+> - 6시간 이상 ~ 7일 미만: 1시간 단위 
+> - 7일 이상 ~ 30일: 1일 단위 
+>
+>  최대 검색 가능 기간은 한 달(30일) 이며, 10분 단위의 데이터에 대한 통계 데이터는 3개월 동안 보관됩니다. 
 
 통계 데이터는 실시간으로 집계되지 않습니다. 
 10분, 1시간 단위의 데이터는 10분마다, 1시간 단위는 1시간마다 데이터가 집계됩니다.
