@@ -6,6 +6,8 @@
 
 사용량 제한을 초과하였을 경우 HTTP Status 403 response가 반환 됩니다. 
 
+#### 에러코드
+
 ```
 {
   "header": {
@@ -16,7 +18,11 @@
 }
 ```
 
-### HMAC
+| http status code | result code | result message             |
+| ---------------- | ----------- | -------------------------- |
+| 403              | 20004       | 20004 Usage quota exceeded |
+
+## HMAC
 
 HMAC 인증 실패시 HTTP status 401 response가 반환됩니다.
 
