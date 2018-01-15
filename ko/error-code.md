@@ -87,3 +87,26 @@ PRE API 인증 실패시 HTTP status 502 response가 반환됩니다.
 | http status code | result code | result message                  |
 | ---------------- | ----------- | ------------------------------- |
 | 502              | 20008       | 20008 Pre api connection failed |
+
+###URL Rewrite 
+
+URI Pattern 또는 Rewrite URI 형식이 잘못된 문법으로 설정하였을 경우 HTTP status 500 response가 반환됩니다.
+
+#### 에러코드
+
+```
+{  
+   "header":{  
+      "resultCode":20005,
+      "resultMessage":"20005 URI Pattern's syntax is invalid",
+      "isSuccessful":false
+   }
+}
+```
+
+| http status code | result code | result message                  |
+| ---------------- | ----------- | ------------------------------- |
+| 500              | 20005       | URI Pattern's syntax is invalid |
+| 500              | 20006       | Rewrite URI's syntax is invalid |
+
+###  

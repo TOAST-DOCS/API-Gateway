@@ -36,7 +36,28 @@ API Gateway 상품을 활성화하려면 콘솔에서 상품을 추가할 프로
 
 5.[Save] 버튼을 클릭합니다.
 
+#### Domain 편집
 
+1.[Setting] > [Domain] 버튼을 클릭하여 Domain 편집 화면으로 이동합니다.
+
+![](http://static.toastoven.net/prod_apigateway/console/domain_edit.png)
+<center>[그림4] Domain 편집 </center>
+
+2.Domain 설정을 변경하고 [Save] 버튼을 클릭하여 저장합니다.
+
+#### Domain 삭제
+
+1.[Setting] > [Delete] 버튼을 클릭하면 Domain 삭제 다이얼로그가 화면에 표시됩니다.
+
+![](http://static.toastoven.net/prod_apigateway/console/domain_delete.png)
+<center>[그림5] Domain 삭제</center>
+
+2.삭제할 Domain을 다시 한번 확인하고 도메인 키를 입력하면 삭제가 됩니다.
+
+![](http://static.toastoven.net/prod_apigateway/console/domain_delete_popup.png)
+<center>[그림6] Domain 삭제 확인</center>
+
+> 주의 : 삭제한 Domain은 복구할 수없습니다. 삭제 시도시 사용자로부터 Domain 이름을 입력 받아서 확인을 합니다.
 
 
 
@@ -47,12 +68,12 @@ API Gateway 상품을 활성화하려면 콘솔에서 상품을 추가할 프로
 1.복제할 Domain의 [Setting] > [Clone from domain]을 클릭합니다.
 
 ![](http://static.toastoven.net/prod_apigateway/getting_started/getting_started_import_domain.png)
-<center>[그림4] 복제할 Doamin 선택</center>
+<center>[그림7] 복제할 Doamin 선택</center>
 
 2.복제하여 새로 생성할 도메인에서 변경이 필요한 설정 정보를 수정 후 [Save] 버튼을 클릭합니다. 
 
 ![](http://static.toastoven.net/prod_apigateway/console/domain_clone.png)
-<center>[그림5] 복제 Domain 설정</center>
+<center>[그림8] 복제 Domain 설정</center>
 
 
 
@@ -66,7 +87,7 @@ swagger 파일을 import하여 domain을 등록하거나 등록된 domain을 swa
 
 1.Export할 도메인의 [Setting] > [Export swagger]를 클릭하면 swagger 파일이 다운로드 됩니다. (기본 파일명: export.json)
 ![](http://static.toastoven.net/prod_apigateway/console/domain_swagger.png)
-<center>[그림6] Domain Export</center>
+<center>[그림9] Domain Export</center>
 
 #### Swagger Import
 
@@ -205,11 +226,11 @@ swagger 파일을 import하여 domain을 등록하거나 등록된 domain을 swa
 
 3.Import domain 버튼을 클릭하고 import할 swagger file을 추가합니다.
 ![](http://static.toastoven.net/prod_apigateway/console/domain_import.png)
-<center>[그림7] Domain Import</center>
+<center>[그림10] Domain Import</center>
 
 4.Import 버튼을 클릭하면 swagger file의 설정 정보대로 Domain이 등록됩니다.
 ![](http://static.toastoven.net/prod_apigateway/console/domain_swagger_upload.png)
-<center>[그림8] Domain Import</center>
+<center>[그림11] Domain Import</center>
 
 
 
@@ -227,17 +248,17 @@ swagger 파일을 import하여 domain을 등록하거나 등록된 domain을 swa
 
 ![](http://static.toastoven.net/prod_apigateway/console/move_endpoint_setting.png)
 
-<center>[그림9] 엔드 포인트 설정 화면 이동</center>
+<center>[그림12] 엔드 포인트 설정 화면 이동</center>
 
 2.[New Endpoint] 버튼을 클릭 후 엔드 포인트의 HTTP Method와 Path를 설정합니다.
 
 ![](http://static.toastoven.net/prod_apigateway/console/add_endpoint.png)
-<center>[그림10] 엔드포인트 생성</center>
+<center>[그림13] 엔드포인트 생성</center>
 
 3.플러그인 추가는 [+] 버튼을 클릭한 후, 추가할 플러그인을 선택하고 설정값을 입력합니다
 
 ![](http://static.toastoven.net/prod_apigateway/console/add_endpoint.png)
-<center>[그림11] 엔드 포인트 플러그인 추가</center>
+<center>[그림14] 엔드 포인트 플러그인 추가</center>
 
 4.[Save] 버튼을 클릭합니다.
 
@@ -253,7 +274,49 @@ swagger 파일을 import하여 domain을 등록하거나 등록된 domain을 swa
 
 
 
+### 엔드 포인트 편집
 
+1.엔드 포인트 목록에서 편집할 Endpoint 우측에 있는 [Edit] 버튼을 클릭합니다.
+
+![](http://static.toastoven.net/prod_apigateway/console/endpoint_edit.png)
+<center>[그림15] Endpoint 편집</center>
+
+2.설정을 수정하고 우측에 있는 [Save] 버튼을 클릭하여 저장합니다.
+
+![](http://static.toastoven.net/prod_apigateway/console/endpoint_delete_save.png)
+<center>[그림16] Endpoint 편집 정보 저장</center>
+
+
+
+### 엔드 포인트 삭제
+
+1.Endpoint 목록에서 삭제할 Endpoint 우측에 있는 [Delete] 버튼을 클릭하여 삭제합니다.
+
+![](http://static.toastoven.net/prod_apigateway/console/endpoint_delete.png)
+<center>[그림17] Endpoint 삭제</center>
+
+
+
+### 엔드포인트 플러그인 편집
+
+1.편집할 Plugin을 클릭합니다.
+
+![](http://static.toastoven.net/prod_apigateway/console/endpoint_edit_plugin.png)
+<center>[그림18] Endpoint Plugin 편집</center>
+
+2.설정을 수정하고  [Save] 버튼을 클릭합니다.
+
+![](http://static.toastoven.net/prod_apigateway/console/endpoint_plugin_edit_save.png)
+<center>[그림19] Endpoint Plugin 편집 저장</center>
+
+### 엔드 포인트 플러그인 삭제
+
+1.삭제할 Plugin을 클릭합니다.
+
+2.[Delete] 버튼을 클릭합니다.
+
+![](http://static.toastoven.net/prod_apigateway/console/endpoint_plugin_delete.png)
+<center>[그림20] Endpoint Plugin 삭제</center>
 
 ## 플러그인 
 
@@ -266,7 +329,7 @@ API Gateway는 접근제어, 인증, 사용량 제한, 메시지 변조 등의 �
 엔드 포인트 계층에 추가한 플러그인 해당 엔드 포인트에만 적용됩니다. 
 
 ![](http://static.toastoven.net/prod_apigateway/img_12.png)
-<center>[그림12] 플러그인 동작 구조</center>
+<center>[그림21] 플러그인 동작 구조</center>
 
 API Gateway가 요청을 전달받으면 설정된 플러그인의 속성 그룹 순서대로 플러그인을 동작시킵니다.
 
@@ -288,11 +351,11 @@ IP 기반 접근 제한 기능으로 특정 IP를 allow하거나 deny할 수 있
 1.[API Gateway > API Setting] 에서 도메인 설정 페이지로 이동합니다. 
 ![](http://static.toastoven.net/prod_apigateway/console/move_domain.png)
 
-<center>[그림13] 도메인 설정 페이지 이동</center>
+<center>[그림22] 도메인 설정 페이지 이동</center>
 
 2.[Plugin Setting] > [Access Control] > [IP ACL]을 클릭합니다. 
 ![](http://static.toastoven.net/prod_apigateway/console/plugin_ip_acl.png)
-<center>[그림14] IP ACL 플러그인 설정</center>   
+<center>[그림23] IP ACL 플러그인 설정</center>   
 
 3.Permit을 통해 설정된 IP 목록에 대해 allow할 것인지 deny할 것인지 설정합니다. 
 
@@ -315,7 +378,7 @@ IP 기반 접근 제한 기능으로 특정 IP를 allow하거나 deny할 수 있
 
 1.[API Gateway] > [API Setting]에서 도메인 설정 페이지로 이동합니다. 
 ![](http://static.toastoven.net/prod_apigateway/console/move_domain.png)
-<center>[그림15] 도메인 설정 페이지 이동</center>
+<center>[그림24] 도메인 설정 페이지 이동</center>
 
 2.[Plugin Setting] > [Quota Limit] > [Usage Quota]를 선택합니다. 
 ![](http://static.toastoven.net/prod_apigateway/console/plugin_usage_quota.png)<center>[그림16] Usage Quota 설정</center>
@@ -345,11 +408,11 @@ IP 기반 접근 제한 기능으로 특정 IP를 allow하거나 deny할 수 있
 
 1.[API Gateway] > [API Setting] 에서 도메인 설정 페이지로 이동합니다. 
 ![](http://static.toastoven.net/prod_apigateway/console/move_domain.png)
-<center>[그림17] 도메인 설정 페이지 이동</center>
+<center>[그림25] 도메인 설정 페이지 이동</center>
 
 2.[Plugin Setting > Maintenance] 에서 Maintenance Response 플러그인을 추가합니다.
 ![](http://static.toastoven.net/prod_apigateway/console/plugin_maintenance.png)
-<center>[그림18] Maintenance Response 플러그인 설정</center>
+<center>[그림26] Maintenance Response 플러그인 설정</center>
 
 3.응답 설정값 입력 후 [Save] 버튼을 클릭하여 저장합니다. 
 
@@ -365,15 +428,14 @@ IP 기반 접근 제한 기능으로 특정 IP를 allow하거나 deny할 수 있
 
 1.[API Gateway] > [API Setting] 에서 도메인 설정 페이지로 이동합니다. 
 ![](http://static.toastoven.net/prod_apigateway/console/move_domain.png)
-<center>[그림19] 도메인 설정 페이지 이동</center>
+<center>[그림27] 도메인 설정 페이지 이동</center>
 
 2.[Plugin Setting] > [Authentication]에서 HMAC 플러그인을 추가합니다.
 ![](http://static.toastoven.net/prod_apigateway/console/plugin_hmac.png)
-<center>[그림20] HMAC 플러그인 설정</center>
+<center>[그림28] HMAC 플러그인 설정</center>
 
-> [주의] Clock skew 설정
-> APIGW 서버의 시간과 Client에서 보낸 X-TC-Timestamp 사이의 차가 Clock Skew보다 크면 HMAC 인증에 실패하게 됩니다.
->
+> [주의] Clock skew 설정  
+> APIGW 서버의 시간과 Client에서 보낸 X-TC-Timestamp 사이의 차가 Clock Skew보다 크면 HMAC 인증에 실패하게 됩니다.  
 > Clock Skew 값으로 설정 가능한 범위는 0~86400(sec)이며, 만약 0이라면 Clock Skew를 무시합니다.
 
 #### Authentification > HMAC > 인증 API 호출
@@ -413,11 +475,11 @@ JWT(Json Web Token) 인증을 합니다.
 
 1.[API Gateway] > [API Setting]에서 도메인 설정 페이지로 이동합니다. 
 ![](http://static.toastoven.net/prod_apigateway/console/move_domain.png)
-<center>[그림21] 도메인 설정 페이지 이동</center>
+<center>[그림29] 도메인 설정 페이지 이동</center>
 
 2.[Plugin Setting] > [Authentication]에서 JWT 플러그인을 추가합니다.
 ![](http://static.toastoven.net/prod_apigateway/console/plugin_jwt.png)
-<center>[그림22] JWT 플러그인 설정</center>
+<center>[그림30] JWT 플러그인 설정</center>
 
 > [참고]
 > APIGW 서버의 시간과 Client에서 보낸 ExpirationTime 사이의 차가 Clock Skew보다 크면 JWT인증에 실패하게 됩니다.  
@@ -470,11 +532,11 @@ Cross-Site의 방식 내에서의 XMLHttpRequest API 호출이 가능하도록 �
 
 1.[API Gateway > API Setting] 에서 도메인 설정 페이지로 이동합니다. 
 ![](http://static.toastoven.net/prod_apigateway/console/move_domain.png)
-<center>[그림23] 도메인 설정 페이지 이동</center>
+<center>[그림30] 도메인 설정 페이지 이동</center>
 
 2.[Plugin Setting > CORS] 에서 CORS 플러그인을 추가합니다.
 ![](http://static.toastoven.net/prod_apigateway/console/plugin_cors.png)
-<center>[그림24] CORS 플러그인 설정</center>
+<center>[그림31] CORS 플러그인 설정</center>
 
 - Allowed credentials: Request with Credential 방식을 사용할 수 있는지를 지정합니다.
 - Max credentials Age: Preflight Request의 결과가 캐시에 얼마나 오래 남아 있는지를 지정합니다. 초 단위이며 0~86400 사이의 값을 입력할 수 있습니다.
@@ -498,13 +560,13 @@ API Gateway의 Proxy에서 사용자의 API 서버의 응답 값이 오류 상�
 1.[API Gateway > API Setting] 에서 도메인 설정 페이지로 이동합니다. 
 ![](http://static.toastoven.net/prod_apigateway/console/move_domain.png)
 
-<center>[그림25] 도메인 설정 페이지 이동</center>
+<center>[그림32] 도메인 설정 페이지 이동</center>
 
 1.[Plugin Setting] > [Monitor] 을 클릭합니다.
 
 2.모니터링 기본 설정 정보를 입력합니다. 
 ![](http://static.toastoven.net/prod_apigateway/console/plugin_monitor_default.png)
- <center>[그림26] 모니터링 기본 설정</center>
+ <center>[그림33] 모니터링 기본 설정</center>
 
 #### Monitor Type
 
@@ -537,7 +599,7 @@ API Gateway의 Proxy에서 사용자의 API 서버의 응답 값이 오류 상�
 > 모니터링 알림 발송 내역은 Email 상품 또는 SMS의 발송 내역 조회에서 확인할 수 있습니다.   
 
 ![](http://static.toastoven.net/prod_apigateway/console/plugin_monitor_email.png)
- <center>[그림27] 모니터링 Email 알림 설정</center>
+ <center>[그림34] 모니터링 Email 알림 설정</center>
 
 Toast Cloud Email AppKey: TOAST Cloud의 Email 상품의 앱 키를 입력합니다. 
 
@@ -545,7 +607,7 @@ Email: 모니터링 알림을 수신 받을 Email 주소를 입력합니다.
 
 
 ![](http://static.toastoven.net/prod_apigateway/console/plugin_monitor_sms.png)
- <center>[그림28] 모니터링 SMS 알림 설정</center>
+ <center>[그림35] 모니터링 SMS 알림 설정</center>
 
 Toast Cloud SMS AppKey: TOAT Cloud의 SMS 상품 앱 키를 입력합니다.
 
@@ -560,24 +622,24 @@ Phone Number: 모니터링 알림을 수신 받을 단말기 번호를 입력합
 4.Notification 필터
 
 ![](http://static.toastoven.net/prod_apigateway/console/plugin_monitor_filter.png)
- <center>[그림29] 모니터링 필터링 설정</center>
+ <center>[그림36] 모니터링 필터링 설정</center>
 
 API Gateway Monitor 플러그인은 Response의 HTTP Status Code가 400 이상일 경우 에러가 발생한 것으로 판단합니다. 
 
 특정 에러에 대해 알림을 받고 싶지 않은 경우 Response의 HTTP Status 코드와 Response Body 내용으로 필터를 할 수 있습니다. 
 
-> [참고]
-> Filter는 Status Code 또는 Filter String 둘 중 하나는 필수 입력입니다. 
-> Status Code 만 입력 할 경우, Response의 HTTP Status Code가 설정한 Status Code에 대해서 필터합니다.
-> Filter String 만 입력한 경우, Response 의 Body 내용에 filter String이 포함된 경우 필터합니다. (대소문자를 구분하지 않습니다.)
-> Status Code과 Filter String을 둘 다 입력할 경우 조건(AND/OR)을 설정해야합니다.
-> OR 조건으로 등록한 경우 설정한 Status Code 또는 Response Body에 filter String이 포함될 경우 필터됩니다.
-> AND 조건으로 등록한 경우 설정한 Status Code와 Response Body에 filter String이 포함될 경우 필터됩니다.
+> [참고]  
+> Filter는 Status Code 또는 Filter String 둘 중 하나는 필수 입력입니다.  
+> Status Code 만 입력 할 경우, Response의 HTTP Status Code가 설정한 Status Code에 대해서 필터합니다.  
+> Filter String 만 입력한 경우, Response 의 Body 내용에 filter String이 포함된 경우 필터합니다. 대소문자를 구분하지 않습니다. 
+> Status Code과 Filter String을 둘 다 입력할 경우 조건(AND/OR)을 설정해야합니다.  
+> OR 조건으로 등록한 경우 설정한 Status Code 또는 Response Body에 filter String이 포함될 경우 필터됩니다.   
+> AND 조건으로 등록한 경우 설정한 Status Code와 Response Body에 filter String이 포함될 경우 필터됩니다.  
 
 #### 알림 발송 내용 
 
 ![](http://static.toastoven.net/prod_apigateway/console/plugin_monitor_notification_info.png)
- <center>[그림30] 모니터링 알림 예시</center>
+ <center>[그림37] 모니터링 알림 예시</center>
 
 모니터링 플러그인에 설정한 모니터링 설정에 따라 모니터링 알림 대상자에게 알림이 발송됩니다. 
 
@@ -605,9 +667,9 @@ Endpoint Uri pattern에 해당하는 request uri가 요청된 경우, 지정된 
 
 ![](http://static.toastoven.net/prod_apigateway/console/plugin_mock_response.png)
 
-<center>[그림31] Mock Response 설정</center>
+<center>[그림38] Mock Response 설정</center>
 
-- HTTP Status: response 의 status code를 설정합니다.
+- HTTP Status: response의 status code를 설정합니다.
 - Headers: response header에 추가할 헤더와 헤더 값을 설정합니다.
 - Body: response body 내용을 설정합니다. 
 
@@ -631,15 +693,15 @@ Pre API의 응답 코드에 따라 200이면 Endpoint를 호출하고, 응답 �
 
 1.[API Gateway] > [Endpoint] 을 클릭합니다. 
 ![](http://static.toastoven.net/prod_apigateway/console/move_endpoint.png)
-<center>[그림32] Endpoint 설정 화면 이동</center>
+<center>[그림39] Endpoint 설정 화면 이동</center>
 
 2.[Plugins] > [Pre API]를 추가합니다.
 ![](http://static.toastoven.net/prod_apigateway/console/plugin_preapi_add.png)
-<center>[그림33] Pre API 플러그인 추가</center>
+<center>[그림40] Pre API 플러그인 추가</center>
 
 3.Pre API의 Method type과 URL을 입력한 후 [Save]를 클릭합니다.
 ![](http://static.toastoven.net/prod_apigateway/console/plugin_preapi.png)
-<center>[그림34] Pre API 플러그인 설정</center>
+<center>[그림41] Pre API 플러그인 설정</center>
 
 #### 
 
@@ -653,15 +715,15 @@ API Gateway가 요청을 Proxy 할 때 요청/응답의 헤더 값을 변조하�
 
 1.[API Gateway > Endpoint] 화면으로 이동합니다.
 ![](http://static.toastoven.net/prod_apigateway/console/move_endpoint.png)
-<center>[그림35] Endpoint 설정 화면 이동</center>
+<center>[그림42] Endpoint 설정 화면 이동</center>
 
 2.Plugins > Modify Headers 플러그인을 추가합니다.
 ![](http://static.toastoven.net/prod_apigateway/console/plugin_modifyheaders_add.png)
-<center>[그림36] Modify Headers 플러그인 추가</center>
+<center>[그림43] Modify Headers 플러그인 추가</center>
 
 3.Plugins > Modify Headers 플러그인 설정 정보를 입력합니다.
 ![](http://static.toastoven.net/prod_apigateway/console/plugin_modifyheaders.png)
-<center>[그림37] Modify Headers 플러그인 설정 정보 입력</center>
+<center>[그림44] Modify Headers 플러그인 설정 정보 입력</center>
 
 Request Headers는 요청 헤더를 수정합니다.
 
@@ -682,13 +744,13 @@ Response Headers는 응답 헤더를 수정합니다.
 
 1.[API Gateway > Endpoint] 화면으로 이동합니다.
 ![](http://static.toastoven.net/prod_apigateway/console/move_endpoint.png)
-<center>[그림38] Endpoint 설정 화면 이동</center>
+<center>[그림45] Endpoint 설정 화면 이동</center>
 
 2.Plugins > Usage Quota 플러그인을 추가한 후 단위 시간(sec) 동안 최대 호출 가능 횟수를 입력합니다.
 
 복 수개의  사용량 제한 조건을 추가 할 수 있으며, 설정된 제한 조건 중 하나 이상의 조건이 제한량을 초과 할 경우 사용이 제한됩니다. 
 ![](http://static.toastoven.net/prod_apigateway/console/plugin_usagequota.png)
-<center>[그림39] Endpoint Usage Quota 플러그인 추가</center>
+<center>[그림46] Endpoint Usage Quota 플러그인 추가</center>
 
 > [주의]  
 > Endpoint Usage Quota는 Endpoint URI 별 사용량 제한이 아닌 URI Pattern별 사용량 제한입니다.    
@@ -711,6 +773,35 @@ Response Headers는 응답 헤더를 수정합니다.
 
 
 
+
+### URL Rewrite
+
+Request URL을 패턴 표현식으로 Rewrite 해주는 플러그인 입니다. 
+
+1.[API Gateway > Endpoint] 화면으로 이동합니다.
+![](http://static.toastoven.net/prod_apigateway/console/move_endpoint.png)
+<center>[그림47] Endpoint 설정 화면 이동</center>
+
+2.URI Pattern에는 어떤 패턴형식의 Request URL에 대해 rewrite 할 것인지 패턴 형식을 입력합니다. 
+
+3.Rewrite URI에는 (2)에서 작성한 URI Pattern 형식에 대해 URL을 Rewrite 할 형식을 입력합니다. 
+
+![](http://static.toastoven.net/prod_apigateway/console/plugin_url_rewrite.png)
+
+#### [예시] /api/v2.0/\*\* -> /api/v1.0/\*\* 로 Rewrite 하는 경우 
+
+- URI Pattern: /api/v2.0/(.\*)
+
+
+- Rewrite URI: /api/v1.0/%1
+
+위의 규칙을 적용하면 Request URL `/api/v2.0/members` 가` /api/v1.0/members` 로 변경되어 요청됩니다. 
+
+<center>[그림48] Endpoint URL Rewrite 플러그인 추가</center>
+
+
+
+
 ## API 배포 
 
 ### API 배포
@@ -718,7 +809,7 @@ Response Headers는 응답 헤더를 수정합니다.
 1.배포할 Domain의 [Deploy] 버튼을 클릭합니다. 
 
 ![](http://static.toastoven.net/prod_apigateway/getting_started/getting_started_deploy.png)
-<center>[그림40] API 배포</center>
+<center>[그림49] API 배포</center>
 
 2.배포한 API가 정상적으로 호출되는지 테스트를 합니다.
 domain url에 등록한 endpoint url을 호출 하였을 때 기대한 Response가 전달되는지 확인합니다. 
@@ -743,11 +834,11 @@ API 통계에서는 각 도메인 별 API Call 평균 응답시간, 네트워크
 차트는 검색 기간에 따라 10분/1시간/1일 단위의 데이터를 확인할 수 있습니다.
 
 > [참고] 검색기간별 통계 시간 단위  
->  
+>
 > - 6시간 미만: 10분 단위 
 > - 6시간 이상 ~ 7일 미만: 1시간 단위 
 > - 7일 이상 ~ 30일: 1일 단위   
-> 최대 검색 가능 기간은 한 달(30일) 이며, 10분 단위의 데이터에 대한 통계 데이터는 3개월 동안 보관됩니다. 
+>   최대 검색 가능 기간은 한 달(30일) 이며, 10분 단위의 데이터에 대한 통계 데이터는 3개월 동안 보관됩니다. 
 
 통계 데이터는 실시간으로 집계되지 않습니다. 
 10분, 1시간 단위의 데이터는 10분마다, 1시간 단위는 1시간마다 데이터가 집계됩니다.
@@ -755,14 +846,14 @@ API 통계에서는 각 도메인 별 API Call 평균 응답시간, 네트워크
 1.[API Gateway] > [Dashboard] 를 클릭하여 대시보드 화면으로 이동합니다.
 
 ![](http://static.toastoven.net/prod_apigateway/console/statistics.png)
-<center>[그림41] 통계 대시보드 화면 이동</center>
+<center>[그림50] 통계 대시보드 화면 이동</center>
 
 2.검색 기간 설정하시면 해당 기간 동안의 통계 데이터가 조회됩니다. 
 검색 기간은 최대 30일이내의 데이터만 조회 가능합니다. 
 
 ![](http://static.toastoven.net/prod_apigateway/console/statistics_search.png)
 
-<center>[그림42] 기간별 통계</center>
+<center>[그림51] 기간별 통계</center>
 
 Domain Key: API Setting에서 등록한 도메인 고유 키가 표시됩니다.
 
@@ -787,25 +878,25 @@ Sum. network outbound traffic: API Gateway -> Client로 Response 전송량의 �
 4.Domain 목록을 클릭하여 Domain의  상세 통계를 확인할 수 있습니다. 
 
 ![](http://static.toastoven.net/prod_apigateway/console/statistics_endpoint.png)
-<center>[그림43] Domain별 통계</center>
+<center>[그림52] Domain별 통계</center>
 
 
 
 5.상세 통계에서는 성공,실패 API Call count, Average Response Time, Network Outbound Traffic 에 대한 그래프를 확인할 수 있습니다. 
 
 ![](http://static.toastoven.net/prod_apigateway/console/statistics_endpoint_success.png)
-<center>[그림44] API Call 성공 통계 그래프</center>
+<center>[그림53] API Call 성공 통계 그래프</center>
 
 ![](http://static.toastoven.net/prod_apigateway/console/statistics_endpoint_fail.png)
 
-<center>[그림45] API Call 실패 통계 그래프</center>
+<center>[그림54] API Call 실패 통계 그래프</center>
 
 ![](http://static.toastoven.net/prod_apigateway/console/statistics_endpoint_response_time.png)
 
-<center>[그림46] 평균 응답시간 및 네트워크 트래픽 사용량 통계 그래프</center>
+<center>[그림55] 평균 응답시간 및 네트워크 트래픽 사용량 통계 그래프</center>
 
 6.Endpoint Path별 상세한 통계 정보를 확인할 수 있습니다.
 
 ![](http://static.toastoven.net/prod_apigateway/console/statistics_endpoint_detail_table.png)
 
-<center>[그림47] URI Pattern별 통계 정보</center>
+<center>[그림56] URI Pattern별 통계 정보</center>
