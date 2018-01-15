@@ -333,7 +333,7 @@ IP 기반 접근 제한 기능으로 특정 IP를 allow하거나 deny할 수 있
 
 > [참고]
 > 도메인 설정 페이지에서 설정한 [Usage Quota] 플러그인은 도메인 하위 모든 엔드 포인트의 API 사용량에 대한 제한입니다.  
-> 엔드 포인트별로 사용량 제한이 필요한 경우 엔드 포인트의 [EndPoint Usage Quota] 플러그인을 적용해주세요.
+> 엔드 포인트별로 사용량 제한이 필요한 경우 엔드 포인트의 [EndPoint Usage Quota] 플러그인을 적용해주세요.  
 
 
 
@@ -420,8 +420,8 @@ JWT(Json Web Token) 인증을 합니다.
 <center>[그림22] JWT 플러그인 설정</center>
 
 > [참고]
-> APIGW 서버의 시간과 Client에서 보낸 ExpirationTime 사이의 차가 Clock Skew보다 크면 JWT인증에 실패하게 됩니다.
-> Clock Skew 값은 0~86400 사이의 값을 입력할 수 있습니다.
+> APIGW 서버의 시간과 Client에서 보낸 ExpirationTime 사이의 차가 Clock Skew보다 크면 JWT인증에 실패하게 됩니다.  
+> Clock Skew 값은 0~86400 사이의 값을 입력할 수 있습니다.  
 
 #### Authorization > JWT (JSON Web Token) > JWT 인증 API 호출
 
@@ -530,12 +530,11 @@ API Gateway의 Proxy에서 사용자의 API 서버의 응답 값이 오류 상�
 
 모니터링 알림 발송 수단과 수신 대상자를 설정합니다.
 
-> [참고]
->
-> 모니터링 플러그인을 이용하려면 Toast Cloud의 Email 또는 SMS 상품을 활성화 후 앱키를 등록하여 사용할 수 있습니다. 
-> Email/SMS 상품 이용방법은 해당 상품의 설명서를 참고해주세요.
-> 모니터링 알림 발송으로 인한 발송 요금은 Email과 SMS 상품 이용 요금으로 과금됩니다. 
-> 모니터링 알림 발송 내역은 Email 상품 또는 SMS의 발송 내역 조회에서 확인할 수 있습니다. 
+> [참고]  
+> 모니터링 플러그인을 이용하려면 Toast Cloud의 Email 또는 SMS 상품을 활성화 후 앱키를 등록하여 사용할 수 있습니다.  
+> Email/SMS 상품 이용방법은 해당 상품의 설명서를 참고해주세요.  
+> 모니터링 알림 발송으로 인한 발송 요금은 Email과 SMS 상품 이용 요금으로 과금됩니다.   
+> 모니터링 알림 발송 내역은 Email 상품 또는 SMS의 발송 내역 조회에서 확인할 수 있습니다.   
 
 ![](http://static.toastoven.net/prod_apigateway/console/plugin_monitor_email.png)
  <center>[그림27] 모니터링 Email 알림 설정</center>
@@ -555,9 +554,8 @@ Toast Cloud SMS Send number: SMS 발송시 사용 할 발송번호를 입력합�
 Phone Number: 모니터링 알림을 수신 받을 단말기 번호를 입력합니다.  단말기번호는 하이픈(-)을 제외한 숫자만 입력해주세요.
 
 > [참고] 
->
-> 발송 번호는 SMS상품에 등록된 발송 번호만 사용이 가능 합니다. 등록되지 않은 발송 번호는 사용할 수 없습니다. 
-> 발송 번호는 등록에 대한 가이드는 SMS 상품의 가이드를 참고해주세요.
+> 발송 번호는 SMS상품에 등록된 발송 번호만 사용이 가능 합니다. 등록되지 않은 발송 번호는 사용할 수 없습니다.   
+> 발송 번호는 등록에 대한 가이드는 SMS 상품의 가이드를 참고해주세요.  
 
 4.Notification 필터
 
@@ -588,10 +586,10 @@ API Gateway Monitor 플러그인은 Response의 HTTP Status Code가 400 이상�
 - 오류 건 수 : 오류 발생 건 수 입니다.
 - [Request/Response] : 마지막으로 오류가 발생한 Request와 Response의 정보입니다. Request와 Response의 데이터 크기가 클 경우 일부만 전송될 수 있습니다. 
 
-> [참고]
-> Error 발생 기준은 Response의 HTTP Status Code가 400 이상의 코드가 반환된 경우 입니다.
-> SMS의 경우 알림 확인 URL이 문자로 발송됩니다. 
-> 모니터링 플러그인에서 설정한 발신번호로 https://api-gw.cloud.toast.com/m/XXXX/YY 형식의 URL이 전송됩니다. URL을 반드시 확인 후 열어주세요. 
+> [참고]  
+> Error 발생 기준은 Response의 HTTP Status Code가 400 이상의 코드가 반환된 경우 입니다.  
+> SMS의 경우 알림 확인 URL이 문자로 발송됩니다.   
+> 모니터링 플러그인에서 설정한 발신번호로 https://api-gw.cloud.toast.com/m/XXXX/YY 형식의 URL이 전송됩니다. URL을 반드시 확인 후 열어주세요.   
 
 
 
@@ -627,9 +625,9 @@ API Gateway를 통해 들어온 요청 헤더를 포함하여 Pre API를 호출�
 Pre API의 응답 코드에 따라 200이면 Endpoint를 호출하고, 응답 코드가 200이 아니면 Pre API의 응답 결과를 리턴합니다.
 만약, Pre API 호출에 실패할 경우 에러를 리턴하게 됩니다.
 
-> [참고]
-> API Gateway는 요청의 헤더 정보만 Pre API의 URL로 전달합니다. 
-> Request URL 또는 Body 정보는 전달하지 않습니다. 
+> [참고]  
+> API Gateway는 요청의 헤더 정보만 Pre API의 URL로 전달합니다.   
+> Request URL 또는 Body 정보는 전달하지 않습니다.  
 
 1.[API Gateway] > [Endpoint] 을 클릭합니다. 
 ![](http://static.toastoven.net/prod_apigateway/console/move_endpoint.png)
@@ -692,12 +690,11 @@ Response Headers는 응답 헤더를 수정합니다.
 ![](http://static.toastoven.net/prod_apigateway/console/plugin_usagequota.png)
 <center>[그림39] Endpoint Usage Quota 플러그인 추가</center>
 
-> [주의]
-> Endpoint Usage Quota는 Endpoint URI 별 사용량 제한이 아닌 URI Pattern별 사용량 제한입니다.  
-> Domain 사용량 제한이 필요한 경우 Domain 설정 페이지의 Usage Quota를 설정하세요.  
->
-> Domain 과 Endpoint에 각각 Usage Quota 플러그인을 설정한 경우 각각 사용 제한이 적용됩니다.
-> Domain 사용량 초과시 Endpoint의 사용량이 초과되지 않아도 요청이 거부되며, Endpoint의 사용량 또한 증가됩니다. 
+> [주의]  
+> Endpoint Usage Quota는 Endpoint URI 별 사용량 제한이 아닌 URI Pattern별 사용량 제한입니다.    
+> Domain 사용량 제한이 필요한 경우 Domain 설정 페이지의 Usage Quota를 설정하세요.    
+> Domain 과 Endpoint에 각각 Usage Quota 플러그인을 설정한 경우 각각 사용 제한이 적용됩니다.   
+> Domain 사용량 초과시 Endpoint의 사용량이 초과되지 않아도 요청이 거부되며, Endpoint의 사용량 또한 증가됩니다.     
 
 사용량 제한을 초과하였을 경우 아래의 HTTP STATUS 403 response가 반환 됩니다. 
 
@@ -745,12 +742,12 @@ API 통계에서는 각 도메인 별 API Call 평균 응답시간, 네트워크
 도메인 목록의 도메인을 클릭하면 해당 도메인에 대한 통계를 차트와 URI 패턴 별 상세 통계 데이터를 확인할 수 있습니다. 
 차트는 검색 기간에 따라 10분/1시간/1일 단위의 데이터를 확인할 수 있습니다.
 
-> [참고] 검색기간별 통계 시간 단위
+> [참고] 검색기간별 통계 시간 단위  
+>  
 > - 6시간 미만: 10분 단위 
 > - 6시간 이상 ~ 7일 미만: 1시간 단위 
-> - 7일 이상 ~ 30일: 1일 단위 
->
->  최대 검색 가능 기간은 한 달(30일) 이며, 10분 단위의 데이터에 대한 통계 데이터는 3개월 동안 보관됩니다. 
+> - 7일 이상 ~ 30일: 1일 단위   
+> 최대 검색 가능 기간은 한 달(30일) 이며, 10분 단위의 데이터에 대한 통계 데이터는 3개월 동안 보관됩니다. 
 
 통계 데이터는 실시간으로 집계되지 않습니다. 
 10분, 1시간 단위의 데이터는 10분마다, 1시간 단위는 1시간마다 데이터가 집계됩니다.
