@@ -841,7 +841,7 @@ API 통계에서는 각 도메인 별 API Call 평균 응답시간, 네트워크
 >   최대 검색 가능 기간은 한 달(30일) 이며, 10분 단위의 데이터에 대한 통계 데이터는 3개월 동안 보관됩니다. 
 
 통계 데이터는 실시간으로 집계되지 않습니다. 
-10분, 1시간 단위의 데이터는 10분마다, 1시간 단위는 1시간마다 데이터가 집계됩니다.
+10분, 1시간 단위의 데이터는 10분마다, 1일 단위는 1시간마다 데이터가 집계됩니다.
 
 1.[API Gateway] > [Dashboard] 를 클릭하여 대시보드 화면으로 이동합니다.
 
@@ -902,7 +902,6 @@ Sum. network outbound traffic: API Gateway -> Client로 Response 전송량의 �
 <center>[그림58] URI Pattern별 통계 정보</center>
 
 >  [참고] CORS 플러그인 이용시 API Call Count 사용량  
->
 > CORS 플러그인을 사용하는 경우 API Call Count가 실제 사용량 보다 크게 나올 수 있습니다.  
 > 경우에 따라 CORS 요청은 하나의 요청에 대해 Preflight 요청 (OPTIONS 메서드)과 실제 요청, 총 2건의 요청을 합니다.
 
