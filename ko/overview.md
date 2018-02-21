@@ -1,10 +1,5 @@
 ## Application Service > API Gateway > 개요
 
-> ※ 본 문서는 alpha 개발 단계의 문서입니다.
-> 사용에 관심이 있으신 분은 **support@cloud.toast.com**으로 문의해 주시기 바랍니다.
-
-
-
 ## API Gateway 개요 
 
 API Gateway는 사용자의 API 생성과 배포 관리를  손쉽게 할 수 있는 서비스를 제공합니다. 

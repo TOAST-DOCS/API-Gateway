@@ -19,11 +19,11 @@ API를 생성, 관리, 배포, 통계, 모니터링 할 수 있으며, 플러그
 
 ## 서비스 용어
 
-|용어|	설명|
-|---|---|
-|Domain|	API 제공자|
-|DomainKey|	API 제공자가 가지는 고유키 ex) exampleDomain|
-|TargetUrl|	API 제공자의 대상 서버 ex) http://api.target.server.com|
-|DomainUrl|	API Gateway를 통해 노출되는 대상 서버에 대한 URL ex) https://api-gw.cloud.toast.com/example|
-|Endpoint|	API Gateway를 통해 노출시킬 API|
-|Plugin|	Domain 혹은 Endpoint에 연결되어 API에 적용되는 플러그인 ex) ACL, Authentification|
+| 용어        | 설명                                       |
+| --------- | ---------------------------------------- |
+| Domain    | API 제공자                                  |
+| DomainKey | API 제공자가 가지는 고유키 ex) exampleDomain       |
+| TargetUrl | API Gateway가 프록시할 endpoint api url ex) http://api.target.server.com |
+| DomainUrl | API Gateway를 통해 노출되는 대상 서버에 대한 URL ex) https://api-gw.cloud.toast.com/example |
+| Endpoint  | API Gateway를 통해 노출시킬 API                 |
+| Plugin    | Domain 혹은 Endpoint에 연결되어 API에 적용되는 플러그인 ex) ACL, Authentification |
