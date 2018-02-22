@@ -56,7 +56,6 @@
 ### 2017.03.23
 
 #### 기능 개선/변경
-
 - [Console] Domain 복제 기능 추가
   - 상세한 내용은 <a href="/ko/Application%20Service/API%20Gateway/ko/console-guide/#_5" target="_blank">Developer`s Guide > Domain clone</a> 참고
 - [API] Target Server API Connection 오류 발생시 상세 응답코드 반환하도록 변경
