@@ -13,11 +13,10 @@
     - Response HTTP Status code의 그룹별 건 수를 확인할 수 있습니다.
     - API Gateway Plugin에서 Response가 반환된 건 수를 확인할 수 있습니다.
   - 2018.02.22 이전 통계 데이터는 고도화 이전의 통계 조회 페이지에서 확인할 수 있습니다. 
-
 - [Console] 모니터링 플러그인 
   - 모니터링 플러그인을 통해 사용자 타겟 서버의 장애를 감지할 수 있습니다. 
     - 사용자 타겟 서버 또는 API Gateway로 부터 Response HTTP Status Code가 400 이상의 코드가 클라이언트에 응답될 경우, 사용자가 등록한 이메일 또는 단말기번호로 알림을 발송합니다. 
-- [API]HTTP Delete 요청에 대해 Request Body를 포함하여 Proxy 할 수 있도록 변경되었습니다. 
+- [API] HTTP Delete 요청에 대해 Request Body를 포함하여 Proxy 할 수 있도록 변경되었습니다. 
 
 
 ### 2017.10.26
