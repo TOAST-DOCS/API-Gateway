@@ -668,8 +668,9 @@ Endpoint Uri pattern에 해당하는 request uri가 요청된 경우, 지정된 
 ![](http://static.toastoven.net/prod_apigateway/console/move_endpoint.png)
 <center>[그림40] Endpoint 설정 화면 이동</center>
 
+2.[Plugins] > [Mock Response]를 추가합니다.
 
-2.Response Mock의 HTTP STATUS, Header, Body를 설정합니다. 
+3.Response Mock의 HTTP STATUS, Header, Body를 설정 후 저장합니다.
 
 ![](http://static.toastoven.net/prod_apigateway/console/plugin_mock_response.png)
 
