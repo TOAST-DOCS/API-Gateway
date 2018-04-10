@@ -26,6 +26,8 @@ API Gateway 상품을 활성화하려면 콘솔에서 상품을 추가할 프로
 - Target URL: API Gateway가 요청을 포워딩할 사용자 API 서버의 URL을 입력합니다. 
 - Scheme: API Gateway가 제공하는 Domain url의 scheme 을 선택합니다.
 
+> [참고]: Target URL의 URI Syntax는 [RFC3986](https://tools.ietf.org/html/rfc3986)을 참고해주세요.
+
 4.Plugin Setting에서 플러그인을 추가합니다. 
 
 도메인 단위에 적용한 플러그인은 도메인 하위의 엔드 포인트에 공통적으로 적용됩니다.
@@ -57,8 +59,7 @@ API Gateway 상품을 활성화하려면 콘솔에서 상품을 추가할 프로
 ![](http://static.toastoven.net/prod_apigateway/console/domain_delete_popup.png)
 <center>[그림6] Domain 삭제 확인</center>
 
-> 주의 : 삭제한 Domain은 복구할 수없습니다. 삭제 시도시 사용자로부터 Domain 이름을 입력 받아서 확인을 합니다.
-
+> 주의 : 삭제한 Domain은 복구할 수없습니다. 삭제는 Domain Key를 입력 후 삭제할 수 있습니다.
 
 
 ### 도메인 복제
@@ -273,6 +274,17 @@ swagger 파일을 import하여 domain을 등록하거나 등록된 domain을 swa
 >  - {[a-z]+} : path variable에 대치   e.g. /v1.0/appKeys/{appKey} : /v1.0/appKeys/myAppKey1, /v1.0/appKeys/myAppKey2 
 
 
+> [참고] Endpoint URI Pattern Mapping
+> Request URI는 복수 개의 URI Pattern과 일치할 수 있습니다. 
+> APIGW는 Request URI와 가장 일치하는 Endpoint URI Pattern에 연결합니다.   
+>
+> [예시]
+> Endpoint URI Pattern에 아래의 두 가지 URI Pattern이 등록되어 있다고 가정합니다.
+>  - URI Pattern 1: /docs/apigw/guide
+>  - URI Pattern 2: /docs/**
+> Request URL이 '/docs/apigw/guide' 일 경우, URI Pattern 1,2 모두 일치합니다. 
+> Pattern1이 Pattern2에 비해 매칭 된 패턴이 많기 때문에 URI Pattern 1로 연결됩니다.
+> 매칭 된 패턴이 문자인 경우 Ant Pattern 표현식보다 우선순위가 높습니다.
 
 ### 엔드 포인트 편집
 
