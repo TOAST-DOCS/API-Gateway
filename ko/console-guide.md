@@ -19,17 +19,15 @@ API Gateway 기본화면 입니다.
 2. **New Domain** 버튼을 클릭합니다.
 
 3. Domain Setting을 설정합니다. 
-- Domain Name: 도메인의 별칭입니다. 도메인 이름을 등록하여 각 도메인을 구분하는 용도로 사용할 수 있습니다.
-- Domain Key: 도메인의 고유한 키입니다. 키 값은 API Gateway의 Endpoint URL에 사용이 됩니다.(api-gw.cloud.toast.com/{domainKey})
-  - Domain Key값은 path 형식의 값은 사용할 수 없습니다. (ex: /apis/gateway 사용 불가)
-- Target URL: API Gateway가 요청을 포워딩할 사용자 API 서버의 URL을 입력합니다. 
-- Scheme: API Gateway가 제공하는 Domain url의 scheme 을 선택합니다.
-
+	- Domain Name: 도메인의 별칭입니다. 도메인 이름을 등록하여 각 도메인을 구분하는 용도로 사용할 수 있습니다.
+	- Domain Key: 도메인의 고유한 키입니다. 키 값은 API Gateway의 Endpoint URL에 사용이 됩니다.(api-gw.cloud.toast.com/{domainKey})
+	  - Domain Key값은 path 형식의 값은 사용할 수 없습니다. (ex: /apis/gateway 사용 불가)
+	- Target URL: API Gateway가 요청을 포워딩할 사용자 API 서버의 URL을 입력합니다. 
+	- Scheme: API Gateway가 제공하는 Domain url의 scheme 을 선택합니다.
 > [참고]: Target URL의 URI Syntax는 [RFC3986](https://tools.ietf.org/html/rfc3986)을 참고해주세요.
 
 4. Plugin Setting에서 플러그인을 추가합니다. 
-
-도메인 단위에 적용한 플러그인은 도메인 하위의 엔드 포인트에 공통적으로 적용됩니다.
+	- 도메인 단위에 적용한 플러그인은 도메인 하위의 엔드 포인트에 공통적으로 적용됩니다.
 
 5. **Save** 버튼을 클릭합니다.
 
@@ -77,15 +75,14 @@ swagger 파일을 import하여 domain을 등록하거나 등록된 domain을 swa
 
 ![apigw_06_201812](https://static.toastoven.net/prod_apigateway/apigw_06_201812.png)
 
-1.Export할 도메인의 **Setting** > **Export swagger**를 클릭하면 swagger 파일이 다운로드 됩니다. (기본 파일명: export.json)
+1. Export할 도메인의 **Setting** > **Export swagger**를 클릭하면 swagger 파일이 다운로드 됩니다. (기본 파일명: export.json)
 
 #### Swagger Import
 
-먼저 Swagger spec을 참고하여 swagger 파일을 작성합니다.
-
+1. Swagger spec을 참고하여 swagger 파일을 작성합니다.
 - [Swagger Specification](http://swagger.io/docs/specification/what-is-swagger/)
 
-TOAST Cloud API Gateway 에서 제공하는 플러그인 설정을 추가하려면 x-toastcloud-apigw 확장 설정 정보를 추가합니다.
+2. TOAST Cloud API Gateway 에서 제공하는 플러그인 설정을 추가하려면 x-toastcloud-apigw 확장 설정 정보를 추가합니다.
 
 - 예시)
 
@@ -273,7 +270,7 @@ TOAST Cloud API Gateway 에서 제공하는 플러그인 설정을 추가하려�
 
 ![apigw_10_201812](https://static.toastoven.net/prod_apigateway/apigw_10_201812.png)
 
-1.Endpoint 목록에서 삭제할 Endpoint 우측에 있는 **Delete** 버튼을 클릭합니다.
+1. Endpoint 목록에서 삭제할 Endpoint 우측에 있는 **Delete** 버튼을 클릭합니다.
 
 2. 삭제 확인 후 **OK** 버튼을 클립합니다.
 
@@ -346,11 +343,8 @@ IP 기반 접근 제한 기능으로 특정 IP를 allow하거나 deny할 수 있
 2. 사용량 제한 조건 설정합니다. 
 - Max Usage Quota에 최대 API 호출 가능 횟수를 지정합니다. 
 - Per(sec)에 초 단위의 시간을 지정합니다. 
-
 단위 시간 동안 최대 호출 횟수를 초과할 경우 API 사용이 제한됩니다. 
-
 복 수개의  사용량 제한 조건을 추가할 수 있으며, 설정된 제한 조건 중 하나 이상의 조건이 제한량을 초과할 경우 사용이 제한됩니다. 
-
 > [참고]
 > 도메인 설정 페이지에서 설정한 [Usage Quota] 플러그인은 도메인 하위 모든 엔드 포인트의 API 사용량에 대한 제한입니다.  
 > 엔드 포인트별로 사용량 제한이 필요한 경우 엔드 포인트의 [EndPoint Usage Quota] 플러그인을 적용해주세요.  
@@ -384,7 +378,6 @@ API Gateway 인증 방식은 HMAC과 JWT (JSON Web Token) 방식이 있습니다
 1. [Plugin Setting] > **Authentication** 플러그인 클릭 후 **HMAC**을 선택합니다.
 
 2. HMAC Secret Key 와 Clock Skew 값을 설정합니다.
-
 > [주의] Clock skew 설정  
 > APIGW 서버의 시간과 Client에서 보낸 X-TC-Timestamp 사이의 차가 Clock Skew보다 크면 HMAC 인증에 실패하게 됩니다.  
 > Clock Skew 값으로 설정 가능한 범위는 0~86400(sec)이며, 만약 0이라면 Clock Skew를 무시합니다.
@@ -401,7 +394,7 @@ HMAC 인증을 사용하기 위해서 다음 값을 Request Header에 포함하�
 
 | 요청                                       | StringToSign                             |
 | ---------------------------------------- | ---------------------------------------- |
-| GET /test/1?query1=1&query2=2<br><br>X-TC-Timestamp: 2016-07-23T12:20:02+09:00<br><span style="color:red">Authorization: IqY8u/RZY8IMESwa/TPW9P9Z39Y=</span> | GET\n<br>/test/1?query1=1&query2=2\n<br>2016-07-23T12:20:02+09:00 |
+| GET /test/1?query1=1&query2=2<br>X-TC-Timestamp: 2016-07-23T12:20:02+09:00<br><span style="color:red">Authorization: IqY8u/RZY8IMESwa/TPW9P9Z39Y=</span> | GET\n<br>/test/1?query1=1&query2=2\n<br>2016-07-23T12:20:02+09:00 |
 
 > [참고] 요청 시간은 ISO Datetime format (yyyy-MM-dd'T'hh:mm:ssZ)을 따릅니다.
 
@@ -502,59 +495,44 @@ API Gateway의 Proxy에서 사용자의 API 서버의 응답 값이 오류 상�
 1. [Plugin Setting] > **Monitor** 플러그인 클릭 후 **Monitor**를 선택합니다.
 
 2. 모니터링 기본 설정 정보를 입력합니다. 
+	##### Monitor Type
+	- Domain: 도메인에서 발생한 전체 에러 발생량에 대해 모니터링을 수행합니다.
+	  - 하위 모든 Endpoint의 에러 발생량의 합계가 Threshold를 초과 하였을 경우 모니터링 알림이 발송됩니다. 
+	- Endpoint: 각 Endpoint 에러 발생량에 대해 모니터링을 수행합니다. 
+	  - 각 Endpoint 별로 Threshold을 초과 하였을 경우 모니터링 알림이 발송됩니다.
 
-##### Monitor Type
+	##### Monitor Period (모니터 주기 시간, 단위/분) 
+	- 모니터링 주기 시간(단위/분)을 지정합니다. 
 
-- Domain: 도메인에서 발생한 전체 에러 발생량에 대해 모니터링을 수행합니다.
-  - 하위 모든 Endpoint의 에러 발생량의 합계가 Threshold를 초과 하였을 경우 모니터링 알림이 발송됩니다. 
-- Endpoint: 각 Endpoint 에러 발생량에 대해 모니터링을 수행합니다. 
-  - 각 Endpoint 별로 Threshold을 초과 하였을 경우 모니터링 알림이 발송됩니다.
+	##### Threshold(단위/분)
+	- 모니터링 주기 시간동안 에러 발생 수가 Threshold를 초과하여 발생하였을 경우 모니터링 알림을 발송합니다. 
 
-##### Monitor Period (모니터 주기 시간, 단위/분) 
-
-- 모니터링 주기 시간(단위/분)을 지정합니다. 
-
-##### Threshold(단위/분)
-
-- 모니터링 주기 시간동안 에러 발생 수가 Threshold를 초과하여 발생하였을 경우 모니터링 알림을 발송합니다. 
-
-##### Snooze(단위/분)
-
-- 모니터링 알림 발생 후 Snooze(분) 시간 동안은 알림을 발송하지 않도록 설정합니다. 
-  Threshold 초과 후 에러가 지속적으로 발생할 경우 알림 발송이 과도하게 발생할 수 있으므로, 이 경우 Snooze을 입력해주세요.
+	##### Snooze(단위/분)
+	- 모니터링 알림 발생 후 Snooze(분) 시간 동안은 알림을 발송하지 않도록 설정합니다. 
+	  Threshold 초과 후 에러가 지속적으로 발생할 경우 알림 발송이 과도하게 발생할 수 있으므로, 이 경우 Snooze을 입력해주세요.
 
 3. Notification 설정: Email
-
 모니터링 알림 발송 수단과 수신 대상자를 설정합니다.
-
 > [참고]  
 > 모니터링 플러그인을 이용하려면 Toast Cloud의 Email 또는 SMS 상품을 활성화 후 앱키를 등록하여 사용할 수 있습니다.  
 > Email/SMS 상품 이용방법은 해당 상품의 설명서를 참고해주세요.  
 > 모니터링 알림 발송으로 인한 발송 요금은 Email과 SMS 상품 이용 요금으로 과금됩니다.   
 > 모니터링 알림 발송 내역은 Email 상품 또는 SMS의 발송 내역 조회에서 확인할 수 있습니다.   
-
 - Toast Cloud Email AppKey: TOAST Cloud의 Email 상품의 앱 키를 입력합니다. 
-
 - Email: 모니터링 알림을 수신 받을 Email 주소를 입력합니다. 
 
+
 4. Notification 설정: SMS
-
 - Toast Cloud SMS AppKey: TOAT Cloud의 SMS 상품 앱 키를 입력합니다.
-
 - Toast Cloud SMS Send number: SMS 발송시 사용 할 발송번호를 입력합니다. 발송번호는 하이픈(-)을 제외한 숫자만 입력해주세요.
-
 - Phone Number: 모니터링 알림을 수신 받을 단말기 번호를 입력합니다.  단말기번호는 하이픈(-)을 제외한 숫자만 입력해주세요.
-
 > [참고] 
 > 발송 번호는 SMS상품에 등록된 발송 번호만 사용이 가능 합니다. 등록되지 않은 발송 번호는 사용할 수 없습니다.   
 > 발송 번호는 등록에 대한 가이드는 SMS 상품의 가이드를 참고해주세요.  
 
 5. Notification 필터
-
 API Gateway Monitor 플러그인은 Response의 HTTP Status Code가 400 이상일 경우 에러가 발생한 것으로 판단합니다. 
-
 특정 에러에 대해 알림을 받고 싶지 않은 경우 Response의 HTTP Status 코드와 Response Body 내용으로 필터를 할 수 있습니다. 
-
 > [참고]  
 > Filter는 Status Code 또는 Filter String 둘 중 하나는 필수 입력입니다.  
 > Status Code 만 입력 할 경우, Response의 HTTP Status Code가 설정한 Status Code에 대해서 필터합니다.  
@@ -592,9 +570,9 @@ Endpoint Uri pattern에 해당하는 request uri가 요청된 경우, 지정된 
 1. [Plugins] > **Mock Response** 플러그인을 추가합니다.
 
 2. Response Mock의 HTTP STATUS, Header, Body를 설정 후 저장합니다.
-- HTTP Status: response의 status code를 설정합니다.
-- Headers: response header에 추가할 헤더와 헤더 값을 설정합니다.
-- Body: response body 내용을 설정합니다. 
+	- HTTP Status: response의 status code를 설정합니다.
+	- Headers: response header에 추가할 헤더와 헤더 값을 설정합니다.
+	- Body: response body 내용을 설정합니다. 
 
 3. 설정 완료 후 **Save** 버튼을 클릭합니다.
 
@@ -614,8 +592,8 @@ Pre API의 응답 코드에 따라 200이면 Endpoint를 호출하고, 응답 �
 ![apigw_22_201812](https://static.toastoven.net/prod_apigateway/apigw_22_201812.png)
 
 1. [Plugins] > **Pre API** 플러그인을 추가합니다.
-
-2 .Pre API의 Method type과 URL을 입력합니다.
+	
+2. Pre API의 Method type과 URL을 입력합니다.
 
 3. 설정 완료 후 **Save** 버튼을 클릭합니다.
 
@@ -629,10 +607,8 @@ API Gateway가 요청을 Proxy 할 때 요청/응답의 헤더 값을 변조하�
 1. Plugins > **Modify Headers** 플러그인을 추가합니다.
 
 2. 설정 정보를 입력합니다.
-
-Request Headers는 요청 헤더를 수정합니다.
-
-Response Headers는 응답 헤더를 수정합니다.
+	- Request Headers는 요청 헤더를 수정합니다.
+	- Response Headers는 응답 헤더를 수정합니다.
 
 > [참고]
 > 설정한 헤더 키가 이미 존재한다면 덮어쓰게 됩니다.
@@ -644,8 +620,7 @@ Response Headers는 응답 헤더를 수정합니다.
 단위 시간동안 Endpoint URI Pattern 별  API 사용량을 제한할 수 있습니다.
 
 ![apigw_24_201812](https://static.toastoven.net/prod_apigateway/apigw_24_201812.png)
-
-
+	
 1. Plugins > **Usage Quota** 플러그인을 추가합니다.
 
 2. 단위 시간(sec) 동안 최대 호출 가능 횟수를 입력합니다.
@@ -681,8 +656,8 @@ Request URL을 패턴 표현식으로 Rewrite 해주는 플러그인 입니다.
 1. Plugins > **URL Rewrite** 플러그인을 추가합니다.
 
 2. 설정 정보를 입력합니다.
-- URI Pattern에는 어떤 패턴형식의 Request URL에 대해 rewrite 할 것인지 패턴 형식을 입력합니다. 
-- Rewrite URI에는 (2)에서 작성한 URI Pattern 형식에 대해 URL을 Rewrite 할 형식을 입력합니다. 
+	- URI Pattern에는 어떤 패턴형식의 Request URL에 대해 rewrite 할 것인지 패턴 형식을 입력합니다. 
+	- Rewrite URI에는 (2)에서 작성한 URI Pattern 형식에 대해 URL을 Rewrite 할 형식을 입력합니다. 
 
 
 #### [예시] /api/v2.0/\*\* -> /api/v1.0/\*\* 로 Rewrite 하는 경우 
@@ -702,9 +677,9 @@ Request URL을 패턴 표현식으로 Rewrite 해주는 플러그인 입니다.
 
 ![apigw_26_201812](https://static.toastoven.net/prod_apigateway/apigw_26_201812.png)
 
-1.배포할 Domain의 **Deploy** 버튼을 클릭합니다. 
+1. 배포할 Domain의 **Deploy** 버튼을 클릭합니다. 
 
-2.배포한 API가 정상적으로 호출되는지 테스트를 합니다.
+2. 배포한 API가 정상적으로 호출되는지 테스트를 합니다.
 domain url에 등록한 endpoint url을 호출 하였을 때 기대한 Response가 전달되는지 확인합니다. 
 
 ```bash
@@ -739,23 +714,17 @@ API 통계에서는 각 도메인 별 API Call 평균 응답시간, 네트워크
 2. 검색 기간 설정하시면 해당 기간 동안의 통계 데이터가 조회됩니다. 
 검색 기간은 최대 30일이내의 데이터만 조회 가능합니다. 
 
-Domain Key: API Setting에서 등록한 도메인 고유 키가 표시됩니다.
-
-Success: 성공한 API Call의 Count 합계 
-- API Call의 성공 기준은 Response HTTP Status Code가 400미만 일 경우 입니다.
-
-Failures: 실패한 API Call의 Count 합계
-- API Call의 실패 기준은 Response HTTP Status Code가 400이상 일 경우 입니다.
-
-Response By APIGW Count: API Gateway 에서 Response가 Client에 전달된 API Call의 Count 합계 입니다. 
-- 특정 플러그인은 API Gateway에서 Response를 반환하기도 합니다. 예를들어 IP ACL에서 허용되지 않은 IP 소유자가 요청이 들어온 경우, API Gateway는 403 Forbidden를 반환합니다. 이와 같이 API Gateway의 Response가 Client에게 전달된 API Call의 합계 입니다.  
-
-Total API CAll Count: 전체 API Call Count 합계 
-- API Gateway로 인입된 전체 API Call Count 입니다. (Total API Call Count = Success + Failures) 
-
-Avg. response time (ms) : 평균 응답 속도 입니다. 단위는 ms 입니다. 
-
-Sum. network outbound traffic: API Gateway -> Client로 Response 전송량의 합계 입니다. 
+- Domain Key: API Setting에서 등록한 도메인 고유 키가 표시됩니다.
+- Success: 성공한 API Call의 Count 합계 
+	- API Call의 성공 기준은 Response HTTP Status Code가 400미만 일 경우 입니다.
+- Failures: 실패한 API Call의 Count 합계
+	- API Call의 실패 기준은 Response HTTP Status Code가 400이상 일 경우 입니다.
+- Response By APIGW Count: API Gateway 에서 Response가 Client에 전달된 API Call의 Count 합계 입니다. 
+	- 특정 플러그인은 API Gateway에서 Response를 반환하기도 합니다. 예를들어 IP ACL에서 허용되지 않은 IP 소유자가 요청이 들어온 경우, API Gateway는 403 Forbidden를 반환합니다. 이와 같이 API Gateway의 Response가 Client에게 전달된 API Call의 합계 입니다.  
+- Total API CAll Count: 전체 API Call Count 합계 
+	- API Gateway로 인입된 전체 API Call Count 입니다. (Total API Call Count = Success + Failures) 
+- Avg. response time (ms) : 평균 응답 속도 입니다. 단위는 ms 입니다. 
+- Sum. network outbound traffic: API Gateway -> Client로 Response 전송량의 합계 입니다. 
 
 3. 검색기간을 설정하여 검색기간 내 도메인별 통계 정보를 확인할 수 있습니다.
 
