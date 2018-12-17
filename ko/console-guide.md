@@ -80,12 +80,9 @@ swagger 파일을 import하여 domain을 등록하거나 등록된 domain을 swa
 #### Swagger Import
 
 1. Swagger spec을 참고하여 swagger 파일을 작성합니다.
-- [Swagger Specification](http://swagger.io/docs/specification/what-is-swagger/)
-
+  - [Swagger Specification](http://swagger.io/docs/specification/what-is-swagger/)
 2. TOAST Cloud API Gateway 에서 제공하는 플러그인 설정을 추가하려면 x-toastcloud-apigw 확장 설정 정보를 추가합니다.
-
-- 예시)
-
+  - 예시)
 ```json
 {
 	"swagger": "2.0",
@@ -341,10 +338,10 @@ IP 기반 접근 제한 기능으로 특정 IP를 allow하거나 deny할 수 있
 1. [Plugin Setting] > **Quota Limit** 플러그인 클릭 후 **Usage Quota**를 선택합니다. 
 
 2. 사용량 제한 조건 설정합니다. 
-- Max Usage Quota에 최대 API 호출 가능 횟수를 지정합니다. 
-- Per(sec)에 초 단위의 시간을 지정합니다. 
-단위 시간 동안 최대 호출 횟수를 초과할 경우 API 사용이 제한됩니다. 
-복 수개의  사용량 제한 조건을 추가할 수 있으며, 설정된 제한 조건 중 하나 이상의 조건이 제한량을 초과할 경우 사용이 제한됩니다. 
+  - Max Usage Quota에 최대 API 호출 가능 횟수를 지정합니다. 
+  - Per(sec)에 초 단위의 시간을 지정합니다. 
+  - 단위 시간 동안 최대 호출 횟수를 초과할 경우 API 사용이 제한됩니다. 
+  - 복 수개의  사용량 제한 조건을 추가할 수 있으며, 설정된 제한 조건 중 하나 이상의 조건이 제한량을 초과할 경우 사용이 제한됩니다. 
 > [참고]
 > 도메인 설정 페이지에서 설정한 [Usage Quota] 플러그인은 도메인 하위 모든 엔드 포인트의 API 사용량에 대한 제한입니다.  
 > 엔드 포인트별로 사용량 제한이 필요한 경우 엔드 포인트의 [EndPoint Usage Quota] 플러그인을 적용해주세요.  
@@ -473,16 +470,16 @@ Cross-Site의 방식 내에서의 XMLHttpRequest API 호출이 가능하도록 �
 1. [Plugin Setting] > **CORS** 플러그인 클릭후 **CORS**를 선택합니다.
 
 2. CORS 설정값을 입력합니다.
-- Allowed credentials: Request with Credential 방식을 사용할 수 있는지를 지정합니다.
-- Max credentials Age: Preflight Request의 결과가 캐시에 얼마나 오래 남아 있는지를 지정합니다. 초 단위이며 0~86400 사이의 값을 입력할 수 있습니다.
-- Allowed origins: 지정된 도메인만 서버의 리소스에 접근할 수 있도록 지정할 수 있습니다. 
-    - *로 입력할 경우 모든 도메인에 대해서 허용합니다. (단, \*로 지정할 경우 credentials를 지원하지 않으므로 allowed origin에 구체적인 도메인을 지정하셔야 합니다.) 
-    - 지정된 도메인에서만 허용하도록 할 경우 ,(comma)로 분리하여 입력합니다. 
-    - 도메인은 URI(scheme, domain, port) 포맷으로 입력해야 합니다.(ex: http://api-gw.toast.com:8080)
-- Allowed methods: 지정된 HTTP Method만 서버 리소스의 접근을 허용합니다.
-- Allowed headers: 클라이언트가 리소스 요청시 사용할 수 있는 HTTP Header를 지정합니다. 여러 헤더를 입력할 경우 ,(comma)로 분리하여 입력합니다.
-- Exposed headers: 클라이언트에게 노출 할 헤더를 지정합니다. 여러 헤더를 입력할 경우 ,(comma)로 분리하여 입력합니다.
-- 자세한 CORS 규약은 https://www.w3.org/TR/cors/ 를 참고 해주세요.
+  - Allowed credentials: Request with Credential 방식을 사용할 수 있는지를 지정합니다.
+  - Max credentials Age: Preflight Request의 결과가 캐시에 얼마나 오래 남아 있는지를 지정합니다. 초 단위이며 0~86400 사이의 값을 입력할 수 있습니다.
+  - Allowed origins: 지정된 도메인만 서버의 리소스에 접근할 수 있도록 지정할 수 있습니다. 
+      - *로 입력할 경우 모든 도메인에 대해서 허용합니다. (단, \*로 지정할 경우 credentials를 지원하지 않으므로 allowed origin에 구체적인 도메인을 지정하셔야 합니다.) 
+      - 지정된 도메인에서만 허용하도록 할 경우 ,(comma)로 분리하여 입력합니다. 
+      - 도메인은 URI(scheme, domain, port) 포맷으로 입력해야 합니다.(ex: http://api-gw.toast.com:8080)
+  - Allowed methods: 지정된 HTTP Method만 서버 리소스의 접근을 허용합니다.
+  - Allowed headers: 클라이언트가 리소스 요청시 사용할 수 있는 HTTP Header를 지정합니다. 여러 헤더를 입력할 경우 ,(comma)로 분리하여 입력합니다.
+  - Exposed headers: 클라이언트에게 노출 할 헤더를 지정합니다. 여러 헤더를 입력할 경우 ,(comma)로 분리하여 입력합니다.
+  - 자세한 CORS 규약은 https://www.w3.org/TR/cors/ 를 참고 해주세요.
 
 3. 설정 완료 후 **Save** 버튼을 클릭합니다.
 
@@ -514,19 +511,19 @@ API Gateway의 Proxy에서 사용자의 API 서버의 응답 값이 오류 상�
 
 3. Notification 설정: Email
 모니터링 알림 발송 수단과 수신 대상자를 설정합니다.
+  - Toast Cloud Email AppKey: TOAST Cloud의 Email 상품의 앱 키를 입력합니다. 
+  - Email: 모니터링 알림을 수신 받을 Email 주소를 입력합니다. 
 > [참고]  
 > 모니터링 플러그인을 이용하려면 Toast Cloud의 Email 또는 SMS 상품을 활성화 후 앱키를 등록하여 사용할 수 있습니다.  
 > Email/SMS 상품 이용방법은 해당 상품의 설명서를 참고해주세요.  
 > 모니터링 알림 발송으로 인한 발송 요금은 Email과 SMS 상품 이용 요금으로 과금됩니다.   
 > 모니터링 알림 발송 내역은 Email 상품 또는 SMS의 발송 내역 조회에서 확인할 수 있습니다.   
-- Toast Cloud Email AppKey: TOAST Cloud의 Email 상품의 앱 키를 입력합니다. 
-- Email: 모니터링 알림을 수신 받을 Email 주소를 입력합니다. 
 
 
 4. Notification 설정: SMS
-- Toast Cloud SMS AppKey: TOAT Cloud의 SMS 상품 앱 키를 입력합니다.
-- Toast Cloud SMS Send number: SMS 발송시 사용 할 발송번호를 입력합니다. 발송번호는 하이픈(-)을 제외한 숫자만 입력해주세요.
-- Phone Number: 모니터링 알림을 수신 받을 단말기 번호를 입력합니다.  단말기번호는 하이픈(-)을 제외한 숫자만 입력해주세요.
+  - Toast Cloud SMS AppKey: TOAT Cloud의 SMS 상품 앱 키를 입력합니다.
+  - Toast Cloud SMS Send number: SMS 발송시 사용 할 발송번호를 입력합니다. 발송번호는 하이픈(-)을 제외한 숫자만 입력해주세요.
+  - Phone Number: 모니터링 알림을 수신 받을 단말기 번호를 입력합니다.  단말기번호는 하이픈(-)을 제외한 숫자만 입력해주세요.
 > [참고] 
 > 발송 번호는 SMS상품에 등록된 발송 번호만 사용이 가능 합니다. 등록되지 않은 발송 번호는 사용할 수 없습니다.   
 > 발송 번호는 등록에 대한 가이드는 SMS 상품의 가이드를 참고해주세요.  
