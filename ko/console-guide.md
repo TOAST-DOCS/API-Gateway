@@ -320,9 +320,8 @@ IP 기반 접근 제한 기능으로 특정 IP를 allow하거나 deny할 수 있
 1. [Plugin Setting] > **Access Control** 플러그인 클릭 후  **IP ACL** 을 선택합니다. 
 
 2. Permit을 통해 설정된 IP 목록에 대해 allow할 것인지 deny할 것인지 설정합니다. 
-
-- true로 설정할 경우 white list로 동작합니다. (설정된 IP에 대해서만 allow, 그 외 모든 IP는 block)
-- false로 설정할 경우 black list로 동작합니다. (설정된 IP에 대해서만 deny, 그 외 모든 IP는 allow)
+  * true로 설정할 경우 white list로 동작합니다. (설정된 IP에 대해서만 allow, 그 외 모든 IP는 block)
+  * false로 설정할 경우 black list로 동작합니다. (설정된 IP에 대해서만 deny, 그 외 모든 IP는 allow)
 
 3. ipv4 형식의 IP를 입력 후 **add** 버튼을 클릭하여 IP 목록에 추가합니다. 
 
@@ -338,10 +337,11 @@ IP 기반 접근 제한 기능으로 특정 IP를 allow하거나 deny할 수 있
 1. [Plugin Setting] > **Quota Limit** 플러그인 클릭 후 **Usage Quota**를 선택합니다. 
 
 2. 사용량 제한 조건 설정합니다. 
-  - Max Usage Quota에 최대 API 호출 가능 횟수를 지정합니다. 
-  - Per(sec)에 초 단위의 시간을 지정합니다. 
-  - 단위 시간 동안 최대 호출 횟수를 초과할 경우 API 사용이 제한됩니다. 
-  - 복 수개의  사용량 제한 조건을 추가할 수 있으며, 설정된 제한 조건 중 하나 이상의 조건이 제한량을 초과할 경우 사용이 제한됩니다. 
+  * Max Usage Quota에 최대 API 호출 가능 횟수를 지정합니다. 
+  * Per(sec)에 초 단위의 시간을 지정합니다. 
+  * 단위 시간 동안 최대 호출 횟수를 초과할 경우 API 사용이 제한됩니다. 
+  * 복 수개의  사용량 제한 조건을 추가할 수 있으며, 설정된 제한 조건 중 하나 이상의 조건이 제한량을 초과할 경우 사용이 제한됩니다. 
+
 > [참고]
 > 도메인 설정 페이지에서 설정한 [Usage Quota] 플러그인은 도메인 하위 모든 엔드 포인트의 API 사용량에 대한 제한입니다.  
 > 엔드 포인트별로 사용량 제한이 필요한 경우 엔드 포인트의 [EndPoint Usage Quota] 플러그인을 적용해주세요.  
