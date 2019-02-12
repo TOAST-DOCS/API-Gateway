@@ -20,9 +20,6 @@ API Gateway는 사용자의 API 생성과 배포 관리를  손쉽게 할 수 �
 #### 다양한 통계 정보 제공 
 - API Call Count, HTTP Response Code별 통계, 평균 응답속도, 네트워크 트래픽 사용량에 대한 정보를 제공합니다.
 
-#### 모니터링 
-- 모니터링 플러그인을 통해 사용자의 API 서버의 장애를  API Gateway가 탐지하고 알림을 전송합니다. 
-
 ## API Gateway 서비스 흐름 
 
 ![[그림1] 서비스 구조](http://static.toastoven.net/prod_apigateway/overview/service_flow.png)
