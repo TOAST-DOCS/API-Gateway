@@ -12,13 +12,13 @@ API Gateway 기본 화면입니다. 등록된 도메인의 목록이 표시됩�
 
 ### 도메인 생성 
 
-도메인은 사용자의 엔드포인트 API를 관리하기 위해 필요합니다.
+API Gateway의 도메인 주소 생성과 클라이언트의 요청을 포워딩할 엔드포인트 서버 주소를 설정하려면 도메인을 생성해야 합니다.
 
 ![apigw_02_201812](https://static.toastoven.net/prod_apigateway/apigw_02_201812.png)
 
-1. **새 도메인(New Domain)** 목록을 클릭합니다.
+1. **도메인 생성(New Domain)** 목록을 클릭합니다.
 
-2. **새 도메인(New Domain)** 버튼을 클릭합니다.
+2. **도메인 생성(New Domain)** 버튼을 클릭합니다.
 
 3. 도메인을 설정합니다. 
   - 도메인 이름(Domain Name): 도메인의 별칭입니다. 도메인을 구분하는 용도로 사용할 수 있습니다.
@@ -66,7 +66,7 @@ API Gateway 기본 화면입니다. 등록된 도메인의 목록이 표시됩�
 
 ![apigw_05_201812](https://static.toastoven.net/prod_apigateway/apigw_05_201812.png)
 
-1. 복제할 도메인의 **설정(Setting) > '___'으로부터 도메인 복제(Clone from '___' domain)**을 클릭합니다.
+1. 복제할 도메인의 **설정(Setting) > \'___\'으로부터 도메인 복제(Clone from \'___\' domain)**을 클릭합니다.
 
 2. 복제하여 새로 생성할 도메인에서 변경이 필요한 정보를 수정합니다.
 
@@ -487,7 +487,7 @@ Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니�
   - Access-Control-Allow-Origin: 리소스에 액세스할 수 있는 원본/도메인을 입력합니다.
       - *로 입력하면 모든 도메인을 허용합니다.(단, \*로 지정할 경우 자격증명을 지원하지 않으므로 허용 원본(allowed origin)에 구체적인 도메인을 지정하셔야 합니다.) 
       - 지정된 도메인에서만 허용할 때는 ,(쉼표)로 구분해 입력합니다. 
-      - 도메인은 URI(스키마, 도메인, 포트) 형식으로 입력해야 합니다(예: http://api-gw.toast.com:8080).
+      - 도메인은 URI(스킴, 도메인, 포트) 형식으로 입력해야 합니다(예: http://api-gw.toast.com:8080).
   - Access-Control-Allow-Methods: 리소스 접근에 허용할 메서드를 설정합니다. 여러 메서드를 지정할 경우 ','로 구분해 입력합니다.
   - Access-Control-Allow-Headers: 요청에서 사용할 수 있는 HTTP 헤더를 설정합니다. 여러 헤더를 설정할 경우 ','로 구분해 입력합니다.
   - Access-Control-Expose-Headers: 브라우저(클라이언트)가 접근할 수 있는 헤더를 설정합니다. 여러 헤더를 설정할 경우 ','로 구분해 입력합니다.
@@ -658,7 +658,7 @@ API 통계에서는 각 도메인별 API 호출 평균 응답 시간, 네트워�
   - 특정 플러그인은 API Gateway에서 응답을 반환하기도 합니다. 예를 들어 IP ACL에서 허용되지 않은 IP 소유자가 요청이 들어온 경우, API Gateway는 403 Forbidden를 반환합니다. 이와 같이 API Gateway의 Response가 클라이언트에게 전달된 API 호출의 합계입니다.  
 - API 호출 수: 전체 API 호출 수 합계 
   - API Gateway로 인입된 전체 API 호출 수(Total API CALL Count = Success + Failures). 
-- 평균 응답 시간(ms): 평균 응답 속도. 단위는 ms. 
+- 평균 응답 시간(ms): 평균 응답 속도 
 - 네트워크 아웃바운드 트래픽(bytes): API Gateway에서 클라이언트로 전송된 응답량의 합계 
 
 3. 검색 기간을 설정해 검색 기간 내 도메인별 통계 정보를 확인할 수 있습니다.
