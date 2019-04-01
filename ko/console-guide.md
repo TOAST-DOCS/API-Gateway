@@ -6,11 +6,13 @@ API Gateway 서비스를 활성화하려면 콘솔에서 서비스를 추가할 
 
 ## 도메인
 
-API Gateway 기본 화면입니다.
+API Gateway 기본 화면입니다. 등록된 도메인의 목록이 표시됩니다.
 
 ![apigw_01_201812](https://static.toastoven.net/prod_apigateway/apigw_01_201812.png)
 
 ### 도메인 생성 
+
+API Gateway에 도메인을 생성합니다.
 
 ![apigw_02_201812](https://static.toastoven.net/prod_apigateway/apigw_02_201812.png)
 
@@ -33,6 +35,8 @@ API Gateway 기본 화면입니다.
 
 ### 도메인 편집
 
+등록된 도메인의 설정을 수정할 수 있습니다. 
+
 ![apigw_03_201812](https://static.toastoven.net/prod_apigateway/apigw_03_201812.png)
 
 1. 편집할 도메인의 **설정(Setting)** 버튼을 클릭합니다.
@@ -42,6 +46,8 @@ API Gateway 기본 화면입니다.
 3. 도메인 설정을 변경하고 **저장(Save)** 버튼을 클릭하여 저장합니다.
 
 ### 도메인 삭제
+
+등록된 도메인을 삭제할 수 있습니다.
 
 ![apigw_04_201812](https://static.toastoven.net/prod_apigateway/apigw_04_201812.png)
 
