@@ -2,11 +2,11 @@
 
 
 
-## Usage Quota 
+## 사용량 제한(Usage Quota)
 
-사용량 제한을 초과하였을 경우 HTTP Status 403 response가 반환 됩니다. 
+사용량 제한을 초과하면 HTTP Status 403 response가 반환됩니다. 
 
-#### 에러코드
+#### 오류 코드
 
 ```
 {
@@ -24,9 +24,9 @@
 
 ## HMAC
 
-HMAC 인증 실패시 HTTP status 401 response가 반환됩니다.
+HMAC 인증 실패 시 HTTP status 401 response가 반환됩니다.
 
-#### 에러코드
+#### 오류 코드
 
 ```
 {
@@ -48,9 +48,9 @@ HMAC 인증 실패시 HTTP status 401 response가 반환됩니다.
 
 ## JWT 
 
-JWT 인증 실패시 HTTP status 401 response가 반환됩니다.
+JWT 인증 실패 시 HTTP status 401 response가 반환됩니다.
 
-#### 에러코드
+#### 오류 코드
 
 ```
 {  
@@ -68,11 +68,11 @@ JWT 인증 실패시 HTTP status 401 response가 반환됩니다.
 | 401              | 20002       | 20002 JWT authentication failed (Exceeded expiration time) |
 | 401              | 20002       | 20002 JWT authentication failed (Invalid authorization) |
 
-## PRE API 
+## 사전 호출 API(Pre API)
 
-PRE API 인증 실패시 HTTP status 502 response가 반환됩니다.
+Pre API 인증 실패 시 HTTP status 502 response가 반환됩니다.
 
-#### 에러코드
+#### 오류 코드
 
 ```
 {  
@@ -88,11 +88,11 @@ PRE API 인증 실패시 HTTP status 502 response가 반환됩니다.
 | ---------------- | ----------- | ------------------------------- |
 | 502              | 20008       | 20008 Pre api connection failed |
 
-## URL Rewrite 
+## URL 재작성(URL Rewrite)
 
-URI Pattern 또는 Rewrite URI 형식이 잘못된 문법으로 설정하였을 경우 HTTP status 500 response가 반환됩니다.
+URI 패턴 또는 URI 재작성 형식을 잘못된 문법으로 설정하면 HTTP status 500 response가 반환됩니다.
 
-#### 에러코드
+#### 오류 코드
 
 ```
 {  
@@ -108,5 +108,3 @@ URI Pattern 또는 Rewrite URI 형식이 잘못된 문법으로 설정하였을 
 | ---------------- | ----------- | ------------------------------- |
 | 500              | 20005       | URI Pattern's syntax is invalid |
 | 500              | 20006       | Rewrite URI's syntax is invalid |
-
-###  
