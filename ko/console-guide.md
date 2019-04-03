@@ -66,7 +66,7 @@ API Gateway의 도메인 주소 생성과 클라이언트의 요청을 포워딩
 
 ![apigw_05_201812](https://static.toastoven.net/prod_apigateway/apigw_05_201812.png)
 
-1. 복제할 도메인의 **설정(Setting) \> '___'으로부터 도메인 복제(Clone from '___' domain)**을 클릭합니다.
+1. 복제할 도메인의 **설정(Setting)** > **'___' 으로부터 도메인 복제**(Clone from '___' domain)을 클릭합니다.
 
 2. 복제하여 새로 생성할 도메인에서 변경이 필요한 정보를 수정합니다.
 
