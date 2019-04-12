@@ -1,12 +1,12 @@
-## Application Service > API Gateway > Error Code
+﻿## Application Service > API Gateway > エラーコード
 
 
 
-## Usage Quota 
+## 使用量制限(Usage Quota)
 
-사용량 제한을 초과하였을 경우 HTTP Status 403 response가 반환 됩니다. 
+使用量制限を超えると、HTTP Status 403 responseが返されます。
 
-#### 에러코드
+#### エラーコード
 
 ```
 {
@@ -24,9 +24,9 @@
 
 ## HMAC
 
-HMAC 인증 실패시 HTTP status 401 response가 반환됩니다.
+HMAC認証失敗時、HTTP status 401 responseが返されます。
 
-#### 에러코드
+#### エラーコード
 
 ```
 {
@@ -48,9 +48,9 @@ HMAC 인증 실패시 HTTP status 401 response가 반환됩니다.
 
 ## JWT 
 
-JWT 인증 실패시 HTTP status 401 response가 반환됩니다.
+JWT認証失敗時、HTTP status 401 responseが返されます。
 
-#### 에러코드
+#### エラーコード
 
 ```
 {  
@@ -68,11 +68,11 @@ JWT 인증 실패시 HTTP status 401 response가 반환됩니다.
 | 401              | 20002       | 20002 JWT authentication failed (Exceeded expiration time) |
 | 401              | 20002       | 20002 JWT authentication failed (Invalid authorization) |
 
-## PRE API 
+## 事前呼び出しAPI(Pre API)
 
-PRE API 인증 실패시 HTTP status 502 response가 반환됩니다.
+Pre API認証失敗時、HTTP status 502 responseが返されます。
 
-#### 에러코드
+#### エラーコード
 
 ```
 {  
@@ -88,11 +88,11 @@ PRE API 인증 실패시 HTTP status 502 response가 반환됩니다.
 | ---------------- | ----------- | ------------------------------- |
 | 502              | 20008       | 20008 Pre api connection failed |
 
-## URL Rewrite 
+## URL再作成(URL Rewrite)
 
-URI Pattern 또는 Rewrite URI 형식이 잘못된 문법으로 설정하였을 경우 HTTP status 500 response가 반환됩니다.
+URIパターンまたはURI再作成形式を無効な文法で設定すると、HTTP status 500 responseが返されます。
 
-#### 에러코드
+#### エラーコード
 
 ```
 {  
@@ -108,5 +108,3 @@ URI Pattern 또는 Rewrite URI 형식이 잘못된 문법으로 설정하였을 
 | ---------------- | ----------- | ------------------------------- |
 | 500              | 20005       | URI Pattern's syntax is invalid |
 | 500              | 20006       | Rewrite URI's syntax is invalid |
-
-###  

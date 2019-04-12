@@ -1,29 +1,29 @@
-## Application Service > API Gateway > Overview
+﻿## Application Service > API Gateway > 概要
 
-## API Gateway 개요 
+## API Gatewayの概要 
 
-API Gateway는 사용자의 API 생성과 배포 관리를  손쉽게 할 수 있는 서비스를 제공합니다. 
-접근 제한, 트래픽 제어, 메시지 변조 방지 등의 유용한 플러그인을 제공합니다. 
+API Gatewayは、ユーザーのAPI作成と配布管理を簡単にできるサービスです。 
+アクセス制限、トラフィック制御、メッセージ改ざん防止などの、便利なプラグインを提供します。 
 
 
-## 주요 기능 
+## 主な機能 
 
-#### API 생성, 배포, 관리 
-- API Gateway는 사용자의 API의 리소스와 메서드를 손쉽게 관리하고 배포할 수 있습니다.
-- API Gateway에서 제공하는 프런트 엔드 포인트를 통해 사용자의 API를 노출시킬 수 있습니다. 
-- 사용자 API 서버마다 API Gateway를 만들지 않아도 되므로 비용이 절감됩니다.
+#### APIの作成、配布、管理 
+- API Gatewayは、ユーザーのAPIのリソースとメソッドを手軽に管理し、配布できます。
+- API Gatewayで提供するフロントエンドポイントを通して、ユーザーのAPIを表示できます。 
+- ユーザーAPIサーバーごとにAPI Gatewayを作成する必要がないので、費用が削減できます。
 
-#### 다양한 플러그인 제공 
-- 접근 제한(IP ACL), 메시지 변조 방지(HMAC, JWT), 트래픽 관리(Throttling) 등의 다양한 플러그인 기능을 제공합니다.
-- API Gateway 플러그인에서 제공하는 기능을 이용하면 개발자는 주 비즈니스 로직 개발에만 집중할 수 있습니다. 
+#### 多様なプラグインの提供 
+- アクセス制限(IP ACL)、メッセージ改ざん防止(HMAC、JWT)、トラフィック管理(throttling)などの多様なプラグイン機能を提供します。
+- API Gatewayプラグインで提供する機能を利用すると、開発者は主要なビジネスロジックの開発にのみ集中できます。 
 
-#### 다양한 통계 정보 제공 
-- API Call Count, HTTP Response Code별 통계, 평균 응답속도, 네트워크 트래픽 사용량에 대한 정보를 제공합니다.
+#### 多様な統計情報の提供 
+- API呼び出し数、HTTPレスポンスコード(response code)別統計、平均レスポンス速度、ネットワークトラフィック使用量などの情報を提供します。
 
-## API Gateway 서비스 흐름 
+## API Gatewayサービスの流れ
 
-![[그림1] 서비스 구조](http://static.toastoven.net/prod_apigateway/overview/service_flow.png)
+![[図1]サービスの構造](http://static.toastoven.net/prod_apigateway/overview/service_flow.png)
 
-Client는 API Gateway에서 제공하는 Domain url을 통해 사용자의 Target API Server의 Target Url을 호출 할 수있습니다.
+クライアントは、API Gatewayで提供するドメインURLを通して、ユーザーのエンドポイントAPIサーバー(endpoint API server)のURLを呼び出すことができます。
 
-API Gateway Console에서 부가적인 Plugin 설정을 하는 것만으로 Access Control, Authentification 등의 기능을 추가 할 수 있습니다. 
+API Gatewayのコンソールで追加のプラグインを設定するだけで、アクセス制御、認証などの機能を追加できます。 
