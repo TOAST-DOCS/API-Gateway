@@ -1,4 +1,5 @@
-﻿## Application Service > API Gateway > リリースノート
+﻿
+## Application Service > API Gateway > リリースノート
 
 ### 2019.02.26
 

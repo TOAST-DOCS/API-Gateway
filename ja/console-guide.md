@@ -1,4 +1,5 @@
-﻿## Application Service > API Gateway > コンソール使用ガイド
+﻿
+## Application Service > API Gateway > コンソール使用ガイド
 
 ## API Gatewayの有効化 
 

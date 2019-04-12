@@ -1,4 +1,5 @@
-﻿## Application Service > API Gateway > 概要
+﻿
+## Application Service > API Gateway > 概要
 
 ## API Gatewayの概要 
 

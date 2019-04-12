@@ -1,6 +1,5 @@
-﻿## Application Service > API Gateway > エラーコード
-
-
+﻿
+## Application Service > API Gateway > エラーコード
 
 ## 使用量制限(Usage Quota)
 
