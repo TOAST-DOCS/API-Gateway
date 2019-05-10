@@ -2,7 +2,7 @@
 
 
 
-## 사용량 제한(Usage Quota)
+## 사용량 제한(Usage Limit)
 
 사용량 제한을 초과하면 HTTP Status 403 response가 반환됩니다. 
 
@@ -68,9 +68,9 @@ JWT 인증 실패 시 HTTP status 401 response가 반환됩니다.
 | 401              | 20002       | 20002 JWT authentication failed (Exceeded expiration time) |
 | 401              | 20002       | 20002 JWT authentication failed (Invalid authorization) |
 
-## 사전 호출 API(Pre API)
+## 사전 호출 API(Pre-call API)
 
-Pre API 인증 실패 시 HTTP status 502 response가 반환됩니다.
+Pre-call API 인증 실패 시 HTTP status 502 response가 반환됩니다.
 
 #### 오류 코드
 
@@ -88,9 +88,9 @@ Pre API 인증 실패 시 HTTP status 502 response가 반환됩니다.
 | ---------------- | ----------- | ------------------------------- |
 | 502              | 20008       | 20008 Pre api connection failed |
 
-## URL 재작성(URL Rewrite)
+## URL 재작성(Rewrite URL)
 
-URI 패턴 또는 URI 재작성 형식을 잘못된 문법으로 설정하면 HTTP status 500 response가 반환됩니다.
+URI 패턴 또는 URL 재작성 형식을 잘못된 문법으로 설정하면 HTTP status 500 response가 반환됩니다.
 
 #### 오류 코드
 

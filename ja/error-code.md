@@ -1,7 +1,7 @@
 ﻿
 ## Application Service > API Gateway > エラーコード
 
-## 使用量制限(Usage Quota)
+## 使用量制限(Usage Limit)
 
 使用量制限を超えると、HTTP Status 403 responseが返されます。
 
@@ -67,9 +67,9 @@ JWT認証失敗時、HTTP status 401 responseが返されます。
 | 401              | 20002       | 20002 JWT authentication failed (Exceeded expiration time) |
 | 401              | 20002       | 20002 JWT authentication failed (Invalid authorization) |
 
-## 事前呼び出しAPI(Pre API)
+## 事前呼び出しAPI(Pre-call API)
 
-Pre API認証失敗時、HTTP status 502 responseが返されます。
+Pre-call API認証失敗時、HTTP status 502 responseが返されます。
 
 #### エラーコード
 
@@ -87,9 +87,9 @@ Pre API認証失敗時、HTTP status 502 responseが返されます。
 | ---------------- | ----------- | ------------------------------- |
 | 502              | 20008       | 20008 Pre api connection failed |
 
-## URL再作成(URL Rewrite)
+## URL再作成(Rewrite URL)
 
-URIパターンまたはURI再作成形式を無効な文法で設定すると、HTTP status 500 responseが返されます。
+URIパターンまたはURL再作成形式を無効な文法で設定すると、HTTP status 500 responseが返されます。
 
 #### エラーコード
 
