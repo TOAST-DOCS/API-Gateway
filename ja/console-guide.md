@@ -17,15 +17,15 @@ API Gatewayのドメインアドレス作成とクライアントのリクエス
 
 ![apigw_02_201812](https://static.toastoven.net/prod_apigateway/apigw_02_201812.png)
 
-1. **ドメイン作成(New Domain)**リストをクリックします。
+1. **ドメイン作成(Create Domain)**リストをクリックします。
 
-2. **ドメイン作成(New Domain)**ボタンをクリックします。
+2. **ドメイン作成(Create Domain)**ボタンをクリックします。
 
 3. ドメインを設定します。 
   - ドメイン名(Domain Name)：ドメインのエイリアスです。ドメインを区分する用途で使用できます。
   - ドメインキー(Domain Key)：ドメインの固有キーです。キー値はAPI GatewayのエンドポイントURLに使用されます。(api-gw.cloud.toast.com/{domainKey})
     - ドメインキーにはパス(path)形式の値は使用できません(例：/apis/gateway使用不可)。
-  - エンドポイントサーバーURL：API Gatewayがリクエストを渡すユーザーAPIサーバーのURLを入力します。 
+  - エンドポイントサーバーURL(URL for Endpoint Server)：API Gatewayがリクエストを渡すユーザーAPIサーバーのURLを入力します。 
   - スキーム(Scheme)：API Gatewayが提供するドメインURLのスキームを選択します。
 > [参考]エンドポイントサーバーURLのURI構文は、[RFC3986](https://tools.ietf.org/html/rfc3986)を参照してください。
 
@@ -67,7 +67,7 @@ API Gatewayのドメインアドレス作成とクライアントのリクエス
 
 ![apigw_05_201812](https://static.toastoven.net/prod_apigateway/apigw_05_201812.png)
 
-1. 複製するドメインの**設定(Setting) \> '___'から、ドメインの複製(Clone from '___' domain)**をクリックします。
+1. 複製するドメインの**設定(Setting) \> '___'から、ドメインの複製(Copy Domain from '___')**をクリックします。
 
 2. 複製し、新たに作成するドメインで変更が必要な情報を修正します。
 
@@ -180,7 +180,7 @@ swaggerファイルをインポートしてドメインを登録できます。�
 
 ![apigw_06_201812](https://static.toastoven.net/prod_apigateway/apigw_06_201812.png)
 
-1. エクスポートするドメインの**設定(Setting) > Swaggerファイルにエクスポート(Export swagger)**をクリックすると、swaggerファイルがダウンロードされます。基本ファイル名はexport.jsonです。
+1. エクスポートするドメインの**設定(Setting) > Swaggerファイルにエクスポート(Export in Swagger File)**をクリックすると、swaggerファイルがダウンロードされます。基本ファイル名はexport.jsonです。
 #### ドメイン基本情報設定
 
 - swagger：swaggerバージョンを入力します。基本サポートバージョンはswagger 2.0です。
@@ -199,21 +199,21 @@ swaggerファイルをインポートしてドメインを登録できます。�
 - IPACL：ドメインのアクセス制御(Access Control) > IPアクセス制御(IP ACL)プラグイン設定情報を入力します(アクセス制御グループの中から1つのみ入力可能)。
 - HMAC：ドメインの認証(Authentication) > HAMCプラグイン設定情報を入力します(認証グループの中から1つのみ入力可能)。
 - JWT：ドメインの認証(Authentication) > JSON Web Token (JWT)プラグイン設定情報を入力します(認証グループの中から1つのみ入力可能)。
-- USAGE_QUOTA：ドメインの使用量制限(Quota Limit) > 使用量制限(Usage Quota)プラグイン設定情報を入力します(使用量制限グループの中から1つのみ入力可能)。
+- USAGE_QUOTA：ドメインの使用量制限(Usage Limit) > 使用量制限(Usage Limit)プラグイン設定情報を入力します(使用量制限グループの中から1つのみ入力可能)。
 - MAINTENANCE：ドメインのメンテナンス(Maintenance) > メンテナンスレスポンス(Maintenance Response)プラグイン設定情報を入力します(メンテナンスグループの中から1つのみ入力可能)。
 
 #### エンドポイントプラグイン設定
 
 - エンドポイントプラグインは、各パスレベルのx-cloudtoast-apigwに設定情報を入力します。
-- MOCK：ユーザー定義レスポンス(Mock Response)プラグイン設定情報を入力します。
-- ENDPOINT_USAGE_QUOTA：使用量制限(Usage Quota)プラグイン設定情報を入力します。
-- PRE_API：事前呼び出しAPI(Pre API)プラグイン設定情報を入力します。
+- MOCK：ユーザー定義レスポンス(User-defined Response)プラグイン設定情報を入力します。
+- ENDPOINT_USAGE_QUOTA：使用量制限(Usage Limit)プラグイン設定情報を入力します。
+- PRE_API：事前呼び出しAPI(Pre-call API)プラグイン設定情報を入力します。
 - HEADER：ヘッダ修正(Modify Header)プラグイン設定情報を入力します。
-- URI_REWRITE：URLの再作成(URL Rewrite)プラグイン設定情報を入力します。
+- URI_REWRITE：URLの再作成(Rewrite URL)プラグイン設定情報を入力します。
 
 ![apigw_07_201812](https://static.toastoven.net/prod_apigateway/apigw_07_201812.png)
 
-1. **Swaggerファイルでドメインのインポート(Import Domain)**ボタンをクリックします。
+1. **Swaggerファイルでドメインのインポート(Import Domain in Swagger File)**ボタンをクリックします。
 
 2. インポートするSwaggerファイルを添付します。
 
@@ -229,7 +229,7 @@ swaggerファイルをインポートしてドメインを登録できます。�
 
 1. エンドポイントを作成するドメインの**設定(Setting)**>**エンドポイント(Endpoint)**をクリックします。 
 
-2. **エンドポイント作成(New Endpoint)**ボタンをクリックし、エンドポイントのHTTPメソッドとパスを設定します。
+2. **エンドポイント作成(Create Endpoint)**ボタンをクリックし、エンドポイントのHTTPメソッドとパスを設定します。
 
 3. プラグインを追加するには、**+**ボタンをクリックし、追加するプラグインを選択して値を入力します。
 
@@ -264,7 +264,7 @@ swaggerファイルをインポートしてドメインを登録できます。�
 
 ![apigw_09_201812](https://static.toastoven.net/prod_apigateway/apigw_09_201812.png)
 
-1. エンドポイントリストから、編集するエンドポイントの右にある**修正(Edit)**ボタンをクリックします。
+1. エンドポイントリストから、編集するエンドポイントの右にある**修正(Modify)**ボタンをクリックします。
 
 2. 設定を修正し、右にある**保存(Save)**ボタンをクリックして保存します。
 
@@ -339,23 +339,23 @@ IP基盤のアクセス制限機能です。特定IPを許可または拒否す�
 4. 設定完了後、**保存(Save)**ボタンをクリックします。 
 
 
-### 使用量制限(Quota Limit)
+### 使用量制限(Usage Limit)
 
 一定時間、APIの使用量を制限できます。
 
 ![apigw_14_201812](https://static.toastoven.net/prod_apigateway/apigw_14_201812.png)
 
-1. **プラグイン設定(Plugin Setting) > 使用量制限(Quota Limit)**プラグインをクリックし、**使用量制限(Usage Quota)**を選択します。 
+1. **プラグイン設定(Plugin Setting) > 使用量制限(Usage Limit)**プラグインをクリックし、**使用量制限(Usage Limit)**を選択します。 
 
 2. 使用量制限条件を設定します。 
-  * 最大使用限度(Max Usage Quota)に最大API呼び出し可能回数を指定します。 
+  * 最大使用限度(Maximum Number of Calls)に最大API呼び出し可能回数を指定します。 
   * 時間(Per(sec))に秒単位の時間を指定します。 
   * 指定した時間内の最大呼び出し回数を超えた場合、APIの使用が制限されます。 
   * 使用量制限条件を複数追加でき、設定された制限条件のうち、1つ以上の条件が制限量を超えると使用が制限されます。 
 
 > [参考]
-> ドメイン設定ページで設定した**使用限度(Usage Quota)**プラグインは、ドメイン下位のすべてのエンドポイントのAPI使用量に対する制限です。  
-> エンドポイントごとに使用量制限が必要な場合は、エンドポイントの**エンドポイント使用限度(EndPoint Usage Quota)**プラグインを適用してください。  
+> ドメイン設定ページで設定した**使用限度(Usage Limit)**プラグインは、ドメイン下位のすべてのエンドポイントのAPI使用量に対する制限です。  
+> エンドポイントごとに使用量制限が必要な場合は、エンドポイントの**エンドポイント使用限度(EndPoint Usage Limit)**プラグインを適用してください。  
 
 3. 設定を保存するには**保存(Save)**ボタンをクリックします。 
 
@@ -365,7 +365,7 @@ IP基盤のアクセス制限機能です。特定IPを許可または拒否す�
 
 ![apigw_15_201812](https://static.toastoven.net/prod_apigateway/apigw_15_201812.png)
 
-1. **プラグイン設定(Plugin Setting) > メンテナンス設定(Maintenance)**プラグインをクリックし、**メンテナンス設定(Maintenance Response)**を選択します。
+1. **プラグイン設定(Plugin Setting) > メンテナンス設定(Maintenance)**プラグインをクリックし、**メンテナンス設定(Maintenance)**を選択します。
 
 2. メンテナンス(Maintenance)レスポンス値を入力します。
 
@@ -499,38 +499,38 @@ Cross-Site方式内でXMLHttpRequest APIを呼び出せるようにします。
 
 ## エンドポイントプラグイン 
 
-### ユーザー定義レスポンス(Mock Response)
+### ユーザー定義レスポンス(User-defined Response)
 
 ユーザーがあらかじめ設定したユーザー定義レスポンスを返します。
 エンドポイントパスに該当するリクエストURI(request URI)がリクエストされたら、指定されたエンドポイントサーバーにリクエストをフォワーディングせず、ユーザーが設定したユーザー定義レスポンスが返されます。
 
 ![apigw_21_201812](https://static.toastoven.net/prod_apigateway/apigw_21_201812.png)
 
-1. **プラグイン(Plugins) > ユーザー定義レスポンス(Mock Response)**プラグインを追加します。
+1. **プラグイン(Plugins) > ユーザー定義レスポンス(User-defined Response)**プラグインを追加します。
 
-2. ユーザー定義レスポンス(mock response) HTTP STATUS、Header、Bodyを設定し、保存します。
+2. ユーザー定義レスポンス(User-defined Response) HTTP STATUS、Header、Bodyを設定し、保存します。
   - HTTP Status：レスポンスのステータスコードを設定します。
   - Headers：レスポンスヘッダ(response header)に追加するヘッダとヘッダ値を設定します。
   - Body：レスポンス本文(response body)内容を設定します。 
 
 3. 設定完了後、**保存(Save)**ボタンをクリックします。
 
-### 事前呼び出しAPI(Pre API)
+### 事前呼び出しAPI(Pre-call API)
 
-事前呼び出しAPI(Pre API)は、エンドポイントを呼び出す前に呼び出され、Pre APIのレスポンスコードに応じてエンドポイントを呼び出すかどうかを決定する認証の役割を担います。
+事前呼び出しAPI(Pre-call API)は、エンドポイントを呼び出す前に呼び出され、Pre-call APIのレスポンスコードに応じてエンドポイントを呼び出すかどうかを決定する認証の役割を担います。
 
-API Gatewayを通して入ったリクエストヘッダを含めて事前呼び出しAPI(Pre API)を呼び出し、事前呼び出しAPI(Pre API)では、渡されたヘッダ内容に応じてレスポンスコードを返します。
+API Gatewayを通して入ったリクエストヘッダを含めて事前呼び出しAPI(Pre-call API)を呼び出し、事前呼び出しAPI(Pre-call API)では、渡されたヘッダ内容に応じてレスポンスコードを返します。
 
-事前呼び出しAPI(Pre API)のレスポンスコードが200の場合はエンドポイントを呼び出し、レスポンスコードが200以外の時は事前呼び出しAPI(Pre API)のレスポンス結果を返します。
-事前呼び出しAPI(Pre API)の呼び出しに失敗した場合は、エラーを返します。
+事前呼び出しAPI(Pre-call API)のレスポンスコードが200の場合はエンドポイントを呼び出し、レスポンスコードが200以外の時は事前呼び出しAPI(Pre-call API)のレスポンス結果を返します。
+事前呼び出しAPI(Pre-call API)の呼び出しに失敗した場合は、エラーを返します。
 
 > [参考]  
-> API Gatewayは、リクエストのヘッダ情報のみを事前呼び出しAPI(Pre API)のURLに渡します。
+> API Gatewayは、リクエストのヘッダ情報のみを事前呼び出しAPI(Pre-call API)のURLに渡します。
 > Request URLまたはBody情報は伝達しません。  
 
 ![apigw_22_201812](https://static.toastoven.net/prod_apigateway/apigw_22_201812.png)
 
-1. **プラグイン(plugins) > 事前呼び出しAPI(Pre API)**プラグインを追加します。
+1. **プラグイン(plugins) > 事前呼び出しAPI(Pre-call API)**プラグインを追加します。
 
 2. 事前APIのメソッドタイプ(method type)とURLを入力します。
 
@@ -555,14 +555,14 @@ API Gatewayを通して入ったリクエストヘッダを含めて事前呼び
 
 
 
-### 使用量制限(Usage Quota)
+### 使用量制限(Usage Limit)
 
 一定時間、パスごとにAPI使用量を制限できます。
 
 ![apigw_24_201812](https://static.toastoven.net/prod_apigateway/apigw_24_201812.png)
 ​	
 
-1. **プラグイン(Plugins) > 使用量制限(Usage Quota)**プラグインを追加します。
+1. **プラグイン(Plugins) > 使用量制限(Usage Limit)**プラグインを追加します。
 
 2. 設定した時間(sec)中の呼び出しできる最大数を入力します。
   - 使用量制限条件を複数追加でき、設定された制限条件のうち1つ以上の条件が制限量を超えると使用が制限されます。 
@@ -572,8 +572,8 @@ API Gatewayを通して入ったリクエストヘッダを含めて事前呼び
 
 > [注意]  
 > 'エンドポイント使用量制限'は、エンドポイントパスごとの使用量制限です。    
-> ドメイン使用量制限が必要な場合、ドメイン設定ページの使用量制限(Usage Quota)を設定してください。    
-> ドメインとエンドポイントにそれぞれ使用量制限(Usage Quota)プラグインを設定した場合、それぞれ使用制限が適用されます。   
+> ドメイン使用量制限が必要な場合、ドメイン設定ページの使用量制限(Usage Limit)を設定してください。    
+> ドメインとエンドポイントにそれぞれ使用量制限(Usage Limit)プラグインを設定した場合、それぞれ使用制限が適用されます。   
 > ドメイン使用量を超過すると、エンドポイントの使用量が超過していなくてもリクエストが拒否され、エンドポイントの使用量も増加します。
 
 使用量制限を超過すると、下記のHTTP STATUS 403レスポンスが返されます。
@@ -588,13 +588,13 @@ API Gatewayを通して入ったリクエストヘッダを含めて事前呼び
 }
 ```
 
-### URL再作成(URL Rewrite)
+### URL再作成(Rewrite URL)
 
 Request URLをパターン表現式で再作成するプラグインです。 
 
 ![apigw_25_201812](https://static.toastoven.net/prod_apigateway/apigw_25_201812.png)
 
-1. **プラグイン(Plugins) > URL再作成(URL Rewrite)**プラグインを追加します。
+1. **プラグイン(Plugins) > URL再作成(Rewrite URL)**プラグインを追加します。
 
 2. 設定情報を入力します。
   - URIパターンには、どんなパターン形式のRequest URLに対して再作成するかのパターン形式を入力します。 

@@ -16,15 +16,15 @@ API Gateway의 도메인 주소 생성과 클라이언트의 요청을 포워딩
 
 ![apigw_02_201812](https://static.toastoven.net/prod_apigateway/apigw_02_201812.png)
 
-1. **도메인 생성(New Domain)** 목록을 클릭합니다.
+1. **도메인 생성(Create Domain)** 목록을 클릭합니다.
 
-2. **도메인 생성(New Domain)** 버튼을 클릭합니다.
+2. **도메인 생성(Create Domain)** 버튼을 클릭합니다.
 
 3. 도메인을 설정합니다. 
   - 도메인 이름(Domain Name): 도메인의 별칭입니다. 도메인을 구분하는 용도로 사용할 수 있습니다.
   - 도메인 키(Domain Key): 도메인의 고유한 키입니다. 키 값은 API Gateway의 엔드포인트 URL에 사용됩니다.(api-gw.cloud.toast.com/{domainKey})
     - 도메인 키에는 경로(path) 형식의 값은 사용할 수 없습니다(예: /apis/gateway 사용 불가).
-  - 엔드포인트 서버 URL: API Gateway가 요청을 전달할 사용자 API 서버의 URL을 입력합니다. 
+  - 엔드포인트 서버 URL(URL for Endpoint Server): API Gateway가 요청을 전달할 사용자 API 서버의 URL을 입력합니다. 
   - 스킴(Scheme): API Gateway가 제공하는 도메인 URL의 스킴을 선택합니다.
 > [참고] 엔드포인트 서버 URL의 URI 구문은 [RFC3986](https://tools.ietf.org/html/rfc3986)을 참고해주세요.
 
@@ -66,7 +66,7 @@ API Gateway의 도메인 주소 생성과 클라이언트의 요청을 포워딩
 
 ![apigw_05_201812](https://static.toastoven.net/prod_apigateway/apigw_05_201812.png)
 
-1. 복제할 도메인의 **설정(Setting)** > **'\_\_\_\_' 으로부터 도메인 복제**(Clone from '\_\_\_\_' domain)을 클릭합니다.
+1. 복제할 도메인의 **설정(Setting)** > **'\_\_\_\_' 으로부터 도메인 복제**(Copy Domain from '\_\_\_\_')을 클릭합니다.
 
 2. 복제하여 새로 생성할 도메인에서 변경이 필요한 정보를 수정합니다.
 
@@ -179,7 +179,7 @@ swagger 파일을 가져와 도메인을 등록하거나 등록된 도메인을 
 
 ![apigw_06_201812](https://static.toastoven.net/prod_apigateway/apigw_06_201812.png)
 
-1. 내보낼 도메인의 **설정(Setting) > Swagger 파일로 내보내기(Export swagger)**를 클릭하면 swagger 파일이 다운로드됩니다. 기본 파일 이름은 export.json입니다.
+1. 내보낼 도메인의 **설정(Setting) > Swagger 파일로 내보내기(Export in Swagger File)**를 클릭하면 swagger 파일이 다운로드됩니다. 기본 파일 이름은 export.json입니다.
 #### 도메인 기본 정보 설정
 
 - swagger: swagger 버전을 입력합니다. 기본 지원 버전은 swagger 2.0입니다.
@@ -198,21 +198,21 @@ swagger 파일을 가져와 도메인을 등록하거나 등록된 도메인을 
 - IPACL: 도메인의 접근 제어(Access Control) > IP 접근 제어(IP ACL)플러그인 설정 정보를 입력합니다(액세스 제어 그룹 중 하나만 입력 가능).
 - HMAC: 도메인의 인증(Authentication) > HAMC 플러그인 설정 정보를 입력합니다(인증 그룹 중 하나만 입력 가능).
 - JWT: 도메인의 인증(Authentication) > JSON Web Token (JWT) 플러그인 설정 정보를 입력합니다(인증 그룹 중 하나만 입력 가능).
-- USAGE_QUOTA: 도메인의 사용량 제한(Quota Limit) > 사용량 제한(Usage Quota) 플러그인 설정 정보를 입력합니다(사용량 제한 그룹 중 하나만 입력 가능).
+- USAGE_QUOTA: 도메인의 사용량 제한(Usage Limit) > 사용량 제한(Usage Limit) 플러그인 설정 정보를 입력합니다(사용량 제한 그룹 중 하나만 입력 가능).
 - MAINTENANCE: 도메인의 유지 관리(Maintenance) > 유지 관리 응답(Maintenance Response) 플러그인 설정 정보를 입력합니다(유지 관리 그룹 중 하나만 입력 가능).
 
 #### 엔드포인트 플러그인 설정
 
 - 엔드포인트 플러그인은 각 경로 레벨의 x-cloudtoast-apigw에 설정 정보를 입력합니다.
-- MOCK: 사용자 정의 응답(Mock Response) 플러그인 설정 정보를 입력합니다.
-- ENDPOINT_USAGE_QUOTA: 사용량 제한(Usage Quota) 플러그인 설정 정보를 입력합니다.
-- PRE_API: 사전 호출 API(Pre API) 플러그인 설정 정보를 입력합니다.
+- MOCK: 사용자 정의 응답(User-defined Response) 플러그인 설정 정보를 입력합니다.
+- ENDPOINT_USAGE_QUOTA: 사용량 제한(Usage Limit) 플러그인 설정 정보를 입력합니다.
+- PRE_API: 사전 호출 API(Pre-call API) 플러그인 설정 정보를 입력합니다.
 - HEADER: 헤더 변조(Modify Header) 플러그인 설정 정보를 입력합니다.
-- URI_REWRITE: URL 재작성(URL Rewrite) 플러그인 설정 정보를 입력합니다.
+- URI_REWRITE: URL 재작성(Rewrite URL) 플러그인 설정 정보를 입력합니다.
 
 ![apigw_07_201812](https://static.toastoven.net/prod_apigateway/apigw_07_201812.png)
 
-1. **Swagger 파일로 도메인 가져오기(Import Domain)** 버튼을 클릭합니다.
+1. **Swagger 파일로 도메인 가져오기(Import Domain in Swagger File)** 버튼을 클릭합니다.
 
 2. 가져올 Swagger 파일을 첨부합니다.
 
@@ -228,7 +228,7 @@ swagger 파일을 가져와 도메인을 등록하거나 등록된 도메인을 
 
 1. 엔드포인트를 생성할 도메인의 **설정(Setting)** > **엔드포인트(Endpoint)**를 클릭합니다. 
 
-2. **엔드포인트 생성(New Endpoint)** 버튼을 클릭한 후 엔드포인트의 HTTP 메서드와 경로를 설정합니다.
+2. **엔드포인트 생성(Create Endpoint)** 버튼을 클릭한 후 엔드포인트의 HTTP 메서드와 경로를 설정합니다.
 
 3. 플러그인을 추가하려면 **+** 버튼을 클릭한 후, 추가할 플러그인을 선택하고 값을 입력합니다.
 
@@ -263,7 +263,7 @@ swagger 파일을 가져와 도메인을 등록하거나 등록된 도메인을 
 
 ![apigw_09_201812](https://static.toastoven.net/prod_apigateway/apigw_09_201812.png)
 
-1. 엔드포인트 목록에서 편집할 엔드포인트 오른쪽에 있는 **수정(Edit)** 버튼을 클릭합니다.
+1. 엔드포인트 목록에서 편집할 엔드포인트 오른쪽에 있는 **수정(Modify)** 버튼을 클릭합니다.
 
 2. 설정을 수정하고 오른쪽에 있는 **저장(Save)** 버튼을 클릭하여 저장합니다.
 
@@ -338,23 +338,23 @@ IP 기반 접근 제한 기능으로 특정 IP를 허용하거나 거부할 수 
 4. 설정 완료 후 **저장(Save)** 버튼을 클릭합니다. 
 
 
-### 사용량 제한(Quota Limit)
+### 사용량 제한(Usage Limit)
 
 일정 시간 API 사용량을 제한할 수 있습니다.
 
 ![apigw_14_201812](https://static.toastoven.net/prod_apigateway/apigw_14_201812.png)
 
-1. **플러그인 설정(Plugin Setting) > 사용량 제한(Quota Limit)** 플러그인을 클릭한 후 **사용량 제한(Usage Quota)**을 선택합니다. 
+1. **플러그인 설정(Plugin Setting) > 사용량 제한(Usage Limit)** 플러그인을 클릭한 후 **사용량 제한(Usage Limit)**을 선택합니다. 
 
 2. 사용량 제한 조건을 설정합니다. 
-  * 최대 사용 한도(Max Usage Quota)에 최대 API 호출 가능 횟수를 지정합니다. 
+  * 최대 사용 한도(Maximum Number of Calls)에 최대 API 호출 가능 횟수를 지정합니다. 
   * 시간(Per(sec))에 초 단위의 시간을 지정합니다. 
   * 지정한 시간에 최대 호출 횟수를 초과할 경우 API 사용이 제한됩니다. 
   * 사용량 제한 조건을 여러 개 추가할 수 있으며, 설정된 제한 조건 중 하나 이상의 조건이 제한량을 초과하면 사용이 제한됩니다. 
 
 > [참고]
-> 도메인 설정 페이지에서 설정한 **사용 한도(Usage Quota)** 플러그인은 도메인 하위 모든 엔드포인트의 API 사용량에 대한 제한입니다.  
-> 엔드포인트별로 사용량 제한이 필요하면 엔드포인트의 **엔드포인트 사용 한도(EndPoint Usage Quota)** 플러그인을 적용해주세요.  
+> 도메인 설정 페이지에서 설정한 **사용 한도(Usage Limit)** 플러그인은 도메인 하위 모든 엔드포인트의 API 사용량에 대한 제한입니다.  
+> 엔드포인트별로 사용량 제한이 필요하면 엔드포인트의 **엔드포인트 사용 한도(EndPoint Usage Limit)** 플러그인을 적용해주세요.  
 
 3. 설정을 저장하려면 **저장(Save)** 버튼을 클릭합니다. 
 
@@ -364,7 +364,7 @@ IP 기반 접근 제한 기능으로 특정 IP를 허용하거나 거부할 수 
 
 ![apigw_15_201812](https://static.toastoven.net/prod_apigateway/apigw_15_201812.png)
 
-1. **플러그인 설정(Plugin Setting) > 유지 관리 설정(Maintenance)** 플러그인을 클릭한 후 **유지 관리 설정(Maintenance Response)**을 선택합니다.
+1. **플러그인 설정(Plugin Setting) > 유지 관리 설정(Maintenance)** 플러그인을 클릭한 후 **유지 관리 설정(Maintenance)**을 선택합니다.
 
 2. 유지 관리(Maintenance) 응답 값을 입력합니다.
 
@@ -498,38 +498,38 @@ Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니�
 
 ## 엔드포인트 플러그인 
 
-### 사용자 정의 응답(Mock Response)
+### 사용자 정의 응답(User-defined Response)
 
 사용자가 미리 설정한 사용자 정의 응답을 반환합니다.
 엔드포인트 경로에 해당하는 요청 URI(request URI)가 요청되면, 지정된 엔드포인트 서버로 요청을 포워딩하지 않고 사용자가 설정한 사용자 정의 응답이 반환됩니다. 
 
 ![apigw_21_201812](https://static.toastoven.net/prod_apigateway/apigw_21_201812.png)
 
-1. **플러그인(Plugins) > 사용자 정의 응답(Mock Response)** 플러그인을 추가합니다.
+1. **플러그인(Plugins) > 사용자 정의 응답(User-defined Response)** 플러그인을 추가합니다.
 
-2. 사용자 정의 응답(mock response) HTTP STATUS, Header, Body를 설정한 후 저장합니다.
+2. 사용자 정의 응답(User-defined Response) HTTP STATUS, Header, Body를 설정한 후 저장합니다.
   - HTTP Status: 응답의 상태 코드를 설정합니다.
   - Headers: 응답 헤더(response header)에 추가할 헤더와 헤더 값을 설정합니다.
   - Body: 응답 본문(response body) 내용을 설정합니다. 
 
 3. 설정 완료 후 **저장(Save)** 버튼을 클릭합니다.
 
-### 사전 호출 API(Pre API)
+### 사전 호출 API(Pre-call API)
 
-사전 호출 API(Pre API)는 엔드포인트를 호출하기 전에 호출되며 Pre API의 응답 코드에 따라 엔드포인트 호출 여부를 결정하는 인증 역할을 합니다.
+사전 호출 API(Pre-call API)는 엔드포인트를 호출하기 전에 호출되며 Pre-call API의 응답 코드에 따라 엔드포인트 호출 여부를 결정하는 인증 역할을 합니다.
 
-API Gateway를 통해 들어온 요청 헤더를 포함하여 사전 호출 API(Pre API)를 호출하고, 사전 호출 API(Pre API)에서는 전달받은 헤더 내용에 따라 응답 코드를 반환합니다.
+API Gateway를 통해 들어온 요청 헤더를 포함하여 사전 호출 API(Pre-call API)를 호출하고, 사전 호출 API(Pre-call API)에서는 전달받은 헤더 내용에 따라 응답 코드를 반환합니다.
 
-사전 호출 API(Pre API)의 응답 코드에 따라 200이면 엔드포인트를 호출하고, 응답 코드가 200이 아니면 사전 호출 API(Pre API)의 응답 결과를 반환합니다.
-만약, 사전 호출 API(Pre API) 호출에 실패하면 오류를 반환합니다.
+사전 호출 API(Pre-call API)의 응답 코드에 따라 200이면 엔드포인트를 호출하고, 응답 코드가 200이 아니면 사전 호출 API(Pre-call API)의 응답 결과를 반환합니다.
+만약, 사전 호출 API(Pre-call API) 호출에 실패하면 오류를 반환합니다.
 
 > [참고]  
-> API Gateway는 요청의 헤더 정보만 사전 호출 API(Pre API)의 URL로 전달합니다.   
+> API Gateway는 요청의 헤더 정보만 사전 호출 API(Pre-call API)의 URL로 전달합니다.   
 > Request URL 또는 Body 정보는 전달하지 않습니다.  
 
 ![apigw_22_201812](https://static.toastoven.net/prod_apigateway/apigw_22_201812.png)
 
-1. **플러그인(plugins) > 사전 호출 API(Pre API)** 플러그인을 추가합니다.
+1. **플러그인(plugins) > 사전 호출 API(Pre-call API)** 플러그인을 추가합니다.
 
 2. 사전 API의 메서드 타입(method type)과 URL을 입력합니다.
 
@@ -554,14 +554,14 @@ API Gateway를 통해 들어온 요청 헤더를 포함하여 사전 호출 API(
 
 
 
-### 사용량 제한(Usage Quota)
+### 사용량 제한(Usage Limit)
 
 일정 시간 경로별 API 사용량을 제한할 수 있습니다.
 
 ![apigw_24_201812](https://static.toastoven.net/prod_apigateway/apigw_24_201812.png)
 ​	
 
-1. **플러그인(Plugins) > 사용량 제한(Usage Quota)** 플러그인을 추가합니다.
+1. **플러그인(Plugins) > 사용량 제한(Usage Limit)** 플러그인을 추가합니다.
 
 2. 설정한 시간(sec) 동안 최대 호출 가능 횟수를 입력합니다.
   - 사용량 제한 조건을 여러 개 추가할 수 있으며, 설정된 제한 조건 중 하나 이상의 조건이 제한량을 초과하면 사용이 제한됩니다. 
@@ -571,8 +571,8 @@ API Gateway를 통해 들어온 요청 헤더를 포함하여 사전 호출 API(
 
 > [주의]  
 > '엔드포인트 사용량 제한'은 엔드포인트 경로별 사용량 제한입니다.    
-> 도메인 사용량 제한이 필요한 경우 도메인 설정 페이지의 사용량 제한(Usage Quota)을 설정하세요.    
-> 도메인과 엔드포인트에 각각 사용량 제한(Usage Quota) 플러그인을 설정한 경우 각각 사용 제한이 적용됩니다.   
+> 도메인 사용량 제한이 필요한 경우 도메인 설정 페이지의 사용량 제한(Usage Limit)을 설정하세요.    
+> 도메인과 엔드포인트에 각각 사용량 제한(Usage Limit) 플러그인을 설정한 경우 각각 사용 제한이 적용됩니다.   
 > 도메인 사용량 초과 시 엔드포인트의 사용량이 초과되지 않아도 요청이 거부되며, 엔드포인트의 사용량 또한 증가됩니다.     
 
 사용량 제한을 초과하면 아래의 HTTP STATUS 403 응답이 반환됩니다. 
@@ -587,13 +587,13 @@ API Gateway를 통해 들어온 요청 헤더를 포함하여 사전 호출 API(
 }
 ```
 
-### URL 재작성(URL Rewrite)
+### URL 재작성(Rewrite URL)
 
 Request URL을 패턴 표현식으로 재작성하는 플러그인입니다. 
 
 ![apigw_25_201812](https://static.toastoven.net/prod_apigateway/apigw_25_201812.png)
 
-1. **플러그인(Plugins) > URL 재작성(URL Rewrite)** 플러그인을 추가합니다.
+1. **플러그인(Plugins) > URL 재작성(Rewrite URL)** 플러그인을 추가합니다.
 
 2. 설정 정보를 입력합니다.
   - URI 패턴에는 어떤 패턴 형식의 Request URL에 대해 재작성할 것인지 패턴 형식을 입력합니다. 
