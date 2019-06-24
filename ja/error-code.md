@@ -1,6 +1,27 @@
 ﻿
 ## Application Service > API Gateway > エラーコード
 
+## 使用量制限(プロジェクト単位) 
+プロジェクト単位の使用量制限を超えると、HTTP Status 429 (Too many request)レスポンスが返されます。
+呼び出し数は毎秒10,000件に制限されます。
+
+#### エラーコード
+
+```
+{
+  "header": {
+    "resultCode": 200040,
+    "resultMessage": "200040 Tenant quota exceeded",
+    "isSuccessful": false
+  }
+}
+```
+
+| http status code | result code | result message             |
+| ---------------- | ----------- | -------------------------- |
+| 429              | 200040      | 200040 Tenant quota exceeded|
+
+
 ## 使用量制限(Usage Limit)
 
 使用量制限を超えると、HTTP Status 403 responseが返されます。
