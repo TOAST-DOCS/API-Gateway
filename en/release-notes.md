@@ -1,13 +1,5 @@
 ## Application Service > API Gateway > Release Notes
 
-### 2019.06.25
-
-#### Feature Updates/Changes 
-* API Call Volume Restricted for Each Project  
-  * API calls are allowed no more than 10,000 times per second at each project. When it exceeds the restricted volume, request shall be denied, with 429 Too Many Request returned as response. 
-  * If you need adjustment in the usage volume, contact Customer Center. 
-
-
 ### 2019.02.26
 
 #### 기능 개선/변경
