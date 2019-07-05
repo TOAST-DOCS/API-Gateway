@@ -1,6 +1,6 @@
 ## Application Service > API Gateway > Release Notes
 
-### Jul.23,2019
+### Jul.23, 2019
 
 #### Feature Updates/Changes 
 * API Call Volume Restricted for Each Project  
@@ -8,7 +8,7 @@
   * If you need adjustment in the usage volume, contact Customer Center. 
 
 
-### Feb.26,2019 
+### Feb.26, 2019 
 
 #### Updates/Changes 
 * [Console] Suspension of Monitoring Plugin  
