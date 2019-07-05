@@ -1,88 +1,88 @@
-## Application Service > API Gateway > 콘솔 사용 가이드
+## Application Service > API Gateway > Console User Guide
 
-## API Gateway 활성화 
+## Enable API Gateway  
 
-API Gateway 서비스를 활성화하려면 콘솔에서 서비스를 추가할 프로젝트를 선택한 후, **서비스 선택**에서 **Application Service > API Gateway**를 클릭합니다. 
+To enable the API Gateway service, select a project to add services for, and go to **Select Services** and click **Application Service > API Gateway**.      
 
-## 도메인
+## Domains 
 
-API Gateway 기본 화면입니다. 등록된 도메인의 목록이 표시됩니다.
+Below is the main page of API Gateway, which shows the list of registered domains.  
 
 ![apigw_01_201812](https://static.toastoven.net/prod_apigateway/apigw_01_201812.png)
 
-### 도메인 생성 
+### Create  
 
-API Gateway의 도메인 주소 생성과 클라이언트의 요청을 포워딩할 엔드포인트 서버 주소를 설정하려면 도메인을 생성해야 합니다.
+To set an endpoint server address to create domain address of API gateway and forward client's request, a domain must be created first.  
 
 ![apigw_02_201812](https://static.toastoven.net/prod_apigateway/apigw_02_201812.png)
 
-1. **도메인 생성(Create Domain)** 목록을 클릭합니다.
+1. Click **New Domain**.
 
-2. **도메인 생성(Create Domain)** 버튼을 클릭합니다.
+2. Click **New Domain**.
 
-3. 도메인을 설정합니다. 
-  - 도메인 이름(Domain Name): 도메인의 별칭입니다. 도메인을 구분하는 용도로 사용할 수 있습니다.
-  - 도메인 키(Domain Key): 도메인의 고유한 키입니다. 키 값은 API Gateway의 엔드포인트 URL에 사용됩니다.(api-gw.cloud.toast.com/{domainKey})
-    - 도메인 키에는 경로(path) 형식의 값은 사용할 수 없습니다(예: /apis/gateway 사용 불가).
-  - 엔드포인트 서버 URL(URL for Endpoint Server): API Gateway가 요청을 전달할 사용자 API 서버의 URL을 입력합니다. 
-  - 스킴(Scheme): API Gateway가 제공하는 도메인 URL의 스킴을 선택합니다.
-> [참고] 엔드포인트 서버 URL의 URI 구문은 [RFC3986](https://tools.ietf.org/html/rfc3986)을 참고해주세요.
+3. Set domain. 
+  - Domain Name: Alias of domain, which is used to tell each domain. 
+  - Domain Key: Refers to domain's origin key. Key value is used for endpoint URL of API gateway. (api-gw.cloud.toast.com/{domainKey})
+    - Path is not allowed for a domain key (e.g. /apis/gateway is unavailable).
+  - URL for Endpoint Server: Enter URL of user API server for API gateway to deliver requests. 
+  - Scheme: Select a scheme of domain URL provided by API Gateway.
+> [Note] See [RFC3986](https://tools.ietf.org/html/rfc3986) for the URI part of endpoint server URL.   
 
-4. **플러그인 설정(Plugin Setting)**에서 플러그인을 추가합니다. 
-  - 도메인 단위에 적용한 플러그인은 도메인 하위의 엔드포인트에 공통으로 적용됩니다.
+4. Go to **Plugin Setting** to add a plugin. 
+  - Plugins applied by domain are commonly applied to endpoints at the bottom of domains. 
 
-5. **저장(Save)** 버튼을 클릭합니다.
+5. Click **Save**.  
 
-### 도메인 편집
+### Edit
 
-등록된 도메인의 설정을 수정할 수 있습니다. 
+You may edit the setting of a registered domain. 
 
 ![apigw_03_201812](https://static.toastoven.net/prod_apigateway/apigw_03_201812.png)
 
-1. 편집할 도메인의 **설정(Setting)** 버튼을 클릭합니다.
+1. Click **Setting** of the domain you need to edit.  
 
-2. **도메인(Domain)** 버튼을 클릭하여 도메인 편집 화면으로 이동합니다.
+2. Click **Domain** to go to edit.  
 
-3. 도메인 설정을 변경하고 **저장(Save)** 버튼을 클릭하여 저장합니다.
+3. Change setting and click **Save**.
 
-### 도메인 삭제
+### Delete 
 
-등록된 도메인을 삭제할 수 있습니다.
+You may delete a registered domain. 
 
 ![apigw_04_201812](https://static.toastoven.net/prod_apigateway/apigw_04_201812.png)
 
-1. **삭제(Delete)** 버튼을 클릭하면 도메인 삭제 대화 상자가 나타납니다.
+1. Click **Delete**, and a pop-up for deleting domains shows. 
 
-2. 삭제할 도메인을 다시 한번 확인하고 도메인 키를 입력합니다.
+2. Confirm the domain you want to delete and enter domain key. 
 
-3. **삭제(Delete)** 버튼을 클릭합니다.
+3. Click **Delete**.
 
-> [주의] 도메인 키를 입력해야 삭제할 수 있습니다. 삭제한 도메인은 복구할 수 없습니다.
+> [Caution] Domain key is required to delete a domain. Domains, once deleted, cannot be restored. 
 
 
-### 도메인 복제
+### Clone 
 
-기존에 생성한 도메인의 설정을 복제하여 새로운 도메인을 만들 수 있습니다. 
+By cloning the setting of domain already created, you may create a new domain.  
 
 ![apigw_05_201812](https://static.toastoven.net/prod_apigateway/apigw_05_201812.png)
 
-1. 복제할 도메인의 **설정(Setting)** > **'\_\_\_\_' 으로부터 도메인 복제**(Copy Domain from '\_\_\_\_')을 클릭합니다.
+1. Choose **Setting\> Clone from '___' domain** of a domain to clone. 
 
-2. 복제하여 새로 생성할 도메인에서 변경이 필요한 정보를 수정합니다.
+2. Modify information, if required, of a domain to be created by cloning. 
 
-3. **저장(Save)** 버튼을 클릭합니다.
+3. Click **Save**.
 
 
-### Swagger 파일로 가져오기와 내보내기
+### Import and Export in Swagger 
 
-swagger 파일을 가져와 도메인을 등록하거나 등록된 도메인을 swagger 파일로 내보낼 수 있습니다.
+Domains can be registered by importing swagger files, or registered domains may be exported to swagger files. 
 
-#### Swagger 파일로 가져오기
+#### Import in Swagger  
 
-1. Swagger 명세를 참고하여 swagger 파일을 작성합니다.
-  - [Swagger Specification](http://swagger.io/docs/specification/what-is-swagger/)
-2. TOAST 클라우드 API Gateway에서 제공하는 플러그인 설정을 추가하려면 x-toastcloud-apigw 확장 설정 정보를 추가합니다.
-  - 예시)
+1. Write a swagger file in reference of the swagger specifications. 
+  - [Swagger Specifications](http://swagger.io/docs/specification/what-is-swagger/)
+2. To add plugin settings provided by TOAST Cloud API Gateway, add extension setting data for x-toastcloud-apigw. 
+  - Example
 ```json
 {
 	"swagger": "2.0",
@@ -175,239 +175,240 @@ swagger 파일을 가져와 도메인을 등록하거나 등록된 도메인을 
 }
 ```
 
-#### Swagger 파일로 내보내기
+#### Export into Swagger 
 
 ![apigw_06_201812](https://static.toastoven.net/prod_apigateway/apigw_06_201812.png)
 
-1. 내보낼 도메인의 **설정(Setting) > Swagger 파일로 내보내기(Export in Swagger File)**를 클릭하면 swagger 파일이 다운로드됩니다. 기본 파일 이름은 export.json입니다.
-#### 도메인 기본 정보 설정
+1. Click **Setting > Export into Swagger** of an exporting domain to download a swagger file. The default file name is export.json.
+#### Default Domain Setting 
 
-- swagger: swagger 버전을 입력합니다. 기본 지원 버전은 swagger 2.0입니다.
-- info: 기본 정보를 입력합니다.
-  - version: 버전을 입력합니다.
-  - title: 도메인 이름을 입력합니다.
-- host: API Gateway 도메인을 입력합니다.
-- basePath: 도메인 키를 입력합니다.
-- schemes: 스킴을 입력합니다(http/https 중 하나만 입력).
-- paths: 엔드포인트 경로를 입력합니다.
+- Swagger: Enter version of a swagger: default is swagger 2.0.
+- Info: Enter basic information. 
+  - version: Enter version. 
+  - title: Enter domain name. 
+- Host: Enter domain of API Gateway.
+- BasePath: Enter domain key. 
+- Scheme: Enter scheme (either http or https).
+- Path: Enter path of an endpoint. 
 
-#### 도메인 플러그인 설정
+#### Domain Plugin Setting 
 
-- 도메인 플러그인은 최상위 레벨의 x-cloudtoast-apigw에 설정 정보를 입력합니다.
-- HTTP_PROXY: 엔드포인트 서버 URL을 입력합니다(* 입력 필수).
-- IPACL: 도메인의 접근 제어(Access Control) > IP 접근 제어(IP ACL)플러그인 설정 정보를 입력합니다(액세스 제어 그룹 중 하나만 입력 가능).
-- HMAC: 도메인의 인증(Authentication) > HAMC 플러그인 설정 정보를 입력합니다(인증 그룹 중 하나만 입력 가능).
-- JWT: 도메인의 인증(Authentication) > JSON Web Token (JWT) 플러그인 설정 정보를 입력합니다(인증 그룹 중 하나만 입력 가능).
-- USAGE_QUOTA: 도메인의 사용량 제한(Usage Limit) > 사용량 제한(Usage Limit) 플러그인 설정 정보를 입력합니다(사용량 제한 그룹 중 하나만 입력 가능).
-- MAINTENANCE: 도메인의 유지 관리(Maintenance) > 유지 관리 응답(Maintenance Response) 플러그인 설정 정보를 입력합니다(유지 관리 그룹 중 하나만 입력 가능).
+- For domain plugin, enter setting information for x-cloudtoast-apigw at the highest level. 
+- HTTP_PROXY: Enter URL for endpoint server (*is required).
+- IPACL: Enter Domain's Access Control > Setting information for the IP Access Control (IP ACL) plugin (only one out of many access control groups is available).
+- HMAC: Enter Domain Authentication > Setting information for the HAMC plugin (only one out of many authentication groups is available).
+- JWT: Enter Domain Authentication > Setting information for the JSON Web Token (JWT) plugin (only one out of many authentication groups is available).
+- USAGE_QUOTA: Enter Domain's Quota Limit > Setting information for Usage Quota plugin (only one out of may quota limit groups is available).
+- MAINTENANCE: Enter Domain's Maintenance > Setting information for Maintenance Response plugin (only one out of many maintenance groups is available).
 
-#### 엔드포인트 플러그인 설정
+#### Endpoint Plugin Setting 
 
-- 엔드포인트 플러그인은 각 경로 레벨의 x-cloudtoast-apigw에 설정 정보를 입력합니다.
-- MOCK: 사용자 정의 응답(User-defined Response) 플러그인 설정 정보를 입력합니다.
-- ENDPOINT_USAGE_QUOTA: 사용량 제한(Usage Limit) 플러그인 설정 정보를 입력합니다.
-- PRE_API: 사전 호출 API(Pre-call API) 플러그인 설정 정보를 입력합니다.
-- HEADER: 헤더 변조(Modify Header) 플러그인 설정 정보를 입력합니다.
-- URI_REWRITE: URL 재작성(Rewrite URL) 플러그인 설정 정보를 입력합니다.
+- Enter setting information for x-cloudtoast-apigw at each level of path.  
+- MOCK: Enter setting information for the Mock Response plugin.
+- ENDPOINT_USAGE_QUOTA: Enter setting information for the Usage Quota plugin.
+- PRE_API: Enter setting information for the Pre-call API plugin.
+- HEADER: Enter setting information for the Modify Header plugin.
+- URI_REWRITE: Enter setting information for the URL Rewrite plugin. 
 
 ![apigw_07_201812](https://static.toastoven.net/prod_apigateway/apigw_07_201812.png)
 
-1. **Swagger 파일로 도메인 가져오기(Import Domain in Swagger File)** 버튼을 클릭합니다.
+1. Click **Import Domain in Swagger**.
 
-2. 가져올 Swagger 파일을 첨부합니다.
+2. Attach the swagger file to import. 
 
-3. **가져오기(Import)** 버튼을 클릭하면 Swagger 파일의 설정 정보대로 도메인이 등록됩니다.
+3. Click **Import** and domain is registered like in the swagger file setting. 
 
-## 엔드포인트
+## Endpoints
 
-### 엔드포인트 생성
+### Create 
 
-엔드포인트는 사용자의 엔드포인트 API 중 API Gateway를 통해 제공할 API를 관리합니다.
+Endpoints manage APIs to be provided via API Gateway, among user endpoint APIs. 
 
 ![apigw_08_201812](https://static.toastoven.net/prod_apigateway/apigw_08_201812.png)
 
-1. 엔드포인트를 생성할 도메인의 **설정(Setting)** > **엔드포인트(Endpoint)**를 클릭합니다. 
+1. Click **Setting** > **Endpoint** of a domain to create endpoints. 
 
-2. **엔드포인트 생성(Create Endpoint)** 버튼을 클릭한 후 엔드포인트의 HTTP 메서드와 경로를 설정합니다.
+2. Click **New Endpoint** and set HTTP method and path of an endpoint.  
 
-3. 플러그인을 추가하려면 **+** 버튼을 클릭한 후, 추가할 플러그인을 선택하고 값을 입력합니다.
+3. To add a plugin, click **+**, select a plugin to add, and enter value.   
 
-4. **저장(Save)** 버튼을 클릭합니다.
+4. Click **Save**.
 
->  [참고] 엔드포인트 경로
->  엔트포인트 경로에 AntPattern 형식으로 입력할 경우, 여러 개의 API와 대응시킬 수 있습니다. 
+>  [Note] Path of Endpoints 
+>  The endpoint path, if entered in the AntPattern format, may serve for many APIs.   
 >
->  [AntPattern 예시]
+>  [Example of AntPattern]
 >
->  - ?: 하나의 문자와 대치	예) /docs/te?t : /docs/test , /docs/text 
->  - \*: 0개 또는 하나 이상의 문자와 대치   예) /docs/*.txt : /docs/example1.txt, /docs/example2.txt
->  - \*\*: 0개 또는 하나 이상의 경로(path)와 대치  예) /docs/** : /docs/apigw/guide, /docs/image/guide
->  - {[a-z]+}: 경로 변수(path variable)에 대치   예) /v1.0/appKeys/{appKey} : /v1.0/appKeys/myAppKey1, /v1.0/appKeys/myAppKey2 
+>  - ?: serves for one character e.g) /docs/te?t : /docs/test , /docs/text 
+>  - \*: serves for 0 or more than 1 character   e.g.) /docs/*.txt : /docs/example1.txt, /docs/example2.txt
+>  - \*\*: serves for 0 or more than 1 path   e.g.) /docs/** : /docs/apigw/guide, /docs/image/guide
+>  - {[a-z]+}: serves for path variables (path variable)에 대치   e.g.) /v1.0/appKeys/{appKey} : /v1.0/appKeys/myAppKey1, /v1.0/appKeys/myAppKey2 
 
 
-> [참고] 엔드포인트 경로 매핑(endpoint path mapping)
-> Request URI는 여러 개의 경로 패턴과 일치할 수 있습니다. 
-> API Gateway는 Request URI와 가장 일치하는 경로에 연결합니다.   
+> [Note] Endpoint Path Mapping 
+> Request URI may match with patterns of many paths. 
+> Connect API Gateway to the best matching Request URI path.  
 >
-> [예시]
-> 엔드포인트 경로에 아래의 경로가 등록되어 있다고 가정합니다.
->  - 경로1: /docs/apigw/guide
->  - 경로2: /docs/**
->        Request URL이 '/docs/apigw/guide'일 경우, 경로 1,2 모두 일치합니다. 
->        경로1이 경로2에 비해 매칭된 패턴이 많기 때문에 URI 경로1로 연결됩니다.
->        매칭된 패턴이 문자인 경우 AntPattern 표현식보다 우선순위가 높습니다.
+> [Example]
+> Suppose that following paths are registered in the endpoint path. 
+>
+>  - Path 1: /docs/apigw/guide
+>  - Path 2: /docs/**
+>    In case the Request URL is '/docs/apigw/guide', it matches with both path 1 and 2. 
+>    Since path 1 has more matched patterns than path 2, it is connected to the path 1 URI.   
+>    If a matched pattern regards to characters, it is higher on priority than the AntPattern expression.  
 
-### 엔드포인트 편집
+### Edit 
 
-등록된 엔드포인트의 설정을 편집할 수 있습니다.
+You may eidt the setting of a registered endpoint. 
 
 ![apigw_09_201812](https://static.toastoven.net/prod_apigateway/apigw_09_201812.png)
 
-1. 엔드포인트 목록에서 편집할 엔드포인트 오른쪽에 있는 **수정(Modify)** 버튼을 클릭합니다.
+1. Click **Edit** on the right of an endpoint to edit from the list. 
 
-2. 설정을 수정하고 오른쪽에 있는 **저장(Save)** 버튼을 클릭하여 저장합니다.
+2. Modify setting and click **Save** on the right. 
 
-### 엔드포인트 삭제
+### Delete  
 
-등록된 엔드포인트를 삭제할 수 있습니다.
+You may delete a registered endpoint. 
 
 ![apigw_10_201812](https://static.toastoven.net/prod_apigateway/apigw_10_201812.png)
 
-1. 엔드포인트 목록에서 삭제할 엔드포인트 오른쪽에 있는 **삭제(Delete)** 버튼을 클릭합니다.
+1. Click **Delete** on the right of an endpoint to delete from the list. 
 
-2. **확인(OK)** 버튼을 클릭합니다.
+2. Click **OK**.
 
-### 엔드포인트 플러그인 편집
+### Edit Endpoint Plugins 
 
-엔드포인트의 플러그인 설정을 편집할 수 있습니다.
+You may edit the setting of an endpoint plugin. 
 
 ![apigw_11_201812](https://static.toastoven.net/prod_apigateway/apigw_11_201812.png)
 
-1. 편집할 플러그인을 클릭합니다.
+1. Click a plugin to edit. 
 
-2. 설정을 수정하고  **저장(Save)** 버튼을 클릭합니다.
+2. Modify setting and click **Save**.
 
 
-### 엔드포인트 플러그인 삭제
+### Delete Endpoint Plugins
 
-등록된 엔드포인트의 플러그인을 삭제할 수 있습니다.
+You may delete a registered endpoint plugin.  
 
 ![apigw_12_201812](https://static.toastoven.net/prod_apigateway/apigw_12_201812.png)
 
-1. 삭제할 플러그인을 클릭합니다.
+1. Click a plugin to delete. 
 
-2. **삭제(Delete)** 버튼을 클릭합니다.
+2. Click **Delete**.
 
-3. **확인(OK)** 버튼을 클릭합니다.
+3. Click **OK**.
 
-## 플러그인 
+## Plugins  
 
-### 플러그인 동작 구조
+### Structure of Plugin Operations
 
-API Gateway는 접근 제어, 인증, 사용량 제한, 메시지 변조 등의 다양한 플러그인을 제공합니다.
+API Gateway provides a variety of plugins, such as access control, authentication, usage quota, and message falsification. 
 
-플러그인은 도메인과 엔드포인트에 적용할 수 있습니다. 도메인 계층에 추가한 플러그인은 해당 도메인의 하위 엔드포인트에 공통으로 적용됩니다.
+Plugins can be applied to domains and endpoints. Plugins that are added onto the domain hierarchy are commonly applied to endpoints at subdomains. 
 
-엔드포인트 계층에 추가한 플러그인 해당 엔드포인트에만 적용됩니다. 
+Such is applicable only to the endpoints of a plugin that has been added to the endpoint hierarchy.   
 
 ![](http://static.toastoven.net/prod_apigateway/img_12.png)
 
-API Gateway가 요청을 전달받으면 설정된 플러그인의 속성 그룹 순서대로 플러그인이 동작됩니다.
+When API Gateway receives a request, plugins operate in the order of configured attribute groups.    
 
-- Access Control filter에서 제한된 사용자의 요청, 사용 제한 초과 시 요청을 거부합니다. 
-- Authentification filter에서 인증되지 않은 요청, 변조된 요청에 대해 요청을 거부합니다. 
-- Custom filter에서 요청/응답에 대한 메시지 변조, 모의(mock) 응답을 처리합니다. 
-- Proxy filter에서 사용자의 API 서버로 요청을 포워딩하고 응답 값을 전달받아 요청자에게 전달합니다. 
+- Access Control Filter denies requests from restricted users or those exceeding usage quota.  
+- Authentication Filter denies requests that are not authenticated or fabricated.  
+- Custom Filter fabricates messages for a request/response, or handles with mock responses. 
+- Proxy Filter forwards requests to user's API server and is returned with response, which then is delivered to the requester. 
 
-## 도메인 플러그인 
+## Domain Plugins 
 
-### IP 접근 제어(IP ACL)
+### IP Access Control 
 
-IP 기반 접근 제한 기능으로 특정 IP를 허용하거나 거부할 수 있습니다.
+With IP-based access control, particular IPs may be allowed or denied.  
 
 ![apigw_13_201812](https://static.toastoven.net/prod_apigateway/apigw_13_201812.png)
 
-1. **플러그인 설정(Plugin Setting) > 접근 제어(Access Control)** 플러그인을 클릭한 후  **IP 접근 제어(IP ACL)**을 선택합니다. 
+1. Click **Plugin Setting > Access Control** plugin and select **IP Access Control (IP ACL)**. 
 
-2. 허용(Permit)을 통해 설정된 IP 목록에 대해 허용할 것인지 거부할 것인지 설정합니다. 
-  * true로 설정하면 화이트리스트로 동작합니다(설정된 IP만 허용, 그 외 모든 IP는 거부).
-  * false로 설정하면 블랙리스트로 동작합니다(설정된 IP만 거부, 그 외 모든 IP는 허용).
+2. Use Permit to set whether to allow or deny IP list. 
+  * With True, it works as a whitelist (only set IPs are allowed, with all the other IPs denied).
+  * With False, it works as blacklist (only set IPs are denied, with all the other IPs allowed).
 
-3. IPv4 형식의 IP를 입력한 후 **추가(Add)** 버튼을 클릭하여 IP 목록에 추가합니다. 
+3. Enter IP in the IPv4 format and click **Add** to add it on the IP list.  
 
-4. 설정 완료 후 **저장(Save)** 버튼을 클릭합니다. 
+4. After setting is completed, click **Save**. 
 
 
-### 사용량 제한(Usage Limit)
+### Usage Quota 
 
-일정 시간 API 사용량을 제한할 수 있습니다.
+API usage may be limited during a specified period. 
 
 ![apigw_14_201812](https://static.toastoven.net/prod_apigateway/apigw_14_201812.png)
 
-1. **플러그인 설정(Plugin Setting) > 사용량 제한(Usage Limit)** 플러그인을 클릭한 후 **사용량 제한(Usage Limit)**을 선택합니다. 
+1. Click **Plugin Setting > Usage Quota** plugin, and select  **Usage Quota**. 
 
-2. 사용량 제한 조건을 설정합니다. 
-  * 최대 사용 한도(Maximum Number of Calls)에 최대 API 호출 가능 횟수를 지정합니다. 
-  * 시간(Per(sec))에 초 단위의 시간을 지정합니다. 
-  * 지정한 시간에 최대 호출 횟수를 초과할 경우 API 사용이 제한됩니다. 
-  * 사용량 제한 조건을 여러 개 추가할 수 있으며, 설정된 제한 조건 중 하나 이상의 조건이 제한량을 초과하면 사용이 제한됩니다. 
+2. Set up with conditions for usage quota.  
+  * Specify the number of maximum available API calls for Max Usage Quota. 
+  * Specify seconds for Time (Per(sec)). 
+  * If it exceeds maximum allowed calls during specified time, API usage shall be limited. 
+  * Many conditions can be added to restrict usage, and if more than one condition exceeds quota, usage shall be restricted. 
 
-> [참고]
-> 도메인 설정 페이지에서 설정한 **사용 한도(Usage Limit)** 플러그인은 도메인 하위 모든 엔드포인트의 API 사용량에 대한 제한입니다.  
-> 엔드포인트별로 사용량 제한이 필요하면 엔드포인트의 **엔드포인트 사용 한도(EndPoint Usage Limit)** 플러그인을 적용해주세요.  
+> [Note]
+> The **Usage Quota** plugin set on the domain setting page applies to all endpoint API usage volume under a domain. 
+> If usage quota is required for each endpoint, apply the **Endpoint Usage Quota** plugin of an endpoint. 
 
-3. 설정을 저장하려면 **저장(Save)** 버튼을 클릭합니다. 
+3. Click **Save** to save setting.  
 
-### 유지 관리(Maintenance)
+### Maintenance
 
-정기 점검 등의 이유로 모든 엔드포인트 API 호출에 사용자가 정의한 응답(response)를 반환하도록 설정하려면 **유지 관리(Maintenance)** 플러그인을 사용할 수 있습니다.
+To return user-defined responses to all endpoint API calls, due to maintenance, you may use the **Maintenance** plugin. 
 
 ![apigw_15_201812](https://static.toastoven.net/prod_apigateway/apigw_15_201812.png)
 
-1. **플러그인 설정(Plugin Setting) > 유지 관리 설정(Maintenance)** 플러그인을 클릭한 후 **유지 관리 설정(Maintenance)**을 선택합니다.
+1. Go to **Plugin Setting > Maintenance** plugin and select **Maintenance Response**.
 
-2. 유지 관리(Maintenance) 응답 값을 입력합니다.
+2. Enter response for maintenance. 유지 관리(Maintenance) 응답 값을 입력합니다.
 
-3. 설정을 저장하려면 **저장(Save)** 버튼을 클릭합니다.
+3. To save the setting, click **Save**.
 
-배포 후 엔드포인트 API 호출에 유지 관리(Maintenance) 플러그인에 설정된 응답이 반환됩니다.
+After deployment, the response set for the Maintenance plugin shall be returned to endpoint API call. 
 
-### 인증(Authentication)
+### Authentication
 
-API Gateway 인증 방식은 HMAC과 JWT(JSON Web Token) 방식이 있습니다.
+API Gateways can be authenticated with HMAC (Hash-based Message Authentication Code) or JWT (JSON Web Token).
 
 #### HMAC
 
-요청 URL과 시간을 메시지로 사용해 HMAC 인증을 합니다.
+HMAC authentication is made available by using request URL and time as message.  
 
 ![apigw_16_201812](https://static.toastoven.net/prod_apigateway/apigw_16_201812.png)
 
-1. **플러그인 설정(Plugin Setting) > 인증(Authentication)** 플러그인 클릭 후 **HMAC**을 선택합니다.
+1. Click **Plugin Setting > Authentication** plugin and select **HMAC**.
 
-2. HMAC 비밀 키(secret key)와 클록 스큐(clock skew) 값을 설정합니다.
-> [주의] 클록 스큐(clock skew) 설정  
-> API Gateway 서버 시간과 클라이언트에서 보낸 X-TC-Timestamp 사이의 차가 클록 스큐(clock skew)보다 크면 HMAC 인증에 실패합니다.  
-> 클록 스큐(clock skew) 값으로 설정 가능한 범위는 0~86400(sec)이며, 만약 0이라면 클록 스큐(clock skew)를 무시합니다.
+2. Set secret key and clock skew for HMAC.
+> [Caution] Setup for Clock Skew   
+> If the difference between server time at API Gateway and X-TC-Timestamp sent from client is larger than clock skew, HMAC authentication shall fail. 
+> Clock skew is available between 0 and 86400 (sec), and if the value is 0, you may ignore the clock skew.  
 
-3. 설정 완료 후 **저장(Save)** 버튼을 클릭합니다.
+3. After setting is completed, click **Save**. 
 
-##### 인증(Authentication) > HMAC > 인증 API 호출
+##### Authentication > HMAC > Call Authentication API 
 
-HMAC 인증을 사용하려면 다음 값을 Request Header에 포함하여 요청해야 합니다.
+To enable HMAC authentication, following must be included to the Request Header for a request.   
 
-- Authorization : [Method + "\n "+ URL + "\n "+ Timestamp]를 조합하여 HmacSHA1 알고리즘으로 암호화한 후 Base64로 인코딩 한 값
+- Authorization: It is the value in combination of [Method + "\n "+ URL + "\n "+ Timestamp], which is encrypted using the HmacSHA1 algorithm and then base64 encoded. 
 
 - X-TC-Timestamp : ISO datetime format (yyyy-MM-dd'T'HH:mm:ssZZ)
 
-| 요청                                       | StringToSign                             |
-| ---------------------------------------- | ---------------------------------------- |
+| Request                                                      | StringToSign                                                 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
 | GET /test/1?query1=1&query2=2<br>X-TC-Timestamp: 2016-07-23T12:20:02+09:00<br><span style="color:red">Authorization: IqY8u/RZY8IMESwa/TPW9P9Z39Y=</span> | GET\n<br>/test/1?query1=1&query2=2\n<br>2016-07-23T12:20:02+09:00 |
 
-> [참고] 요청 시간은 ISO Datetime format (yyyy-MM-dd'T'hh:mm:ssZ)을 따릅니다.
+> [Note] Request time follows the ISO Datetime format (yyyy-MM-dd'T'hh:mm:ssZ).
 
-##### 권한(Authorization) 생성 코드(Java)
+##### Code (Java) for Creating Authorization 
 ```java
-String secretKey = "Console에서 설정한 Secret Key";
+String secretKey = "Secret key set on console";
 SecretKeySpec signingKey = new SecretKeySpec(secretKey.getBytes(), "HmacSHA1");
 Mac mac = Mac.getInstance("HmacSHA1");
 mac.init(signingKey);
@@ -418,32 +419,32 @@ rawHmac = mac.doFinal(message.getBytes());
 String authorization = new String(Base64.encodeBase64(rawHmac));
 ```
 
-#### JWT(JSON Web Token)
+#### JWT (JSON Web Token)
 
-JWT(Json Web Token) 인증을 합니다.
+Here is how it is authenticated with JWT (Json Web Token).
 
 ![apigw_17_201812](https://static.toastoven.net/prod_apigateway/apigw_17_201812.png)
 
-1. **플러그인 설정(Plugin Setting) > 인증(Authentication)** 플러그인 클릭 후 **JWT**를 선택합니다.
+1. Click **Plugin Setting > Authentication** plugin and select **JWT**.
 
-2. JWT Secret Key와 클록 스큐(clock skew) 값, 그리고 발급자(issuer)를 설정합니다.
+2. Set JWT Secret Key, clock skew, and issuer. 
 
-3. 설정 완료 후 **저장(Save)** 버튼을 클릭합니다.
+3. After setting is completed, click **Save**.
 
-> [참고]
-> API Gateway 서버의 시간과 클라이언트에서 보낸 만료 시간의 차가 클록 스큐(clock skew)보다 크면 JWT인증에 실패합니다.  
-> 클록 스큐(clock skew)에는 0~86400 사이의 값을 입력할 수 있습니다.  
+> [Note]
+> If the difference between the server time at API Gateway and expiration time sent from client is larger than clock skew, JWT authentication shall fail. 
+> Anywhere between 0 and 86400 is available for clock skew. 
 
-##### 인증(Authorization) > JWT (JSON Web Token) > JWT 인증 API 호출
+##### Authorization > JWT (JSON Web Token) > API Call for JWT Authentication
 
-JWT 인증을 사용하려면 다음 값을 Request Header에 포함해 요청해야 합니다.
+To apply JWT authentication, following value must be included to the Request Header for a request.  
 
 - Authorization : Json Web Token
 
 Request: GET /test/1?query1=1&query2=2<br>
  <span style="color:red">Authorization: eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJpbnZhbGl...</span>
 
-##### 권한(Authorization) 생성 코드(Java)
+##### Code (Java) for Creating Authorization 
 
 ```
 <dependency>
@@ -454,9 +455,9 @@ Request: GET /test/1?query1=1&query2=2<br>
 ```
 
 ```
-String secretKey = "Console에서 설정한 Secret Key";
-int expireTimeMinutes = "토큰만료시간 = 현재시간 + expireTimeMinutes";
-String issuer = "Console에서 설정한 issuer";
+String secretKey = "secret key set on console";
+int expireTimeMinutes = "token expiration time = current time + expireTimeMinutes";
+String issuer = "issuer set on console";
 
 JwtClaims claims = new JwtClaims();
 claims.setIssuer(issuer);
@@ -471,111 +472,110 @@ jws.setAlgorithmHeaderValue(AlgorithmIdentifiers.HMAC_SHA256);
 String authorization = jws.getCompactSerialization();
 ```
 
-### CORS(Cross-Origin Resource Sharing)
+### Cross-Origin Resource Sharing (CORS)
 
-Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니다.
+XMLHttpRequest API call is available by using the Cross-Site method. 
 
 ![apigw_18_201812](https://static.toastoven.net/prod_apigateway/apigw_18_201812.png)
 
-1. **플러그인 설정(Plugin Setting) > CORS** 플러그인 클릭후 **CORS**를 선택합니다.
+1. Click **Plugin Setting > CORS** plugin and select **CORS**.
 
-2. CORS 설정값을 입력합니다.
+2. Enter set value for CORS.
 
-  - Access-Control-Allow-Credentials: 자격 증명으로 요청하는 경우 True로 설정해야 합니다.
+  - Access-Control-Allow-Credentials: Set True if it is requested for credential. 
 
-  - Access-Control-Max-Age: 사전 전달 요청(Preflight)에 대한 응답을 얼마 동안 캐시할지 초 단위로 입력합니다. 0~86400 사이의 값을 입력할 수 있습니다.
-  - Access-Control-Allow-Origin: 리소스에 액세스할 수 있는 원본/도메인을 입력합니다.
-      - *로 입력하면 모든 도메인을 허용합니다.(단, \*로 지정할 경우 자격증명을 지원하지 않으므로 허용 원본(allowed origin)에 구체적인 도메인을 지정하셔야 합니다.) 
-      - 지정된 도메인에서만 허용할 때는 ,(쉼표)로 구분해 입력합니다. 
-      - 도메인은 URI(스킴, 도메인, 포트) 형식으로 입력해야 합니다(예: http://api-gw.toast.com:8080).
-  - Access-Control-Allow-Methods: 리소스 접근에 허용할 메서드를 설정합니다. 여러 메서드를 지정할 경우 ','로 구분해 입력합니다.
-  - Access-Control-Allow-Headers: 요청에서 사용할 수 있는 HTTP 헤더를 설정합니다. 여러 헤더를 설정할 경우 ','로 구분해 입력합니다.
-  - Access-Control-Expose-Headers: 브라우저(클라이언트)가 접근할 수 있는 헤더를 설정합니다. 여러 헤더를 설정할 경우 ','로 구분해 입력합니다.
-  - 자세한 CORS 규약은 https://www.w3.org/TR/cors/를 참고해 주세요.
+  - Access-Control-Max-Age: Requires by the second, regarding how long to cache response for a preflight. Anywhere between 0 and 86400 is available. 
+  - Access-Control-Allow-Origin: Enter original/domain which can access resources.
+      - With ''*'', all domains are allowed. (Note, however, since \* does not support credentials, domain must be specified for the allowed origin.)  
+      - To allow within a specified domain only, delimit by ',' (comma). 
+      - Enter domain in the URI type (scheme, domain, or port) (e.g.: http://api-gw.toast.com:8080).
+  - Access-Control-Allow-Methods: Set a method to allow access to resources. Delimit by ',' to specify many methods. 
+  - Access-Control-Allow-Headers: Set an HTTP header for a request. Delimit by ',' to set many headers.
+  - Access-Control-Expose-Headers: Set a header to allow access by browser (client). Delimit by ',' to set many headers. 
+  - For more details regarding CORS regulations, see https://www.w3.org/TR/cors/.
 
-3. 설정 완료 후 **저장(Save)** 버튼을 클릭합니다.
+3. After setting is completed, click **Save**.
 
 
-## 엔드포인트 플러그인 
+## Endpoint Plugins  
 
-### 사용자 정의 응답(User-defined Response)
+### Mock Responses
 
-사용자가 미리 설정한 사용자 정의 응답을 반환합니다.
-엔드포인트 경로에 해당하는 요청 URI(request URI)가 요청되면, 지정된 엔드포인트 서버로 요청을 포워딩하지 않고 사용자가 설정한 사용자 정의 응답이 반환됩니다. 
+When a request URI for endpoint path is requested, such request is not forwarded to a specified endpoint server but user-defined mock response is returned. 
 
 ![apigw_21_201812](https://static.toastoven.net/prod_apigateway/apigw_21_201812.png)
 
-1. **플러그인(Plugins) > 사용자 정의 응답(User-defined Response)** 플러그인을 추가합니다.
+1. Go to **Plugins** and add the **Mock Response** plugin. 
 
-2. 사용자 정의 응답(User-defined Response) HTTP STATUS, Header, Body를 설정한 후 저장합니다.
-  - HTTP Status: 응답의 상태 코드를 설정합니다.
-  - Headers: 응답 헤더(response header)에 추가할 헤더와 헤더 값을 설정합니다.
-  - Body: 응답 본문(response body) 내용을 설정합니다. 
+2. Set HTTP Status, Header, and Body for Mock Response and save. 
+  - HTTP Status: Set status code for a response. 
+  - Headers: Set header and header value to be added for a response header. 
+  - Body: Set value for response body.  
 
-3. 설정 완료 후 **저장(Save)** 버튼을 클릭합니다.
+3. After setting is completed, click **Save**.
 
-### 사전 호출 API(Pre-call API)
+### Pre-Call API
 
-사전 호출 API(Pre-call API)는 엔드포인트를 호출하기 전에 호출되며 Pre-call API의 응답 코드에 따라 엔드포인트 호출 여부를 결정하는 인증 역할을 합니다.
+Pre-call API is called before an endpoint and its response code serves as an authentication to decide whether to call endpoint. 
 
-API Gateway를 통해 들어온 요청 헤더를 포함하여 사전 호출 API(Pre-call API)를 호출하고, 사전 호출 API(Pre-call API)에서는 전달받은 헤더 내용에 따라 응답 코드를 반환합니다.
+Call Pre-call API, including the request header received via API Gateway, and then the Pre-call API return a response code in accordance with the received header.  
 
-사전 호출 API(Pre-call API)의 응답 코드에 따라 200이면 엔드포인트를 호출하고, 응답 코드가 200이 아니면 사전 호출 API(Pre-call API)의 응답 결과를 반환합니다.
-만약, 사전 호출 API(Pre-call API) 호출에 실패하면 오류를 반환합니다.
+If the response code is 200, endpoint is called; otherwise, the result of response of Pre-call API is returned. 
+If it fails to call Pre-call API, the error shall be returned. 
 
-> [참고]  
-> API Gateway는 요청의 헤더 정보만 사전 호출 API(Pre-call API)의 URL로 전달합니다.   
-> Request URL 또는 Body 정보는 전달하지 않습니다.  
+> [Note]  
+> API Gateway delivers only the header information of request to URL of Pre-call API. 
+> Request URL or body information cannot be delivered. 
 
 ![apigw_22_201812](https://static.toastoven.net/prod_apigateway/apigw_22_201812.png)
 
-1. **플러그인(plugins) > 사전 호출 API(Pre-call API)** 플러그인을 추가합니다.
+1. Go to **Plugins** and add the **Pre-call API** plugin.
 
-2. 사전 API의 메서드 타입(method type)과 URL을 입력합니다.
+2. Enter method type and URL for Pre-call API. 
 
-3. 설정 완료 후 **저장(Save)** 버튼을 클릭합니다.
+3. After setting is completed, click **Save**.
 
 
-### 헤더 변조(Modify Headers)
+### Falsify Headers
 
-헤더 변조(Modify Headers) 플러그인은 엔드 포인트 서버로 요청을 포워딩 할 때 헤더 값을 변조하거나, API Gateway가 클라이언트에 전달할 응답의 헤더를 변조할 수 있습니다.
+The Modify Headers plugin allows to falsify header value when request is forwarded to an endpoint server, or to falsify header of a response which is to be delivered from API Gateway to a client.  
 ![apigw_23_201812](https://static.toastoven.net/prod_apigateway/apigw_23_201812.png)
 
-1. **플러그인(Plugins) > 헤더 변조(Modify Headers)** 플러그인을 추가합니다.
+1. Go to **Plugins** and add the **Falsify Headers** plugin. 
 
-2. 설정 정보를 입력합니다.
-  - Request Headers는 요청 헤더를 수정합니다.
-  - Response Headers는 응답 헤더를 수정합니다.
+2. Enter setting information. 
+  - Request Headers regards to modifying request headers.  
+  - Response Headers regards to modifying response headers. 
 
-3. 설정 완료 후 **저장(Save)** 버튼을 클릭합니다.
+3. After setting is completed, click **Save**.
 
-> [참고]
-> 설정한 헤더 키가 이미 존재한다면 덮어쓰게 됩니다.
+> [Note]
+> If a header key already exists as set, it shall be overwritten.  
 
 
 
-### 사용량 제한(Usage Limit)
+### Usage Quota
 
-일정 시간 경로별 API 사용량을 제한할 수 있습니다.
+API usage may be restricted per path, during specific period. 
 
 ![apigw_24_201812](https://static.toastoven.net/prod_apigateway/apigw_24_201812.png)
 ​	
 
-1. **플러그인(Plugins) > 사용량 제한(Usage Limit)** 플러그인을 추가합니다.
+1. Go to **Plugins** and add the **Usage Quota** plugin. 
 
-2. 설정한 시간(sec) 동안 최대 호출 가능 횟수를 입력합니다.
-  - 사용량 제한 조건을 여러 개 추가할 수 있으며, 설정된 제한 조건 중 하나 이상의 조건이 제한량을 초과하면 사용이 제한됩니다. 
+2. Enter the maximum available call count during specified time (sec). 
+  - Many conditions can be added for usage quota, and if there is more than one configured condition exceeding quota, usage may be restricted. 
 
-3. 설정 완료 후 **저장(Save)** 버튼을 클릭합니다.
+3. After setting is completed, click **Save**.
 
 
-> [주의]  
-> '엔드포인트 사용량 제한'은 엔드포인트 경로별 사용량 제한입니다.    
-> 도메인 사용량 제한이 필요한 경우 도메인 설정 페이지의 사용량 제한(Usage Limit)을 설정하세요.    
-> 도메인과 엔드포인트에 각각 사용량 제한(Usage Limit) 플러그인을 설정한 경우 각각 사용 제한이 적용됩니다.   
-> 도메인 사용량 초과 시 엔드포인트의 사용량이 초과되지 않아도 요청이 거부되며, 엔드포인트의 사용량 또한 증가됩니다.     
+> [Caution]  
+> 'Endpoint Usage Quota' refers to usage quota on each endpoint path.     
+> If usage quota is required for domain, set Usage Quota on the page of domain setting.  
+> Usage quota shall be applied to each, when the usage quota plugin is configured for each domain and endpoint.   
+> If usage of domain is above the quota, request shall be denied even though endpoint usage does not exceed the quota; and the endpoint usage will also rise.     
 
-사용량 제한을 초과하면 아래의 HTTP STATUS 403 응답이 반환됩니다. 
+When it exceeds the usage quota, HTTP STATUS 403 response is returned as below:  
 
 ```
 {
@@ -587,90 +587,90 @@ API Gateway를 통해 들어온 요청 헤더를 포함하여 사전 호출 API(
 }
 ```
 
-### URL 재작성(Rewrite URL)
+### Rewrite URLs
 
-Request URL을 패턴 표현식으로 재작성하는 플러그인입니다. 
+Request URL is rewritten in the pattern expression.  
 
 ![apigw_25_201812](https://static.toastoven.net/prod_apigateway/apigw_25_201812.png)
 
-1. **플러그인(Plugins) > URL 재작성(Rewrite URL)** 플러그인을 추가합니다.
+1. Go to **Plugins** and add the **Rewrite URL** plugin.
 
-2. 설정 정보를 입력합니다.
-  - URI 패턴에는 어떤 패턴 형식의 Request URL에 대해 재작성할 것인지 패턴 형식을 입력합니다. 
-  - URI 재작성에는 (2)에서 작성한 URI 패턴 형식에 대해 URL을 재작성할 형식을 입력합니다. 
+2. Enter setting information. 
+  - Enter a pattern type of Request URL for URI Pattern. 
+  - Enter a pattern for rewriting URL, regarding the URL pattern type on (2). 
 
-3. 설정 완료 후 **저장(Save)** 버튼을 클릭합니다.
+3. After setting is completed, click **Save**.
 
-#### [예시] /api/v2.0/\*\* -> /api/v1.0/\*\* 로 재작성하는 경우 
+#### [Example] Rewriting /api/v2.0/\*\* -> /api/v1.0/\*\*  
 
-- URI 패턴: /api/v2.0/(.\*)
-- URI 재작성: /api/v1.0/%1
+- URI Pattern: /api/v2.0/(.\*)
+- Rewrite URI: /api/v1.0/%1
 
-위의 규칙을 적용하면 Request URL `/api/v2.0/members`가 ` /api/v1.0/members`로 변경되어 요청됩니다. 
+With the rules applied, the Request URL `/api/v2.0/members` is changed into  ` /api/v1.0/members` for a request.  
 
 
-## API 배포 
+## API Deployment   
 
-### API 배포
+### Deploy APIs 
 
 ![apigw_26_201812](https://static.toastoven.net/prod_apigateway/apigw_26_201812.png)
 
-1. 배포할 도메인의 **배포(Deploy)** 버튼을 클릭합니다. 
+1. Click **Deply** of a domain you need to deploy. 
 
-2. 배포한 API가 정상적으로 호출되는지 테스트합니다.
-  도메인 URL에 등록한 엔드포인트 URL을 호출했을 때 기대한 응답(response)이 전달되는지 확인합니다. 
+2. Test if call for deployed API is properly made. 
+    See if response is delivered as expected, when call is made for endpoint URL which is registered in the domain URL. 
 
 ```bash
 $ curl -s http://api-gw.cloud.toast.com/apigw/hello
 hello world
 ```
 
-## 통계 
+## Statistics 
 
-### 통계 조회 
+### Query Statistics  
 
-API 통계에서는 각 도메인별 API 호출 평균 응답 시간, 네트워크 트래픽 사용량을 확인할 수 있습니다. 배포(deploy)된 도메인의 통계 데이터만 출력됩니다.
+API statistics shows the average response time for API call at each domain and network traffic usage volume. Statistical data of deployed domains only are available.    
 
-도메인 목록의 도메인을 클릭하면 해당 도메인의 통계를 차트와 URI 패턴별로 자세히 확인할 수 있습니다. 
-차트는 검색 기간에 따라 10분, 1시간, 1일 단위로 확인할 수 있습니다.
+Click domain on the list of domains to see details by chart or UIR pattern. 
+Charts are available by every 10 minutes, 1 hour, or 1 day, depending on the search period. 
 
-통계 데이터는 실시간으로 집계되지 않습니다. 
-10분, 1시간 단위의 데이터는 10분마다, 1일 단위는 1시간마다 집계됩니다.
+Statistical data are not collected in real time.  
+10-minute or 1-hour data are collected at every 10 minutes, while 1-day data are collected at every hour. 
 
-- 6시간 미만: 10분 단위 
-- 6시간 이상~7일 미만: 1시간 단위 
-- 7일 이상~30일: 1일 단위   
-최대 검색 가능 기간은 30일이며, 10분 단위의 데이터에 대한 통계 데이터는 3개월 동안 보관됩니다. 
+- Below 6 Hours: By 10 minutes  
+- More than 6 hours ~below 7 days: By the hour 
+- More than 7 days ~30 days: By the day 
+The maximum available search period is 30 days, and 10-minute statistical data are to be retained for up to 3 months. 
 
 ![apigw_27_201812](https://static.toastoven.net/prod_apigateway/apigw_27_201812.png)
 
-1. **API Gateway > 대시보드(Dashboard)**를 클릭해 대시보드 화면으로 이동합니다.
+1. Click **API Gateway > Dashboard** to go to the dashboard page. 
 
-2. 검색 기간을 설정하면 해당 기간 동안의 통계 데이터를 확인할 수 있습니다. 
-  검색 기간은 최대 30일 이내입니다.
+2. Set search period to check statistical data during the period.  
+    Up to 30 days are available to search. 
 
-- 도메인 키: API 설정에서 등록한 도메인 고유 키
-- API 호출 성공 수: 성공한 API 호출 수의 합계 
-  - API 호출의 성공 기준은 Response HTTP Status Code가 400미만인 경우
-- API 호출 실패 수: 실패한 API 호출의 수의 합계
-  - API 호출의 실패 기준은 Response HTTP Status Code가 400이상인 경우
-- API Gateway에서 바로 응답된 수: 엔드포인트 서버로 요청을 포워딩하지 않고 API Gateway에서 응답이 전달된 경우
-  - 특정 플러그인은 API Gateway에서 응답을 반환하기도 합니다. 예를 들어 IP ACL에서 허용되지 않은 IP 소유자가 요청이 들어온 경우, API Gateway는 403 Forbidden를 반환합니다. 이와 같이 API Gateway의 Response가 클라이언트에게 전달된 API 호출의 합계입니다.  
-- API 호출 수: 전체 API 호출 수 합계 
-  - API Gateway로 인입된 전체 API 호출 수(Total API CALL Count = Success + Failures). 
-- 평균 응답 시간(ms): 평균 응답 속도 
-- 네트워크 아웃바운드 트래픽(bytes): API Gateway에서 클라이언트로 전송된 응답량의 합계 
+- Domain Key: Origin domain key registered at API setting.  
+- Number of successful API calls: Sum of successful API calls 
+  - API call is deemed as successful if Response HTTP Status Code is below 400
+- Number of failed API calls: Sum of failed API calls 
+  - API call is deemed as failure if Response HTTP Status Code is over 400
+- Number of immediate responses at API Gateway: When a request is not forwarded to the endpoint server but response is delivered from API Gateway 
+  - Some plugins may return responses at API Gateway. For instance, if a request comes from an IP owner who is not allowed, the API Gateway returns 403 Forbidden. Such responses of API Gateway refer to the sum of API calls delivered to the client.  
+- Number of API Calls: Sum of all API calls   
+  - Number of all inbound API calls to API Gateway (Total API CALL Count = Success +Failure)  
+- Average Response Time (ms): Average speed of response  
+- Outbound Network Traffic (bytes): Sum of response volume transferred to client from API Gateway  
 
-3. 검색 기간을 설정해 검색 기간 내 도메인별 통계 정보를 확인할 수 있습니다.
+3. By specifying search period, statistical data can be found for each domain.  
 
-4. 도메인 목록을 클릭해 도메인의 상세 통계를 확인할 수 있습니다. 
+4. Click domain on the list to find its statistical details.  
 
 ![apigw_28_201812](https://static.toastoven.net/prod_apigateway/apigw_28_201812.png)
 
-상세 통계에서는 성공, 실패 API 호출 수, 평균 응답 시간, 네트워크 아웃바운드 트래픽의 그래프를 확인할 수 있습니다. 
+Statistical details show graphs on the number of successful or failed API calls, average response time, or outbound network traffic. 
 
-아래 표에서 엔드포인트 경로별 상세한 통계를 확인할 수 있습니다.
+Statistics can be found in more details for each endpoint path, as in the table below.  
 
->  [참고] CORS 플러그인 이용시 API 호출 수 사용량  
->  CORS 플러그인을 사용하는 경우 API 호출 수가 실제 사용량보다 크게 나올 수 있습니다.  
->  경우에 따라 CORS 요청은 하나의 요청에 대해 사전 전달(preflight) 요청 (OPTIONS 메서드)과 실제 요청, 총 2건을 요청합니다.
+>  [Note] Usage volume of API Calls with CORS Plugin    
+>  In the case of CORS plugin, the number of API calls may be larger than the actual volume. 
+>  CORS may be requested for a total of two cases, such as a preflight request (OPTIONS method) and an actual request. 

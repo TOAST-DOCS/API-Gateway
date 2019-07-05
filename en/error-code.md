@@ -1,32 +1,10 @@
-## Application Service > API Gateway > Error Code
+## Application Service > API Gateway > Error Codes
 
+## Usage Quota
 
-## 사용량 제한 (프로젝트 단위) 
-프로젝트 단위의 사용량 제한을 초과하면 HTTP Status 429 (Too many request) 응답이 반환됩니다. 
-호출량은 초당 10,000건으로 제한됩니다.
+If it exceeds usage quota, HTTP Status 403 response is returned. 
 
-#### 오류 코드
-
-```
-{
-  "header": {
-    "resultCode": 200040,
-    "resultMessage": "200040 Tenant quota exceeded",
-    "isSuccessful": false
-  }
-}
-```
-
-| http status code | result code | result message             |
-| ---------------- | ----------- | -------------------------- |
-| 429              | 200040      | 200040 Tenant quota exceeded|
-
-
-## 사용량 제한(Usage Limit)
-
-사용량 제한을 초과하면 HTTP Status 403 response가 반환됩니다. 
-
-#### 오류 코드
+#### Error Codes 
 
 ```
 {
@@ -44,9 +22,9 @@
 
 ## HMAC
 
-HMAC 인증 실패 시 HTTP status 401 response가 반환됩니다.
+If HMAC authentication fails,  HTTP status 401 response is returned. 
 
-#### 오류 코드
+#### Error Codes
 
 ```
 {
@@ -68,9 +46,9 @@ HMAC 인증 실패 시 HTTP status 401 response가 반환됩니다.
 
 ## JWT 
 
-JWT 인증 실패 시 HTTP status 401 response가 반환됩니다.
+If JWT authentication fails,  HTTP status 401 response is returned. 
 
-#### 오류 코드
+#### Error Codes
 
 ```
 {  
@@ -88,11 +66,11 @@ JWT 인증 실패 시 HTTP status 401 response가 반환됩니다.
 | 401              | 20002       | 20002 JWT authentication failed (Exceeded expiration time) |
 | 401              | 20002       | 20002 JWT authentication failed (Invalid authorization) |
 
-## 사전 호출 API(Pre-call API)
+## Pre-Call API
 
-Pre-call API 인증 실패 시 HTTP status 502 response가 반환됩니다.
+If pre-call API authentication fails, HTTP status 502 response is returned. 
 
-#### 오류 코드
+#### Error Codes 
 
 ```
 {  
@@ -108,11 +86,11 @@ Pre-call API 인증 실패 시 HTTP status 502 response가 반환됩니다.
 | ---------------- | ----------- | ------------------------------- |
 | 502              | 20008       | 20008 Pre api connection failed |
 
-## URL 재작성(Rewrite URL)
+## URL Rewrite
 
-URI 패턴 또는 URL 재작성 형식을 잘못된 문법으로 설정하면 HTTP status 500 response가 반환됩니다.
+If URL pattern or URL rewrite format is configured in invalid grammar, HTTP status 500 response is returned.
 
-#### 오류 코드
+#### Error Codes 
 
 ```
 {  
