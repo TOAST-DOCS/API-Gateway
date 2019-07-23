@@ -367,7 +367,7 @@ To return user-defined responses to all endpoint API calls, due to maintenance, 
 
 1. Go to **Plugin Setting > Maintenance** plugin and select **Maintenance Response**.
 
-2. Enter response for maintenance. 유지 관리(Maintenance) 응답 값을 입력합니다.
+2. Enter response for maintenance.
 
 3. To save the setting, click **Save**.
 
