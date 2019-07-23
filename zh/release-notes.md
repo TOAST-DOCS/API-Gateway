@@ -1,6 +1,6 @@
 ## Application Service > API Gateway > Release Notes
 
-### 2019.06.25
+### 2019.07.23
 
 #### Feature Updates/Changes 
 * API Call Volume Restricted for Each Project  
