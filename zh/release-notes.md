@@ -1,18 +1,19 @@
 ## Application Service > API Gateway > Release Notes
 
-### 2019.07.23
+### Jul.23, 2019
 
 #### Feature Updates/Changes 
 * API Call Volume Restricted for Each Project  
   * API calls are allowed no more than 10,000 times per second at each project. When it exceeds the restricted volume, request shall be denied, with 429 Too Many Request returned as response. 
   * If you need adjustment in the usage volume, contact Customer Center. 
 
-  
-### 2019.02.26
 
-#### 기능 개선/변경
-* [Console] 모니터링 플러그인 서비스 중단 
-  * 모니터링 플러그인 서비스가 중단됩니다. 서비스 중단 이후에는 콘솔 화면에서 모니터링 플러그인 기능 설정이 불가합니다. 
+### Feb.26, 2019 
+
+#### Updates/Changes 
+* [Console] Suspension of Monitoring Plugin  
+  * The monitoring plugin service is suspended. After service suspension, setting for monitoring plugin  gets unavailable on console.  
+
 
 ### 2018.04.24
 
