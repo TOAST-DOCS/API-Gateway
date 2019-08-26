@@ -196,7 +196,7 @@ swagger 파일을 가져와 도메인을 등록하거나 등록된 도메인을 
 - 도메인 플러그인은 최상위 레벨의 x-cloudtoast-apigw에 설정 정보를 입력합니다.
 - HTTP_PROXY: 엔드포인트 서버 URL을 입력합니다(* 입력 필수).
 - IPACL: 도메인의 접근 제어(Access Control) > IP 접근 제어(IP ACL)플러그인 설정 정보를 입력합니다(액세스 제어 그룹 중 하나만 입력 가능).
-- HMAC: 도메인의 인증(Authentication) > HAMC 플러그인 설정 정보를 입력합니다(인증 그룹 중 하나만 입력 가능).
+- HMAC: 도메인의 인증(Authentication) > HMAC 플러그인 설정 정보를 입력합니다(인증 그룹 중 하나만 입력 가능).
 - JWT: 도메인의 인증(Authentication) > JSON Web Token (JWT) 플러그인 설정 정보를 입력합니다(인증 그룹 중 하나만 입력 가능).
 - USAGE_QUOTA: 도메인의 사용량 제한(Usage Limit) > 사용량 제한(Usage Limit) 플러그인 설정 정보를 입력합니다(사용량 제한 그룹 중 하나만 입력 가능).
 - MAINTENANCE: 도메인의 유지 관리(Maintenance) > 유지 관리 응답(Maintenance Response) 플러그인 설정 정보를 입력합니다(유지 관리 그룹 중 하나만 입력 가능).

@@ -196,7 +196,7 @@ Domains can be registered by importing swagger files, or registered domains may 
 - For domain plugin, enter setting information for x-cloudtoast-apigw at the highest level. 
 - HTTP_PROXY: Enter URL for endpoint server (*is required).
 - IPACL: Enter Domain's Access Control > Setting information for the IP Access Control (IP ACL) plugin (only one out of many access control groups is available).
-- HMAC: Enter Domain Authentication > Setting information for the HAMC plugin (only one out of many authentication groups is available).
+- HMAC: Enter Domain Authentication > Setting information for the HMAC plugin (only one out of many authentication groups is available).
 - JWT: Enter Domain Authentication > Setting information for the JSON Web Token (JWT) plugin (only one out of many authentication groups is available).
 - USAGE_QUOTA: Enter Domain's Quota Limit > Setting information for Usage Quota plugin (only one out of may quota limit groups is available).
 - MAINTENANCE: Enter Domain's Maintenance > Setting information for Maintenance Response plugin (only one out of many maintenance groups is available).

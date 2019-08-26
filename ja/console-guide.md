@@ -197,7 +197,7 @@ swaggerファイルをインポートしてドメインを登録できます。�
 - ドメインプラグインは、最上位レベルのx-cloudtoast-apigwに設定情報を入力します。
 - HTTP_PROXY：エンドポイントサーバーURLを入力します(* 入力必須)。
 - IPACL：ドメインのアクセス制御(Access Control) > IPアクセス制御(IP ACL)プラグイン設定情報を入力します(アクセス制御グループの中から1つのみ入力可能)。
-- HMAC：ドメインの認証(Authentication) > HAMCプラグイン設定情報を入力します(認証グループの中から1つのみ入力可能)。
+- HMAC：ドメインの認証(Authentication) > HMACプラグイン設定情報を入力します(認証グループの中から1つのみ入力可能)。
 - JWT：ドメインの認証(Authentication) > JSON Web Token (JWT)プラグイン設定情報を入力します(認証グループの中から1つのみ入力可能)。
 - USAGE_QUOTA：ドメインの使用量制限(Usage Limit) > 使用量制限(Usage Limit)プラグイン設定情報を入力します(使用量制限グループの中から1つのみ入力可能)。
 - MAINTENANCE：ドメインのメンテナンス(Maintenance) > メンテナンスレスポンス(Maintenance Response)プラグイン設定情報を入力します(メンテナンスグループの中から1つのみ入力可能)。
