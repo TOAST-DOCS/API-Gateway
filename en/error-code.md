@@ -1,5 +1,26 @@
 ## Application Service > API Gateway > Error Codes
 
+## Capacity Limit (by Project) 
+If it exceeds the capacity limit by project,  the response shall return HTTP Status 429 (Too many requests).  
+Calls are restricted to 10,000 cases per second. 
+
+#### Error Code
+
+```
+{
+  "header": {
+    "resultCode": 200040,
+    "resultMessage": "200040 Tenant quota exceeded",
+    "isSuccessful": false
+  }
+}
+```
+
+| http status code | result code | result message             |
+| ---------------- | ----------- | -------------------------- |
+| 429              | 200040      | 200040 Tenant quota exceeded|
+
+
 ## Usage Quota
 
 If it exceeds usage quota, HTTP Status 403 response is returned. 
