@@ -127,4 +127,3 @@ If URL pattern or URL rewrite format is configured in invalid grammar, HTTP stat
 | ---------------- | ----------- | ------------------------------- |
 | 500              | 20005       | URI Pattern's syntax is invalid |
 | 500              | 20006       | Rewrite URI's syntax is invalid |
-
