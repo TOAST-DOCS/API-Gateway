@@ -1,5 +1,8 @@
 ## Application Service > API Gateway > 콘솔 사용 가이드
 
+## 동영상 가이드 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pSEkwydygww" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## API Gateway 활성화 
 
 API Gateway 서비스를 활성화하려면 콘솔에서 서비스를 추가할 프로젝트를 선택한 후, **서비스 선택**에서 **Application Service > API Gateway**를 클릭합니다. 
