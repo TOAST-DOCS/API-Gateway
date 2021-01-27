@@ -356,7 +356,7 @@ HMAC 인증을 하려면 API 요청 클라이언트는 다음의 인증 헤더�
 - HTTP 요청 원문
 ```
 GET /members?isEnable=false&type=public HTTP/1.1
-Host: http://kr1-example.apigw.cloud.toast.com
+Host: http://kr1-example.api.nhncloudservice.com
 x-nhn-date: 2021-02-23T00:00:00+09:00
 x-nhn-client-id: nhn
 x-nhn-client-ip: 10.0.0.1,10.0.0.2
@@ -367,7 +367,7 @@ x-nhn-client-ip: 10.0.0.1,10.0.0.2
 GET
 /members?isEnable=false&type=public
 2021-02-23T00:00:00+09:00
-host:kr1-example.apigw.cloud.toast.com
+host:kr1-example.api.nhncloudservice.com
 x-nhn-client-id: nhn
 x-nhn-client-ip: 10.0.0.1,10.0.0.2
 ```
@@ -405,9 +405,9 @@ API Gateway로 수신된 요청을 백엔드 엔드포인트로 전달할 때 �
 3. 스테이지 URL를 지정된 HTTP 메서드로 API를 호출합니다. 
     - 예시: 
         - 메서드 : GET
-        - 스테이지 URL : https://kr1-xxxxx-test.apigw.cloud.toast.com/example
+        - 스테이지 URL : https://kr1-xxxxx-test.api.nhncloudservice.com/example
     ```
-    curl --request GET 'https://kr1-xxxxx-test.apigw.cloud.toast.com/example'
+    curl --request GET 'https://kr1-xxxxx-test.api.nhncloudservice.com/example'
     ```
 
 
