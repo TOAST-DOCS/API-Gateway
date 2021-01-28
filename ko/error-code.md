@@ -46,6 +46,7 @@
 | 4011006              | Invalid x-nhn-date format. ISO Datetime format (yyyy-MM-dd'T'hh:mm:ssZ)      | x-nhn-date의 날짜 데이터 형식이 잘못되었습니다.|
 | 4011007              | expired      | 요청 유효시간이 만료되었습니다.|
 | 4011008              | Authorization is invalid.      | 요청의 인증 정보가 유효하지 않습니다.|
+| 4011009              | Authorization header must start with the string hmac.      | Authorization 요청 헤더값이 hmac으로 시작하지 않아 유효하지 않습니다.|
 
 ## IP ACL
 
