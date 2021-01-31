@@ -344,12 +344,12 @@ HMAC 인증을 하려면 API 요청 클라이언트는 다음의 인증 헤더�
 
 | 헤더 이름 | 헤더 값 |
 | --- | --- |
-| Authorization | hmac algorithm="\<encrypt_algorithm\>", headers="\<validation_headers\>", signature="\<base64_digest\>" |
+| Authorization | hmac algorithm="<encrypt_algorithm\>", headers="<validation_headers\>", signature="<base64_digest\>" |
 | x-nhn-date |  ISO8601 형식의 시간|
 
 > **[참고] x-nhn-date의 ISO8601 형식** 
-> UTC 표기: yyyy-MM-dd'T'HH:mm:ssZ
-> UTC 기준 타임 오프셋 표기: yyyy-MM-dd'T'HH:mm:ss±hh:mm
+> - UTC 표기: yyyy-MM-dd'T'HH:mm:ssZ
+> - UTC 기준 타임 오프셋 표기: yyyy-MM-dd'T'HH:mm:ss±hh:mm
 
 - Authorization 또는  x-nhn-date 헤더가 요청에 포함되지 않은 경우 HMAC 인증에 실패합니다.
 
@@ -392,7 +392,7 @@ x-nhn-client-id: nhn
 x-nhn-client-ip: 10.0.0.1,10.0.0.2
 ```
 
-- signature 생성 코드 예시(Java) : SignToString 암호화 후 Base64Encoding 
+- signature 생성 코드 예시(Java) : SignToString을 HMAC 암호화 후 Base64 인코딩 한 값
 ```
 String secretKey = "HMAC에 설정한 비밀키";
 // 암호화 알고리듬 HmacSHA1 또는 HmacSHA256
