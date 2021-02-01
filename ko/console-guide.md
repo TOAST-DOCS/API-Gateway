@@ -159,7 +159,7 @@ Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니�
     - **Access-Control-Allow-Origin**: 리소스에 액세스할 수 있는 원본/도메인을 입력합니다. 
         - *로 입력하면 모든 도메인을 허용합니다.(단, *로 지정할 경우 자격증명을 지원하지 않으므로 허용 원본(allowed origin)에 구체적인 도메인을 지정하셔야 합니다.) 
         - 지정된 도메인에서만 허용할 때는 ,(쉼표)로 구분해 입력합니다.
-        - 도메인은 URI(스킴, 도메인, 포트) 형식으로 입력해야 합니다(예: http://api-gw.toast.com:8080).
+        - 도메인은 URI(스킴, 도메인, 포트) 형식으로 입력해야 합니다(예: http://example.nhncloudservice.com:8080).
     - **Access-Control-Allow-Methods**: 리소스 접근에 허용할 메서드를 설정합니다. 여러 메서드를 지정할 경우 ','로 구분해 입력합니다.
     - **Access-Control-Allow-Headers**: 요청에서 사용할 수 있는 HTTP 헤더를 설정합니다. 여러 헤더를 설정할 경우 ','로 구분해 입력합니다.
     - **Access-Control-Expose-Headers**: 브라우저(클라이언트)가 접근할 수 있는 헤더를 설정합니다. 여러 헤더를 설정할 경우 ','로 구분해 입력합니다.
