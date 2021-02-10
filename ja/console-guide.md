@@ -82,7 +82,8 @@ swaggerファイルをインポートしてドメインを登録できます。�
 
 1. Swaggerの仕様を確認し、swaggerファイルを作成します。
   - [Swagger Specification](http://swagger.io/docs/specification/what-is-swagger/)
-2. TOASTクラウドAPI Gatewayで提供するプラグイン設定を追加するには、x-toastcloud-apigw拡張設定情報を追加します。
+2. 
+クラウドAPI Gatewayで提供するプラグイン設定を追加するには、x-toastcloud-apigw拡張設定情報を追加します。
   - 例)
 ```json
 {

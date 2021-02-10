@@ -81,7 +81,7 @@ swagger 파일을 가져와 도메인을 등록하거나 등록된 도메인을 
 
 1. Swagger 명세를 참고하여 swagger 파일을 작성합니다.
   - [Swagger Specification](http://swagger.io/docs/specification/what-is-swagger/)
-2. TOAST 클라우드 API Gateway에서 제공하는 플러그인 설정을 추가하려면 x-toastcloud-apigw 확장 설정 정보를 추가합니다.
+2. NHN Cloud 클라우드 API Gateway에서 제공하는 플러그인 설정을 추가하려면 x-toastcloud-apigw 확장 설정 정보를 추가합니다.
   - 예시)
 ```json
 {
