@@ -1,130 +1,117 @@
 ﻿
 ## Application Service > API Gateway > エラーコード
 
-## 使用量制限(プロジェクト単位) 
-プロジェクト単位の使用量制限を超えると、HTTP Status 429 (Too many request)レスポンスが返されます。
-呼び出し数は毎秒10,000件に制限されます。
-
-#### エラーコード
-
-```
+## リクエスト遮断 
+- 発生原因：API Gatewayサービスとバックエンドエンドポイントサービスを保護する目的でバックエンドエンドポイントサービスがレスポンスを行わなかったり、レスポンス遅延(60秒以上)が継続的に発生する場合、API Gatewayサービスは該当バックエンドエンドポイントサービスに対するリクエストを一時的に拒否します。 
+- レスポンスHTTP状態：503 Service  Unavailable
+- エラーレスポンス本文 
+``` 
 {
-  "header": {
-    "resultCode": 200040,
-    "resultMessage": "200040 Tenant quota exceeded",
-    "isSuccessful": false
-  }
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 5030001,
+        "resultMessage": "Upstream Service Unavailable (CircuitBreaker {detailErrorMessage})"
+    }
 }
 ```
 
-| http status code | result code | result message             |
-| ---------------- | ----------- | -------------------------- |
-| 429              | 200040      | 200040 Tenant quota exceeded|
-
-
-## 使用量制限(Usage Limit)
-
-使用量制限を超えると、HTTP Status 403 responseが返されます。
-
-#### エラーコード
-
-```
-{
-  "header": {
-    "resultCode": 20004,
-    "resultMessage": "20004 Usage quota exceeded",
-    "isSuccessful": false
-  }
-}
-```
-
-| http status code | result code | result message             |
-| ---------------- | ----------- | -------------------------- |
-| 403              | 20004       | 20004 Usage quota exceeded |
+> **[参考]リクエスト遮断**
+> - リクエストが遮断されるとリクエスト遮断エラーコードが返され、一定時間が経過すると遮断が解除されます。
+> - 正常に稼働中の状態ではないバックエンドエンドポイントサービスを連携したり、レスポンス遅延(Timeout)が60秒以上発生する場合、遮断が発生するため、APIは連携しないことを推奨します。
 
 ## HMAC
+- 発生原因：HMAC認証に必要なリクエスト情報がない場合や、認証に失敗した場合、次のレスポンスが伝達されます。
+- レスポンスHTTP状態：401 Unauthorized 
+- エラーレスポンス本文 
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 4011001,
+        "resultMessage": "Authorization is empty."
+    }
+}
+```
 
-HMAC認証失敗時、HTTP status 401 responseが返されます。
 
-#### エラーコード
+| result code | resultMessage             | 説明|
+| ---------------- | ----------- | -------------------------- |
+| 4011001              | Authorization is empty.      | Authorizationリクエストヘッダがありません。|
+| 4011002              | HmacAlgorithm is empty or not supported algorithm      | サポートしていない暗号化アルゴリズム、またはアルゴリズムが指定されていません。|
+| 4011003              | Signature is empty.      | signature情報がありません。 |
+| 4011004              | Not include some headers credential.      | リクエストヘッダに必須検証ヘッダが含まれていません。 |
+| 4011005              | x-nhn-date header is empty.      | x-nhn-dateリクエストヘッダがありません。|
+| 4011006              | Invalid x-nhn-date format. ISO Datetime format (yyyy-MM-dd'T'hh:mm:ssZ)      | x-nhn-dateの日付データ形式が無効です。|
+| 4011007              | expired      | リクエスト有効期限が切れました。|
+| 4011008              | Authorization is invalid.      | リクエストの認証情報が有効ではありません。|
+| 4011009              | Authorization header must start with the string hmac.      | Authorizationリクエストヘッダ値がhmacで始まっていないため有効ではありません。|
 
+## IP ACL
+
+- 発生原因：アクセスが許可されていないIPのリクエストを拒否する時、エラーレスポンスが返されます。
+- レスポンスHTTP状態：403 Forbidden
+- エラーレスポンス本文 
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 4031007,
+        "resultMessage": "Request IP not allowed"
+    }
+}
+```
+
+## リクエストサイズ超過
+- 発生原因：リクエストのサイズが10MB制限を超えた場合に発生します。
+- レスポンスHTTP状態：413 Request Entity Too Large
+- エラーレスポンス本文 
+```
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 4131000,
+        "resultMessage": "Request size is larger than permissible limit. the permissible limit is 10mb."
+    }
+}
+```
+
+
+## パスまたはメソッドが見つからない
+- 発生原因：APIリソースに登録されていないAPIパスおよびメソッドでリクエストした場合に発生します。
+- レスポンスHTTP状態：404 Not Found
+- エラーレスポンス本文 
+```
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 4041007,
+        "resultMessage": "Not Found a Route"
+    }
+}
+```
+
+## バックエンドエンドポイントサービス接続エラー 
+- 発生原因：バックエンドエンドポイントが応答しなかったり、応答を拒否した場合に発生します。
+- レスポンスHTTP状態：503 Service Unavailable 
+- エラーレスポンス本文 
 ```
 {
   "header" : {
-    "resultCode" :  20001,
-    "resultMessage" :  "20001 HMAC authentication failed (Exceeded expiration time)",
+    "resultCode" :  5030001,
+    "resultMessage" :  "Upstream Service Unavailable ({error detail message})",
     "isSuccessful" :  false
   }
 }
 ```
-
-| http status code | result code | result message                           |
-| ---------------- | ----------- | ---------------------------------------- |
-| 401              | 20001       | 20001 HMAC authentication failed (The timestamp field is empty) |
-| 401              | 20001       | 20001 HMAC authentication failed (Invalid timestamp format) |
-| 401              | 20001       | 20001 HMAC authentication failed (Exceeded expiration time) |
-| 401              | 20001       | 20001 HMAC authentication failed (The authorization field is empty) |
-| 401              | 20001       | 20001 HMAC authentication failed (Invalid authorization) |
-
-## JWT 
-
-JWT認証失敗時、HTTP status 401 responseが返されます。
-
-#### エラーコード
-
-```
-{  
-   "header":{  
-      "resultCode":20002,
-      "resultMessage":"20002 JWT authentication failed (Exceeded expiration time)",
-      "isSuccessful":false
-   }
+- 発生原因：バックエンドエンドポイントが応答しなかったり、応答を拒否した場合に発生します。
+- レスポンスHTTP：502 Bad Gateway 
+- エラーレスポンス本文 
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 5020001,
+        "resultMessage": "Upstream Bad Gateway ({error detail message})"
+    }
 }
 ```
-
-| http status code | result code | result message                           |
-| ---------------- | ----------- | ---------------------------------------- |
-| 401              | 20002       | 20002 JWT authentication failed (The authorization field is empty) |
-| 401              | 20002       | 20002 JWT authentication failed (Exceeded expiration time) |
-| 401              | 20002       | 20002 JWT authentication failed (Invalid authorization) |
-
-## 事前呼び出しAPI(Pre-call API)
-
-Pre-call API認証失敗時、HTTP status 502 responseが返されます。
-
-#### エラーコード
-
-```
-{  
-   "header":{  
-      "resultCode":20008,
-      "resultMessage":"20008 Pre api connection failed",
-      "isSuccessful":false
-   }
-}
-```
-
-| http status code | result code | result message                  |
-| ---------------- | ----------- | ------------------------------- |
-| 502              | 20008       | 20008 Pre api connection failed |
-
-## URL再作成(Rewrite URL)
-
-URIパターンまたはURL再作成形式を無効な文法で設定すると、HTTP status 500 responseが返されます。
-
-#### エラーコード
-
-```
-{  
-   "header":{  
-      "resultCode":20005,
-      "resultMessage":"20005 URI Pattern's syntax is invalid",
-      "isSuccessful":false
-   }
-}
-```
-
-| http status code | result code | result message                  |
-| ---------------- | ----------- | ------------------------------- |
-| 500              | 20005       | URI Pattern's syntax is invalid |
-| 500              | 20006       | Rewrite URI's syntax is invalid |

@@ -1,129 +1,116 @@
 ## Application Service > API Gateway > 오류 코드
 
-
-## 사용량 제한 (프로젝트 단위) 
-프로젝트 단위의 사용량 제한을 초과하면 HTTP Status 429 (Too many request) 응답이 반환됩니다. 
-호출량은 초당 10,000건으로 제한됩니다.
-
-#### 오류 코드
-
-```
+## 요청 차단 
+- 발생 원인 : API Gateway 서비스와 백엔드 엔드포인트 서비스를 보호하는 목적으로 백엔드 엔드포인트 서비스가 응답을 하지 않거나 응답 지연(60초 이상)이 지속적으로 발생하는 경우, API Gateway 서비스는 해당 백엔드 엔드포인트 서비스에 대한 요청을 일시적으로 거부합니다. 
+- 응답 HTTP 상태 : 503 Service  Unavailable 
+- 오류 응답 본문 
+``` 
 {
-  "header": {
-    "resultCode": 200040,
-    "resultMessage": "200040 Tenant quota exceeded",
-    "isSuccessful": false
-  }
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 5030001,
+        "resultMessage": "Upstream Service Unavailable (CircuitBreaker {detailErrorMessage})"
+    }
 }
 ```
 
-| http status code | result code | result message             |
-| ---------------- | ----------- | -------------------------- |
-| 429              | 200040      | 200040 Tenant quota exceeded|
-
-## 사용량 제한(Usage Limit)
-
-사용량 제한을 초과하면 HTTP Status 403 response가 반환됩니다. 
-
-#### 오류 코드
-
-```
-{
-  "header": {
-    "resultCode": 20004,
-    "resultMessage": "20004 Usage quota exceeded",
-    "isSuccessful": false
-  }
-}
-```
-
-| http status code | result code | result message             |
-| ---------------- | ----------- | -------------------------- |
-| 403              | 20004       | 20004 Usage quota exceeded |
+> **[참고] 요청 차단**
+> - 요청이 차단되면 요청 차단 오류 코드가 응답되며, 일정 시간 이후 차단이 해제됩니다.
+> - 정상적으로 운영중인 상태가 아닌 백엔드 엔드포인트 서비스를 연동하거나 응답 지연(Timeout)이 60초 이상이 지연이 발생하는 경우 차단이 발생하므로 API는 연동하지 않는 것을 권장합니다.
 
 ## HMAC
+- 발생 원인 : HMAC 인증에 필요한 요청 정보가 없거나 인증에 실패하는 경우 다음의 응답이 전달됩니다.
+- 응답 HTTP 상태 : 401 Unauthorized 
+- 오류 응답 본문 
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 4011001,
+        "resultMessage": "Authorization is empty."
+    }
+}
+```
 
-HMAC 인증 실패 시 HTTP status 401 response가 반환됩니다.
 
-#### 오류 코드
+| result code | resultMessage             |  설명|
+| ---------------- | ----------- | -------------------------- |
+| 4011001              | Authorization is empty.      | Authorization 요청 헤더가 없습니다.|
+| 4011002              | HmacAlgorithm is empty or not supported algorithm      | 지원하지 않는 암호화 알고리듬 또는 알고리듬이 지정되지 않았습니다.|
+| 4011003              | Signature is empty.      | signature 정보가 없습니다. |
+| 4011004              | Not include some headers credential.      | 요청 헤더에 필수 검증 헤더가 포함되어 있지 않습니다. |
+| 4011005              | x-nhn-date header is empty.      | x-nhn-date 요청 헤더가 없습니다.|
+| 4011006              | Invalid x-nhn-date format. ISO Datetime format (yyyy-MM-dd'T'hh:mm:ssZ)      | x-nhn-date의 날짜 데이터 형식이 잘못되었습니다.|
+| 4011007              | expired      | 요청 유효시간이 만료되었습니다.|
+| 4011008              | Authorization is invalid.      | 요청의 인증 정보가 유효하지 않습니다.|
+| 4011009              | Authorization header must start with the string hmac.      | Authorization 요청 헤더값이 hmac으로 시작하지 않아 유효하지 않습니다.|
 
+## IP ACL
+
+- 발생 원인 : 접근이 허가되지 않은 IP의 요청을 거부할때 오류 응답이 반환됩니다.
+- 응답 HTTP 상태 : 403 Forbidden
+- 오류 응답 본문 
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 4031007,
+        "resultMessage": "Request IP not allowed"
+    }
+}
+```
+
+## 요청 크기 초과 
+- 발생 원인: 요청의 크기가 10MB 제한을 초과한 경우 발생합니다.
+- 응답 HTTP 상태 : 413 Request Entity Too Large
+- 오류 응답 본문 
+```
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 4131000,
+        "resultMessage": "Request size is larger than permissible limit. the permissible limit is 10mb."
+    }
+}
+```
+
+
+## 경로 또는 메서드를 찾을 수 없음
+- 발생 원인: API 리소스에 등록되지 않은 API 경로 및 메서드로 요청한 경우 발생합니다.
+- 응답 HTTP 상태 : 404 Not Found
+- 오류 응답 본문 
+```
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 4041007,
+        "resultMessage": "Not Found a Route"
+    }
+}
+```
+
+## 백엔드 엔드포인트 서비스 연결 오류 
+- 발생 원인: 백엔드 엔드포인트가 응답 하지 않거나 응답을 거부하는 경우 발생합니다.
+- 응답 HTTP 상태 : 503 Service Unavailable 
+- 오류 응답 본문 
 ```
 {
   "header" : {
-    "resultCode" :  20001,
-    "resultMessage" :  "20001 HMAC authentication failed (Exceeded expiration time)",
+    "resultCode" :  5030001,
+    "resultMessage" :  "Upstream Service Unavailable ({error detail message})",
     "isSuccessful" :  false
   }
 }
 ```
-
-| http status code | result code | result message                           |
-| ---------------- | ----------- | ---------------------------------------- |
-| 401              | 20001       | 20001 HMAC authentication failed (The timestamp field is empty) |
-| 401              | 20001       | 20001 HMAC authentication failed (Invalid timestamp format) |
-| 401              | 20001       | 20001 HMAC authentication failed (Exceeded expiration time) |
-| 401              | 20001       | 20001 HMAC authentication failed (The authorization field is empty) |
-| 401              | 20001       | 20001 HMAC authentication failed (Invalid authorization) |
-
-## JWT 
-
-JWT 인증 실패 시 HTTP status 401 response가 반환됩니다.
-
-#### 오류 코드
-
-```
-{  
-   "header":{  
-      "resultCode":20002,
-      "resultMessage":"20002 JWT authentication failed (Exceeded expiration time)",
-      "isSuccessful":false
-   }
+- 발생 원인: 백엔드 엔드포인트가 응답 하지 않거나 응답을 거부하는 경우 발생합니다.
+- 응답 HTTP : 502 Bad Gateway 
+- 오류 응답 본문 
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 5020001,
+        "resultMessage": "Upstream Bad Gateway ({error detail message})"
+    }
 }
 ```
-
-| http status code | result code | result message                           |
-| ---------------- | ----------- | ---------------------------------------- |
-| 401              | 20002       | 20002 JWT authentication failed (The authorization field is empty) |
-| 401              | 20002       | 20002 JWT authentication failed (Exceeded expiration time) |
-| 401              | 20002       | 20002 JWT authentication failed (Invalid authorization) |
-
-## 사전 호출 API(Pre-call API)
-
-Pre-call API 인증 실패 시 HTTP status 502 response가 반환됩니다.
-
-#### 오류 코드
-
-```
-{  
-   "header":{  
-      "resultCode":20008,
-      "resultMessage":"20008 Pre api connection failed",
-      "isSuccessful":false
-   }
-}
-```
-
-| http status code | result code | result message                  |
-| ---------------- | ----------- | ------------------------------- |
-| 502              | 20008       | 20008 Pre api connection failed |
-
-## URL 재작성(Rewrite URL)
-
-URI 패턴 또는 URL 재작성 형식을 잘못된 문법으로 설정하면 HTTP status 500 response가 반환됩니다.
-
-#### 오류 코드
-
-```
-{  
-   "header":{  
-      "resultCode":20005,
-      "resultMessage":"20005 URI Pattern's syntax is invalid",
-      "isSuccessful":false
-   }
-}
-```
-
-| http status code | result code | result message                  |
-| ---------------- | ----------- | ------------------------------- |
-| 500              | 20005       | URI Pattern's syntax is invalid |
-| 500              | 20006       | Rewrite URI's syntax is invalid |

@@ -81,7 +81,7 @@ Domains can be registered by importing swagger files, or registered domains may 
 
 1. Write a swagger file in reference of the swagger specifications. 
   - [Swagger Specifications](http://swagger.io/docs/specification/what-is-swagger/)
-2. To add plugin settings provided by TOAST Cloud API Gateway, add extension setting data for x-toastcloud-apigw. 
+2. To add plugin settings provided by NHN Cloud Cloud API Gateway, add extension setting data for x-toastcloud-apigw. 
   - Example
 ```json
 {
