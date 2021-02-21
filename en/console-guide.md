@@ -1,416 +1,403 @@
-## Application Service > API Gateway > Console User Guide
+## Application Service > API Gateway > 콘솔 사용 가이드
 
-## Enable API Gateway  
+## API Gateway 서비스 
+API Gateway 서비스는 API Gateway를 통해 서비스할 API를 관리하는 단위입니다. 
+API Gateway 서비스마다 하나의 API 리소스와 여러 개의 스테이지를 관리할 수 있으며, 대시보드를 통해 API 지표를 확인할 수 있습니다.
 
-To enable the API Gateway service, select a project to add services for, and go to **Select Services** and click **Application Service > API Gateway**.      
+### API Gateway 서비스 생성 
+API Gateway 서비스 정보를 입력한 후 생성 버튼을 클릭하면 API Gateway 서비스가 생성됩니다.
 
-## Domains 
+* **서비스명**: 서비스의 이름입니다.
+* **서비스 설명**: 서비스의 설명입니다.
+* **서비스 ID**: 서비스마다 임의로 발급된 고유한 ID 입니다. 
 
-Below is the main page of API Gateway, which shows the list of registered domains.  
+> **[참고] API Gateway 서비스 생성 갯수 제한**
+> API Gateway 서비스는 프로젝트 당 **최대 10개**까지 생성 가능합니다.
 
-![apigw_01_201812](https://static.toastoven.net/prod_apigateway/apigw_01_201812.png)
+### API Gateway 서비스 조회 
+* 등록된 API Gateway 서비스 목록이 표시됩니다.
+* 목록에서 서비스를 선택하면 등록된 스테이지 목록이 표시됩니다.
+* 리소스를 관리하려면 서비스 설정 열의 **리소스** 버튼을 클릭합니다.
+* 스테이지를 관리하려면 서비스 설정 열의 **스테이지** 버튼을 클릭합니다.
 
-### Create  
+## 리소스
+리소스는 API Gateway를 통해 서비스 할 API를 설계하는 화면입니다.
+모든 API 요청 클라이언트는 API Gateway 리소스에 정의된 API에 대해 요청을 할 수 있습니다.
+리소스는 API의 리소스 경로와 메서드를 관리합니다.
 
-To set an endpoint server address to create domain address of API gateway and forward client's request, a domain must be created first.  
+1. 리소스 경로 : API 경로 
+2. 리소스 메서드 : HTTP 메서드 
+3. 플러그인 : 리소스 경로 또는 메서드에 부가 기능을 추가합니다. 
 
-![apigw_02_201812](https://static.toastoven.net/prod_apigateway/apigw_02_201812.png)
-
-1. Click **New Domain**.
-
-2. Click **New Domain**.
-
-3. Set domain. 
-  - Domain Name: Alias of domain, which is used to tell each domain. 
-  - Domain Key: Refers to domain's origin key. Key value is used for endpoint URL of API gateway. (api-gw.cloud.toast.com/{domainKey})
-    - Path is not allowed for a domain key (e.g. /apis/gateway is unavailable).
-  - URL for Endpoint Server: Enter URL of user API server for API gateway to deliver requests. 
-  - Scheme: Select a scheme of domain URL provided by API Gateway.
-> [Note] See [RFC3986](https://tools.ietf.org/html/rfc3986) for the URI part of endpoint server URL.   
-
-4. Go to **Plugin Setting** to add a plugin. 
-  - Plugins applied by domain are commonly applied to endpoints at the bottom of domains. 
-
-5. Click **Save**.  
-
-### Edit
-
-You may edit the setting of a registered domain. 
-
-![apigw_03_201812](https://static.toastoven.net/prod_apigateway/apigw_03_201812.png)
-
-1. Click **Setting** of the domain you need to edit.  
-
-2. Click **Domain** to go to edit.  
-
-3. Change setting and click **Save**.
-
-### Delete 
-
-You may delete a registered domain. 
-
-![apigw_04_201812](https://static.toastoven.net/prod_apigateway/apigw_04_201812.png)
-
-1. Click **Delete**, and a pop-up for deleting domains shows. 
-
-2. Confirm the domain you want to delete and enter domain key. 
-
-3. Click **Delete**.
-
-> [Caution] Domain key is required to delete a domain. Domains, once deleted, cannot be restored. 
+### 리소스 생성 
+1. 리소스를 생성하려면 **리소스 생성** 버튼을 클릭하거나 좌측 리소스 트리 화면에서 마우스 오른쪽을 클릭하면 표시되는 메뉴에서 **리소스 생성**을 클릭합니다.
+2. **리소스 경로**를 작성합니다. 작성된 리소스 경로를 포함하여 전체 경로는 255자이내로 작성해야합니다. 
+    - 예: /products/, /products/{productsId}, /{proxy+}
+3. **경로 변수** : 리소스 경로에는 중괄호를 사용하여 **경로 변수**를 생성할 수 있습니다.
+    - **경로 변수**는 **{variable}** 또는 하위 경로를 포함한 경로 변수는 **{variable+}** 와 같이 선언할 수 있습니다. 
+        - **경로 변수**는 플러그인과 백엔드 엔드포인트 설정에서 활용할 수 있습니다.
+        - **{variable}** 는 경로 변수가 위치한 경로의 값을 변수로 선언합니다.
+            - 예: /members/{memberId} 
+                - /members/id1 요청의 **{memberId}** 경로 변수값은 **id1** 이 됩니다.
+        - **{variable+}** 는 경로 변수가 위치한 하위 경로를 포함하여 변수로 선언합니다. 하위 경로를 포함한 변수에는 하위 리소스 경로를 생성할 수 없습니다.
+            - 예 : /{proxy+} 
+                - **/members/id1** 요청의 **{proxy+}** 경로 변수값은 **members/id1** 이 됩니다.
+- **플러그인**: 선택된 경로에 추가된 플러그인을 생성된 메서드에도 추가하려면 체크합니다.
+- 리소스를 생성하면서 메서드도 같이 등록하려면 HTTP 메서드를 선택합니다.
+- 등록하지 않은 리소스 경로로 API Gateway에 요청하면 404 Not Found 응답을 반환합니다.
 
 
-### Clone 
+### 메서드 생성 
+- 선택된 리소스 경로 하위에 **HTTP 메서드**를 생성합니다. 
+    - 지원 HTTP 메서드: HEAD, OPTIONS, GET, POST, PUT, DELETE, PATCH
+- **메서드 이름**: 메서드의 별칭입니다. 이름은 리소스 트리화면에 설명으로 표시됩니다.
+- **메서드 설명**: 메서드에 대한 설명입니다.
+- **백엔드 엔드포인트 타입**
+    - HTTP(S) : API Gateway로 수신된 API 요청을 정의된 백엔드 엔드포인트 URL 경로로 전달합니다.
+    - 사용자 정의 응답: API 게이트웨이는 수신된 요청에 대해 정의된 응답을 반환합니다.
+- **백엔드 엔드포인트 타입: HTTP(S)**
+    - 백엔드 엔드포인트 URL 경로: 수신된 API 요청 전달할 백엔드 엔드포인트 서비스의 API URL을 설정합니다.
+        - 루트(/)로 시작해야합니다.
+        - 경로에는 리소스에서 생성한 경로 변수를 설정할 수 있습니다.
+        - 경로 변수는 다음과 같이 참조할 수 있습니다.
+            - 단일 경로 변수: `${request.path.variable-name}` 
+            - 하위 경로를 포함한 경로 변수: `${request.path.variable-name+}`
+        - 선택된 경로와 상위 경로에 선언된 경로 변수만 설정할 수 있습니다.
+- **백엔드 엔드포인트 타입: 사용자 정의 응답**
+    - 사용자 정의 응답을 설정합니다. 
+    - 응답 상태 코드: 응답 HTTP 상태 코드를 입력합니다. (필수)
+    - 헤더: 응답 헤더의 이름과 값을 입력합니다.
+    - 응답 본문: 응답 본문을 입력합니다.
+    - 헤더와 응답 본문에는 리소스에서 생성한 경로 변수를 설정할 수 있습니다.
+        - 경로 변수는 다음과 같이 참조할 수 있습니다.
+            - 단일 경로 변수: `${request.path.variable-name}` 
+            - 하위 경로를 포함한 경로 변수: `${request.path.variable-name+}`
+        - 선택된 경로와 상위 경로에 선언된 경로 변수만 설정할 수 있습니다.
 
-By cloning the setting of domain already created, you may create a new domain.  
+- **플러그인**: 선택된 경로에 추가된 플러그인을 생성된 메서드에도 추가하려면 체크합니다.
+- 등록하지 않은 HTTP 메서드를 API Gateway에 요청하면 404 Not Found 응답을 반환합니다.
 
-![apigw_05_201812](https://static.toastoven.net/prod_apigateway/apigw_05_201812.png)
+> **[참고] 리소스 메서드 생성 제한 갯수** 
+> 메서드는 모든 리소스 경로를 포함하여 **최대 100개** 까지 생성 가능합니다.
 
-1. Choose **Setting\> Clone from '___' domain** of a domain to clone. 
+### 리소스와 메서드 수정
+- 리소스 경로 수정
+    - 리소스 경로는 수정이 불가합니다. 경로를 수정하려면 삭제 후 다시 생성해야합니다.
+- 메서드 수정 
+    1. HTTP 메서드는 수정이 불가합니다. HTTP 메서드를 수정하려면 삭제 후 다시 생성해야합니다.
+    2. 메서드 이름, 설명, 백엔드 엔드포인트 항목은 수정할 수 있습니다. 
+    3. 수정을 하려면 좌측 리소스 트리에서 메서드를 선택합니다.
+    5. 설정을 변경한 후 **변경 내용 저장** 버튼을 클릭합니다.
 
-2. Modify information, if required, of a domain to be created by cloning. 
+> **[참고] CORS플러그인에 의해 등록된 OPTIONS 메서드의 수정**
+> CORS 플러그인에 의해 등록된 OPTIONS 메서드는 수정 할 수 없습니다. 
 
-3. Click **Save**.
+### 리소스와 메서드 삭제 
+- 삭제할 리소스 경로 또는 메서드를 선택합니다.
+    - **선택 삭제** 버튼을 클릭하면 삭제 확인 창이 표시됩니다.
+    - 좌측 리소스 트리에서 마우스 오른쪽 클릭을 하면 표시되는 메뉴에서 리소스 삭제 또는 메서드 삭제를 클릭하면 확인 창이 표시됩니다. 
+-  삭제하려면 **확인**버튼을 클릭합니다. 삭제된 데이터는 복구가 불가합니다.
+
+> **[주의] 리소스 경로 삭제**
+> 리소스 경로를 삭제하면 선택된 리소스의 경로의 하위 리로스 경로와 메서드가 모두 삭제 됩니다.
+
+> **[참고] CORS플러그인에 의해 등록된 OPTIONS 메서드의 삭제**
+> CORS 플러그인에 의해 등록된 OPTIONS 메서드는 삭제 할 수 없습니다. 
 
 
-### Import and Export in Swagger 
+### 스테이지 리소스 적용 
+리소스를 변경한 후 스테이지에 변경된 리소스를 적용하려면 **스테이지 리소스 적용**을 해야합니다.
 
-Domains can be registered by importing swagger files, or registered domains may be exported to swagger files. 
+1. 변경된 리소스를 스테이지에 적용하려면 **스테이지 리소스 적용** 버튼을 클릭합니다.
+2. 변경된 리소스를 적용할 **스테이지**를 선택합니다. 
+3. **적용** 버튼을 클릭합니다.
 
-#### Import in Swagger  
 
-1. Write a swagger file in reference of the swagger specifications. 
-  - [Swagger Specifications](http://swagger.io/docs/specification/what-is-swagger/)
-2. To add plugin settings provided by NHN Cloud Cloud API Gateway, add extension setting data for x-toastcloud-apigw. 
-  - Example
-```json
-{
-	"swagger": "2.0",
-	"info": {
-		"version": "2017-05-12T18:34:14.000+09:00",
-		"title": "apigw example"
-	},
-	"host": "alpha-api-gw.cloud.toast.com",
-	"basePath": "/example_apigw",
-	"schemes": [
-		"http"
-	],
-	"paths": {
-		"/v1.0/apigw/**": {
-			"get": {
-				"parameters": [],
-				"x-toastcloud-apigw": {
-					"plugins": {
-						"MOCK": {
-							"statusCode": 200,
-							"headers": {
-								"x-cloudtoast-apigw": "mock_value"
-							},
-							"body": "mock response"
-						},
-						"ENDPOINT_USAGE_QUOTA": {
-							"usageQuotaBeans": [
-								{
-									"maxUsageQuota": 1,
-									"resetTimeSeconds": 10
-								}
-							]
-						},
-						"PRE_API": {
-							"method": "GET",
-							"url": "http://cloud.toast.com"
-						},
-						"HEADER": {
-							"requestHeaders": {
-								"x-cloudtoast-apigw-request": "add_request_header"
-							},
-							"responseHeaders": {
-								"x-cloudtoast-apigw-response": "add_response_header"
-							}
-						}
-					}
-				}
-			}
-		}
-	},
-	"x-toastcloud-apigw": {
-		"plugins": {
-			"MAINTENANCE": {
-				"isUse": true,
-				"statusCode": 200,
-				"headers": {
-					"x-toastcloud-apigw": "value"
-				},
-				"body": "maintenance"
-			},
-			"IPACL": {
-				"isPermit": true,
-				"ipList": [
-					{
-						"ip": "192.168.0.1"
-					}
-				]
-			},
-			"HMAC": {
-				"secretKey": "hmac_scret_key",
-				"clockSkew": 100
-			},
-			"HTTP_PROXY": {
-				"url": "http://cloud.toast.com"
-			},
-			"USAGE_QUOTA": {
-				"usageQuotaBeans": [
-					{
-						"maxUsageQuota": 1,
-						"resetTimeSeconds": 10
-					}
-				]
-			},
-			"URI_REWRITE": {
-							"uriPattern": "/{version}/{path}",
-							"rewriteUri": "/{path}/{version}"
-			}
-		}
-	}
-}
+> **[주의] 스테이지 리소스 적용**
+> - 스테이지 리소스를 적용하려면 적어도 하나 이상의 스테이지가 존재해야합니다.
+> - 스테이지에 리소스가 적용된 후에는 기존 리소스로 복구가 불가합니다.
+> - 이미 스테이지에 최신 리소스가 적용되어 있으면 스테이지 리소스 적용이 불가합니다.
+
+
+### 플러그인 추가와 삭제
+플러그인을 통해 API Gateway 에서 제공하는 부가 기능을 추가 할 수 있습니다.
+
+- **플러그인 적용 위치**
+    - 플러그인은 리소스 경로 또는 메서드에 추가 할 수 있습니다.
+    - 리소스 경로에 플러그인을 추가하면 선택된 경로의 하위 메서드에 플러그인이 일괄 적용 됩니다.
+    - 메서드에 플러그인을 추가하면 선택된 메서드에만 플러그인이 적용됩니다.
+- **플러그인 적용 단계**
+    - 플러그인은 **백엔드 요청 사전 작업**과 **프론트엔드 응답 사전 작업** 단계에 추가 할 수 있습니다. 
+        - **백엔드 요청 사전 작업** : API Gateway에 수신된 API 요청을 백엔드에 전달하기 전 플러그인을 적용합니다.
+        - **프론트엔드 응답 사전 작업**: 백엔드에서 전달받은 응답을 프론트엔드에 전달하기 전 플러그인을 적용합니다.
+- **플러그인 추가**
+    - 백엔드 요청 사전 작업과 프론트엔드 응답 사전작업의 **+ 플러그인** 버튼을 클릭합니다.
+        1. 추가할 플러그인을 클릭합니다.
+        2. 플러그인의 설정 내용을 입력한 후 **추가** 버튼을 클릭합니다.
+        3. 선택된 경로를 포함하여 하위 경로와 메서드에 플러그인을 일괄 적용하려면 **하위 경로와 메서드에 덮어쓰기**를 체크합니다. 
+            - **!주의** : 하위 경로와 메서드에 추가하려는 플러그인이 이미 등록되어 있는 경우, 설정이 대체되므로 주의해주세요.
+        4. **변경 내용 저장 버튼**을 클릭합니다. 
+- **플러그인 삭제**
+    1. 백엔드 요청 사전 작업과 프론트엔드 응답 사전의 등록된 플러그인을 선택합니다. 
+    2. 선택된 경로를 포함하여 하위 경로와 메서드에 플러그인을 일괄 삭제하려면 **하위 경로와 메서드에 덮어쓰기**를 체크합니다. 
+    3. **삭제** 버튼을 클릭합니다.
+    4. **변경 내용 저장 버튼**을 클릭합니다. 
+
+> **[주의] 플러그인 추가 후 변경사항 저장**
+> 플러그인을 추가한 후 **변경 사항 저장 버튼**을 클릭해야 설정이 저장됩니다.
+
+
+## 플러그인 
+### CORS 
+Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니다.
+
+- **플러그인 적용 가능한 위치**: 리소스 경로
+- **플러그인 적용 단계** : 백엔드 사전 요청 작업
+- **CORS 플러그인 설정**
+    - **Access-Control-Allow-Credentials**: 자격 증명으로 요청하는 경우 True로 설정해야 합니다.
+    - **Access-Control-Max-Age**: 사전 전달 요청(Preflight)에 대한 응답을 얼마 동안 캐시할지 초 단위로 입력합니다. 0~86400 사이의 값을 입력할 수 있습니다.
+    - **Access-Control-Allow-Origin**: 리소스에 액세스할 수 있는 원본서버의 도메인을 입력합니다. 
+        - \*로 입력하면 모든 도메인을 허용합니다.(단, \*로 지정할 경우 자격증명을 지원하지 않으므로 허용 원본(allowed origin)에 구체적인 도메인을 지정하셔야 합니다.) 
+        - 여러 도메인을 허용하기 위해서는 ,(쉼표)로 구분해 입력합니다.
+        - 도메인은 URI(스킴, 도메인, 포트) 형식으로 입력해야 합니다(예: http://example.nhncloudservice.com:8080).
+    - **Access-Control-Allow-Methods**: 리소스 접근에 허용할 메서드를 설정합니다. 여러 메서드를 지정할 경우 ','로 구분해 입력합니다.
+    - **Access-Control-Allow-Headers**: 요청에서 사용할 수 있는 HTTP 헤더를 설정합니다. 여러 헤더를 설정할 경우 ','로 구분해 입력합니다.
+    - **Access-Control-Expose-Headers**: 브라우저(클라이언트)가 접근할 수 있는 헤더를 설정합니다. 여러 헤더를 설정할 경우 ','로 구분해 입력합니다.
+    - 자세한 CORS 규약은 https://www.w3.org/TR/cors/를 참고해 주세요.
+
+> **[주의] CORS 플러그인**
+> - CORS 플러그인을 등록하면 선택된 경로의 메서드에 OPTIONS 메서드가 등록됩니다.
+>	하위 경로와 메서드에 덮어쓰기 옵션을 체크한 경우에는 하위 경로에도 등록됩니다. 
+>	OPTIONS 메서드가 이미 등록되어 있는 경우, CORS에 의해 자동 생성되는 OPTIONS 메서드로 대체됩니다.
+> - CORS 플러그인을 통해 등록된 OPTIONS 메서드는 리소스 트리에서 선택이 불가하며, 수정과 삭제를 할 수 없습니다.
+> - CORS 플러그인을 삭제하면 CORS 플러그인에 의해 자동 생성된 OPTIONS 메서드는 일괄적으로 삭제됩니다. 
+
+### 요청 헤더 변경 
+요청 헤더를 추가하거나 변경합니다. 
+
+- **플러그인 적용 가능한 위치** : 리소스 경로, 메서드
+- **플러그인 적용 단계** : 백엔드 요청 사전 작업
+- **요청 헤더 변경 설정** 
+    - **\+** 버튼을 클릭하면 헤더 목록을 추가 할 수 있습니다.
+    - 헤더 이름과 값을 입력합니다. 
+    - 헤더 값에는 리소스에서 선언된 경로 변수를 설정 할 수 있습니다. 
+        - 경로 변수는 다음과 같이 참조할 수 있습니다.
+            - 단일 경로 변수: `${request.path.variable-name}` 
+            - 하위 경로를 포함한 경로 변수: `${request.path.variable-name+}`
+        - (참고) 경로 변수는 선택된 경로와 상위 경로에서 선언된 경로 변수만 설정 가능합니다.
+
+> **[참고] 요청 헤더 추가와 변경**
+> - 원본 요청에 없는 헤더는 추가됩니다.
+> - 원본 요청에 있는 헤더는 요청 헤더 변경 플러그인에 설정된 헤더 값으로 대체됩니다.
+> - 원본 요청에 있는 헤더의 삭제는 불가합니다.
+
+###  응답 헤더 변경 
+응답 헤더 변경 플러그인은 백엔드 응답에 헤더를 추가하거나 변경합니다. 
+
+- **플러그인 적용 가능한 위치** : 리소스 경로, 메서드
+- **플러그인 적용 단계** : 프론트엔드 응답 사전 작업
+- **\+** 버튼을 클릭하면 헤더 목록을 추가 할 수 있습니다.
+- 헤더 이름과 값을 입력합니다. 
+- 헤더 값에는 리소스에서 선언된 경로 변수를 설정 할 수 있습니다. 
+    - 경로 변수는 다음과 같이 참조할 수 있습니다.
+        - 단일 경로 변수: `${request.path.variable-name}` 
+        - 하위 경로를 포함한 경로 변수: `${request.path.variable-name+}`
+    - (참고) 경로 변수는 선택된 경로와 상위 경로에서 선언된 경로 변수만 설정 가능합니다.
+
+
+> **[참고] 응답 헤더 추가와 변경**
+> - 백엔드 엔드포인트의 응답에 없는 헤더는 추가됩니다.
+> - 백엔드 엔드포인트의 응답에 있는 헤더는 요청 헤더 변경 플러그인에 설정된 헤더 값으로 대체됩니다.
+    
+## 스테이지 
+스테이지는 리소스를 배포하는 단계입니다. 
+
+- 스테이지별로 고유한 스테이지 URL 이 발급됩니다. 
+- 스테이지는 서비스 별 또는 환경(Profile)별로 서비스를 구분하거나 그 외 용도로 활용이 가능합니다.
+
+
+### 스테이지 생성
+
+1. API Gateway 서비스 목록에서 **스테이지 설정**을 클릭합니다.
+2. 스테이지 탭에서 **스테이지 생성** 버튼을 클릭합니다. 
+3. 스테이지 정보를 입력한 후 **생성** 버튼을 클릭합니다.
+    - **스테이지 이름** 
+        - 숫자와 영문 소문자만 입력 가능하며, 최대 30자 이내로 작성할 수 있습니다.
+        - 스테이지 이름은 스테이지 URL에 포함됩니다.
+        - 기본 스테이지는 스테이지 이름을 작성하지 않으면 생성되는 스테이지 입니다. 기본 스테이지의 스테이지 URL에는 스테이지 이름이 포함되지 않습니다.
+    - **스테이지 URL**: API Gateway로 통합 요청이 가능한 스테이지 URL 입니다. 
+        - API 요청 클라이언트는 스테이지 URL을 통해 API를 요청할 수 있습니다.
+        - 스테이지 URL은 다음과 같은 형식으로 발급됩니다. 
+            - 기본 스테이지 : {region}-{api-gateway-service-id}.api.nhncloudservice.com
+                - {region}: 판교 리전(kr1)
+                - {api-gateway-service-id}: API Gateway 서비스 ID
+            - 일반 스테이지 : {region}-{api-gateway-service-id}-{stage-name}.api.nhncloudservice.com
+                - {region}: 판교 리전(kr1)
+                - {api-gateway-service-id}: API Gateway 서비스 ID
+                - {stage-name} : 입력된 스테이지 이름
+    - 백엔드 엔드포인트 URL 
+        - API Gateway로 수신된 요청을 전달할 백엔드 엔드포인트 URL 을 작성합니다. 
+        - 스킴(http:// 또는 https://)을 포함하여 URL을 작성해야합니다.
+        - 도메인 주소만 입력하거나 하위 경로를 포함하여 작성할 수 있습니다. 
+            - 예: https://api.nhn.com , https://api.nhn.com/apis
+
+
+> **[참고] 스테이지** 
+> - 스테이지를 생성하려면 리소스 메서드가 하나 이상 등록되어 있어야합니다.
+> - 스테이지는 API Gateway 서비스 당 **최대 10개**까지 생성 가능 합니다.
+> - API Gateway로 수신된 요청을 백엔드 엔드포인트로 전달할 때 기본으로 스테이지에 정의된 백엔드 엔드포인트 URL로 요청을 전달합니다.
+
+
+### 스테이지 수정 
+1. 수정할 스테이지를 선택합니다. 
+2. **스테이지 수정** 버튼을 클릭합니다.
+3. 스테이지 정보를 수정합니다. 수정 가능한 항목은 스테이지 설명, 백엔드 엔드포인트 URL 입니다.
+4. 설정을 변경한 후 **수정** 버튼을 클릭합니다.
+
+> **[주의] 스테이지 배포** 
+> 수정된 백엔드 엔드포인트 URL을 API Gateway 서비스에 적용하려면 스테이지를 배포해야합니다.
+
+
+### 스테이지 삭제
+1. 삭제할 스테이지를 선택합니다.
+2. **스테이지 삭제** 버튼을 클릭합니다.
+3. 삭제 확인 창에서 **확인**을 클릭하면 삭제됩니다. 이 작업은 취소 할 수 없습니다. 
+
+> **[주의] 스테이지 삭제**
+> - 서비스에서 사용중인 스테이지를 삭제하면 더 이상 API Gateway로 요청이 인입되지 않습니다. 
+> - 삭제된 스테이지는 복구가 불가하므로 반드시 서비스에서 사용중인지 확인 후 삭제를 진행하세요.
+
+
+### 리소스 가져오기 
+리소스를 변경한 후 스테이지에 변경된 리소스를 적용하려면 스테이지 관리화면에서 리소스 가져오기를 진행합니다. 
+
+1. 변경된 리소스를 스테이지에 적용하려면 **리소스 가져오기** 버튼을 클릭합니다.
+
+> **[주의] 리소스 가져오기**
+> - 스테이지에 리소스가 적용된 후에는 기존 리소스로 복구가 불가합니다.
+> - 리소스에 변경된 사항이 없는 경우 리소스 가져오기 버튼이 비활성화됩니다.
+
+
+### 스테이지 배포
+스테이지에 설정된 리소스와 설정을 API Gateway 서비스에 적용하려면 스테이지를 배포해야합니다. 
+
+1. 스테이지 탭에서 배포할 스테이지를 선택합니다. 
+2. **스테이지 배포** 버튼을 클릭합니다.
+3. 스테이지 배포 화면이 표시됩니다.
+4. 스테이지 배포에 대한 설명을 작성합니다. (선택사항)
+5. **스테이지 배포** 버튼을 클릭합니다. 
+6. 스테이지 배포 상태를 통해 배포 상태를 확인 할 수 있습니다.
+    -  **배포 성공** 상태이면 정상적으로 배포된 상태입니다.
+    -  **배포 실패** 상태이면 배포 중 작업 오류가 발생한 상태입니다. 배포 실패가 발생하면 배포를 재시도 해주시기 바랍니다. 지속적으로 실패하는 경우 고객센터로 문의해주시기 바랍니다.
+
+> **[주의] 스테이지 배포 복구 불가**
+> - 스테이지 배포 이후 기존 배포 설정으로 복구할 수 없습니다. (기존 배포 이력을 통한 복구 기능은 준비중에 있습니다.)
+
+###  IP ACL
+IP ACL을 통해 지정된 클라이언트 IP에 대해 API Gateway 요청을 허용/거부할 수 있습니다.
+
+1. 스테이지 탭에서 스테이지를 선택합니다.
+2. 스테이지 트리 화면에서 스테이지의 루트(/) 경로를 선택합니다. 
+3. IP ACL을 **활성화(On)** 합니다. 
+4. IP ACL을 설정합니다. 
+    - **IP 접근 제어 타입**
+        - 허용 : 지정된 IP만 접근을 허용하고 나머지 IP는 모두 거부합니다. (화이트리스트 방식)
+        - 거부 : 지정된 IP만 접근을 거부하고 나머지 IP는 모두 허용합니다. (블랙리스트 방식)
+    - **IP 접근 대상**
+        - 단건 입력 또는 대량 입력 방식을 선택하여 IP 목록을 쉽게 등록할 수 있습니다.
+        - IP 접근 대상은 IPv4의 단일 IP 또는 CIDR 로 입력할 수 있습니다.
+            - 단일 IP  : 10.0.0.1
+            - CIDR 예시 : 10.0.0.1/24
+
+
+> **[참고] IP ACL 등록 갯수 제한 및 클라이언트 IP 체크** 
+> - IP ACL의 IP 접근 대상은 **최대 100개** 까지 입력 가능합니다.
+> - 네트워크 주소 변환(NAT: Network Address Translation)에 의해 클라이언트의 Source IP가 변경된 경우, 변경된 IP를 기준으로 IP ACL을 체크하므로 주의하시기 바랍니다.
+
+### 인증 > HMAC
+HMAC 인증을 사용하면  API Gateway로 수신된 요청이 중간 공격자에 의해 변조되는 것을 방지하며, 요청 유효 시간을 설정하여 Reply Attack 공격을 예방합니다.
+
+1. 스테이지 탭에서 스테이지를 선택합니다.
+2. 스테이지 트리 화면에서 스테이지의 루트(/) 경로를 선택합니다. 
+3. 인증에서 HMAC을 선택 합니다.
+4. HMAC 설정을 입력합니다. 
+    - 비밀키 : SignToString을 암호화할 비밀키 입니다. 외부에 유출되지 않도록 유의 합니다. 
+    - 요청 유효 시간(초): 설정된 유효 시간의 양방향 시간(요청 시간의 과거/미래 시간 전 후)을 초과한 요청을 거부합니다. 요청 유효 시간을 0초로 설정할 경우 API Gateway는 유효 시간 체크를 하지 않습니다.
+    - 필수 검증 헤더 목록 : API 요청 검증에 필수로 포함할 헤더 목록을 작성합니다. 여러 개를 입력하려면 콤마(,)로 구분하여 입력합니다.
+
+
+> **[참고] HMAC 인증 실패 응답**
+> HMAC 인증 실패시 401 Unauthorized 응답이 반환됩니다.
+>
+> **[주의] 요청 유효 시간**
+> - 0초로 설정할 경우, 요청 유효 시간을 체크하지 않습니다.이 경우 Reply Attack 공격에 취약할 수 있습니다. 
+> - 유효 시간을 너무 작게 설정하면 APIGateway가 요청을 검증하기 전 유효시간이 초과 되어 요청이 거부 될 수 있습니다. 기대하는 요청 유효 시간 보다 10초이상 크게 설정하기를 권장합니다.
+> - API 클라이언트는 시간 동기화 설정 NTP (Network Time Protocol, NTP)이 유효한지 반드시 검증하시기 바랍니다. 동기화 되지 않은 시간 정보로 인해 요청이 거부될 수 있습니다.
+>
+> **[참고] 필수 검증 헤더**
+> 필수 검증 헤더를 설정한 경우, API 요청 검증시 필수 검증 헤더가 요청에 포함되었는지와 signature에도 해당 헤더가 포함된 값인지 검증합니다.
+> 설정시 필수 검증 헤더가 요청과 singature 생성시 포함되었는지 확인하시기 바랍니다.
+
+
+#### HMAC 인증을 위한 API 클라이언트 작업 
+HMAC 인증을 하려면 API 요청 클라이언트는 다음의 인증 헤더와 요청 시간 헤더를 포함하여 요청해야합니다.
+
+| 헤더 이름 | 헤더 값 |
+| --- | --- |
+| Authorization | hmac algorithm="<encrypt_algorithm\>", headers="<validation_headers\>", signature="<base64_digest\>" |
+| x-nhn-date |  ISO8601 형식의 시간|
+
+> **[참고] x-nhn-date의 ISO8601 형식** 
+> - UTC 표기: yyyy-MM-dd'T'HH:mm:ssZ
+> - UTC 기준 타임 오프셋 표기: yyyy-MM-dd'T'HH:mm:ss±hh:mm
+
+- Authorization 또는  x-nhn-date 헤더가 요청에 포함되지 않은 경우 HMAC 인증에 실패합니다.
+
+- Authorization 헤더 값은 다음과 같이 생성합니다.
+
+| Credential 이름  | 값   |
+| --- | --- |
+| algorithm  | HmacSHA256 또는 HmacSHA1 |
+| headers |  HMAC 인증시 검증할 헤더 목록 <br> 콘솔에서 HMAC 필수 검증 헤더에 등록한 헤더는 반드시 포함해야 합니다.  |
+| signature |  SiginToString 문자열을 암호화한 후 Base64 인코딩한 값  |
+
+#### SignToString 형식
+```
+[HTTP Method]\n
+[Request URL]\n
+[Request datetime]\n
+[header1-name]:[value1]\n
+[header2-name]:[value1,value2...]\n
+...
 ```
 
-#### Export into Swagger 
-
-![apigw_06_201812](https://static.toastoven.net/prod_apigateway/apigw_06_201812.png)
-
-1. Click **Setting > Export into Swagger** of an exporting domain to download a swagger file. The default file name is export.json.
-#### Default Domain Setting 
-
-- Swagger: Enter version of a swagger: default is swagger 2.0.
-- Info: Enter basic information. 
-  - version: Enter version. 
-  - title: Enter domain name. 
-- Host: Enter domain of API Gateway.
-- BasePath: Enter domain key. 
-- Scheme: Enter scheme (either http or https).
-- Path: Enter path of an endpoint. 
-
-#### Domain Plugin Setting 
-
-- For domain plugin, enter setting information for x-cloudtoast-apigw at the highest level. 
-- HTTP_PROXY: Enter URL for endpoint server (*is required).
-- IPACL: Enter Domain's Access Control > Setting information for the IP Access Control (IP ACL) plugin (only one out of many access control groups is available).
-- HMAC: Enter Domain Authentication > Setting information for the HMAC plugin (only one out of many authentication groups is available).
-- JWT: Enter Domain Authentication > Setting information for the JSON Web Token (JWT) plugin (only one out of many authentication groups is available).
-- USAGE_QUOTA: Enter Domain's Quota Limit > Setting information for Usage Quota plugin (only one out of may quota limit groups is available).
-- MAINTENANCE: Enter Domain's Maintenance > Setting information for Maintenance Response plugin (only one out of many maintenance groups is available).
-
-#### Endpoint Plugin Setting 
-
-- Enter setting information for x-cloudtoast-apigw at each level of path.  
-- MOCK: Enter setting information for the Mock Response plugin.
-- ENDPOINT_USAGE_QUOTA: Enter setting information for the Usage Quota plugin.
-- PRE_API: Enter setting information for the Pre-call API plugin.
-- HEADER: Enter setting information for the Modify Header plugin.
-- URI_REWRITE: Enter setting information for the URL Rewrite plugin. 
-
-![apigw_07_201812](https://static.toastoven.net/prod_apigateway/apigw_07_201812.png)
-
-1. Click **Import Domain in Swagger**.
-
-2. Attach the swagger file to import. 
-
-3. Click **Import** and domain is registered like in the swagger file setting. 
-
-## Endpoints
-
-### Create 
-
-Endpoints manage APIs to be provided via API Gateway, among user endpoint APIs. 
-
-![apigw_08_201812](https://static.toastoven.net/prod_apigateway/apigw_08_201812.png)
-
-1. Click **Setting** > **Endpoint** of a domain to create endpoints. 
-
-2. Click **New Endpoint** and set HTTP method and path of an endpoint.  
-
-3. To add a plugin, click **+**, select a plugin to add, and enter value.   
-
-4. Click **Save**.
-
->  [Note] Path of Endpoints 
->  The endpoint path, if entered in the AntPattern format, may serve for many APIs.   
->
->  [Example of AntPattern]
->
->  - ?: serves for one character e.g) /docs/te?t : /docs/test , /docs/text 
->  - \*: serves for 0 or more than 1 character   e.g.) /docs/*.txt : /docs/example1.txt, /docs/example2.txt
->  - \*\*: serves for 0 or more than 1 path   e.g.) /docs/** : /docs/apigw/guide, /docs/image/guide
->  - {[a-z]+}: serves for path variables (path variable)에 대치   e.g.) /v1.0/appKeys/{appKey} : /v1.0/appKeys/myAppKey1, /v1.0/appKeys/myAppKey2 
-
-
-> [Note] Endpoint Path Mapping 
-> Request URI may match with patterns of many paths. 
-> Connect API Gateway to the best matching Request URI path.  
->
-> [Example]
-> Suppose that following paths are registered in the endpoint path. 
->
->  - Path 1: /docs/apigw/guide
->  - Path 2: /docs/**
->    In case the Request URL is '/docs/apigw/guide', it matches with both path 1 and 2. 
->    Since path 1 has more matched patterns than path 2, it is connected to the path 1 URI.   
->    If a matched pattern regards to characters, it is higher on priority than the AntPattern expression.  
-
-### Edit 
-
-You may eidt the setting of a registered endpoint. 
-
-![apigw_09_201812](https://static.toastoven.net/prod_apigateway/apigw_09_201812.png)
-
-1. Click **Edit** on the right of an endpoint to edit from the list. 
-
-2. Modify setting and click **Save** on the right. 
-
-### Delete  
-
-You may delete a registered endpoint. 
-
-![apigw_10_201812](https://static.toastoven.net/prod_apigateway/apigw_10_201812.png)
-
-1. Click **Delete** on the right of an endpoint to delete from the list. 
-
-2. Click **OK**.
-
-### Edit Endpoint Plugins 
-
-You may edit the setting of an endpoint plugin. 
-
-![apigw_11_201812](https://static.toastoven.net/prod_apigateway/apigw_11_201812.png)
-
-1. Click a plugin to edit. 
-
-2. Modify setting and click **Save**.
-
-
-### Delete Endpoint Plugins
-
-You may delete a registered endpoint plugin.  
-
-![apigw_12_201812](https://static.toastoven.net/prod_apigateway/apigw_12_201812.png)
-
-1. Click a plugin to delete. 
-
-2. Click **Delete**.
-
-3. Click **OK**.
-
-## Plugins  
-
-### Structure of Plugin Operations
-
-API Gateway provides a variety of plugins, such as access control, authentication, usage quota, and message falsification. 
-
-Plugins can be applied to domains and endpoints. Plugins that are added onto the domain hierarchy are commonly applied to endpoints at subdomains. 
-
-Such is applicable only to the endpoints of a plugin that has been added to the endpoint hierarchy.   
-
-![](http://static.toastoven.net/prod_apigateway/img_12.png)
-
-When API Gateway receives a request, plugins operate in the order of configured attribute groups.    
-
-- Access Control Filter denies requests from restricted users or those exceeding usage quota.  
-- Authentication Filter denies requests that are not authenticated or fabricated.  
-- Custom Filter fabricates messages for a request/response, or handles with mock responses. 
-- Proxy Filter forwards requests to user's API server and is returned with response, which then is delivered to the requester. 
-
-## Domain Plugins 
-
-### IP Access Control 
-
-With IP-based access control, particular IPs may be allowed or denied.  
-
-![apigw_13_201812](https://static.toastoven.net/prod_apigateway/apigw_13_201812.png)
-
-1. Click **Plugin Setting > Access Control** plugin and select **IP Access Control (IP ACL)**. 
-
-2. Use Permit to set whether to allow or deny IP list. 
-  * With True, it works as a whitelist (only set IPs are allowed, with all the other IPs denied).
-  * With False, it works as blacklist (only set IPs are denied, with all the other IPs allowed).
-
-3. Enter IP in the IPv4 format and click **Add** to add it on the IP list.  
-
-4. After setting is completed, click **Save**. 
-
-
-### Usage Quota 
-
-API usage may be limited during a specified period. 
-
-![apigw_14_201812](https://static.toastoven.net/prod_apigateway/apigw_14_201812.png)
-
-1. Click **Plugin Setting > Usage Quota** plugin, and select  **Usage Quota**. 
-
-2. Set up with conditions for usage quota.  
-  * Specify the number of maximum available API calls for Max Usage Quota. 
-  * Specify seconds for Time (Per(sec)). 
-  * If it exceeds maximum allowed calls during specified time, API usage shall be limited. 
-  * Many conditions can be added to restrict usage, and if more than one condition exceeds quota, usage shall be restricted. 
-
-> [Note]
-> The **Usage Quota** plugin set on the domain setting page applies to all endpoint API usage volume under a domain. 
-> If usage quota is required for each endpoint, apply the **Endpoint Usage Quota** plugin of an endpoint. 
-
-3. Click **Save** to save setting.  
-
-### Maintenance
-
-To return user-defined responses to all endpoint API calls, due to maintenance, you may use the **Maintenance** plugin. 
-
-![apigw_15_201812](https://static.toastoven.net/prod_apigateway/apigw_15_201812.png)
-
-1. Go to **Plugin Setting > Maintenance** plugin and select **Maintenance Response**.
-
-2. Enter response for maintenance.
-
-3. To save the setting, click **Save**.
-
-After deployment, the response set for the Maintenance plugin shall be returned to endpoint API call. 
-
-### Authentication
-
-API Gateways can be authenticated with HMAC (Hash-based Message Authentication Code) or JWT (JSON Web Token).
-
-#### HMAC
-
-HMAC authentication is made available by using request URL and time as message.  
-
-![apigw_16_201812](https://static.toastoven.net/prod_apigateway/apigw_16_201812.png)
-
-1. Click **Plugin Setting > Authentication** plugin and select **HMAC**.
-
-2. Set secret key and clock skew for HMAC.
-> [Caution] Setup for Clock Skew   
-> If the difference between server time at API Gateway and X-TC-Timestamp sent from client is larger than clock skew, HMAC authentication shall fail. 
-> Clock skew is available between 0 and 86400 (sec), and if the value is 0, you may ignore the clock skew.  
-
-3. After setting is completed, click **Save**. 
-
-##### Authentication > HMAC > Call Authentication API 
-
-To enable HMAC authentication, following must be included to the Request Header for a request.   
-
-- Authorization: It is the value in combination of [Method + "\n "+ URL + "\n "+ Timestamp], which is encrypted using the HmacSHA1 algorithm and then base64 encoded. 
-
-- X-TC-Timestamp : ISO datetime format (yyyy-MM-dd'T'HH:mm:ssZZ)
-
-| Request                                                      | StringToSign                                                 |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| GET /test/1?query1=1&query2=2<br>X-TC-Timestamp: 2016-07-23T12:20:02+09:00<br><span style="color:red">Authorization: IqY8u/RZY8IMESwa/TPW9P9Z39Y=</span> | GET\n<br>/test/1?query1=1&query2=2\n<br>2016-07-23T12:20:02+09:00 |
-
-> [Note] Request time follows the ISO Datetime format (yyyy-MM-dd'T'hh:mm:ssZ).
-
-##### Code (Java) for Creating Authorization 
-```java
-String secretKey = "Secret key set on console";
-SecretKeySpec signingKey = new SecretKeySpec(secretKey.getBytes(), "HmacSHA1");
-Mac mac = Mac.getInstance("HmacSHA1");
+#### SignToString 예시 
+
+- HTTP 요청 원문
+```
+GET /members?isEnable=false&type=public HTTP/1.1
+Host: http://kr1-example.api.nhncloudservice.com
+x-nhn-date: 2021-02-23T00:00:00+09:00
+x-nhn-client-id: nhn
+x-nhn-client-ip: 10.0.0.1,10.0.0.2
+```
+
+- HTTP 요청 원문에 대한 SignToString 
+```
+GET
+/members?isEnable=false&type=public
+2021-02-23T00:00:00+09:00
+host:kr1-example.api.nhncloudservice.com
+x-nhn-client-id: nhn
+x-nhn-client-ip: 10.0.0.1,10.0.0.2
+```
+
+- signature 생성 코드 예시(Java) : SignToString을 HMAC 암호화 후 Base64 인코딩 한 값
+```
+String secretKey = "HMAC에 설정한 비밀키";
+// 암호화 알고리듬 HmacSHA1 또는 HmacSHA256
+SecretKeySpec signingKey = new SecretKeySpec(secretKey.getBytes(), "HmacSHA256");  
+Mac mac = Mac.getInstance("HmacSHA256");
 mac.init(signingKey);
 
 String message = "StringToSign";
@@ -419,258 +406,118 @@ rawHmac = mac.doFinal(message.getBytes());
 String authorization = new String(Base64.encodeBase64(rawHmac));
 ```
 
-#### JWT (JSON Web Token)
 
-Here is how it is authenticated with JWT (Json Web Token).
-
-![apigw_17_201812](https://static.toastoven.net/prod_apigateway/apigw_17_201812.png)
-
-1. Click **Plugin Setting > Authentication** plugin and select **JWT**.
-
-2. Set JWT Secret Key, clock skew, and issuer. 
-
-3. After setting is completed, click **Save**.
-
-> [Note]
-> If the difference between the server time at API Gateway and expiration time sent from client is larger than clock skew, JWT authentication shall fail. 
-> Anywhere between 0 and 86400 is available for clock skew. 
-
-##### Authorization > JWT (JSON Web Token) > API Call for JWT Authentication
-
-To apply JWT authentication, following value must be included to the Request Header for a request.  
-
-- Authorization : Json Web Token
-
-Request: GET /test/1?query1=1&query2=2<br>
- <span style="color:red">Authorization: eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJpbnZhbGl...</span>
-
-##### Code (Java) for Creating Authorization 
-
+- 완성된 HMAC 인증 헤더 
 ```
-<dependency>
-    <groupId>org.bitbucket.b_c</groupId>
-    <artifactId>jose4j</artifactId>
-	<version>0.5.0</version>
-</dependency>
+Authorization:hmac algorithm="HmacSHA256", headers="host,x-nhn-client-id,x-nhn-client-ip" , signature="V5Dye9kgG3tvZOOZertd5LXE0q8CcJGXCxEFCR71hUE="
+x-nhn-date:2021-02-23T00:00:00+09:00
 ```
 
-```
-String secretKey = "secret key set on console";
-int expireTimeMinutes = "token expiration time = current time + expireTimeMinutes";
-String issuer = "issuer set on console";
 
-JwtClaims claims = new JwtClaims();
-claims.setIssuer(issuer);
-claims.setExpirationTimeMinutesInTheFuture(expireTimeMinutes);
-
-JsonWebSignature jws = new JsonWebSignature();
-jws.setPayload(claims.toJson());
-jws.setKey(new HmacKey(secretKey.getBytes()));
-jws.setDoKeyValidation(false);
-jws.setAlgorithmHeaderValue(AlgorithmIdentifiers.HMAC_SHA256);
-
-String authorization = jws.getCompactSerialization();
-```
-
-### Cross-Origin Resource Sharing (CORS)
-
-XMLHttpRequest API call is available by using the Cross-Site method. 
-
-![apigw_18_201812](https://static.toastoven.net/prod_apigateway/apigw_18_201812.png)
-
-1. Click **Plugin Setting > CORS** plugin and select **CORS**.
-
-2. Enter set value for CORS.
-
-  - Access-Control-Allow-Credentials: Set True if it is requested for credential. 
-
-  - Access-Control-Max-Age: Requires by the second, regarding how long to cache response for a preflight. Anywhere between 0 and 86400 is available. 
-  - Access-Control-Allow-Origin: Enter original/domain which can access resources.
-      - With ''*'', all domains are allowed. (Note, however, since \* does not support credentials, domain must be specified for the allowed origin.)  
-      - To allow within a specified domain only, delimit by ',' (comma). 
-      - Enter domain in the URI type (scheme, domain, or port) (e.g.: http://api-gw.toast.com:8080).
-  - Access-Control-Allow-Methods: Set a method to allow access to resources. Delimit by ',' to specify many methods. 
-  - Access-Control-Allow-Headers: Set an HTTP header for a request. Delimit by ',' to set many headers.
-  - Access-Control-Expose-Headers: Set a header to allow access by browser (client). Delimit by ',' to set many headers. 
-  - For more details regarding CORS regulations, see https://www.w3.org/TR/cors/.
-
-3. After setting is completed, click **Save**.
-
-
-## Endpoint Plugins  
-
-### Mock Responses
-
-When a request URI for endpoint path is requested, such request is not forwarded to a specified endpoint server but user-defined mock response is returned. 
-
-![apigw_21_201812](https://static.toastoven.net/prod_apigateway/apigw_21_201812.png)
-
-1. Go to **Plugins** and add the **Mock Response** plugin. 
-
-2. Set HTTP Status, Header, and Body for Mock Response and save. 
-  - HTTP Status: Set status code for a response. 
-  - Headers: Set header and header value to be added for a response header. 
-  - Body: Set value for response body.  
-
-3. After setting is completed, click **Save**.
-
-### Pre-Call API
-
-Pre-call API is called before an endpoint and its response code serves as an authentication to decide whether to call endpoint. 
-
-Call Pre-call API, including the request header received via API Gateway, and then the Pre-call API return a response code in accordance with the received header.  
-
-If the response code is 200, endpoint is called; otherwise, the result of response of Pre-call API is returned. 
-If it fails to call Pre-call API, the error shall be returned. 
-
-> [Note]  
-> API Gateway delivers only the header information of request to URL of Pre-call API. 
-> Request URL or body information cannot be delivered. 
-
-![apigw_22_201812](https://static.toastoven.net/prod_apigateway/apigw_22_201812.png)
-
-1. Go to **Plugins** and add the **Pre-call API** plugin.
-
-2. Enter method type and URL for Pre-call API. 
-
-3. After setting is completed, click **Save**.
-
-
-### Falsify Headers
-
-The Modify Headers plugin allows to falsify header value when request is forwarded to an endpoint server, or to falsify header of a response which is to be delivered from API Gateway to a client.  
-![apigw_23_201812](https://static.toastoven.net/prod_apigateway/apigw_23_201812.png)
-
-1. Go to **Plugins** and add the **Falsify Headers** plugin. 
-
-2. Enter setting information. 
-  - Request Headers regards to modifying request headers.  
-  - Response Headers regards to modifying response headers. 
-
-3. After setting is completed, click **Save**.
-
-> [Note]
-> If a header key already exists as set, it shall be overwritten.  
-
-
-
-### Usage Quota
-
-API usage may be restricted per path, during specific period. 
-
-![apigw_24_201812](https://static.toastoven.net/prod_apigateway/apigw_24_201812.png)
-​	
-
-1. Go to **Plugins** and add the **Usage Quota** plugin. 
-
-2. Enter the maximum available call count during specified time (sec). 
-  - Many conditions can be added for usage quota, and if there is more than one configured condition exceeding quota, usage may be restricted. 
-
-3. After setting is completed, click **Save**.
-
-
-> [Caution]  
-> 'Endpoint Usage Quota' refers to usage quota on each endpoint path.     
-> If usage quota is required for domain, set Usage Quota on the page of domain setting.  
-> Usage quota shall be applied to each, when the usage quota plugin is configured for each domain and endpoint.   
-> If usage of domain is above the quota, request shall be denied even though endpoint usage does not exceed the quota; and the endpoint usage will also rise.     
-
-When it exceeds the usage quota, HTTP STATUS 403 response is returned as below:  
-
-```
-{
-  "header": {
-    "resultCode": 20004,
-    "resultMessage": "20004 Usage quota exceeded",
-    "isSuccessful": false
-  }
-}
-```
-
-### Rewrite URLs
-
-Request URL is rewritten in the pattern expression.  
-
-![apigw_25_201812](https://static.toastoven.net/prod_apigateway/apigw_25_201812.png)
-
-1. Go to **Plugins** and add the **Rewrite URL** plugin.
-
-2. Enter setting information. 
-  - Enter a pattern type of Request URL for URI Pattern. 
-  - Enter a pattern for rewriting URL, regarding the URL pattern type on (2). 
-
-3. After setting is completed, click **Save**.
-
-#### [Example] Rewriting /api/v2.0/\*\* -> /api/v1.0/\*\*  
-
-- URI Pattern: /api/v2.0/(.\*)
-- Rewrite URI: /api/v1.0/%1
-
-With the rules applied, the Request URL `/api/v2.0/members` is changed into  ` /api/v1.0/members` for a request.  
-
-
-## API Deployment   
-
-### Deploy APIs 
-
-![apigw_26_201812](https://static.toastoven.net/prod_apigateway/apigw_26_201812.png)
-
-1. Click **Deply** of a domain you need to deploy. 
-
-2. Test if call for deployed API is properly made. 
-    See if response is delivered as expected, when call is made for endpoint URL which is registered in the domain URL. 
-
-```bash
-$ curl -s http://api-gw.cloud.toast.com/apigw/hello
-hello world
-```
-
-## Statistics 
-
-### Query Statistics  
-
-API statistics shows the average response time for API call at each domain and network traffic usage volume. Statistical data of deployed domains only are available.    
-
-Click domain on the list of domains to see details by chart or UIR pattern. 
-Charts are available by every 10 minutes, 1 hour, or 1 day, depending on the search period. 
-
-Statistical data are not collected in real time.  
-10-minute or 1-hour data are collected at every 10 minutes, while 1-day data are collected at every hour. 
-
-- Below 6 Hours: By 10 minutes  
-- More than 6 hours ~below 7 days: By the hour 
-- More than 7 days ~30 days: By the day 
-The maximum available search period is 30 days, and 10-minute statistical data are to be retained for up to 3 months. 
-
-![apigw_27_201812](https://static.toastoven.net/prod_apigateway/apigw_27_201812.png)
-
-1. Click **API Gateway > Dashboard** to go to the dashboard page. 
-
-2. Set search period to check statistical data during the period.  
-    Up to 30 days are available to search. 
-
-- Domain Key: Origin domain key registered at API setting.  
-- Number of successful API calls: Sum of successful API calls 
-  - API call is deemed as successful if Response HTTP Status Code is below 400
-- Number of failed API calls: Sum of failed API calls 
-  - API call is deemed as failure if Response HTTP Status Code is over 400
-- Number of immediate responses at API Gateway: When a request is not forwarded to the endpoint server but response is delivered from API Gateway 
-  - Some plugins may return responses at API Gateway. For instance, if a request comes from an IP owner who is not allowed, the API Gateway returns 403 Forbidden. Such responses of API Gateway refer to the sum of API calls delivered to the client.  
-- Number of API Calls: Sum of all API calls   
-  - Number of all inbound API calls to API Gateway (Total API CALL Count = Success +Failure)  
-- Average Response Time (ms): Average speed of response  
-- Outbound Network Traffic (bytes): Sum of response volume transferred to client from API Gateway  
-
-3. By specifying search period, statistical data can be found for each domain.  
-
-4. Click domain on the list to find its statistical details.  
-
-![apigw_28_201812](https://static.toastoven.net/prod_apigateway/apigw_28_201812.png)
-
-Statistical details show graphs on the number of successful or failed API calls, average response time, or outbound network traffic. 
-
-Statistics can be found in more details for each endpoint path, as in the table below.  
-
->  [Note] Usage volume of API Calls with CORS Plugin    
->  In the case of CORS plugin, the number of API calls may be larger than the actual volume. 
->  CORS may be requested for a total of two cases, such as a preflight request (OPTIONS method) and an actual request. 
+> **[주의] SignToString 생성 주의 사항**
+> - SignToString 각 필드는 개행 문자(\n)로 구분합니다.
+> - headers에 정의된 헤더는 SignToString 생성시 포함되어야합니다.
+> - headers에 정의한 헤더가 없는 경우, [header name]과 [header value]은  SignToString 생성에 포함하지 않습니다.
+> - headers에 정의한 헤더 순서대로 SignToString을 생성해야합니다.
+>     - 예: headers="header1,header2" 라면, SignToString을 생성할 때도 header1, header2 순서대로 헤더를 추가해야 합니다.
+> - SignToString의 헤더 이름은 영소문자(lowercase) 로 통일한 후 생성합니다. 
+>     - 예: X-NHN-Header →  x-nhn-header
+> - 헤더 값이 여러 개인 경우, 콤마(,)로 구분하여 헤더 값을 작성합니다. 
+>   - 예: header1-name:header1-value1,header1-value2
+> - 헤더 이름과 값은 콜론(:) 으로 구분하며, 값 구분시 중간에 공백 문자를 포함하지 않습니다.
+
+
+### 백엔드 엔드포인트 URL 재정의 
+
+API Gateway로 수신된 요청을 백엔드 엔드포인트로 전달할 때 기본으로 스테이지에 정의된 백엔드 엔드포인트 URL로 요청을 전달합니다.
+특정 메서드에 대해 백엔드 엔드포인트 URL을 재정의하려면 백엔드 엔드포인트 URL 재정의를 설정합니다.
+
+1. 스테이지 탭에서 스테이지를 선택합니다.
+2. 스테이지 트리 화면에서 백엔드 엔드포인트 URL을 재정의할 메서드를 선택합니다.
+3. 백엔드 엔드포인트 URL의 재정의를 활성화(On) 합니다. 
+    - API Gateway로 수신된 요청을 전달할 백엔드 엔드포인트 URL 을 작성합니다.
+    - 하위 경로를 포함하여 작성할 수 있습니다. 
+        - 예: https://api.nhn.com , https://api.nhn.com/apis
+
+## API 호출 확인
+
+1. 스테이지 탭에서 스테이지 트리의 메서드를 선택합니다.
+2. 우측의 스테이지 URL을 확인합니다.
+3. 스테이지 URL를 지정된 HTTP 메서드로 API를 호출합니다. 
+    - 예시: 
+        - 메서드 : GET
+        - 스테이지 URL : https://kr1-xxxxx-test.api.nhncloudservice.com/example
+    ```
+    curl --request GET 'https://kr1-xxxxx-test.api.nhncloudservice.com/example'
+    ```
+
+
+> **[주의] 스테이지 배포** 
+> API를 호출하려면 배포 성공 상태의 배포된 스테이지가 있어야합니다. 
+
+> **[참고] API 호출이 정상적으로 안되는 경우**
+> - 404 NotFound HTTP 상태 코드가 응답되는 경우 
+>    1. 스테이지를 배포 상태가 배포 성공 상태인지 확인합니다.
+>    2. 요청 메서드와 스테이지 URL 및 경로가 올바른지 확인합니다.
+>    3. 백엔드 엔드포인트 서비스에서 백엔드 엔드포인트 URL 경로에 대한 요청 URL이 존재하는지 확인합니다. 
+> - 그 외 오류 코드는 [오류 코드](./error-code/) 문서를 참고합니다. 
+
+
+> **[주의] API 호출 제약 사항**
+> - Gateway 클라이언트에서 API Gateway로 요청 크기 제한은 **최대 10MB** 입니다. 이 값은 조정할 수 없습니다. 
+> - API Gateway에서 Gateway 클라이언트에서로 응답 크기 제한은 **최대 10MB** 입니다. 이 값은 조정할 수 없습니다. 
+> - 요청에 대한 응답 타임아웃은 **최대 60초** 입니다. 백엔드 엔드포인트 서비스에서 응답이 지연되는 경우 타임아웃이 발생할 수 있습니다.
+
+
+> **[주의] API Gateway 요청 차단 정책**
+> - API Gateway 서비스와 백엔드 엔드포인트 서비스를 보호하는 목적으로 백엔드 엔드포인트 서비스가 응답을 하지 않거나 응답 지연(60초 이상)이 지속적으로 발생하는 경우, 해당 백엔드 엔드포인트 서비스에 대한 요청을 일시적으로 거부합니다. 
+> - 백엔드 엔드포인트 서비스의 내부 오류(4xx, 5xx 등)에 의해서는 차단되지 않습니다. 
+> - 정상적으로 운영중인 상태가 아니거나 응답 지연(Timeout)이 60초 이상이 지연이 발생하는 백엔드 엔드포인트는 연동하지 않는 것을 권장합니다.
+
+
+## 대시보드 
+
+대시보드를 통해 API Gateway 서비스 별 API 통계 지표를 확인할 수 있습니다.  
+
+1. **대시보드** 탭으로 이동합니다. 
+2. 통계를 확인할 API Gateway 서비스를 선택합니다. 
+3. 통계를 확인할 스테이지를 목록에서 선택합니다. 
+4. 하단의 스테이지 통계 탭에서는 스테이지의 통계 지표를 확인할 수 있습니다. 
+5. 하단의 리소스 통계 탭에서는 HTTP 메서드와 경로별 통계 지표를 확인 할 수 있습니다. 
+
+### 통계 데이터 참고 사항 
+
+- **최대 검색 기간**
+    - 최근 3개월 간의 데이터만 조회가 가능합니다.
+- **통계 데이터 생성 주기**
+    - 통계 데이터 생성은 다음과 같은 주기로 생성 됩니다. 통계 데이터는 수집되는 데이터 크기에 따라 생성이 지연될 수 있습니다.
+        - 1분: (예) 10시 00분 통계 데이터는 10시 1분 이후 생성
+        - 10분: (예) 10시 10분 통계 데이터는 10:11분 이후 생성 
+        - 1시간: (예) 10시 통계 데이터는 11시 이후 생성 
+        - 1일: (예) 1일 통계 데이터는 2일 0시 이후 생성
+
+### 스테이지 통계
+
+- **그래프 표시 기준**
+    - 검색 기간에 따라 통계의 단위는 다음과 같이 표시됩니다.
+        - 1시간 이하 : 1분 단위
+        - 1시간 초과 ~ 1일 이하 : 10분 단위
+        - 1일 초과 ~ 1주 이하:  1시간 단위
+        - 1주 초과 : 1일 단위
+-  **통계 그래프**
+    - API 호출 성공 수: 응답된  HTTP 상태코드가 2XX, 3XX인 API 호출 수 
+    - API 호출 실패 수: 응답된 HTTP 상태코드가 4XX, 5XX인 API 호출 수 
+    - 평균 응답 시간(ms) : API Gateway로 요청이 인입된 후, API 요청 클라이언트에게 응답을 주기까지 소요된 평균 시간(ms)
+    - 네트워크 아웃바운드 트래픽 : API Gateway 에서 API 요청 클라이언트로 응답된 데이터의 바이트 크기
+
+### 리소스 통계 
+리소스 경로와 HTTP 메서드 별로 구분된 상세한 통계 지표를 확인할 수 있습니다. 
+
+- **HTTP 메서드** : 요청된 HTTP 메서드
+- **경로** : 요청과 매핑된 리소스 경로 
+- **API 호출 성공 수** : 응답된  HTTP 상태코드가 2XX, 3XX인 API 호출 수 
+- **API 호출 실패 수** : 응답된 HTTP 상태코드가 4XX, 5XX 인 API 호출 수 
+- **HTTP 2XX~5XX 코드** : 상태 코드 그룹별 API 호출 수 
+- **API Gateway에서 바로 응답된 수** : 백엔드 엔드포인트 서비스로 요청을 전달하지 않고 API Gateway에서 응답이 된 API 호출 수 
+- **평균 응답 시간(ms)** : API Gateway로 요청이 인입된 후 API 요청 클라이언트에게 응답을 주기까지 소요된 평균 시간(ms)
+- **네트워크 아웃바운드 트래픽** : API Gateway 에서 API 요청 클라이언트로 응답된 데이터의 바이트 크기
