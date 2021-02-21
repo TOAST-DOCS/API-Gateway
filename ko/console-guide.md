@@ -155,7 +155,7 @@ Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니�
 - **플러그인 적용 단계** : 백엔드 사전 요청 작업
 - **CORS 플러그인 설정**
     - **Access-Control-Allow-Credentials**: 자격 증명으로 요청하는 경우 True로 설정해야 합니다.
-    - **Access-Control-Max-Age**: 사전 전달 요청(Preflight)에 대한 응답을 얼마 동안 캐시할지 초 단위로 입력합니다. 0~86400 사이의 값을 입력할 수 있습니다.
+    - **Access-Control-Max-Age**: 사전 전달 요청(Preflight)에 대한 응답을 얼마 동안 캐시할지 초 단위로 입력합니다. -1~86400 사이의 값을 입력할 수 있습니다.
     - **Access-Control-Allow-Origin**: 리소스에 액세스할 수 있는 원본서버의 도메인을 입력합니다. 
         - \*로 입력하면 모든 도메인을 허용합니다.(단, \*로 지정할 경우 자격증명을 지원하지 않으므로 허용 원본(allowed origin)에 구체적인 도메인을 지정하셔야 합니다.) 
         - 여러 도메인을 허용하기 위해서는 ,(쉼표)로 구분해 입력합니다.
