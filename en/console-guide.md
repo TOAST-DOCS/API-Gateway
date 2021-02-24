@@ -1,6 +1,6 @@
 ## Application Service > API Gateway > Console User Guide
 
-## API Gateway 서비스 
+## API Gateway Service 
 API Gateway service is a unit that allows users to manage APIs served through API Gateway.
 Each API Gateway service can manage an API resource and a number of stages, and the API indexes can be checked through dashboard.
 
