@@ -1,7 +1,7 @@
-## Application Service > API Gateway > 릴리스 노트
+## Application Service > API Gateway > Release Note
 
-## 2021.02.23
-#### 신규 상품 출시 
-* API Gateway 서비스는 손쉽게 API를 통합하여 관리할 수 있는 서비스입니다.
-* 서비스의 코드 수정과 배포 없이 부가 기능을 추가할 수 있습니다.
-* 대시보드에서 API 통계 지표를 확인할 수 있어 모니터링 및 API 품질 지표로 활용할 수 있습니다.
+## February 23, 2021
+#### New Product Release 
+* API Gateway is a product that allows easy integration and management of APIs.
+* Additional functions can be added without changing/deploying the code of the service.
+* You can view the API statistical indexes through the dashboard and utilize them as the index for monitoring and API quality.
