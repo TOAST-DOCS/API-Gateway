@@ -1,9 +1,9 @@
-## Application Service > API Gateway > 오류 코드
+## Application Service > API Gateway > Error Code
 
-## 요청 차단 
-- 발생 원인: API Gateway 서비스와 백엔드 엔드포인트 서비스를 보호하는 목적으로 백엔드 엔드포인트 서비스가 응답을 하지 않거나 응답 지연(60초 이상)이 지속적으로 발생하는 경우, API Gateway 서비스는 해당 백엔드 엔드포인트 서비스에 대한 요청을 일시적으로 거부합니다. 
-- 응답 HTTP 상태: 503 Service  Unavailable 
-- 오류 응답 본문 
+## Ban Request 
+- Cause: If backend endpoint service does not respond or its response is delayed for more than 60 seconds to protect the API Gateway service and backend endpoint service, the API Gateway service will temporarily deny the backend endpoint service request. 
+- Response HTTP status: 503 Service Unavailable 
+- Error response body 
 ``` 
 {
     "header": {
@@ -14,14 +14,14 @@
 }
 ```
 
-> **[참고] 요청 차단**
-> - 요청이 차단되면 요청 차단 오류 코드가 응답되며, 일정 시간 이후 차단이 해제됩니다.
-> - 정상적인 운영 상태가 아닌 백엔드 엔드 포인트 서비스를 연동하거나 응답 지연(timeout)이 60초 이상 발생된 경우 차단되므로, API는 연동하지 않는 것을 권장합니다.
+> **[Note] Ban requests**
+> - If your request is banned, a ban request error code is returned, and the ban is disabled after a certain period of time.
+> - In the event that your request is banned if you link a backend endpoint service with abnormal operating condition or response (timeout) is delayed for more than 60 seconds, it is recommended to not link any APIs.
 
 ## HMAC
-- 발생 원인: HMAC 인증에 필요한 요청 정보가 없거나 인증에 실패하는 경우 다음의 응답이 전달됩니다.
-- 응답 HTTP 상태: 401 Unauthorized 
-- 오류 응답 본문 
+- Cause: The following response appears when there is no request information required for HMAC authentication or when authentication fails.
+- Response HTTP status: 401 Unauthorized 
+- Error response body 
 ``` 
 {
     "header": {
@@ -33,23 +33,23 @@
 ```
 
 
-| result code | resultMessage             |  설명|
+| result code | resultMessage             |  Description|
 | ---------------- | ----------- | -------------------------- |
-| 4011001              | Authorization is empty.      | Authorization 요청 헤더가 없습니다.|
-| 4011002              | HmacAlgorithm is empty or not supported algorithm      | 지원하지 않는 암호화 알고리듬 또는 알고리듬이 지정되지 않았습니다.|
-| 4011003              | Signature is empty.      | signature 정보가 없습니다. |
-| 4011004              | Not include some headers credential.      | 요청 헤더에 필수 검증 헤더가 포함되어 있지 않습니다. |
-| 4011005              | x-nhn-date header is empty.      | x-nhn-date 요청 헤더가 없습니다.|
-| 4011006              | Invalid x-nhn-date format. ISO Datetime format (yyyy-MM-dd'T'hh:mm:ssZ)      | x-nhn-date의 날짜 데이터 형식이 잘못되었습니다.|
-| 4011007              | expired      | 요청 유효시간이 만료되었습니다.|
-| 4011008              | Authorization is invalid.      | 요청의 인증 정보가 유효하지 않습니다.|
-| 4011009              | Authorization header must start with the string hmac.      | Authorization 요청 헤더값이 hmac으로 시작하지 않아 유효하지 않습니다.|
+| 4011001              | Authorization is empty.      | Authorization request header does not  exist.|
+| 4011002              | HmacAlgorithm is empty or not supported algorithm      | Encryption algorithm is not supported or  algorithm is not specified.|
+| 4011003              | Signature is empty.      | There is no signature information. |
+| 4011004              | Not include some headers credential.      |  Required validation header is not included  in the request header. |
+| 4011005              | x-nhn-date header is empty.      | x-nhn-date request header does not exist.|
+| 4011006              | Invalid x-nhn-date format. ISO Datetime format (yyyy-MM-dd'T'hh:mm:ssZ)      | Date data format of x-nhn-date is invalid.|
+| 4011007              | expired      | The request is expired.|
+| 4011008              | Authorization is invalid.      | The authentication information of the  request is invalid.|
+| 4011009              | Authorization header must start with the string hmac.      | Invalid because the authorization request  header value does not start with hmac.|
 
 ## IP ACL
 
-- 발생 원인: 접근이 허가되지 않은 IP의 요청을 거부할 때 오류 응답이 반환됩니다.
-- 응답 HTTP 상태: 403 Forbidden
-- 오류 응답 본문 
+- Cause: Returns an error response when denying requests from unauthorized IPs.
+- Response HTTP Status: 403 Forbidden
+- Error response body 
 ``` 
 {
     "header": {
@@ -60,10 +60,10 @@
 }
 ```
 
-## 요청 크기 초과 
-- 발생 원인: 요청 크기가 10MB를 초과한 경우 발생합니다.
-- 응답 HTTP 상태: 413 Request Entity Too Large
-- 오류 응답 본문 
+## Request Size Exceeded
+- Cause: Occurs when the request size exceeds 10MB.
+- Response HTTP Status: 413 Request Entity Too Large
+- Error response body 
 ```
 {
     "header": {
@@ -75,10 +75,10 @@
 ```
 
 
-## 경로 또는 메서드를 찾을 수 없음
-- 발생 원인: API 리소스에 등록되지 않은 API 경로 및 메서드로 요청한 경우 발생합니다.
-- 응답 HTTP 상태: 404 Not Found
-- 오류 응답 본문 
+## Could Not Find The Path Or Method
+- Cause: Occurs when a request is made with an API path and method not registered in API Resource.
+- Response HTTP Status: 404 Not Found
+- Error response body 
 ```
 {
     "header": {
@@ -89,10 +89,10 @@
 }
 ```
 
-## 백엔드 엔드포인트 서비스 연결 오류 
-- 발생 원인: 백엔드 엔드포인트가 응답하지 않거나 응답을 거부하는 경우 발생합니다.
-- 응답 HTTP 상태: 503 Service Unavailable 
-- 오류 응답 본문 
+## Backend Endpoint Service Connection Error 
+- Cause: Occurs when backend endpoint does not respond or refuses to respond.
+- Response HTTP Status: 503 Service Unavailable 
+- Error response body 
 ```
 {
   "header" : {
@@ -102,9 +102,9 @@
   }
 }
 ```
-- 발생 원인: 백엔드 엔드포인트가 응답 하지 않거나 응답을 거부하는 경우 발생합니다.
-- 응답 HTTP 상태: 502 Bad Gateway 
-- 오류 응답 본문 
+- Cause: Occurs when backend endpoint does not respond or refuses to respond.
+- Response HTTP Status: 502 Bad Gateway 
+- Error response body 
 ``` 
 {
     "header": {
