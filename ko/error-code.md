@@ -46,8 +46,9 @@
 | 4011009              | Authorization header must start with the string hmac.      | Authorization 요청 헤더값이 hmac으로 시작하지 않아 유효하지 않습니다.|
 
 ## 사전 호출 API(Pre-call API)
-- 발생 원인: 사전 호출 API 인증 실패 시 오류 응답이 반환됩니다.
+- 발생 원인: 사전 호출 API 요청 실패 시 오류 응답이 반환됩니다.
 - 응답 HTTP 상태 : 502 Bad Gateway
+- 오류 응답 본문
 ```
 {  
    "header":{  
