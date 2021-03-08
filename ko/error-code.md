@@ -45,6 +45,19 @@
 | 4011008              | Authorization is invalid.      | 요청의 인증 정보가 유효하지 않습니다.|
 | 4011009              | Authorization header must start with the string hmac.      | Authorization 요청 헤더값이 hmac으로 시작하지 않아 유효하지 않습니다.|
 
+## 사전 호출 API(Pre-call API)
+- 발생 원인: 사전 호출 API 인증 실패 시 오류 응답이 반환됩니다.
+- 응답 HTTP 상태 : 502 Bad Gateway
+```
+{  
+   "header":{  
+      "isSuccessful":false,
+      "resultCode":5021001,
+      "resultMessage":"Pre API Connection Failed"
+   }
+}
+```
+
 ## IP ACL
 
 - 발생 원인: 접근이 허가되지 않은 IP의 요청을 거부할 때 오류 응답이 반환됩니다.
