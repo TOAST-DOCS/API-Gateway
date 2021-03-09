@@ -55,7 +55,7 @@
     "header": {
         "isSuccessful": false,
         "resultCode": 4012001,
-        "resultMessage":  "Authorization is invalid. ({error detail message})"
+        "resultMessage":  "Token is invalid."
     }
 }
 ```
@@ -64,7 +64,7 @@
 | ---------------- | ----------- | -------------------------- |
 | 4012002          | Authorization is empty.      | Authorization 요청 헤더가 없습니다.|
 | 4012001          | Token type is invalid.      | Authorization 요청 헤더의 토큰 타입이 유효하지 않습니다.|
-| 4012001          | Authorization is invalid.      | 토큰 값이 유효하지 않아 인증에 실패했습니다.|
+| 4012001          | Toekn is invalid.      | 토큰 값이 유효하지 않아 인증에 실패했습니다.|
 
 ## IP ACL
 
