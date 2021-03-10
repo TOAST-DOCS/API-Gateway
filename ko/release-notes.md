@@ -1,5 +1,16 @@
 ## Application Service > API Gateway > 릴리스 노트
 
+## 2021.03.23
+#### 기능 개선/변경
+* 사전 호출 API(Pre-call API) 플러그인 기능 추가
+    * 상세한 내용은 [콘솔 가이드 > 사전 호출 API](./console-guide/#api-pre-call-api)를 참고해주세요.
+* 요청 수 제한 플러그인 기능 추가
+    * 상세한 내용은 [콘솔 가이드 > 요청 수 제한](./console-guide/#_18)을 참고해주세요.
+* 인증 > JWT 플러그인 기능 추가
+    * 상세한 내용은 [콘솔 가이드 > 인증 > JWT](./console-guide/#jwt)를 참고해주세요.
+* 컨텍스트 변수 `${request.clientIp}` 추가
+    * 상세한 내용은 [콘솔 가이드 > 컨텍스트 변수](./console-guide/#_8)를 참고해주세요.
+
 ## 2021.02.23
 #### 신규 상품 출시 
 * API Gateway 서비스는 손쉽게 API를 통합하여 관리할 수 있는 서비스입니다.
