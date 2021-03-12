@@ -1,4 +1,4 @@
-﻿
+
 ## Application Service > API Gateway > エラーコード
 
 ## リクエスト遮断 
@@ -46,6 +46,41 @@
 | 4011008              | Authorization is invalid.      | リクエストの認証情報が有効ではありません。|
 | 4011009              | Authorization header must start with the string hmac.      | Authorizationリクエストヘッダ値がhmacで始まっていないため有効ではありません。|
 
+
+## JWT
+- 発生原因：JWT認証に必要なリクエスト情報がない場合や、認証に失敗した場合、次のレスポンスが返されます。
+- レスポンスHTTP状態：401 Unauthorized 
+- エラーレスポンス本文
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 4012001,
+        "resultMessage":  "Token is invalid."
+    }
+}
+```
+
+| result code | resultMessage             | 説明|
+| ---------------- | ----------- | -------------------------- |
+| 4012002          | Authorization is empty.      | Authorizationリクエストヘッダがありません。|
+| 4012001          | Token type is invalid.      | Authorizationリクエストヘッダのトークンタイプが有効ではありません。|
+| 4012001          | Toekn is invalid.      | トークン値が有効ではないため、認証に失敗しました。|
+
+## 事前呼び出しAPI(Pre-call API)
+- 発生原因：事前呼び出しAPIのリクエストに失敗すると、エラーレスポンスが返されます。
+- レスポンスHTTP状態: 502 Bad Gateway
+- エラーレスポンス本文
+```
+{  
+   "header":{  
+      "isSuccessful":false,
+      "resultCode":5021001,
+      "resultMessage":"Pre API Connection Failed"
+   }
+}
+```
+
 ## IP ACL
 
 - 発生原因：アクセスが許可されていないIPのリクエストを拒否する時、エラーレスポンスが返されます。
@@ -75,6 +110,19 @@
 }
 ```
 
+## リクエスト数制限
+- 発生原因：制限されたリクエスト数を超過するリクエストを拒否した時、エラーレスポンスが返されます。
+- レスポンスHTTP状態：429 Too Many Requests
+- エラーレスポンス本文
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 4291000,
+        "resultMessage": "Too Many Requests"
+    }
+}
+```
 
 ## パスまたはメソッドが見つからない
 - 発生原因：APIリソースに登録されていないAPIパスおよびメソッドでリクエストした場合に発生します。
