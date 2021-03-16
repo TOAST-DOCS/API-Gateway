@@ -45,6 +45,41 @@
 | 4011008              | Authorization is invalid.      | 요청의 인증 정보가 유효하지 않습니다.|
 | 4011009              | Authorization header must start with the string hmac.      | Authorization 요청 헤더값이 hmac으로 시작하지 않아 유효하지 않습니다.|
 
+
+## JWT
+- 발생 원인: JWT 인증에 필요한 요청 정보가 없거나 인증에 실패하는 경우 다음의 응답이 전달됩니다.
+- 응답 HTTP 상태: 401 Unauthorized 
+- 오류 응답 본문 
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 4012001,
+        "resultMessage":  "Token is invalid."
+    }
+}
+```
+
+| result code | resultMessage             |  설명|
+| ---------------- | ----------- | -------------------------- |
+| 4012002          | Authorization is empty.      | Authorization 요청 헤더가 없습니다.|
+| 4012001          | Token type is invalid.      | Authorization 요청 헤더의 토큰 타입이 유효하지 않습니다.|
+| 4012001          | Toekn is invalid.      | 토큰 값이 유효하지 않아 인증에 실패했습니다.|
+
+## 사전 호출 API(Pre-call API)
+- 발생 원인: 사전 호출 API 요청 실패 시 오류 응답이 반환됩니다.
+- 응답 HTTP 상태 : 502 Bad Gateway
+- 오류 응답 본문
+```
+{  
+   "header":{  
+      "isSuccessful":false,
+      "resultCode":5021001,
+      "resultMessage":"Pre API Connection Failed"
+   }
+}
+```
+
 ## IP ACL
 
 - 발생 원인: 접근이 허가되지 않은 IP의 요청을 거부할 때 오류 응답이 반환됩니다.
@@ -74,6 +109,19 @@
 }
 ```
 
+## 요청 수 제한
+- 발생 원인: 제한된 요청 수를 초과하는 요청을 거부할 때 오류 응답이 반환됩니다.
+- 응답 HTTP 상태: 429 Too Many Requests
+- 오류 응답 본문 
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 4291000,
+        "resultMessage": "Too Many Requests"
+    }
+}
+```
 
 ## 경로 또는 메서드를 찾을 수 없음
 - 발생 원인: API 리소스에 등록되지 않은 API 경로 및 메서드로 요청한 경우 발생합니다.
