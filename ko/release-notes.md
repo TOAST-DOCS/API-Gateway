@@ -3,7 +3,7 @@
 ## 2021. 03. 23.
 #### 기능 개선/변경
 * 사전 호출 API(Pre-call API) 플러그인 기능 추가
-    * 자세한 내용은 [콘솔 가이드 > 사전 호출 API](./console-guide/#api-pre-call-api)를 참고해주세요.
+    * 자세한 내용은 [콘솔 가이드 > 사전 호출 API](./console-guide/#apipre-call-api)를 참고해주세요.
 * 요청 수 제한 플러그인 기능 추가
     * 자세한 내용은 [콘솔 가이드 > 요청 수 제한](./console-guide/#_18)을 참고해주세요.
 * 인증 > JWT 플러그인 기능 추가
