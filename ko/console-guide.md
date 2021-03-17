@@ -451,7 +451,7 @@ JWT 토큰의 서명과 클레임을 검증합니다. 사용자 서비스에서�
 
 | 헤더 이름 | 헤더 값 |
 | --- | --- |
-| Authorization | Berear "<jwt-token\>" |
+| Authorization | Bearer "<jwt-token\>" |
 
 > **[참고] JWT 토큰 인증 실패 응답**
 > JWT 토큰 인증 실패시 401 Unauthorized 응답이 반환됩니다.

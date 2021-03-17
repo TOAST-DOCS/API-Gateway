@@ -449,7 +449,7 @@ JWTトークンの署名とクレームを検証します。ユーザーサー�
 
 | ヘッダ名 | ヘッダ値 |
 | --- | --- |
-| Authorization | Berear "<jwt-token\>" |
+| Authorization | Bearer "<jwt-token\>" |
 
 > **[参考] JWTトークン認証失敗レスポンス**
 > JWTトークンの認証失敗時、401 Unauthorizedレスポンスが返されます。
