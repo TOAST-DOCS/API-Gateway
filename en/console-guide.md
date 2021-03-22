@@ -451,7 +451,7 @@ Verifies the signature and claim of JWT token. Token values can be used without 
 
 | Header name | Header value |
 | --- | --- |
-| Authorization | Berear "<jwt-token\>" |
+| Authorization | Bearer "<jwt-token\>" |
 
 > **[Note] JWT Token Authentication Failure Response**
 > If the authentication of JWT token fails, 401 Unauthorized response is returned.
