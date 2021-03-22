@@ -396,7 +396,7 @@ x-nhn-client-ip: 10.0.0.1,10.0.0.2
 - signature 생성 코드 예시(Java): SignToString을 HMAC 암호화 후 Base64 인코딩 한 값
 ```
 String secretKey = "HMAC에 설정한 비밀키";
-// 암호화 알고리듬 HmacSHA1 또는 HmacSHA256
+// 암호화 알고리즘 HmacSHA1 또는 HmacSHA256
 SecretKeySpec signingKey = new SecretKeySpec(secretKey.getBytes(), "HmacSHA256");  
 Mac mac = Mac.getInstance("HmacSHA256");
 mac.init(signingKey);

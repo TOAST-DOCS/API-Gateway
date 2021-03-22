@@ -36,7 +36,7 @@
 | result code | resultMessage             |  설명|
 | ---------------- | ----------- | -------------------------- |
 | 4011001              | Authorization is empty.      | Authorization 요청 헤더가 없습니다.|
-| 4011002              | HmacAlgorithm is empty or not supported algorithm      | 지원하지 않는 암호화 알고리듬 또는 알고리듬이 지정되지 않았습니다.|
+| 4011002              | HmacAlgorithm is empty or not supported algorithm      | 지원하지 않는 암호화 알고리즘 또는 알고리즘이 지정되지 않았습니다.|
 | 4011003              | Signature is empty.      | signature 정보가 없습니다. |
 | 4011004              | Not include some headers credential.      | 요청 헤더에 필수 검증 헤더가 포함되어 있지 않습니다. |
 | 4011005              | x-nhn-date header is empty.      | x-nhn-date 요청 헤더가 없습니다.|
