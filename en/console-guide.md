@@ -58,21 +58,13 @@ Resource manages the resource path and method of the API.
 - **Backend endpoint type: HTTP(S)**
     - Backend endpoint URL path: Sets the API URL of the backend endpoint service where the received API request should be forwarded to.
         - Must begin with the root (/).
-        - You can set the path variable that is created from resource in the path.
-        - The path variable can be resolved as follows:
-            - Single path variable: `${request.path.variable-name}` 
-            - Path variable containing sub-path: `${request.path.variable-name+}`
-        - Can only set the path variable declared in the selected path and parent path.
+        - Context variables created by the resources can be set for the path. (For more information on context variables, see [Context Variables](./console-guide/#_8).)
 - **Backend endpoint type: custom response**
     - Set the custom response.
     - Response status code: Enter the response HTTP status code. (required)
     - Header: Enter the name and value of the response header.
     - Response body: Enter the response body.
-    - You can set the path variable that is created from resource in the header and response body.
-        - The path variable can be resolved as follows:
-            - Single path variable: `${request.path.variable-name}` 
-            - Path variable containing sub-path: `${request.path.variable-name+}`
-        - Can only set the path variable declared in the selected path and parent path.
+    - Context variables created by the resources can be set for the header. (For more information on context variables, see [Context Variables](./console-guide/#_8).)
 
 - **Plugin**: Check this box if you want to add a plugin that is added to the selected path to the created method as well.
 - If you request an unregistered HTTP method to API Gateway, 404 Not Found response is returned.
@@ -147,6 +139,17 @@ Plugin allows you to add additional functions provided by API Gateway.
 > **[Caution] Saving changes after adding plugins**
 > You must click the **Save Changes** button after adding plugins to save the changed settings.
 
+## Context Variables
+The variables defined below can be used when creating methods of resources or setting plugins.
+
+| Context Variables | Description |
+| -- | -- |
+| ${request.clientIp} | IP of client requesting API |
+| ${request.path.variable-name} | Refer to the value of a single path variable {variable-name} value claimed by the resource |
+| ${request.path.variable-name+} | Refer to the value of path variable {variable-name+} value including subpaths claimed by the resource |
+
+> **[Caution] Path Variables**
+> Can only use the path variable claimed in the selected path and parent path.
 
 ##  Plugin 
 ### CORS 
@@ -181,12 +184,9 @@ Add or change the request header.
 - **Change Request Header Settings**
     - You can click the **\+** button to add a header list.
     - Enter the header name and value.
-    - In the header value, you can set the path variable declared from the resource. 
-        - The path variable can be resolved as follows:
-            - Single path variable: `${request.path.variable-name}` 
-            - Path variable containing sub-path: `${request.path.variable-name+}`
-        - (Note) Only the path variable declared in the selected path and parent path can be configured.
-
+    - Context variables claimed by the resources can be set for the header value. (For more information on context variables, see [Context Variables](./console-guide/#_8).) 
+      
+      
 > **[Note] Addition and change of request header**
 > - Any headers missing from the original request are added.
 > - Any headers available in the original request are replaced with the header value set by the change request header plugin.
@@ -199,11 +199,7 @@ Change response header plugin adds the header to the backend header or changes i
 - **Steps for applying plugins**: Frontend response pre-task
 - You can click the **\+** button to add a header list.
 - Enter the header name and value. 
-- In the header value, you can set the path variable declared from the resource. 
-    - The path variable can be resolved as follows:
-        - Single path variable: `${request.path.variable-name}` 
-        - Path variable containing sub-path: `${request.path.variable-name+}`
-    - (Note) Only the path variable declared in the selected path and parent path can be configured.
+- Context variables claimed by the resources can be set for the header value. (For more information on context variables, see [Context Variables](./console-guide/#_8).)
 
 
 > **[Note] Addition and change of the response header**
@@ -427,7 +423,65 @@ x-nhn-date:2021-02-23T00:00:00+09:00
 >   - e.g. header1-name:header1-value1,header1-value2
 > - The header names and values are separated by colon (:), and do not include space in-between when separating the values.
 
+### Authentication > JWT  
+Verifies the signature and claim of JWT token. Token values can be used without token verification for user services.
 
+1. On the Stage tab, select a stage.
+2. On the Stage Tree screen, select the root(/) path of the stage. 
+3. Select **JWT** under Authentication.
+4. Enter the JWT settings. 
+    - **Token Encryption Algorithm**: Select the encryption algorithm used to sign the token. Encryption algorithm supports HS256 and RS256.
+        - HS256 Token Algorithm
+            - Secret Key: Enter the secret key used to sign the token. Secret key with the length of 256 or above is recommended.
+        - RS256 Token Algorithm
+            - Public Key (PEM): Enter the public key to verify the token. It must be entered in PEM format.
+    - **Claim Verification Condition**
+        - Enter the claim verification conditions for the registered claim of the token payload.
+        - For more information on the registered claims, see [RFC7519-4.1.Registered Claim Names](https://tools.ietf.org/html/rfc7519#section-4.1).
+        - If any one of the claim verification conditions is not met, verification fails.
+        - **Claim**: Name of the registered claim of the token payload.
+        - **Data Type and Claim Value**:
+            - Array: Enter multiple strings separated by commas (,). If the string array contains at least one claim value of the request token, the verification succeeds.
+            - String: Enter a single string. If it matches the claim value of the request token, the verification succeeds.
+        - **Required**: Verification fails if claims do not exist in the request token when selected. You cannot check/uncheck a disabled checkbox.
+        - **Value Verification**: If a claim exists in the request token when selected, verification will proceed to check whether the set claim value includes or matches the claim or not. You cannot check/uncheck a disabled checkbox.
+    - **Verification Time Limit (sec)**: Apply verification time limit to verify exp and nbf claims of the request token. You can enter any number between 0 and 86,400 (sec).
+5. Deploy the stage.
+6. When requesting API Gateway, first add a JWT token to the Authorization Header and then make a request.
+
+| Header name | Header value |
+| --- | --- |
+| Authorization | Bearer "<jwt-token\>" |
+
+> **[Note] JWT Token Authentication Failure Response**
+> If the authentication of JWT token fails, 401 Unauthorized response is returned.
+> For more information, see the [Error Code](./error-code/) document.
+>
+> **[Note] Creating JWT Token**
+> API Gateway only verifies whether the JWT token signature and claims match or not. A JWT Token must be created via user applications or authentication service providers.
+> To learn how to create a JWT token for the purpose of development and testing, see [JWT Token Debugger](https://jwt.io/).
+
+### Pre-call API
+Pre-call API determines whether or not to call the backend endpoint depending on the call response code after calling the user-designated API before calling the backend endpoint.
+Pre-call API including the request headers that came in through the API Gateway is called, and the Pre-call API will return the response code depending on the forwarded header content.
+
+Backend endpoint is called if Pre-call API’s response code is 200; Pre-call API’s response result is returned if the response code is not 200.
+If Pre-call API call fails, it returns an error.
+
+This can be used in a situation where authentication through a separate API call is required before calling the backend endpoint or there is another API to be called.
+
+1. On the Stage tab, select a stage.
+2. On the Stage Tree screen, select the path or method to apply the Pre-call API.
+  - Pre-call API set for the path will be applied to all subdefined subpaths and submethods.
+  - Pre-call API set for the method will be applied when calling the said method, but Pre-call API set for the root path will not be applied.
+3. Pre-call API must be turned on.
+  - Enter the method type and URL for Pre-call API.
+  - Cache time limit can be set to 86400 sec at maximum, and the response results are cached for the period specified by the entered number (sec).
+  - If the cache time limit it set to 0, response results for Pre-call API will not be cached and Pre-call API will be called for every request.
+  > **[Note] Response Result Caching for Pre-Call API**
+  > Response results are only cached if Pre-call API’s response result code is 200.
+  > If the response result code is not 200, response results will not be cached even if the cache time limit is set.
+  >
 ### Backend Endpoint URL Override
 
 When passing the requests received by the API Gateway to the backend endpoint, the requests are (by default) passed to the backend endpoint URL defined in the stage.
@@ -439,6 +493,35 @@ To override the backend endpoint URL regarding a specific method, set the backen
     - Writes the backend endpoint URL to which the request received by API Gateway is to be pass.
     - Can include the sub-path in it.
         - e.g. https://api.nhn.com , https://api.nhn.com/apis
+
+### Request Number Limit
+
+Requests received by the API gateway every second can be adjusted using the request number limit, and the backend endpoint can be protected via the request number limit.
+
+1. On the Stage tab, select a stage.
+2. On the Stage Tree screen, select the root (/) path or method of the stage.
+    - If set for the root path, request number limit will be applied to the stage.
+    - If set for the method, request number limit will be applied to each method. Request number limit set for the parent path will be ignored. 
+3. Turn the request number limit **On**. 
+4. Set the request number limit. 
+    - Requests per Second: Enter the maximum number of requests that can be called in seconds.
+    - Request Limit Key: The default request limit key is stage when set for the root, and method when set for the method. A request limit key can be added to the default request limit key.
+        - None: Limits requests to default request limit key.
+        - Path Variable: Limits requests for the default request limit key and different path variables. It can be set if the selected method path has a path variable.  
+        - IP: Limits requests for each default request limit key and request client IP.
+        - Header: Limits requests for each default request limit key and set header name value. 
+
+>
+> **[Note] Request Number Limit Response**
+> If requests per second is exceeded, the response of 429 Too Many Requests is returned.
+>       
+> **[Caution] Request Limit Key**
+> When using the request limit key, the request must contain the specified key. For example, if header is selected for the request limit key and the X-NHN-CLOUD value is entered, the request header must contain X-NHN-CLOUD.      
+> If the request limit key cannot be found from the request, the request number limit is not applied.
+>
+> **[Caution] Accuracy of Requests Per Second**
+> - The requests per seconds set and the actual number of requests could slightly differ depending on the time delivered to API Gateway, request processing time, and other factors.  
+
 
 ## Check API Call
 

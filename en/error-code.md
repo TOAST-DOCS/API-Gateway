@@ -45,6 +45,40 @@
 | 4011008              | Authorization is invalid.      | The authentication information of the  request is invalid.|
 | 4011009              | Authorization header must start with the string hmac.      | Invalid because the authorization request  header value does not start with hmac.|
 
+## JWT
+- Cause: The following response is returned when there is no request information required for JWT authentication or when authentication fails.
+- Response HTTP Status: 401 Unauthorized
+- Error Response Body  
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 4012001,
+        "resultMessage":  "Token is invalid."
+    }
+}
+```
+
+| result code | resultMessage             |  Description|
+| ---------------- | ----------- | -------------------------- |
+| 4012002          | Authorization is empty.      | Authorization request header does not exist.|
+| 4012001          | Token type is invalid.      | Authorization request header’s token type is invalid.|
+| 4012001          | Toekn is invalid.      | Authentication failed due to invalid token value.|
+
+## Pre-call API
+- Cause: Error response is returned when the request for Pre-call API fails.
+- Response HTTP Status: 502 Bad Gateway
+- Error Response Body
+```
+{  
+   "header":{  
+      "isSuccessful":false,
+      "resultCode":5021001,
+      "resultMessage":"Pre API Connection Failed"
+   }
+}
+```
+
 ## IP ACL
 
 - Cause: Returns an error response when denying requests from unauthorized IPs.
@@ -74,6 +108,19 @@
 }
 ```
 
+## Request Number Limit
+- Cause: Returns an error response when a request exceeding the request number limit is rejected.
+- Response HTTP Status: 429 Too Many Requests
+- Error Response Body  
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 4291000,
+        "resultMessage": "Too Many Requests"
+    }
+}
+```
 
 ## Could Not Find The Path Or Method
 - Cause: Occurs when a request is made with an API path and method not registered in API Resource.

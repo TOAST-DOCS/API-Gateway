@@ -1,368 +1,364 @@
-## Application Service > API Gateway > 콘솔 사용 가이드
+## Application Service > API Gateway > Console User Guide
 
-## API Gateway 서비스 
-API Gateway 서비스는 API Gateway를 통해 서비스할 API를 관리하는 단위입니다. 
-API Gateway 서비스마다 하나의 API 리소스와 여러 개의 스테이지를 관리할 수 있으며, 대시보드를 통해 API 지표를 확인할 수 있습니다.
+## API Gateway Service 
+API Gateway service is a unit that allows users to manage APIs served through API Gateway.
+Each API Gateway service can manage an API resource and a number of stages, and the API indexes can be checked through dashboard.
 
-### API Gateway 서비스 생성 
-API Gateway 서비스 정보를 입력한 후 생성 버튼을 클릭하면 API Gateway 서비스가 생성됩니다.
+### Create API Gateway Service
+You can enter API Gateway service information and click Create button to create API Gateway service.
 
-* **서비스명**: 서비스의 이름입니다.
-* **서비스 설명**: 서비스의 설명입니다.
-* **서비스 ID**: 서비스마다 임의로 발급된 고유한 ID입니다. 
+* **Service Name**: The name of the service.
+* **Service Description**: The service description.
+* **Service ID**: A random ID issued to each service. 
 
-> **[참고] API Gateway 서비스 생성 개수 제한**
-> API Gateway 서비스는 프로젝트당 **최대 10개**까지 생성 가능합니다.
+> **[NOTE] API Gateway services creation limit
+> **Up to 10** API Gateway Services can be created per project.
 
-### API Gateway 서비스 조회 
-* 등록된 API Gateway 서비스 목록이 표시됩니다.
-* 목록에서 서비스를 선택하면 등록된 스테이지 목록이 표시됩니다.
-* 리소스를 관리하려면 서비스 설정 열의 **리소스** 버튼을 클릭합니다.
-* 스테이지를 관리하려면 서비스 설정 열의 **스테이지** 버튼을 클릭합니다.
+### View API Gateway Service
+* The list of registered API Gateway services appears.
+* If you select a service from the list, the list of registered stages appears.
+* To manage resources, click the Resource button in the Service Settings column.
+* To manage stages, click the **Stage** button in the Service Settings column.
 
-## 리소스
-리소스는 API Gateway를 통해 서비스할 API를 설계하는 화면입니다.
-모든 API 요청 클라이언트는 API Gateway 리소스에 정의된 API에 대해 요청을 할 수 있습니다.
-리소스는 API의 리소스 경로와 메서드를 관리합니다.
+## Resource
+Resource is the area where you design an API that will serve through API Gateway.
+All clients requesting APIs can make a request regarding the APIs defined in the Gateway resource.
+Resource manages the resource path and method of the API.
 
-1. 리소스 경로: API 경로 
-2. 리소스 메서드: HTTP 메서드 
-3. 플러그인: 리소스 경로 또는 메서드에 부가 기능을 추가합니다. 
+1. Resource path: API path
+2. Resource method: HTTP method
+3. Plugin: Adds add-ins to the resource path or method. 
 
-### 리소스 생성 
-1. 리소스를 생성하려면 **리소스 생성** 버튼을 클릭하거나 좌측 리소스 트리 화면에서 마우스 오른쪽을 클릭하면 표시되는 메뉴에서 **리소스 생성**을 클릭합니다.
-2. **리소스 경로**를 작성합니다. 작성된 리소스 경로를 포함하여 전체 경로는 255자 이내로 작성해야 합니다. 
-    - 예: /products/, /products/{productsId}, /{proxy+}
-3. **경로 변수**: 리소스 경로에는 중괄호를 사용하여 **경로 변수**를 생성할 수 있습니다.
-    - **경로 변수**는 **{variable}** 또는 하위 경로를 포함한 경로 변수는 **{variable+}**와 같이 선언할 수 있습니다. 
-        - **경로 변수**는 플러그인과 백엔드 엔드포인트 설정에서 활용할 수 있습니다.
-        - **{variable}**는 경로 변수가 위치한 경로의 값을 변수로 선언합니다.
-            - 예: /members/{memberId} 
-                - /members/id1 요청의 **{memberId}** 경로 변숫값은 **id1**이 됩니다.
-        - **{variable+}** 는 경로 변수가 위치한 하위 경로를 포함하여 변수로 선언합니다. 하위 경로를 포함한 변수에는 하위 리소스 경로를 생성할 수 없습니다.
-            - 예: /{proxy+} 
-                - **/members/id1** 요청의 **{proxy+}** 경로 변숫값은 **members/id1**이 됩니다.
-- **플러그인**: 선택된 경로에 추가된 플러그인을 생성된 메서드에도 추가하려면 체크합니다.
-- 리소스를 생성하면서 메서드도 같이 등록하려면 HTTP 메서드를 선택합니다.
-- 등록하지 않은 리소스 경로로 API Gateway에 요청하면 404 Not Found 응답을 반환합니다.
-
-
-### 메서드 생성 
-- 선택된 리소스 경로 하위에 **HTTP 메서드**를 생성합니다. 
-    - 지원 HTTP 메서드: HEAD, OPTIONS, GET, POST, PUT, DELETE, PATCH
-- **메서드 이름**: 메서드의 별칭입니다. 이름은 리소스 트리 화면에 설명으로 표시됩니다.
-- **메서드 설명**: 메서드에 대한 설명입니다.
-- **백엔드 엔드포인트 타입**
-    - HTTP(S): API Gateway로 수신된 API 요청을 정의된 백엔드 엔드포인트 URL 경로로 전달합니다.
-    - 사용자 정의 응답: API 게이트웨이는 수신된 요청에 대해 정의된 응답을 반환합니다.
-- **백엔드 엔드포인트 타입: HTTP(S)**
-    - 백엔드 엔드포인트 URL 경로: 수신된 API 요청을 전달할 백엔드 엔드포인트 서비스의 API URL을 설정합니다.
-        - 루트(/)로 시작해야 합니다.
-        - 경로에는 리소스에서 생성한 경로 변수를 설정할 수 있습니다.
-        - 경로 변수는 다음과 같이 참조할 수 있습니다.
-            - 단일 경로 변수: `${request.path.variable-name}` 
-            - 하위 경로를 포함한 경로 변수: `${request.path.variable-name+}`
-        - 선택된 경로와 상위 경로에 선언된 경로 변수만 설정할 수 있습니다.
-- **백엔드 엔드포인트 타입: 사용자 정의 응답**
-    - 사용자 정의 응답을 설정합니다. 
-    - 응답 상태 코드: 응답 HTTP 상태 코드를 입력합니다. (필수)
-    - 헤더: 응답 헤더의 이름과 값을 입력합니다.
-    - 응답 본문: 응답 본문을 입력합니다.
-    - 헤더와 응답 본문에는 리소스에서 생성한 경로 변수를 설정할 수 있습니다.
-        - 경로 변수는 다음과 같이 참조할 수 있습니다.
-            - 단일 경로 변수: `${request.path.variable-name}` 
-            - 하위 경로를 포함한 경로 변수: `${request.path.variable-name+}`
-        - 선택된 경로와 상위 경로에 선언된 경로 변수만 설정할 수 있습니다.
-
-- **플러그인**: 선택된 경로에 추가된 플러그인을 생성된 메서드에도 추가하려면 체크합니다.
-- 등록하지 않은 HTTP 메서드를 API Gateway에 요청하면 404 Not Found 응답을 반환합니다.
-
-> **[참고] 리소스 메서드 생성 제한 개수** 
-> 메서드는 모든 리소스 경로를 포함하여 **최대 100개**까지 생성 가능합니다.
-
-### 리소스와 메서드 수정
-- 리소스 경로 수정
-    - 리소스 경로는 수정이 불가합니다. 경로를 수정하려면 삭제 후 다시 생성해야 합니다.
-- 메서드 수정 
-    1. HTTP 메서드는 수정이 불가합니다. HTTP 메서드를 수정하려면 삭제 후 다시 생성해야 합니다.
-    2. 메서드 이름, 설명, 백엔드 엔드포인트 항목은 수정할 수 있습니다. 
-    3. 수정을 하려면 좌측 리소스 트리에서 메서드를 선택합니다.
-    5. 설정을 변경한 후 **변경 내용 저장** 버튼을 클릭합니다.
-
-> **[참고] CORS플러그인에 의해 등록된 OPTIONS 메서드의 수정**
-> CORS 플러그인에 의해 등록된 OPTIONS 메서드는 수정할 수 없습니다. 
-
-### 리소스와 메서드 삭제 
-- 삭제할 리소스 경로 또는 메서드를 선택합니다.
-    - **선택 삭제** 버튼을 클릭하면 삭제 확인 창이 표시됩니다.
-    - 왼쪽 리소스 트리에서 마우스 오른쪽 버튼을 클릭하고, 표시된 메뉴에서 리소스 삭제 또는 메서드 삭제를 선택합니다.
--  확인 창이 나타나면 **확인** 버튼을 클릭합니다. 삭제된 데이터는 복구할 수 없습니다.
+### Create Resource 
+1. To create a resource, click the **Create Resource** button, or click **Create Resource** from the menu that appears upon right-clicking the Resource Tree screen on the left.
+2. Write the **Resource Path**. The entire path including the written resource path must not exceed 255 characters.
+    - –	e.g./products/, /products/{productsId}, /{proxy+}
+3. **Path Variable**: Curly brackets can be used in the Resource path to create a **Path Variable**.
+    - **Path Variable**containing **{variable}** or sub-path can be declared as **{variable+}**.
+        - **Path Variable** can be utilized in the plugin and backend endpoint settings.
+        - **{variable}** declares the value of the path where the path variable is located.
+            - e.g./members/{memberId} 
+                - **{memberId}** path variable value of /members/id1 request becomes **id1**.
+        - **{variable+}** includes the sub-path where the path variable is located to declare a variable. A sub resource path cannot be created in the variable containing the sub-path.
+            - e.g./{proxy+} 
+                - **{proxy+}** path variable value of **/members/id1** becomes **members/id1**.
+- **Plugin**: Check this box if you want to add a plugin that is added to the selected path to the created method as well.
+- To create a resource and register a method at the same time, select HTTP method.
+- If you make a request to API Gateway with an unregistered resource path, 404 Not Found response is returned.
 
 
-> **[주의] 리소스 경로 삭제**
-> 리소스 경로를 삭제하면 선택된 리소스의 경로의 하위 리로스 경로와 메서드가 모두 삭제 됩니다.
+### Create Method
+- Create **HTTP Method** under the selected resource path. 
+    - Supported HTTP methods: HEAD, OPTIONS, GET, POST, PUT, DELETE, PATCH
+- **Method Name**: Canonical name of the method. The name is displayed as a description on the resource tree screen
+- **Method Description**: It is a description about the method.
+- **Backend endpoint type**
+    - HTTP(S): Passes API requests received by API Gateway to the defined backend endpoint URL path.
+    - Custom response: API Gateway returns a defined response regarding the received request.
+- **Backend endpoint type: HTTP(S)**
+    - Backend endpoint URL path: Sets the API URL of the backend endpoint service where the received API request should be forwarded to.
+        - Must begin with the root (/).
+        - Context variables created by the resources can be set for the path. (For more information on context variables, see [Context Variables](./console-guide/#_8).)
+- **Backend endpoint type: custom response**
+    - Set the custom response.
+    - Response status code: Enter the response HTTP status code. (required)
+    - Header: Enter the name and value of the response header.
+    - Response body: Enter the response body.
+    - Context variables created by the resources can be set for the header. (For more information on context variables, see [Context Variables](./console-guide/#_8).)
 
-> **[참고] CORS플러그인에 의해 등록된 OPTIONS 메서드의 삭제**
-> CORS 플러그인에 의해 등록된 OPTIONS 메서드는 삭제할 수 없습니다. 
+- **Plugin**: Check this box if you want to add a plugin that is added to the selected path to the created method as well.
+- If you request an unregistered HTTP method to API Gateway, 404 Not Found response is returned.
 
+> **[Note] Resource methods creation limit** 
+> **Up to 100** methods including all resource paths can be created.
 
-### 스테이지 리소스 적용 
-리소스를 변경한 후 스테이지에 변경된 리소스를 적용하려면 **스테이지 리소스 적용**을 해야 합니다.
+###  Modify Resources And Methods
+- Modify resource path
+    - Resource path cannot be modified. To modify a path, it must be deleted and created again.
+- Modify method 
+    1. HTTP method cannot be modified. To modify an HTTP method, it must be deleted and created again.
+    2. Method name, description, and backend endpoint items can be modified. 
+    3. To modify, select the method from the resource tree on the left.
+    4. Change the settings and click the **Save Changes** button.
 
-1. 변경된 리소스를 스테이지에 적용하려면 **스테이지 리소스 적용** 버튼을 클릭합니다.
-2. 변경된 리소스를 적용할 **스테이지**를 선택합니다. 
-3. **적용** 버튼을 클릭합니다.
+> **[Note] Modification of OPTIONS method registered by CORS plugin**
+> OPTIONS method registered by CORS plugin cannot be modified.
 
-
-> **[주의] 스테이지 리소스 적용**
-> - 스테이지 리소스를 적용하려면 적어도 하나 이상의 스테이지가 존재해야 합니다.
-> - 스테이지에 리소스가 적용된 후에는 기존 리소스로 복구가 불가합니다.
-> - 이미 스테이지에 최신 리소스가 적용되어 있으면 스테이지 리소스 적용이 불가합니다.
-
-
-### 플러그인 추가와 삭제
-플러그인을 통해 API Gateway에서 제공하는 부가 기능을 추가할 수 있습니다.
-
-- **플러그인 적용 위치**
-    - 플러그인은 리소스 경로 또는 메서드에 추가할 수 있습니다.
-    - 리소스 경로에 플러그인을 추가하면 선택된 경로의 하위 메서드에 플러그인이 일괄 적용됩니다.
-    - 메서드에 플러그인을 추가하면 선택된 메서드에만 플러그인이 적용됩니다.
-- **플러그인 적용 단계**
-    - 플러그인은 **백엔드 요청 사전 작업**과 **프런트엔드 응답 사전 작업** 단계에 추가할 수 있습니다. 
-        - **백엔드 요청 사전 작업**: API Gateway에 수신된 API 요청을 백엔드에 전달하기 전 플러그인을 적용합니다.
-        - **프런트엔드 응답 사전 작업**: 백엔드에서 전달받은 응답을 프런트엔드에 전달하기 전 플러그인을 적용합니다.
-- **플러그인 추가**
-    - 백엔드 요청 사전 작업과 프런트엔드 응답 사전 작업의 **+ 플러그인** 버튼을 클릭합니다.
-        1. 추가할 플러그인을 클릭합니다.
-        2. 플러그인의 설정 내용을 입력한 후 **추가** 버튼을 클릭합니다.
-        3. 선택된 경로를 포함하여 하위 경로와 메서드에 플러그인을 일괄 적용하려면 **하위 경로와 메서드에 덮어쓰기**를 체크합니다. 
-            - **!주의**: 하위 경로와 메서드에 추가하려는 플러그인이 이미 등록되어 있는 경우, 설정이 대체되므로 주의해주세요.
-        4. **변경 내용 저장 버튼**을 클릭합니다. 
-- **플러그인 삭제**
-    1. 백엔드 요청 사전 작업과 프런트엔드 응답 사전의 등록된 플러그인을 선택합니다. 
-    2. 선택된 경로를 포함하여 하위 경로와 메서드에 플러그인을 일괄 삭제하려면 **하위 경로와 메서드에 덮어쓰기**를 체크합니다. 
-    3. **삭제** 버튼을 클릭합니다.
-    4. **변경 내용 저장 버튼**을 클릭합니다. 
-
-> **[주의] 플러그인 추가 후 변경사항 저장**
-> 플러그인을 추가한 후 **변경 사항 저장 버튼**을 클릭해야 설정이 저장됩니다.
+### Delete Resources And Methods 
+- Select the resource path and methods you want to delete.
+    - Clicking the **Delete Selected** button brings up the Confirm Delete window.
+    - If you right-click the resource tree on the left, a menu appears. If you click Delete Resource or Delete Method in the menu, a confirmation window appears.
+-  To delete, click the **Confirm** button. Once deleted, data cannot be recovered.
 
 
-## 플러그인 
+> **[Caution] Resource path deletion**
+> If you delete a resource path, all of its sub resource paths and methods of the selected resource path are deleted as well.
+
+> **[Note] Deletion of OPTIONS method registered by CORS plugin**
+>  OPTIONS method registered by CORS plugin cannot be deleted.
+
+
+### Apply Stage Resource
+To change resources and apply the changed resources to the stage, you must **Apply Stage Resource**.
+
+1. To apply the changed resources to the stage, click the **Apply Stage Resource** button.
+2. Select the **stage** to apply the changed resources.
+3. Click the **Apply** button.
+
+
+> **[Caution] Application of stage resource**
+> - To apply a stage resource, one or more stages must exist.
+> - Once a resource is applied to a stage, the resource cannot be restored to the previous state.
+> - If the latest resource is already applied to the stage, stage resource cannot be applied.
+
+
+###  Add/Delete Plugin
+Plugin allows you to add additional functions provided by API Gateway.
+
+- **Where to apply plugins**
+    - Plugins can be added to the resource path or method.
+    - When you add a plugin to a resource path, the plugin is batch applied to the sub methods in the selected path.
+    - When you add a plugin to a method, the plugin is applied to the selected method only.
+- **Steps for applying plugins**
+    - Plugins can be applied during the **Backend Request Pre-Task** and **Frontend Response Pre-Task** steps.
+        - **Backend Request Pre-Task**: Applies plugins before passing the API request received by API Gateway to the backend.
+        - **Frontend Response Pre-Task**: Applies plugins before the response passed from the backend is forwarded to the frontend.
+- **Add Plugin**
+    - Click the **+ Plugin** button for the backend request pre-task and frontend response pre-task.
+        1. Click the plugin to add.
+        2. Enter necessary information in the plugin settings and click the **Add** button.
+        3. To batch apply the plugin to the sub-path and method (including the selected path), check the **Overwrite Sub-path and Method** box.
+            - **!Caution**: If the plugin is already registered in the sub-path and method, the settings will be overwritten.
+        4. Click the **Save Changes** button. 
+- **Delete Plugin**
+    1. Select the registered plugins for the backend request pre-task and frontend response pre-task.
+    2. To batch delete the plugin from the sub-path and method (including the selected path), check the **Overwrite Sub-path and Method** box.
+    3. Click the **Delete** button.
+    4. Click the **Save Changes** button. 
+
+> **[Caution] Saving changes after adding plugins**
+> You must click the **Save Changes** button after adding plugins to save the changed settings.
+
+## Context Variables
+The variables defined below can be used when creating methods of resources or setting plugins.
+
+| Context Variables | Description |
+| -- | -- |
+| ${request.clientIp} | IP of client requesting API |
+| ${request.path.variable-name} | Refer to the value of a single path variable {variable-name} value claimed by the resource |
+| ${request.path.variable-name+} | Refer to the value of path variable {variable-name+} value including subpaths claimed by the resource |
+
+> **[Caution] Path Variables**
+> Can only use the path variable claimed in the selected path and parent path.
+
+##  Plugin 
 ### CORS 
-Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니다.
+Allows you to call XMLHttpRequest API within the Cross-Site method.
 
-- **플러그인 적용 가능한 위치**: 리소스 경로
-- **플러그인 적용 단계**: 백엔드 사전 요청 작업
-- **CORS 플러그인 설정**
-    - **Access-Control-Allow-Credentials**: 자격 증명으로 요청하는 경우 True로 설정해야 합니다.
-    - **Access-Control-Max-Age**: 사전 전달 요청(Preflight)에 대한 응답을 얼마 동안 캐시할지 초 단위로 입력합니다. -1~86400 사이의 값을 입력할 수 있습니다.
-    - **Access-Control-Allow-Origin**: 리소스에 액세스할 수 있는 원본 서버의 도메인을 입력합니다. 
-        - \*로 입력하면 모든 도메인을 허용합니다.(단, \*로 지정할 경우 자격 증명을 지원하지 않으므로 허용 원본(allowed origin)에 구체적인 도메인을 지정하셔야 합니다.) 
-        - 여러 도메인을 허용하기 위해서는 ,(쉼표)로 구분해 입력합니다.
-        - 도메인은 URI(스킴, 도메인, 포트) 형식으로 입력해야 합니다(예: http://example.nhncloudservice.com:8080).
-    - **Access-Control-Allow-Methods**: 리소스 접근에 허용할 메서드를 설정합니다. 여러 메서드를 지정할 경우 ','로 구분해 입력합니다.
-    - **Access-Control-Allow-Headers**: 요청에서 사용할 수 있는 HTTP 헤더를 설정합니다. 여러 헤더를 설정할 경우 ','로 구분해 입력합니다.
-    - **Access-Control-Expose-Headers**: 브라우저(클라이언트)가 접근할 수 있는 헤더를 설정합니다. 여러 헤더를 설정할 경우 ','로 구분해 입력합니다.
-    - 자세한 CORS 규약은 https://www.w3.org/TR/cors/를 참고해 주세요.
+- **The location where the plugins can be applied to**: Resource path
+- **Steps for applying plugins**: Backend pre-request task
+- **CORS plugin setup**
+    - **Access-Control-Allow-Credentials**: Set to True when requesting with a credential.
+    - **Access-Control-Max-Age**: Enter for how long you will be caching the response to preflight in seconds. You can enter a value between 0 and 86400.
+    - **Access-Control-Allow-Origin**: Enter the domain of the original server where you can access the resource.
+        - Enter \* to allow all domains. (However, \* does not support credentials, so a specific domain must be specified in the allowed origin.) 
+        - To allow multiple domains, separate them by commas (,).
+        - Domains must be entered in the URI format (scheme, domain, port) (e.g. http://example.nhncloudservice.com:8080).
+    - **Access-Control-Allow-Methods**: Set the methods to allow access to resources. To specify multiple methods, separate them by ','.
+    - **Access-Control-Allow-Headers**: Set the HTTP header which can be used at the request. To set multiple headers, separate them by ','.
+    - **Access-Control-Expose-Headers**: Set the header accessible by the browser (client). To set multiple headers, separate them by ','.
+    - To find out more about CORS rules, see https://www.w3.org/TR/cors/.
 
-> **[주의] CORS 플러그인**
-> - CORS 플러그인을 등록하면 선택된 경로의 메서드에 OPTIONS 메서드가 등록됩니다.
->	하위 경로와 메서드에 덮어쓰기 옵션을 체크한 경우에는 하위 경로에도 등록됩니다. 
->	OPTIONS 메서드가 이미 등록되어 있는 경우, CORS에 의해 자동 생성되는 OPTIONS 메서드로 대체됩니다.
-> - CORS 플러그인을 통해 등록된 OPTIONS 메서드는 리소스 트리에서 선택이 불가하며, 수정과 삭제를 할 수 없습니다.
-> - CORS 플러그인을 삭제하면 CORS 플러그인에 의해 자동 생성된 OPTIONS 메서드는 일괄적으로 삭제됩니다. 
+> **[Caution] CORS plugin**
+> - Registering the CORS plugin also registers the OPTIONS method to the method of the selected path.
+>	If you checked the Overwrite Sub-path and Method box, it is also registered in the sub-path as well.
+>	If the OPTIONS method is already registered, it is replaced with the OPTIONS method automatically generated by CORS.
+> - The OPTIONS method registered through the CORS plugin cannot be selected from the resource tree. Also, it cannot be modified or deleted.
+> - If the CORS plugin gets deleted, the OPTIONS method auto-generated by the CORS plugin is batch deleted. 
 
-### 요청 헤더 변경 
-요청 헤더를 추가하거나 변경합니다. 
+### Change Request Header 
+Add or change the request header. 
 
-- **플러그인 적용 가능한 위치**: 리소스 경로, 메서드
-- **플러그인 적용 단계**: 백엔드 요청 사전 작업
-- **요청 헤더 변경 설정** 
-    - **\+** 버튼을 클릭하면 헤더 목록을 추가할 수  있습니다.
-    - 헤더 이름과 값을 입력합니다. 
-    - 헤더 값에는 리소스에서 선언된 경로 변수를 설정할 수 있습니다. 
-        - 경로 변수는 다음과 같이 참조할 수 있습니다.
-            - 단일 경로 변수: `${request.path.variable-name}` 
-            - 하위 경로를 포함한 경로 변수: `${request.path.variable-name+}`
-        - (참고) 경로 변수는 선택된 경로와 상위 경로에서 선언된 경로 변수만 설정 가능합니다.
+- **The location where the plugins can be applied to**: Resource path and method
+- **Steps for applying plugins**: Backend request pre-task
+- **Change Request Header Settings**
+    - You can click the **\+** button to add a header list.
+    - Enter the header name and value.
+    - Context variables claimed by the resources can be set for the header value. (For more information on context variables, see [Context Variables](./console-guide/#_8).) 
+      
+      
+> **[Note] Addition and change of request header**
+> - Any headers missing from the original request are added.
+> - Any headers available in the original request are replaced with the header value set by the change request header plugin.
+> - Any headers available in the original request cannot be deleted.
 
-> **[참고] 요청 헤더 추가와 변경**
-> - 원본 요청에 없는 헤더는 추가됩니다.
-> - 원본 요청에 있는 헤더는 요청 헤더 변경 플러그인에 설정된 헤더 값으로 대체됩니다.
-> - 원본 요청에 있는 헤더의 삭제는 불가합니다.
+###   Change Response Header 
+Change response header plugin adds the header to the backend header or changes it. 
 
-###  응답 헤더 변경 
-응답 헤더 변경 플러그인은 백엔드 응답에 헤더를 추가하거나 변경합니다. 
-
-- **플러그인 적용 가능한 위치**: 리소스 경로, 메서드
-- **플러그인 적용 단계**: 프런트엔드 응답 사전 작업
-- **\+** 버튼을 클릭하면 헤더 목록을 추가할 수  있습니다.
-- 헤더 이름과 값을 입력합니다. 
-- 헤더 값에는 리소스에서 선언된 경로 변수를 설정할 수 있습니다. 
-    - 경로 변수는 다음과 같이 참조할 수 있습니다.
-        - 단일 경로 변수: `${request.path.variable-name}` 
-        - 하위 경로를 포함한 경로 변수: `${request.path.variable-name+}`
-    - (참고) 경로 변수는 선택된 경로와 상위 경로에서 선언된 경로 변수만 설정 가능합니다.
+- **The location where the plugins can be applied to**: Resource path and method
+- **Steps for applying plugins**: Frontend response pre-task
+- You can click the **\+** button to add a header list.
+- Enter the header name and value. 
+- Context variables claimed by the resources can be set for the header value. (For more information on context variables, see [Context Variables](./console-guide/#_8).)
 
 
-> **[참고] 응답 헤더 추가와 변경**
-> - 백엔드 엔드포인트의 응답에 없는 헤더는 추가됩니다.
-> - 백엔드 엔드포인트의 응답에 있는 헤더는 요청 헤더 변경 플러그인에 설정된 헤더 값으로 대체됩니다.
+> **[Note] Addition and change of the response header**
+> - Any headers missing from the backend endpoint response are added.
+> - Any headers available in the response of the backend endpoint response are replaced with the header value set by the change request header plugin.
     
-## 스테이지 
-스테이지는 리소스를 배포하는 단계입니다. 
+## Stage
+Stage is a phase where resources are deployed. 
 
-- 스테이지별로 고유한 스테이지 URL 이 발급됩니다. 
-- 스테이지는 서비스별 또는 환경(Profile)별로 서비스를 구분하거나 그 외 용도로 활용이 가능합니다.
-
-
-### 스테이지 생성
-
-1. API Gateway 서비스 목록에서 **스테이지 설정**을 클릭합니다.
-2. 스테이지 탭에서 **스테이지 생성** 버튼을 클릭합니다. 
-3. 스테이지 정보를 입력한 후 **생성** 버튼을 클릭합니다.
-    - **스테이지 이름** 
-        - 숫자와 영문 소문자만 입력 가능하며, 최대 30자 이내로 작성할 수 있습니다.
-        - 스테이지 이름은 스테이지 URL에 포함됩니다.
-        - 기본 스테이지는 스테이지 이름을 작성하지 않으면 생성되는 스테이지입니다. 기본 스테이지의 스테이지 URL에는 스테이지 이름이 포함되지 않습니다.
-    - **스테이지 URL**: API Gateway로 통합 요청이 가능한 스테이지 URL입니다. 
-        - API 요청 클라이언트는 스테이지 URL을 통해 API를 요청할 수 있습니다.
-        - 스테이지 URL은 다음과 같은 형식으로 발급됩니다. 
-            - 기본 스테이지: {region}-{api-gateway-service-id}.api.nhncloudservice.com
-                - {region}: 판교 리전(kr1)
-                - {api-gateway-service-id}: API Gateway 서비스 ID
-            - 일반 스테이지: {region}-{api-gateway-service-id}-{stage-name}.api.nhncloudservice.com
-                - {region}: 판교 리전(kr1)
-                - {api-gateway-service-id}: API Gateway 서비스 ID
-                - {stage-name}: 입력된 스테이지 이름
-    - 백엔드 엔드포인트 URL 
-        - API Gateway로 수신된 요청을 전달할 백엔드 엔드포인트 URL을 작성합니다. 
-        - 스킴(http:// 또는 https://)을 포함하여 URL을 작성해야 합니다.
-        - 도메인 주소만 입력하거나 하위 경로를 포함하여 작성할 수 있습니다. 
-            - 예: https://api.nhn.com , https://api.nhn.com/apis
+- A unique Stage URL is issued per stage. 
+- Stages can be used to categorize services by each service or environment (profile) or used for other purposes as well.
 
 
-> **[참고] 스테이지** 
-> - 스테이지를 생성하려면 리소스 메서드가 하나 이상 등록돼 있어야 합니다.
-> - 스테이지는 API Gateway 서비스당 **최대 10개**까지 생성 가능합니다. 
-> - API Gateway로 수신된 요청을 백엔드 엔드포인트로 전달할 때 기본으로 스테이지에 정의된 백엔드 엔드포인트 URL로 요청을 전달합니다.
+### Create Stage
+
+1. From the API Gateway services list, click **Stage Settings**.
+2. In the Stage tab, click **Create Stage**. 
+3. Enter the stage information and click **Create**.
+    - **Stage Name** 
+        - Only lowercase alphanumeric characters are allowed, and the length cannot exceed 30 characters.
+        - Stage Name is included in Stage URL.
+        - A basic stage is created if no stage name has been written. Stage Name is not included in the Stage URL of the basic stage.
+    - **Stage URL**: This is a stage URL which can be requested for integration with API Gateway. 
+        - API request client can request APIs through the Stage URL.
+        - Stage URLs are issued in the following format: 
+            - Basic stage: {region}-{api-gateway-service-id}.api.nhncloudservice.com
+                - {region}:  Pangyo region(kr1)
+                - {api-gateway-service-id}: API Gateway Service ID
+            - Normal stage: {region}-{api-gateway-service-id}-{stage-name}.api.nhncloudservice.com
+                - {region}:  Pangyo region(kr1)
+                - {api-gateway-service-id}: API Gateway Service ID
+                - {stage-name}: Entered stage name
+    - Backend endpoint URL 
+        - Writes the backend endpoint URL to which the request received by API Gateway is to be pass. 
+        - You must include the scheme (http:// or https://) when writing the URL.
+        - You may enter domain address only or include the sub-path when writing it.
+            - e.g. https://api.nhn.com , https://api.nhn.com/apis
 
 
-### 스테이지 수정 
-1. 수정할 스테이지를 선택합니다. 
-2. **스테이지 수정** 버튼을 클릭합니다.
-3. 스테이지 정보를 수정합니다. 수정 가능한 항목은 스테이지 설명, 백엔드 엔드포인트 URL입니다.
-4. 설정을 변경한 후 **수정** 버튼을 클릭합니다.
-
-> **[주의] 스테이지 배포** 
-> 수정된 백엔드 엔드포인트 URL을 API Gateway 서비스에 적용하려면 스테이지를 배포해야 합니다.
+> **[Note] Stage** 
+> - To create a stage, one or more resources methods must have been registered.
+> - **Up to 10** stages can be created per stage. 
+> - When passing requests received by API Gateway to backend endpoint, they are passed to the backend endpoint URL defined in the stage by default.
 
 
-### 스테이지 삭제
-1. 삭제할 스테이지를 선택합니다.
-2. **스테이지 삭제** 버튼을 클릭합니다.
-3. 삭제 확인 창에서 **확인**을 클릭하면 삭제됩니다. 이 작업은 취소 할 수 없습니다. 
+### Modify Stage 
+1. Select the stage to modify. 
+2. Click the **Modify Stage** button.
+3. Modify stage information. The stage description and backend endpoint URL can be modified.
+4. After changing the settings, click the **Modify** button.
 
-> **[주의] 스테이지 삭제**
-> - 서비스에서 사용 중인 스테이지를 삭제하면 더 이상 API Gateway로 요청이 인입되지 않습니다. 
-> - 삭제된 스테이지는 복구가 불가하므로 반드시 서비스에서 사용중인지 확인 후 삭제를 진행하세요.
-
-
-### 리소스 가져오기 
-리소스를 변경한 후 스테이지에 변경된 리소스를 적용하려면 스테이지 관리화면에서 리소스 가져오기를 진행합니다. 
-
-1. 변경된 리소스를 스테이지에 적용하려면 **리소스 가져오기** 버튼을 클릭합니다.
-
-> **[주의] 리소스 가져오기**
-> - 스테이지에 리소스가 적용된 후에는 기존 리소스로 복구가 불가합니다.
-> - 리소스에 변경된 사항이 없는 경우 리소스 가져오기 버튼이 비활성화됩니다.
+> **[Caution] Deployment of stage** 
+> To apply the modified backend *endpoint* URL to the API Gateway, the stage needs to be deployed.
 
 
-### 스테이지 배포
-스테이지에 설정된 리소스와 설정을 API Gateway 서비스에 적용하려면 스테이지를 배포해야 합니다. 
+### Delete Stage
+1. Select the stage to delete.
+2. Click the **Delete Stage** button.
+3. Click **Confirm** in the Confirm delete window. This action cannot be canceled. 
 
-1. 스테이지 탭에서 배포할 스테이지를 선택합니다. 
-2. **스테이지 배포** 버튼을 클릭합니다.
-3. 스테이지 배포 화면이 표시됩니다.
-4. 스테이지 배포에 대한 설명을 작성합니다(선택 사항).
-5. **스테이지 배포** 버튼을 클릭합니다. 
-6. 스테이지 배포 상태를 통해 배포 상태를 확인할 수 있습니다.
-    -  **배포 성공** 상태이면 정상적으로 배포된 상태입니다.
-    -  **배포 실패** 상태이면 배포 중 작업 오류가 발생한 상태입니다. 배포 실패가 발생하면 배포를 재시도해 주시기 바랍니다. 지속적으로 실패하는 경우 고객센터로 문의해주시기 바랍니다.
+> **[Caution] Deletion of stage**
+> - If you delete a stage being used by the service, its request no longer enters the API Gateway. 
+> - Since deleted stage cannot be recovered, make sure it is not being used by the service before deleting it.
 
-> **[주의] 스테이지 배포 복구 불가**
-> - 스테이지 배포 이후 기존 배포 설정으로 복구할 수 없습니다(기존 배포 이력을 통한 복구 기능은 준비 중입니다).
+
+### Import Resource
+To change resources and apply the changed resources to the stage, you must import resources on the stage management screen. 
+
+1. To apply the changed resources to the stage, click the **Import Resource** button.
+
+> **[Caution] Importing resources**
+> - Once resources are applied to the stage, they cannot be restored to the previous state.
+> - If there is no change to the resources, the Import Resource button is disabled.
+
+
+###  Deploy Stage
+To apply the resources and settings for the stage to the API Gateway Services, the stage needs to be deployed. 
+
+1. In the Stage tab, select the stage to deploy. 
+2. Click the **Deploy Stage** button.
+3. The Deploy Stage screen appears.
+4. Enter the description about the stage deployment. (optional)
+5. Click the **Deploy Stage** button.
+6. See the stage deployment status for the deployment status.
+    -  If it is **Successfully Deployed**, the deployment is complete.
+    -  If it is **Failed to Deploy**, then there was an error during deployment . If deployment fails, please try it again. If the issue persists, please contact Customer Center.
+
+> **[Caution] Irrecoverable stage deployment**
+> - Once the stage is deployed, it cannot be reverted to the previous deployment settings. (We are currently developing the recovery function which uses the previous deployment history.)
 
 ###  IP ACL
-IP ACL을 통해 지정된 클라이언트 IP에 대해 API Gateway 요청을 허용/거부할 수 있습니다.
+API Gateway requests can be allowed/denied for the client IDs specified through IP ACL.
 
-1. 스테이지 탭에서 스테이지를 선택합니다.
-2. 스테이지 트리 화면에서 스테이지의 루트(/) 경로를 선택합니다. 
-3. IP ACL을 **활성화(On)** 합니다. 
-4. IP ACL을 설정합니다. 
-    - **IP 접근 제어 타입**
-        - 허용: 지정된 IP만 접근을 허용하고 나머지 IP는 모두 거부합니다. (화이트리스트 방식)
-        - 거부: 지정된 IP만 접근을 거부하고 나머지 IP는 모두 허용합니다. (블랙리스트 방식)
-    - **IP 접근 대상**
-        - 단건 입력 또는 대량 입력 방식을 선택하여 IP 목록을 쉽게 등록할 수 있습니다.
-        - IP 접근 대상은 IPv4의 단일 IP 또는 CIDR 로 입력할 수 있습니다.
-            - 단일 IP: 10.0.0.1
-            - CIDR 예시: 10.0.0.1/24
-
-
-> **[참고] IP ACL 등록 개수 제한 및 클라이언트 IP 체크** 
-> - IP ACL의 IP 접근 대상은 **최대 100개**까지 입력 가능합니다.
-> - 네트워크 주소 변환(NAT: Network Address Translation)에 의해 클라이언트의 Source IP가 변경된 경우, 변경된 IP를 기준으로 IP ACL을 체크하므로 주의하시기 바랍니다.
-
-### 인증 > HMAC
-HMAC 인증을 사용하면 API Gateway로 수신된 요청이 중간 공격자에 의해 변조되는 것을 방지하며, 요청 유효 시간을 설정하여 Reply Attack 공격을 예방합니다.
-
-1. 스테이지 탭에서 스테이지를 선택합니다.
-2. 스테이지 트리 화면에서 스테이지의 루트(/) 경로를 선택합니다. 
-3. 인증에서 HMAC을 선택합니다.
-4. HMAC 설정을 입력합니다. 
-    - 비밀키: SignToString을 암호화할 비밀키입니다. 외부에 유출되지 않도록 유의합니다. 
-    - 요청 유효 시간(초): 설정된 유효 시간의 양방향 시간(요청 시간의 과거/미래 시간 전 후)을 초과한 요청을 거부합니다. 요청 유효 시간을 0초로 설정할 경우 API Gateway는 유효 시간 체크를 하지 않습니다.
-    - 필수 검증 헤더 목록: API 요청 검증에 필수로 포함할 헤더 목록을 작성합니다. 여러 개를 입력하려면 콤마(,)로 구분하여 입력합니다.
+1. In the Stage tab, select the stage.
+2. In the Stage Tree screen, select the root (/) path of the stage. 
+3. Turn **On** the IP ACL. 
+4. Set the IP ACL. 
+    - **IP Access Control Type**
+        - Allow: Only allow access of specific IPs, and deny all the other IPs. (Whitelist method)
+        - Deny: Only deny access of specific IPs, and allow all the other IPs. (Blacklist method)
+    - **IP access target**
+        - You can choose between single input or bulk input to easily register the IP list.
+        - IP access targets can be entered as IPv4's single IP or CIDR.
+            - Single IP: 10.0.0.1
+            - CIDR example: 10.0.0.1/24
 
 
-> **[참고] HMAC 인증 실패 응답**
-> HMAC 인증 실패 시 401 Unauthorized 응답이 반환됩니다.
+> **[Note] IP ACLs registration count limit and client IP check**
+> - For IP ACL, **up to 100** IP access targets can be entered.
+> - If the source IP of the client has been changed by network address translation (NAT), please note that the IP ACLs will be checked based on the changed IP.
+
+### Authentication > HMAC
+HMAC authentication prevents requests received by the API Gateway being tampered by middle attackers, and also prevents reply attack by setting the expiration period for the requests.
+
+1. In the Stage tab, select the stage.
+2. In the Stage Tree screen, select the root (/) path of the stage. 
+3. In the Authentication, select HMAC.
+4. Enter the HMAC settings. 
+    - Secret key: It is a secret key for encrypting SignToString. Make sure the key is not exposed to others. 
+    - Request expiration (sec): Denies the request that exceeds the bidirectional time (before and after the past/future point of the request time) of the set expiration. If the request expiration is set to 0, the API Gateway does not check the expiration time.
+    - Required validation header list: Write the header list which must be included in the API request validation. When entering a number of lists, separate them by commas (,).
+    
+
+> **[Note] HMAC authentication failure response**
+> If HMAC authentication fails, 401 Unauthorized response is returned.
 >
-> **[주의] 요청 유효 시간**
-> - 0초로 설정할 경우, 요청 유효 시간을 체크하지 않습니다. 이 경우 Reply Attack 공격에 취약할 수 있습니다. 
-> - 유효 시간을 너무 작게 설정하면 API Gateway가 요청을 검증하기 전 유효 시간이 초과되어 요청이 거부될 수 있습니다. 기대하는 요청 유효 시간보다 10초 이상 크게 설정하기를 권장합니다.
-> - API 클라이언트는 시간 동기화 설정 NTP(Network Time Protocol)이 유효한지 반드시 검증하시기 바랍니다. 동기화되지 않은 시간 정보로 인해 요청이 거부될 수 있습니다.
+> **[Caution] Request expiration**
+> - If set to 0, it does not check the request expiration. It this case, it can be vulnerable to reply attacks. 
+> - If the expiration is too short, the expiration can be elapsed before the API Gateway validates the request, which could lead to the request being denied. It is recommended to set the time to 10 seconds or longer than the expected request expiration.
+> - You must check if the NTP (Network Time Protocol, NTP) of the API client is valid because requests can be denied due to non-synced time information.
 >
-> **[참고] 필수 검증 헤더**
-> 필수 검증 헤더를 설정한 경우, API 요청 검증 시 필수 검증 헤더가 요청에 포함되었는지와 signature에도 해당 헤더가 포함된 값인지 검증합니다.
-> 설정 시 필수 검증 헤더가 요청과 singature 생성 시 포함되었는지 확인하시기 바랍니다.
+> **[Note] Required validation header**
+> If you have set the required validation header, it validates if the required validation header is included in the request and if it is the value containing the header in the signature while validating the API request.
+> During the setup, make sure the required validation header is included when creating a request and signature.
 
 
-#### HMAC 인증을 위한 API 클라이언트 작업 
-HMAC 인증을 하려면 API 요청 클라이언트는 다음의 인증 헤더와 요청 시간 헤더를 포함하여 요청해야 합니다.
+#### API Client Actions For HMAC Authentication 
+To perform HMAC authentication, the API request client must include the following validation header and request time header when making the request.
 
-| 헤더 이름 | 헤더 값 |
+| Header Name | Header Value |
 | --- | --- |
 | Authorization | hmac algorithm="<encrypt_algorithm\>", headers="<validation_headers\>", signature="<base64_digest\>" |
-| x-nhn-date |  ISO8601 형식의 시간|
+| x-nhn-date |  ISO8601 time format|
 
-> **[참고] x-nhn-date의 ISO8601 형식** 
-> - UTC 표기: yyyy-MM-dd'T'HH:mm:ssZ
-> - UTC 기준 타임 오프셋 표기: yyyy-MM-dd'T'HH:mm:ss±hh:mm
+> **[Note] x-nhn-date's ISO8601 format** 
+> - UTC format: yyyy-MM-dd'T'HH:mm:ssZ
+> - UTC-based time offset forma: yyyy-MM-dd'T'HH:mm:ss±hh:mm
 
-- Authorization 또는  x-nhn-date 헤더가 요청에 포함되지 않은 경우 HMAC 인증에 실패합니다.
+- If the authorization or x-nhn-date header is not included in the request, HMAC authentication fails.
 
-- Authorization 헤더 값은 다음과 같이 생성합니다.
+- Authorization header values are created as shown below:
 
-| Credential 이름  | 값   |
+| Credential name  | Value   |
 | --- | --- |
-| algorithm  | HmacSHA256 또는 HmacSHA1 |
-| headers |  HMAC 인증 시 검증할 헤더 목록 <br> 콘솔에서 HMAC 필수 검증 헤더에 등록한 헤더는 반드시 포함해야 합니다.  |
-| signature |  SiginToString 문자열을 암호화한 후 Base64 인코딩한 값  |
+| algorithm  | HmacSHA256 or HmacSHA1 |
+| headers |  When proceeding with HMAC authentication,  the header list console must include the headers registered in the HMAC  validation required header.  |
+| signature |  A value encoded with Base64 after  encrypting the SiginToString string  |
 
-#### SignToString 형식
+#### SignToString Format
 ```
 [HTTP Method]\n
 [Request URL]\n
@@ -372,9 +368,9 @@ HMAC 인증을 하려면 API 요청 클라이언트는 다음의 인증 헤더�
 ...
 ```
 
-#### SignToString 예시 
+#### SignToString Example 
 
-- HTTP 요청 원문
+- HTTP request original body
 ```
 GET /members?isEnable=false&type=public HTTP/1.1
 Host: http://kr1-example.api.nhncloudservice.com
@@ -383,7 +379,7 @@ x-nhn-client-id: nhn
 x-nhn-client-ip: 10.0.0.1,10.0.0.2
 ```
 
-- HTTP 요청 원문에 대한 SignToString 
+- SignToString regarding the HTTP request original body 
 ```
 GET
 /members?isEnable=false&type=public
@@ -393,10 +389,10 @@ x-nhn-client-id: nhn
 x-nhn-client-ip: 10.0.0.1,10.0.0.2
 ```
 
-- signature 생성 코드 예시(Java): SignToString을 HMAC 암호화 후 Base64 인코딩 한 값
+- signature generation code example (Java): A value encoded with Base64 after encrypting the SignToString with HMAC
 ```
-String secretKey = "HMAC에 설정한 비밀키";
-// 암호화 알고리즘 HmacSHA1 또는 HmacSHA256
+String secretKey = "Secret key set to HMAC";
+// encryption algorithm HmacSHA1 or HmacSHA256
 SecretKeySpec signingKey = new SecretKeySpec(secretKey.getBytes(), "HmacSHA256");  
 Mac mac = Mac.getInstance("HmacSHA256");
 mac.init(signingKey);
@@ -408,117 +404,204 @@ String authorization = new String(Base64.encodeBase64(rawHmac));
 ```
 
 
-- 완성된 HMAC 인증 헤더 
+- Complete HMAC authentication header 
 ```
 Authorization:hmac algorithm="HmacSHA256", headers="host,x-nhn-client-id,x-nhn-client-ip" , signature="V5Dye9kgG3tvZOOZertd5LXE0q8CcJGXCxEFCR71hUE="
 x-nhn-date:2021-02-23T00:00:00+09:00
 ```
 
 
-> **[주의] SignToString 생성 주의 사항**
-> - SignToString 각 필드는 개행 문자(\n)로 구분합니다.
-> - headers에 정의된 헤더는 SignToString 생성 시 포함되어야합니다.
-> - headers에 정의한 헤더가 없는 경우, [header name]과 [header value]은  SignToString 생성에 포함하지 않습니다.
-> - headers에 정의한 헤더 순서대로 SignToString을 생성해야 합니다.
->     - 예: headers="header1,header2" 라면, SignToString을 생성할 때도 header1, header2 순서대로 헤더를 추가해야 합니다.
-> - SignToString의 헤더 이름은 영소문자(lowercase) 로 통일한 후 생성합니다. 
->     - 예: X-NHN-Header →  x-nhn-header
-> - 헤더값이 여러 개인 경우, 콤마(,)로 구분하여 헤더 값을 작성합니다. 
->   - 예: header1-name:header1-value1,header1-value2
-> - 헤더 이름과 값은 콜론(:)으로 구분하며, 값 구분 시 중간에 공백 문자를 포함하지 않습니다.
+> **[Caution] Cautions when generating SignToString**
+> - SignToString Each field is separated by new-line characters(\n).
+> - Headers defined in headers must be included when generating SignToString.
+> - If the defined header is missing from the headers, [header name] and [header value] are not included in the SignToString generation.
+> - SignToString must be generated in the order defined in the headers.
+>     - e.g. If headers="header1, header2", the headers must be added in the order of header1, header2 when generating the SignToString as well.
+> - The entire header name of the SignToString must be changed to lowercase before generating it. 
+>     - e.g. X-NHN-Header →  x-nhn-header
+> - If there are a number of header values, they must be separated by commas (,) when writing them. 
+>   - e.g. header1-name:header1-value1,header1-value2
+> - The header names and values are separated by colon (:), and do not include space in-between when separating the values.
+
+### Authentication > JWT  
+Verifies the signature and claim of JWT token. Token values can be used without token verification for user services.
+
+1. On the Stage tab, select a stage.
+2. On the Stage Tree screen, select the root(/) path of the stage. 
+3. Select **JWT** under Authentication.
+4. Enter the JWT settings. 
+    - **Token Encryption Algorithm**: Select the encryption algorithm used to sign the token. Encryption algorithm supports HS256 and RS256.
+        - HS256 Token Algorithm
+            - Secret Key: Enter the secret key used to sign the token. Secret key with the length of 256 or above is recommended.
+        - RS256 Token Algorithm
+            - Public Key (PEM): Enter the public key to verify the token. It must be entered in PEM format.
+    - **Claim Verification Condition**
+        - Enter the claim verification conditions for the registered claim of the token payload.
+        - For more information on the registered claims, see [RFC7519-4.1.Registered Claim Names](https://tools.ietf.org/html/rfc7519#section-4.1).
+        - If any one of the claim verification conditions is not met, verification fails.
+        - **Claim**: Name of the registered claim of the token payload.
+        - **Data Type and Claim Value**:
+            - Array: Enter multiple strings separated by commas (,). If the string array contains at least one claim value of the request token, the verification succeeds.
+            - String: Enter a single string. If it matches the claim value of the request token, the verification succeeds.
+        - **Required**: Verification fails if claims do not exist in the request token when selected. You cannot check/uncheck a disabled checkbox.
+        - **Value Verification**: If a claim exists in the request token when selected, verification will proceed to check whether the set claim value includes or matches the claim or not. You cannot check/uncheck a disabled checkbox.
+    - **Verification Time Limit (sec)**: Apply verification time limit to verify exp and nbf claims of the request token. You can enter any number between 0 and 86,400 (sec).
+5. Deploy the stage.
+6. When requesting API Gateway, first add a JWT token to the Authorization Header and then make a request.
+
+| Header name | Header value |
+| --- | --- |
+| Authorization | Bearer "<jwt-token\>" |
+
+> **[Note] JWT Token Authentication Failure Response**
+> If the authentication of JWT token fails, 401 Unauthorized response is returned.
+> For more information, see the [Error Code](./error-code/) document.
+>
+> **[Note] Creating JWT Token**
+> API Gateway only verifies whether the JWT token signature and claims match or not. A JWT Token must be created via user applications or authentication service providers.
+> To learn how to create a JWT token for the purpose of development and testing, see [JWT Token Debugger](https://jwt.io/).
+
+### Pre-call API
+Pre-call API determines whether or not to call the backend endpoint depending on the call response code after calling the user-designated API before calling the backend endpoint.
+Pre-call API including the request headers that came in through the API Gateway is called, and the Pre-call API will return the response code depending on the forwarded header content.
+
+Backend endpoint is called if Pre-call API’s response code is 200; Pre-call API’s response result is returned if the response code is not 200.
+If Pre-call API call fails, it returns an error.
+
+This can be used in a situation where authentication through a separate API call is required before calling the backend endpoint or there is another API to be called.
+
+1. On the Stage tab, select a stage.
+2. On the Stage Tree screen, select the path or method to apply the Pre-call API.
+  - Pre-call API set for the path will be applied to all subdefined subpaths and submethods.
+  - Pre-call API set for the method will be applied when calling the said method, but Pre-call API set for the root path will not be applied.
+3. Pre-call API must be turned on.
+  - Enter the method type and URL for Pre-call API.
+  - Cache time limit can be set to 86400 sec at maximum, and the response results are cached for the period specified by the entered number (sec).
+  - If the cache time limit it set to 0, response results for Pre-call API will not be cached and Pre-call API will be called for every request.
+  > **[Note] Response Result Caching for Pre-Call API**
+  > Response results are only cached if Pre-call API’s response result code is 200.
+  > If the response result code is not 200, response results will not be cached even if the cache time limit is set.
+  >
+### Backend Endpoint URL Override
+
+When passing the requests received by the API Gateway to the backend endpoint, the requests are (by default) passed to the backend endpoint URL defined in the stage.
+To override the backend endpoint URL regarding a specific method, set the backend endpoint URL override.
+
+1. In the Stage tab, select the stage.
+2. In the Stage tree screen, select the method to override the backend endpoint URL.
+3. Turn on override of the backend endpoint URL.
+    - Writes the backend endpoint URL to which the request received by API Gateway is to be pass.
+    - Can include the sub-path in it.
+        - e.g. https://api.nhn.com , https://api.nhn.com/apis
+
+### Request Number Limit
+
+Requests received by the API gateway every second can be adjusted using the request number limit, and the backend endpoint can be protected via the request number limit.
+
+1. On the Stage tab, select a stage.
+2. On the Stage Tree screen, select the root (/) path or method of the stage.
+    - If set for the root path, request number limit will be applied to the stage.
+    - If set for the method, request number limit will be applied to each method. Request number limit set for the parent path will be ignored. 
+3. Turn the request number limit **On**. 
+4. Set the request number limit. 
+    - Requests per Second: Enter the maximum number of requests that can be called in seconds.
+    - Request Limit Key: The default request limit key is stage when set for the root, and method when set for the method. A request limit key can be added to the default request limit key.
+        - None: Limits requests to default request limit key.
+        - Path Variable: Limits requests for the default request limit key and different path variables. It can be set if the selected method path has a path variable.  
+        - IP: Limits requests for each default request limit key and request client IP.
+        - Header: Limits requests for each default request limit key and set header name value. 
+
+>
+> **[Note] Request Number Limit Response**
+> If requests per second is exceeded, the response of 429 Too Many Requests is returned.
+>       
+> **[Caution] Request Limit Key**
+> When using the request limit key, the request must contain the specified key. For example, if header is selected for the request limit key and the X-NHN-CLOUD value is entered, the request header must contain X-NHN-CLOUD.      
+> If the request limit key cannot be found from the request, the request number limit is not applied.
+>
+> **[Caution] Accuracy of Requests Per Second**
+> - The requests per seconds set and the actual number of requests could slightly differ depending on the time delivered to API Gateway, request processing time, and other factors.  
 
 
-### 백엔드 엔드포인트 URL 재정의 
+## Check API Call
 
-API Gateway로 수신된 요청을 백엔드 엔드포인트로 전달할 때 기본으로 스테이지에 정의된 백엔드 엔드포인트 URL로 요청을 전달합니다.
-특정 메서드에 대해 백엔드 엔드포인트 URL을 재정의하려면 백엔드 엔드포인트 URL 재정의를 설정합니다.
-
-1. 스테이지 탭에서 스테이지를 선택합니다.
-2. 스테이지 트리 화면에서 백엔드 엔드포인트 URL을 재정의할 메서드를 선택합니다.
-3. 백엔드 엔드포인트 URL의 재정의를 활성화(on)합니다.
-    - API Gateway로 수신된 요청을 전달할 백엔드 엔드포인트 URL을 작성합니다.
-    - 하위 경로를 포함하여 작성할 수 있습니다. 
-        - 예: https://api.nhn.com , https://api.nhn.com/apis
-
-## API 호출 확인
-
-1. 스테이지 탭에서 스테이지 트리의 메서드를 선택합니다.
-2. 우측의 스테이지 URL을 확인합니다.
-3. 스테이지 URL를 지정된 HTTP 메서드로 API를 호출합니다. 
-    - 예시: 
-        - 메서드: GET
-        - 스테이지 URL: https://kr1-xxxxx-test.api.nhncloudservice.com/example
+1. In the Stage tab, select the method of the stage tree.
+2. See the Stage URL on the right.
+3. Call the API with the HTTP method where the Stage URL is specified. 
+    - Example: 
+        - Method: GET
+        - Stage URL: https://kr1-xxxxx-test.api.nhncloudservice.com/example
     ```
     curl --request GET 'https://kr1-xxxxx-test.api.nhncloudservice.com/example'
     ```
 
 
-> **[주의] 스테이지 배포** 
-> API를 호출하려면 배포 성공 상태의 배포된 스테이지가 있어야 합니다. 
+> **[Caution] Stage deployment** 
+> To call the API, there must be a deployed stage with the status: Successfully Deployed. 
 
-> **[참고] API 호출이 정상적으로 안 되는 경우**
-> - 404 NotFound HTTP 상태 코드가 응답되는 경우 
->    1. 스테이지를 배포 상태가 배포 성공 상태인지 확인합니다.
->    2. 요청 메서드와 스테이지 URL 및 경로가 올바른지 확인합니다.
->    3. 백엔드 엔드포인트 서비스에서 백엔드 엔드포인트 URL 경로에 대한 요청 URL이 존재하는지 확인합니다. 
-> - 그 외 오류 코드는 [오류 코드](./error-code/) 문서를 참고합니다. 
-
-
-> **[주의] API 호출 제약 사항**
-> - Gateway 클라이언트에서 API Gateway로 요청 크기 제한은 **최대 10MB**입니다. 이 값은 조정할 수 없습니다. 
-> - API Gateway에서 Gateway 클라이언트로의 응답 크기 제한은 **최대 10MB**입니다. 이 값은 조정할 수 없습니다. 
-> - 요청에 대한 응답 타임아웃은 **최대 60초**입니다. 백엔드 엔드포인트 서비스에서 응답이 지연되는 경우 타임아웃이 발생할 수 있습니다.
+> **[Note] If the API is not called properly**
+> - If 404 NotFound HTTP status code is returned: 
+>    1. See if the stage deployment status is Deployed.
+>    2. See if the request method and stage URL/path are correct.
+>    3. In the backend *endpoint* service, see if there is a request URL regarding the backend endpoint URL path. 
+> - As for other error codes, see [Error Code](error-code/) documentation. 
 
 
-> **[주의] API Gateway 요청 차단 정책**
-> - API Gateway 서비스와 백엔드 엔드포인트 서비스를 보호하는 목적으로 백엔드 엔드포인트 서비스가 응답을 하지 않거나 응답 지연(60초 이상)이 지속적으로 발생하는 경우, 해당 백엔드 엔드포인트 서비스에 대한 요청을 일시적으로 거부합니다. 
-> - 백엔드 엔드포인트 서비스의 내부 오류(4xx, 5xx 등)에 의해서는 차단되지 않습니다. 
-> - 정상적으로 운영 중인 상태가 아니거나 응답 지연(timeout)이 60초 이상이 지연이 발생하는 백엔드 엔드포인트는 연동하지 않는 것을 권장합니다.
+> **[Caution] API Call constraints**
+> - In the Gateway client, the request size with the API Gateway is restricted to **max. 10MB.** This value cannot be adjusted.
+> - In the API Gateway, the response size of the Gateway client is **max. 10MB.** This value cannot be adjusted. 
+> - Response timeout for the request is **max. 60 seconds.** If there is a response delay in the backend endpoint service, a timeout may occur.
 
 
-## 대시보드 
+> **[Caution] API Gateway request ban policy**
+> - If the endpoint service does not respond or continues to cause delayed response (over 60 sec) as a way of protecting the API Gateway Services and backend endpoint service, the request relating to the backend endpoint service is temporarily denied.
+> - It is not banned by the internal errors (4xx, 5xx, etc.) of the backend endpoint service.
+> - It is not recommended to link the backend endpoint service if it is not properly operable or if the delayed response (timeout) persists for over 60 seconds.
 
-대시보드를 통해 API Gateway 서비스별  API 통계 지표를 확인할 수 있습니다.  
 
-1. **대시보드** 탭으로 이동합니다. 
-2. 통계를 확인할 API Gateway 서비스를 선택합니다. 
-3. 통계를 확인할 스테이지를 목록에서 선택합니다. 
-4. 하단의 스테이지 통계 탭에서는 스테이지의 통계 지표를 확인할 수 있습니다. 
-5. 하단의 리소스 통계 탭에서는 HTTP 메서드와 경로별 통계 지표를 확인할 수 있습니다. 
+## Dashboard 
 
-### 통계 데이터 참고 사항 
+You can see the API statistical indexes by each API Gateway Service.  
 
-- **최대 검색 기간**
-    - 최근 3개월간의 통계 데이터만 조회가 가능합니다.
-- **통계 데이터 생성 주기**
-    - 통계 데이터 생성은 다음과 같은 주기로 생성됩니다. 통계 데이터는 수집되는 데이터 크기에 따라 생성이 지연될 수 있습니다.
-        - 1분: (예) 10시 00분 통계 데이터는 10시 1분 이후 생성
-        - 10분: (예) 10시 10분 통계 데이터는 10:11분 이후 생성 
-        - 1시간: (예) 10시 통계 데이터는 11시 이후 생성 
-        - 1일: (예) 1일 통계 데이터는 2일 0시 이후 생성
+1. Go to the **Dashboard** tab. 
+2. Select the API Gateway Service to see the statistics. 
+3. From the list, select the stage to check the statistics. 
+4. In the Stage statistics tab at the bottom, you can see the statistical indexes for the stage. 
+5. In the Resources statistics tab at the bottom, you can see the statistical indexes for each HTTP method and path.
 
-### 스테이지 통계
+### Note on Statistical Data
 
-- **그래프 표시 기준**
-    - 검색 기간에 따라 통계의 단위는 다음과 같이 표시됩니다.
-        - 1시간 이하: 1분 단위
-        - 1시간 초과~1일 이하: 10분 단위
-        - 1일 초과~1주 이하:  1시간 단위
-        - 1주 초과: 1일 단위
--  **통계 그래프**
-    - API 호출 성공 수: 응답된  HTTP 상태 코드가 2XX, 3XX인 API 호출 수 
-    - API 호출 실패 수: 응답된 HTTP 상태 코드가 4XX, 5XX인 API 호출 수 
-    - 평균 응답 시간(ms): API Gateway로 요청이 인입된 후, API 요청 클라이언트에게 응답을 주기까지 소요된 평균 시간(ms)
-    - 네트워크 아웃바운드 트래픽: API Gateway에서 API 요청 클라이언트로 응답된 데이터의 바이트 크기
+- **Max. Search Period**
+    - Only data for the past 3 months can be viewed.
+- **Statistical Data Generation Cycle**
+    - Statistical data is generated in the following cycle. The statistical data can be delayed depending on the size of the collected data.
+        - 1 minute: e.g. Statistical data for 10:00 gets generated after 10:01.
+        - 10 minutes: e.g. Statistical data for 10:10 gets generated after 10:11.
+        - 1 hour: e.g. Statistical data for 10 gets generated after 11.
+        - 11 day: e.g. Statistical data for day 1 gets generated after day 2, 00:00.
 
-### 리소스 통계 
-리소스 경로와 HTTP 메서드별로 구분된 상세한 통계 지표를 확인할 수 있습니다. 
+### Stage Statistics
 
-- **HTTP 메서드**: 요청된 HTTP 메서드
-- **경로**: 요청과 매핑된 리소스 경로 
-- **API 호출 성공 수**: 응답된 HTTP 상태 코드가 2XX, 3XX인 API 호출 수 
-- **API 호출 실패 수**: 응답된 HTTP 상태 코드가 4XX, 5XX 인 API 호출 수 
-- **HTTP 2XX~5XX 코드**: 상태 코드 그룹별 API 호출 수 
-- **API Gateway에서 바로 응답된 수**: 백엔드 엔드포인트 서비스로 요청을 전달하지 않고 API Gateway에서 응답이 된 API 호출 수 
-- **평균 응답 시간(ms)**: API Gateway로 요청이 인입된 후 API 요청 클라이언트에게 응답을 주기까지 소요된 평균 시간(ms)
-- **네트워크 아웃바운드 트래픽**: API Gateway에서 API 요청 클라이언트로 응답된 데이터의 바이트 크기
+- **Graph Display Standard**
+    - The units of the statistics are displayed as the following depending on the search period.
+        - Less than 1 hour: unit of 1 minute
+        - Longer than 1 hour - less than 1 day: unit of 10 minutes
+        - Longer than 1 day - less than 1 week: unit of 1 hour
+        - Longer than 1 week: unit of 1 day
+-  **Statistical Graph**
+    - Number of successful API calls: Number of API calls with the responded HTTP status code of 2XX, 3XX 
+    - Number of failed API calls: Number of API calls with the responded HTTP status code of 4XX, 5XX 
+    - Average response time (ms): The average time spent from the point where the request entered the API Gateway to the point where the response was given to the API request client
+    - Network outbound traffic: The byte size of the data responded with the API request client at the API Gateway
+
+### Resources Statistics 
+You can see more detailed statistical indexes categorized by resource path and HTTP method. 
+
+- **HTTP method**: Requested HTTP method
+- **Path**: Resource path mapped with the request 
+- **Number of successful API calls**: Number of API calls with the responded HTTP status code of 2XX, 3XX 
+- **Number of failed API calls**: Number of API calls with the responded HTTP status code of 4XX, 5XX
+- **HTTP 2XX~5XX code**: Number of API calls by status code group
+- **Number of immediate responses at the API Gateway**: Number of API calls responded at the API Gateway without passing the request to the backend endpoint service 
+- **Average response time (ms)**: The average time spent from the point where the request entered the API Gateway to the point where the response was given to the API request client
+- **Network outbound traffic**: The byte size of the data responded with the API request client at the API Gateway
