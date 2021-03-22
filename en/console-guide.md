@@ -58,13 +58,13 @@ Resource manages the resource path and method of the API.
 - **Backend endpoint type: HTTP(S)**
     - Backend endpoint URL path: Sets the API URL of the backend endpoint service where the received API request should be forwarded to.
         - Must begin with the root (/).
-        - Context variables created by the resources can be set for the path. (For more information on context variables, see [Context Variables](./console-guide/#_8).)
+        - Context variables created by the resources can be set for the path. (For more information on context variables, see [Context Variables](./console-guide/#context-variables).)
 - **Backend endpoint type: custom response**
     - Set the custom response.
     - Response status code: Enter the response HTTP status code. (required)
     - Header: Enter the name and value of the response header.
     - Response body: Enter the response body.
-    - Context variables created by the resources can be set for the header. (For more information on context variables, see [Context Variables](./console-guide/#_8).)
+    - Context variables created by the resources can be set for the header. (For more information on context variables, see [Context Variables](./console-guide/#context-variables).)
 
 - **Plugin**: Check this box if you want to add a plugin that is added to the selected path to the created method as well.
 - If you request an unregistered HTTP method to API Gateway, 404 Not Found response is returned.
@@ -184,7 +184,7 @@ Add or change the request header.
 - **Change Request Header Settings**
     - You can click the **\+** button to add a header list.
     - Enter the header name and value.
-    - Context variables claimed by the resources can be set for the header value. (For more information on context variables, see [Context Variables](./console-guide/#_8).) 
+    - Context variables claimed by the resources can be set for the header value. (For more information on context variables, see [Context Variables](./console-guide/#context-variables).) 
       
       
 > **[Note] Addition and change of request header**
@@ -199,7 +199,7 @@ Change response header plugin adds the header to the backend header or changes i
 - **Steps for applying plugins**: Frontend response pre-task
 - You can click the **\+** button to add a header list.
 - Enter the header name and value. 
-- Context variables claimed by the resources can be set for the header value. (For more information on context variables, see [Context Variables](./console-guide/#_8).)
+- Context variables claimed by the resources can be set for the header value. (For more information on context variables, see [Context Variables](./console-guide/#context-variables).)
 
 
 > **[Note] Addition and change of the response header**
