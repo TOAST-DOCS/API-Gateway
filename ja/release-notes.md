@@ -1,7 +1,7 @@
 
 ## Application Service > API Gateway > リリースノート
 
-### 2021. 03. 23.
+### 2021.03.23.
 #### 機能改善/変更
 * 事前呼び出しAPI(Pre-call API)プラグイン機能を追加
     * 詳細については[コンソールガイド > 事前呼び出しAPI](./console-guide/#apipre-call-api)を参照してください。
