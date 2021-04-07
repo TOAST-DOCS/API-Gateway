@@ -1,6 +1,6 @@
 ## Application Service > API Gateway > Release Note
 
-## March 23, 2021
+### March 23, 2021
 #### Feature Updates
 * Pre-call API plugin feature added
     * See [Console Guide > Pre-Call API](./console-guide/#pre-call-api) for more details.
@@ -11,7 +11,7 @@
 * Context Variables ${request.clientIp} added
     * See [Console Guide > Context Variables](./console-guide/#context-variables) for more details.
 
-## February 23, 2021
+### February 23, 2021
 #### New service release 
 * API Gateway is a product that allows easy integration and management of APIs.
 * Additional functions can be added without changing/deploying the code of the service.
