@@ -467,6 +467,10 @@ JWT 토큰의 서명과 클레임을 검증합니다. 사용자 서비스에서�
 > JWK에 대한 자세한 내용과 사양은 [RFC7515](https://tools.ietf.org/html/rfc7517) 문서를 참고합니다.
 > 설정된 JWKS URI는 API Gateway가 접근할 수 있도록 공개되어 있어야 하며, 네트워크, 방화벽 등에 의해 차단되지 않도록 합니다.
 > 설정된 JWKS URI는 API Gateway가 항상 접근이 가능하도록 운영되어야 합니다. 
+>
+> **[주의] JWKS 캐싱**
+> API Gateway는 JWKS URI의 응답을 5분간 캐싱합니다.
+> API Gateway의 캐싱으로 인해 JWKS 변경 사항이 API Gateway에 반영되기까지 최대 5분 이상 소요될 수 있으므로 주의하시기 바랍니다.
 
 
 ### 사전 호출 API(Pre-call API)
