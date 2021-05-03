@@ -1,5 +1,13 @@
 ## Application Service > API Gateway > 릴리스 노트
 
+
+### 2021.05.25.
+#### 기능 개선/변경
+* 리소스 Import와 스테이지 Export 기능 추가 
+    * Swagger파일로 리소스를 가져올 수 있습니다.
+    * 스테이지의 리소스를 Swagger파일로 내보낼 수 있습니다. 
+    * 자세한 내용은 [콘솔 가이드 > 리소스 Import](./console-guide/#??)와 [콘솔 가이드 > 스테이지 Export](./console-guide/#??)를 참고해주세요.
+
 ### 2021.03.23.
 #### 기능 개선/변경
 * 사전 호출 API(Pre-call API) 플러그인 기능 추가
