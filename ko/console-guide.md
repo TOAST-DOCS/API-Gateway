@@ -47,7 +47,7 @@ API Gateway 서비스 정보를 입력한 후 생성 버튼을 클릭하면 API 
 - 등록하지 않은 리소스 경로로 API Gateway에 요청하면 404 Not Found 응답을 반환합니다.
 
 ### 리소스 가져오기
-Swagger v2.0 [openAPI Specification](https://swagger.io/specification/v2/) 형식의 파일로 리소스를 가져올 수 있습니다.
+Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형식의 파일로 리소스를 가져올 수 있습니다.
 1. **리소스 가져오기** 버튼을 클릭합니다.
 2. Swagger **파일 선택** 버튼을 클릭하여 파일을 선택하거나 Swagger 내용을 직접 입력합니다.
 3. **적용** 버튼을 클릭합니다.
