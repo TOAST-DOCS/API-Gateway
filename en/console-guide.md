@@ -46,6 +46,14 @@ Resource manages the resource path and method of the API.
 - To create a resource and register a method at the same time, select HTTP method.
 - If you make a request to API Gateway with an unregistered resource path, 404 Not Found response is returned.
 
+### Import Resource
+You can bring the resource through the file format of Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/)
+1. Click the button **Import Resource**.
+2. Click the Swagger **Select File** button and choose the file, or directly enter the Swagger content.
+3. Click the **Apply** button.
+
+> **[Caution] When importing resource, overwrite the existing resource** 
+> When importing resource, the existing resource is deleted and overwritten with the new resource.
 
 ### Create Method
 - Create **HTTP Method** under the selected resource path. 
