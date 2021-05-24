@@ -66,6 +66,8 @@
 | 4012002          | Authorization is empty.      | Authorizationリクエストヘッダがありません。|
 | 4012001          | Token type is invalid.      | Authorizationリクエストヘッダのトークンタイプが有効ではありません。|
 | 4012001          | Toekn is invalid.      | トークン値が有効ではないため、認証に失敗しました。|
+| 5012001          | jwks url is unavailable.      | JWKS URLがサービス中ではありません。|
+| 5012002          | jwks format is invalid.      | JWKS URLのレスポンスがJWKS形式に一致しません。|
 
 ## 事前呼び出しAPI(Pre-call API)
 - 発生原因：事前呼び出しAPIのリクエストに失敗すると、エラーレスポンスが返されます。
