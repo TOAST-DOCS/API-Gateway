@@ -65,7 +65,10 @@
 | 4012002          | Authorization is empty.      | Authorization 요청 헤더가 없습니다.|
 | 4012001          | Token type is invalid.      | Authorization 요청 헤더의 토큰 타입이 유효하지 않습니다.|
 | 4012001          | Toekn is invalid.      | 토큰 값이 유효하지 않아 인증에 실패했습니다.|
+| 5012001          | jwks url is unavailable.      | JWKS URL이 서비스 중이지 않습니다.|
+| 5012002          | jwks format is invalid.      | JWKS URL의 응답이 JWKS 형식에 맞지 않습니다.|
 
+    
 ## 사전 호출 API(Pre-call API)
 - 발생 원인: 사전 호출 API 요청 실패 시 오류 응답이 반환됩니다.
 - 응답 HTTP 상태 : 502 Bad Gateway
