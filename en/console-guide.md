@@ -295,16 +295,33 @@ To apply the resources and settings for the stage to the API Gateway Services, t
     -  If it is **Successfully Deployed**, the deployment is complete.
     -  If it is **Failed to Deploy**, then there was an error during deployment . If deployment fails, please try it again. If the issue persists, please contact Customer Center.
 
-> **[Caution] Irrecoverable stage deployment**
-> - Once the stage is deployed, it cannot be reverted to the previous deployment settings. (We are currently developing the recovery function which uses the previous deployment history.)
+### Stage Deployment History
+You can verify deployment history after stage deployment, and go back stages by setting up Previous Deployment.
+
+1. On the **Stage** tab, select a stage.
+2. Select **Deployment History** tab.
+3. You can verify history of Stage Deployment.
+    - **Deployed Stage**: Refers to the deployment history applied to present API Gateway service. 
+    - **Base Stage**: Refers to the deployment history that becomes the foundation for present stage setup. It is changed when conducting Stage Deployment or Restore Stage. 
+    - **Restore Stage**: A stage setup of the relevant deployment history. The present Stage Setup is modified.
+    - **Delete**: Unnecessary deployment history is deleted.
+
+> **[Caution] Restore stage to previous deployment history**
+> - If you use Restore Stage, you must deploy stage if you wish to apply it to API Gateway service.
+
+### Export Stage
+1. On the **Stage** tab, select a stage.
+2. Select the **Export Stage** tab.
+3. **스테이지 내보내기** 버튼을 클릭하여 선택된 스테이지의 리소스를 Swagger 파일로 저장합니다.
 
 ###  IP ACL
 API Gateway requests can be allowed/denied for the client IDs specified through IP ACL.
 
-1. In the Stage tab, select the stage.
-2. In the Stage Tree screen, select the root (/) path of the stage. 
-3. Turn **On** the IP ACL. 
-4. Set the IP ACL. 
+1. On the **Stage** tab, select a stage.
+2. Select the **Setup** tab. 
+3. Select the Stage root(/) path on the Stage Tree screen. 
+4. **Activate(On)** the IP ACL. 
+5. Set up the IP ACL. 
     - **IP Access Control Type**
         - Allow: Only allow access of specific IPs, and deny all the other IPs. (Whitelist method)
         - Deny: Only deny access of specific IPs, and allow all the other IPs. (Blacklist method)
@@ -322,10 +339,11 @@ API Gateway requests can be allowed/denied for the client IDs specified through 
 ### Authentication > HMAC
 HMAC authentication prevents requests received by the API Gateway being tampered by middle attackers, and also prevents reply attack by setting the expiration period for the requests.
 
-1. In the Stage tab, select the stage.
-2. In the Stage Tree screen, select the root (/) path of the stage. 
-3. In the Authentication, select HMAC.
-4. Enter the HMAC settings. 
+1. On the **Stage** tab, select a stage.
+2. Select the **Setup** tab.
+3. Select the Stage root(/) path on the Stage Tree screen. 
+4. In the authentication, select **HMAC**.
+5. Enter the HMAC setup. 
     - Secret key: It is a secret key for encrypting SignToString. Make sure the key is not exposed to others. 
     - Request expiration (sec): Denies the request that exceeds the bidirectional time (before and after the past/future point of the request time) of the set expiration. If the request expiration is set to 0, the API Gateway does not check the expiration time.
     - Required validation header list: Write the header list which must be included in the API request validation. When entering a number of lists, separate them by commas (,).
@@ -434,15 +452,17 @@ x-nhn-date:2021-02-23T00:00:00+09:00
 ### Authentication > JWT  
 Verifies the signature and claim of JWT token. Token values can be used without token verification for user services.
 
-1. On the Stage tab, select a stage.
-2. On the Stage Tree screen, select the root(/) path of the stage. 
-3. Select **JWT** under Authentication.
-4. Enter the JWT settings. 
+1. On the **Stage** tab, select a stage.
+2. Select the **Setup** tab. 
+3. Select the Stage root(/) path on the Stage Tree screen. 
+4. In the authentication, select **JWT**.
+5. Enter the JWT setup. 
     - **Token Encryption Algorithm**: Select the encryption algorithm used to sign the token. Encryption algorithm supports HS256 and RS256.
         - HS256 Token Algorithm
             - Secret Key: Enter the secret key used to sign the token. Secret key with the length of 256 or above is recommended.
         - RS256 Token Algorithm
             - Public Key (PEM): Enter the public key to verify the token. It must be entered in PEM format.
+            - The JWKS URI: Enter the HTTP JWKS(Json Web Key Sets) URI necessary for token signature verification and encryption in bringing the Json Web Key Sets Json objects by API Gateway. 
     - **Claim Verification Condition**
         - Enter the claim verification conditions for the registered claim of the token payload.
         - For more information on the registered claims, see [RFC7519-4.1.Registered Claim Names](https://tools.ietf.org/html/rfc7519#section-4.1).
@@ -454,8 +474,8 @@ Verifies the signature and claim of JWT token. Token values can be used without 
         - **Required**: Verification fails if claims do not exist in the request token when selected. You cannot check/uncheck a disabled checkbox.
         - **Value Verification**: If a claim exists in the request token when selected, verification will proceed to check whether the set claim value includes or matches the claim or not. You cannot check/uncheck a disabled checkbox.
     - **Verification Time Limit (sec)**: Apply verification time limit to verify exp and nbf claims of the request token. You can enter any number between 0 and 86,400 (sec).
-5. Deploy the stage.
-6. When requesting API Gateway, first add a JWT token to the Authorization Header and then make a request.
+6. Deploy the stage.
+7. When requesting API Gateway, first add a JWT token to the Authorization Header and then make a request.
 
 | Header name | Header value |
 | --- | --- |
@@ -468,6 +488,17 @@ Verifies the signature and claim of JWT token. Token values can be used without 
 > **[Note] Creating JWT Token**
 > API Gateway only verifies whether the JWT token signature and claims match or not. A JWT Token must be created via user applications or authentication service providers.
 > To learn how to create a JWT token for the purpose of development and testing, see [JWT Token Debugger](https://jwt.io/).
+>
+> **[Note] JWKS(Json Web Key Sets) URI description and precautions**
+> JWKS is the JSON data concerning the JWK (Json Web Key) that the API Gateway needs to verify token signatures.
+> For more details and specifications on JWK, please refer to the [RFC7515](https://tools.ietf.org/html/rfc7517) document.
+> The selected JWKS URI must be disclosed so that the API Gateway can access it, and should not be blocked with networks, firewalls, etc.
+> The selected JWKS URI must be operated so that the API Gateway can always access it. 
+>
+> **[Caution] JWKS Caching**
+> API Gateway caches JWKS URI's response for 5 minutes.
+> Due to caching by API Gateway, it may take a maximum of 5 minutes for modifications in JWKS to be reflected in API Gateway.
+
 
 ### Pre-call API
 Pre-call API determines whether or not to call the backend endpoint depending on the call response code after calling the user-designated API before calling the backend endpoint.
@@ -478,11 +509,12 @@ If Pre-call API call fails, it returns an error.
 
 This can be used in a situation where authentication through a separate API call is required before calling the backend endpoint or there is another API to be called.
 
-1. On the Stage tab, select a stage.
-2. On the Stage Tree screen, select the path or method to apply the Pre-call API.
+1. On the **Stage** tab, select a stage.
+2. Select the **Setup** tab. 
+3. In the Stage Tree screen, select path or method to apply to the Pre-Call API.
   - Pre-call API set for the path will be applied to all subdefined subpaths and submethods.
   - Pre-call API set for the method will be applied when calling the said method, but Pre-call API set for the root path will not be applied.
-3. Pre-call API must be turned on.
+4. Activate (On) the Pre-Call API.
   - Enter the method type and URL for Pre-call API.
   - Cache time limit can be set to 86400 sec at maximum, and the response results are cached for the period specified by the entered number (sec).
   - If the cache time limit it set to 0, response results for Pre-call API will not be cached and Pre-call API will be called for every request.
@@ -493,11 +525,12 @@ This can be used in a situation where authentication through a separate API call
 ### Backend Endpoint URL Override
 
 When passing the requests received by the API Gateway to the backend endpoint, the requests are (by default) passed to the backend endpoint URL defined in the stage.
-To override the backend endpoint URL regarding a specific method, set the backend endpoint URL override.
+To Override the backend endpoint URL concerning certain path or method, set up the redefinition of backend endpoint URL.
 
-1. In the Stage tab, select the stage.
-2. In the Stage tree screen, select the method to override the backend endpoint URL.
-3. Turn on override of the backend endpoint URL.
+1. On the **Stage** tab, select a stage.
+2. Select the **Setup** tab.
+3. Select the path or method to redefine the backend endpoint URL in the Stage Tree screen.
+4. Turn on override of the backend endpoint URL.
     - Writes the backend endpoint URL to which the request received by API Gateway is to be pass.
     - Can include the sub-path in it.
         - e.g. https://api.nhn.com , https://api.nhn.com/apis
@@ -506,12 +539,13 @@ To override the backend endpoint URL regarding a specific method, set the backen
 
 Requests received by the API gateway every second can be adjusted using the request number limit, and the backend endpoint can be protected via the request number limit.
 
-1. On the Stage tab, select a stage.
-2. On the Stage Tree screen, select the root (/) path or method of the stage.
+1. On the **Stage** tab, select a stage.
+2. Select the **Setup** tab. 
+3. On the Stage Tree screen, select the root (/) path or method of the stage.
     - If set for the root path, request number limit will be applied to the stage.
     - If set for the method, request number limit will be applied to each method. Request number limit set for the parent path will be ignored. 
-3. Turn the request number limit **On**. 
-4. Set the request number limit. 
+4. Turn the request number limit **On**. 
+5. Set the request number limit. 
     - Requests per Second: Enter the maximum number of requests that can be called in seconds.
     - Request Limit Key: The default request limit key is stage when set for the root, and method when set for the method. A request limit key can be added to the default request limit key.
         - None: Limits requests to default request limit key.
@@ -533,7 +567,7 @@ Requests received by the API gateway every second can be adjusted using the requ
 
 ## Check API Call
 
-1. In the Stage tab, select the method of the stage tree.
+1. With the Setup tab within the Stage tab, select the Stage Tree method.
 2. See the Stage URL on the right.
 3. Call the API with the HTTP method where the Stage URL is specified. 
     - Example: 
@@ -574,19 +608,16 @@ You can see the API statistical indexes by each API Gateway Service.
 1. Go to the **Dashboard** tab. 
 2. Select the API Gateway Service to see the statistics. 
 3. From the list, select the stage to check the statistics. 
-4. In the Stage statistics tab at the bottom, you can see the statistical indexes for the stage. 
-5. In the Resources statistics tab at the bottom, you can see the statistical indexes for each HTTP method and path.
+4. In the **Stage statistics** tab at the bottom, you can see the statistical indexes for the stage. 
+5. In the **Resources statistics** tab at the bottom, you can see the statistical indexes for each HTTP method and path.
 
 ### Note on Statistical Data
 
 - **Max. Search Period**
     - Only data for the past 3 months can be viewed.
 - **Statistical Data Generation Cycle**
-    - Statistical data is generated in the following cycle. The statistical data can be delayed depending on the size of the collected data.
-        - 1 minute: e.g. Statistical data for 10:00 gets generated after 10:01.
-        - 10 minutes: e.g. Statistical data for 10:10 gets generated after 10:11.
-        - 1 hour: e.g. Statistical data for 10 gets generated after 11.
-        - 11 day: e.g. Statistical data for day 1 gets generated after day 2, 00:00.
+    - Statistical data of all time-unit(1 min./10 min./1 hr./1 day) is renewed every minute. 
+    - The generation of statistical data can be delayed depending on the size of the data.
 
 ### Stage Statistics
 
