@@ -64,6 +64,8 @@
 | 4012002          | Authorization is empty.      | Authorization request header does not exist.|
 | 4012001          | Token type is invalid.      | Authorization request header’s token type is invalid.|
 | 4012001          | Toekn is invalid.      | Authentication failed due to invalid token value.|
+| 5012001          | jwks url is unavailable.      | The JWKS URL is not in service.|
+| 5012002          | jwks format is invalid.      | The reply of JWKS URL does not match the form of JWKS.|
 
 ## Pre-call API
 - Cause: Error response is returned when the request for Pre-call API fails.

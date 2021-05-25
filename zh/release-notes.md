@@ -1,5 +1,20 @@
 ## Application Service > API Gateway > Release Note
 
+### 2021.05.25.
+#### Feature Updates
+* In the stage path, the function of backend endpoint URL redefinition was added
+    * For more details, refer to [the Console Guide> Backend Endpoint URL Redefinition ](./console-guide/#backend-endpoint-url-redefinition).
+* Added the function of revising the current Stage setup with verification of deployment history and deployment history Stage setup
+    * For more details, refer to [the Console Guide > Stage Deployment History](./console-guide/#stage-deployment-history).
+* Changed the statistical data generation cycle
+    * For more details, refer to [the Console Guide > Note of Statistical Data](./console-guide/#note-of-statistical-data)'s explanation on  statistical data generation cycle.
+* Added Import Resource and Export Stage functions with Swagger file
+    * With Swagger file, you can import resource.
+    * You can export Stage Resource with Swagger file.
+    * For more details, refer to [the Console Guide > Resource > Import Resource](./console-guide/#import-resource)and [the Console Guide > Export Stage](./console-guide/#export-stage).
+* Supports the JSON Web Key Sets URI of JWT plug-in
+    * For more details, refer to [the Console Guide > JWT](./console-guide/#jwt).
+    
 ### March 23, 2021
 #### Feature Updates
 * Pre-call API plugin feature added
