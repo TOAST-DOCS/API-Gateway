@@ -312,7 +312,7 @@ You can verify deployment history after stage deployment, and go back stages by 
 ### Export Stage
 1. On the **Stage** tab, select a stage.
 2. Select the **Export Stage** tab.
-3. **스테이지 내보내기** 버튼을 클릭하여 선택된 스테이지의 리소스를 Swagger 파일로 저장합니다.
+3. Click the **Export the Stage** button to save the selected stage’s resource in a Swagger file.
 
 ###  IP ACL
 API Gateway requests can be allowed/denied for the client IDs specified through IP ACL.
