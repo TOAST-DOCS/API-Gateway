@@ -126,6 +126,20 @@
 }
 ```
 
+## 요청 할당량 제한
+- 발생 원인: 제한된 요청 할당량을 초과하는 요청을 거부할 때 오류 응답이 반환됩니다.
+- 응답 HTTP 상태: 429 Too Many Requests
+- 오류 응답 본문
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 4291001,
+        "resultMessage": "Usage quota exceeded."
+    }
+}
+```
+
 ## 경로 또는 메서드를 찾을 수 없음
 - 발생 원인: API 리소스에 등록되지 않은 API 경로 및 메서드로 요청한 경우 발생합니다.
 - 응답 HTTP 상태: 404 Not Found
@@ -183,4 +197,5 @@
 | result code | resultMessage             |  설명|
 | ---------------- | ----------- | -------------------------- |
 | 4031010          | Request api key is empty.    | x-nhn-apikey 요청 헤더가 없습니다.|
+| 4031011          | Request api key is inactive.    | 요청된 API Key 가 비활성화 상태입니다. |
 | 4031012          | Request api key is invalid.      | 요청된 API Key 값이 유효하지 않습니다.|
