@@ -62,9 +62,9 @@
 
 | result code | resultMessage             |  설명|
 | ---------------- | ----------- | -------------------------- |
-| 4012002          | Authorization is empty.      | Authorization 요청 헤더가 없습니다.|
-| 4012001          | Token type is invalid.      | Authorization 요청 헤더의 토큰 타입이 유효하지 않습니다.|
-| 4012001          | Toekn is invalid.      | 토큰 값이 유효하지 않아 인증에 실패했습니다.|
+| 4012001          | Authorization is empty.      | Authorization 요청 헤더가 없습니다.|
+| 4012002          | Token type is invalid.      | Authorization 요청 헤더의 토큰 타입이 유효하지 않습니다.|
+| 4012003          | Token is invalid.      | 토큰 값이 유효하지 않아 인증에 실패했습니다.|
 | 5012001          | jwks url is unavailable.      | JWKS URL이 서비스 중이지 않습니다.|
 | 5012002          | jwks format is invalid.      | JWKS URL의 응답이 JWKS 형식에 맞지 않습니다.|
 
@@ -165,3 +165,22 @@
     }
 }
 ```
+
+## API Key 
+- 발생 원인: 요청의 API Key 정보가 없거나 잘못된 경우 다음의 응답이 전달됩니다.
+- 응답 HTTP 상태: 403 Forbidden
+- 오류 응답 본문
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 4031010,
+        "resultMessage": "Request api key is empty."
+    }
+}
+```
+
+| result code | resultMessage             |  설명|
+| ---------------- | ----------- | -------------------------- |
+| 4031010          | Request api key is empty.    | x-nhn-apikey 요청 헤더가 없습니다.|
+| 4031012          | Request api key is invalid.      | 요청된 API Key 값이 유효하지 않습니다.|
