@@ -587,7 +587,7 @@ API Gateway에 API 요청시 지정된 API Key만 요청할 수 있도록 제한
 
 | 헤더 이름 | 헤더 값 |
 | --- | --- |
-| x-nhn-apikey | <apikey\> |
+| x-nhn-apikey | <primary api key 또는 secondary api key\> |
 
 
 ## API 호출 확인
