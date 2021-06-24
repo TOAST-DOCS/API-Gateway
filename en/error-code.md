@@ -124,6 +124,20 @@
 }
 ```
 
+## Request Quota Limit
+- Cause: Returns an error response when a request exceeding the request quota limit is rejected.
+- Response HTTP Status: 429 Too Many Requests
+- Error Response Body
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 4291001,
+        "resultMessage": "Usage quota exceeded."
+    }
+}
+```
+
 ## Could Not Find The Path Or Method
 - Cause: Occurs when a request is made with an API path and method not registered in API Resource.
 - Response HTTP Status: 404 Not Found
@@ -163,3 +177,23 @@
     }
 }
 ```
+
+## API Key 
+- Cause: The following response is sent when the API key information of the request is missing or incorrect.
+- Response HTTP Status: 403 Forbidden
+- Error Response Body
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 4031010,
+        "resultMessage": "Request api key is empty."
+    }
+}
+```
+
+| result code | resultMessage             |  Description|
+| ---------------- | ----------- | -------------------------- |
+| 4031010          | Request api key is empty.    | x-nhn-apikey request header does not exist.|
+| 4031011          | Request api key is inactive.    | Requested API key is inactive. |
+| 4031012          | Request api key is invalid.      | Requested API key is invalid. |
