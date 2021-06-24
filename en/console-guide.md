@@ -20,6 +20,14 @@ You can enter API Gateway service information and click Create button to create 
 * To manage resources, click the Resource button in the Service Settings column.
 * To manage stages, click the **Stage** button in the Service Settings column.
 
+### Delete API Gateway Service
+* The list of registered API Gateway services is displayed.
+* Select the service from the list, and click the **Delete** button.
+* When the confirmation window appears, click the **OK** button. Deleted data cannot be restored.
+
+> **[Caution] When API Gateway service cannot be deleted**
+> API Gateway service cannot be deleted if there is a usage plan connected to the stage of the API Gateway service.
+
 ## Resource
 Resource is the area where you design an API that will serve through API Gateway.
 All clients requesting APIs can make a request regarding the APIs defined in the Gateway resource.
@@ -271,7 +279,7 @@ Stage is a phase where resources are deployed.
 > **[Caution] Deletion of stage**
 > - If you delete a stage being used by the service, its request no longer enters the API Gateway. 
 > - Since deleted stage cannot be recovered, make sure it is not being used by the service before deleting it.
-
+> - If there is a usage plan connected to the stage, the stage cannot be deleted.
 
 ### Import Resource
 To change resources and apply the changed resources to the stage, you must import resources on the stage management screen. 
@@ -564,6 +572,28 @@ Requests received by the API gateway every second can be adjusted using the requ
 > **[Caution] Accuracy of Requests Per Second**
 > - The requests per seconds set and the actual number of requests could slightly differ depending on the time delivered to API Gateway, request processing time, and other factors.  
 
+### API Key
+
+When making an API request to API Gateway, it is restricted to only the specified API key to be requested.
+
+- Examines if it is a valid API key value.
+- Only the API key connected to the stage of the usage plan can request the API of the stage. (For details, refer to [Usage Plan > Connect Stage to Usage Plan](/console-guide/#_31).)
+- Examines the request limit of the usage plan the API key is connected to. (For details on how to set the request limit of a usage plan, refer to [Usage Plan > Create Usage Plan](./console-guide/#_28).)
+
+> **[Note] API key failure response**
+> The API request is rejected when the API key value is not included in the requested header, of its invalid, or exceeds the usage limit.
+> For more information, see the [Error Code](./error-code/) document.
+1. On the **Stage** tab, select a stage.
+2. Select the **Settings** tab.
+3. Select the path or method to enable API key in the stage tree screen.
+   -  The API key set in the path is applied to all sub-defined sub-paths and method calls.
+4. Enable(on) the API key.
+5. Deploy the stage.
+6. When requesting API, it is requested by adding the API key value to the x-nhn-apikey header.
+
+| Header name | Header value |
+| --- | --- |
+| x-nhn-apikey | <primary api key 또는 secondary api key\> |
 
 ## Check API Call
 
@@ -603,13 +633,16 @@ Requests received by the API gateway every second can be adjusted using the requ
 
 ## Dashboard 
 
-You can see the API statistical indexes by each API Gateway Service.  
+대시보드를 통해 API Gateway 서비스, API Key별 API 통계 지표를 확인할 수 있습니다.
+
+### Stage Tab  
 
 1. Go to the **Dashboard** tab. 
-2. Select the API Gateway Service to see the statistics. 
-3. From the list, select the stage to check the statistics. 
-4. In the **Stage statistics** tab at the bottom, you can see the statistical indexes for the stage. 
-5. In the **Resources statistics** tab at the bottom, you can see the statistical indexes for each HTTP method and path.
+2. Move to the **Stage** tab.    
+3. Select the API Gateway Service to view the statistics. 
+3. From the list, select the stage to views statistics. 
+4. In the **Stage Statistics** tab at the bottom, there are statistical indexes for the stage. 
+5. In the **Resources Statistics** tab at the bottom, there are statistical indexes for each HTTP method and path.  
 
 ### Note on Statistical Data
 
@@ -644,3 +677,141 @@ You can see more detailed statistical indexes categorized by resource path and H
 - **Number of immediate responses at the API Gateway**: Number of API calls responded at the API Gateway without passing the request to the backend endpoint service 
 - **Average response time (ms)**: The average time spent from the point where the request entered the API Gateway to the point where the response was given to the API request client
 - **Network outbound traffic**: The byte size of the data responded with the API request client at the API Gateway
+
+### API Key Statistics
+The number of calls can be checked for each API key on a daily graph
+
+1. Go to the **Dashboard** tab.
+2. Go to the **API Key** tab.
+3. Select the API Key to view the statistics.
+
+- **Graph Display Standard**
+  - The search period can be set in units of day(s) and displayed in units of day(s).
+- **Statistical Graph**
+    - **API Call Count**: The count of all API calls where the API key was used
+    - **Count of immediate responses at the API Gateway**: Number of API calls responded at the API Gateway without passing API Gateway plugins or usage limit
+
+## Usage Plan
+Limit the ability to request stage APIs only by API key connected to the stage of the usage plan, the same usage limit can be applied to each connected API key in the usage control settings.
+
+- The following process is needed to apply the usage plan in the API Gateway service.
+- `Create Usage Plan -> Connect Stage to Usage Plan -> Connect API Key to Stage Connected to Usage Plan -> Enable API Key in Stage Settings`
+- See below for details on creating a usage plan and connecting stage and API key.
+
+### Create Usage Plan
+1. Click the **Create Usage Plan** button in the usage plan list.
+2. Enter the usage plan information and click **Create**.
+    - **Name of Usage Plan**: The name of usage plan.
+    - **Description of Usage Plan**: The description of usage plan. (Optional)
+    - **Requests per Second**: Enter the maximum number of requests that can be called in seconds.(Optional)
+    - **Quota Period Unit**: Enter the maximum number of requests per day/month. (Optional)
+    - **Request Quota**: Set the quota period unit to enter the maximum number of requests during the specified quota period.
+
+> **[Note] Reset request quota limits**
+> The request quota resets on the 1st of each month(monthly) and every day (daily) at UTC 00:00:00.
+
+### Edit Usage Plan
+1. Select the usage plan to be edited in the usage plan list.
+2. Click the **Edit** button.
+3. Edit the usage plan information
+4. After changing the settings, click the **Edit** button.
+
+> **[Caution] Edit usage plan request control settings**
+> When editing the limited requests per second and request quota in the usage plan, it will be reflected in the connected API without a separate process.
+> In addition, the already called usage remains the same.
+
+### Delete Usage Plan
+1. Select the usage plan to delete in the usage plan list.
+2. Click the **Delete** button and the Confirm Delete window will be displayed.
+3. When the confirmation window appears, click the **OK** button. Deleted data cannot be restored.
+
+> **[Note] Usage plan cannot be deleted when connected to a stage**
+> Usage plan can be deleted after disconnecting all stages that are connected to the usage plan.
+
+### Connect Stage to Usage Plan
+Connect a stage to the usage plan to define which stages the API key can request.
+
+1. Click the **Name** link in the Usage Plan Name column in the usage plan list.
+2. Click the **Connect Stage** button.
+3. Click the **OK** button after selecting the API Gateway service and stage.
+
+> **[Note] Already connected stage**
+> The already connected stage is not included in the selection list.
+
+### Disable Stage Connected to the Usage Plan
+1. Click the **Name** link in the Usage Plan Name column in the usage plan list.
+2. Select the stage in the Connected Stage list to disconnect.
+3. Click the **Disconnect Stage** button.
+4. Click the **OK** button when the confirmation window appears.
+
+> **[Note] If there is an API key connected, stage cannot be disabled**
+> In order to disable the stage connected to the usage plan, all API keys connected to the stage must be disabled.
+
+### Connect API Key
+Connect the API key to call the API of a stage connected to the usage plan.
+
+1. Click the **Name** link in the Usage Plan Name column in the usage plan list.
+2. Select the stage in the Connected Stage list to connect to the API key.
+3. Click the **Connect API Key** button at the bottom
+4. After selecting the API key to be added, click the **OK** button.
+    > ****[Note] API keys connected to the same stage of different usage plans do not appear in the selection list and cannot be connected.****
+
+### Disconnect API Key
+1. Click the **Name** link in the Usage Plan Name column in the usage plan list.
+2. From the Connected Stage list, select the stage to disconnect the API Key.
+3. After selecting the API key to disconnect from the bottom list, click the **Disconnect API Key** button.
+4. Click the **OK** button when the confirmation window appears.
+
+### Change the Usage Plan of API Key
+1. Click the **Name** link in the Usage Plan Name column in the usage plan list.
+2. Select the stage that has the API key with the usage plan to be changed in the Connected Stage.
+3. After selecting the API key with the usage plan to be changed from the bottom list, click the **Change Usage Plan** button.
+4. Click the **OK** button after selecting the usage plan to be changed.
+   > **[Note] The selected stage can only be changed to a different usage plan than it is connected to.**
+   > **[Caution] The existing API Key usage will be maintained even if the usage plan is changed. When changing the usage plan with a lower usage limit, the usage may be exceeded.**
+
+## API Key
+- API key manages the string values for API gateway service API access that is connected to the usage plan and stage.
+- When requesting API, primary API key and secondary API key can be used as API key value.
+
+### Create API Key
+1. Click the **Create Usage Plan** button in the API key list.
+2. Enter the API key information and click the **Create** button.
+    - **Name of API Key**: The name of the API key.
+    - **Description of API Key**: The description of API key. (Optional)
+    - **Status of API Key**: Select the status of API key.
+        - ACTIVE: API key is active and can be used.
+        - INACTIVE: API key is inactive and cannot be used.
+
+### Edit API Key
+1. Select the API key to edit in the API key list.
+2. Click the **Edit** button.
+3. Edit the API key. Items that can be edited are Name of API Key, Description of API Key, and Status of API Key.
+4. After changing the settings, click the **Edit** button.
+
+> **[Caution] Edit status of API key**
+> If the status of API key is changed to INACTIVE, the API key cannot be used.
+
+### Delete API Key
+1. Select the API key to be deleted from the API key list.
+2. Click the **Delete** button and the Confirm Delete window will be displayed.
+3. When the confirmation window appears, click the **OK** button. Deleted data cannot be restored.
+
+> **[Note] If there are connected usage plan and stage, it cannot be deleted**
+> The API key cannot be deleted if there are connected usage plan and stage.
+
+### Regenerate API Key
+When requesting API, primary API key and secondary API key that are used as API key value can be regenerated.
+
+1. Select the API key in the API key list.
+2. Go to the **API Key** tab at the bottom.
+3. Click the **Regenerate** button next to the primary API key and secondary API key list and the confirmation window will be displayed.
+4. Click the **OK** button when the confirmation window appears.
+    - The existing API key value is no longer valid when regenerated.
+
+### Stage Connected to API Key
+1. Select the API key in the API key list.
+2. Go to the **Connected Stage** tab at the bottom.
+3. The list of connected stage can be checked.
+    - **Stage URL**: The stage URL is connected.
+    - **Usage Plan**: The usage plan information is connected.
