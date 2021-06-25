@@ -577,8 +577,8 @@ Requests received by the API gateway every second can be adjusted using the requ
 When making an API request to API Gateway, it is restricted to only the specified API key to be requested.
 
 - Examines if it is a valid API key value.
-- Only the API key connected to the stage of the usage plan can request the API of the stage. (For details, refer to [Usage Plan > Connect Stage to Usage Plan](/console-guide/#_31).)
-- Examines the request limit of the usage plan the API key is connected to. (For details on how to set the request limit of a usage plan, refer to [Usage Plan > Create Usage Plan](./console-guide/#_28).)
+- Only the API key connected to the stage of the usage plan can request the API of the stage. (For details, refer to [Usage Plan > Connect Stage to Usage Plan](/console-guide/#connect-stage-to-usage-plan).)
+- Examines the request limit of the usage plan the API key is connected to. (For details on how to set the request limit of a usage plan, refer to [Usage Plan > Create Usage Plan](./console-guide/#create-usage-plan).)
 
 > **[Note] API key failure response**
 > The API request is rejected when the API key value is not included in the requested header, of its invalid, or exceeds the usage limit.
