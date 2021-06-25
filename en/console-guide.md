@@ -754,7 +754,7 @@ Connect the API key to call the API of a stage connected to the usage plan.
 2. Select the stage in the Connected Stage list to connect to the API key.
 3. Click the **Connect API Key** button at the bottom
 4. After selecting the API key to be added, click the **OK** button.
-    > ****[Note] API keys connected to the same stage of different usage plans do not appear in the selection list and cannot be connected.****
+   > ****[Note] API keys connected to the same stage of different usage plans do not appear in the selection list and cannot be connected.****
 
 ### Disconnect API Key
 1. Click the **Name** link in the Usage Plan Name column in the usage plan list.
