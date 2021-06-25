@@ -1,5 +1,10 @@
 ## Application Service > API Gateway > Release Note
 
+### 2021.06.22.
+#### Feature Updates
+* Added API key feature and usage plan
+    * For more information, see [Console Guide > Usage Plan](./console-guide/#_27), [Console Guide > API Key](./console-guide/#api-key_3), [Console Guide > Stage > API Key](./console-guide/#api-key).
+
 ### 2021.05.25.
 #### Feature Updates
 * In the stage path, the function of backend endpoint URL redefinition was added
