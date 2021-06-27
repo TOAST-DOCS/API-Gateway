@@ -1,6 +1,6 @@
 ## Application Service > API Gateway > 릴리스 노트
 
-### 2021.06.22.
+### 2021.06.29.
 #### 기능 개선/변경
 * 사용량 계획, API Key 기능 추가
     * 자세한 내용은 [콘솔 가이드 > 사용량 계획](./console-guide/#_27), [콘솔 가이드 > API Key](./console-guide/#api-key_5), [콘솔 가이드 > 스테이지 > API Key](./console-guide/#api-key)를 참고해주세요.
