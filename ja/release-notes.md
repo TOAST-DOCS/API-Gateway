@@ -1,7 +1,7 @@
 
 ## Application Service > API Gateway > リリースノート
 
-### 2021.06.22.
+### 2021.06.29.
 #### 機能改善/変更
 * 使用量計画、 API Key機能を追加
     * 詳細な内容は[コンソールガイド > 使用量計画](./console-guide/#_27)、[コンソールガイド > API Key](./console-guide/#api-key_5), [コンソールガイド > ステージ > API Key](./console-guide/#api-key)を参照してください。

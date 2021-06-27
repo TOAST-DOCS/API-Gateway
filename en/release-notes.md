@@ -1,6 +1,6 @@
 ## Application Service > API Gateway > Release Note
 
-### 2021.06.22.
+### 2021.06.29.
 #### Feature Updates
 * Added API key feature and usage plan
     * For more information, see [Console Guide > Usage Plan](./console-guide/#usage-plan), [Console Guide > API Key](./console-guide/#api-key_1), [Console Guide > Stage > API Key](./console-guide/#api-key).
