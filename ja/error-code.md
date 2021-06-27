@@ -63,9 +63,9 @@
 
 | result code | resultMessage             | 説明|
 | ---------------- | ----------- | -------------------------- |
-| 4012002          | Authorization is empty.      | Authorizationリクエストヘッダがありません。|
-| 4012001          | Token type is invalid.      | Authorizationリクエストヘッダのトークンタイプが有効ではありません。|
-| 4012001          | Toekn is invalid.      | トークン値が有効ではないため、認証に失敗しました。|
+| 4012001          | Authorization is empty.      | Authorizationリクエストヘッダがありません。|
+| 4012002          | Token type is invalid.      | Authorizationリクエストヘッダのトークンタイプが有効ではありません。|
+| 4012003          | Token is invalid.      | トークン値が有効ではないため、認証に失敗しました。|
 | 5012001          | jwks url is unavailable.      | JWKS URLがサービス中ではありません。|
 | 5012002          | jwks format is invalid.      | JWKS URLのレスポンスがJWKS形式に一致しません。|
 
@@ -126,6 +126,20 @@
 }
 ```
 
+## リクエスト割り当て量制限
+- 発生原因：制限されたリクエスト割り当て量を超過するリクエストを拒否する時にエラーレスポンスが返されます。
+- レスポンスHTTPステータス：429 Too Many Requests
+- エラーレスポンス本文
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 4291001,
+        "resultMessage": "Usage quota exceeded."
+    }
+}
+```
+
 ## パスまたはメソッドが見つからない
 - 発生原因：APIリソースに登録されていないAPIパスおよびメソッドでリクエストした場合に発生します。
 - レスポンスHTTP状態：404 Not Found
@@ -165,3 +179,22 @@
     }
 }
 ```
+## API Key 
+- 発生原因：リクエストのAPI Key情報がないか、無効の場合、次のレスポンスが渡されます。
+- レスポンスHTTPステータス：403 Forbidden
+- エラーレスポンス本文
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 4031010,
+        "resultMessage": "Request api key is empty."
+    }
+}
+```
+0
+| result code | resultMessage             | 説明|
+| ---------------- | ----------- | -------------------------- |
+| 4031010          | Request api key is empty.    | x-nhn-apikeyリクエストヘッダがありません。|
+| 4031011          | Request api key is inactive.    | リクエストされたAPI Keyが無効になっている状態です。 |
+| 4031012          | Request api key is invalid.      | リクエストされたAPI Key値が有効ではありません。|
