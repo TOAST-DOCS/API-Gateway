@@ -11,7 +11,7 @@ You can enter API Gateway service information and click Create button to create 
 * **Service Description**: The service description.
 * **Service ID**: A random ID issued to each service.
 
-> **[NOTE] API Gateway services creation limit
+> **[NOTE] API Gateway services creation limit**
 > **Up to 10** API Gateway Services can be created per project.
 
 ### View API Gateway Service
@@ -578,7 +578,7 @@ Requests received by the API gateway every second can be adjusted using the requ
 When making an API request to API Gateway, it is restricted to only the specified API key to be requested.
 
 - Examines if it is a valid API key value.
-- Only the API key connected to the stage of the usage plan can request the API of the stage. (For details, refer to [Usage Plan > Connect Stage to Usage Plan](/console-guide/#connect-stage-to-usage-plan).)
+- Only the API key connected to the stage of the usage plan can request the API of the stage. (For details, refer to [Usage Plan > Connect Stage to Usage Plan](./console-guide/#connect-stage-to-usage-plan).)
 - Examines the request limit of the usage plan the API key is connected to. (For details on how to set the request limit of a usage plan, refer to [Usage Plan > Create Usage Plan](./console-guide/#create-usage-plan).)
 
 > **[Note] API key failure response**
