@@ -634,7 +634,7 @@ When making an API request to API Gateway, it is restricted to only the specifie
 
 ## Dashboard 
 
-대시보드를 통해 API Gateway 서비스, API Key별 API 통계 지표를 확인할 수 있습니다.
+Check the API statistical indexes by API Gateway Service and API key using the dashboard.  
 
 ### Stage Tab  
 
