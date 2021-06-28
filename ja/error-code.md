@@ -192,7 +192,7 @@
     }
 }
 ```
-0
+
 | result code | resultMessage             | 説明|
 | ---------------- | ----------- | -------------------------- |
 | 4031010          | Request api key is empty.    | x-nhn-apikeyリクエストヘッダがありません。|
