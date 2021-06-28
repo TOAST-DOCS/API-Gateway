@@ -450,11 +450,11 @@ x-nhn-date:2021-02-23T00:00:00+09:00
 > - Headers defined in headers must be included when generating SignToString.
 > - If the defined header is missing from the headers, [header name] and [header value] are not included in the SignToString generation.
 > - SignToString must be generated in the order defined in the headers.
-    >     - e.g. If headers="header1, header2", the headers must be added in the order of header1, header2 when generating the SignToString as well.
+>     - e.g. If headers="header1, header2", the headers must be added in the order of header1, header2 when generating the SignToString as well.
 > - The entire header name of the SignToString must be changed to lowercase before generating it.
-    >     - e.g. X-NHN-Header →  x-nhn-header
+>     - e.g. X-NHN-Header →  x-nhn-header
 > - If there are a number of header values, they must be separated by commas (,) when writing them.
-    >   - e.g. header1-name:header1-value1,header1-value2
+>   - e.g. header1-name:header1-value1,header1-value2
 > - The header names and values are separated by colon (:), and do not include space in-between when separating the values.
 
 ### Authentication > JWT
@@ -520,16 +520,17 @@ This can be used in a situation where authentication through a separate API call
 1. On the **Stage** tab, select a stage.
 2. Select the **Setup** tab.
 3. In the Stage Tree screen, select path or method to apply to the Pre-Call API.
-- Pre-call API set for the path will be applied to all subdefined subpaths and submethods.
-- Pre-call API set for the method will be applied when calling the said method, but Pre-call API set for the root path will not be applied.
+  - Pre-call API set for the path will be applied to all subdefined subpaths and submethods.
+  - Pre-call API set for the method will be applied when calling the said method, but Pre-call API set for the root path will not be applied.
 4. Activate (On) the Pre-Call API.
-- Enter the method type and URL for Pre-call API.
-- Cache time limit can be set to 86400 sec at maximum, and the response results are cached for the period specified by the entered number (sec).
-- If the cache time limit it set to 0, response results for Pre-call API will not be cached and Pre-call API will be called for every request.
+  - Enter the method type and URL for Pre-call API.
+  - Cache time limit can be set to 86400 sec at maximum, and the response results are cached for the period specified by the entered number (sec).
+  - If the cache time limit it set to 0, response results for Pre-call API will not be cached and Pre-call API will be called for every request.
+
 > **[Note] Response Result Caching for Pre-Call API**
 > Response results are only cached if Pre-call API’s response result code is 200.
 > If the response result code is not 200, response results will not be cached even if the cache time limit is set.
->
+
 ### Backend Endpoint URL Override
 
 When passing the requests received by the API Gateway to the backend endpoint, the requests are (by default) passed to the backend endpoint URL defined in the stage.
@@ -754,7 +755,8 @@ Connect the API key to call the API of a stage connected to the usage plan.
 2. Select the stage in the Connected Stage list to connect to the API key.
 3. Click the **Connect API Key** button at the bottom
 4. After selecting the API key to be added, click the **OK** button.
-   > ****[Note] API keys connected to the same stage of different usage plans do not appear in the selection list and cannot be connected.****
+
+> **[Note]** API keys connected to the same stage of different usage plans do not appear in the selection list and cannot be connected.
 
 ### Disconnect API Key
 1. Click the **Name** link in the Usage Plan Name column in the usage plan list.
@@ -767,8 +769,9 @@ Connect the API key to call the API of a stage connected to the usage plan.
 2. Select the stage that has the API key with the usage plan to be changed in the Connected Stage.
 3. After selecting the API key with the usage plan to be changed from the bottom list, click the **Change Usage Plan** button.
 4. Click the **OK** button after selecting the usage plan to be changed.
-   > **[Note] The selected stage can only be changed to a different usage plan than it is connected to.**
-   > **[Caution] The existing API Key usage will be maintained even if the usage plan is changed. When changing the usage plan with a lower usage limit, the usage may be exceeded.**
+
+> **[Note]** The selected stage can only be changed to a different usage plan than it is connected to.
+> **[Caution]** The existing API Key usage will be maintained even if the usage plan is changed. When changing the usage plan with a lower usage limit, the usage may be exceeded.
 
 ## API Key
 - API key manages the string values for API gateway service API access that is connected to the usage plan and stage.

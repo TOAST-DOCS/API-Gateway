@@ -526,10 +526,11 @@ This can be used in a situation where authentication through a separate API call
   - Enter the method type and URL for Pre-call API.
   - Cache time limit can be set to 86400 sec at maximum, and the response results are cached for the period specified by the entered number (sec).
   - If the cache time limit it set to 0, response results for Pre-call API will not be cached and Pre-call API will be called for every request.
-  > **[Note] Response Result Caching for Pre-Call API**
-  > Response results are only cached if Pre-call API’s response result code is 200.
-  > If the response result code is not 200, response results will not be cached even if the cache time limit is set.
-  >
+  
+> **[Note] Response Result Caching for Pre-Call API**
+> Response results are only cached if Pre-call API’s response result code is 200.
+> If the response result code is not 200, response results will not be cached even if the cache time limit is set.
+
 ### Backend Endpoint URL Override
 
 When passing the requests received by the API Gateway to the backend endpoint, the requests are (by default) passed to the backend endpoint URL defined in the stage.
@@ -754,7 +755,8 @@ Connect the API key to call the API of a stage connected to the usage plan.
 2. Select the stage in the Connected Stage list to connect to the API key.
 3. Click the **Connect API Key** button at the bottom
 4. After selecting the API key to be added, click the **OK** button.
-   > ****[Note] API keys connected to the same stage of different usage plans do not appear in the selection list and cannot be connected.****
+
+> **[Note]** API keys connected to the same stage of different usage plans do not appear in the selection list and cannot be connected.
 
 ### Disconnect API Key
 1. Click the **Name** link in the Usage Plan Name column in the usage plan list.
@@ -767,8 +769,9 @@ Connect the API key to call the API of a stage connected to the usage plan.
 2. Select the stage that has the API key with the usage plan to be changed in the Connected Stage.
 3. After selecting the API key with the usage plan to be changed from the bottom list, click the **Change Usage Plan** button.
 4. Click the **OK** button after selecting the usage plan to be changed.
-   > **[Note] The selected stage can only be changed to a different usage plan than it is connected to.**
-   > **[Caution] The existing API Key usage will be maintained even if the usage plan is changed. When changing the usage plan with a lower usage limit, the usage may be exceeded.**
+   
+> **[Note]** The selected stage can only be changed to a different usage plan than it is connected to.
+> **[Caution]** The existing API Key usage will be maintained even if the usage plan is changed. When changing the usage plan with a lower usage limit, the usage may be exceeded.
 
 ## API Key
 - API key manages the string values for API gateway service API access that is connected to the usage plan and stage.
