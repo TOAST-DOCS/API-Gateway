@@ -685,12 +685,11 @@ The number of calls can be checked for each API key on a daily graph
 1. Go to the **Dashboard** tab.
 2. Go to the **API Key** tab.
 3. Select the API Key to view the statistics.
-
-- **Graph Display Standard**
-    - The search period can be set in units of day(s) and displayed in units of day(s).
-- **Statistical Graph**
-    - **API Call Count**: The count of all API calls where the API key was used
-    - **Count of immediate responses at the API Gateway**: Number of API calls responded at the API Gateway without passing API Gateway plugins or usage limit
+    - **Graph Display Standard**
+        - The search period can be set in units of day(s) and displayed in units of day(s).
+    - **Statistical Graph**
+        - **API Call Count**: The count of all API calls where the API key was used
+        - **Count of immediate responses at the API Gateway**: Number of API calls responded at the API Gateway without passing API Gateway plugins or usage limit
 
 ## Usage Plan
 Limit the ability to request stage APIs only by API key connected to the stage of the usage plan, the same usage limit can be applied to each connected API key in the usage control settings.
