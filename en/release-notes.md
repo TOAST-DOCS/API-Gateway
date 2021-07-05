@@ -1,5 +1,10 @@
 ## Application Service > API Gateway > Release Note
 
+### 2021.07.06.
+### Feature Updates  
+* Added a plugin that adds request query string parameter
+    * For more details, see [Console Guide > Plugin > Add Request Query String Parameter](./console-guide/#_?).
+
 ### June 29, 2021
 #### Feature Updates
 * Added API key feature and usage plan
