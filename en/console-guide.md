@@ -230,7 +230,7 @@ Example: If the parameter name and value are set to 'name' and 'value', **name=v
 - **Steps for applying plugins**: Backend request pre-task
 - **\+** button allows you to add a parameter list.
 - Enter the parameter name and value. 
-- Context variables claimed by the resources can be set for the parameter value. (For more information on context variables, see [Context Variables](./console-guide/#_8).)
+- Context variables claimed by the resources can be set for the parameter value. (For more information on context variables, see [Context Variables](./console-guide/#context-variables).)
 
 > **[Note] Request Query String Parameter**
 > - The requested query string parameter that has the same key as the originally requested query string parameter does not replace the originally requested query string but instead adds the query string parameter. 
