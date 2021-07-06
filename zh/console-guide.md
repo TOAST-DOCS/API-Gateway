@@ -222,6 +222,20 @@ Change response header plugin adds the header to the backend header or changes i
 > - Any headers missing from the backend endpoint response are added.
 > - Any headers available in the response of the backend endpoint response are replaced with the header value set by the change request header plugin.
 
+### Add Request Query String Parameter
+Adds a request query string parameter to backend endpoint.  
+Example: If the parameter name and value are set to 'name' and 'value', **name=value** query string parameter is added when backend endpoint is requested. 
+
+- **The location where the plugin can be applied**: Resource path, method
+- **Steps for applying plugins**: Backend request pre-task
+- **\+** button allows you to add a parameter list.
+- Enter the parameter name and value. 
+- Context variables claimed by the resources can be set for the parameter value. (For more information on context variables, see [Context Variables](./console-guide/#context-variables).)
+
+> **[Note] Request Query String Parameter**
+> - The requested query string parameter that has the same key as the originally requested query string parameter does not replace the originally requested query string but instead adds the query string parameter. 
+> - The value of the query string parameter is encoded and delivered to the backend endpoint.
+
 ## Stage
 Stage is a phase where resources are deployed.
 

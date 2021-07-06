@@ -138,6 +138,21 @@
 }
 ```
 
+## Invalid URI error  
+- Cause: If the URI configuration of the backend endpoint is incorrect, an error response is returned.  
+    - It might occur when the value of the path or query string, which is a part of the URI, is incorrect or the value cannot be encoded.
+- Response HTTP Status: 400 Bad Request
+- Error Response Body 
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 4000003,
+        "resultMessage": "Invalid URI."
+    }
+}
+```
+
 ## Could Not Find The Path Or Method
 - Cause: Occurs when a request is made with an API path and method not registered in API Resource.
 - Response HTTP Status: 404 Not Found
