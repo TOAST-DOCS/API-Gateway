@@ -234,7 +234,7 @@ Example: If the parameter name and value are set to 'name' and 'value', **name=v
 
 > **[Note] Request Query String Parameter**
 > - The requested query string parameter that has the same key as the originally requested query string parameter does not replace the originally requested query string but instead adds the query string parameter. 
-  - The value of the query string parameter is encoded and delivered to the backend endpoint.
+> - The value of the query string parameter is encoded and delivered to the backend endpoint.
 
 ## Stage
 Stage is a phase where resources are deployed. 
