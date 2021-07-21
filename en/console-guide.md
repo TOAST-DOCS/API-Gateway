@@ -732,7 +732,8 @@ Limit the ability to request stage APIs only by API key connected to the stage o
 
 > **[Caution] Edit usage plan request control settings**
 > When editing the limited requests per second and request quota in the usage plan, it will be reflected in the connected API without a separate process.
-> In addition, the already called usage remains the same.
+> If you modify the quota period unit to “day” or “month,” the usage of the connected API Key request quota is maintained. If the request quota limit is lowered, the usage may be exceeded.
+> If the quota period unit is modified to “None,” the requested quota usage of the associated API keys is initialized.
 
 ### Delete Usage Plan
 1. Select the usage plan to delete in the usage plan list.
@@ -784,7 +785,12 @@ Connect the API key to call the API of a stage connected to the usage plan.
 4. Click the **OK** button after selecting the usage plan to be changed.
    
 > **[Note]** The selected stage can only be changed to a different usage plan than it is connected to.
-> **[Caution]** The existing API Key usage will be maintained even if the usage plan is changed. When changing the usage plan with a lower usage limit, the usage may be exceeded.
+
+
+> **[Caution]** Initialize usage of API Key request quota when changing the usage plan
+> If the quota period unit is changed to a “daily” or “monthly” usage plan, the requested quota usage of the associated API Key remains. The usage may be exceeded if changed to the usage plan with a low request quota limit.
+> If changing to the usage plan with a quota period unit of “None,” the requested quota usage of the associated API keys is initialized.
+
 
 ## API Key
 - API key manages the string values for API gateway service API access that is connected to the usage plan and stage.
