@@ -690,7 +690,7 @@ API Gateway에 API 요청 시 지정된 API Key만 요청할 수 있도록 제�
 ### 모델 삭제
 1. 모델 목록에서 삭제할 모델을 선택합니다.
 2. **삭제** 버튼을 클릭합니다.
-    - 모델이 요청 파라미터나 응답에서 사용되고 있는 경우 삭제할 수 없다는 확인 창이 표시되며, 그렇지 않은 경우 삭제 확인 창이 표시됩니다.
+    - 모델이 요청 파라미터 또는 응답에서 사용 중인 경우 삭제할 수 없습니다.
 3. 삭제 확인 창이 나타나면 **확인** 버튼을 클릭합니다. 삭제된 데이터는 복구할 수 없습니다.
 
 
@@ -730,7 +730,7 @@ API Gateway에 API 요청 시 지정된 API Key만 요청할 수 있도록 제�
 
 
 ## API 설명서
-API 설명서를 이용하면 API Gateway에 등록된 API의 명세를 Swagger UI 형태의 문서로 관리할 수 있습니다.
+API 설명서를 이용하면 API Gateway에 등록된 API의 명세를 웹페이지 문서로 관리할 수 있습니다.
 
 ### API 설명서 게시
 API 설명서를 게시하기 위한 절차를 안내합니다.
@@ -752,7 +752,11 @@ API 설명서를 게시하기 위한 절차를 안내합니다.
 >
 > **[주의] 게시된 API 설명서에서 API 호출 테스트 시 CORS 설정**
 > - 게시된 API 설명서 도메인 주소와 호출하는 API의 도메인 주소가 다르기 때문에 API 설명서 내에서 호출을 테스트하고자 하는 경우 CORS 설정이 필요할 수 있습니다.
-
+> - 예:
+> Access-Control-Allow-Origin: console-apigw.cloud.toast.com
+> Access-Control-Allow-Method: GET, POST, DELETE, PUT, PATCH, HEAD, OPTIONS
+> Access-Control-Allow-Headers: Authorization, x-nhn-apikey, x-nhn-date
+>
 
 ## 대시보드 
 
