@@ -753,7 +753,7 @@ API 설명서를 게시하기 위한 절차를 안내합니다.
 > **[주의] 게시된 API 설명서에서 API 호출 테스트 시 CORS 설정**
 > - 게시된 API 설명서 도메인 주소와 호출하는 API의 도메인 주소가 다르기 때문에 API 설명서 내에서 호출을 테스트하고자 하는 경우 CORS 설정이 필요할 수 있습니다.
 > - 예:
-> Access-Control-Allow-Origin: console-apigw.cloud.toast.com
+> Access-Control-Allow-Origin: https://console-apigw.cloud.toast.com
 > Access-Control-Allow-Method: GET, POST, DELETE, PUT, PATCH, HEAD, OPTIONS
 > Access-Control-Allow-Headers: Authorization, x-nhn-apikey, x-nhn-date
 >
