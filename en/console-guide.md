@@ -60,8 +60,8 @@ You can bring the resource through the file format of Swagger v2.0 [OpenAPI Spec
 2. Click the Swagger **Select File** button and choose the file, or directly enter the Swagger content.
 3. Click the **Apply** button.
 
-> **[Caution] When importing resource, overwrite the existing resource** 
-> When importing resource, the existing resource is deleted and overwritten with the new resource.
+> **[Warning] When a resource is imported, the existing resources and models are overwritten**
+> When a resource is imported, all existing models created in the service are deleted and overwritten with the imported model.
 
 ### Create Method
 - Create **HTTP Method** under the selected resource path. 
@@ -154,6 +154,53 @@ Plugin allows you to add additional functions provided by API Gateway.
 
 > **[Caution] Saving changes after adding plugins**
 > You must click the **Save Changes** button after adding plugins to save the changed settings.
+
+### Request Parameters
+Set request parameters, response types, and content type for each resource method.  
+Settings are applied to [API document](./console-guide/#_?).
+
+1. Select the resource method.
+2. Click the **Request parameter** tab.
+3. Enter the request parameter items. 
+    - Click the **+ button** on the right side of items to add an item.
+    - Click the **- button** on the right side of the item to delete the item.
+    - Query String, Header, Form Data parameters
+        - Name: Enter the parameter name. 
+        - Description: Enter the parameter description.
+        - Data Type: Enter the data type of the parameter.
+        - Required: Select whether the parameter is required or not.
+        - Array: Select whether the parameter data is array or not. 
+    - Request Body parameter
+        - Name: Enter the name of the request body parameter. 
+        - Description: Enter the parameter description.
+        - Model: Select the [Model](./console-guide/#_model?) of the request body.
+    - Content Type
+        - Enter the content type (e.g., application/json) of the documents to send to the server.
+4. Click the **Save Changes button**.
+
+### Response
+Set header, request body, and content type for each HTTP response status code.
+Settings are applied to [API document](./console-guide/#_?).
+
+1. Select the resource method.
+2. Click the **Response** tab.
+3. Click the **Add button** of the response HTTP status code to display the additional input screen.
+4. Enter the response HTTP status code and description to add.
+
+5. Click the **Create button**. 
+6. Select the row for the added response HTTP status code.
+7. Enter the response header and response body for each response HTTP status code.  
+    - Header
+        - Name: Enter the header name. 
+        -  Description: Enter the header description.
+        -  Data Type: Enter the data type of the response header.
+    - Response Body 
+        - Name: Enter the name of the response body parameter. 
+        -  Description: Enter the description of the response body parameter.
+        -  Model: Select the model of the response body. 
+8. Enter the content type. 
+    - Enter the content type (e.g., application/json) of the documents to respond to the client. 
+9. Click the **Save Changes button**.
 
 ## Context Variables
 The variables defined below can be used when creating methods of resources or setting plugins.
@@ -335,6 +382,11 @@ You can verify deployment history after stage deployment, and go back stages by 
 1. On the **Stage** tab, select a stage.
 2. Select the **Export Stage** tab.
 3. Click the **Export the Stage** button to save the selected stage’s resource in a Swagger file.
+
+
+### API Document
+You can check the configuration deployed through **stage deployment** with the API document.
+Refer to [API document](./console-guide/#_?) for details.
 
 ###  IP ACL
 API Gateway requests can be allowed/denied for the client IDs specified through IP ACL.
@@ -610,6 +662,35 @@ When making an API request to API Gateway, it is restricted to only the specifie
 | --- | --- |
 | x-nhn-apikey | <primary api key 또는 secondary api key\> |
 
+
+## Model
+You can define a model to specify the format of body that you can use in the request parameters and the response.
+
+### Create Model
+1. Click **Resource** in the service settings column from the list of API Gateway services.
+2. In the **Model** tab, click the **Create model** button.
+3. Enter the model information and click **Create**.
+    - **Model name**:
+        - The name of the model. It cannot be the same as the name of the existing model.
+        - Only numbers and English letters can be entered, up to 50 characters.
+    - **Model description**: It is the description of the model. (optional)
+    - **Model schema**:
+        - Define the structure that the model can have.
+        - Use [JSON Schema](https://json-schema.org/) draft-04 for the model schema definition.
+
+### Edit Model
+1. Select the model to edit from the list of models.
+2. Click the **Edit** button.
+3. Edit the model information. Items that can be edited are model description and model schema.
+4. After changing the settings, click the **Edit** button.
+
+### Delete Model
+1. Select the model to delete from the list of models.
+2. Click the **Delete** button.
+   - The model cannot be deleted while being used in the request parameters or response.
+3. When the delete confirmation window appears, click the **Confirm** button. Deleted data cannot be restored.
+
+
 ## Check API Call
 
 1. With the Setup tab within the Stage tab, select the Stage Tree method.
@@ -645,6 +726,35 @@ When making an API request to API Gateway, it is restricted to only the specifie
 > - It is not banned by the internal errors (4xx, 5xx, etc.) of the backend endpoint service.
 > - It is not recommended to link the backend endpoint service if it is not properly operable or if the delayed response (timeout) persists for over 60 seconds.
 
+
+## API Document
+You can use the API document to manage the specification of the API registered in API Gateway as a web page document.
+
+### Publish API document
+Here is the process of publishing API documentation.
+
+1. Click **Model** tab from the resource setting page to request and register the model of the body.
+2. Select the resource method from the resource setting page and enter the request parameters and response.
+3. Click **Apply stage resource** to apply the changed resource details to the stage.
+4. Click **Deploy stage** button of the stage setting page. 
+5. Click **API document tab** of the stage setting page.
+6. Select the publish type of the API document.
+    - **Publish type**: You can set access restrictions for the API document.
+        - **Public**: Access to the API document is allowed without access restrictions.
+        - **Private**: Only users who are accessible to console can access the API document.
+7. The API document is available at the URL that appears in the **Publish link**.  
+
+> **[Note] Stage deployment and API document publishing**
+> - An API document is published after the initial stage deployment, with the initial publishing type set to Private.
+> - The API document is updated to the configuration deployed when a stage deployment is performed.
+>
+> [Warning] CORS setting when testing API calls from a published API document
+> - Since the domain address of the published API document and the domain address of the calling API are different, CORS setting might be necessary to test your calls within the API document.
+- Example:
+  Access-Control-Allow-Origin: https://docs-apigw.cloud.toast.com
+  Access-Control-Allow-Method: GET, POST, DELETE, PUT, PATCH, HEAD, OPTIONS
+  Access-Control-Allow-Headers: Authorization, x-nhn-apikey, x-nhn-date
+>
 
 ## Dashboard 
 
