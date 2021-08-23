@@ -60,7 +60,7 @@ You can bring the resource through the file format of Swagger v2.0 [OpenAPI Spec
 2. Click the Swagger **Select File** button and choose the file, or directly enter the Swagger content.
 3. Click the **Apply** button.
 
-> **[Warning] When a resource is imported, the existing resources and models are overwritten**
+> **[Caution] When a resource is imported, the existing resources and models are overwritten**
 > When a resource is imported, all existing models created in the service are deleted and overwritten with the imported model.
 
 ### Create Method
@@ -157,7 +157,7 @@ Plugin allows you to add additional functions provided by API Gateway.
 
 ### Request Parameters
 Set request parameters, response types, and content type for each resource method.  
-Settings are applied to [API document](./console-guide/#_?).
+Settings are applied to [API document](./console-guide/#api-document_1).
 
 1. Select the resource method.
 2. Click the **Request parameter** tab.
@@ -173,14 +173,14 @@ Settings are applied to [API document](./console-guide/#_?).
     - Request Body parameter
         - Name: Enter the name of the request body parameter. 
         - Description: Enter the parameter description.
-        - Model: Select the [Model](./console-guide/#_model?) of the request body.
+        - Model: Select the [Model](./console-guide/#model) of the request body.
     - Content Type
         - Enter the content type (e.g., application/json) of the documents to send to the server.
 4. Click the **Save Changes button**.
 
 ### Response
 Set header, request body, and content type for each HTTP response status code.
-Settings are applied to [API document](./console-guide/#_?).
+Settings are applied to [API document](./console-guide/#api-document_1).
 
 1. Select the resource method.
 2. Click the **Response** tab.
@@ -386,7 +386,7 @@ You can verify deployment history after stage deployment, and go back stages by 
 
 ### API Document
 You can check the configuration deployed through **stage deployment** with the API document.
-Refer to [API document](./console-guide/#_?) for details.
+Refer to [API document](./console-guide/#api-document_1) for details.
 
 ###  IP ACL
 API Gateway requests can be allowed/denied for the client IDs specified through IP ACL.
@@ -748,7 +748,7 @@ Here is the process of publishing API documentation.
 > - An API document is published after the initial stage deployment, with the initial publishing type set to Private.
 > - The API document is updated to the configuration deployed when a stage deployment is performed.
 >
-> [Warning] CORS setting when testing API calls from a published API document
+> **[Caution] CORS setting when testing API calls from a published API document**
 > - Since the domain address of the published API document and the domain address of the calling API are different, CORS setting might be necessary to test your calls within the API document.
 - Example:
   Access-Control-Allow-Origin: https://docs-apigw.cloud.toast.com

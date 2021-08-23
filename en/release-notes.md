@@ -3,7 +3,7 @@
 ### August 24, 2021.
 #### Feature Updates 
 * Added API document
-    * Refer to [Console Guide > API Document](./console-guide/#_?) for details.
+    * Refer to [Console Guide > API Document](./console-guide/#api-document_1) for details.
 
 ### July 6, 2021
 #### Feature Updates  
