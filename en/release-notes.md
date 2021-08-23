@@ -1,5 +1,10 @@
 ## Application Service > API Gateway > Release Note
 
+### August 24, 2021.
+#### Feature Updates 
+* Added API document
+    * Refer to [Console Guide > API Document](./console-guide/#api-document_1) for details.
+
 ### July 6, 2021
 #### Feature Updates  
 * Added a plugin that adds request query string parameter
