@@ -81,7 +81,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | errorList[0].errorField | String  | 오류 상세 필드 |
 | errorList[0].errorMessage | String  | 오류 메시지 |
 
-## API Gateway 서비스 API
+## API Gateway 서비스
 
 ### 서비스 목록 조회 
 - API Gateway 서비스 목록을 조회합니다.
@@ -96,7 +96,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 [QueryString Parameter]
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | String | 필수 | 없음 | KR1 | [API Gateway 서비스 타입 Enum 코드 참조](./api-guide-v1.0/#apigwServiceType) |
+| regionCode | String | 필수 | 없음 | KR1 | [API Gateway 서비스 타입 Enum 코드 참조](./enum-code/#apigwServiceType) |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
 | limit | Integer | 선택 | 10 | 최대 1000 | 페이지 당 건 수 |
 
@@ -142,15 +142,15 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |paging.limit                         |Integer | 페이지 당 건 수                                  |
 |paging.totalCount                    |Integer | 전체 건 수                                        |
 |apigwServiceList                     |List    | API Gateway 서비스 목록 영역                         |
-|apigwServiceList[0].apigwDomain         |String  | API Gateway 서비스 Hosted 도메인                  |
+|apigwServiceList[0].apigwDomain         |String  | API Gateway 서비스 도메인                  |
 |apigwServiceList[0].apigwServiceAlias   |String  | API Gateway 서비스 별칭               |
 |apigwServiceList[0].apigwServiceId      |String  | API Gateway 서비스 ID                  |
-|apigwServiceList[0].apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드 참조](./api-guide-v1.0/#apigwServiceType)|
+|apigwServiceList[0].apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드 참조](./enum-code/#apigwServiceType)|
 |apigwServiceList[0].appKey              |String  | AppKey                                        |
 |apigwServiceList[0].dedicatedId         |String  | 전용 API Gateway 서비스의 ID                        |
 |apigwServiceList[0].description         |String  | API Gateway  서비스 설명                                        |
 |apigwServiceList[0].name                |String  | API Gateway 서비스 이름                                        |
-|apigwServiceList[0].regionCode          |Enum    | [API Gateway 리전 Enum 코드 참조](./api-guide-v1.0/#regionCode) |
+|apigwServiceList[0].regionCode          |Enum    | [API Gateway 리전 Enum 코드 참조](./enum-code/#regionCode) |
 |apigwServiceList[0].serverGroupId       |String  | API Gateway 서비스가 속한 서버 그룹 ID                              |
 |apigwServiceList[0].createdAt           |DateTime| API Gateway 서비스 생성일시                                      |
 |apigwServiceList[0].updatedAt           |DateTime| API Gateway 서비스 수정일시                                      |
@@ -203,15 +203,15 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |apigwService                     |Object  | API Gateway 서비스 영역                         |
-|apigwService.apigwDomain         |String  | API Gateway 서비스 Hosted 도메인                  |
+|apigwService.apigwDomain         |String  | API Gateway 서비스 도메인                  |
 |apigwService.apigwServiceAlias   |String  | API Gateway 서비스 별칭                            |
 |apigwService.apigwServiceId      |String  | API Gateway 서비스 ID                            |
-|apigwService.apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드 참조](./api-guide-v1.0/#apigwServiceType) |
+|apigwService.apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드 참조](./enum-code/#apigwServiceType) |
 |apigwService.appKey              |String  | AppKey                                        |
 |apigwService.dedicatedId         |String  | 전용 API Gateway 서비스의 ID                        |
 |apigwService.description         |String  | API Gateway 서비스 설명                                        |
 |apigwService.name                |String  | API Gateway 서비스 이름                                        |
-|apigwService.regionCode          |Enum    |[API Gateway 리전 Enum 코드 참조](./api-guide-v1.0/#regionCode) |
+|apigwService.regionCode          |Enum    |[API Gateway 리전 Enum 코드 참조](./enum-code/#regionCode) |
 |apigwService.serverGroupId       |String  | API Gateway 서비스가 속한 서버 그룹 ID                              |
 |apigwService.createdAt           |DateTime| API Gateway 서비스 생성일시                                      |
 |apigwService.updatedAt           |DateTime| API Gateway 서비스 수정일시                                      |
@@ -219,6 +219,10 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 
 ### API Gateway 서비스 생성
+- API Gateway 서비스를 생성합니다.
+- API Gateway 서버가 생성될 리전을 선택할 수 있습니다. 현재는 한국(판교)리전만 지원합니다.
+- API Gateway 서비스를 생성하면 API Gateway 서비스 ID가 자동 발급됩니다.
+
 
 #### 요청
 
@@ -238,7 +242,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 [필드]
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | Enum | 필수 | 없음 | KR1 | [API Gateway 서비스 타입 Enum 코드 참조](./api-guide-v1.0/#apigwServiceType) |
+| regionCode | Enum | 필수 | 없음 | KR1 | [API Gateway 서비스 타입 Enum 코드 참조](./enum-code/#apigwServiceType) |
 | serviceName | String | 필수 | 없음 | 최대 50자  | API Gateway 서비스 이름 |
 | description | String | 선택 | 없음 | 최대 200자  | API Gateway 서비스 설명 |
 
@@ -275,15 +279,15 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |apigwService                     |Object    | API Gateway 서비스 영역                         |
-|apigwService.apigwDomain         |String  | API Gateway 서비스 Hosted 도메인                  |
+|apigwService.apigwDomain         |String  | API Gateway 서비스 도메인                  |
 |apigwService.apigwServiceAlias   |String  | API Gateway 서비스 별칭                            |
 |apigwService.apigwServiceId      |String  | API Gateway 서비스 ID                            |
-|apigwService.apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드 참조](./api-guide-v1.0/#apigwServiceType) |
+|apigwService.apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드 참조](./enum-code/#apigwServiceType) |
 |apigwService.appKey              |String  | AppKey                                        |
 |apigwService.dedicatedId         |String  | 전용 API Gateway 서비스의 ID                        |
 |apigwService.description         |String  | 서비스 설명                                        |
 |apigwService.name                |String  | API Gateway 서비스 이름                                        |
-|apigwService.regionCode          |Enum    | [API Gateway 리전 Enum 코드 참조](./api-guide-v1.0/#regionCode) |
+|apigwService.regionCode          |Enum    | [API Gateway 리전 Enum 코드 참조](./enum-code/#regionCode) |
 |apigwService.serverGroupId       |String  | API Gateway 서비스가 속한 서버 그룹 ID                              |
 |apigwService.createdAt           |DateTime| API Gateway 서비스 생성일시                                      |
 |apigwService.updatedAt           |DateTime| API Gateway 서비스 수정일시                                      |
@@ -353,21 +357,24 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |apigwService                     |Object    |API Gateway 서비스 영역                         |
-|apigwService.apigwDomain         |String  |API Gateway 서비스 Hosted 도메인                  |
+|apigwService.apigwDomain         |String  |API Gateway 서비스 도메인                  |
 |apigwService.apigwServiceAlias   |String  |API Gateway 서비스 별칭                            |
 |apigwService.apigwServiceId      |String  |API Gateway 서비스 ID                            |
-|apigwService.apigwServiceTypeCode|Enum    |[API Gateway 서비스 타입 Enum 코드 참조](./api-guide-v1.0/#apigwServiceType)|
+|apigwService.apigwServiceTypeCode|Enum    |[API Gateway 서비스 타입 Enum 코드 참조](./enum-code/#apigwServiceType)|
 |apigwService.appKey              |String  |AppKey                                        |
 |apigwService.dedicatedId         |String  |전용 API Gateway 서비스의 ID                        |
 |apigwService.description         |String  |서비스 설명                                        |
 |apigwService.name                |String  |서비스 이름                                        |
-|apigwService.regionCode          |Enum    |[API Gateway 리전 Enum 코드 참조](./api-guide-v1.0/#regionCode)|
+|apigwService.regionCode          |Enum    |[API Gateway 리전 Enum 코드 참조](./enum-code/#regionCode)|
 |apigwService.serverGroupId       |String  |서비스가 속한 서버 그룹 ID                              |
 |apigwService.createdAt           |DateTime|서비스 생성일시                                      |
 |apigwService.updatedAt           |DateTime|서비스 수정일시                                      |
 
 ### 서비스 삭제
-- API Gateway 서비스를 삭제합니다.
+- API Gateway 서비스를 삭제합니다.  
+- API Gateway 서비스를 삭제하면 모든 스테이지가 삭제됩니다.  
+- 삭제하려는 API Gateway 서비스의 스테이지가 사용량 계획과 연결된 경우, 삭제할 수 없습니다. 삭제하려면 사용량 계획에서 연결된 스테이지를 모두 연결 해제후 삭제해주세요.
+- 삭제된 API Gateway 서비스는 복구할 수 없으므로 주의해주세요.
 
 #### 요청
 
@@ -380,7 +387,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 [Query Parameter]
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | Enum | 필수 | 없음 | KR1 | [API Gateway 리전 Enum 코드 참조](./api-guide-v1.0/#regionCode) |
+| regionCode | Enum | 필수 | 없음 | KR1 | [API Gateway 리전 Enum 코드 참조](./enum-code/#regionCode) |
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 
 #### 응답
