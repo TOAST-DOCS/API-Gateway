@@ -173,10 +173,6 @@
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
-|paging                               |Object  | 페이징 영역                                        |
-|paging.page                          |Integer | 현재 페이지                                        |
-|paging.limit                         |Integer | 페이지 당 건 수                                  |
-|paging.totalCount                    |Integer | 전체 건 수                                        |
 |model                     |List    | 모델 영역                         |
 |model.apigwServiceId  |String  |API Gateway 서비스 ID |
 |model.modelId         |String  |모델 ID              |
@@ -303,8 +299,6 @@
 | --- | --- | --- | --- | --- | --- |
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 | modelId | String | 필수 | 없음 | 없음 | 모델 ID |
-
-#### 응답
 
 #### 응답
 
