@@ -1,4 +1,4 @@
-## 모델 API
+## 모델
 
 ### 모델 목록 조회 
 - 모델 목록을 조회합니다.
@@ -135,7 +135,7 @@
 
 #### 응답
 
-[Response Body]
+[Response]
 
 ```json
 {
@@ -233,7 +233,7 @@
 
 #### 응답
 
-[Response Body]
+[Response]
 
 ```json
 {
@@ -302,7 +302,7 @@
 
 #### 응답
 
-[Response Body]
+[Response]
 
 ```json
 {

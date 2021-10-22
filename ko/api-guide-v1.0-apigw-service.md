@@ -172,7 +172,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 #### 응답
 
-[Response Body]
+[Response]
 
 ```json
 {
@@ -247,7 +247,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 #### 응답
 
-[Response Body]
+[Response]
 
 ```json
 {
@@ -324,7 +324,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 #### 응답
 
-[Response Body]
+[Response]
 
 ```json
 {
@@ -376,19 +376,18 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [URI]
 
-| 메서드    | URI                                  |
+| 메서드    | URI                                 |
 | ------ | ------------------------------------ |
-| DELETE | /v1.0/appkeys/{appKey}/services |
+| DELETE | /v1.0/appkeys/{appKey}/services/{apigwServiceId} |
 
-[Query Parameter]
+[Path Parameter]
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | Enum | 필수 | 없음 | KR1 | [API Gateway 리전 Enum 코드 참조](./enum-code/#regionCode) |
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 
 #### 응답
 
-[Response Body]
+[Response]
 
 ```json
 {
