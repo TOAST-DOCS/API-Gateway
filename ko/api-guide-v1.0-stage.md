@@ -70,14 +70,14 @@
 |stageList[0].stageCustomUrl   |String  |스테이지 사용자 정의 URL   |
 |stageList[0].stageDescription |String  |스테이지 설명             |
 |stageList[0].backendEndpointUrl|String  |백엔드 엔드포인트 URL       |
-|stageList[0].resourceUpdatedAt|DateTime|최근 스테이지 리소스 가져오기 수행 일시 |
+|stageList[0].resourceUpdatedAt|DateTime|최근 스테이지에 리소스를 가져온 일시 |
 |stageList[0].createdAt        |DateTime|스테이지 생성일시           |
 |stageList[0].updatedAt        |DateTime|스테이지 수정일시           |
 
 
 ## Swagger Export
 - Swagger문서를 조회합니다. 
-- Swagger문서는 API Gateway에 배포된 설정 기준이 아닌 현재 스테이지 설정을 기준으로 추출됩니다.
+- Swagger문서는 API Gateway에 배포된 설정이 아닌 현재 스테이지 설정을 기준으로 추출됩니다.
 
 #### 요청
 
@@ -186,7 +186,7 @@
 |stage.stageCustomUrl   |String  |스테이지 사용자 정의 URL   |
 |stage.stageDescription |String  |스테이지 설명             |
 |stage.backendEndpointUrl      |String  |백엔드 엔드포인트 URL       |
-|stage.resourceUpdatedAt|DateTime|최근 스테이지 리소스 가져오기 수행 일시 |
+|stage.resourceUpdatedAt|DateTime|최근 스테이지에 리소스를 가져온 일시 |
 |stage.createdAt        |DateTime|스테이지 생성일시           |
 |stage.updatedAt        |DateTime|스테이지 수정일시           |
 
@@ -218,8 +218,8 @@
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| description | String | 선택 | 없음 | 최대 200자  | 스테이지 설명 |
 | backendEndpointUrl | String | 필수 | 없음 | 최대 150자, URL형식  | 백엔드 엔드포인트 URL |
+| description | String | 선택 | 없음 | 최대 200자  | 스테이지 설명 |
 
 
 #### 응답
@@ -260,14 +260,14 @@
 |stage.stageCustomUrl   |String  |스테이지 사용자 정의 URL   |
 |stage.stageDescription |String  |스테이지 설명             |
 |stage.backendEndpointUrl      |String  |백엔드 엔드포인트 URL       |
-|stage.resourceUpdatedAt|DateTime|최근 스테이지 리소스 가져오기 수행 일시 |
+|stage.resourceUpdatedAt|DateTime|최근 스테이지에 리소스를 가져온 일시 |
 |stage.createdAt        |DateTime|스테이지 생성일시           |
 |stage.updatedAt        |DateTime|스테이지 수정일시           |
 
 
 ### 스테이지 삭제
 - 스테이지를 삭제합니다.
-- 삭제하려는 스테이지가 사용량 계획에 연결된 경우 삭제가 불가합니다. 사용량 계획에서 스테이지 연결해제 후 삭제해주세요.
+- 삭제하려는 스테이지가 사용량 계획에 연결된 경우 삭제가 불가합니다. 사용량 계획에서 스테이지 연결 해제 후 삭제하시기 바랍니다.
 - 삭제된 스테이지는 복구가 불가합니다.
 
 #### 요청
@@ -300,7 +300,7 @@
 
 
 ## 스테이지 리소스 목록 조회 
-* 스테이지에 등록된 리소스 목록을 가져옵니다. 스테이지 리소스 플러그인을 포함합니다.
+* 스테이지에 등록된 리소스 목록을 가져옵니다. 각 리소스에 설정된 스테이지 리소스 플러그인 정보가 포함됩니다.
 * 스테이지 리소스 플러그인에 대한 자세한 내용은 [스테이지 리소스 플러그인]()을 참조합니다.
 
 
@@ -397,7 +397,7 @@
 
 
 ### 스테이지에 리소스 가져오기
-* API Gateway 서비스 > 리소스에 등록된 리소스를 스테이지 리소스로 가져옵니다. 
+* API Gateway 서비스 > 리소스를 스테이지에 가져옵니다. 
 * 리소스를 가져오면 스테이지 리소스, 스테이지 리소스 플러그인는 모두 새로 생성됩니다. 
 * 기존 리소스 경로,메서드에 설정된 스테이지 리소스 플러그인의 설정 값은 그대로 유지됩니다. 
 
@@ -493,8 +493,8 @@
 
 
 
-### 스테이지 리소스 플러그인 설정
-* 특정 스테이지 리소스에 스테이지 리소스 플러그인을 설정합니다.
+### 스테이지 리소스 수정
+* 리소스 경로 또는 리소스 메서드에 설정된 백엔드 엔드포인트 URL 재정의와 스테이지 리소스 플러그인을 수정합니다.
 * 스테이지 리소스 플러그인에 대한 자세한 정보는 [스테이지 리소스 플러그인]()을 참고합니다.
 
 #### 요청
@@ -532,6 +532,7 @@
 | stageResourcePluginList | List | 선택 | 없음 | 없음 | 스테이지 리소스 플러그인 목록 영역 |
 | stageResourcePluginList[0] | Object | 필수 | 없음 | 없음 | 스테이지 리소스 플러그인 별 Json형식의 객체<br>[스테이지 리소스 플러그인 참고]() |
 
+* customBackendEndpointUrl필드는 루트(/)리소스 경로에는 설정할 수 없습니다.
 
 
 #### 응답
@@ -610,8 +611,10 @@
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정일시                         |
 
 ## 스테이지 리소스 플러그인
+
 * 스테이지의 리소스마다 접근 제한, 인증, 사용량 제어등의 기능을 플러그인 형태로 설정할 수 있습니다. 
 * 플러그인은 상위에서 설정하면 하위 모든 메서드에 일괄 적용되며, 하위 경로/메서드에서 재정의할 수 있습니다. 
+
 * [예시]: 플러그인 설정 재정의
   ```
   /
@@ -621,14 +624,14 @@
   ```
   * 설정 
     1. 루트(/) 리소스 경로에 요청 수 제한을 초당 100개로 제한
-    2. POST 리소스 메서드는 요청 수 제한을 초당 10개로 제한 
+    2. POST 리소스 메서드에 요청 수 제한을 초당 10개로 제한 (재정의)
   * 동작 결과 
     - GET /members는 루트(/)에 설정된 요청 수 제한의 초당 100개로 제한이 적용됩니다.
     - POST /members는 루트(/)에 설정된 요청 수 제한의 초당 100개 제한이 무시되고, 초당 10개로 제한으로 적용됩니다.
 
 * 리소스에 따라 설정 가능한 플러그인
 
-| 리소스 타입 | 설정 가능한 플러그인 목록 | 
+| 리소스 타입 | 설정 가능한 플러그인 목록 |
 | --- | --- |
 | 루트(/) 리소스 경로 |IP ACL, 인증(JWT 또는 HMAC 중 하나), 사전 호출 API, 요청 수 제한, API Key |
 | 리소스 경로 |백엔드 엔드포인트 URL 재정의, 사전 호출 API, API Key |
@@ -668,7 +671,7 @@
 | pluginConfigJson.ipAclList[0].description | String | 필수 | 없음 | 최대 200자 | 설명을 설정합니다. |
 
 
-#### HMAC
+### HMAC
 * HMAC 서명 검증을 통해 클라이언트 요청의 변조를 검증하기 위한 설정입니다. 
 * 루트(/) 리소스 경로에만 설정 할 수 있습니다. 설정 내용은 하위 모든 리소스에 적용됩니다.
 * HMAC 인증은 JWT 인증과 동시에 설정이 불가합니다. 
@@ -699,7 +702,7 @@
 | pluginConfigJson.enforceHeaders[0] | String | 필수 | 없음 | | 필수 검증 헤더의 문자열 배열을 입력합니다. |
 
 
-#### JWT 
+### JWT 
 * JWT 토큰의 서명과 요청 클레임을 검증하기 위한 설정입니다.
 * 루트(/) 리소스 경로에만 설정 할 수 있습니다. 설정 내용은 하위 모든 리소스에 적용됩니다.
 * JWT 인증은 HMAC 인증과 동시에 설정이 불가합니다.
@@ -842,8 +845,6 @@
 
 * **암호화 알고리즘 RS256: (Json Web Key Sets URI 공개키 설정 방식)** 
 
-* 암호화 알고리즘: RS256 (JSON Web Key URL)
-
 ```json
 {
   "pluginType": "JWT",
@@ -871,7 +872,7 @@
 | pluginConfigJson.claimValidationCondition | Object | 필수 |  |  | 클레임 검증 조건 영역 (암호화 알고리즘: HS256의 claimValidationCondition 필드 설명과 동일합니다.) |
 
 
-#### 사전 호출 API 
+### 사전 호출 API 
 * 사전 호출 API는 백엔드 엔드포인트를 호출하기 전에 사용자가 지정한 API를 호출하여 호출의 응답 코드가 200 OK인 경우에만, 백엔드 엔드포인트 호출하도록 합니다.
 * 모든 리소스 경로, 메서드에 설정할 수 있습니다. 
 
@@ -920,7 +921,7 @@
 | pluginConfigJson.requestPerSec | Integer | 필수 | 없음 | 1~5000 | 초당 최대 요청 가능한 수를 설정합니다. |
 
 
-## API Key 검증
+### API Key
 
 * API 호출시 API Key가 유효한지 검증하고, 지정된 사용량 계획의 사용량을 초과했는지 검증합니다. 
 * 루트(/) 리소스 경로와 리소스 메서드에 설정할 수 있습니다. 
