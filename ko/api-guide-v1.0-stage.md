@@ -663,7 +663,7 @@
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 필수 | 없음 | IP_ACL | [플러그인 타입]() 중 IP_ACL 참고 |
+| pluginType | Enum | 필수 | 없음 | IP_ACL | [스테이지 리소스 > 플러그인 타입]() 중 IP_ACL 참고 |
 | pluginConfigJson | Object | 필수 |  |  | IP ACL 플러그인 설정 영역 |
 | pluginConfigJson.isPermit | Boolean | 필수 | false | true, false | false로 설정하면 설정된 IP/CIDR에 대해 요청을 거부하고, true로 설정하면 설정된 IP/CIDR만 요청을 허용합니다.  |
 | pluginConfigJson.ipAclList | List | 필수 |  | 최대 100개 | 요청을 허용/거부할 IP 또는 CIDR 목록 영역 |
@@ -694,7 +694,7 @@
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 필수 | 없음 | HMAC | [플러그인 타입]() 중 HMAC 참고 |
+| pluginType | Enum | 필수 | 없음 | HMAC | [스테이지 리소스 > 플러그인 타입]() 중 HMAC 참고 |
 | pluginConfigJson | Object | 필수 |  |  | HMAC 플러그인 설정 영역 |
 | pluginConfigJson.secretKey | String | 필수 | 없음 | 없음 | 서명에 사용되는 비밀키를 설정합니다. 최소 32바이트 이상 문자열로 설정하는 것을 권장합니다.|
 | pluginConfigJson.clockSkewSeconds | Integer | 필수 | 0 | 0~86400 | 요청 유효 시간(단위: 초)을 지정합니다. |
@@ -770,7 +770,7 @@
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 필수 | 없음 | JWT | [플러그인 타입]() 중 JWT 참고 |
+| pluginType | Enum | 필수 | 없음 | JWT | [스테이지 리소스 > 플러그인 타입]() 중 JWT 참고 |
 | pluginConfigJson | Object | 필수 |  |  | JWT 플러그인 설정 영역 |
 | pluginConfigJson.encryptAlgorithm | Enum | 필수 | HS256 | HS256 | [JWT > 암호화 알고리즘]() 참고  |
 | pluginConfigJson.hs256.secretKey | String | 필수 | 없음 | 없음 | 서명에 사용되는 비밀키를 설정합니다. 최소 32바이트 이상 문자열로 설정하는 것을 권장합니다.|
@@ -834,7 +834,7 @@
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 필수 | 없음 | JWT | [플러그인 타입]() 중 JWT 참고 |
+| pluginType | Enum | 필수 | 없음 | JWT | [스테이지 리소스 > 플러그인 타입]() 중 JWT 참고 |
 | pluginConfigJson | Object | 필수 |  |  | JWT 플러그인 설정 영역 |
 | pluginConfigJson.encryptAlgorithm | Enum | 필수 | RS256 | RS256 | [JWT > 암호화 알고리즘]() 참고  |
 | pluginConfigJson.rs256.publicKeyType | String | 필수 | 없음 | RSA_PUBLIC_KEY | PEM 형식의 공개키 설정 [JWT > RS256 암호화 알고리즘 > Public Key Type]() 참고 |
@@ -863,7 +863,7 @@
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 필수 | 없음 | JWT | [플러그인 타입]() 중 JWT 참고 |
+| pluginType | Enum | 필수 | 없음 | JWT | [스테이지 리소스 > 플러그인 타입]() 중 JWT 참고 |
 | pluginConfigJson | Object | 필수 |  |  | JWT 플러그인 설정 영역 |
 | pluginConfigJson.encryptAlgorithm | Enum | 필수 | RS256 | RS256 | [JWT > 암호화 알고리즘]() 참고  |
 | pluginConfigJson.rs256.publicKeyType | String | 필수 | 없음 | JWKS_URI | JWKS(Json Web Key Sets) URI 형식으로 공개키를 설정합니다. [JWT > RS256 암호화 알고리즘 > Public Key Type]() 참고 |
@@ -890,7 +890,7 @@
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 필수 | 없음 | PRE_API | [플러그인 타입]() 중 PRE_API 참고 |
+| pluginType | Enum | 필수 | 없음 | PRE_API | [스테이지 리소스 > 플러그인 타입]() 중 PRE_API 참고 |
 | pluginConfigJson | Object | 필수 |  |  | 사전 호출 API 플러그인 설정 영역 |
 | pluginConfigJson.httpMethod | Enum | 필수 | 없음 | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [사전 호출 API > HttpMethod]() 참고  |
 | pluginConfigJson.url | String | 필수 | 없음 | URL형식 | 사전 호출 API의 URL을 입력합니다. |
@@ -914,7 +914,7 @@
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 필수 | 없음 | RATE_LIMIT | [플러그인 타입]() 중 RATE_LIMIT 참고 |
+| pluginType | Enum | 필수 | 없음 | RATE_LIMIT | [스테이지 리소스 > 플러그인 타입]() 중 RATE_LIMIT 참고 |
 | pluginConfigJson | Object | 필수 |  |  | 요청 수 제한 플러그인 설정 영역 |
 | pluginConfigJson.keyType | Enum | 필수 | 없음 | DEFAULT, IP, HEADER, PATH_VARIABLE | [요청 수 제한 > 제한 키]() 참고  |
 | pluginConfigJson.extraKeyValue | String | 조건부 필수 | 없음 | 없음 | keyType이 HEADER인 경우, 헤더 이름을 반드시 설정해야합니다.<br/> keyType이 PATH_VARIABLE인 경우, ${request.path.variable-name} 형식의 경로 변수를 반드시 설정해야 합니다. |
@@ -938,6 +938,6 @@
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 필수 | 없음 | API_KEY | [플러그인 타입]() 중 API_KEY 참고 |
+| pluginType | Enum | 필수 | 없음 | API_KEY | [스테이지 리소스 > 플러그인 타입]() 중 API_KEY 참고 |
 | pluginConfigJson | Object | 필수 |  |  | API Key 플러그인 설정 영역 |
 | pluginConfigJson.isActive | Boolean | 필수 | 없음 | true | API Key 검증 여부를 설정합니다. 반드시 true로 설정해야합니다. |
