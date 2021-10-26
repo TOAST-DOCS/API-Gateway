@@ -4,6 +4,7 @@
 ### 스테이지 배포
 - 현재 스테이지 리소스와 설정을 API Gateway 서비스에 배포합니다. 
 - 변경된 설정 정보가 없는 경우, 스테이지 배포 요청이 실패합니다.
+- 스테이지 배포가 실패된 경우, 기존 성공한 스테이지 배포 설정으로 롤백됩니다.
 - 스테이지 배포 요청 후, 스테이지 배포 성공 여부는 [최근 스테이지 배포 결과 조회]()에서 확인할 수 있습니다. 
 
 #### 요청
@@ -36,7 +37,7 @@
 
 
 ### 최근 스테이지 배포 결과 조회 
-- [스테이지 배포]()의 배포 결과를 조회할 수있습니다. 
+- [스테이지 배포]()의 결과를 조회할 수있습니다. 
 - 스테이지 배포 요청 이후 배포 결과가 업데이트되기 까지 최대 1분 정도까지 소요될 수 있습니다. 
 
 
@@ -127,7 +128,7 @@
 |latestStageDeployResult.deployStatus        |Enum  | [스테이지 배포 > 배포 상태]() 참고 |
 |latestStageDeployResult.isBase         |String  | 현재 스테이지의 설정 기반 여부 |
 |latestStageDeployResult.deployedAt          |DateTime  | 배포 요청 일시 |
-|latestStageDeployResult.rollbackAt   |DateTime  | 배포 롤백 요청 일시 |
+|latestStageDeployResult.rollbackAt   |DateTime  | 스테이지 되돌리기 요청 일시 |
 |latestStageDeployResult.stageResourceList      |List    |스테이지 리소스 목록 영역                             |
 |latestStageDeployResult.stageResourceList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |latestStageDeployResult.stageResourceList[0].path                   |String  |스테이지 리소스 경로                                |
@@ -244,7 +245,7 @@
 |stageDeployHistoryList[0].deployDescription        |String  | 배포 설명  |
 |stageDeployHistoryList[0].isBase         |String  | 현재 스테이지의 설정 기반 여부 |
 |stageDeployHistoryList[0].deployedAt          |DateTime  | 배포 요청 일시 |
-|stageDeployHistoryList[0].rollbackAt   |DateTime  | 배포 롤백 요청 일시 |
+|stageDeployHistoryList[0].rollbackAt   |DateTime  | 스테이지 되돌리기 요청 일시 |
 
 
 ### 스테이지 되돌리기
@@ -252,8 +253,6 @@
 - 스테이지 되돌리기를 하면 현재 스테이지 설정은 모두 삭제되므로 유의하시기 바랍니다.  
 - 되돌려진 스테이지 설정을 API Gateway 서비스에 적용하려면 스테이지를 배포해야합니다.
 - 배포 실패 상태의 배포 이력으로는 되돌리기를 할 수 없습니다.
-- 스테이지 배포 요청이 실패한 경우, 기존 성공한 스테이지 배포 이력으로 되돌려집니다.
-
 
 #### 요청
 
