@@ -181,7 +181,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     "resultCode": 0,
     "resultMessage": "SUCCESS"
   },
-  "apigwServiceBean": {
+  "apigwService": {
     "apigwServiceId": "{apigwServiceId}",
     "apigwServiceAlias": "{apigwServiceAlias}",
     "name": "test api gateway",
