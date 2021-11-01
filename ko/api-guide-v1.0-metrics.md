@@ -127,7 +127,6 @@
     * UTC 표기: yyyy-MM-dd'T'HH:mm:ssZ
     * UTC 기준 타임 오프셋 표기: yyyy-MM-dd'T'HH:mm:ss±hh:mm
 
-
 #### 응답
 
 [Response]
@@ -191,5 +190,6 @@
 |data[0].{requestApigwEndpoint}.stageCustomUrl               |String    | 스테이지 커스텀 URL |
 |data[0].{requestApigwEndpoint}.apiKeyMetricsTimeSeries      |Object    | 집계 시간 단위별 API Key 통계 영역|
 |data[0].{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount               |List    | API 호출 수 통계 목록 영역 |
-|data[0].{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].dateTime   |Long    | 집계 시간(Unix time 형식) |
-|data[0].{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].count      |Long    | 집계 시간 동안의 총 API 호출 수 |
+|data[0].{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].dateTime   |Long    | 통계 시간(Unix time 형식) |
+|data[0].{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].count      |Long    | 통계 시간 동안의 총 API 호출 수 |
+* 일 단위 통계 데이터는 각 일의 00:00:00의 시간 데이터에 집계됩니다.
