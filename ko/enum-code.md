@@ -19,6 +19,30 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | --- | --- |
 | SHARED | 공용 API Gateway 서비스 타입 |
 
+
+### 리소스 HTTP 메서드 타입
+- 리소스 HTTP 메서드 타입입니다.
+
+| 이름 | 설명 |
+| --- | --- |
+| GET | HTTP GET 메서드 |
+| POST | HTTP POST 메서드 | 
+| DELETE | HTTP DELETE 메서드 | 
+| PUT | HTTP PUT 메서드 | 
+| OPTIONS | HTTP OPTIONS 메서드 | 
+| HEAD | HTTP HEAD 메서드 | 
+| PATCH | HTTP PATCH 메서드 | 
+
+### 리소스 플러그인 타입
+| 이름 | 설명 |
+| --- | --- |
+| HTTP | API Gateway로 수신된 요청을 정의된 백엔드 엔드포인트 URL 경로로 전달합니다. |
+| MOCK | API Gateway로 수신된 요청에 대해 정의된 응답을 반환합니다. | 
+| CORS | Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니다. | 
+| SET_REQUEST_HEADER | 요청 헤더를 추가하거나 변경합니다.  | 
+| SET_RESPONSE_HEADER | 응답 헤더 변경 플러그인은 백엔드 응답에 헤더를 추가하거나 변경합니다. | 
+| ADD_REQUEST_QUERY_PARAMETER | 백엔드 엔드포인트 요청에 쿼리 문자열 파라미터를 추가합니다.   | 
+
 ### 리소스 요청/응답 파라미터 데이터 타입
 - 리소스 요청/응답 파라미터에서 설정할 수 있는 데이터 타입입니다.
 
