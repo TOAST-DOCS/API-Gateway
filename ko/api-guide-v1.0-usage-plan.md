@@ -77,7 +77,7 @@
 | POST |  /v1.0/appkeys/{appKey}/usage-plans |
 
 [Request Body]
-``` json
+```json
 {
   "usagePlanName": "string",
   "usagePlanDescription": "string",
