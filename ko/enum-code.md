@@ -133,3 +133,18 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | --- | --- |
 | DAY | 일 단위로 호출량 제한. 매일 UTC 00:00:00에 초기화.| 
 | MONTH | 월 단위로 호출량 제한. 매월 1일 UTC 00:00:00에 초기화. | 
+
+
+### API Key 상태
+
+| 이름 | 설명 |
+| --- | --- |
+| ACTIVE | 활성화 상태 | 
+| INACTIVE | 비활성화 상태 |
+
+### API Key 타입
+
+| 이름 | 설명 |
+| --- | --- |
+| PRIMARY | Primary API Key | 
+| SECONDARY | Secondary API Key |
