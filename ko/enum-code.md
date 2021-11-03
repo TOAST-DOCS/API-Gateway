@@ -148,3 +148,9 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | --- | --- |
 | PRIMARY | Primary API Key | 
 | SECONDARY | Secondary API Key |
+
+### API Key 구독 상태
+
+| 이름 | 설명 |
+| --- | --- |
+| APPROVAL | 승인 상태 | 
