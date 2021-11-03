@@ -118,8 +118,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
       {
          "apigwServiceId":"{apigwServiceId}",
          "apigwServiceAlias":"{apigwServiceAlias}",
-         "name":"test api gateway",
-         "description":"description of test api gateway service",
+         "apigwServiceName":"test api gateway",
+         "apigwServiceDescription":"description of test api gateway service",
          "apigwDomain":"api.nhncloudservice.com",
          "appKey":"{appKey}",
          "regionCode":"KR1",
@@ -146,8 +146,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |apigwServiceList[0].apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드 참조](./enum-code/#apigwServiceType)|
 |apigwServiceList[0].appKey              |String  | AppKey                                        |
 |apigwServiceList[0].dedicatedId         |String  | 전용 API Gateway 서비스의 ID                        |
-|apigwServiceList[0].description         |String  | API Gateway  서비스 설명                                        |
-|apigwServiceList[0].name                |String  | API Gateway 서비스 이름                                        |
+|apigwServiceList[0].apigwServiceDescription         |String  | API Gateway  서비스 설명                                        |
+|apigwServiceList[0].apigwServiceName                |String  | API Gateway 서비스 이름                                        |
 |apigwServiceList[0].regionCode          |Enum    | [API Gateway 리전 Enum 코드 참조](./enum-code/#regionCode) |
 |apigwServiceList[0].serverGroupId       |String  | API Gateway 서비스가 속한 서버 그룹 ID                              |
 |apigwServiceList[0].createdAt           |DateTime| API Gateway 서비스 생성일시                                      |
@@ -184,8 +184,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   "apigwService": {
     "apigwServiceId": "{apigwServiceId}",
     "apigwServiceAlias": "{apigwServiceAlias}",
-    "name": "test api gateway",
-    "description": "description of test api gateway",
+    "apigwServiceName": "test api gateway",
+    "apigwServiceDescription": "description of test api gateway",
     "apigwDomain": "api.nhncloudservice.com",
     "appKey": "{appKey}",
     "regionCode": "KR1",
@@ -207,8 +207,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |apigwService.apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드 참조](./enum-code/#apigwServiceType) |
 |apigwService.appKey              |String  | AppKey                                        |
 |apigwService.dedicatedId         |String  | 전용 API Gateway 서비스의 ID                        |
-|apigwService.description         |String  | API Gateway 서비스 설명                                        |
-|apigwService.name                |String  | API Gateway 서비스 이름                                        |
+|apigwService.apigwServiceDescription         |String  | API Gateway 서비스 설명                                        |
+|apigwService.apigwServiceName                |String  | API Gateway 서비스 이름                                        |
 |apigwService.regionCode          |Enum    |[API Gateway 리전 Enum 코드 참조](./enum-code/#regionCode) |
 |apigwService.serverGroupId       |String  | API Gateway 서비스가 속한 서버 그룹 ID                              |
 |apigwService.createdAt           |DateTime| API Gateway 서비스 생성일시                                      |
@@ -233,16 +233,16 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 ``` json
 {
   "regionCode": "KR1",
-  "serviceName": "service name",
-  "description": "service description"
+  "apigwServiceName": "service name",
+  "apigwServiceDescription": "service description"
 }
 ```
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | regionCode | Enum | 필수 | 없음 | KR1 | [API Gateway 서비스 타입 Enum 코드 참조](./enum-code/#apigwServiceType) |
-| serviceName | String | 필수 | 없음 | 최대 50자  | API Gateway 서비스 이름 |
-| description | String | 선택 | 없음 | 최대 200자  | API Gateway 서비스 설명 |
+| apigwServiceName | String | 필수 | 없음 | 최대 50자  | API Gateway 서비스 이름 |
+| apigwServiceDescription | String | 선택 | 없음 | 최대 200자  | API Gateway 서비스 설명 |
 
 
 #### 응답
@@ -259,8 +259,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   "apigwService": {
     "apigwServiceId": "{apigwServiceId}",
     "apigwServiceAlias": "{apigwServiceAlias}",
-    "name": "test api gateway",
-    "description": "description of test api gateway",
+    "apigwServiceName": "test api gateway",
+    "apigwServiceDescription": "description of test api gateway",
     "apigwDomain": "api.nhncloudservice.com",
     "appKey": "{appKey}",
     "regionCode": "KR1",
@@ -282,8 +282,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |apigwService.apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드 참조](./enum-code/#apigwServiceType) |
 |apigwService.appKey              |String  | AppKey                                        |
 |apigwService.dedicatedId         |String  | 전용 API Gateway 서비스의 ID                        |
-|apigwService.description         |String  | 서비스 설명                                        |
-|apigwService.name                |String  | API Gateway 서비스 이름                                        |
+|apigwService.apigwServiceDescription         |String  | 서비스 설명                                        |
+|apigwService.apigwServiceName    |String  | API Gateway 서비스 이름                                        |
 |apigwService.regionCode          |Enum    | [API Gateway 리전 Enum 코드 참조](./enum-code/#regionCode) |
 |apigwService.serverGroupId       |String  | API Gateway 서비스가 속한 서버 그룹 ID                              |
 |apigwService.createdAt           |DateTime| API Gateway 서비스 생성일시                                      |
@@ -311,15 +311,15 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 [Request Body]
 ```json
 {
-  "serviceName": "update service name",
-  "description": "test of api gateway service"
+  "apigwServiceName": "update service name",
+  "apigwServiceDescription": "test of api gateway service"
 }
 ```
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| serviceName | String | 필수 | 없음 | 최대 50자  | API Gateway 서비스 이름 |
-| description | String | 선택 | 없음 | 최대 200자  | API Gateway 서비스 설명 |
+| apigwServiceName | String | 필수 | 없음 | 최대 50자  | API Gateway 서비스 이름 |
+| apigwServiceDescription | String | 선택 | 없음 | 최대 200자  | API Gateway 서비스 설명 |
 
 
 #### 응답
@@ -336,8 +336,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   "apigwService": {
     "apigwServiceId": "{apigwServiceId}",
     "apigwServiceAlias": "{apigwServiceAlias}",
-    "name": "test api gateway",
-    "description": "description of test api gateway",
+    "apigwServiceName": "test api gateway",
+    "apigwServiceDescription": "description of test api gateway",
     "apigwDomain": "api.nhncloudservice.com",
     "appKey": "{appKey}",
     "regionCode": "KR1",
@@ -359,8 +359,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |apigwService.apigwServiceTypeCode|Enum    |[API Gateway 서비스 타입 Enum 코드 참조](./enum-code/#apigwServiceType)|
 |apigwService.appKey              |String  |AppKey                                        |
 |apigwService.dedicatedId         |String  |전용 API Gateway 서비스의 ID                        |
-|apigwService.description         |String  |서비스 설명                                        |
-|apigwService.name                |String  |서비스 이름                                        |
+|apigwService.apigwServiceDescription         |String  |서비스 설명                                        |
+|apigwService.apigwServiceName                |String  |서비스 이름                                        |
 |apigwService.regionCode          |Enum    |[API Gateway 리전 Enum 코드 참조](./enum-code/#regionCode)|
 |apigwService.serverGroupId       |String  |서비스가 속한 서버 그룹 ID                              |
 |apigwService.createdAt           |DateTime|서비스 생성일시                                      |

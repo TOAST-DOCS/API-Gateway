@@ -130,20 +130,20 @@
 [Request Body]
 ```json
 {
-  "name": "string",
-  "description": "string",
+  "stageName": "string",
+  "stageDescription": "string",
   "backendEndpointUrl": "https://backend.com"
 }
 ```
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| name | String | 조건부 필수 | 없음 | 최대 30자, 영소문자와 숫자만 | 스테이지 이름<br/>기본 스테이지가 아닌 경우 필수 값입니다.  |
-| description | String | 선택 | 없음 | 최대 200자  | 스테이지 설명 |
+| stageName | String | 조건부 필수 | 없음 | 최대 30자, 영소문자와 숫자만 | 스테이지 이름<br/>기본 스테이지가 아닌 경우 필수 값입니다.  |
+| stageDescription | String | 선택 | 없음 | 최대 200자  | 스테이지 설명 |
 | backendEndpointUrl | String | 필수 | 없음 | 최대 150자, URL형식  | 백엔드 엔드포인트 URL |
-- name 필드 값은 유일해야합니다. 
-- name(스테이지 이름) 필드를 null로 설정하면 기본 스테이지로 생성됩니다. 기본 스테이지는 하나만 생성할 수 있습니다. 
-- name 필드 값에 따라 스테이지 URL이 변경됩니다.
+- stageName 필드 값은 유일해야합니다. 
+- stageName(스테이지 이름) 필드를 null로 설정하면 기본 스테이지로 생성됩니다. 기본 스테이지는 하나만 생성할 수 있습니다. 
+- stageName 필드 값에 따라 스테이지 URL이 변경됩니다.
   - 스테이지 URL 포맷: {regionCode}-{apigwServiceId}-{stageName}.api.nhncloudservice.com
 
 

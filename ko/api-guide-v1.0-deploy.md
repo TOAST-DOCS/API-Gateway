@@ -21,6 +21,17 @@
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 | stageId | String | 필수 | 없음 | 없음 | 스테이지 ID |
 
+[Request Body]
+```json
+{
+  "deployDescription": "deploy description"
+}
+```
+| 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
+| --- | --- | --- | --- | --- | --- |
+| deployDescription | String | 선택 | 없음 | 최대 200자 | 배포 설명 |
+
+
 #### 응답
 
 [Response]
