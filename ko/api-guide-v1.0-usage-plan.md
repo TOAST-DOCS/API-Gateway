@@ -204,7 +204,7 @@
 | usagePlanId | String | 필수 | 없음 | 없음 | 사용량 계획 ID |
 
 [Request Body]
-``` json
+```json
 {
   "usagePlanName": "Basic",
   "usagePlanDescription": "It's for Basic User",
@@ -343,15 +343,15 @@
 | paging.limit                          | Integer | 페이지 당 건 수              |
 | paging.totalCount                     | Integer | 전체 건 수                 |
 | usagePlanStageList                    | List    | 사용량 계획과 연결된 스테이지 목록 영역 |
-| usagePlanStageList.[0]                | Object  | 사용량 계획과 연결된 스테이지 영역    |
-| usagePlanStageList.[0].apigwServiceId | String  | API Gateway 서비스 ID     |
-| usagePlanStageList.[0].apigwName      | String  | API Gateway 서비스 이름     |
-| usagePlanStageList.[0].stageId        | String  | 스테이지 ID                |
-| usagePlanStageList.[0].stageName      | String  | 스테이지 이름                |
-| usagePlanStageList.[0].stageUrl       | String  | 스테이지 URL               |
-| usagePlanStageList.[0].stageCustomUrl | String  | 스테이지 사용자 정의 URL        |
-| usagePlanStageList.[0].usagePlanId    | String  | 사용량 계획 ID              |
-| usagePlanStageList.[0].usagePlanName  | String  | 사용량 계획 이름              |
+| usagePlanStageList[0]                | Object  | 사용량 계획과 연결된 스테이지 영역    |
+| usagePlanStageList[0].apigwServiceId | String  | API Gateway 서비스 ID     |
+| usagePlanStageList[0].apigwName      | String  | API Gateway 서비스 이름     |
+| usagePlanStageList[0].stageId        | String  | 스테이지 ID                |
+| usagePlanStageList[0].stageName      | String  | 스테이지 이름                |
+| usagePlanStageList[0].stageUrl       | String  | 스테이지 URL               |
+| usagePlanStageList[0].stageCustomUrl | String  | 스테이지 사용자 정의 URL        |
+| usagePlanStageList[0].usagePlanId    | String  | 사용량 계획 ID              |
+| usagePlanStageList[0].usagePlanName  | String  | 사용량 계획 이름              |
 
 
 ### 사용량 계획에 스테이지 연결
