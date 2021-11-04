@@ -43,7 +43,7 @@
             "subscriptionId": "{subscriptionId}",
             "subscriptionStatus": "APPROVAL",
             "apiKeyId": "{apiKeyId}",
-            "apigwName": "test api gateway",
+            "apigwServiceName": "test api gateway",
             "stageId": "{stageId}",
             "stageName": null,
             "stageUrl": "kr1-example.api.nhncloudservice.com",
@@ -69,7 +69,7 @@
 | subscribeStageAndUsagePlanList[0].subscriptionId            | String  | 구독 ID                                     |
 | subscribedStageAndUsagePlanList[0].subscriptionStatus        | Enum    | [API Key 구독 상태](./enum-code/#???) 참조              |
 | subscribedStageAndUsagePlanList[0].apiKeyId                  | String  | API Key ID                                        |
-| subscribedStageAndUsagePlanList[0].apigwName                 | String  | API Gateway 서비스 이름                                |
+| subscribedStageAndUsagePlanList[0].apigwServiceName          | String  | API Gateway 서비스 이름                                |
 | subscribedStageAndUsagePlanList[0].stageId                   | String  | 스테이지 ID                                           |
 | subscribedStageAndUsagePlanList[0].stageName                 | String  | 스테이지 이름                                           |
 | subscribedStageAndUsagePlanList[0].stageUrl                  | String  | 스테이지 URL                                          |

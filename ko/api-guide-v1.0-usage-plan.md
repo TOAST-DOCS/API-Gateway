@@ -324,7 +324,7 @@
   "usagePlanStageList": [
     {
       "apigwServiceId": "{apigwServiceId}",
-      "apigwName": "APIGW Example",
+      "apigwServiceName": "APIGW Example",
       "stageId": "{stageId}",
       "stageName": "custom",
       "stageUrl": "kr1-example-custom.api.nhncloudservice.com",
@@ -345,7 +345,7 @@
 | usagePlanStageList                    | List    | 사용량 계획과 연결된 스테이지 목록 영역 |
 | usagePlanStageList[0]                | Object  | 사용량 계획과 연결된 스테이지 영역    |
 | usagePlanStageList[0].apigwServiceId | String  | API Gateway 서비스 ID     |
-| usagePlanStageList[0].apigwName      | String  | API Gateway 서비스 이름     |
+| usagePlanStageList[0].apigwServiceName      | String  | API Gateway 서비스 이름     |
 | usagePlanStageList[0].stageId        | String  | 스테이지 ID                |
 | usagePlanStageList[0].stageName      | String  | 스테이지 이름                |
 | usagePlanStageList[0].stageUrl       | String  | 스테이지 URL               |
