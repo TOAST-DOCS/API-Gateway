@@ -306,12 +306,17 @@
 [URI]
 | 메서드  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/apikeys/connectable |
+| GET | /v1.0/appkeys/{appKey}/stages/{stageId}/apikeys/connectable |
+
+[Path Parameter]
+| 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
+| --- | --- | --- | --- | --- | --- |
+| stageId | String | 필수 | 없음 | 없음 | Stage ID |
+
 
 [QueryString Parameter]
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| stageId | String | 필수 | 없음 | 없음 | Stage ID |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
 | limit | Integer | 선택 | 10 | 최대 1000 | 페이지 당 건 수 |
 | apiKey | String | 선택 | 없음 | 없음 | primary 또는 secondary API Key 값 |
