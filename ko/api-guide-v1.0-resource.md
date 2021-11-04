@@ -309,18 +309,20 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 }
 ```
 
-| 필드                | 타입      | 설명                                                                                             |
-| ----------------- | ------- | ---------------------------------------------------------------------------------------------- |
-| allowedMethods    | List    | 리소스 접근에 허용할 메서드 목록 영역                                                                          |
-| allowedMethods[0] | Enum    | [리소스 HTTP 메서드 타입 Enum 코드 참조](./enum-code/#???)                                                 |
-| allowedHeaders    | List    | 요청에서 사용할 수 있는 HTTP 헤더 목록 영역                                                                    |
-| allowedHeaders[0] | String  | 요청에서 사용할 수 있는 HTTP 헤더. (예시: 와일드카드 형식: '\*' 또는 'X-NHN-HEADER, Content-Type')                    |
-| allowedOrigins    | List    | 리소스에 액세스할 수 있는 원본 서버의 도메인 목록 영역                                                                |
-| allowedOrigins[0] | String  | 리소스에 액세스할 수 있는 원본 서버의 도메인. (예시: 와일드카드 형식: '\*' 또는 ') |
-| exposedHeaders    | List    | 브라우저(클라이언트)가 접근할 수 있는 헤더 목록 영역                                                                 |
-| exposedHeaders[0] | String  | 브라우저(클라이언트)가 접근할 수 있는 헤더                                                                       |
-| maxCredentialsAge | Integer | 사전 전달 요청(Preflight)에 대한 응답 브라우저 캐시 시간 (초 단위)                                                   |
-| allowCredentials  | Boolean | 자격 증명으로 요청하는 여부                                                                                |
+| 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
+| --- | --- | --- | --- | --- | --- |
+| allowedMethods | List | 필수 | 없음 | 리소스 접근에 허용할 메서드 목록 영역 |
+| allowedMethods[0] | Enum | 필수 | 없음 | [리소스 HTTP 메서드 타입 Enum 코드 참조](./enum-code/#???) |
+| allowedHeaders | List | 필수 | 없음 | 요청에서 사용할 수 있는 HTTP 헤더 목록 영역 |
+| allowedHeaders[0] | String | 필수 | 없음 | 요청에서 사용할 수 있는 HTTP 헤더. (예시: 와일드카드 형식: '\*' 또는 'X-NHN-HEADER, Content-Type') |
+| allowedOrigins    | List | 필수 | 없음 | 리소스에 액세스할 수 있는 원본 서버의 도메인 목록 영역 |
+| allowedOrigins[0] | String | 필수 | 없음 | 리소스에 액세스할 수 있는 원본 서버의 도메인. (예시: 와일드카드 형식: '\*' 또는 ') |
+| exposedHeaders    | List | 선택 | 없음 | 브라우저(클라이언트)가 접근할 수 있는 헤더 목록 영역 |
+| exposedHeaders[0] | String | 필수 | 없음 |브라우저(클라이언트)가 접근할 수 있는 헤더 |
+| maxCredentialsAge | Integer | 선택 | 없음 | 사전 전달 요청(Preflight)에 대한 응답 브라우저 캐시 시간 (초 단위) |
+| allowCredentials  | Boolean | 필수 | true/false | 자격 증명으로 요청하는 여부 |
+
+
 
 ### SET_REQUEST_HEADER
 ```json
@@ -331,10 +333,10 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 }
 ```
 
-| 필드                    | 타입     | 설명                               |
-| --------------------- | ------ | -------------------------------- |
-| headers               | Map    | 추가/변경할 요청 헤더들 객체 영역              |
-| headers[{HeaderName}] | String | 객체 프로퍼티 키/값이 추가/변경할 요청 헤더의 이름과 값 |
+| 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
+| --- | --- | --- | --- | --- | --- |
+| headers | Map | 필수 | 없음 | 추가/변경할 요청 헤더들 객체 영역 |
+| headers[{HeaderName}] | String | 필수 | 없음 | 객체 프로퍼티 키/값이 추가/변경할 요청 헤더의 이름과 값 |
 
 ### SET_RESPONSE_HEADER
 ```json
@@ -345,10 +347,10 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 }
 ```
 
-| 필드                    | 타입     | 설명                               |
-| --------------------- | ------ | -------------------------------- |
-| headers               | Map    | 추가/변경할 응답 헤더들 객체 영역              |
-| headers[{HeaderName}] | String | 객체 프로퍼티 키/값이 추가/변경할 응답 헤더의 이름과 값 |
+| 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
+| --- | --- | --- | --- | --- | --- |
+| headers | Map | 필수 | 없음 | 추가/변경할 응답 헤더들 객체 영역 |
+| headers[{HeaderName}] | String | 필수 | 없음 | 객체 프로퍼티 키/값이 추가/변경할 응답 헤더의 이름과 값 |
 
 ### ADD_REQUEST_QUERY_PARAMETER
 ```json
@@ -359,7 +361,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 }
 ```
 
-| 필드                      | 타입     | 설명                                     |
-| ----------------------- | ------ | -------------------------------------- |
-| parameters              | Map    | 추가할 요청 쿼리 문자열 파라미터들 객체 영역              |
-| parameters[{QueryName}] | String | 객체 프로퍼티 키/값이 추가할 요청 쿼리 문자열 파라미터의 이름과 값 |
+| 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
+| --- | --- | --- | --- | --- | --- |
+| parameters | Map| 필수 | 없음 | 추가할 요청 쿼리 문자열 파라미터들 객체 영역              |
+| parameters[{QueryName}] | 필수 | 없음 | String | 객체 프로퍼티 키/값이 추가할 요청 쿼리 문자열 파라미터의 이름과 값 |
