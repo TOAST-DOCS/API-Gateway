@@ -53,7 +53,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 [실패: Response Body]  
 잘못된 API 요청을 한 경우, errorList 필드에 자세한 오류 원인과 필드 정보가 응답됩니다.  
 
-``` json
+```json
 {
   "header": {
     "isSuccessful": false,
@@ -63,9 +63,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   "errorList": [
     {
       "resultCode": 400,
-      "errorProperty": "putResourceAndPluginRequest",
-      "errorField": "deleteResourcePluginList[0]",
-      "errorMessage": "리소스 플러그인 중 잘못된 값이 존재합니다."
+      "errorProperty": "postApigwServiceRequest",
+      "errorField": "apigwServiceName",
+      "errorMessage": "Cannot be empty."
     }
   ]
 }
@@ -73,7 +73,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 | 필드 | 타입 | 설명 |
 | --- | --- | --- |
-| errorList            | List  | 오류 영역  |
+| errorList            | List  | 오류 목록 영역  |
 | errorList[0].resultCode  | Integer | 오류 코드  |
 | errorList[0].errorProperty | String | 오류 프로퍼티(모델) |
 | errorList[0].errorField | String  | 오류 상세 필드 |
@@ -81,17 +81,19 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 ## API Gateway 서비스
 
-### 서비스 목록 조회 
+### API Gateway 서비스 목록 조회 
 - API Gateway 서비스 목록을 조회합니다.
 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/services |
 
 [QueryString Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | regionCode | String | 필수 | 없음 | KR1 | [API Gateway 서비스 타입 Enum 코드 참조](./enum-code/#apigwServiceType) |
@@ -154,17 +156,19 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |apigwServiceList[0].updatedAt           |DateTime| API Gateway 서비스 수정일시                                      |
 
 
-### 단일 서비스 조회 
+### 단일 API Gateway 서비스 조회 
 - API Gateway 서비스 ID로 단일 API Gateway 서비스를 조회합니다.
 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId} |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
@@ -225,12 +229,14 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | POST | /v1.0/appkeys/{appKey}/services |
 
 [Request Body]
-``` json
+
+```json
 {
   "regionCode": "KR1",
   "apigwServiceName": "service name",
@@ -290,11 +296,10 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |apigwService.updatedAt           |DateTime| API Gateway 서비스 수정일시                                      |
 
 
-### 서비스 수정
+### API Gateway 서비스 수정
 - API Gateway 서비스의 이름과 설명을 수정합니다.
 
 #### 요청
-
 
 [URI]
 
@@ -303,12 +308,14 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | PUT  | /v1.0/appkeys/{appKey}/services/{apigwServiceId} |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 
 
 [Request Body]
+
 ```json
 {
   "apigwServiceName": "update service name",
@@ -344,7 +351,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     "serverGroupId": "{serverGroupId}",
     "dedicatedId": null,
     "createdAt": "2021-10-19T07:28:44.946Z",
-    "updatedAt": "2021-10-19T07:28:44.946Z",
+    "updatedAt": "2021-10-19T07:50:44.946Z",
     "apigwServiceTypeCode": "SHARED"
   }
 }
@@ -366,7 +373,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |apigwService.createdAt           |DateTime|서비스 생성일시                                      |
 |apigwService.updatedAt           |DateTime|서비스 수정일시                                      |
 
-### 서비스 삭제
+### API Gateway 서비스 삭제
 - API Gateway 서비스를 삭제합니다.  
 - API Gateway 서비스를 삭제하면 모든 스테이지가 삭제됩니다.  
 - 삭제하려는 API Gateway 서비스의 스테이지가 사용량 계획과 연결된 경우, 삭제할 수 없습니다. 삭제하려면 사용량 계획에서 연결된 스테이지를 모두 연결 해제후 삭제해주세요.
@@ -381,6 +388,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | DELETE | /v1.0/appkeys/{appKey}/services/{apigwServiceId} |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
