@@ -266,6 +266,9 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 ## 리소스 플러그인
 
 ### HTTP
+- API Gateway애서 요청을 수신할 리소스 경로에 대해 요청을 전달할 백엔드 엔드포인트 경로를 설정합니다.
+- 리소스 메서드에만 설정 가능합니다.
+- MOCK 플러그인과 동시에 설정이 불가합니다.
 
 ```json
 {
@@ -280,6 +283,9 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | backendEndpointPath  | String | 필수 | 없음 | 최대 255자 | API Gateway애서 수신된 요청을 전달할 백엔드 엔드포인트 경로 |
 
 ### MOCK
+- 수신된 요청에 대해 정의된 응답을 반환합니다.
+- 리소스 메서드에만 설정할 수 있습니다.
+- HTTP 플러그인과 동시에 설정이 불가합니다.
 ```json
 {
   "statusCode": 200,
@@ -298,6 +304,9 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | body                  | String | 선택 | 없음 | 없음 | 사용자 정의 응답 본문                         |
 
 ### CORS
+- Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니다.
+- 리소스 경로에만 설정할 수 있습니다.
+- CORS 플러그인 설정된 경로 하위에는 OPTIONS 메서드가 자동으로 생성되며, 등록된 OPTIONS메서드가 있는 경우 대체됩니다.
 ```json
 {
   "allowedMethods": ["GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "PATCH"],
@@ -325,6 +334,8 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 
 
 ### SET_REQUEST_HEADER
+- 요청 헤더를 추가하거나 변경합니다. 
+- 리소스 경로, 메서드에 설정할 수 있습니다.
 ```json
 {
   "headers": {
@@ -339,6 +350,8 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | headers[{HeaderName}] | String | 필수 | 없음 | 없음 | 객체 프로퍼티 키/값이 추가/변경할 요청 헤더의 이름과 값 |
 
 ### SET_RESPONSE_HEADER
+- 응답 헤더 변경 플러그인은 백엔드 응답에 헤더를 추가하거나 변경합니다. 
+- 리소스 경로, 메서드에 설정할 수 있습니다.
 ```json
 {
   "headers": {
@@ -353,6 +366,8 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | headers[{HeaderName}] | String | 필수 | 없음 | 없음 | 객체 프로퍼티 키/값이 추가/변경할 응답 헤더의 이름과 값 |
 
 ### ADD_REQUEST_QUERY_PARAMETER
+- 백엔드 엔드포인트 요청에 쿼리 문자열 파라미터를 추가합니다.
+- 리소스 경로, 메서드에 설정할 수 있습니다.
 ```json
 {
   "parameters": {
