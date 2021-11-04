@@ -6,16 +6,19 @@
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
-| GET | ​/v1.0​/appkeys​/{appKey}​/services​/{apigwServiceId}​/models |
+| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/models |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 
 [QueryString Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
@@ -39,7 +42,7 @@
   },
   "modelList": [
     {
-      "modelId": "a56f71e9-e9f8-4028-9708-aa6b82f1186b",
+      "modelId": "{modelId}",
       "apigwServiceId": "{apigwServiceId}",
       "modelName": "UserModel",
       "modelDescription": "This is a user model.",
@@ -87,51 +90,51 @@
 - 모델을 JSON Schema형식으로 생성합니다.
 - 모델 이름은 중복될 수 없습니다.
 
-
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
-| POST | ​/v1.0​/appkeys​/{appKey}​/services​/{apigwServiceId}​/models |
+| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/models |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 
 
 [Request Body]
+
 ```json
 {
-  "modelName": "string",
-  "modelDescription": "string",
+  "modelName": "UserModel",
+  "modelDescription": "This is a user model.",
   "modelSchema": {
-      "type": "object",
-      "properties": {
-        "userName": {
-          "type": "string"
-        },
-        "userDescription": {
-          "description": "user description",
-          "type": "string",
-          "maxLength": 128
-        }
+    "type": "object",
+    "properties": {
+      "userName": {
+        "type": "string"
       },
-      "required": [
-        "userName"
-      ]
-    }
+      "userDescription": {
+        "description": "user description",
+        "type": "string",
+        "maxLength": 128
+      }
+    },
+    "required": [
+      "userName"
+    ]
   }
 }
 ```
 
-| 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
-| --- | --- | --- | --- | --- | --- |
-| modelName | String | 필수 | 없음 | 최대 50자  | 모델 이름 |
-| modelDescription | String | 선택 | 없음 | 최대 200자  | 모델 설명 |
-| modelSchema     |Object  |모델의 [JSON Schema](https://json-schema.org/) draft-04 JSON 객체 |
-
+| 이름               | 타입     | 필수 여부 | 기본값 | 유효 범위   | 설명                                                           |
+| ---------------- | ------ | ----- | --- | ------- | ------------------------------------------------------------ |
+| modelName        | String | 필수    | 없음  | 최대 50자  | 모델 이름                                                        |
+| modelDescription | String | 선택    | 없음  | 최대 200자 | 모델 설명                                                        |
+| modelSchema      | Object | 필수    | 없음  | 최대 65535자| 모델의 [JSON Schema](https://json-schema.org/) draft-04 JSON 객체 |
 
 #### 응답
 
@@ -145,7 +148,7 @@
     "resultMessage": "SUCCESS"
   },
   "model": {
-      "modelId": "a56f71e9-e9f8-4028-9708-aa6b82f1186b",
+      "modelId": "{modelId}",
       "apigwServiceId": "{apigwServiceId}",
       "modelName": "UserModel",
       "modelDescription": "This is a user model.",
@@ -173,7 +176,7 @@
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
-|model                     |List    | 모델 영역                         |
+|model                     |Object    | 모델 영역                         |
 |model.apigwServiceId  |String  |API Gateway 서비스 ID |
 |model.modelId         |String  |모델 ID              |
 |model.modelName       |String  |모델 이름              |
@@ -190,20 +193,21 @@
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/models/{modelId} |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 | modelId | String | 필수 | 없음 | 없음 | 모델 ID |
 
-
-
 [Request Body]
-``` json
+
+```json
 {
   "modelDescription": "This is user model.",
   "modelSchema": {
@@ -227,8 +231,8 @@
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-|modelDescription|String  |모델 설명              |
-|modelSchema     |Object  |모델의 [JSON Schema](https://json-schema.org/) draft-04 JSON 객체 |
+| modelDescription | String | 선택    | 없음  | 최대 200자 | 모델 설명                                                        |
+| modelSchema      | Object | 필수    | 없음  | 최대 65535자| 모델의 [JSON Schema](https://json-schema.org/) draft-04 JSON 객체 |
 
 
 #### 응답
@@ -243,7 +247,7 @@
     "resultMessage": "SUCCESS"
   },
   "model": {
-      "modelId": "a56f71e9-e9f8-4028-9708-aa6b82f1186b",
+      "modelId": "{modelId}",
       "apigwServiceId": "{apigwServiceId}",
       "modelName": "UserModel",
       "modelDescription": "This is a user model.",
@@ -264,14 +268,14 @@
         ]
       },
       "createdAt": "2021-10-11T23:51:47.000Z",
-      "updatedAt": "2021-10-11T23:51:47.000Z"
+      "updatedAt": "2021-10-11T23:51:50.000Z"
   }
 }
 ```
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
-|model                     |List    | 모델 영역                         |
+|model                     |Object    | 모델 영역                         |
 |model.apigwServiceId  |String  |API Gateway 서비스 ID |
 |model.modelId         |String  |모델 ID              |
 |model.modelName       |String  |모델 이름              |
@@ -287,7 +291,6 @@
 
 #### 요청
 
-
 [URI]
 
 | 메서드  | URI                                  |
@@ -295,6 +298,7 @@
 | DELETE  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/models/{modelId} |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
