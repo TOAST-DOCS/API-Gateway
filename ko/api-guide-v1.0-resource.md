@@ -7,7 +7,9 @@
 #### 요청
 
 [URI]
-| 메서드 | URI | | --- | --- | | GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
+| 메서드 | URI | 
+| --- | --- | 
+| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
 
 [Path Parameter]
 | 이름             | 타입     | 필수 여부 | 기본값 | 유효 범위 | 설명                 |
@@ -98,6 +100,7 @@
 ### 리소스 삭제
 - 리소스를 삭제합니다.
 - 루트("/") 경로 리소스는 삭제가 불가합니다.
+- CORS플러그인에 의해 생성된 OPTIONS 메서드는 삭제할 수 없습니다. CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 설정된 리소스 경로를 삭제하면 일괄 삭제됩니다.
 - 경로 리소스를 삭제하면 하위 경로와 메서드 리소스가 모두 삭제 됩니다.
 - 삭제된 리소스는 복구가 불가합니다.
 
