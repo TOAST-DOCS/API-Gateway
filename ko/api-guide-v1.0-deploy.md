@@ -16,6 +16,7 @@
 | POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
@@ -55,11 +56,13 @@
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/latest |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
@@ -141,21 +144,23 @@
 |latestStageDeployResult.deployedAt          |DateTime  | 배포 요청 일시 |
 |latestStageDeployResult.rollbackAt   |DateTime  | 스테이지 되돌리기 요청 일시 |
 |latestStageDeployResult.stageResourceList      |List    |스테이지 리소스 목록 영역                             |
+|latestStageDeployResult.stageResourceList[0]      |Object    |스테이지 리소스 영역                             |
 |latestStageDeployResult.stageResourceList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |latestStageDeployResult.stageResourceList[0].path                   |String  |스테이지 리소스 경로                                |
 |latestStageDeployResult.stageResourceList[0].parentPath             |String  |스테이지 상위 리소스 경로 (루트(/) 경로의 parentPath는 null)|
 |latestStageDeployResult.stageResourceList[0].stageId                |String  |스테이지 ID                                    |
 |latestStageDeployResult.stageResourceList[0].customBackendEndpointUrl      |String  |백엔드 엔드포인트 재정의 URL                          |
-|latestStageDeployResult.stageResourceList[0].methodType             |Enum    |스테이지 리소스 메서드의 HTTP Method 타입               |
+|latestStageDeployResult.stageResourceList[0].methodType             |Enum    |[리소스 HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고               |
 |latestStageDeployResult.stageResourceList[0].methodName             |String  |메서드 이름                                     |
 |latestStageDeployResult.stageResourceList[0].methodDescription      |String  |메서드 설명                                     |
 |latestStageDeployResult.stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성일시                              |
 |latestStageDeployResult.stageResourceList[0].updatedAt              |DateTime|스테이지 리소스 수정일시                              |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList|List    |스테이지 리소스의 플러그인 목록 영역                       |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0]|Object    |스테이지 리소스의 플러그인 영역                       |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[스테이지 플러그인 타입 참고]()                        |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |String  |[스테이지 플러그인 타입]()별 설정 Json의 문자열             |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 Json            |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성일시                         |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정일시                         |
 
@@ -169,9 +174,10 @@
 
 | 메서드    | URI                                 |
 | ------ | ------------------------------------ |
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/{deployId}/rollback |
+| DELETE | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/{deployId} |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
@@ -199,17 +205,20 @@
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 | stageId | String | 필수 | 없음 | 없음 | 스테이지 ID |
 
 [QueryString Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
@@ -251,10 +260,11 @@
 |paging.limit                         |Integer | 페이지 당 건 수                                  |
 |paging.totalCount                    |Integer | 전체 건 수                                        |
 |stageDeployHistoryList        |List    | 스테이지 배포 이력 목록 영역 |
+|stageDeployHistoryList[0]        |Object    | 스테이지 배포 이력 영역 |
 |stageDeployHistoryList[0].deployId       |String    | 배포 ID |
 |stageDeployHistoryList[0].stageId   |String  | 스테이지 ID  |
 |stageDeployHistoryList[0].deployDescription        |String  | 배포 설명  |
-|stageDeployHistoryList[0].isBase         |String  | 현재 스테이지의 설정 기반 여부 |
+|stageDeployHistoryList[0].isBase         |Boolean  | 현재 스테이지의 설정 기반 여부 |
 |stageDeployHistoryList[0].deployedAt          |DateTime  | 배포 요청 일시 |
 |stageDeployHistoryList[0].rollbackAt   |DateTime  | 스테이지 되돌리기 요청 일시 |
 
@@ -271,9 +281,10 @@
 
 | 메서드    | URI                                 |
 | ------ | ------------------------------------ |
-| DELETE | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/{deployId} |
+| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/{deployId}/rollback |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
@@ -317,20 +328,22 @@
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |stageResourceList      |List    |스테이지 리소스 목록 영역                             |
+|stageResourceList[0]      |Object    |스테이지 리소스 영역                             |
 |stageResourceList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].path                   |String  |스테이지 리소스 경로                                |
 |stageResourceList[0].parentPath             |String  |스테이지 상위 리소스 경로 (루트(/) 경로의 parentPath는 null)|
 |stageResourceList[0].stageId                |String  |스테이지 ID                                    |
 |stageResourceList[0].customBackendEndpointUrl      |String  |백엔드 엔드포인트 재정의 URL                          |
-|stageResourceList[0].methodType             |Enum    |스테이지 리소스 메서드의 HTTP Method 타입               |
+|stageResourceList[0].methodType             |Enum    |[리소스 HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고               |
 |stageResourceList[0].methodName             |String  |메서드 이름                                     |
 |stageResourceList[0].methodDescription      |String  |메서드 설명                                     |
 |stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성일시                              |
 |stageResourceList[0].updatedAt              |DateTime|스테이지 리소스 수정일시                              |
 |stageResourceList[0].stageResourcePluginList|List    |스테이지 리소스의 플러그인 목록 영역                       |
+|stageResourceList[0].stageResourcePluginList[0]|Object    |스테이지 리소스의 플러그인 영역                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[스테이지 플러그인 타입 참고]()                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |String  |[스테이지 플러그인 타입]()별 설정 Json의 문자열             |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 Json          |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성일시                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정일시                         |
