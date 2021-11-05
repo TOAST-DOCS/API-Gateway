@@ -493,7 +493,7 @@
 |stageResourceList[0].parentPath             |String  |스테이지 상위 리소스 경로 (루트(/) 경로의 parentPath는 null)|
 |stageResourceList[0].stageId                |String  |스테이지 ID                                    |
 |stageResourceList[0].customBackendEndpointUrl      |String  |백엔드 엔드포인트 재정의 URL                          |
-|stageResourceList[0].methodType             |Enum    |스테이지 리소스 메서드의 HTTP Method 타입               |
+|stageResourceList[0].methodType             |Enum    |[리소스 HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고               |
 |stageResourceList[0].methodName             |String  |메서드 이름                                     |
 |stageResourceList[0].methodDescription      |String  |메서드 설명                                     |
 |stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성일시                              |
@@ -616,7 +616,7 @@
 |stageResourceList[0].parentPath             |String  |스테이지 상위 리소스 경로 (루트(/) 경로의 parentPath는 null)|
 |stageResourceList[0].stageId                |String  |스테이지 ID                                    |
 |stageResourceList[0].customBackendEndpointUrl      |String  |백엔드 엔드포인트 재정의 URL                          |
-|stageResourceList[0].methodType             |Enum    |스테이지 리소스 메서드의 HTTP Method 타입               |
+|stageResourceList[0].methodType             |Enum    |[리소스 HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고               |
 |stageResourceList[0].methodName             |String  |메서드 이름                                     |
 |stageResourceList[0].methodDescription      |String  |메서드 설명                                     |
 |stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성일시                              |
