@@ -96,7 +96,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | String | 필수 | 없음 | KR1 | [API Gateway 서비스 타입 Enum 코드 참조](./enum-code/#apigwServiceType) |
+| regionCode | String | 필수 | 없음 | KR1 | [API Gateway 서비스 타입 Enum 코드](./enum-code/#apigwServiceType) 참고 |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
 | limit | Integer | 선택 | 10 | 최대 1000 | 페이지 당 건 수 |
 
@@ -145,12 +145,12 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |apigwServiceList[0].apigwDomain         |String  | API Gateway 서비스 도메인                  |
 |apigwServiceList[0].apigwServiceAlias   |String  | API Gateway 서비스 별칭               |
 |apigwServiceList[0].apigwServiceId      |String  | API Gateway 서비스 ID                  |
-|apigwServiceList[0].apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드 참조](./enum-code/#apigwServiceType)|
+|apigwServiceList[0].apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드](./enum-code/#apigwServiceType) 참고|
 |apigwServiceList[0].appKey              |String  | AppKey                                        |
 |apigwServiceList[0].dedicatedId         |String  | 전용 API Gateway 서비스의 ID                        |
 |apigwServiceList[0].apigwServiceDescription         |String  | API Gateway  서비스 설명                                        |
 |apigwServiceList[0].apigwServiceName                |String  | API Gateway 서비스 이름                                        |
-|apigwServiceList[0].regionCode          |Enum    | [API Gateway 리전 Enum 코드 참조](./enum-code/#regionCode) |
+|apigwServiceList[0].regionCode          |Enum    | [API Gateway 리전 Enum 코드](./enum-code/#regionCode) 참고 |
 |apigwServiceList[0].serverGroupId       |String  | API Gateway 서비스가 속한 서버 그룹 ID                              |
 |apigwServiceList[0].createdAt           |DateTime| API Gateway 서비스 생성일시                                      |
 |apigwServiceList[0].updatedAt           |DateTime| API Gateway 서비스 수정일시                                      |
@@ -208,12 +208,12 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |apigwService.apigwDomain         |String  | API Gateway 서비스 도메인                  |
 |apigwService.apigwServiceAlias   |String  | API Gateway 서비스 별칭                            |
 |apigwService.apigwServiceId      |String  | API Gateway 서비스 ID                            |
-|apigwService.apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드 참조](./enum-code/#apigwServiceType) |
+|apigwService.apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드](./enum-code/#apigwServiceType) 참고 |
 |apigwService.appKey              |String  | AppKey                                        |
 |apigwService.dedicatedId         |String  | 전용 API Gateway 서비스의 ID                        |
 |apigwService.apigwServiceDescription         |String  | API Gateway 서비스 설명                                        |
 |apigwService.apigwServiceName                |String  | API Gateway 서비스 이름                                        |
-|apigwService.regionCode          |Enum    |[API Gateway 리전 Enum 코드 참조](./enum-code/#regionCode) |
+|apigwService.regionCode          |Enum    |[API Gateway 리전 Enum 코드](./enum-code/#regionCode) 참고|
 |apigwService.serverGroupId       |String  | API Gateway 서비스가 속한 서버 그룹 ID                              |
 |apigwService.createdAt           |DateTime| API Gateway 서비스 생성일시                                      |
 |apigwService.updatedAt           |DateTime| API Gateway 서비스 수정일시                                      |
@@ -246,7 +246,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | Enum | 필수 | 없음 | KR1 | [API Gateway 서비스 타입 Enum 코드 참조](./enum-code/#apigwServiceType) |
+| regionCode | Enum | 필수 | 없음 | KR1 | [API Gateway 서비스 타입 Enum 코드](./enum-code/#apigwServiceType) 참고 |
 | apigwServiceName | String | 필수 | 없음 | 최대 50자  | API Gateway 서비스 이름 |
 | apigwServiceDescription | String | 선택 | 없음 | 최대 200자  | API Gateway 서비스 설명 |
 
@@ -285,12 +285,12 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |apigwService.apigwDomain         |String  | API Gateway 서비스 도메인                  |
 |apigwService.apigwServiceAlias   |String  | API Gateway 서비스 별칭                            |
 |apigwService.apigwServiceId      |String  | API Gateway 서비스 ID                            |
-|apigwService.apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드 참조](./enum-code/#apigwServiceType) |
+|apigwService.apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드](./enum-code/#apigwServiceType) 참고 |
 |apigwService.appKey              |String  | AppKey                                        |
 |apigwService.dedicatedId         |String  | 전용 API Gateway 서비스의 ID                        |
 |apigwService.apigwServiceDescription         |String  | 서비스 설명                                        |
 |apigwService.apigwServiceName    |String  | API Gateway 서비스 이름                                        |
-|apigwService.regionCode          |Enum    | [API Gateway 리전 Enum 코드 참조](./enum-code/#regionCode) |
+|apigwService.regionCode          |Enum    | [API Gateway 리전 Enum 코드](./enum-code/#regionCode) 참고|
 |apigwService.serverGroupId       |String  | API Gateway 서비스가 속한 서버 그룹 ID                              |
 |apigwService.createdAt           |DateTime| API Gateway 서비스 생성일시                                      |
 |apigwService.updatedAt           |DateTime| API Gateway 서비스 수정일시                                      |
@@ -363,12 +363,12 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |apigwService.apigwDomain         |String  |API Gateway 서비스 도메인                  |
 |apigwService.apigwServiceAlias   |String  |API Gateway 서비스 별칭                            |
 |apigwService.apigwServiceId      |String  |API Gateway 서비스 ID                            |
-|apigwService.apigwServiceTypeCode|Enum    |[API Gateway 서비스 타입 Enum 코드 참조](./enum-code/#apigwServiceType)|
+|apigwService.apigwServiceTypeCode|Enum    |[API Gateway 서비스 타입 Enum 코드](./enum-code/#apigwServiceType) 참고|
 |apigwService.appKey              |String  |AppKey                                        |
 |apigwService.dedicatedId         |String  |전용 API Gateway 서비스의 ID                        |
 |apigwService.apigwServiceDescription         |String  |서비스 설명                                        |
 |apigwService.apigwServiceName                |String  |서비스 이름                                        |
-|apigwService.regionCode          |Enum    |[API Gateway 리전 Enum 코드 참조](./enum-code/#regionCode)|
+|apigwService.regionCode          |Enum    |[API Gateway 리전 Enum 코드](./enum-code/#regionCode) 참고|
 |apigwService.serverGroupId       |String  |서비스가 속한 서버 그룹 ID                              |
 |apigwService.createdAt           |DateTime|서비스 생성일시                                      |
 |apigwService.updatedAt           |DateTime|서비스 수정일시                                      |
@@ -501,7 +501,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | resourceList[2].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
 | resourceList[2].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
 | resourceList[2].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#???) 참고    |
-| resourceList[2].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값]()                    |
+| resourceList[2].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값]() 참고                   |
 | resourceList[2].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성일시                                  |
 | resourceList[2].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정일시                                  |
 
@@ -871,19 +871,19 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | queryStringList                | List    | 쿼리 문자열 목록 영역                                         |
 | queryStringList[0].name        | String  | 쿼리 문자열 이름                                            |
 | queryStringList[0].description | String  | 쿼리 문자열 설명                                            |
-| queryStringList[0].dataType    | Enum    | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드 참조](./enum-code/#???) |
+| queryStringList[0].dataType    | Enum    | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#???) 참고|
 | queryStringList[0].required    | Boolean | 쿼리 문자열 필수 여부                                         |
 | queryStringList[0].isArray     | Boolean | 쿼리 문자열 Array 여부                                      |
 | headerList                     | List    | 헤더 목록 영역                                             |
 | headerList[0].name             | String  | 헤더 이름                                                |
 | headerList[0].description      | String  | 헤더 설명                                                |
-| headerList[0].dataType         | Enum    | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드 참조](./enum-code/#???) |
+| headerList[0].dataType         | Enum    | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#???) 참고 |
 | headerList[0].required         | Boolean | 헤더 필수 여부                                             |
 | headerList[0].isArray          | null    | 해더 Array 여부 미제공                                      |
 | formDataList                   | List    | 폼 데이터 목록 영역                                          |
 | formDataList[0].name           | String  | 폼 데이터 이름                                             |
 | formDataList[0].description    | String  | 폼 데이터 설명                                             |
-| formDataList[0].dataType       | Enum    | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드 참조](./enum-code/#???) |
+| formDataList[0].dataType       | Enum    | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#???) 참고 |
 | formDataList[0].required       | Boolean | 폼 데이터 필수 여부                                          |
 | formDataList[0].isArray        | Boolean | 폼 데이터 Array 여부                                       |
 | requestBody                    | Object  | 요청 본문 영역                                             |
@@ -957,18 +957,18 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | queryStringList                | List    | 선택    | Empty List    | 최대 50개                                              | 쿼리 문자열 목록 영역                                         |
 | queryStringList[0].name        | String  | 필수    | 없음           | 최대 50자                                              | 쿼리 문자열 이름                                            |
 | queryStringList[0].description | String  | 선택    | 없음           | 최대 200자                                             | 쿼리 문자열 설명                                            |
-| queryStringList[0].dataType    | Enum    | 필수    | 없음           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE        | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드 참조](./enum-code/#???) |
+| queryStringList[0].dataType    | Enum    | 필수    | 없음           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE        | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#???) 참고|
 | queryStringList[0].required    | Boolean | 필수    | 없음           | true, false                                          | 쿼리 문자열 필수 여부                                         |
 | queryStringList[0].isArray     | Boolean | 필수    | 없음           | true, false                                          | 쿼리 문자열 Array 여부                                      |
 | headerList                     | List    | 선택    | Empty List    | 최대 50개                                              | 헤더 목록 영역                                             |
 | headerList[0].name             | String  | 필수    | 없음           | 최대 50자                                              | 헤더 이름                                                |
 | headerList[0].description      | String  | 선택    | 없음           | 최대 200자                                             | 헤더 설명                                                |
-| headerList[0].dataType         | Enum    | 필수    | 없음           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE        | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드 참조](./enum-code/#???) |
+| headerList[0].dataType         | Enum    | 필수    | 없음           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE        | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#???) 참고|
 | headerList[0].required         | Boolean | 필수    | 없음           | true, false                                          | 헤더 필수 여부                                             |
 | formDataList                   | List    | 선택    | Empty List    | 최대 50개                                              | 폼 데이터 목록 영역                                          |
 | formDataList[0].name           | String  | 필수    | 없음           | 최대 50자                                              | 폼 데이터 이름                                             |
 | formDataList[0].description    | String  | 선택    | 없음           | 최대 200자                                             | 폼 데이터 설명                                             |
-| formDataList[0].dataType       | Enum    | 필수    | 없음           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE, FILE  | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드 참조](./enum-code/#???) |
+| formDataList[0].dataType       | Enum    | 필수    | 없음           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE, FILE  | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#???) 참고|
 | formDataList[0].required       | Boolean | 필수    | 없음           | true, false                                          | 폼 데이터 필수 여부                                          |
 | formDataList[0].isArray        | Boolean | 필수    | 없음           | true, false                                          | 폼 데이터 Array 여부. dataType이 FILE인 경우 false.            |
 | requestBody                    | Object  | 선택    | Empty Object  | 없음                                                  | 요청 본문 객체 영역                                          |
@@ -1053,7 +1053,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | responseList[0].headerList                | List    | HTTP 응답 헤더 목록 영역                                     |
 | responseList[0].headerList[0].name        | String  | 응답 헤더 이름                                             |
 | responseList[0].headerList[0].description | String  | 응답 헤더 설명                                             |
-| responseList[0].headerList[0].dataType    | Enum    | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드 참조](./enum-code/#???) |
+| responseList[0].headerList[0].dataType    | Enum    | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#???) 참고|
 | responseList[0].responseBody              | Object  | HTTP 응답 본문 객체 영역                                     |
 | responseList[0].responseBody.name         | String  | 응답 본문 이름                                             |
 | responseList[0].responseBody.description  | String  | 응답 본문 설명                                             |
@@ -1113,7 +1113,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | responseList[0].headerList                | List    | 선택    | Empty List   | 최대 50개                                        | HTTP 응답 헤더 목록 영역                                     |
 | responseList[0].headerList[0].name        | String  | 필수    | 없음           | 최대 50자                                        | 응답 헤더 이름                                             |
 | responseList[0].headerList[0].description | String  | 선택    | 없음         | 최대 200자                                       | 응답 헤더 설명                                             |
-| responseList[0].headerList[0].dataType    | Enum    | 필수    | 없음           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드 참조](./enum-code/#???) |
+| responseList[0].headerList[0].dataType    | Enum    | 필수    | 없음           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#???) 참고 |
 | responseList[0].responseBody              | Object  | 선택    | Empty Object | 없음                                            | HTTP 응답 본문 객체 영역                                     |
 | responseList[0].responseBody.name         | String  | 필수    | 없음           | 최대 50자                                        | 응답 본문 이름                                             |
 | responseList[0].responseBody.description  | String  | 선택    | 없음         | 최대 200자                                       | 응답 본문 설명                                             |
@@ -1523,7 +1523,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |paging.limit                         |Integer | 페이지 당 건 수                                  |
 |paging.totalCount                    |Integer | 전체 건 수                                        |
 |stageList        |List    | 스테이지 목록 영역 |
-|stageList[0].regionCode       |Enum    |[API Gateway 리전 Enum 코드 참조](./enum-code/#regionCode)                |
+|stageList[0].regionCode       |Enum    |[API Gateway 리전 Enum 코드](./enum-code/#regionCode) 참고                |
 |stageList[0].apigwServiceId   |String  |API Gateway 서비스 ID  |
 |stageList[0].stageId          |String  |스테이지 ID             |
 |stageList[0].stageName        |String  |스테이지 이름             |
@@ -1642,7 +1642,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |stage        |Object    | 스테이지 영역 |
-|stage.regionCode       |Enum    |[API Gateway 리전 Enum 코드 참조](./enum-code/#regionCode)                |
+|stage.regionCode       |Enum    |[API Gateway 리전 Enum 코드](./enum-code/#regionCode) 참고                |
 |stage.apigwServiceId   |String  |API Gateway 서비스 ID  |
 |stage.stageId          |String  |스테이지 ID             |
 |stage.stageName        |String  |스테이지 이름             |
@@ -1718,7 +1718,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |stage        |Object    | 스테이지 영역 |
-|stage.regionCode       |Enum    |[API Gateway 리전 Enum 코드 참조](./enum-code/#regionCode)                |
+|stage.regionCode       |Enum    |[API Gateway 리전 Enum 코드](./enum-code/#regionCode) 참고                |
 |stage.apigwServiceId   |String  |API Gateway 서비스 ID  |
 |stage.stageId          |String  |스테이지 ID             |
 |stage.stageName        |String  |스테이지 이름             |
@@ -1768,7 +1768,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 
 ### 스테이지 리소스 목록 조회 
 * 스테이지에 등록된 리소스 목록을 가져옵니다. 각 리소스에 설정된 스테이지 리소스 플러그인 정보가 포함됩니다.
-* 스테이지 리소스 플러그인에 대한 자세한 내용은 [스테이지 리소스 플러그인]()을 참조합니다.
+* 스테이지 리소스 플러그인에 대한 자세한 내용은 [스테이지 리소스 플러그인]()을 참고합니다.
 
 
 #### 요청
@@ -1860,7 +1860,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입](./enum-code/#???), [스테이지 리소스 > 플러그인 타입](./enum-code/#???) 참고                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 Json             |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 Json 참고            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성일시                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정일시                         |
 
@@ -1961,7 +1961,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입](./enum-code/#???), [스테이지 리소스 > 플러그인 타입](./enum-code/#???) 참고                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 Json             |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 Json 참고            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성일시                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정일시                         |
 
@@ -2006,7 +2006,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | --- | --- | --- | --- | --- | --- |
 | customBackendEndpointUrl | String | 선택 | 없음 | 최대 150자, URL형식 | 백엔드 엔드포인트 재정의 URL |
 | stageResourcePluginList | List | 필수 | 없음 | 없음 | 스테이지 리소스 플러그인 목록 영역 |
-| stageResourcePluginList[0] | Object | 필수 | 없음 | 없음 | 스테이지 리소스 플러그인 별 Json형식의 객체<br>[스테이지 리소스 플러그인 참고]() |
+| stageResourcePluginList[0] | Object | 필수 | 없음 | 없음 | 스테이지 리소스 플러그인 별 Json형식의 객체<br>[스테이지 리소스 플러그인]() 참고|
 
 * customBackendEndpointUrl필드는 루트(/)리소스 경로에는 설정할 수 없습니다.
 
@@ -2084,7 +2084,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입](./enum-code/#???), [스테이지 리소스 > 플러그인 타입](./enum-code/#???) 참고                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 Json             |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 Json 참고            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성일시                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정일시                         |
 
@@ -2269,7 +2269,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | pluginConfigJson.claimValidationCondition.aud.validate | Boolean | 필수 | true | true | aud 요청 클레임 값의 검증 여부를 설정합니다. true만 유효합니다. |
 | pluginConfigJson.claimValidationCondition.sub | Object | 선택 | Default Object | 없음 | sub 클레임 검증 조건 영역. 요청하지 않는 경우 각 필드의 기본값으로 저장됩니다. |
 | pluginConfigJson.claimValidationCondition.sub.value | String | 필수 | Empty String | 없음 |  sub 요청 클레임의 값 중 허용할 클레임 문자열 값을 설정합니다. |
-| pluginConfigJson.claimValidationCondition.sub.dataType | Enum | 선택 | String | String | sub 클레임의 데이터 타입을 설정합니다. String만 유효합니다.<br/> [JWT > 클레임 데이터 타입]() |
+| pluginConfigJson.claimValidationCondition.sub.dataType | Enum | 선택 | String | String | sub 클레임의 데이터 타입을 설정합니다. String만 유효합니다.<br/> [JWT > 클레임 데이터 타입]() 참고|
 | pluginConfigJson.claimValidationCondition.sub.required | Boolean | 필수 | false | true, false | sub 요청 클레임 값의 필수 검증 여부를 설정합니다. <br/> validate 필드값이 true인 경우, requried는 반드시 true로 설정되어야합니다.  |
 | pluginConfigJson.claimValidationCondition.sub.validate | Boolean | 필수 | false | true, false | sub 요청 클레임 값의 검증 여부를 설정합니다. |
 | pluginConfigJson.claimValidationCondition.jti | Object | 선택 | Default Object | 없음 | jti 클레임 검증 조건 영역. 요청하지 않는 경우 각 필드의 기본값으로 저장됩니다. |
@@ -2583,8 +2583,8 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0]|Object    |스테이지 리소스의 플러그인 영역                       |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[스테이지 플러그인 타입 참고]()                        |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 Json            |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[스테이지 플러그인 타입]() 참고                       |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 Json 참고           |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성일시                         |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정일시                         |
 
@@ -2767,8 +2767,8 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |stageResourceList[0].stageResourcePluginList[0]|Object    |스테이지 리소스의 플러그인 영역                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[스테이지 플러그인 타입 참고]()                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 Json          |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[스테이지 플러그인 타입]() 참고                       |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 Json 참고         |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성일시                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정일시                         |
 
@@ -3021,7 +3021,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | apiKey | String | 선택 | 없음 | 없음 | Primary 또는 Secondary API Key 필터 조건 |
 | apiKeyId | String | 선택 | 없음 | 없음 | API Key ID 필터 조건 |
 | apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름  필터 조건. API key 이름의 문자열은 일치해야합니다. |
-| apiKeyStatus | Enum | 선택 | 없음 | ACTIVE, INACTIVE | API Key 상태 필터 조건. [API Key 상태](./enum-code/#???) 참조 |
+| apiKeyStatus | Enum | 선택 | 없음 | ACTIVE, INACTIVE | API Key 상태 필터 조건. [API Key 상태](./enum-code/#???) 참고 |
 
 #### 응답
 
@@ -3069,7 +3069,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | apiKeyList[0].apiKeyDescription | String   | API Key 설명                                        |
 | apiKeyList[0].primaryApiKey     | String   | Primary API Key 값                                 |
 | apiKeyList[0].secondaryApiKey   | String   | Secondary API Key 값                               |
-| apiKeyList[0].apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#???) 참조 |
+| apiKeyList[0].apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#???) 참고 |
 | apiKeyList[0].createdAt         | DateTime | API Key 생성일시                                      |
 | apiKeyList[0].updatedAt         | DateTime | API Key 수정일시                                      |
 
@@ -3096,7 +3096,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
 | apiKeyName        | String | 필수    | 없음  | 최대 50자           | API Key 이름                                        |
 | apiKeyDescription | String | 선택    | 없음  | 최대 200자          | API Key 설명                                        |
-| apiKeyStatus      | Enum   | 필수    | 없음  | ACTIVE, INACTIVE | [API Key 상태 Enum 코드](./enum-code/#???) 참조 |
+| apiKeyStatus      | Enum   | 필수    | 없음  | ACTIVE, INACTIVE | [API Key 상태 Enum 코드](./enum-code/#???) 참고 |
 
 #### 응답
 
@@ -3132,7 +3132,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | apiKey.apiKeyDescription | String   | API Key 설명                                        |
 | apiKey.primaryApiKey     | String   | Primary API Key 값                                 |
 | apiKey.secondaryApiKey   | String   | Secondary API Key 값                               |
-| apiKey.apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#???) 참조 |
+| apiKey.apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#???) 참고 |
 | apiKey.createdAt         | DateTime | API Key 생성일시                                      |
 | apiKey.updatedAt         | DateTime | API Key 수정일시                                      |
 
@@ -3166,7 +3166,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
 | apiKeyName        | String | 필수    | 없음  | 최대 50자           | API Key 이름                                        |
 | apiKeyDescription | String | 선택    | 없음  | 최대 200자          | API Key 설명                                        |
-| apiKeyStatus      | Enum   | 필수    | 없음  | ACTIVE, INACTIVE | [API Key 상태 Enum 코드](./enum-code/#???) 참조 |
+| apiKeyStatus      | Enum   | 필수    | 없음  | ACTIVE, INACTIVE | [API Key 상태 Enum 코드](./enum-code/#???) 참고 |
 
 #### 응답
 
@@ -3202,7 +3202,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | apiKey.apiKeyDescription | String   | API Key 설명                                        |
 | apiKey.primaryApiKey     | String   | Primary API Key 값                                 |
 | apiKey.secondaryApiKey   | String   | Secondary API Key 값                               |
-| apiKey.apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#???) 참조 |
+| apiKey.apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#???) 참고 |
 | apiKey.createdAt         | DateTime | API Key 생성일시                                      |
 | apiKey.updatedAt         | DateTime | API Key 수정일시                                      |
 
@@ -3262,7 +3262,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 
 | 이름                | 타입     | 필수 여부 | 기본값 | 유효 범위            | 설명                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
-| apiKeyType      | Enum   | 필수    | 없음  | PRIMARY, SECONDARY | 변경하려는 API Key 타입. [API Key 타입 Enum 코드](./enum-code/#???) 참조 |
+| apiKeyType      | Enum   | 필수    | 없음  | PRIMARY, SECONDARY | 변경하려는 API Key 타입. [API Key 타입 Enum 코드](./enum-code/#???) 참고 |
 
 #### 응답
 
@@ -3298,7 +3298,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | apiKey.apiKeyDescription | String   | API Key 설명                                        |
 | apiKey.primaryApiKey     | String   | Primary API Key 값                                 |
 | apiKey.secondaryApiKey   | String   | Secondary API Key 값                               |
-| apiKey.apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#???) 참조 |
+| apiKey.apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#???) 참고 |
 | apiKey.createdAt         | DateTime | API Key 생성일시                                      |
 | apiKey.updatedAt         | DateTime | API Key 수정일시                                      |
 
@@ -3327,7 +3327,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | apiKey | String | 선택 | 없음 | 없음 | primary 또는 secondary API Key 값 |
 | apiKeyId | String | 선택 | 없음 | 없음 | API Key ID |
 | apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름 시작 문자열 |
-| apiKeyStatus | Enum | 선택 | 없음 | ACTIVE, INACTIVE | [API Key 상태](./enum-code/#???) 참조 |
+| apiKeyStatus | Enum | 선택 | 없음 | ACTIVE, INACTIVE | [API Key 상태](./enum-code/#???) 참고 |
 
 #### 응답
 
@@ -3375,7 +3375,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | apiKeyList[0].apiKeyDescription | String   | API Key 설명                                        |
 | apiKeyList[0].primaryApiKey     | String   | Primary API Key 값                                 |
 | apiKeyList[0].secondaryApiKey   | String   | Secondary API Key 값                               |
-| apiKeyList[0].apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#API Key 상태 Enum 코드) 참조 |
+| apiKeyList[0].apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#API Key 상태 Enum 코드) 참고 |
 | apiKeyList[0].createdAt         | DateTime | API Key 생성일시                                      |
 | apiKeyList[0].updatedAt         | DateTime | API Key 수정일시                                      |
 
@@ -3443,7 +3443,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | usagePlanList[0].usagePlanName             | String   | 사용량 계획 이름                                         |
 | usagePlanList[0].usagePlanDescription      | String   | 사용량 계획 설명                                         |
 | usagePlanList[0].rateLimitRequestPerSecond | Integer  | 초당 요청 수 제한                                        |
-| usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참조 |
+| usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참고 |
 | usagePlanList[0].quotaLimit                | Integer  | 할당량 기간 단위 별 요청 할당량                                |
 | usagePlanList[0].createdAt                 | DateTime | 사용량 계획 생성일시                                       |
 | usagePlanList[0].updatedAt                 | DateTime | 사용량 계획 수정일시                                       |
@@ -3498,7 +3498,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | usagePlan.usagePlanName             | String   | 사용량 계획 이름                                         |
 | usagePlan.usagePlanDescription      | String   | 사용량 계획 설명                                         |
 | usagePlan.rateLimitRequestPerSecond | Integer  | 초당 요청 수 제한                                        |
-| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참조 |
+| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참고 |
 | usagePlan.quotaLimit                | Integer  | 할당량 기간 단위 별 요청 할당량                                |
 | usagePlan.createdAt                 | DateTime | 사용량 계획 생성일시                                       |
 | usagePlan.updatedAt                 | DateTime | 사용량 계획 수정일시                                       |
@@ -3529,7 +3529,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | usagePlanName             | String  | 필수    | 없음  | 최대 50자       | 사용량 계획 이름                                         |
 | usagePlanDescription      | String  | 선택    | 없음  | 최대 200자      | 사용량 계획 설명                                         |
 | rateLimitRequestPerSecond | Integer | 선택    | 없음  | 1~5000       | 초당 요청 수 제한                                        |
-| quotaLimitPeriodUnitCode  | Enum    | 선택    | 없음  | DAY, MONTH   | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참조 |
+| quotaLimitPeriodUnitCode  | Enum    | 선택    | 없음  | DAY, MONTH   | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참고 |
 | quotaLimit                | Integer | 조건부필수 | 없음  | 1~2147483647 | quotaLimitPeriodUnitCode가 설정된 경우 필수. 할당량 기간 단위 별 요청 할당량                                |
 
 #### 응답
@@ -3565,7 +3565,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | usagePlan.usagePlanName             | String   | 사용량 계획 이름                                         |
 | usagePlan.usagePlanDescription      | String   | 사용량 계획 설명                                         |
 | usagePlan.rateLimitRequestPerSecond | Integer  | 초당 요청 수 제한                                        |
-| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참조 |
+| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참고 |
 | usagePlan.quotaLimit                | Integer  | 할당량 기간 단위 별 요청 할당량                                |
 | usagePlan.createdAt                 | DateTime | 사용량 계획 생성일시                                       |
 | usagePlan.updatedAt                 | DateTime | 사용량 계획 수정일시                                       |
@@ -3603,7 +3603,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | usagePlanName             | String  | 필수    | 없음  | 최대 50자       | 사용량 계획 이름                                         |
 | usagePlanName             | String  | 선택    | 없음  | 최대 200자      | 사용량 계획 설명                                         |
 | rateLimitRequestPerSecond | Integer | 선택    | 없음  | 1~5000       | 초당 요청 수 제한                                        |
-| quotaLimitPeriodUnitCode  | Enum    | 선택    | 없음  | DAY, MONTH   | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참조 |
+| quotaLimitPeriodUnitCode  | Enum    | 선택    | 없음  | DAY, MONTH   | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참고 |
 | quotaLimit                | Integer | 조건부필수 | 없음  | 1~2147483647 | quotaLimitPeriodUnitCode가 설정된 경우 필수. 할당량 기간 단위 별 요청 할당량                                |
 
 #### 응답
@@ -3639,7 +3639,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | usagePlan.usagePlanName             | String   | 사용량 계획 이름                                         |
 | usagePlan.usagePlanDescription      | String   | 사용량 계획 설명                                         |
 | usagePlan.rateLimitRequestPerSecond | Integer  | 초당 요청 수 제한                                        |
-| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참조 |
+| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참고 |
 | usagePlan.quotaLimit                | Integer  | 할당량 기간 단위 별 요청 할당량                                |
 | usagePlan.createdAt                 | DateTime | 사용량 계획 생성일시                                       |
 | usagePlan.updatedAt                 | DateTime | 사용량 계획 수정일시                                       |
@@ -3863,7 +3863,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | usagePlanList[0].usagePlanName             | String   | 사용량 계획 이름                                         |
 | usagePlanList[0].usagePlanDescription      | String   | 사용량 계획 설명                                         |
 | usagePlanList[0].rateLimitRequestPerSecond | Integer  | 초당 요청 수 제한                                        |
-| usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참조 |
+| usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참고 |
 | usagePlanList[0].quotaLimit                | Integer  | 할당량 기간 단위 별 요청 할당량                                |
 | usagePlanList[0].createdAt                 | DateTime | 사용량 계획 생성일시                                       |
 | usagePlanList[0].updatedAt                 | DateTime | 사용량 계획 수정일시                                       |
@@ -3938,7 +3938,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | subscribedStageAndUsagePlanList                              | List    | API Key가 연결된 스테이지와 사용량 계획 목록 영역                |
 | subscribedStageAndUsagePlanList[0]                           | Object    | API Key가 연결된 스테이지와 사용량 계획 영역                |
 | subscribedStageAndUsagePlanList[0].subscriptionId            | String  | 구독 ID                                     |
-| subscribedStageAndUsagePlanList[0].subscriptionStatus        | Enum    | [API Key 구독 상태](./enum-code/#???) 참조              |
+| subscribedStageAndUsagePlanList[0].subscriptionStatus        | Enum    | [API Key 구독 상태](./enum-code/#???) 참고              |
 | subscribedStageAndUsagePlanList[0].apiKeyId                  | String  | API Key ID                                        |
 | subscribedStageAndUsagePlanList[0].apigwServiceName          | String  | API Gateway 서비스 이름                                |
 | subscribedStageAndUsagePlanList[0].stageId                   | String  | 스테이지 ID                                           |
@@ -3949,7 +3949,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | subscribedStageAndUsagePlanList[0].usagePlanName             | String  | 사용량 계획 이름                                         |
 | subscribedStageAndUsagePlanList[0].usagePlanDescription      | String  | 사용량 계획 설명                                         |
 | subscribedStageAndUsagePlanList[0].rateLimitRequestPerSecond | Integer | 초당 요청 수 제한                                        |
-| subscribedStageAndUsagePlanList[0].quotaLimitPeriodUnitCode  | Enum    | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참조 |
+| subscribedStageAndUsagePlanList[0].quotaLimitPeriodUnitCode  | Enum    | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참고 |
 | subscribedStageAndUsagePlanList[0].quotaLimit                | Integer | 할당량 기간 단위 별 요청 할당량                                |
 
 
@@ -3978,7 +3978,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | apiKey | String | 선택 | 없음 | 없음 | Primary 또는 Secondary API Key 필터 조건 |
 | apiKeyId | String | 선택 | 없음 | 없음 | API Key ID 필터 조건 |
 | apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름  필터 조건. API key 이름의 문자열은 일치해야합니다.  |
-| apiSubscriptionStatus | Enum | 선택 | 없음 | APPROVAL | [API Key 구독 상태](./enum-code/#???) 참조 |
+| apiSubscriptionStatus | Enum | 선택 | 없음 | APPROVAL | [API Key 구독 상태](./enum-code/#???) 참고 |
 
 #### 응답
 
@@ -4021,7 +4021,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | apiSubscriptionList                            | List     | 구독 정보 목록 영역      |
 | apiSubscriptionList[0]                         | Object   | 구독 정보 영역      |
 | apiSubscriptionList[0].subscriptionId          | String   | 구독 ID                                |
-| apiSubscriptionList[0].subscriptionStatus      | Enum     | [API Key 구독 상태](./enum-code/#???) 참조 |
+| apiSubscriptionList[0].subscriptionStatus      | Enum     | [API Key 구독 상태](./enum-code/#???) 참고 |
 | apiSubscriptionList[0].subscriptionDescription | String   | 구독 설명                                |
 | apiSubscriptionList[0].stageId                 | String   | 스테이지 ID                              |
 | apiSubscriptionList[0].usagePlanId             | String   | 사용량 계획 ID                            |
@@ -4095,7 +4095,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | apiSubscriptionList                            | List     | 구독 정보 목록 영역                          |
 | apiSubscriptionList[0]                         | Object   | 구독 정보 영역                        |
 | apiSubscriptionList[0].subscriptionId          | String   | 구독 ID                                |
-| apiSubscriptionList[0].subscriptionStatus      | Enum     | [API Key 구독 상태](./enum-code/#???) 참조 |
+| apiSubscriptionList[0].subscriptionStatus      | Enum     | [API Key 구독 상태](./enum-code/#???) 참고 |
 | apiSubscriptionList[0].subscriptionDescription | String   | 구독 설명                                |
 | apiSubscriptionList[0].stageId                 | String   | 스테이지 ID                              |
 | apiSubscriptionList[0].usagePlanId             | String   | 사용량 계획 ID                            |
