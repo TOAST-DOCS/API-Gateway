@@ -64,6 +64,40 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
 > 리소스를 가져오면 기존의 리소스는 삭제되고 가져온 리소스로 덮어씁니다.
 > 리소스를 가져오면 해당 서비스에 생성되어 있던 기존의 모델은 모두 삭제되고 가져온 모델로 덮어씁니다.
 
+> **[참고] 2021-11-23 이전 스테이지 내보내기(Export) 파일의 가져오기 실패** 
+> 2021-11-23 이전 스테이지 내보내기를 통해 다운로드된 파일로 리소스 가져오기를 하는 경우 실패가 발생할 수 있습니다. 
+> 스테이지 내보내기를 통해 새로 생성된 파일을 이용하여 리소스 가져오기를 이용하시거나 다음의 작업을 통해 기존 파일을 변경하시기 바랍니다.
+> 변경 작업: 파일 내 x-api-nhn-apigateway > plugins의 플러그인의 설정 문자열을 Json객체로 변환해야합니다.
+> 가이드 내용으로 해결이 안되는 경우 고객센터로 문의해주시기 바랍니다.
+```
+- [예시] 가져오기 실패: 2021-11-23 이전 스테이지 내보내기 파일의 경우 plugins의 플러그인 설정 값이 Json형식의 문자열로 구성됨
+{
+... 
+    "x-nhncloud-apigateway": {
+        "plugins": {
+            "HTTP": "{\"frontendEndpointPath\":\"/{proxy+}\",\"backendEndpointPath\":\"/anything/${request.path.proxy+}\"}",
+        }
+    }
+...
+}
+```
+
+- [예시] 가져오기 성공: plugins의 플러그인 설정 값이 Json형식의 문자열을 Json객체로 수정한 스테이지 내보내기 파일
+{
+... 
+    "x-nhncloud-apigateway": {
+        "plugins": {
+            "HTTP": {
+                "frontendEndpointPath": "/{proxy+}",
+                "backendEndpointPath": "/anything/${request.path.proxy+}"
+            }
+        }
+    }
+...
+}
+```
+
+
 ### 메서드 생성 
 - 선택된 리소스 경로 하위에 **HTTP 메서드**를 생성합니다. 
     - 지원 HTTP 메서드: HEAD, OPTIONS, GET, POST, PUT, DELETE, PATCH

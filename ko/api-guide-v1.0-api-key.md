@@ -16,10 +16,10 @@
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
 | limit | Integer | 선택 | 10 | 최대 1000 | 페이지 당 건 수 |
-| apiKey | String | 선택 | 없음 | 없음 | primary 또는 secondary API Key 값 |
-| apiKeyId | String | 선택 | 없음 | 없음 | API Key ID |
-| apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름 시작 문자열 |
-| apiKeyStatus | Enum | 선택 | 없음 | ACTIVE, INACTIVE | [API Key 상태](./enum-code/#???) 참조 |
+| apiKey | String | 선택 | 없음 | 없음 | Primary 또는 Secondary API Key 필터 조건 |
+| apiKeyId | String | 선택 | 없음 | 없음 | API Key ID 필터 조건 |
+| apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름  필터 조건. API key 이름의 문자열은 일치해야합니다. |
+| apiKeyStatus | Enum | 선택 | 없음 | ACTIVE, INACTIVE | API Key 상태 필터 조건. [API Key 상태](./enum-code/#???) 참조 |
 
 #### 응답
 
@@ -72,6 +72,7 @@
 | apiKeyList[0].updatedAt         | DateTime | API Key 수정일시                                      |
 
 ### API Key 생성
+- API Key를 생성합니다. 
 
 #### 요청
 
@@ -135,7 +136,8 @@
 
 
 ### API Key 수정
-- API Key 상태를 INACTIVE로 변경하면 해당 API Key를 사용할 수 없습니다.
+- API Key의 이름, 설명, 상태를 수정합니다.
+- API Key 상태를 INACTIVE로 변경하면, API Key가 비활성화되며 API호출이 불가해집니다.
 
 #### 요청
 
@@ -204,7 +206,8 @@
 
 
 ### API Key 삭제
-- 연결된 사용량 계획, 스테이지가 있는 경우 API Key를 삭제할 수 없습니다.
+- API Key를 삭제합니다. 삭제된 API Key는 복구할 수 없습니다.
+- 사용량 계획의 스테이지에 연결된 API Key가 있는 경우, API Key를 삭제할 수 없습니다. 삭제하려면 API Key를 연결해제를 해야합니다.
 
 #### 요청
 
@@ -234,7 +237,7 @@
 
 ### API Key 재발급
 - API Key 값으로 사용되는 Primary API Key, Secondary API Key는 각각 재발급할 수 있습니다.
-- 재발급할 경우 이전 API Key 값은 더 이상 유효하지 않게 됩니다.
+- 재발급할 경우 이전 API Key로는 API 호출이 불가합니다. 재발급 이전 API Key로 복구는 불가합니다.
 
 #### 요청
 
@@ -257,7 +260,7 @@
 
 | 이름                | 타입     | 필수 여부 | 기본값 | 유효 범위            | 설명                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
-| apiKeyType      | Enum   | 필수    | 없음  | PRIMARY, SECONDARY | [API Key 타입 Enum 코드](./enum-code/#???) 참조 |
+| apiKeyType      | Enum   | 필수    | 없음  | PRIMARY, SECONDARY | 변경하려는 API Key 타입. [API Key 타입 Enum 코드](./enum-code/#???) 참조 |
 
 #### 응답
 
@@ -370,6 +373,6 @@
 | apiKeyList[0].apiKeyDescription | String   | API Key 설명                                        |
 | apiKeyList[0].primaryApiKey     | String   | Primary API Key 값                                 |
 | apiKeyList[0].secondaryApiKey   | String   | Secondary API Key 값                               |
-| apiKeyList[0].apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#???) 참조 |
+| apiKeyList[0].apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#API Key 상태 Enum 코드) 참조 |
 | apiKeyList[0].createdAt         | DateTime | API Key 생성일시                                      |
 | apiKeyList[0].updatedAt         | DateTime | API Key 수정일시                                      |
