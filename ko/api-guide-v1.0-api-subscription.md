@@ -1,7 +1,7 @@
-## API Key 구독 
+## API Key 구독
 
 ### API Key 구독 목록 조회
-- API Key가 연결된 스테이지와 사용량 계획 정보가 있는 구독 목록을 조회합니다.
+- API Key가 연결된 스테이지와 사용량 계획 정보의 목록을 조회합니다.
 
 #### 요청
 
@@ -20,7 +20,7 @@
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
 | limit | Integer | 선택 | 10 | 최대 1000 | 페이지 당 건 수 |
-| stageUrl | String | 선택 | 없음 | 없음 | Stage Url |
+| stageUrl | String | 선택 | 없음 | 없음 | Stage Url 필터 조건 |
 
 #### 응답
 
@@ -66,7 +66,8 @@
 | paging.limit                                                 | Integer | 페이지 당 건 수                                         |
 | paging.totalCount                                            | Integer | 전체 건 수                                            |
 | subscribedStageAndUsagePlanList                              | List    | API Key가 연결된 스테이지와 사용량 계획 목록 영역                |
-| subscribeStageAndUsagePlanList[0].subscriptionId            | String  | 구독 ID                                     |
+| subscribedStageAndUsagePlanList[0]                           | Object    | API Key가 연결된 스테이지와 사용량 계획 영역                |
+| subscribedStageAndUsagePlanList[0].subscriptionId            | String  | 구독 ID                                     |
 | subscribedStageAndUsagePlanList[0].subscriptionStatus        | Enum    | [API Key 구독 상태](./enum-code/#???) 참조              |
 | subscribedStageAndUsagePlanList[0].apiKeyId                  | String  | API Key ID                                        |
 | subscribedStageAndUsagePlanList[0].apigwServiceName          | String  | API Gateway 서비스 이름                                |
@@ -82,8 +83,8 @@
 | subscribedStageAndUsagePlanList[0].quotaLimit                | Integer | 할당량 기간 단위 별 요청 할당량                                |
 
 
-### 스테이지와 사용량 계획 구독하는 목록 조회
-- 스테이지와 사용량 계획를 구독하고 있는 목록을 조회합니다.
+### 사용량 계획의 스테이지를 구독 중인 API Key 목록 조회
+- 사용량 계획의 스테이지에 연결된 API Key 목록을 조회합니다.
 - 여러 요청 쿼리 파라미터들이 있는 경우 모든 조건을 만족하는 목록을 반환합니다.
 
 #### 요청
@@ -104,9 +105,9 @@
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
 | limit | Integer | 선택 | 10 | 최대 1000 | 페이지 당 건 수 |
-| apiKey | String | 선택 | 없음 | 없음 | primary 또는 secondary API Key 값 |
-| apiKeyId | String | 선택 | 없음 | 없음 | API Key ID |
-| apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름 시작 문자열 |
+| apiKey | String | 선택 | 없음 | 없음 | Primary 또는 Secondary API Key 필터 조건 |
+| apiKeyId | String | 선택 | 없음 | 없음 | API Key ID 필터 조건 |
+| apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름  필터 조건. API key 이름의 문자열은 일치해야합니다.  |
 | apiSubscriptionStatus | Enum | 선택 | 없음 | APPROVAL | [API Key 구독 상태](./enum-code/#???) 참조 |
 
 #### 응답
@@ -127,12 +128,12 @@
   },
   "apiSubscriptionList": [
     {
-      "subscriptionId": "a4294d79-cf3f-42a2-a3c2-7d5573913007",
+      "subscriptionId": "{subscriptionId}",
       "subscriptionStatus": "APPROVAL",
       "subscriptionDescription": null,
-      "stageId": "976a9050-9a68-417f-807a-6cb7badda379",
-      "usagePlanId": "5f90b859-8320-4404-9557-713378f9ef8e",
-      "apiKeyId": "7bd6c8c4-7e11-44ef-a86a-86316b4a91fe",
+      "stageId": "{stageId}",
+      "usagePlanId": "{usagePlanId}",
+      "apiKeyId": "{apiKeyId}",
       "apiKeyName": "User1 API Key",
       "createdAt": "2021-08-27T04:53:57.000Z",
       "updatedAt": "2021-09-10T00:26:03.000Z"
@@ -148,6 +149,7 @@
 | paging.limit                                   | Integer  | 페이지 당 건 수                            |
 | paging.totalCount                              | Integer  | 전체 건 수                               |
 | apiSubscriptionList                            | List     | 구독 정보 목록 영역      |
+| apiSubscriptionList[0]                         | Object   | 구독 정보 영역      |
 | apiSubscriptionList[0].subscriptionId          | String   | 구독 ID                                |
 | apiSubscriptionList[0].subscriptionStatus      | Enum     | [API Key 구독 상태](./enum-code/#???) 참조 |
 | apiSubscriptionList[0].subscriptionDescription | String   | 구독 설명                                |
@@ -159,8 +161,10 @@
 | apiSubscriptionList[0].updatedAt               | DateTime | 구독 수정일시                              |
 
 
-### 스테이지와 사용량 계획에 API Key 목록 연결
-- 스테이지와 사용량 계획에 연결될 API Key ID 목록을 보내 구독 요청합니다.
+### API Key 구독 (API Key 연결)
+- 사용량 계획의 스테이지에 요청한 API Key 목록을 연결합니다.
+- 연결된 API Key만 API Key 인증에 성공하고, 사용량 계획의 사용량 제한이 적용됩니다.
+- 다른 사용량 계획의 동일 스테이지에 연결된 API Key는 연결할 수 없습니다.
 
 #### 요청
 
@@ -186,8 +190,8 @@
 
 | 이름                        | 타입      | 필수 여부 | 기본값 | 유효 범위        | 설명                                                |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
-| apiKeyIdList             | List  | 필수    | 없음  | 최대 100개       | API Key ID 목록 영역                                        |
-| apiKeyIdList[0]             | String  | 필수    | 없음  | 없음       | API Key ID                                        |
+| apiKeyIdList              | List  | 필수    | 없음  | 최대 100개       | API Key ID 목록 영역                                        |
+| apiKeyIdList[0]           | String  | 필수    | 없음  | 없음       | API Key ID                                        |
 
 #### 응답
 
@@ -219,6 +223,7 @@
 | 필드                                             | 타입       | 설명                                   |
 | ---------------------------------------------- | -------- | ------------------------------------ |
 | apiSubscriptionList                            | List     | 구독 정보 목록 영역                          |
+| apiSubscriptionList[0]                         | Object   | 구독 정보 영역                        |
 | apiSubscriptionList[0].subscriptionId          | String   | 구독 ID                                |
 | apiSubscriptionList[0].subscriptionStatus      | Enum     | [API Key 구독 상태](./enum-code/#???) 참조 |
 | apiSubscriptionList[0].subscriptionDescription | String   | 구독 설명                                |
@@ -230,7 +235,9 @@
 | apiSubscriptionList[0].updatedAt               | DateTime | 구독 수정일시                              |
 
 
-### 스테이지와 사용량 계획에 구독 해제
+### API Key 구독 취소 (API Key 연결 해제)
+- 사용량 계획의 스테이지에서 요청한 API Key 목록을 연결 해제합니다.
+- 연결 해제된 API Key는 API Key 인증에 실패하여 API 호출이 실패됩니다. 
 
 #### 요청
 
@@ -274,7 +281,7 @@
 ```
 
 
-### API Key와 연결된 사용량 계획 변경
+### API Key의 사용량 계획 변경
 - 선택한 스테이지가 연결된 다른 사용량 계획으로만 변경할 수 있습니다.
 - 사용량 계획 변경 시 API Key 요청 할당량의 사용량은 초기화됩니다.
   - 할당량 기간 단위가 '일' 또는 '월'인 사용량 계획으로 변경하면, 연결된 API Key 요청 할당량의 사용량은 유지됩니다. 요청 할당량 한도가 낮은 사용량 계획으로 변경 시 사용량이 초과될 수 있습니다. 
