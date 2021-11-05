@@ -89,7 +89,7 @@
 |data                                 |List    | 리소스별 통계 데이터 목록 영역                      |
 |data[0]                              |Object    | 리소스별 통계 데이터 영역                      |
 |data[0].uriPattern                   |String  | 리소스 경로 또는 경로 패턴                         |
-|data[0].httpMethodType               |Enum  | [리소스 HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고                             |
+|data[0].httpMethodType               |Enum  | [HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고                             |
 |data[0].successCount                 |Long    | API 성공 수 (응답 HTTP 상태 코드가 2xx, 3xx인 경우) |
 |data[0].failCount               |Long    | API 실패 수 (응답 HTTP 상태 코드가 4xx, 5xx인 경우) |
 |data[0].status2xxCount               |Long    | 응답 HTTP 상태코드가 2xx인 API 호출 수 |
@@ -147,7 +147,7 @@
     "kr1-{apigwServiceId}-member.api.nhncloudservice.com": {
       "stageName": "member",
       "stageUrl": "kr1-{apigwServiceId1}-member.api.nhncloudservice.com",
-      "stageCustomUrl": "member.api.nhncloudservice.com",
+      "stageCustomUrl": null,
       "apiKeyMetricsTimeSeries": {
         "callCount": [
           {
@@ -192,7 +192,7 @@
 |data.{requestApigwEndpoint}          |Object  | API 호출 엔드포인트별 통계 영역                |
 |data.{requestApigwEndpoint}.stageName                    |String    | 스테이지 이름            |
 |data.{requestApigwEndpoint}.stageUrl                     |String    | 스테이지 URL |
-|data.{requestApigwEndpoint}.stageCustomUrl               |String    | 스테이지 커스텀 URL |
+|data.{requestApigwEndpoint}.stageCustomUrl               |String    | 스테이지 사용자 정의 URL |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries      |Object    | 집계 시간 단위별 API Key 통계 영역|
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount               |List    | API 호출 수 통계 목록 영역 |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0]               |Object    | API 호출 수 통계 영역 |

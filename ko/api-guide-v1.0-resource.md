@@ -85,7 +85,7 @@
 | resourceList[0].path                                   | String   | 리소스 경로                                         |
 | resourceList[0].createdAt                              | DateTime | 리소스 생성일시                                       |
 | resourceList[0].updatedAt                              | DateTime | 리소스 수정일시                                       |
-| resourceList[2].methodType                             | Enum     | [리소스 HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고 |
+| resourceList[2].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고 |
 | resourceList[2].methodName                             | String   | 메서드 리소스 이름                                     |
 | resourceList[2].methodDescription                      | String   | 메서드 리소스 설명                                     |
 | resourceList[2].resourcePluginList                     | List     | 리소스 플러그인 목록 영역                                 |
@@ -323,7 +323,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | allowedMethods | List | 필수 | 없음 | 없음 | 리소스 접근에 허용할 메서드 목록 영역 |
-| allowedMethods[0] | Enum | 필수 | 없음 | "GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "PATCH" | [리소스 HTTP 메서드 타입 Enum 코드 참조](./enum-code/#???) |
+| allowedMethods[0] | Enum | 필수 | 없음 | "GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "PATCH" | [HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고 |
 | allowedHeaders | List | 필수 | 없음 | 없음 | 요청에서 사용할 수 있는 HTTP 헤더 목록 영역 |
 | allowedHeaders[0] | String | 필수 | 없음 | 없음 | 요청에서 사용할 수 있는 HTTP 헤더. (예시: 와일드카드 형식: '\*' 또는 'X-NHN-HEADER, Content-Type') |
 | allowedOrigins    | List | 필수 | 없음 | 없음 | 리소스에 액세스할 수 있는 원본 서버의 도메인 목록 영역 |

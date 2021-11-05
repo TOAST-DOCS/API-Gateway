@@ -392,7 +392,7 @@
 |stageResourceList[0].parentPath             |String  |스테이지 상위 리소스 경로 (루트(/) 경로의 parentPath는 null)|
 |stageResourceList[0].stageId                |String  |스테이지 ID                                    |
 |stageResourceList[0].customBackendEndpointUrl      |String  |백엔드 엔드포인트 재정의 URL                          |
-|stageResourceList[0].methodType             |Enum    |[리소스 HTTP 메서드 타입](./enum-code/#???)   |
+|stageResourceList[0].methodType             |Enum    |[HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고  |
 |stageResourceList[0].methodName             |String  |메서드 이름                                     |
 |stageResourceList[0].methodDescription      |String  |메서드 설명                                     |
 |stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성일시                              |
@@ -493,7 +493,7 @@
 |stageResourceList[0].parentPath             |String  |스테이지 상위 리소스 경로 (루트(/) 경로의 parentPath는 null)|
 |stageResourceList[0].stageId                |String  |스테이지 ID                                    |
 |stageResourceList[0].customBackendEndpointUrl      |String  |백엔드 엔드포인트 재정의 URL                          |
-|stageResourceList[0].methodType             |Enum    |[리소스 HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고               |
+|stageResourceList[0].methodType             |Enum    |[HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고               |
 |stageResourceList[0].methodName             |String  |메서드 이름                                     |
 |stageResourceList[0].methodDescription      |String  |메서드 설명                                     |
 |stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성일시                              |
@@ -616,7 +616,7 @@
 |stageResourceList[0].parentPath             |String  |스테이지 상위 리소스 경로 (루트(/) 경로의 parentPath는 null)|
 |stageResourceList[0].stageId                |String  |스테이지 ID                                    |
 |stageResourceList[0].customBackendEndpointUrl      |String  |백엔드 엔드포인트 재정의 URL                          |
-|stageResourceList[0].methodType             |Enum    |[리소스 HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고               |
+|stageResourceList[0].methodType             |Enum    |[HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고               |
 |stageResourceList[0].methodName             |String  |메서드 이름                                     |
 |stageResourceList[0].methodDescription      |String  |메서드 설명                                     |
 |stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성일시                              |
@@ -913,7 +913,7 @@
 | --- | --- | --- | --- | --- | --- |
 | pluginType | Enum | 필수 | 없음 | PRE_API | [스테이지 리소스 > 플러그인 타입]() 중 PRE_API 참고 |
 | pluginConfigJson | Object | 필수 | 없음 | 없음 | 사전 호출 API 플러그인 설정 영역 |
-| pluginConfigJson.httpMethod | Enum | 필수 | 없음 | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [사전 호출 API > HttpMethod]() 참고  |
+| pluginConfigJson.httpMethod | Enum | 필수 | 없음 | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고  |
 | pluginConfigJson.url | String | 필수 | 없음 | URL형식 | 사전 호출 API의 URL을 입력합니다. |
 | pluginConfigJson.cacheTtl | Integer | 선택 | 0 | 0~86400 | 사전 호출 API의 응답 상태 코드의 캐시 시간을 설정합니다. <br/>응답 상태 코드가 200 OK인 경우에만 설정된 시간 동안 캐시되며, 캐시된 경우에는 사전 호출 API를 호출하지 않습니다. |
 
