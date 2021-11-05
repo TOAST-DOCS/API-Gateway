@@ -125,7 +125,7 @@
 | responseList[0].responseBody.description  | String  | 선택    | 없음         | 최대 200자                                       | 응답 본문 설명                                             |
 | responseList[0].responseBody.modelId      | String  | 필수    | 없음           | 없음                                           | 응답 본문과 연결된 모델 ID                                     |
 | contentTypeList                           | List    | 선택    | Empty List   | 최대 10개                                        | 콘텐츠 타입 목록 영역                                         |
-| contentTypeList[0]                        | String  | 필수    | 없음           | */* 형태                                        | 콘텐츠 타입                                               |
+| contentTypeList[0]                        | String  | 필수    | 없음           | \*/\* 형식                                        | 콘텐츠 타입                                               |
 
 
 #### 응답
