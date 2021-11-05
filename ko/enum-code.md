@@ -20,8 +20,7 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | SHARED | 공용 API Gateway 서비스 타입 |
 
 
-### 리소스 HTTP 메서드 타입
-- 리소스 HTTP 메서드 타입입니다.
+### HTTP 메서드 타입
 
 | 이름 | 설명 |
 | --- | --- |
@@ -32,6 +31,7 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | OPTIONS | HTTP OPTIONS 메서드 | 
 | HEAD | HTTP HEAD 메서드 | 
 | PATCH | HTTP PATCH 메서드 | 
+
 
 ### 리소스 플러그인 타입
 | 이름 | 설명 |
@@ -94,19 +94,6 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | --- | --- |
 | RSA_PUBLIC_KEY | PEM 형식의 공개키를 설정하는 방식입니다. |
 | JWKS_URI | 공개키를 조회할 수 있는 Json Web Key Sets URI로 설정하는 방식입니다.|
-
-
-### 사전 호출 API > HttpMethod
-- 지정된 사전 호출 API의 HttpMethod를 설정합니다.
-| 이름 | 설명 |
-| --- | --- |
-| GET | GET 메서드 |
-| POST | POST 메서드 |
-| PUT | PUT 메서드 |
-| DELETE | DELETE 메서드 |
-| HEAD | HEAD 메서드 |
-| OPTIONS | OPTIONS 메서드 |
-| PATCH | PATCH 메서드 |
 
 
 ### 요청 수 제한 > 제한 키
