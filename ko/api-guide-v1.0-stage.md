@@ -386,7 +386,6 @@
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |stageResourceList      |List    |스테이지 리소스 목록 영역                             |
-|stageResourceList[0]      |Object    |스테이지 리소스 영역                             |
 |stageResourceList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].path                   |String  |스테이지 리소스 경로                                |
 |stageResourceList[0].parentPath             |String  |스테이지 상위 리소스 경로 (루트(/) 경로의 parentPath는 null)|
@@ -398,7 +397,6 @@
 |stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성일시                              |
 |stageResourceList[0].updatedAt              |DateTime|스테이지 리소스 수정일시                              |
 |stageResourceList[0].stageResourcePluginList|List    |스테이지 리소스의 플러그인 목록 영역                       |
-|stageResourceList[0].stageResourcePluginList[0]|Object    |스테이지 리소스의 플러그인 영역                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입](./enum-code/#???), [스테이지 리소스 > 플러그인 타입](./enum-code/#???) 참고                        |
@@ -487,7 +485,6 @@
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |stageResourceList      |List    |스테이지 리소스 목록 영역                             |
-|stageResourceList[0]      |Object    |스테이지 리소스 영역                             |
 |stageResourceList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].path                   |String  |스테이지 리소스 경로                                |
 |stageResourceList[0].parentPath             |String  |스테이지 상위 리소스 경로 (루트(/) 경로의 parentPath는 null)|
@@ -499,7 +496,6 @@
 |stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성일시                              |
 |stageResourceList[0].updatedAt              |DateTime|스테이지 리소스 수정일시                              |
 |stageResourceList[0].stageResourcePluginList|List    |스테이지 리소스의 플러그인 목록 영역                       |
-|stageResourceList[0].stageResourcePluginList[0]|Object    |스테이지 리소스의 플러그인 영역                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입](./enum-code/#???), [스테이지 리소스 > 플러그인 타입](./enum-code/#???) 참고                        |
@@ -610,7 +606,6 @@
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |stageResourceList      |List    |스테이지 리소스 목록 영역                             |
-|stageResourceList[0]      |Object    |스테이지 리소스 영역                             |
 |stageResourceList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].path                   |String  |스테이지 리소스 경로                                |
 |stageResourceList[0].parentPath             |String  |스테이지 상위 리소스 경로 (루트(/) 경로의 parentPath는 null)|
@@ -622,7 +617,6 @@
 |stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성일시                              |
 |stageResourceList[0].updatedAt              |DateTime|스테이지 리소스 수정일시                              |
 |stageResourceList[0].stageResourcePluginList|List    |스테이지 리소스의 플러그인 목록 영역                       |
-|stageResourceList[0].stageResourcePluginList[0]|Object    |스테이지 리소스의 플러그인 영역                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입](./enum-code/#???), [스테이지 리소스 > 플러그인 타입](./enum-code/#???) 참고                        |
@@ -686,7 +680,7 @@
 | pluginType | Enum | 필수 | 없음 | IP_ACL | [스테이지 리소스 > 플러그인 타입]() 중 IP_ACL 참고 |
 | pluginConfigJson | Object | 필수 | 없음 | 없음 | IP ACL 플러그인 설정 영역 |
 | pluginConfigJson.isPermit | Boolean | 필수 | 없음 | true, false | false로 설정하면 설정된 IP/CIDR에 대해 요청을 거부하고, true로 설정하면 설정된 IP/CIDR만 요청을 허용합니다.  |
-| pluginConfigJson.ipAclList | List | 필수 | 없음 | 1~100개 | 요청을 허용/거부할 IP 또는 CIDR 목록 영역 |
+| pluginConfigJson.ipAclList | List | 필수 | 없음 | 최대 100개 | 요청을 허용/거부할 IP 또는 CIDR 목록 영역 |
 | pluginConfigJson.ipAclList[0].ipCidrAddress | String | 필수 | 없음 | IP 또는 CIDR 형식 | IP 또는 CIDR을 설정합니다. |
 | pluginConfigJson.ipAclList[0].description | String | 선택 | 없음 | 최대 200자 | 설명을 설정합니다. |
 
@@ -718,7 +712,7 @@
 | pluginConfigJson | Object | 필수 | 없음 | 없음 | HMAC 플러그인 설정 영역 |
 | pluginConfigJson.secretKey | String | 필수 | 없음 | 없음 | 서명에 사용되는 비밀키를 설정합니다. 최소 32바이트 이상 문자열로 설정하는 것을 권장합니다.|
 | pluginConfigJson.clockSkewSeconds | Integer | 선택 | 0 | 0~86400 | 요청 유효 시간(단위: 초)을 지정합니다. |
-| pluginConfigJson.enforceHeaders | Array | 선택 | Empty List | 없음 | 필수 검증 헤더의 문자열 배열을 입력합니다. |
+| pluginConfigJson.enforceHeaders | Array | 선택 | [] | 없음 | 필수 검증 헤더의 문자열 배열을 입력합니다. |
 | pluginConfigJson.enforceHeaders[0] | String | 필수 | 없음 | 없음| 필수 검증 헤더의 문자열 |
 
 
@@ -796,38 +790,38 @@
 | pluginConfigJson.hs256 | Object | 필수 | 없음 | 없음 | HS256 설정 영역 |
 | pluginConfigJson.hs256.secretKey | String | 필수 | 없음 | 없음 | 서명에 사용되는 비밀키를 설정합니다. 최소 32바이트 이상 문자열로 설정하는 것을 권장합니다.|
 | pluginConfigJson.clockSkew | Integer | 선택 | 0 | 0~86400 | exp, nbf 클레임의 검증 유효 시간(단위: 초)을 지정합니다. |
-| pluginConfigJson.claimValidationCondition | Object | 선택 | Default Object | 없음 | 클레임들 검증 조건 영역 |
-| pluginConfigJson.claimValidationCondition.iss | Object | 선택 | Default Object | 없음 | iss 클레임 검증 조건 영역. 요청하지 않는 경우 각 필드의 기본값으로 저장됩니다. |
-| pluginConfigJson.claimValidationCondition.iss.value | Array | 필수 | Empty Array | 없음 |  iss 요청 클레임의 값 중 허용할 클레임 값을 문자열 배열로 설정합니다. |
+| pluginConfigJson.claimValidationCondition | Object | 선택 | {} | 없음 | 클레임들 검증 조건 영역 |
+| pluginConfigJson.claimValidationCondition.iss | Object | 선택 | {} | 없음 | iss 클레임 검증 조건 영역 |
+| pluginConfigJson.claimValidationCondition.iss.value | Array | 필수 | [] | 없음 |  iss 요청 클레임의 값 중 허용할 클레임 값을 문자열 배열로 설정합니다. |
 | pluginConfigJson.claimValidationCondition.iss.value[0] | String | 선택 | 없음 | 없음 |  iss 요청 클레임의 값 중 허용할 문자열을 설정합니다. |
-| pluginConfigJson.claimValidationCondition.iss.dataType | Enum | 선택 | Array | Array | iss 클레임의 데이터 타입을 설정합니다. Array만 유효합니다. <br/> [JWT > 클레임 데이터 타입]() 참고 |
+| pluginConfigJson.claimValidationCondition.iss.dataType | String | 선택 | Array | Array | iss 클레임의 데이터 타입을 설정합니다. Array만 유효합니다. <br/> [JWT > 클레임 데이터 타입]() 참고 |
 | pluginConfigJson.claimValidationCondition.iss.required | Boolean | 필수 | false | true, false | iss 요청 클레임 값의 필수 검증 여부를 설정합니다. |
 | pluginConfigJson.claimValidationCondition.iss.validate | Boolean | 필수 | false | true, false | iss 요청 클레임 값의 검증 여부를 설정합니다. |
-| pluginConfigJson.claimValidationCondition.aud | Object | 선택 | Default Object | 없음 | aud 클레임 검증 조건 영역. 요청하지 않는 경우 각 필드의 기본값으로 저장됩니다.  |
-| pluginConfigJson.claimValidationCondition.aud.value | Array | 필수 | Empty Array | 없음 |  aud 요청 클레임의 값 중 허용할 클레임 값을 문자열 배열로 설정합니다. |
+| pluginConfigJson.claimValidationCondition.aud | Object | 선택 | {} | 없음 | aud 클레임 검증 조건 영역 |
+| pluginConfigJson.claimValidationCondition.aud.value | Array | 필수 | [] | 없음 |  aud 요청 클레임의 값 중 허용할 클레임 값을 문자열 배열로 설정합니다. |
 | pluginConfigJson.claimValidationCondition.aud.value[0] | String | 선택 | 없음 | 없음 |  aud 요청 클레임의 값 중 허용할 문자열을 설정합니다. |
 | pluginConfigJson.claimValidationCondition.aud.dataType | Enum | 선택 | Array | Array | aud 클레임의 데이터 타입을 설정합니다. Array만 유효합니다. <br/> [JWT > 클레임 데이터 타입]() 참고 |
 | pluginConfigJson.claimValidationCondition.aud.required | Boolean | 필수 | false | true, false | aud 요청 클레임 값의 필수 검증 여부를 설정합니다. |
 | pluginConfigJson.claimValidationCondition.aud.validate | Boolean | 필수 | true | true | aud 요청 클레임 값의 검증 여부를 설정합니다. true만 유효합니다. |
-| pluginConfigJson.claimValidationCondition.sub | Object | 선택 | Default Object | 없음 | sub 클레임 검증 조건 영역. 요청하지 않는 경우 각 필드의 기본값으로 저장됩니다. |
-| pluginConfigJson.claimValidationCondition.sub.value | String | 필수 | Empty String | 없음 |  sub 요청 클레임의 값 중 허용할 클레임 문자열 값을 설정합니다. |
+| pluginConfigJson.claimValidationCondition.sub | Object | 선택 | {} | 없음 | sub 클레임 검증 조건 영역 |
+| pluginConfigJson.claimValidationCondition.sub.value | String | 필수 | "" | 없음 |  sub 요청 클레임의 값 중 허용할 클레임 문자열 값을 설정합니다. |
 | pluginConfigJson.claimValidationCondition.sub.dataType | Enum | 선택 | String | String | sub 클레임의 데이터 타입을 설정합니다. String만 유효합니다.<br/> [JWT > 클레임 데이터 타입]() |
 | pluginConfigJson.claimValidationCondition.sub.required | Boolean | 필수 | false | true, false | sub 요청 클레임 값의 필수 검증 여부를 설정합니다. <br/> validate 필드값이 true인 경우, requried는 반드시 true로 설정되어야합니다.  |
 | pluginConfigJson.claimValidationCondition.sub.validate | Boolean | 필수 | false | true, false | sub 요청 클레임 값의 검증 여부를 설정합니다. |
-| pluginConfigJson.claimValidationCondition.jti | Object | 선택 | Default Object | 없음 | jti 클레임 검증 조건 영역. 요청하지 않는 경우 각 필드의 기본값으로 저장됩니다. |
-| pluginConfigJson.claimValidationCondition.jti.value | String | 필수 | Empty String | 없음 | jti 클레임은 허용할 검증 값 설정을 요구하지 않으므로 빈 문자열로 설정합니다. |
+| pluginConfigJson.claimValidationCondition.jti | Object | 선택 | {} | 없음 | jti 클레임 검증 조건 영역 |
+| pluginConfigJson.claimValidationCondition.jti.value | String | 필수 | "" | 없음 | jti 클레임은 허용할 검증 값 설정을 요구하지 않으므로 빈 문자열로 설정합니다. |
 | pluginConfigJson.claimValidationCondition.jti.dataType | Enum | 선택 | String | String | jti 클레임의 데이터 타입을 설정합니다. <br/> [JWT > 클레임 데이터 타입]() 참고|
 | pluginConfigJson.claimValidationCondition.jti.required | Boolean | 필수 | false | true, false | jti 요청 클레임 값의 필수 검증 여부를 설정합니다. |
 | pluginConfigJson.claimValidationCondition.jti.validate | Boolean | 필수 | false | false | jti 요청 클레임 값의 검증 여부를 설정합니다. false만 유효합니다.|
-| pluginConfigJson.claimValidationCondition.exp | Object | 선택 | Default Object | 없음 | exp 클레임 검증 조건 영역. 요청하지 않는 경우 각 필드의 기본값으로 저장됩니다. |
+| pluginConfigJson.claimValidationCondition.exp | Object | 선택 | {} | 없음 | exp 클레임 검증 조건 영역 |
 | pluginConfigJson.claimValidationCondition.exp.dataType | Enum | 선택 | NumericDate | NumericDate | exp 클레임의 데이터 타입을 설정합니다. NumericDate만 유효합니다. <br/> [JWT > 클레임 데이터 타입]() 참고 |
 | pluginConfigJson.claimValidationCondition.exp.required | Boolean | 필수 | false | true, false | exp 요청 클레임 값의 필수 검증 여부를 설정합니다. |
 | pluginConfigJson.claimValidationCondition.exp.validate | Boolean | 선택 | true | true | exp 요청 클레임 값의 검증 여부를 설정합니다. true만 유효합니다. |
-| pluginConfigJson.claimValidationCondition.iat | Object | 선택 | Default Object | 없음 | iat 클레임 검증 조건 영역. 요청하지 않는 경우 각 필드의 기본값으로 저장됩니다. |
+| pluginConfigJson.claimValidationCondition.iat | Object | 선택 | {} | 없음 | iat 클레임 검증 조건 영역 |
 | pluginConfigJson.claimValidationCondition.iat.dataType | Enum | 선택 | NumericDate | NumericDate | iat 클레임의 데이터 타입을 설정합니다. NumericDate만 유효합니다. <br/> [JWT > 클레임 데이터 타입]() 참고 |
 | pluginConfigJson.claimValidationCondition.iat.required | Boolean | 필수 | false | true, false | iat 요청 클레임 값의 필수 검증 여부를 설정합니다. |
 | pluginConfigJson.claimValidationCondition.iat.validate | Boolean | 선택 | true | true | iat 요청 클레임 값의 검증 여부를 설정합니다. true만 유효합니다. |
-| pluginConfigJson.claimValidationCondition.nbf | Object | 선택 | Default Object | 없음 | nbf 클레임 검증 조건 영역. 요청하지 않는 경우 각 필드의 기본값으로 저장됩니다. |
+| pluginConfigJson.claimValidationCondition.nbf | Object | 선택 | {} | 없음 | nbf 클레임 검증 조건 영역 |
 | pluginConfigJson.claimValidationCondition.nbf.dataType | Enum | 선택 | NumericDate | NumericDate | nbf 클레임의 데이터 타입을 설정합니다. NumericDate만 유효합니다. <br/> [JWT > 클레임 데이터 타입]() 참고|
 | pluginConfigJson.claimValidationCondition.nbf.required | Boolean | 필수 | false | true, false | nbf 요청 클레임 값의 필수 검증 여부를 설정합니다. |
 | pluginConfigJson.claimValidationCondition.nbf.validate | Boolean | 선택 | true | true | nbf 요청 클레임 값의 검증 여부를 설정합니다. true만 유효합니다. |
@@ -857,11 +851,10 @@
 | pluginType | Enum | 필수 | 없음 | JWT | [스테이지 리소스 > 플러그인 타입]() 중 JWT 참고 |
 | pluginConfigJson | Object | 필수 | 없음  | 없음 | JWT 플러그인 설정 영역 |
 | pluginConfigJson.encryptAlgorithm | Enum | 필수 | RS256 | RS256 | [JWT > 암호화 알고리즘]() 참고  |
-| pluginConfigJson.rs256 | Object | 필수 | 없음 | 없음 | RS256 설정 영역 |
 | pluginConfigJson.rs256.publicKeyType | Enum | 필수 | 없음 | RSA_PUBLIC_KEY | PEM 형식의 공개키 설정 [JWT > RS256 암호화 알고리즘 > Public Key Type]() 참고 |
 | pluginConfigJson.rs256.rsaPublicKey | String | 필수 | 없음 | PEM 형식의 공개키 | PEM 형식의 공개키 값을 설정합니다.  개행 문자(\n)를 포함하여 입력해야합니다. |
-| pluginConfigJson.clockSkew | Integer | 선택 | 0 | 0~86400 | exp, nbf 클레임의 검증 유효 시간(단위: 초)을 지정합니다. |
-| pluginConfigJson.claimValidationCondition | Object | 선택 | Default Object | 없음 | 클레임 검증 조건 영역 (암호화 알고리즘: HS256의 claimValidationCondition 필드 설명과 동일합니다.) |
+| pluginConfigJson.clockSkew | Integer | 필수 | 0 | 0~86400 | exp, nbf 클레임의 검증 유효 시간(단위: 초)을 지정합니다. |
+| pluginConfigJson.claimValidationCondition | Object | 선택 | {} | 없음 | 클레임 검증 조건 영역 (암호화 알고리즘: HS256의 claimValidationCondition 필드 설명과 동일합니다.) |
 
 
 * **암호화 알고리즘 RS256: (Json Web Key Sets URI 공개키 설정 방식)** 
@@ -887,11 +880,10 @@
 | pluginType | Enum | 필수 | 없음 | JWT | [스테이지 리소스 > 플러그인 타입]() 중 JWT 참고 |
 | pluginConfigJson | Object | 필수 | 없음  | 없음 | JWT 플러그인 설정 영역 |
 | pluginConfigJson.encryptAlgorithm | Enum | 필수 | RS256 | RS256 | [JWT > 암호화 알고리즘]() 참고  |
-| pluginConfigJson.rs256 | Object | 필수 | 없음 | 없음 | RS256 설정 영역 |
 | pluginConfigJson.rs256.publicKeyType | String | 필수 | 없음 | JWKS_URI | JWKS(Json Web Key Sets) URI 형식으로 공개키를 설정합니다. [JWT > RS256 암호화 알고리즘 > Public Key Type]() 참고 |
 | pluginConfigJson.rs256.rsaPublicKey | String | 필수 | 없음 | 없음 | Json Web Key Set URI를 설정합니다. |
 | pluginConfigJson.clockSkew | Integer | 선택 | 0 | 0~86400 | exp, nbf 클레임의 검증 유효 시간(단위: 초)을 지정합니다. |
-| pluginConfigJson.claimValidationCondition | Object | 선택 | Default Object | 없음 | 클레임 검증 조건 영역 (암호화 알고리즘: HS256의 claimValidationCondition 필드 설명과 동일합니다.) |
+| pluginConfigJson.claimValidationCondition | Object | 선택 | {} | 없음 | 클레임 검증 조건 영역 (암호화 알고리즘: HS256의 claimValidationCondition 필드 설명과 동일합니다.) |
 
 
 ### 사전 호출 API 

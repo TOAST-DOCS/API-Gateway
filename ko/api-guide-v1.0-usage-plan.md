@@ -30,7 +30,7 @@
   "paging": {
     "limit": 10,
     "page": 1,
-    "totalCount": 5
+    "totalCount": 1
   },
   "usagePlanList": [
     {
@@ -67,76 +67,9 @@
 | usagePlanList[0].updatedAt                 | DateTime | 사용량 계획 수정일시                                       |
 
 
-### 사용량 계획 생성
-
-#### 요청
-
-[URI]
-| 메서드  | URI |
-| --- | --- |
-| POST |  /v1.0/appkeys/{appKey}/usage-plans |
-
-[Request Body]
-```json
-{
-  "usagePlanName": "string",
-  "usagePlanDescription": "string",
-  "rateLimitRequestPerSecond": 10,
-  "quotaLimitPeriodUnitCode": "DAY",
-  "quotaLimit": 100
-}
-```
-
-| 이름                        | 타입      | 필수 여부 | 기본값 | 유효 범위        | 설명                                                |
-| ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
-| usagePlanName             | String  | 필수    | 없음  | 최대 50자       | 사용량 계획 이름                                         |
-| usagePlanName             | String  | 선택    | 없음  | 최대 200자      | 사용량 계획 설명                                         |
-| rateLimitRequestPerSecond | Integer | 선택    | 없음  | 1~5000       | 초당 요청 수 제한                                        |
-| quotaLimitPeriodUnitCode  | Enum    | 선택    | 없음  | DAY, MONTH   | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참조 |
-| quotaLimit                | Integer | 선택    | 없음  | 1~2147483647 | 할당량 기간 단위 별 요청 할당량                                |
-
-#### 응답
-
-[Response]
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "usagePlan": {
-    "appKey": "{appKey}",
-    "usagePlanId": "{usagePlanId}",
-    "usagePlanName": "Basic",
-    "usagePlanDescription": "It's for Basic User",
-    "rateLimitRequestPerSecond": 10,
-    "quotaLimitPeriodUnitCode": "MONTH",
-    "quotaLimit": 2147483647,
-    "createdAt": "2021-11-02T02:26:44.087Z",
-    "updatedAt": "2021-11-02T02:26:44.087Z"
-  }
-}
-```
-
-| 필드                                  | 타입       | 설명                                                |
-| ----------------------------------- | -------- | ------------------------------------------------- |
-| usagePlan                           | Object   | 사용량 계획 영역                                         |
-| usagePlan.appKey                    | String   | AppKey                                            |
-| usagePlan.usagePlanId               | String   | 사용량 계획 ID                                         |
-| usagePlan.usagePlanName             | String   | 사용량 계획 이름                                         |
-| usagePlan.usagePlanDescription      | String   | 사용량 계획 설명                                         |
-| usagePlan.rateLimitRequestPerSecond | Integer  | 초당 요청 수 제한                                        |
-| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참조 |
-| usagePlan.quotaLimit                | Integer  | 할당량 기간 단위 별 요청 할당량                                |
-| usagePlan.createdAt                 | DateTime | 사용량 계획 생성일시                                       |
-| usagePlan.updatedAt                 | DateTime | 사용량 계획 수정일시                                       |
-
-
 
 ### 단일 사용량 계획 조회
-- 사용량 계획을 조회합니다.
+- 단일 사용량 계획을 조회합니다.
 
 #### 요청
 
@@ -188,8 +121,77 @@
 | usagePlan.createdAt                 | DateTime | 사용량 계획 생성일시                                       |
 | usagePlan.updatedAt                 | DateTime | 사용량 계획 수정일시                                       |
 
+### 사용량 계획 생성
+- 사용량 계획을 생성합니다.
+
+#### 요청
+
+[URI]
+| 메서드  | URI |
+| --- | --- |
+| POST |  /v1.0/appkeys/{appKey}/usage-plans |
+
+[Request Body]
+```json
+{
+  "usagePlanName": "string",
+  "usagePlanDescription": "string",
+  "rateLimitRequestPerSecond": 10,
+  "quotaLimitPeriodUnitCode": "DAY",
+  "quotaLimit": 100
+}
+```
+
+| 이름                        | 타입      | 필수 여부 | 기본값 | 유효 범위        | 설명                                                |
+| ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
+| usagePlanName             | String  | 필수    | 없음  | 최대 50자       | 사용량 계획 이름                                         |
+| usagePlanDescription      | String  | 선택    | 없음  | 최대 200자      | 사용량 계획 설명                                         |
+| rateLimitRequestPerSecond | Integer | 선택    | 없음  | 1~5000       | 초당 요청 수 제한                                        |
+| quotaLimitPeriodUnitCode  | Enum    | 선택    | 없음  | DAY, MONTH   | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참조 |
+| quotaLimit                | Integer | 조건부필수 | 없음  | 1~2147483647 | quotaLimitPeriodUnitCode가 설정된 경우 필수. 할당량 기간 단위 별 요청 할당량                                |
+
+#### 응답
+
+[Response]
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "usagePlan": {
+    "appKey": "{appKey}",
+    "usagePlanId": "{usagePlanId}",
+    "usagePlanName": "Basic",
+    "usagePlanDescription": "It's for Basic User",
+    "rateLimitRequestPerSecond": 10,
+    "quotaLimitPeriodUnitCode": "MONTH",
+    "quotaLimit": 2147483647,
+    "createdAt": "2021-11-02T02:26:44.087Z",
+    "updatedAt": "2021-11-02T02:26:44.087Z"
+  }
+}
+```
+
+| 필드                                  | 타입       | 설명                                                |
+| ----------------------------------- | -------- | ------------------------------------------------- |
+| usagePlan                           | Object   | 사용량 계획 영역                                         |
+| usagePlan.appKey                    | String   | AppKey                                            |
+| usagePlan.usagePlanId               | String   | 사용량 계획 ID                                         |
+| usagePlan.usagePlanName             | String   | 사용량 계획 이름                                         |
+| usagePlan.usagePlanDescription      | String   | 사용량 계획 설명                                         |
+| usagePlan.rateLimitRequestPerSecond | Integer  | 초당 요청 수 제한                                        |
+| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참조 |
+| usagePlan.quotaLimit                | Integer  | 할당량 기간 단위 별 요청 할당량                                |
+| usagePlan.createdAt                 | DateTime | 사용량 계획 생성일시                                       |
+| usagePlan.updatedAt                 | DateTime | 사용량 계획 수정일시                                       |
+
 
 ### 사용량 계획 수정
+- 사용량 계획을 수정합니다. 
+- 할당량 기간 단위를 '없음'으로 수정하면 연결된 API Key들의 요청 할당량 사용량은 초기화됩니다.
 
 #### 요청
 
@@ -262,7 +264,8 @@
 
 
 ### 사용량 계획 삭제
-- 사용량 계획과 연결된 스테이지들을 모두 해제한 후 사용량 계획을 삭제할 수 있습니다.
+- 사용량 계획을 삭제합니다.
+- 사용량 계획에 연결된 스테이지들을 모두 해제한 후 사용량 계획을 삭제할 수 있습니다.
 
 #### 요청
 
