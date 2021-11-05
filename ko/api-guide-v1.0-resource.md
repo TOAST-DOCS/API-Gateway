@@ -136,6 +136,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 ### 리소스 가져오기
 - [Swagger v2.0 OpenAPI Specification](https://swagger.io/specification/v2/) 형식의 파일에서 리소스를 가져옵니다.
 - 리소스를 가져오면 해당 서비스에 생성되어 있던 기존의 모델은 모두 삭제되고 가져온 모델로 덮어씁니다.
+- Swagger paths > path > operation에서 유효하지 않은 operation의 데이터는 무시되고 등록되지 않으므로 주의해주세요.
 
 #### 요청
 
@@ -234,7 +235,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | swaggerData.info.version | String  | 선택 | 없음 | 없음 | API의 버전 정보. [Info Object](https://swagger.io/specification/v2/#info-object) 참고 |
 | swaggerData.paths | Object | 필수 | 없음 | 없음 | API Gateway 경로를 설정하는 API의 경로 정보들을 갖는 객체 영역. [Paths Object](https://swagger.io/specification/v2/#paths-object) 참고 |
 | swaggerData.paths.{path} | Object | 필수 | 없음 | {path} 최대 255자 | API Gateway 경로인 {path}와 {path} 내 메서드들 정보를 갖는 객체 영역. [Paths Item Object](https://swagger.io/specification/v2/#path-item-object) 참고 |
-| swaggerData.paths.{path}.{operation} | Object | 선택 | 없음 | {operation} get, post, put, delete, head, options, patch | API Gateway 메서드인 {operation}과 메서드 정보를 갖는 객체 영역. [Operation Object](https://swagger.io/specification/v2/#operation-object) 참고 |
+| swaggerData.paths.{path}.{operation} | Object | 선택 | 없음 | {operation} get, post, put, delete, head, options, patch | API Gateway 메서드인 {operation}과 메서드 정보를 갖는 객체 영역. 유효하지 않은 operation의 데이터는 무시되고 등록되지 않습니다. [Operation Object](https://swagger.io/specification/v2/#operation-object) 참고  |
 | swaggerData.paths.{path}.{operation}.summary | String | 선택 | {operation} 대문자 | 최대 50자 | API Gateway 메서드 이름. |
 | swaggerData.paths.{path}.{operation}.description | String | 선택 | {operation} 대문자 | 최대 200자 | API Gateway 메서드 설명. |
 | swaggerData.paths.{path}.{operation}.consumes | Array | 선택 | Empty Array | 없음 | API Gateway 리소스 요청 파라미터 > 콘텐츠 타입 목록 영역. |
