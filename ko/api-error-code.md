@@ -1,7 +1,7 @@
 ## Application Service > API Gateway > API 오류 코드
 
-|오류 코드    |오류 메시지                                                                                                                                                    |설명                                                              |
-|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+|오류 코드 |오류 메시지 |설명 |
+| --- | --- | --- |
 |0        |SUCCESS                                                                                                                                                   |성공                                                              |
 |-1       |FAIL                                                                                                                                                      |실패                                                              |
 |400100000|Invalid parameter.                                                                                                                                        |잘못된 요청입니다.                                                      |
@@ -26,7 +26,7 @@
 |400102009|Invalid Path Response Data                                                                                                                                |responses 항목에 올바르지 않은 response 정의가 있습니다.                        |
 |400102010|Invalid Model Reference                                                                                                                                   |responses 혹은 parameters에서 definitions에 정의되지 않은 모델 이름을 참조하고 있습니다.|
 |400102011|Invalid Content-Type in produces/consumes                                                                                                                 |유효한 콘텐츠 타입이 아닙니다.                                               |
-|400102012|Exceeded the maximum resource method count                                                                                                                |리소스 메서드의 최대 생성 개수를 초과하였습니다(서비스당 최대 {max}개).                     |
+|400102012|Exceeded the maximum resource method count                                                                                                                |리소스 메서드의 최대 생성 개수를 초과하였습니다.                     |
 |400102013|There are no resources to create.                                                                                                                         |생성할 리소스가 없습니다.                                                  |
 |400102014|Fail delete resource. The topmost path                                                                                                                    |루트('/') 리소스는 삭제할 수 없습니다.                                        |
 |400102015|Fail convert resource plugin config to bean                                                                                                               |리소스 플러그인 설정이 잘못되었습니다.                                           |
@@ -37,7 +37,7 @@
 |400103003|Fail update stage resource. Custom endpoint url is not allowed at this stage resource path.                                                               |백엔드 엔드포인트 URL 재정의를 설정할 수없는 리소스입니다.                              |
 |400103004|Fail create or update stage. Invalid backend endpoint URL format.                                                                                         |잘못된 백엔드 엔드포인트 URL 형식입니다.                                        |
 |400103005|Fail Delete stage. The stage have connected usage plan.                                                                                                   |스테이지가 연결된 사용량 계획이 있습니다. 스테이지 연결 해제 후 스테이지를 삭제할 수 있습니다.          |
-|400103006|Exceeded the maximum stage count                                                                                                                          |스테이지 최대 생성 개수를 초과하였습니다(서비스당 최대 {max}개).                         |
+|400103006|Exceeded the maximum stage count                                                                                                                          |스테이지 최대 생성 개수를 초과하였습니다.                         |
 |409103002|Fail create duplicated stage name                                                                                                                         |중복된 스테이지 이름은 생성할 수 없습니다.                                        |
 |409103003|The latest resource has already been applied.                                                                                                             |이미 스테이지에 최신 리소스가 적용되었습니다.                                       |
 |500103000|Fail convert stage resource plugin config to bean                                                                                                         |스테이지 배포 요청에 실패했습니다. 잠시 후 다시 시도해주세요.                             |
@@ -54,8 +54,6 @@
 |409104000|Unable rollback stage. No difference with current stage.                                                                                                  |이미 되돌리기가된 배포이력입니다.                                              |
 |409104001|Fail deploy because current stage is deploying                                                                                                            |이미 스테이지가 배포가 진행 중입니다.                                           |
 |409104002|Fail deploy because stage is not changed                                                                                                                  |이미 최신 스테이지가 배포되었습니다.                                            |
-|500104000|Unavailable all Routers Health Check                                                                                                                      |스테이지 배포 요청에 실패했습니다. 잠시 후 다시 시도해주세요.                             |
-|500104001|Unregistered Router                                                                                                                                       |스테이지 배포 요청에 실패했습니다. 잠시 후 다시 시도해주세요.                             |
 |500104002|Fail Rollback previous deploy data                                                                                                                        |스테이지 배포 중 오류가 발생하여 복구를 시도했지만 복구에 실패하였습니다. 잠시 후 다시 배포를 시도해주세요.   |
 |500104003|Not found any routers for deploying                                                                                                                       |스테이지 배포 요청에 실패했습니다. 잠시 후 다시 시도해주세요.                             |
 |500104004|Fail convert stage resource list to string                                                                                                                |스테이지 배포 요청에 실패했습니다. 잠시 후 다시 시도해주세요.                             |
@@ -88,6 +86,5 @@
 |409109000|Failed create model by duplicated name.                                                                                                                   |이미 존재하는 모델이름입니다. 모델이름은 중복될 수 없습니다.                              |
 |500109000|Fail convert to documentable plugin.                                                                                                                      |API 설명서 생성에 실패했습니다.                                             |
 |400110000|Not enough to make timeline for graph                                                                                                                     |잘못된 통계 조회기간입니다.                                                 |
-|400111000|Resources remain.                                                                                                                                         |잔여 리소스가 있어 서비스를 비활성화할 수 없습니다.                                   |
 |401199000|Failed to authenticate with AppKey.                                                                                                                       |잘못된 앱키 입니다.                                                     |
 |500197000|Not found recordset name                                                                                                                                  |이미 삭제된 스테이지이거나 스테이지 정보를 찾을 수 없습니다.                              |
