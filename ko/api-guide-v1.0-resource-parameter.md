@@ -180,7 +180,7 @@
 | requestBody                    | Object  | 선택    | Empty Object  | 없음                                                  | 요청 본문 객체 영역                                          |
 | requestBody.name               | String  | 필수    | 없음           | 최대 50자                                              | 요청 본문 이름                                             |
 | requestBody.description        | String  | 선택    | 없음           | 최대 200자                                             | 요청 본문 설명                                             |
-| requestBody.modelId            | String  | 필수    | 없음           | 존재하는 modelId                                        | 요청 본문과 연결되는 모델 ID                                    |
+| requestBody.modelId            | String  | 필수    | 없음           | 없음                                                  | 요청 본문과 연결되는 모델 ID                                    |
 | contentTypeList                | List    | 선택    | Empty List    | 최대 10개                                              | 콘텐츠 타입 목록 영역                                         |
 | contentTypeList[0]             | String  | 필수    | 없음           | \*/\* 형식                                             | 콘텐츠 타입                                               |
 

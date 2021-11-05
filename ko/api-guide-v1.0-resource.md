@@ -135,6 +135,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 
 ### 리소스 가져오기
 - [Swagger v2.0 OpenAPI Specification](https://swagger.io/specification/v2/) 형식의 파일에서 리소스를 가져옵니다.
+- 리소스를 가져오면 해당 서비스에 생성되어 있던 기존의 리소스는 모두 삭제되고 가져온 리소스로 덮어씁니다.
 - 리소스를 가져오면 해당 서비스에 생성되어 있던 기존의 모델은 모두 삭제되고 가져온 모델로 덮어씁니다.
 - Swagger paths > path > operation에서 유효하지 않은 operation의 데이터는 무시되고 등록되지 않으므로 주의해주세요.
 

@@ -41,7 +41,7 @@
       "responseBody": {
         "name": "responseBody",
         "description": "This is a responseBody",
-        "modelId": "36fc41c0-9bd0-47eb-9f50-e3ddf7df9e73"
+        "modelId": "{modelId}"
       }
     }
   ],
@@ -69,7 +69,7 @@
 
 
 ### 리소스 응답 생성
-- 기존 리소스 응답들은 삭제되고, HTTP 응답 상태 코드별 헤더와 요청 본문 항목과 콘텐츠 타입을 생성합니다.
+- 기존 리소스 응답들은 삭제되고, 요청한 HTTP 응답 상태 코드별 헤더와 요청 본문 항목과 콘텐츠 타입을 생성합니다.
 
 #### 요청
 
@@ -101,7 +101,7 @@
       "requestBody": {
         "name": "responseBody",
         "description": "This is a response body",
-        "modelId": "36fc41c0-9bd0-47eb-9f50-e3ddf7df9e73"
+        "modelId": "{modelId}"
       }
     }
   ],
@@ -115,15 +115,15 @@
 | ----------------------------------------- | ------- | ----- | ------------ | --------------------------------------------- | ---------------------------------------------------- |
 | responseList                              | List    | 선택    | Empty List   | 없음                                            | HTTP 응답 상태 코드별 응답 정보 목록 영역                           |
 | responseList[0].responseStatusCode        | Integer | 필수    | 없음           | 100~599                                       | HTTP 응답 상태 코드                                        |
-| responseList[0].description               | String  | 선택    | null         | 최대 200자                                       | HTTP 응답 상태 코드 설명                                     |
+| responseList[0].description               | String  | 선택    | 없음         | 최대 200자                                       | HTTP 응답 상태 코드 설명                                     |
 | responseList[0].headerList                | List    | 선택    | Empty List   | 최대 50개                                        | HTTP 응답 헤더 목록 영역                                     |
 | responseList[0].headerList[0].name        | String  | 필수    | 없음           | 최대 50자                                        | 응답 헤더 이름                                             |
-| responseList[0].headerList[0].description | String  | 선택    | null         | 최대 200자                                       | 응답 헤더 설명                                             |
+| responseList[0].headerList[0].description | String  | 선택    | 없음         | 최대 200자                                       | 응답 헤더 설명                                             |
 | responseList[0].headerList[0].dataType    | Enum    | 필수    | 없음           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드 참조](./enum-code/#???) |
 | responseList[0].responseBody              | Object  | 선택    | Empty Object | 없음                                            | HTTP 응답 본문 객체 영역                                     |
 | responseList[0].responseBody.name         | String  | 필수    | 없음           | 최대 50자                                        | 응답 본문 이름                                             |
-| responseList[0].responseBody.description  | String  | 선택    | null         | 최대 200자                                       | 응답 본문 설명                                             |
-| responseList[0].responseBody.modelId      | String  | 필수    | 없음           | 존재하는 modelId                                  | 응답 본문과 연결된 모델 ID                                     |
+| responseList[0].responseBody.description  | String  | 선택    | 없음         | 최대 200자                                       | 응답 본문 설명                                             |
+| responseList[0].responseBody.modelId      | String  | 필수    | 없음           | 없음                                           | 응답 본문과 연결된 모델 ID                                     |
 | contentTypeList                           | List    | 선택    | Empty List   | 최대 10개                                        | 콘텐츠 타입 목록 영역                                         |
 | contentTypeList[0]                        | String  | 필수    | 없음           | */* 형태                                        | 콘텐츠 타입                                               |
 
