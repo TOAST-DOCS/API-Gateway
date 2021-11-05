@@ -222,7 +222,7 @@
 | usagePlanName             | String  | 선택    | 없음  | 최대 200자      | 사용량 계획 설명                                         |
 | rateLimitRequestPerSecond | Integer | 선택    | 없음  | 1~5000       | 초당 요청 수 제한                                        |
 | quotaLimitPeriodUnitCode  | Enum    | 선택    | 없음  | DAY, MONTH   | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참조 |
-| quotaLimit                | Integer | 선택    | 없음  | 1~2147483647 | 할당량 기간 단위 별 요청 할당량                                |
+| quotaLimit                | Integer | 조건부필수 | 없음  | 1~2147483647 | quotaLimitPeriodUnitCode가 설정된 경우 필수. 할당량 기간 단위 별 요청 할당량                                |
 
 #### 응답
 
@@ -295,6 +295,7 @@
 
 
 ### 사용량 계획에 연결된 스테이지 목록 조회
+- 사용량 계획에 연결된 스테이지 목록을 조회합니다.
 
 #### 요청
 
@@ -331,7 +332,7 @@
       "stageId": "{stageId}",
       "stageName": "custom",
       "stageUrl": "kr1-example-custom.api.nhncloudservice.com",
-      "stageCustomUrl": "custom.api.nhncloudservice.com",
+      "stageCustomUrl": null,
       "usagePlanId": "{usagePlanId}",
       "usagePlanName": "Basic"
     }
@@ -358,6 +359,7 @@
 
 
 ### 사용량 계획에 스테이지 연결
+- 사용량 계획에 스테이지를 연결합니다.
 
 #### 요청
 
@@ -387,6 +389,8 @@
 ```
 
 ### 사용량 계획에 연결된 스테이지 해제
+- 사용량 계획에 연결된 스테이지를 연결 해제합니다.
+- 스테이지에 연결된 API Key가 존재하면 연결을 해제할 수 없습니다.
 
 #### 요청
 
@@ -415,7 +419,8 @@
 }
 ```
 
-### 스테이지에 연결된 사용량 계획 목록 조회
+### 스테이지가 연결된 사용량 계획 목록 조회
+- 스테이지가 연결된 사용량 계획 목록을 조회합니다.
 
 #### 요청
 
