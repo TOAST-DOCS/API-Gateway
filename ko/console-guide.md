@@ -69,7 +69,7 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
 > 스테이지 내보내기를 통해 새로 생성된 파일을 이용하여 리소스 가져오기를 이용하시거나 다음의 작업을 통해 기존 파일을 변경하시기 바랍니다.
 > 변경 작업
 >   1. 파일 내 x-api-nhn-apigateway > plugins의 플러그인의 설정 문자열을 Json객체로 변환해야합니다.
->   2. 파일 내 method 리소스 > x-api-nhn-apigateway > plugins에 CORS플러그인 설정 문자열이 존재할 경우 제거해야합니다. Method 리소스에는 CORS플러그인을 설정할 수 없으며, 해당 상위 path 리소스에 CORS플러그인이 설정되어있을 경우 리소스 가져오기 시 자동으로 추가됩니다.
+>   2. 파일 내 리소스 메서드 > x-api-nhn-apigateway > plugins에 CORS플러그인 설정 문자열이 존재할 경우 제거해야합니다. 리소스 메서드에는 CORS플러그인을 설정할 수 없으며, 해당 상위 리소스 경로에 CORS플러그인이 설정되어있을 경우 리소스 가져오기 시 자동으로 추가됩니다.
 > 가이드 내용으로 해결이 안되는 경우 고객센터로 문의해주시기 바랍니다.
 
 <details>
@@ -105,7 +105,7 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
 ```
 
 ```
-- [예시2] 가져오기 실패: 2021-11-23 이전 스테이지 내보내기 파일의 경우 path 리소스에 CORS플러그인이 설정되어있을 경우 하위 method 리소스에 CORS플러그인 설정 값이 포함되어있음
+- [예시2] 가져오기 실패: 2021-11-23 이전 스테이지 내보내기 파일의 경우 리소스 경로에 CORS플러그인이 설정되어있을 경우 하위 리소스 메서드에 CORS플러그인 설정 값이 포함되어있음
 {
 ...
         "paths": {
@@ -151,7 +151,7 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
 ```
 
 ```
-- [예시2] 가져오기 성공: method 리소스에 CORS플러그인 설정값을 제거한 스테이지 내보내기 파일
+- [예시2] 가져오기 성공: 리소스 메서드에 CORS플러그인 설정값을 제거한 스테이지 내보내기 파일
 {
 ...
         "paths": {
