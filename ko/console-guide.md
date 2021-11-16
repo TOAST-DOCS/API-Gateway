@@ -67,10 +67,16 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
 > **[참고] 2021-11-23 이전 스테이지 내보내기(Export) 파일의 가져오기 실패** 
 > 2021-11-23 이전 스테이지 내보내기를 통해 다운로드된 파일로 리소스 가져오기를 하는 경우 실패가 발생할 수 있습니다. 
 > 스테이지 내보내기를 통해 새로 생성된 파일을 이용하여 리소스 가져오기를 이용하시거나 다음의 작업을 통해 기존 파일을 변경하시기 바랍니다.
-> 변경 작업: 파일 내 x-api-nhn-apigateway > plugins의 플러그인의 설정 문자열을 Json객체로 변환해야합니다.
+> 변경 작업
+>   1. 파일 내 x-api-nhn-apigateway > plugins의 플러그인의 설정 문자열을 Json객체로 변환해야합니다.
+>   2. 파일 내 리소스 메서드 > x-api-nhn-apigateway > plugins에 CORS플러그인 설정 문자열이 존재할 경우 제거해야합니다. 리소스 메서드에는 CORS플러그인을 설정할 수 없으며, 해당 상위 리소스 경로에 CORS플러그인이 설정되어있을 경우 리소스 가져오기 시 자동으로 추가됩니다.
 > 가이드 내용으로 해결이 안되는 경우 고객센터로 문의해주시기 바랍니다.
+
+<details>
+<summary>2021-11-23 이전 스테이지 내보내기 파일 가져오기 실패 예시</summary>
+
 ```
-- [예시] 가져오기 실패: 2021-11-23 이전 스테이지 내보내기 파일의 경우 plugins의 플러그인 설정 값이 Json형식의 문자열로 구성됨
+- [예시1] 가져오기 실패: 2021-11-23 이전 스테이지 내보내기 파일의 경우 plugins의 플러그인 설정 값이 Json형식의 문자열로 구성됨
 {
 ... 
     "x-nhncloud-apigateway": {
@@ -82,9 +88,10 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
 }
 ```
 
-- [예시] 가져오기 성공: plugins의 플러그인 설정 값이 Json형식의 문자열을 Json객체로 수정한 스테이지 내보내기 파일
+```
+- [예시1] 가져오기 성공: plugins의 플러그인 설정 값이 Json형식의 문자열을 Json객체로 수정한 스테이지 내보내기 파일
 {
-... 
+...
     "x-nhncloud-apigateway": {
         "plugins": {
             "HTTP": {
@@ -97,6 +104,83 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
 }
 ```
 
+```
+- [예시2] 가져오기 실패: 2021-11-23 이전 스테이지 내보내기 파일의 경우 리소스 경로에 CORS플러그인이 설정되어있을 경우 하위 리소스 메서드에 CORS플러그인 설정 값이 포함되어있음
+{
+...
+        "paths": {
+            "/anything": {
+                "get": {
+                    ...
+                    "x-nhncloud-apigateway": {
+                        "plugins": {
+                            "MOCK": {
+                                "statusCode": 200
+                            },
+                            "CORS": {
+                                "allowedMethods": ["GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "PATCH"],
+                                "allowedHeaders": ["*"],
+                                "allowedOrigins": ["*"],
+                                "exposedHeaders": [],
+                                "maxCredentialsAge": null,
+                                "allowCredentials": false
+                            }                            
+                        }
+                    }
+                },
+                "options": {
+                    "summary": "CORS",
+                    ...
+                },
+                "x-nhncloud-apigateway": {
+                    "plugins": {
+                        "CORS": {
+                            "allowedMethods": ["GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "PATCH"],
+                            "allowedHeaders": ["*"],
+                            "allowedOrigins": ["*"],
+                            "exposedHeaders": [],
+                            "maxCredentialsAge": null,
+                            "allowCredentials": false
+                        }
+                    }
+                }
+            }
+        }
+...
+}
+```
+
+```
+- [예시2] 가져오기 성공: 리소스 메서드에 CORS플러그인 설정값을 제거한 스테이지 내보내기 파일
+{
+...
+        "paths": {
+            "/anything": {
+                "get": {
+                    ...
+                },
+                "options": {
+                    "summary": "CORS",
+                    ...
+                },
+                "x-nhncloud-apigateway": {
+                    "plugins": {
+                        "CORS": {
+                            "allowedMethods": ["GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "PATCH"],
+                            "allowedHeaders": ["*"],
+                            "allowedOrigins": ["*"],
+                            "exposedHeaders": [],
+                            "maxCredentialsAge": null,
+                            "allowCredentials": false
+                        }
+                    }
+                }
+            }
+        }
+...
+}
+```
+</details>
 
 ### 메서드 생성 
 - 선택된 리소스 경로 하위에 **HTTP 메서드**를 생성합니다. 
