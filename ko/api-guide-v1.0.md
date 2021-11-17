@@ -2564,7 +2564,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 |latestStageDeployResult.stageId   |String  | 스테이지 ID  |
 |latestStageDeployResult.deployDescription        |String  | 배포 설명  |
 |latestStageDeployResult.deployStatus        |Enum  | [스테이지 배포 > 배포 상태]() 참고 |
-|latestStageDeployResult.isBase         |String  | 현재 스테이지의 설정 기반 여부 |
+|latestStageDeployResult.isBase         |String  | 현재 스테이지 설정의 기반이 되는 배포 이력 여부 |
 |latestStageDeployResult.deployedAt          |DateTime  | 배포 요청 일시 |
 |latestStageDeployResult.rollbackAt   |DateTime  | 스테이지 되돌리기 요청 일시 |
 |latestStageDeployResult.stageResourceList      |List    |스테이지 리소스 목록 영역                             |
@@ -2688,7 +2688,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 |stageDeployHistoryList[0].deployId       |String    | 배포 ID |
 |stageDeployHistoryList[0].stageId   |String  | 스테이지 ID  |
 |stageDeployHistoryList[0].deployDescription        |String  | 배포 설명  |
-|stageDeployHistoryList[0].isBase         |Boolean  | 현재 스테이지의 설정 기반 여부 |
+|stageDeployHistoryList[0].isBase         |Boolean  | 현재 스테이지 설정의 기반이 되는 배포 이력 여부 |
 |stageDeployHistoryList[0].deployedAt          |DateTime  | 배포 요청 일시 |
 |stageDeployHistoryList[0].rollbackAt   |DateTime  | 스테이지 되돌리기 요청 일시 |
 
