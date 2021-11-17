@@ -1604,7 +1604,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | --- | --- | --- | --- | --- | --- |
 | stageName | String | 조건부 필수 | 없음 | 최대 30자, 영소문자와 숫자만 | 스테이지 이름<br/>기본 스테이지가 아닌 경우 필수 값입니다.  |
 | stageDescription | String | 선택 | 없음 | 최대 200자  | 스테이지 설명 |
-| backendEndpointUrl | String | 필수 | 없음 | 최대 150자, URL형식  | 백엔드 엔드포인트 URL |
+| backendEndpointUrl | String | 필수 | 없음 | 최대 150자, URL 형식  | 백엔드 엔드포인트 URL |
 - stageName 필드 값은 유일해야합니다. 
 - stageName(스테이지 이름) 필드를 null로 설정하면 기본 스테이지로 생성됩니다. 기본 스테이지는 하나만 생성할 수 있습니다. 
 - stageName 필드 값에 따라 스테이지 URL이 변경됩니다.
@@ -1684,7 +1684,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| backendEndpointUrl | String | 필수 | 없음 | 최대 150자, URL형식  | 백엔드 엔드포인트 URL |
+| backendEndpointUrl | String | 필수 | 없음 | 최대 150자, URL 형식  | 백엔드 엔드포인트 URL |
 | stageDescription | String | 선택 | 없음 | 최대 200자  | 스테이지 설명 |
 
 
@@ -2004,7 +2004,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| customBackendEndpointUrl | String | 선택 | 없음 | 최대 150자, URL형식 | 백엔드 엔드포인트 재정의 URL |
+| customBackendEndpointUrl | String | 선택 | 없음 | 최대 150자, URL 형식 | 백엔드 엔드포인트 재정의 URL |
 | stageResourcePluginList | List | 필수 | 없음 | 없음 | 스테이지 리소스 플러그인 목록 영역 |
 | stageResourcePluginList[0] | Object | 필수 | 없음 | 없음 | 스테이지 리소스 플러그인 별 Json형식의 객체<br>[스테이지 리소스 플러그인]() 참고|
 
@@ -2372,7 +2372,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | pluginType | Enum | 필수 | 없음 | PRE_API | [스테이지 리소스 > 플러그인 타입]() 중 PRE_API 참고 |
 | pluginConfigJson | Object | 필수 | 없음 | 없음 | 사전 호출 API 플러그인 설정 영역 |
 | pluginConfigJson.httpMethod | Enum | 필수 | 없음 | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고  |
-| pluginConfigJson.url | String | 필수 | 없음 | URL형식 | 사전 호출 API의 URL을 입력합니다. |
+| pluginConfigJson.url | String | 필수 | 없음 | URL 형식 | 사전 호출 API의 URL을 입력합니다. |
 | pluginConfigJson.cacheTtl | Integer | 선택 | 0 | 0~86400 | 사전 호출 API의 응답 상태 코드의 캐시 시간을 설정합니다. <br/>응답 상태 코드가 200 OK인 경우에만 설정된 시간 동안 캐시되며, 캐시된 경우에는 사전 호출 API를 호출하지 않습니다. |
 
 
