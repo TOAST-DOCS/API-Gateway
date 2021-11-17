@@ -98,7 +98,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | --- | --- | --- | --- | --- | --- |
 | regionCode | String | 필수 | 없음 | KR1 | [API Gateway 서비스 타입 Enum 코드](./enum-code/#apigwServiceType) 참고 |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
-| limit | Integer | 선택 | 10 | 최대 1000 | 페이지 당 건 수 |
+| limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 
 #### 응답
 
@@ -139,7 +139,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |-------------------------------------|--------|----------------------------------------------|
 |paging                               |Object  | 페이징 영역                                        |
 |paging.page                          |Integer | 현재 페이지                                        |
-|paging.limit                         |Integer | 페이지 당 건 수                                  |
+|paging.limit                         |Integer | 페이지당 건 수                                  |
 |paging.totalCount                    |Integer | 전체 건 수                                        |
 |apigwServiceList                     |List    | API Gateway 서비스 목록 영역                         |
 |apigwServiceList[0].apigwDomain         |String  | API Gateway 서비스 도메인                  |
@@ -148,12 +148,12 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |apigwServiceList[0].apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드](./enum-code/#apigwServiceType) 참고|
 |apigwServiceList[0].appKey              |String  | AppKey                                        |
 |apigwServiceList[0].dedicatedId         |String  | 전용 API Gateway 서비스의 ID                        |
-|apigwServiceList[0].apigwServiceDescription         |String  | API Gateway  서비스 설명                                        |
+|apigwServiceList[0].apigwServiceDescription         |String  | API Gateway 서비스 설명                                        |
 |apigwServiceList[0].apigwServiceName                |String  | API Gateway 서비스 이름                                        |
 |apigwServiceList[0].regionCode          |Enum    | [API Gateway 리전 Enum 코드](./enum-code/#regionCode) 참고 |
 |apigwServiceList[0].serverGroupId       |String  | API Gateway 서비스가 속한 서버 그룹 ID                              |
-|apigwServiceList[0].createdAt           |DateTime| API Gateway 서비스 생성일시                                      |
-|apigwServiceList[0].updatedAt           |DateTime| API Gateway 서비스 수정일시                                      |
+|apigwServiceList[0].createdAt           |DateTime| API Gateway 서비스 생성 일시                                      |
+|apigwServiceList[0].updatedAt           |DateTime| API Gateway 서비스 수정 일시                                      |
 
 
 ### 단일 API Gateway 서비스 조회 
@@ -215,14 +215,14 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |apigwService.apigwServiceName                |String  | API Gateway 서비스 이름                                        |
 |apigwService.regionCode          |Enum    |[API Gateway 리전 Enum 코드](./enum-code/#regionCode) 참고|
 |apigwService.serverGroupId       |String  | API Gateway 서비스가 속한 서버 그룹 ID                              |
-|apigwService.createdAt           |DateTime| API Gateway 서비스 생성일시                                      |
-|apigwService.updatedAt           |DateTime| API Gateway 서비스 수정일시                                      |
+|apigwService.createdAt           |DateTime| API Gateway 서비스 생성 일시                                      |
+|apigwService.updatedAt           |DateTime| API Gateway 서비스 수정 일시                                      |
 
 
 
 ### API Gateway 서비스 생성
 - API Gateway 서비스를 생성합니다.
-- API Gateway 서버가 생성될 리전을 선택할 수 있습니다. 현재는 한국(판교)리전만 지원합니다.
+- API Gateway 서버가 생성될 리전을 선택할 수 있습니다. 현재는 한국(판교) 리전만 지원합니다.
 - API Gateway 서비스를 생성하면 API Gateway 서비스 ID가 자동 발급됩니다.
 
 
@@ -292,8 +292,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |apigwService.apigwServiceName    |String  | API Gateway 서비스 이름                                        |
 |apigwService.regionCode          |Enum    | [API Gateway 리전 Enum 코드](./enum-code/#regionCode) 참고|
 |apigwService.serverGroupId       |String  | API Gateway 서비스가 속한 서버 그룹 ID                              |
-|apigwService.createdAt           |DateTime| API Gateway 서비스 생성일시                                      |
-|apigwService.updatedAt           |DateTime| API Gateway 서비스 수정일시                                      |
+|apigwService.createdAt           |DateTime| API Gateway 서비스 생성 일시                                      |
+|apigwService.updatedAt           |DateTime| API Gateway 서비스 수정 일시                                      |
 
 
 ### API Gateway 서비스 수정
@@ -370,13 +370,13 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |apigwService.apigwServiceName                |String  |서비스 이름                                        |
 |apigwService.regionCode          |Enum    |[API Gateway 리전 Enum 코드](./enum-code/#regionCode) 참고|
 |apigwService.serverGroupId       |String  |서비스가 속한 서버 그룹 ID                              |
-|apigwService.createdAt           |DateTime|서비스 생성일시                                      |
-|apigwService.updatedAt           |DateTime|서비스 수정일시                                      |
+|apigwService.createdAt           |DateTime|서비스 생성 일시                                      |
+|apigwService.updatedAt           |DateTime|서비스 수정 일시                                      |
 
 ### API Gateway 서비스 삭제
 - API Gateway 서비스를 삭제합니다.  
 - API Gateway 서비스를 삭제하면 모든 스테이지가 삭제됩니다.  
-- 삭제하려는 API Gateway 서비스의 스테이지가 사용량 계획과 연결된 경우, 삭제할 수 없습니다. 삭제하려면 사용량 계획에서 연결된 스테이지를 모두 연결 해제후 삭제해주세요.
+- 삭제하려는 API Gateway 서비스의 스테이지가 사용량 계획과 연결된 경우, 삭제할 수 없습니다. 삭제하려면 사용량 계획에 연결된 스테이지를 모두 연결 해제한 후 삭제해 주세요.
 - 삭제된 API Gateway 서비스는 복구할 수 없으므로 주의해주세요.
 
 #### 요청
@@ -492,8 +492,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | resourceList[0].resourceId                             | String   | 리소스 ID                                         |
 | resourceList[0].apigwServiceId                         | String   | API Gateway 서비스 ID                             |
 | resourceList[0].path                                   | String   | 리소스 경로                                         |
-| resourceList[0].createdAt                              | DateTime | 리소스 생성일시                                       |
-| resourceList[0].updatedAt                              | DateTime | 리소스 수정일시                                       |
+| resourceList[0].createdAt                              | DateTime | 리소스 생성 일시                                       |
+| resourceList[0].updatedAt                              | DateTime | 리소스 수정 일시                                       |
 | resourceList[2].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고 |
 | resourceList[2].methodName                             | String   | 메서드 리소스 이름                                     |
 | resourceList[2].methodDescription                      | String   | 메서드 리소스 설명                                     |
@@ -502,16 +502,16 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | resourceList[2].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
 | resourceList[2].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#???) 참고    |
 | resourceList[2].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값]() 참고                   |
-| resourceList[2].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성일시                                  |
-| resourceList[2].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정일시                                  |
+| resourceList[2].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
+| resourceList[2].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
 
 
 ### 리소스 삭제
 - 리소스를 삭제합니다.
 - 루트("/") 경로 리소스는 삭제가 불가합니다.
-- CORS플러그인에 의해 생성된 OPTIONS 메서드는 삭제할 수 없습니다. 
-CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 설정된 리소스에서 플러그인을 제거하면 일괄 삭제됩니다.
-- 경로 리소스를 삭제하면 하위 경로와 메서드 리소스가 모두 삭제 됩니다.
+- CORS 플러그인에 의해 생성된 OPTIONS 메서드는 삭제할 수 없습니다. 
+CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 설정된 리소스에서 플러그인을 제거하면 일괄 삭제됩니다.
+- 경로 리소스를 삭제하면 하위 경로와 메서드 리소스가 모두 삭제됩니다.
 - 삭제된 리소스는 복구가 불가합니다.
 
 #### 요청
@@ -639,12 +639,12 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| swaggerData | Object  | 필수    | 없음 | Swagger Json 형식 | [Swagger v2.0 OpenAPI Specification](https://swagger.io/specification/v2/) |
-| swaggerData.info | Object | 필수 | 없음 | 없음 | API의 메타 데이터 영역. [Info Object](https://swagger.io/specification/v2/#swagger-object) 참고 |
+| swaggerData | Object  | 필수    | 없음 | Swagger JSON 형식 | [Swagger v2.0 OpenAPI Specification](https://swagger.io/specification/v2/) |
+| swaggerData.info | Object | 필수 | 없음 | 없음 | API의 메타데이터 영역. [Info Object](https://swagger.io/specification/v2/#swagger-object) 참고 |
 | swaggerData.info.title | String | 선택 | 없음 | 없음 | API의 제목. [Info Object](https://swagger.io/specification/v2/#info-object) 참고 |
 | swaggerData.info.version | String  | 선택 | 없음 | 없음 | API의 버전 정보. [Info Object](https://swagger.io/specification/v2/#info-object) 참고 |
-| swaggerData.paths | Object | 필수 | 없음 | 없음 | API Gateway 경로를 설정하는 API의 경로 정보들을 갖는 객체 영역. [Paths Object](https://swagger.io/specification/v2/#paths-object) 참고 |
-| swaggerData.paths.{path} | Object | 필수 | 없음 | {path} 최대 255자 | API Gateway 경로인 {path}와 {path} 내 메서드들 정보를 갖는 객체 영역. [Paths Item Object](https://swagger.io/specification/v2/#path-item-object) 참고 |
+| swaggerData.paths | Object | 필수 | 없음 | 없음 | API Gateway 경로를 설정하는 API의 경로 정보를 갖는 객체 영역. [Paths Object](https://swagger.io/specification/v2/#paths-object) 참고 |
+| swaggerData.paths.{path} | Object | 필수 | 없음 | {path} 최대 255자 | API Gateway 경로인 {path}와 {path} 내 메서드 정보를 갖는 객체 영역. [Paths Item Object](https://swagger.io/specification/v2/#path-item-object) 참고 |
 | swaggerData.paths.{path}.{operation} | Object | 선택 | 없음 | {operation} get, post, put, delete, head, options, patch | API Gateway 메서드인 {operation}과 메서드 정보를 갖는 객체 영역. 유효하지 않은 operation의 데이터는 무시되고 등록되지 않습니다. [Operation Object](https://swagger.io/specification/v2/#operation-object) 참고  |
 | swaggerData.paths.{path}.{operation}.summary | String | 선택 | {operation} 대문자 | 최대 50자 | API Gateway 메서드 이름. |
 | swaggerData.paths.{path}.{operation}.description | String | 선택 | {operation} 대문자 | 최대 200자 | API Gateway 메서드 설명. |
@@ -657,7 +657,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | swaggerData.paths.{path}.{operation}.parameters[0].required | Boolean | 필수 | 없음 | true, false | API Gateway 리소스 요청 파라미터 > 쿼리 문자열, 헤더, 폼 데이터, 요청 본문 필수 여부. |
 | swaggerData.paths.{path}.{operation}.produces | Array | 선택 | Empty Array | 없음 | API Gateway 리소스 응답 > 콘텐츠 타입 목록 영역. |
 | swaggerData.paths.{path}.{operation}.produces[0] | String | 선택 | 없음 | \*/\* 형식 | API Gateway 리소스 응답 > 콘텐츠 타입. |
-| swaggerData.paths.{path}.{operation}.responses | Object | 선택 | 없음 | 없음 | API Gateway 리소스 응답 > 응답 HTTP 상태 코드 정보들을 갖는 객체 영역. [Responses Object](https://swagger.io/specification/v2/#response-object) 참고 |
+| swaggerData.paths.{path}.{operation}.responses | Object | 선택 | 없음 | 없음 | API Gateway 리소스 응답 > 응답 HTTP 상태 코드 정보를 갖는 객체 영역. [Responses Object](https://swagger.io/specification/v2/#response-object) 참고 |
 | swaggerData.paths.{path}.{operation}.responses.{httpStatusCode} | Object | 선택 | 없음 | {httpStatusCode} 100~599 | API Gateway 리소스 응답 > 응답 HTTP 상태 코드 객체 영역. |
 | swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.description | String | 선택 | 없음 |최대 200자 | API Gateway 리소스 응답 > 응답 HTTP 상태 코드 > 설명. |
 | swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.headers | Object | 선택 | 없음 | 없음 | API Gateway 리소스 응답 > 응답 HTTP 상태 코드 > 헤더 객체 영역. [Header Object](https://swagger.io/specification/v2/#headers-object) 참고 |
@@ -669,7 +669,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway | Object | 선택 | 없음 | 없음 | API Gateway 제공 기능 정의 객체 영역. |
 | swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins | Object | 필수 | 없음 | 없음 | API Gateway 사용자 정의 플러그인 객체 영역. |
 | swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins.{pluginCode} | Object | 필수 | 없음 | {pluginCode} HTTP, MOCK, CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#???) 참고. [리소스 플러그인 타입별 JSON 설정값](???) 참고. |
-| swaggerData.definitions | Object | 선택 | 없음 | 없음 | API Gateway 리소스 요청 파라미터, 응답에서 사용되는 본문 객체들 정의 영역. [Definitions Object](https://swagger.io/specification/v2/#definitionsObject) 참고 |
+| swaggerData.definitions | Object | 선택 | 없음 | 없음 | API Gateway 리소스 요청 파라미터, 응답에서 사용되는 본문 객체 정의 영역. [Definitions Object](https://swagger.io/specification/v2/#definitionsObject) 참고 |
 
 
 
@@ -710,14 +710,14 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | statusCode | String | 필수 | 없음 | 100~599 | 사용자 정의 응답 HTTP 상태 코드                 |
-| headers | Map | 선택 | 없음 | 없음 |사용자 정의 응답 헤더들 객체 영역                  |
+| headers | Map | 선택 | 없음 | 없음 |사용자 정의 응답 헤더 객체 영역                  |
 | headers[{HeaderName}] | String | 필수 | 없음 | 없음 | 객체 프로퍼티 키/값이 사용자 정의 응답 헤더의 이름과 값 |
 | body                  | String | 선택 | 없음 | 없음 | 사용자 정의 응답 본문                         |
 
 ### CORS
 - Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니다.
 - 리소스 경로에만 설정할 수 있습니다.
-- CORS 플러그인 설정된 경로 하위에는 OPTIONS 메서드가 자동으로 생성되며, 등록된 OPTIONS메서드가 있는 경우 대체됩니다.
+- CORS 플러그인이 설정된 경로 하위에는 OPTIONS 메서드가 자동으로 생성되며, 등록된 OPTIONS 메서드가 있는 경우 대체됩니다.
 ```json
 {
   "allowedMethods": ["GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "PATCH"],
@@ -734,13 +734,13 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | allowedMethods | List | 필수 | 없음 | 없음 | 리소스 접근에 허용할 메서드 목록 영역 |
 | allowedMethods[0] | Enum | 필수 | 없음 | "GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "PATCH" | [HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고 |
 | allowedHeaders | List | 필수 | 없음 | 없음 | 요청에서 사용할 수 있는 HTTP 헤더 목록 영역 |
-| allowedHeaders[0] | String | 필수 | 없음 | 없음 | 요청에서 사용할 수 있는 HTTP 헤더. (예시: 와일드카드 형식: '\*' 또는 'X-NHN-HEADER, Content-Type') |
+| allowedHeaders[0] | String | 필수 | 없음 | 없음 | 요청에서 사용할 수 있는 HTTP 헤더(예시: 와일드카드 형식: '\*' 또는 'X-NHN-HEADER, Content-Type') |
 | allowedOrigins    | List | 필수 | 없음 | 없음 | 리소스에 액세스할 수 있는 원본 서버의 도메인 목록 영역 |
-| allowedOrigins[0] | String | 필수 | 없음 | 없음 | 리소스에 액세스할 수 있는 원본 서버의 도메인. (예시: 와일드카드 형식: '\*' 또는 ') |
+| allowedOrigins[0] | String | 필수 | 없음 | 없음 | 리소스에 액세스할 수 있는 원본 서버의 도메인(예시: 와일드카드 형식: '\*' 또는 ') |
 | exposedHeaders    | List | 선택 | 없음 | 없음 | 브라우저(클라이언트)가 접근할 수 있는 헤더 목록 영역 |
 | exposedHeaders[0] | String | 필수 | 없음 | 없음 |브라우저(클라이언트)가 접근할 수 있는 헤더 |
-| maxCredentialsAge | Integer | 선택 | 없음 | -1~86400 |사전 전달 요청(Preflight)에 대한 응답 브라우저 캐시 시간 (초 단위) |
-| allowCredentials  | Boolean | 필수 | 없음 |true/false | 자격 증명으로 요청하는 여부 |
+| maxCredentialsAge | Integer | 선택 | 없음 | -1~86400 |사전 전달 요청(Preflight)에 대한 응답 브라우저 캐시 시간(초 단위) |
+| allowCredentials  | Boolean | 필수 | 없음 |true/false | 자격 증명으로 요청할지 여부 |
 
 
 
@@ -757,7 +757,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| headers | Map | 필수 | 없음 | 없음 | 추가/변경할 요청 헤더들 객체 영역 |
+| headers | Map | 필수 | 없음 | 없음 | 추가/변경할 요청 헤더 객체 영역 |
 | headers[{HeaderName}] | String | 필수 | 없음 | 없음 | 객체 프로퍼티 키/값이 추가/변경할 요청 헤더의 이름과 값 |
 
 ### SET_RESPONSE_HEADER
@@ -773,7 +773,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| headers | Map | 필수 | 없음 | 없음 | 추가/변경할 응답 헤더들 객체 영역 |
+| headers | Map | 필수 | 없음 | 없음 | 추가/변경할 응답 헤더 객체 영역 |
 | headers[{HeaderName}] | String | 필수 | 없음 | 없음 | 객체 프로퍼티 키/값이 추가/변경할 응답 헤더의 이름과 값 |
 
 ### ADD_REQUEST_QUERY_PARAMETER
@@ -1160,7 +1160,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
-| limit | Integer | 선택 | 10 | 최대 1000 | 페이지 당 건 수 |
+| limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 
 #### 응답
 
@@ -1211,7 +1211,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |-------------------------------------|--------|----------------------------------------------|
 |paging                               |Object  | 페이징 영역                                        |
 |paging.page                          |Integer | 현재 페이지                                        |
-|paging.limit                         |Integer | 페이지 당 건 수                                  |
+|paging.limit                         |Integer | 페이지당 건 수                                  |
 |paging.totalCount                    |Integer | 전체 건 수                                        |
 |modelList                     |List    | 모델 목록 영역                         |
 |modelList[0].apigwServiceId  |String  |API Gateway 서비스 ID |
@@ -1219,13 +1219,13 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |modelList[0].modelName       |String  |모델 이름              |
 |modelList[0].modelDescription|String  |모델 설명              |
 |modelList[0].modelSchema     |Object  |모델의 [JSON Schema](https://json-schema.org/) draft-04 JSON 객체 |
-|modelList[0].createdAt       |DateTime|모델 생성일시            |
-|modelList[0].updatedAt       |DateTime|모델 수정일시            |
+|modelList[0].createdAt       |DateTime|모델 생성 일시            |
+|modelList[0].updatedAt       |DateTime|모델 수정 일시            |
 
 
 
 ### 모델 생성
-- 모델을 JSON Schema형식으로 생성합니다.
+- 모델을 JSON Schema 형식으로 생성합니다.
 - 모델 이름은 중복될 수 없습니다.
 
 #### 요청
@@ -1320,8 +1320,8 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |model.modelName       |String  |모델 이름              |
 |model.modelDescription|String  |모델 설명              |
 |model.modelSchema     |Object  |모델의 [JSON Schema](https://json-schema.org/) draft-04 JSON 객체 |
-|model.createdAt       |DateTime|모델 생성일시            |
-|model.updatedAt       |DateTime|모델 수정일시            |
+|model.createdAt       |DateTime|모델 생성 일시            |
+|model.updatedAt       |DateTime|모델 수정 일시            |
 
 
 ### 모델 수정 
@@ -1419,8 +1419,8 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |model.modelName       |String  |모델 이름              |
 |model.modelDescription|String  |모델 설명              |
 |model.modelSchema     |Object  |모델의 [JSON Schema](https://json-schema.org/) draft-04 JSON 객체 |
-|model.createdAt       |DateTime|모델 생성일시            |
-|model.updatedAt       |DateTime|모델 수정일시            |
+|model.createdAt       |DateTime|모델 생성 일시            |
+|model.updatedAt       |DateTime|모델 수정 일시            |
 
 
 ### 모델 삭제
@@ -1480,7 +1480,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
-| limit | Integer | 선택 | 10 | 최대 1000 | 페이지 당 건 수 |
+| limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 
 #### 응답
 
@@ -1520,7 +1520,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |-------------------------------------|--------|----------------------------------------------|
 |paging                               |Object  | 페이징 영역                                        |
 |paging.page                          |Integer | 현재 페이지                                        |
-|paging.limit                         |Integer | 페이지 당 건 수                                  |
+|paging.limit                         |Integer | 페이지당 건 수                                  |
 |paging.totalCount                    |Integer | 전체 건 수                                        |
 |stageList        |List    | 스테이지 목록 영역 |
 |stageList[0].regionCode       |Enum    |[API Gateway 리전 Enum 코드](./enum-code/#regionCode) 참고                |
@@ -1532,13 +1532,13 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |stageList[0].stageDescription |String  |스테이지 설명             |
 |stageList[0].backendEndpointUrl|String  |백엔드 엔드포인트 URL       |
 |stageList[0].resourceUpdatedAt|DateTime|최근 스테이지에 리소스를 가져온 일시 |
-|stageList[0].createdAt        |DateTime|스테이지 생성일시           |
-|stageList[0].updatedAt        |DateTime|스테이지 수정일시           |
+|stageList[0].createdAt        |DateTime|스테이지 생성 일시           |
+|stageList[0].updatedAt        |DateTime|스테이지 수정 일시           |
 
 
 ### Swagger Export
-- Swagger문서를 조회합니다. 
-- Swagger문서는 API Gateway에 배포된 설정이 아닌 현재 스테이지 설정을 기준으로 추출됩니다.
+- Swagger 문서를 조회합니다. 
+- Swagger 문서는 API Gateway에 배포된 설정이 아닌 현재 스테이지 설정을 기준으로 추출됩니다.
 
 #### 요청
 
@@ -1570,7 +1570,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 
 |필드                                  |타입     |설명                                           |
 |-------------------------------------|--------|----------------------------------------------|
-|swaggerData        |Object    | 현재 스테이지 기준 Swagger Json 객체. [Swagger v2.0 OpenAPI Specification](https://swagger.io/specification/v2/) 참고. |
+|swaggerData        |Object    | 현재 스테이지 기준 Swagger JSON 객체. [Swagger v2.0 OpenAPI Specification](https://swagger.io/specification/v2/) 참고. |
 
 
 ### 스테이지 생성
@@ -1605,7 +1605,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | stageName | String | 조건부 필수 | 없음 | 최대 30자, 영소문자와 숫자만 | 스테이지 이름<br/>기본 스테이지가 아닌 경우 필수 값입니다.  |
 | stageDescription | String | 선택 | 없음 | 최대 200자  | 스테이지 설명 |
 | backendEndpointUrl | String | 필수 | 없음 | 최대 150자, URL 형식  | 백엔드 엔드포인트 URL |
-- stageName 필드 값은 유일해야합니다. 
+- stageName 필드 값은 유일해야 합니다. 
 - stageName(스테이지 이름) 필드를 null로 설정하면 기본 스테이지로 생성됩니다. 기본 스테이지는 하나만 생성할 수 있습니다. 
 - stageName 필드 값에 따라 스테이지 URL이 변경됩니다.
   - 스테이지 URL 포맷: {regionCode}-{apigwServiceId}-{stageName}.api.nhncloudservice.com
@@ -1651,8 +1651,8 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |stage.stageDescription |String  |스테이지 설명             |
 |stage.backendEndpointUrl      |String  |백엔드 엔드포인트 URL       |
 |stage.resourceUpdatedAt|DateTime|최근 스테이지에 리소스를 가져온 일시 |
-|stage.createdAt        |DateTime|스테이지 생성일시           |
-|stage.updatedAt        |DateTime|스테이지 수정일시           |
+|stage.createdAt        |DateTime|스테이지 생성 일시           |
+|stage.updatedAt        |DateTime|스테이지 수정 일시           |
 
 ### 스테이지 수정 
 - 스테이지의 백엔드 엔드포인트 URL과 설명을 수정할 수 있습니다.
@@ -1727,8 +1727,8 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |stage.stageDescription |String  |스테이지 설명             |
 |stage.backendEndpointUrl      |String  |백엔드 엔드포인트 URL       |
 |stage.resourceUpdatedAt|DateTime|최근 스테이지에 리소스를 가져온 일시 |
-|stage.createdAt        |DateTime|스테이지 생성일시           |
-|stage.updatedAt        |DateTime|스테이지 수정일시           |
+|stage.createdAt        |DateTime|스테이지 생성 일시           |
+|stage.updatedAt        |DateTime|스테이지 수정 일시           |
 
 
 ### 스테이지 삭제
@@ -1853,22 +1853,22 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |stageResourceList[0].methodType             |Enum    |[HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고  |
 |stageResourceList[0].methodName             |String  |메서드 이름                                     |
 |stageResourceList[0].methodDescription      |String  |메서드 설명                                     |
-|stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성일시                              |
-|stageResourceList[0].updatedAt              |DateTime|스테이지 리소스 수정일시                              |
+|stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성 일시                              |
+|stageResourceList[0].updatedAt              |DateTime|스테이지 리소스 수정 일시                              |
 |stageResourceList[0].stageResourcePluginList|List    |스테이지 리소스의 플러그인 목록 영역                       |
 |stageResourceList[0].stageResourcePluginList[0]|Object    |스테이지 리소스의 플러그인 영역                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입](./enum-code/#???), [스테이지 리소스 > 플러그인 타입](./enum-code/#???) 참고                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 Json 참고            |
-|stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성일시                         |
-|stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정일시                         |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 JSON 참고            |
+|stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
+|stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
 
 
 ### 스테이지에 리소스 가져오기
 * API Gateway 서비스 > 리소스를 스테이지에 가져옵니다. 
-* 리소스를 가져오면 스테이지 리소스, 스테이지 리소스 플러그인는 모두 새로 생성됩니다. 
+* 리소스를 가져오면 스테이지 리소스, 스테이지 리소스 플러그인은 모두 새로 생성됩니다. 
 * 기존 리소스 경로, 메서드에 설정된 스테이지 리소스 플러그인의 설정 값은 그대로 유지됩니다. 
 * 리소스에 변경된 사항이 없는 경우, 수행되지 않습니다.
 
@@ -1954,16 +1954,16 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |stageResourceList[0].methodType             |Enum    |[HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고               |
 |stageResourceList[0].methodName             |String  |메서드 이름                                     |
 |stageResourceList[0].methodDescription      |String  |메서드 설명                                     |
-|stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성일시                              |
-|stageResourceList[0].updatedAt              |DateTime|스테이지 리소스 수정일시                              |
+|stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성 일시                              |
+|stageResourceList[0].updatedAt              |DateTime|스테이지 리소스 수정 일시                              |
 |stageResourceList[0].stageResourcePluginList|List    |스테이지 리소스의 플러그인 목록 영역                       |
 |stageResourceList[0].stageResourcePluginList[0]|Object    |스테이지 리소스의 플러그인 영역                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입](./enum-code/#???), [스테이지 리소스 > 플러그인 타입](./enum-code/#???) 참고                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 Json 참고            |
-|stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성일시                         |
-|stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정일시                         |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 JSON 참고            |
+|stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
+|stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
 
 
@@ -2006,9 +2006,9 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | --- | --- | --- | --- | --- | --- |
 | customBackendEndpointUrl | String | 선택 | 없음 | 최대 150자, URL 형식 | 백엔드 엔드포인트 재정의 URL |
 | stageResourcePluginList | List | 필수 | 없음 | 없음 | 스테이지 리소스 플러그인 목록 영역 |
-| stageResourcePluginList[0] | Object | 필수 | 없음 | 없음 | 스테이지 리소스 플러그인 별 Json형식의 객체<br>[스테이지 리소스 플러그인]() 참고|
+| stageResourcePluginList[0] | Object | 필수 | 없음 | 없음 | 스테이지 리소스 플러그인 별 JSON 형식의 객체<br>[스테이지 리소스 플러그인]() 참고|
 
-* customBackendEndpointUrl필드는 루트(/)리소스 경로에는 설정할 수 없습니다.
+* customBackendEndpointUrl 필드는 루트(/) 리소스 경로에는 설정할 수 없습니다.
 
 
 #### 응답
@@ -2077,16 +2077,16 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |stageResourceList[0].methodType             |Enum    |[HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고               |
 |stageResourceList[0].methodName             |String  |메서드 이름                                     |
 |stageResourceList[0].methodDescription      |String  |메서드 설명                                     |
-|stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성일시                              |
-|stageResourceList[0].updatedAt              |DateTime|스테이지 리소스 수정일시                              |
+|stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성 일시                              |
+|stageResourceList[0].updatedAt              |DateTime|스테이지 리소스 수정 일시                              |
 |stageResourceList[0].stageResourcePluginList|List    |스테이지 리소스의 플러그인 목록 영역                       |
 |stageResourceList[0].stageResourcePluginList[0]|Object    |스테이지 리소스의 플러그인 영역                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입](./enum-code/#???), [스테이지 리소스 > 플러그인 타입](./enum-code/#???) 참고                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 Json 참고            |
-|stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성일시                         |
-|stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정일시                         |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 JSON 참고            |
+|stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
+|stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
 
 ## 스테이지 리소스 플러그인
@@ -2118,7 +2118,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 
 ### IP ACL 
 * IP ACL을 통해 지정된 클라이언트 IP에 대해 API Gateway 요청을 허용/거부할 수 있습니다.
-* 루트(/) 리소스 경로에만 설정 할 수 있습니다. 설정 내용은 하위 모든 리소스에 적용됩니다.
+* 루트(/) 리소스 경로에만 설정할 수 있습니다. 설정 내용은 하위 모든 리소스에 적용됩니다.
 
 ```json
 {
@@ -2151,11 +2151,11 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 
 ### HMAC
 * HMAC 서명 검증을 통해 클라이언트 요청의 변조를 검증하기 위한 설정입니다. 
-* 루트(/) 리소스 경로에만 설정 할 수 있습니다. 설정 내용은 하위 모든 리소스에 적용됩니다.
+* 루트(/) 리소스 경로에만 설정할 수 있습니다. 설정 내용은 하위 모든 리소스에 적용됩니다.
 * HMAC 인증은 JWT 인증과 동시에 설정이 불가합니다. 
 * 서명에 사용하는 비밀키를 설정합니다.
 * 시간 차로 발생하는 검증 실패를 방지하기 위한 검증 유효 시간을 설정합니다.
-* 요청에 필수로 포함되어야하는 헤더 목록을 설정합니다.
+* 요청에 필수로 포함되어야 하는 헤더 목록을 설정합니다.
 
 ```json
 {
@@ -2182,7 +2182,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 
 ### JWT 
 * JWT 토큰의 서명과 요청 클레임을 검증하기 위한 설정입니다.
-* 루트(/) 리소스 경로에만 설정 할 수 있습니다. 설정 내용은 하위 모든 리소스에 적용됩니다.
+* 루트(/) 리소스 경로에만 설정할 수 있습니다. 설정 내용은 하위 모든 리소스에 적용됩니다.
 * JWT 인증은 HMAC 인증과 동시에 설정이 불가합니다.
 * 서명 검증을 위한 토큰 암호화 알고리즘과 암호화 알고리즘 방식에 따른 비밀키 혹은 공개키를 설정합니다.
 * 요청 클레임의 값, 필수 여부 검증을 위한 클레임 검증 조건을 설정합니다. 
@@ -2254,7 +2254,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | pluginConfigJson.hs256 | Object | 필수 | 없음 | 없음 | HS256 설정 영역 |
 | pluginConfigJson.hs256.secretKey | String | 필수 | 없음 | 없음 | 서명에 사용되는 비밀키를 설정합니다. 최소 32바이트 이상 문자열로 설정하는 것을 권장합니다.|
 | pluginConfigJson.clockSkew | Integer | 선택 | 0 | 0~86400 | exp, nbf 클레임의 검증 유효 시간(단위: 초)을 지정합니다. |
-| pluginConfigJson.claimValidationCondition | Object | 선택 | Default Object | 없음 | 클레임들 검증 조건 영역 |
+| pluginConfigJson.claimValidationCondition | Object | 선택 | Default Object | 없음 | 클레임 검증 조건 영역 |
 | pluginConfigJson.claimValidationCondition.iss | Object | 선택 | Default Object | 없음 | iss 클레임 검증 조건 영역. 요청하지 않는 경우 각 필드의 기본값으로 저장됩니다. |
 | pluginConfigJson.claimValidationCondition.iss.value | Array | 필수 | Empty Array | 없음 |  iss 요청 클레임의 값 중 허용할 클레임 값을 문자열 배열로 설정합니다. |
 | pluginConfigJson.claimValidationCondition.iss.value[0] | String | 선택 | 없음 | 없음 |  iss 요청 클레임의 값 중 허용할 문자열을 설정합니다. |
@@ -2304,7 +2304,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
     },
     "clockSkew": 0,
     "claimValidationCondition": {
-      ...생략
+      ...
     }
   }
 }
@@ -2322,7 +2322,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | pluginConfigJson.claimValidationCondition | Object | 선택 | Default Object | 없음 | 클레임 검증 조건 영역 (암호화 알고리즘: HS256의 claimValidationCondition 필드 설명과 동일합니다.) |
 
 
-* **암호화 알고리즘 RS256: (Json Web Key Sets URI 공개키 설정 방식)** 
+* **암호화 알고리즘 RS256: (JSON Web Key Sets URI 공개키 설정 방식)** 
 
 ```json
 {
@@ -2335,7 +2335,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
       },
       "clockSkew": 0,
       "claimValidationCondition": {
-        ...생략
+        ...
     }
 }
 ```
@@ -2346,14 +2346,14 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | pluginConfigJson | Object | 필수 | 없음  | 없음 | JWT 플러그인 설정 영역 |
 | pluginConfigJson.encryptAlgorithm | Enum | 필수 | RS256 | RS256 | [JWT > 암호화 알고리즘]() 참고  |
 | pluginConfigJson.rs256 | Object | 필수 | 없음 | 없음 | RS256 설정 영역 |
-| pluginConfigJson.rs256.publicKeyType | String | 필수 | 없음 | JWKS_URI | JWKS(Json Web Key Sets) URI 형식으로 공개키를 설정합니다. [JWT > RS256 암호화 알고리즘 > Public Key Type]() 참고 |
-| pluginConfigJson.rs256.rsaPublicKey | String | 필수 | 없음 | 없음 | Json Web Key Set URI를 설정합니다. |
+| pluginConfigJson.rs256.publicKeyType | String | 필수 | 없음 | JWKS_URI | JWKS(JSON Web Key Sets) URI 형식으로 공개키를 설정합니다. [JWT > RS256 암호화 알고리즘 > Public Key Type]() 참고 |
+| pluginConfigJson.rs256.rsaPublicKey | String | 필수 | 없음 | 없음 | JSON Web Key Set URI를 설정합니다. |
 | pluginConfigJson.clockSkew | Integer | 선택 | 0 | 0~86400 | exp, nbf 클레임의 검증 유효 시간(단위: 초)을 지정합니다. |
 | pluginConfigJson.claimValidationCondition | Object | 선택 | Default Object | 없음 | 클레임 검증 조건 영역 (암호화 알고리즘: HS256의 claimValidationCondition 필드 설명과 동일합니다.) |
 
 
 ### 사전 호출 API 
-* 사전 호출 API는 백엔드 엔드포인트를 호출하기 전에 사용자가 지정한 API를 호출하여 호출의 응답 코드가 200 OK인 경우에만, 백엔드 엔드포인트 호출하도록 합니다.
+* 사전 호출 API는 백엔드 엔드포인트를 호출하기 전에 사용자가 지정한 API를 호출하여 호출의 응답 코드가 200 OK인 경우에만 백엔드 엔드포인트 호출하도록 합니다.
 * 모든 리소스 경로, 메서드에 설정할 수 있습니다. 
 
 ```json
@@ -2397,13 +2397,13 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | pluginType | Enum | 필수 | 없음 | RATE_LIMIT | [스테이지 리소스 > 플러그인 타입]() 중 RATE_LIMIT 참고 |
 | pluginConfigJson | Object | 필수 | 없음 | 없음 | 요청 수 제한 플러그인 설정 영역 |
 | pluginConfigJson.keyType | Enum | 필수 | 없음 | DEFAULT, IP, HEADER, PATH_VARIABLE | [요청 수 제한 > 제한 키]() 참고  |
-| pluginConfigJson.extraKeyValue | String | 조건부 필수 | 없음 | 없음 | keyType이 HEADER인 경우, 헤더 이름을 반드시 설정해야합니다.<br/> keyType이 PATH_VARIABLE인 경우, ${request.path.variable-name} 형식의 경로 변수를 반드시 설정해야 합니다. |
+| pluginConfigJson.extraKeyValue | String | 조건부 필수 | 없음 | 없음 | keyType이 HEADER인 경우, 헤더 이름을 반드시 설정해야 합니다.<br/> keyType이 PATH_VARIABLE인 경우, ${request.path.variable-name} 형식의 경로 변수를 반드시 설정해야 합니다. |
 | pluginConfigJson.requestPerSec | Integer | 필수 | 없음 | 1~5000 | 초당 최대 요청 가능한 수를 설정합니다. |
 
 
 ### API Key
 
-* API 호출시 API Key가 유효한지 검증하고, 지정된 사용량 계획의 사용량을 초과했는지 검증합니다. 
+* API 호출 시 API Key가 유효한지 검증하고, 지정된 사용량 계획의 사용량을 초과했는지 검증합니다. 
 * 루트(/) 리소스 경로와 리소스 메서드에 설정할 수 있습니다. 
 
 
@@ -2420,7 +2420,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | --- | --- | --- | --- | --- | --- |
 | pluginType | Enum | 필수 | 없음 | API_KEY | [스테이지 리소스 > 플러그인 타입]() 중 API_KEY 참고 |
 | pluginConfigJson | Object | 필수 | 없음 | 없음 | API Key 플러그인 설정 영역 |
-| pluginConfigJson.isActive | Boolean | 필수 | 없음 | true | API Key 검증 여부를 설정합니다. 반드시 true로 설정해야합니다. |
+| pluginConfigJson.isActive | Boolean | 필수 | 없음 | true | API Key 검증 여부를 설정합니다. 반드시 true로 설정해야 합니다. |
 
 ## 스테이지 배포
 
@@ -2428,7 +2428,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 ### 스테이지 배포
 - 현재 스테이지 리소스와 설정을 API Gateway 서비스에 배포합니다. 
 - 변경된 설정 정보가 없는 경우, 스테이지 배포 요청이 실패합니다.
-- 스테이지 배포가 실패된 경우, 기존 성공한 스테이지 배포 설정으로 롤백됩니다.
+- 스테이지 배포가 실패한 경우, 기존의 성공한 스테이지 배포 설정으로 되돌려집니다.
 - 스테이지 배포 요청 후, 스테이지 배포 성공 여부는 [최근 스테이지 배포 결과 조회]()에서 확인할 수 있습니다. 
 
 #### 요청
@@ -2474,7 +2474,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 
 ### 최근 스테이지 배포 결과 조회 
 - [스테이지 배포]()의 결과를 조회할 수있습니다. 
-- 스테이지 배포 요청 이후 배포 결과가 업데이트되기 까지 최대 1분 정도까지 소요될 수 있습니다. 
+- 스테이지 배포 요청 이후 배포 결과가 업데이트되기까지 최대 1분 정도까지 소요될 수 있습니다. 
 
 
 #### 요청
@@ -2577,20 +2577,20 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |latestStageDeployResult.stageResourceList[0].methodType             |Enum    |[HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고               |
 |latestStageDeployResult.stageResourceList[0].methodName             |String  |메서드 이름                                     |
 |latestStageDeployResult.stageResourceList[0].methodDescription      |String  |메서드 설명                                     |
-|latestStageDeployResult.stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성일시                              |
-|latestStageDeployResult.stageResourceList[0].updatedAt              |DateTime|스테이지 리소스 수정일시                              |
+|latestStageDeployResult.stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성 일시                              |
+|latestStageDeployResult.stageResourceList[0].updatedAt              |DateTime|스테이지 리소스 수정 일시                              |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList|List    |스테이지 리소스의 플러그인 목록 영역                       |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0]|Object    |스테이지 리소스의 플러그인 영역                       |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[스테이지 플러그인 타입]() 참고                       |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 Json 참고           |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성일시                         |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정일시                         |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 JSON 참고           |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
 ### 스테이지 배포 이력 삭제
 - 스테이지 배포 이력을 삭제합니다.
-- 현재 스테이지의 기반 배포 이력 (isBase가 true인 경우)과 현재 API Gateway 서비스 배포된 이력은 삭제할 수 없습니다.
+- 현재 스테이지의 기반 배포 이력(isBase가 true인 경우)과 현재 API Gateway 서비스의 배포 이력은 삭제할 수 없습니다.
 
 #### 요청
 
@@ -2646,7 +2646,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
-| limit | Integer | 선택 | 10 | 최대 1000 | 페이지 당 건 수 |
+| limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 
 #### 응답
 
@@ -2681,7 +2681,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |-------------------------------------|--------|----------------------------------------------|
 |paging                               |Object  | 페이징 영역                                        |
 |paging.page                          |Integer | 현재 페이지                                        |
-|paging.limit                         |Integer | 페이지 당 건 수                                  |
+|paging.limit                         |Integer | 페이지당 건 수                                  |
 |paging.totalCount                    |Integer | 전체 건 수                                        |
 |stageDeployHistoryList        |List    | 스테이지 배포 이력 목록 영역 |
 |stageDeployHistoryList[0]        |Object    | 스테이지 배포 이력 영역 |
@@ -2696,7 +2696,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 ### 스테이지 되돌리기
 - 배포된 스테이지 설정 이력으로 현재 스테이지 설정을 되돌립니다.  
 - 스테이지 되돌리기를 하면 현재 스테이지 설정은 모두 삭제되므로 유의하시기 바랍니다.  
-- 되돌려진 스테이지 설정을 API Gateway 서비스에 적용하려면 스테이지를 배포해야합니다.
+- 되돌려진 스테이지 설정을 API Gateway 서비스에 적용하려면 스테이지를 배포해야 합니다.
 - 배포 실패 상태의 배포 이력으로는 되돌리기를 할 수 없습니다.
 
 #### 요청
@@ -2761,24 +2761,24 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |stageResourceList[0].methodType             |Enum    |[HTTP 메서드 타입 Enum 코드](./enum-code/#???) 참고               |
 |stageResourceList[0].methodName             |String  |메서드 이름                                     |
 |stageResourceList[0].methodDescription      |String  |메서드 설명                                     |
-|stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성일시                              |
-|stageResourceList[0].updatedAt              |DateTime|스테이지 리소스 수정일시                              |
+|stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성 일시                              |
+|stageResourceList[0].updatedAt              |DateTime|스테이지 리소스 수정 일시                              |
 |stageResourceList[0].stageResourcePluginList|List    |스테이지 리소스의 플러그인 목록 영역                       |
 |stageResourceList[0].stageResourcePluginList[0]|Object    |스테이지 리소스의 플러그인 영역                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[스테이지 플러그인 타입]() 참고                       |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 Json 참고         |
-|stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성일시                         |
-|stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정일시                         |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](), [스테이지 플러그인 타입]()별 설정 JSON 참고         |
+|stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
+|stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
 
 ## API 설명서
 
 ### API 설명서 조회
 - 배포된 스테이지 설정 기준으로 API 설명서를 조회합니다. 
-- API 설명서는 [Swagger v2.0](https://swagger.io/specification/v2/)사양의 Json객체로 응답됩니다.
-- 배포되지 않은 스테이지는 API 설명서를 조회할 수 없으며, 404 Not Found가 응답됩니다.
+- API 설명서는 [Swagger v2.0](https://swagger.io/specification/v2/)사양의 JSON 객체로 응답됩니다.
+- 배포되지 않은 스테이지에 대해서는 API 설명서를 조회할 수 없으며, 404 Not Found가 응답됩니다.
 
 
 #### 요청
@@ -2978,10 +2978,10 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |swagger                     |String    | Swagger 사양의 버전. [Swagger Object](https://swagger.io/specification/v2/#swagger-object) 참고|
-|info         | Object   | API의 메타 데이터 영역입니다. [Info Object](https://swagger.io/specification/v2/#swagger-object) 참고|
+|info         | Object   | API의 메타데이터 영역입니다. [Info Object](https://swagger.io/specification/v2/#swagger-object) 참고|
 |info.version   |String  | API의 버전 정보이며, 스테이지 배포 요청 일시가 설정됩니다. [Info Object](https://swagger.io/specification/v2/#info-object) 참고|
 |info.title      |String  | API의 제목이며, 스테이지 이름이 설정됩니다. [Info Object](https://swagger.io/specification/v2/#info-object) 참고|
-|host|String    |API의 제공하는 호스트이며, 스테이지 URL이 설정됩니다. [Swagger Object](https://swagger.io/specification/v2/#swagger-object) 참고|
+|host|String    |API를 제공하는 호스트이며, 스테이지 URL이 설정됩니다. [Swagger Object](https://swagger.io/specification/v2/#swagger-object) 참고|
 |schemes              |Array  | API의 지원 전송 프로토콜이며, [http, https]이 설정됩니다. [Swagger Object > schemes](https://swagger.io/specification/v2/#swagger-object) 참고|
 |paths         | Object  | API의 경로들이며, 리소스 메서드의 경로들이 설정됩니다. [Paths Object](https://swagger.io/specification/v2/#pathsObject) 참고|
 |paths.{path} | Object | {path}는 API의 경로이며, 리소스 메서드의 경로가 설정됩니다. [Paths Object](https://swagger.io/specification/v2/#pathsObject) 참고|
@@ -2994,10 +2994,10 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |paths.{path}.{operation}.description                |String  |API 설명이며, 리소스의 설명이 설정됩니다. [Operation Object](https://swagger.io/specification/v2/#operation-object) 참고|
 |paths.{path}.{operation}.parameters                | Object  | API 파라미터이며, 리소스의 경로 변수와 요청 파라미터가 설정됩니다. [Parameter Object](https://swagger.io/specification/v2/#parameter-object) 참고|
 |paths.{path}.{operation}.responses                | Object  | API 응답이며, 리소스 응답이 설정됩니다. [Responses Object](https://swagger.io/specification/v2/#responses-object) 참고|
-|paths.{path}.{operation}.security     | Array  | API 오퍼레이션의 작업에 사용되는 보안 정의입니다. API Key, 인증(HMAC, JWT)설정시 API Gateway의 사용자 정의 설정이 포함됩니다. |
+|paths.{path}.{operation}.security     | Array  | API 오퍼레이션의 작업에 사용되는 보안 정의입니다. API Key, 인증(HMAC, JWT) 설정 시 API Gateway의 사용자 정의 설정이 포함됩니다. |
 |paths.{path}.{operation}.x-nhncloud-apigateway     | Object  | NHN Cloud API Gateway 정의 설정 영역 |
-|paths.{path}.{operation}.x-nhncloud-apigateway.plugins     | Object  | API Gateway의 사용자 정의 플러그인들 정보 영역입니다. 리소스 > 플러그인 설정과 리소스와 매핑된 백엔드 엔드포인트 경로의 설정이 포함됩니다. |
-|securityDefinitions          |Object    | 보안 정의 객체입니다. API Key, 인증(HMAC, JWT)설정시 API Gateway의 사용자 정의 설정이 포함됩니다. [Security Definitions Object](https://swagger.io/specification/v2/#securityDefinitionsObject) 참고|
+|paths.{path}.{operation}.x-nhncloud-apigateway.plugins     | Object  | API Gateway의 사용자 정의 플러그인 정보 영역입니다. 리소스 > 플러그인 설정과 리소스와 매핑된 백엔드 엔드포인트 경로의 설정이 포함됩니다. |
+|securityDefinitions          |Object    | 보안 정의 객체입니다. API Key, 인증(HMAC, JWT) 설정 시 API Gateway의 사용자 정의 설정이 포함됩니다. [Security Definitions Object](https://swagger.io/specification/v2/#securityDefinitionsObject) 참고|
 |definitions | Object | 요청 및 응답에서 사용되는 데이터 유형에 대한 영역. 요청 파라미터/응답에서 참조된 모델이 정의가 설정됩니다. [Definitions Object](https://swagger.io/specification/v2/#definitionsObject) 참고| 
 
 ## API Key
@@ -3017,10 +3017,10 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
-| limit | Integer | 선택 | 10 | 최대 1000 | 페이지 당 건 수 |
+| limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 | apiKey | String | 선택 | 없음 | 없음 | Primary 또는 Secondary API Key 필터 조건 |
 | apiKeyId | String | 선택 | 없음 | 없음 | API Key ID 필터 조건 |
-| apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름  필터 조건. API key 이름의 문자열은 일치해야합니다. |
+| apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름  필터 조건. API key 이름의 문자열은 일치해야 합니다. |
 | apiKeyStatus | Enum | 선택 | 없음 | ACTIVE, INACTIVE | API Key 상태 필터 조건. [API Key 상태](./enum-code/#???) 참고 |
 
 #### 응답
@@ -3059,7 +3059,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | ------------------------------- | -------- | ------------------------------------------------- |
 | paging                          | Object   | 페이징 영역                                            |
 | paging.page                     | Integer  | 현재 페이지                                            |
-| paging.limit                    | Integer  | 페이지 당 건 수                                         |
+| paging.limit                    | Integer  | 페이지당 건 수                                         |
 | paging.totalCount               | Integer  | 전체 건 수                                            |
 | apiKeyList                      | List     | API Key 목록 영역                                     |
 | apiKeyList[0]                   | Object   | API Key 영역                                        |
@@ -3070,8 +3070,8 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | apiKeyList[0].primaryApiKey     | String   | Primary API Key 값                                 |
 | apiKeyList[0].secondaryApiKey   | String   | Secondary API Key 값                               |
 | apiKeyList[0].apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#???) 참고 |
-| apiKeyList[0].createdAt         | DateTime | API Key 생성일시                                      |
-| apiKeyList[0].updatedAt         | DateTime | API Key 수정일시                                      |
+| apiKeyList[0].createdAt         | DateTime | API Key 생성 일시                                      |
+| apiKeyList[0].updatedAt         | DateTime | API Key 수정 일시                                      |
 
 ### API Key 생성
 - API Key를 생성합니다. 
@@ -3133,8 +3133,8 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | apiKey.primaryApiKey     | String   | Primary API Key 값                                 |
 | apiKey.secondaryApiKey   | String   | Secondary API Key 값                               |
 | apiKey.apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#???) 참고 |
-| apiKey.createdAt         | DateTime | API Key 생성일시                                      |
-| apiKey.updatedAt         | DateTime | API Key 수정일시                                      |
+| apiKey.createdAt         | DateTime | API Key 생성 일시                                      |
+| apiKey.updatedAt         | DateTime | API Key 수정 일시                                      |
 
 
 ### API Key 수정
@@ -3203,8 +3203,8 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | apiKey.primaryApiKey     | String   | Primary API Key 값                                 |
 | apiKey.secondaryApiKey   | String   | Secondary API Key 값                               |
 | apiKey.apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#???) 참고 |
-| apiKey.createdAt         | DateTime | API Key 생성일시                                      |
-| apiKey.updatedAt         | DateTime | API Key 수정일시                                      |
+| apiKey.createdAt         | DateTime | API Key 생성 일시                                      |
+| apiKey.updatedAt         | DateTime | API Key 수정 일시                                      |
 
 
 ### API Key 삭제
@@ -3299,8 +3299,8 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | apiKey.primaryApiKey     | String   | Primary API Key 값                                 |
 | apiKey.secondaryApiKey   | String   | Secondary API Key 값                               |
 | apiKey.apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#???) 참고 |
-| apiKey.createdAt         | DateTime | API Key 생성일시                                      |
-| apiKey.updatedAt         | DateTime | API Key 수정일시                                      |
+| apiKey.createdAt         | DateTime | API Key 생성 일시                                      |
+| apiKey.updatedAt         | DateTime | API Key 수정 일시                                      |
 
 ### 스테이지에 연결 가능한 API Key 목록 조회
 - 스테이지에 연결 가능한 api key API Key 목록을 조회합니다.
@@ -3323,7 +3323,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
-| limit | Integer | 선택 | 10 | 최대 1000 | 페이지 당 건 수 |
+| limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 | apiKey | String | 선택 | 없음 | 없음 | primary 또는 secondary API Key 값 |
 | apiKeyId | String | 선택 | 없음 | 없음 | API Key ID |
 | apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름 시작 문자열 |
@@ -3365,7 +3365,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | ------------------------------- | -------- | ------------------------------------------------- |
 | paging                          | Object   | 페이징 영역                                            |
 | paging.page                     | Integer  | 현재 페이지                                            |
-| paging.limit                    | Integer  | 페이지 당 건 수                                         |
+| paging.limit                    | Integer  | 페이지당 건 수                                         |
 | paging.totalCount               | Integer  | 전체 건 수                                            |
 | apiKeyList                      | List     | API Key 목록 영역                                     |
 | apiKeyList[0]                   | Object   | API Key 영역                                        |
@@ -3376,8 +3376,8 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | apiKeyList[0].primaryApiKey     | String   | Primary API Key 값                                 |
 | apiKeyList[0].secondaryApiKey   | String   | Secondary API Key 값                               |
 | apiKeyList[0].apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#API Key 상태 Enum 코드) 참고 |
-| apiKeyList[0].createdAt         | DateTime | API Key 생성일시                                      |
-| apiKeyList[0].updatedAt         | DateTime | API Key 수정일시                                      |
+| apiKeyList[0].createdAt         | DateTime | API Key 생성 일시                                      |
+| apiKeyList[0].updatedAt         | DateTime | API Key 수정 일시                                      |
 
 
 ## 사용량 계획
@@ -3396,7 +3396,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
-| limit | Integer | 선택 | 10 | 최대 1000 | 페이지 당 건 수 |
+| limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 
 #### 응답
 
@@ -3434,7 +3434,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | ------------------------------------------ | -------- | ------------------------------------------------- |
 | paging                                     | Object   | 페이징 영역                                            |
 | paging.page                                | Integer  | 현재 페이지                                            |
-| paging.limit                               | Integer  | 페이지 당 건 수                                         |
+| paging.limit                               | Integer  | 페이지당 건 수                                         |
 | paging.totalCount                          | Integer  | 전체 건 수                                            |
 | usagePlanList                              | List     | 사용량 계획 목록 영역                                      |
 | usagePlanList[0]                           | Object   | 사용량 계획 영역                                         |
@@ -3445,8 +3445,8 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | usagePlanList[0].rateLimitRequestPerSecond | Integer  | 초당 요청 수 제한                                        |
 | usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참고 |
 | usagePlanList[0].quotaLimit                | Integer  | 할당량 기간 단위 별 요청 할당량                                |
-| usagePlanList[0].createdAt                 | DateTime | 사용량 계획 생성일시                                       |
-| usagePlanList[0].updatedAt                 | DateTime | 사용량 계획 수정일시                                       |
+| usagePlanList[0].createdAt                 | DateTime | 사용량 계획 생성 일시                                       |
+| usagePlanList[0].updatedAt                 | DateTime | 사용량 계획 수정 일시                                       |
 
 
 
@@ -3500,8 +3500,8 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | usagePlan.rateLimitRequestPerSecond | Integer  | 초당 요청 수 제한                                        |
 | usagePlan.quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참고 |
 | usagePlan.quotaLimit                | Integer  | 할당량 기간 단위 별 요청 할당량                                |
-| usagePlan.createdAt                 | DateTime | 사용량 계획 생성일시                                       |
-| usagePlan.updatedAt                 | DateTime | 사용량 계획 수정일시                                       |
+| usagePlan.createdAt                 | DateTime | 사용량 계획 생성 일시                                       |
+| usagePlan.updatedAt                 | DateTime | 사용량 계획 수정 일시                                       |
 
 ### 사용량 계획 생성
 - 사용량 계획을 생성합니다.
@@ -3567,8 +3567,8 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | usagePlan.rateLimitRequestPerSecond | Integer  | 초당 요청 수 제한                                        |
 | usagePlan.quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참고 |
 | usagePlan.quotaLimit                | Integer  | 할당량 기간 단위 별 요청 할당량                                |
-| usagePlan.createdAt                 | DateTime | 사용량 계획 생성일시                                       |
-| usagePlan.updatedAt                 | DateTime | 사용량 계획 수정일시                                       |
+| usagePlan.createdAt                 | DateTime | 사용량 계획 생성 일시                                       |
+| usagePlan.updatedAt                 | DateTime | 사용량 계획 수정 일시                                       |
 
 
 ### 사용량 계획 수정
@@ -3641,8 +3641,8 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | usagePlan.rateLimitRequestPerSecond | Integer  | 초당 요청 수 제한                                        |
 | usagePlan.quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참고 |
 | usagePlan.quotaLimit                | Integer  | 할당량 기간 단위 별 요청 할당량                                |
-| usagePlan.createdAt                 | DateTime | 사용량 계획 생성일시                                       |
-| usagePlan.updatedAt                 | DateTime | 사용량 계획 수정일시                                       |
+| usagePlan.createdAt                 | DateTime | 사용량 계획 생성 일시                                       |
+| usagePlan.updatedAt                 | DateTime | 사용량 계획 수정 일시                                       |
 
 
 ### 사용량 계획 삭제
@@ -3726,7 +3726,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | ------------------------------------- | ------- | ---------------------- |
 | paging                                | Object  | 페이징 영역                 |
 | paging.page                           | Integer | 현재 페이지                 |
-| paging.limit                          | Integer | 페이지 당 건 수              |
+| paging.limit                          | Integer | 페이지당 건 수              |
 | paging.totalCount                     | Integer | 전체 건 수                 |
 | usagePlanStageList                    | List    | 사용량 계획과 연결된 스테이지 목록 영역 |
 | usagePlanStageList[0]                | Object  | 사용량 계획과 연결된 스테이지 영역    |
@@ -3816,7 +3816,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
-| limit | Integer | 선택 | 10 | 최대 1000 | 페이지 당 건 수 |
+| limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 
 #### 응답
 
@@ -3854,7 +3854,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | ------------------------------------------ | -------- | ------------------------------------------------- |
 | paging                                     | Object   | 페이징 영역                                            |
 | paging.page                                | Integer  | 현재 페이지                                            |
-| paging.limit                               | Integer  | 페이지 당 건 수                                         |
+| paging.limit                               | Integer  | 페이지당 건 수                                         |
 | paging.totalCount                          | Integer  | 전체 건 수                                            |
 | usagePlanList                              | List     | 사용량 계획 목록 영역                                      |
 | usagePlanList[0]                           | Object   | 사용량 계획 영역                                         |
@@ -3865,8 +3865,8 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | usagePlanList[0].rateLimitRequestPerSecond | Integer  | 초당 요청 수 제한                                        |
 | usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#???) 참고 |
 | usagePlanList[0].quotaLimit                | Integer  | 할당량 기간 단위 별 요청 할당량                                |
-| usagePlanList[0].createdAt                 | DateTime | 사용량 계획 생성일시                                       |
-| usagePlanList[0].updatedAt                 | DateTime | 사용량 계획 수정일시                                       |
+| usagePlanList[0].createdAt                 | DateTime | 사용량 계획 생성 일시                                       |
+| usagePlanList[0].updatedAt                 | DateTime | 사용량 계획 수정 일시                                       |
 
 ## API Key 구독
 
@@ -3889,7 +3889,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
-| limit | Integer | 선택 | 10 | 최대 1000 | 페이지 당 건 수 |
+| limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 | stageUrl | String | 선택 | 없음 | 없음 | Stage Url 필터 조건 |
 
 #### 응답
@@ -3933,7 +3933,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | ------------------------------------------------------------ | ------- | ------------------------------------------------- |
 | paging                                                       | Object  | 페이징 영역                                            |
 | paging.page                                                  | Integer | 현재 페이지                                            |
-| paging.limit                                                 | Integer | 페이지 당 건 수                                         |
+| paging.limit                                                 | Integer | 페이지당 건 수                                         |
 | paging.totalCount                                            | Integer | 전체 건 수                                            |
 | subscribedStageAndUsagePlanList                              | List    | API Key가 연결된 스테이지와 사용량 계획 목록 영역                |
 | subscribedStageAndUsagePlanList[0]                           | Object    | API Key가 연결된 스테이지와 사용량 계획 영역                |
@@ -3974,10 +3974,10 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
-| limit | Integer | 선택 | 10 | 최대 1000 | 페이지 당 건 수 |
+| limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 | apiKey | String | 선택 | 없음 | 없음 | Primary 또는 Secondary API Key 필터 조건 |
 | apiKeyId | String | 선택 | 없음 | 없음 | API Key ID 필터 조건 |
-| apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름  필터 조건. API key 이름의 문자열은 일치해야합니다.  |
+| apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름  필터 조건. API key 이름의 문자열은 일치해야 합니다.  |
 | apiSubscriptionStatus | Enum | 선택 | 없음 | APPROVAL | [API Key 구독 상태](./enum-code/#???) 참고 |
 
 #### 응답
@@ -4016,7 +4016,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | ---------------------------------------------- | -------- | ------------------------------------ |
 | paging                                         | Object   | 페이징 영역                               |
 | paging.page                                    | Integer  | 현재 페이지                               |
-| paging.limit                                   | Integer  | 페이지 당 건 수                            |
+| paging.limit                                   | Integer  | 페이지당 건 수                            |
 | paging.totalCount                              | Integer  | 전체 건 수                               |
 | apiSubscriptionList                            | List     | 구독 정보 목록 영역      |
 | apiSubscriptionList[0]                         | Object   | 구독 정보 영역      |
@@ -4027,8 +4027,8 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | apiSubscriptionList[0].usagePlanId             | String   | 사용량 계획 ID                            |
 | apiSubscriptionList[0].apiKeyId                | String   | API Key ID                           |
 | apiSubscriptionList[0].apiKeyName              | String   | API Key 이름                           |
-| apiSubscriptionList[0].createdAt               | DateTime | 구독 생성일시                              |
-| apiSubscriptionList[0].updatedAt               | DateTime | 구독 수정일시                              |
+| apiSubscriptionList[0].createdAt               | DateTime | 구독 생성 일시                              |
+| apiSubscriptionList[0].updatedAt               | DateTime | 구독 수정 일시                              |
 
 
 ### API Key 구독 (API Key 연결)
@@ -4101,13 +4101,13 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | apiSubscriptionList[0].usagePlanId             | String   | 사용량 계획 ID                            |
 | apiSubscriptionList[0].apiKeyId                | String   | API Key ID                           |
 | apiSubscriptionList[0].apiKeyName              | String   | API Key 이름                           |
-| apiSubscriptionList[0].createdAt               | DateTime | 구독 생성일시                              |
-| apiSubscriptionList[0].updatedAt               | DateTime | 구독 수정일시                              |
+| apiSubscriptionList[0].createdAt               | DateTime | 구독 생성 일시                              |
+| apiSubscriptionList[0].updatedAt               | DateTime | 구독 수정 일시                              |
 
 
 ### API Key 구독 취소 (API Key 연결 해제)
 - 사용량 계획의 스테이지에서 요청한 API Key 목록을 연결 해제합니다.
-- 연결 해제된 API Key는 API Key 인증에 실패하여 API 호출이 실패됩니다. 
+- 연결 해제된 API Key는 API Key 인증에 실패하여 API 호출이 실패합니다. 
 
 #### 요청
 
@@ -4224,7 +4224,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 | startTime | DateTime | 필수 | 없음 | 없음 | 통계 조회 시작 일시 |
 | endTime | DateTime | 필수 | 없음 | 없음 | 통계 조회 종료 일시 |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
-| limit | Integer | 선택 | 10 | 최대 1000 | 페이지 당 건 수 |
+| limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 
 * startTime, endTime 필드의 조회 기간은 최대 3개월까지 조회할 수 있습니다.
 * stageTime, endTime 필드는 ISO8601형식의 날짜 문자열 형식으로 입력합니다. 
@@ -4282,7 +4282,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |-------------------------------------|--------|----------------------------------------------|
 |paging                               |Object  | 페이징 영역                                     |
 |paging.page                          |Integer | 현재 페이지                                    |
-|paging.limit                         |Integer | 페이지 당 건 수                                 |
+|paging.limit                         |Integer | 페이지당 건 수                                 |
 |paging.totalCount                    |Integer | 전체 건 수                                     |
 |data                                 |List    | 리소스별 통계 데이터 목록 영역                      |
 |data[0]                              |Object    | 리소스별 통계 데이터 영역                      |
@@ -4384,7 +4384,7 @@ CORS플러그인에 의해 생성된 OPTIONS 메서드는 CORS플러그인이 �
 |-------------------------------------|--------|----------------------------------------------|
 |paging                               |Object  | 페이징 영역                                     |
 |paging.page                          |Integer | 현재 페이지                                     |
-|paging.limit                         |Integer | 페이지 당 건 수                                 |
+|paging.limit                         |Integer | 페이지당 건 수                                 |
 |paging.totalCount                    |Integer | 전체 건 수                                     |
 |data                                 |Object  | API Key 통계 데이터 영역                         |
 |data.{requestApigwEndpoint}          |Object  | API 호출 엔드포인트별 통계 영역                |
