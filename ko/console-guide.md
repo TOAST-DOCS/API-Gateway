@@ -68,15 +68,15 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
 > 2021-11-23 이전 스테이지 내보내기를 통해 다운로드된 파일로 리소스 가져오기를 하는 경우 실패가 발생할 수 있습니다. 
 > 스테이지 내보내기를 통해 새로 생성된 파일을 이용하여 리소스 가져오기를 이용하시거나 다음의 작업을 통해 기존 파일을 변경하시기 바랍니다.
 > 변경 작업
->   1. 파일 내 x-api-nhn-apigateway > plugins의 플러그인의 설정 문자열을 Json객체로 변환해야합니다.
->   2. 파일 내 리소스 메서드 > x-api-nhn-apigateway > plugins에 CORS플러그인 설정 문자열이 존재할 경우 제거해야합니다. 리소스 메서드에는 CORS플러그인을 설정할 수 없으며, 해당 상위 리소스 경로에 CORS플러그인이 설정되어있을 경우 리소스 가져오기 시 자동으로 추가됩니다.
-> 가이드 내용으로 해결이 안되는 경우 고객센터로 문의해주시기 바랍니다.
+>   1. 파일 내 x-api-nhn-apigateway > plugins의 플러그인 설정 문자열을 JSON 객체로 변환해야 합니다.
+>   2. 파일 내 리소스 메서드 > x-api-nhn-apigateway > plugins에 CORS 플러그인 설정 문자열이 존재할 경우 제거해야 합니다. 리소스 메서드에는 CORS 플러그인을 설정할 수 없으며, 해당 상위 리소스 경로에 CORS 플러그인이 설정되어 있을 경우 리소스 가져오기 시 자동으로 추가됩니다.
+> 가이드 내용으로 해결이 안 되는 경우 고객 센터로 문의해주시기 바랍니다.
 
 <details>
 <summary>2021-11-23 이전 스테이지 내보내기 파일 가져오기 실패 예시</summary>
 
 ```
-- [예시1] 가져오기 실패: 2021-11-23 이전 스테이지 내보내기 파일의 경우 plugins의 플러그인 설정 값이 Json형식의 문자열로 구성됨
+- [예시1] 가져오기 실패: 2021-11-23 이전 스테이지 내보내기 파일의 경우 plugins의 플러그인 설정값이 JSON 형식의 문자열로 구성됨
 {
 ... 
     "x-nhncloud-apigateway": {
@@ -89,7 +89,7 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
 ```
 
 ```
-- [예시1] 가져오기 성공: plugins의 플러그인 설정 값이 Json형식의 문자열을 Json객체로 수정한 스테이지 내보내기 파일
+- [예시1] 가져오기 성공: plugins의 플러그인 설정값에서 JSON 형식의 문자열을 JSON 객체로 수정한 스테이지 내보내기 파일
 {
 ...
     "x-nhncloud-apigateway": {
@@ -105,7 +105,7 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
 ```
 
 ```
-- [예시2] 가져오기 실패: 2021-11-23 이전 스테이지 내보내기 파일의 경우 리소스 경로에 CORS플러그인이 설정되어있을 경우 하위 리소스 메서드에 CORS플러그인 설정 값이 포함되어있음
+- [예시2] 가져오기 실패: 2021-11-23 이전 스테이지 내보내기 파일의 경우 리소스 경로에 CORS 플러그인이 설정되어 있을 경우 하위 리소스 메서드에 CORS 플러그인 설정값이 포함되어 있음
 {
 ...
         "paths": {
@@ -151,7 +151,7 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
 ```
 
 ```
-- [예시2] 가져오기 성공: 리소스 메서드에 CORS플러그인 설정값을 제거한 스테이지 내보내기 파일
+- [예시2] 가져오기 성공: 리소스 메서드에 CORS 플러그인 설정값을 제거한 스테이지 내보내기 파일
 {
 ...
         "paths": {
@@ -216,7 +216,7 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
     3. 수정을 하려면 좌측 리소스 트리에서 메서드를 선택합니다.
     5. 설정을 변경한 후 **변경 내용 저장** 버튼을 클릭합니다.
 
-> **[참고] CORS플러그인에 의해 등록된 OPTIONS 메서드의 수정**
+> **[참고] CORS 플러그인에 의해 등록된 OPTIONS 메서드의 수정**
 > CORS 플러그인에 의해 등록된 OPTIONS 메서드는 수정할 수 없습니다. 
 
 ### 리소스와 메서드 삭제 
@@ -229,7 +229,7 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
 > **[주의] 리소스 경로 삭제**
 > 리소스 경로를 삭제하면 선택된 리소스의 경로의 하위 리로스 경로와 메서드가 모두 삭제 됩니다.
 
-> **[참고] CORS플러그인에 의해 등록된 OPTIONS 메서드의 삭제**
+> **[참고] CORS 플러그인에 의해 등록된 OPTIONS 메서드의 삭제**
 > CORS 플러그인에 의해 등록된 OPTIONS 메서드는 삭제할 수 없습니다. 
 
 
@@ -657,7 +657,7 @@ JWT 토큰의 서명과 클레임을 검증합니다. 사용자 서비스에서�
             - 비밀키: 토큰을 서명하는데 사용한 비밀키를 입력합니다. 비밀키의 길이가 256이상인 비밀키의 사용을 권장합니다.
         - RS256 토큰 알고리즘
             - 공개키(PEM): 토큰을 검증할 수 있는 공개키를 입력합니다. PEM 형식으로 입력해야합니다.
-            - JWKS URI: API Gateway가 토큰 서명 검증과 암호화에 필요한 Json Web Key Sets Json객체를 가져올 HTTP JWKS(Json Web Key Sets) URI를 입력합니다.
+            - JWKS URI: API Gateway가 토큰 서명 검증과 암호화에 필요한 Json Web Key Sets JSON 객체를 가져올 HTTP JWKS(Json Web Key Sets) URI를 입력합니다.
     - **클레임 검증 조건** 
         - 토큰의 페이로드(payload)의 등록된 클레임(registered claim)에 대한 클레임 검증 조건을 입력합니다.
         - 등록된 클레임에 대한 자세한 내용은 [RFC7519-4.1.Registered Claim Names](https://tools.ietf.org/html/rfc7519#section-4.1)을 참고합니다.
