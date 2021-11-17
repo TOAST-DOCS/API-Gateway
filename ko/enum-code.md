@@ -43,7 +43,7 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | MOCK | API Gateway로 수신된 요청에 대해 정의된 응답을 반환합니다. | 
 | CORS | Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니다. | 
 | SET_REQUEST_HEADER | 요청 헤더를 추가하거나 변경합니다.  | 
-| SET_RESPONSE_HEADER | 응답 헤더 변경 플러그인은 백엔드 응답에 헤더를 추가하거나 변경합니다. | 
+| SET_RESPONSE_HEADER | 백엔드 응답에 헤더를 추가하거나 변경합니다. | 
 | ADD_REQUEST_QUERY_PARAMETER | 백엔드 엔드포인트 요청에 쿼리 문자열 파라미터를 추가합니다.   | 
 
 
