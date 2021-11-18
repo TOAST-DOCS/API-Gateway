@@ -8,7 +8,7 @@ NHN Cloud API Gateway에서 제공하는 Public API v1.0을 설명합니다.
 
 | 이름              | 도메인                                   |
 | --------------- | ------------------------------------- |
-| API 도메인 | https://apigw.api.nhncloudservice.com |
+| API 도메인 | https://kr1-apigateway.api.nhncloudservice.com |
 
 ### 사전 준비
 
@@ -3036,7 +3036,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 | limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 | apiKey | String | 선택 | 없음 | 없음 | Primary 또는 Secondary API Key 필터 조건 |
 | apiKeyId | String | 선택 | 없음 | 없음 | API Key ID 필터 조건 |
-| apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름  필터 조건. API key 이름의 문자열은 일치해야 합니다. |
+| apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름  필터 조건. API Key 이름의 시작 문자열은 일치해야 합니다. |
 | apiKeyStatus | Enum | 선택 | 없음 | ACTIVE, INACTIVE | API Key 상태 필터 조건. [API Key 상태](./enum-code/#???) 참고 |
 
 #### 응답
@@ -4025,7 +4025,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 | limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 | apiKey | String | 선택 | 없음 | 없음 | Primary 또는 Secondary API Key 필터 조건 |
 | apiKeyId | String | 선택 | 없음 | 없음 | API Key ID 필터 조건 |
-| apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름  필터 조건. API key 이름의 문자열은 일치해야 합니다.  |
+| apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름  필터 조건. API Key 이름의 시작 문자열은 일치해야 합니다.  |
 | apiSubscriptionStatus | Enum | 선택 | 없음 | APPROVAL | [API Key 구독 상태](./enum-code/#???) 참고 |
 
 #### 응답
