@@ -416,11 +416,13 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 요청
 
 [URI]
+
 | 메서드 | URI | 
 | --- | --- | 
 | GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
 
 [Path Parameter]
+
 | 이름             | 타입     | 필수 여부 | 기본값 | 유효 범위 | 설명                 |
 | -------------- | ------ | ----- | --- | ----- | ------------------ |
 | apigwServiceId | String | 필수    | 없음  | 없음    | API Gateway 서비스 ID |
@@ -523,6 +525,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 | DELETE  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId} |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
@@ -557,6 +560,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 | POST  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/import |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
@@ -800,11 +804,13 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/parameters |
 
 [Path Parameter]
+
 | 이름             | 타입     | 필수 여부 | 기본값 | 유효 범위 | 설명                 |
 | -------------- | ------ | ----- | --- | ----- | ------------------ |
 | apigwServiceId | String | 필수    | 없음  | 없음    | API Gateway 서비스 ID |
@@ -902,11 +908,13 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/parameters |
 
 [Path Parameter]
+
 | 이름             | 타입     | 필수 여부 | 기본값 | 유효 범위 | 설명                 |
 | -------------- | ------ | ----- | --- | ----- | ------------------ |
 | apigwServiceId | String | 필수    | 없음  | 없음    | API Gateway 서비스 ID |
@@ -1000,11 +1008,13 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/responses |
 
 [Path Parameter]
+
 | 이름             | 타입     | 필수 여부 | 기본값 | 유효 범위 | 설명                 |
 | -------------- | ------ | ----- | --- | ----- | ------------------ |
 | apigwServiceId | String | 필수    | 없음  | 없음    | API Gateway 서비스 ID |
@@ -1068,11 +1078,13 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/responses |
 
 [Path Parameter]
+
 | 이름             | 타입     | 필수 여부 | 기본값 | 유효 범위 | 설명                 |
 | -------------- | ------ | ----- | --- | ----- | ------------------ |
 | apigwServiceId | String | 필수    | 없음  | 없음    | API Gateway 서비스 ID |
@@ -3009,11 +3021,13 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/apikeys |
 
 [QueryString Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
@@ -3079,6 +3093,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | POST |  /v1.0/appkeys/{appKey}/apikeys |
@@ -3144,11 +3159,13 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | PUT |  /v1.0/appkeys/{appKey}/apikeys/{apiKeyId} |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | apiKeyId | String | 필수 | 없음 | 없음 | API Key ID |
@@ -3214,11 +3231,13 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | DELETE |  /v1.0/appkeys/{appKey}/apikeys/{apiKeyId} |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | apiKeyId | String | 필수 | 없음 | 없음 | API Key ID |
@@ -3244,11 +3263,13 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | POST | /v1.0/appkeys/{appKey}/apikeys/{apiKeyId}/regenerate |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | apiKeyId | String | 필수 | 없음 | 없음 | API Key ID |
@@ -3309,17 +3330,20 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/stages/{stageId}/apikeys/connectable |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | stageId | String | 필수 | 없음 | 없음 | Stage ID |
 
 
 [QueryString Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
@@ -3388,11 +3412,13 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/usage-plans |
 
 [QueryString Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
@@ -3456,11 +3482,13 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | usagePlanId | String | 필수 | 없음 | 없음 | 사용량 계획 ID |
@@ -3509,6 +3537,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | POST |  /v1.0/appkeys/{appKey}/usage-plans |
@@ -3578,11 +3607,13 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | PUT |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | usagePlanId | String | 필수 | 없음 | 없음 | 사용량 계획 ID |
@@ -3652,11 +3683,13 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | DELETE |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | usagePlanId | String | 필수 | 없음 | 없음 | 사용량 계획 ID |
@@ -3682,11 +3715,13 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | GET |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | usagePlanId | String | 필수 | 없음 | 없음 | 사용량 계획 ID |
@@ -3746,11 +3781,13 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | POST |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId} |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | usagePlanId | String | 필수 | 없음 | 없음 | 사용량 계획 ID |
@@ -3777,11 +3814,13 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | DELETE |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId} |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | usagePlanId | String | 필수 | 없음 | 없음 | 사용량 계획 ID |
@@ -3807,12 +3846,13 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | GET |  /v1.0/appkeys/{appKey}/usage-plans/stages/{stageId} |
 
-
 [QueryString Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
@@ -3876,16 +3916,19 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/apikeys/{apiKeyId}/subscriptions |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | apiKeyId | String | 필수 | 없음 | 없음 | API Key ID |
 
 [QueryString Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
@@ -3960,17 +4003,20 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | usagePlanId | String | 필수 | 없음 | 없음 | 사용량 계획 ID |
 | stageId | String | 필수 | 없음 | 없음 | 스테이지 ID |
 
 [QueryString Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
@@ -4039,11 +4085,13 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | POST | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | usagePlanId | String | 필수 | 없음 | 없음 | 사용량 계획 ID |
@@ -4112,11 +4160,13 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | DELETE | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | usagePlanId | String | 필수 | 없음 | 없음 | 사용량 계획 ID |
@@ -4160,11 +4210,13 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 #### 요청
 
 [URI]
+
 | 메서드  | URI |
 | --- | --- |
 | POST | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions/{subscriptionId}/change-usage-plan |
 
 [Path Parameter]
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | usagePlanId | String | 필수 | 없음 | 없음 | 사용량 계획 ID |

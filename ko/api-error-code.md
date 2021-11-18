@@ -18,7 +18,7 @@
 |400102001|Invalid Swagger file.|Swagger 파일 형식이 올바르지 않습니다.|
 |400102002|Could not find Swagger info.|Swagger 파일에 info 필드가 존재하지 않습니다.|
 |400102004|Could not find Swagger paths.|Swagger 데이터에 paths 필드가 존재하지 않습니다.|
-|400102005|Invalid x-nhncloud-apigateway plugins|x-nhncloud-apigateway plugins 필드에 잘못된 값이 있습니다.|
+|400102005|Invalid x-nhncloud-apigateway plugins.|x-nhncloud-apigateway plugins 필드에 잘못된 값이 있습니다.|
 |400102006|Invalid path string.|paths 필드에 잘못된 리소스 경로가 있습니다.|
 |400102007|Invalid model schema.|definitions 필드에 올바르지 않은 모델 스키마 정의가 있습니다.|
 |400102008|Invalid path parameter data.|parameters 필드에 올바르지 않은 parameter 정의가 있습니다.|
@@ -35,7 +35,7 @@
 |400103002|Failed to update stage resource. PRE_API's URL is not allowed to use stage URL.|잘못된 사전 호출의 URL 형식입니다.|
 |400103003|Failed to update stage resource. Custom endpoint URL is not allowed at this stage resource path.|백엔드 엔드포인트 URL 재정의를 설정할 수 없는 리소스입니다.|
 |400103004|Failed to create or update stage. Invalid backend endpoint URL format.|잘못된 백엔드 엔드포인트 URL 형식입니다.|
-|400103005|Failed to Delete stage. The stage have connected usage plan.|스테이지가 연결된 사용량 계획이 있습니다. 스테이지 연결 해제 후 스테이지를 삭제할 수 있습니다.|
+|400103005|Failed to delete stage. The stage have connected usage plan.|스테이지가 연결된 사용량 계획이 있습니다. 스테이지 연결 해제 후 스테이지를 삭제할 수 있습니다.|
 |400103006|Exceeded the maximum stage count.|스테이지 최대 생성 개수를 초과하였습니다.|
 |409103002|Failed to create duplicated stage name.|중복된 스테이지 이름은 생성할 수 없습니다.|
 |409103003|The latest resource has already been applied.|이미 스테이지에 최신 리소스가 적용되었습니다.|
