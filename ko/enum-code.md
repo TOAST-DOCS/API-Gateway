@@ -95,6 +95,7 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 
 ### JWT > RS256 암호화 알고리즘 > Public Key Type 
 - RS256는 공개키/개인키 기반 암호화 알고리즘을 사용합니다. 공개키 설정 방식을 설정합니다.
+
 | 이름 | 설명 |
 | --- | --- |
 | RSA_PUBLIC_KEY | PEM 형식의 공개키를 설정하는 방식입니다. |
@@ -143,6 +144,7 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 
 ### API Key 타입
 - 발급된 API Key의 Primary API Key와 Sencondary API Key의 타입입니다. 
+
 | 이름 | 설명 |
 | --- | --- |
 | PRIMARY | Primary API Key | 
