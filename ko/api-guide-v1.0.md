@@ -1617,6 +1617,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 | stageName | String | 조건부 필수 | 없음 | 최대 30자, 영소문자와 숫자만 | 스테이지 이름<br/>기본 스테이지가 아닌 경우 필수 값입니다.  |
 | stageDescription | String | 선택 | 없음 | 최대 200자  | 스테이지 설명 |
 | backendEndpointUrl | String | 필수 | 없음 | 최대 150자, URL 형식  | 백엔드 엔드포인트 URL |
+
 - stageName 필드 값은 유일해야 합니다. 
 - stageName(스테이지 이름) 필드를 null로 설정하면 기본 스테이지로 생성됩니다. 기본 스테이지는 하나만 생성할 수 있습니다. 
 - stageName 필드 값에 따라 스테이지 URL이 변경됩니다.
@@ -2113,11 +2114,11 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
         - POST
     ```
     * 설정 
-      1. 루트(/) 리소스 경로에 요청 수 제한을 초당 100개로 제한
-      2. POST 리소스 메서드에 요청 수 제한을 초당 10개로 제한 (재정의)
+        1. 루트(/) 리소스 경로에 요청 수 제한을 초당 100개로 제한
+        2. POST 리소스 메서드에 요청 수 제한을 초당 10개로 제한 (재정의)
     * 동작 결과 
-      - GET /members는 루트(/)에 설정된 요청 수 제한의 초당 100개로 제한이 적용됩니다.
-      - POST /members는 루트(/)에 설정된 요청 수 제한의 초당 100개 제한이 무시되고, 초당 10개로 제한으로 적용됩니다.
+        - GET /members는 루트(/)에 설정된 요청 수 제한의 초당 100개로 제한이 적용됩니다.
+        - POST /members는 루트(/)에 설정된 요청 수 제한의 초당 100개 제한이 무시되고, 초당 10개로 제한으로 적용됩니과다.
 
 * 리소스에 따라 설정 가능한 플러그인
 
@@ -2199,6 +2200,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 * 서명 검증을 위한 토큰 암호화 알고리즘과 암호화 알고리즘 방식에 따른 비밀키 혹은 공개키를 설정합니다.
 * 요청 클레임의 값, 필수 여부 검증을 위한 클레임 검증 조건을 설정합니다. 
 * 시간 차로 발생하는 검증 실패를 방지하기 위한 검증 유효 시간을 설정합니다.
+
 
 * **암호화 알고리즘 HS256** 
 ```json
@@ -4448,4 +4450,5 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0]               |Object    | API 호출 수 통계 영역 |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].dateTime   |Long    | 통계 시간(Unix time 형식) |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].count      |Long    | 통계 시간 동안의 총 API 호출 수 |
+
 * 일 단위 통계 데이터는 각 일의 00:00:00의 시간 데이터에 집계됩니다.
