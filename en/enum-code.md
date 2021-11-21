@@ -17,7 +17,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 
 | Name | Description |
 | --- | --- |
-| SHARED | Shaed API Gateway service type |
+| SHARED | Shared API Gateway service type |
 
 
 ### HTTP Method Type
@@ -29,7 +29,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | POST | HTTP POST method | 
 | DELETE | HTTP DELETE method | 
 | PUT | HTTP PUT method | 
-| OPTIONS | HTTP OPTIONS ethod | 
+| OPTIONS | HTTP OPTIONS method | 
 | HEAD | HTTP HEAD method | 
 | PATCH | HTTP PATCH method | 
 
@@ -143,7 +143,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 
 
 ### API Key Type
-- The types of Primary API Key and Sencondary API Key of the issued API Key.
+- The types of Primary API Key and Secondary API Key of the issued API Key.
 
 | Name | Description |
 | --- | --- |
