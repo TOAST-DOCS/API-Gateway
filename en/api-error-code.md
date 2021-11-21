@@ -1,0 +1,89 @@
+## Application Service > API Gateway > API Error Code
+
+|Error Code|Error Message|Description|
+|---|---|---|
+|0|SUCCESS|Success|
+|-1|FAIL|Failure|
+|400100000|Invalid request.|Invalid request.|
+|400100001|Invalid value in the request.|Invalid value in the request.|
+|400100002|Invalid header name.|Invalid header name format.|
+|401100000|Invalid appKey.|Invalid appKey.|
+|401100001|Invalid uuid.|User information is invalid.|
+|403100000|Not allowed user.|The user does not have permission.|
+|409100000|Could not complete the request due to a duplicate request.|The request could not be completed due to a duplicate request.|
+|500100000|DB query failed.|A temporary error occurred. If the error persists, please contact customer service.|
+|400101000|Exceeded the maximum service count.|The maximum number of service creation has been exceeded.|
+|404101000|Could not find API Gateway service.|The API Gateway service does not exist.|
+|400102000|There are no resources to stage.|The stage cannot be created because the created resource does not have a method.|
+|400102001|Invalid Swagger file.|The Swagger file format is incorrect.|
+|400102002|Could not find Swagger info.|The info field does not exist in the Swagger file.|
+|400102004|Could not find Swagger paths.|The paths field does not exist in the Swagger data.|
+|400102005|Invalid x-nhncloud-apigateway plugins.|The x-nhncloud-apigateway plugins field has an invalid value.|
+|400102006|Invalid path string.|Invalid resource path in the paths field.|
+|400102007|Invalid model schema.|Invalid model schema definition in the definitions field.|
+|400102008|Invalid path parameter data.|Invalid parameter definition in the parameters field.|
+|400102009|Invalid path response data.|Invalid response definition in the responses field.|
+|400102010|Invalid model reference.|The responses or parameters field is referencing a model name that is not defined in the definitions field.|
+|400102011|Invalid content-type in produces/consumes fields.|Invalid content type.|
+|400102012|Exceeded the maximum resource method count.|The maximum number of resource method creation has been exceeded.|
+|400102013|There are no resources to create.|There are no resources to create.|
+|400102014|Failed to delete root resource.|The root ('/') resource cannot be deleted.|
+|400102015|Invalid resource plugin configuration.|Invalid resource plugin configuration.|
+|409102000|Failed to create duplicated resources.|Duplicate path resources cannot be created.|
+|400103000|Path variable cannot be used. Only variables declared for the selected path or above can be set.|Invalid path variable.|
+|400103001|Failed to update stage resource. Stage resource plugin's position is invalid.|A stage plugin that cannot be set on the requested resource.|
+|400103002|Failed to update stage resource. PRE_API's URL is not allowed to use stage URL.|Invalid pre-call URL format.|
+|400103003|Failed to update stage resource. Custom endpoint URL is not allowed at this stage resource path.|Backend endpoint URL override cannot be set on this resource.|
+|400103004|Failed to create or update stage. Invalid backend endpoint URL format.|Invalid backend endpoint URL format.|
+|400103005|Failed to delete stage. The stage have connected usage plan.|The stage has a connected usage plan. You can delete a stage after disconnecting the stage.|
+|400103006|Exceeded the maximum stage count.|The maximum number of stage creation has been exceeded.|
+|409103002|Failed to create duplicated stage name.|Duplicate stage names cannot be created.|
+|409103003|The latest resource has already been applied.|The latest resources have already been applied to the stage.|
+|500103000|Invalid stage resource plugin configuration.|The stage deployment request failed. Please try again in a few minutes.|
+|500103001|Failed to create stage. Please try again.|Failed to create stage. Please try again in a few minutes.|
+|500103002|Could not find any server group.|Failed to create stage. Please try again in a few minutes.|
+|500103003|Failed to delete stage URL.|Failed to delete stage. Please try again later.|
+|400104000|Unable to delete base stage deploy history or the currently deployed stage deploy history.|The currently deployed history and the base deployment history cannot be deleted.|
+|400104001|Only possible to rollback stage for the completed deploy status.|A history of deployment status that cannot be rolled back.|
+|400104002|Empty Stage Resource for deploying.|The stage could not be created because no resources were created.|
+|400104003|Empty path on Stage Resource for deploying.|The stage could not be created because no resources were created.|
+|400104004|Could not find API Gateway Service. API gateway service ID:|The deployment request failed because the stage has already been deleted or stage information could not be found.|
+|400104005|Could not find stage. Stage ID:|The deployment request failed because the stage has already been deleted or stage information could not be found.|
+|400104006|Could not find stage resource. Stage ID:|The stage could not be created because no resources were created.|
+|409104000|Unable to rollback stage. No difference with current stage.|A deployment history that has already been rolled back.|
+|409104001|Failed to deploy because current stage is deploying.|Stage deployment is already in progress.|
+|409104002|Failed to deploy because stage is not changed.|The latest stage has already been deployed.|
+|500104002|Failed to rollback to previous deploy data.|An error occurred during stage deployment and an attempt was made to recover, but the recovery was unsuccessful. Please try the deployment again in a few minutes.|
+|500104003|Could not find any routers for deploying.|The stage deployment request failed. Please try again in a few minutes.|
+|500104004|Failed to convert stage resource list to string.|The stage deployment request failed. Please try again in a few minutes.|
+|500104005|Failed to convert plugin data string from request body.|Unsupported backend endpoint type.|
+|500104006|Failed to convert stage deploy JSON to stage resource list.|The stage deployment request failed. Please try again in a few minutes.|
+|500104007|Failed to rollback stage.|The stage deployment request failed. Please try again in a few minutes.|
+|500104008|Temporally failed to request stage deployment. Please try again later.|The stage deployment request failed. Please try again in a few minutes.|
+|400105000|Failed to delete API key. The API key is in use.|The connected API key cannot be deleted. Please disconnect and then delete.|
+|404105000|Could not find API key.|Could not find API Key information.|
+|500105000|Failed to regenerate API key.|Failed to reissue API Key.|
+|500105001|Failed to create API key by duplicated API key.|Failed to create API Key.|
+|500105002|Failed to delete some API key data. Please check exception cause.|Failed to disconnect API Key.|
+|500105003|Failed to delete API key.|Failed to delete API Key.|
+|400106000|Failed to change usage plan of API key. There is no stage connected to the usage plan you want to change or it is the same as the usage plan before the change.|The usage plan you are trying to change does not have a stage to which an API Key can be connected.|
+|400106001|Failed to delete usage plan. The usage plan has a connected stage.|Failed to delete usage plan because there is a connected stage. Please disconnect all stages and then delete it.|
+|400106002|The stage has a connected API key. Please try after disconnecting.|The stage has a connected API key. You can disconnect a stage after disconnecting the API Key.|
+|404106000|Could not find connected API Key.|Could not find a connected API Key.|
+|409106000|Among the requested API keys, there is an API key already connected to the stage.|Among the API Keys you are trying to connect, there is already an API Key connected to the stage.|
+|409106001|The stage is already connected to this usage plan.|The stage is already connected to the usage plan.|
+|500106000|Failed to connect API key to usage plan stage.|Failed to connect some API Keys.|
+|500106001|Failed to disconnect API key from usage plan stage.|Failed to disconnect some API Keys.|
+|500106002|Failed to change usage plan of API key.|Failed to change usage plan of API Key.|
+|500106003|Failed to delete usage plan.|Failed to delete usage plan.|
+|404107000|Resource parameters can only be set on resource methods.|Resource parameters can only be set on methods.|
+|404107001|Resource parameters cannot be set on the OPTIONS method generated by CORS.|Resource parameters cannot be set on methods generated by CORS.|
+|404108000|Could not find model.|Could not find model information.|
+|400109001|Failed to delete model. There is referenced model.|Failed to delete model because the model is in use.|
+|404109000|Could not find API document's swagger.|Could not find API document.|
+|404109001|Could not find stage for making API document.|Failed to change publish status of API document.|
+|409109000|Failed to create model by duplicated name.|The model name already exists. Model names cannot be duplicated.|
+|500109000|Failed to convert with documentable plugin.|Failed to generate API document.|
+|400110000|Invalid statistics query period.|Invalid statistics query period.|
+|401199000|Failed to authenticate with AppKey.|Invalid appKey.|
+|500197000|Could not find recordset name.|Either the stage has already been deleted, or the stage information could not be found.|
