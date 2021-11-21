@@ -1,6 +1,12 @@
 ## Application Service > API Gateway > Release Note
 
-### August 24, 2021.
+### November 23, 2021
+#### Feature Updates 
+* API Gateway Public API support
+    * You can use the API Gateway service through the API. For more information, refer to the [API v1.0 Guide](./api-guide-v1.0/).
+
+
+### August 24, 2021
 #### Feature Updates 
 * Added API document
     * Refer to [Console Guide > API Document](./console-guide/#api-document_1) for details.
@@ -27,7 +33,7 @@
     * With Swagger file, you can import resource.
     * You can export Stage Resource with Swagger file.
     * For more details, refer to [the Console Guide > Resource > Import Resource](./console-guide/#import-resource)and [the Console Guide > Export Stage](./console-guide/#export-stage).
-* Supports the JSON Web Key Sets URI of JWT plug-in
+* Supports the JSON Web Key Set URI of JWT plug-in
     * For more details, refer to [the Console Guide > JWT](./console-guide/#jwt).
 
 ### March 23, 2021
