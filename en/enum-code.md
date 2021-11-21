@@ -99,7 +99,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | Name | Description |
 | --- | --- |
 | RSA_PUBLIC_KEY | This method sets the public key in PEM format. |
-| JWKS_URI | This method sets the JSON Web Key Sets URI where public key can be queried.|
+| JWKS_URI | This method sets the JSON Web Key Set URI where public key can be queried.|
 
 
 ### Request Number List > Limit Key

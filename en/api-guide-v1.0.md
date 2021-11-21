@@ -2337,7 +2337,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | pluginConfigJson.claimValidationCondition | Object | Optional | Default Object | N/A | Claim validation condition field (encryption algorithm: same as claimValidationCondition field description of HS256) |
 
 
-* **Encryption algorithm RS256: (JSON Web Key Sets URI public key setting method)**
+* **Encryption algorithm RS256: (JSON Web Key Set URI public key setting method)**
 
 ```json
 {
