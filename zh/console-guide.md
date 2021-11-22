@@ -676,7 +676,7 @@ Verifies the signature and claim of JWT token. Token values can be used without 
 
 > **[Note] JWT Token Authentication Failure Response**
 > If the authentication of JWT token fails, 401 Unauthorized response is returned.
-> For more information, see the [Error Code](./error-code/) document.
+> For more information, see the [Gateway Error Code](./error-code/) document.
 >
 > **[Note] Creating JWT Token**
 > API Gateway only verifies whether the JWT token signature and claims match or not. A JWT Token must be created via user applications or authentication service providers.
@@ -768,7 +768,7 @@ When making an API request to API Gateway, it is restricted to only the specifie
 
 > **[Note] API key failure response**
 > The API request is rejected when the API key value is not included in the requested header, of its invalid, or exceeds the usage limit.
-> For more information, see the [Error Code](./error-code/) document.
+> For more information, see the [Gateway Error Code](./error-code/) document.
 1. On the **Stage** tab, select a stage.
 2. Select the **Settings** tab.
 3. Select the path or method to enable API key in the stage tree screen.
@@ -831,7 +831,7 @@ You can define a model to specify the format of body that you can use in the req
 >    1. See if the stage deployment status is Deployed.
 >    2. See if the request method and stage URL/path are correct.
 >    3. In the backend *endpoint* service, see if there is a request URL regarding the backend endpoint URL path. 
-> - As for other error codes, see [Error Code](error-code/) documentation. 
+> - As for other error codes, see [Gateway Error Code](./error-code/) documentation. 
 
 
 > **[Caution] API Call constraints**
