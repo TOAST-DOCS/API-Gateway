@@ -634,7 +634,7 @@ x-nhn-date:2021-02-23T00:00:00+09:00
 
 > **[주의] SignToString 생성 주의 사항**
 > - SignToString 각 필드는 개행 문자(\n)로 구분합니다.
-> - headers에 정의된 헤더는 SignToString 생성 시 포함되어야합니다.
+> - headers에 정의된 헤더는 SignToString 생성 시 포함되어야 합니다.
 > - headers에 정의한 헤더가 없는 경우, [header name]과 [header value]은  SignToString 생성에 포함하지 않습니다.
 > - headers에 정의한 헤더 순서대로 SignToString을 생성해야 합니다.
 >     - 예: headers="header1,header2" 라면, SignToString을 생성할 때도 header1, header2 순서대로 헤더를 추가해야 합니다.
@@ -656,7 +656,7 @@ JWT 토큰의 서명과 클레임을 검증합니다. 사용자 서비스에서�
         - HS256 토큰 알고리즘 
             - 비밀키: 토큰을 서명하는데 사용한 비밀키를 입력합니다. 비밀키의 길이가 256이상인 비밀키의 사용을 권장합니다.
         - RS256 토큰 알고리즘
-            - 공개키(PEM): 토큰을 검증할 수 있는 공개키를 입력합니다. PEM 형식으로 입력해야합니다.
+            - 공개키(PEM): 토큰을 검증할 수 있는 공개키를 입력합니다. PEM 형식으로 입력해야 합니다.
             - JWKS URI: API Gateway가 토큰 서명 검증과 암호화에 필요한 JWKS(JSON Web Key Set) JSON 객체를 가져올 HTTP JWKS URI를 입력합니다.
     - **클레임 검증 조건** 
         - 토큰의 페이로드(payload)의 등록된 클레임(registered claim)에 대한 클레임 검증 조건을 입력합니다.
@@ -681,7 +681,7 @@ JWT 토큰의 서명과 클레임을 검증합니다. 사용자 서비스에서�
 > 자세한 내용은 [오류 코드](./error-code/) 문서를 참고합니다.
 >
 > **[참고] JWT 토큰 생성**
-> API Gateway는 JWT 토큰의 서명과 클레임 조건과 일치하는지만 검증합니다. JWT 토큰 생성은 사용자의 애플리케이션 또는 인증 서비스 제공자를 통해 생성해야합니다.
+> API Gateway는 JWT 토큰의 서명과 클레임 조건과 일치하는지만 검증합니다. JWT 토큰 생성은 사용자의 애플리케이션 또는 인증 서비스 제공자를 통해 생성해야 합니다.
 > 개발 및 테스트목적의 JWT 토큰 생성은 [JWT 토큰 디버거](https://jwt.io/)를 참고합니다.
 >
 > **[참고] JWKS(JSON Web Key Set) URI 설명 및 주의사항**

@@ -143,7 +143,7 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 
 
 ### API Key 타입
-- 발급된 API Key의 Primary API Key와 Sencondary API Key의 타입입니다. 
+- 발급된 API Key의 Primary API Key와 Secondary API Key의 타입입니다. 
 
 | 이름 | 설명 |
 | --- | --- |
