@@ -37,6 +37,8 @@
 |400103004|Failed to create or update stage. Invalid backend endpoint URL format.|Invalid backend endpoint URL format.|
 |400103005|Failed to delete stage. The stage have connected usage plan.|The stage has a connected usage plan. You can delete a stage after disconnecting the stage.|
 |400103006|Exceeded the maximum stage count.|The maximum number of stage creation has been exceeded.|
+|404103000|Could not find stage.|The stage does not exist.|
+|404103001|Could not find stage resource.|The stage resource does not exist.|
 |409103002|Failed to create duplicated stage name.|Duplicate stage names cannot be created.|
 |409103003|The latest resource has already been applied.|The latest resources have already been applied to the stage.|
 |500103000|Invalid stage resource plugin configuration.|The stage deployment request failed. Please try again in a few minutes.|
@@ -47,9 +49,6 @@
 |400104001|Only possible to rollback stage for the completed deploy status.|A history of deployment status that cannot be rolled back.|
 |400104002|Empty Stage Resource for deploying.|The stage could not be created because no resources were created.|
 |400104003|Empty path on Stage Resource for deploying.|The stage could not be created because no resources were created.|
-|400104004|Could not find API Gateway Service. API gateway service ID:|The deployment request failed because the stage has already been deleted or stage information could not be found.|
-|400104005|Could not find stage. Stage ID:|The deployment request failed because the stage has already been deleted or stage information could not be found.|
-|400104006|Could not find stage resource. Stage ID:|The stage could not be created because no resources were created.|
 |409104000|Unable to rollback stage. No difference with current stage.|A deployment history that has already been rolled back.|
 |409104001|Failed to deploy because current stage is deploying.|Stage deployment is already in progress.|
 |409104002|Failed to deploy because stage is not changed.|The latest stage has already been deployed.|

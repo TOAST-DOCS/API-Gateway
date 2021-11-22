@@ -830,7 +830,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   "queryStringList": [
     {
       "name": "query1",
-      "description": "This is a query1",
+      "description": "This is a query1.",
       "dataType": "STRING",
       "required": false,
       "isArray": false
@@ -839,7 +839,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   "headerList": [
     {
       "name": "header1",
-      "description": "This is a header1",
+      "description": "This is a header1.",
       "dataType": "STRING",
       "required": false,
       "isArray": null
@@ -848,14 +848,14 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   "formDataList": [
     {
       "name": "formDataString",
-      "description": "This is a formData String",
+      "description": "This is a form data string.",
       "dataType": "STRING",
       "required": false,
       "isArray": false
     },
     {
       "name": "formDataFile",
-      "description": "This is a formData File",
+      "description": "This is a form data file.",
       "dataType": "FILE",
       "required": false,
       "isArray": false
@@ -863,7 +863,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   ],
   "requestBody": {
     "name": "requestBody",
-    "description": "This is a requestBody",
+    "description": "This is a request body.",
     "modelId": "{modelId}"
   },
   "contentTypeList": [
@@ -926,7 +926,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   "queryStringList": [
     {
       "name": "query1",
-      "description": "This is a query1",
+      "description": "This is a query1.",
       "dataType": "BOOLEAN",
       "required": true,
       "isArray": true
@@ -935,7 +935,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   "headerList": [
     {
       "name": "header1",
-      "description": "This is a header1",
+      "description": "This is a header1.",
       "dataType": "BOOLEAN",
       "required": true
     }
@@ -943,7 +943,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   "formDataList": [
     {
       "name": "formDataString",
-      "description": "This is a formDataString",
+      "description": "This is a form data string.",
       "dataType": "BOOLEAN",
       "required": true,
       "isArray": true
@@ -951,7 +951,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   ],
   "requestBody": {
     "name": "requestBody",
-    "description": "This is a requestBody",
+    "description": "This is a request body.",
     "modelId": "{modelId}"
   },
   "contentTypeList": [
@@ -1038,13 +1038,13 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
       "headerList": [
         {
           "name": "header1",
-          "description": "This is a response header1",
+          "description": "This is a response header1.",
           "dataType": "STRING"
         }
       ],
       "responseBody": {
         "name": "responseBody",
-        "description": "This is a responseBody",
+        "description": "This is a response body.",
         "modelId": "{modelId}"
       }
     }
@@ -1100,13 +1100,13 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
       "headerList": [
         {
           "name": "header1",
-          "description": "This is a response header1",
+          "description": "This is a response header1.",
           "dataType": "STRING",
         }
       ],
       "requestBody": {
         "name": "responseBody",
-        "description": "This is a response body",
+        "description": "This is a response body.",
         "modelId": "{modelId}"
       }
     }
@@ -2019,8 +2019,10 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
 | customBackendEndpointUrl | String | Optional | N/A | Max. 150 characters, URL format | Backend endpoint override URL |
-| stageResourcePluginList | List | Required | N/A | N/A | Stage resource plugin list area |
-| stageResourcePluginList[0] | Object | Required | N/A | N/A | JSON format object per stage resource plugin <br> See [Stage Resource Plugin]()|
+|stageResourcePluginList|List | Required | N/A | N/A  |Stage resource's plugin list area                       |
+|stageResourcePluginList[0]|Object | Required | N/A | N/A |Stage resource's plugin area                       |
+|stageResourcePluginList[0].pluginType  | Enum |Required | N/A | IP_ACL, HMAC, JWT, API_KEY, PRE_API, RATE_LIMIT | See [Resource Plugin Type](./enum-code/#???), [Stage Resource > Plugin Type](./enum-code/#???)                        |
+|stageResourcePluginList[0].pluginConfigJson       | Object | Required | N/A | N/A |See configuration JSON by [Resource Plugin Type](), [Stage Plugin Type]()            |
 
 * The customBackendEndpointUrl field cannot be set in the root (/) resource path.
 
