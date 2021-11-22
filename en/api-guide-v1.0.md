@@ -51,7 +51,6 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | header.resultMessage | String  | Result message |
 
 [Failure: Response Body]
-If an invalid API request is made, detailed error reason and field information is responded in the errorList field.
 
 ```json
 {
@@ -78,6 +77,8 @@ If an invalid API request is made, detailed error reason and field information i
 | errorList[0].errorProperty | String | Error property (model) |
 | errorList[0].errorField | String  | Error details field |
 | errorList[0].errorMessage | String  | Error Message |
+
+* If an invalid API request is made, detailed error reason and field information is responded in the errorList field.
 
 ## API Gateway Service
 
@@ -2203,8 +2204,6 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 * Set the token encryption algorithm for signature verification and the private or public key according to the encryption algorithm method.
 * Set the claim validation condition to validation the value of the request claim and whether it is required or not.
 * Set the validation validity period to prevent validation failures caused by time differences.
-
-
 * **Encryption Algorithm HS256**
 ```json
 {
@@ -2737,7 +2736,6 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 [Response]
 
 ```json
-
 {
   "header": {
     "isSuccessful": true,
