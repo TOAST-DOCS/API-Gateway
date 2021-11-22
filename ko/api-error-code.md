@@ -37,6 +37,8 @@
 |400103004|Failed to create or update stage. Invalid backend endpoint URL format.|잘못된 백엔드 엔드포인트 URL 형식입니다.|
 |400103005|Failed to delete stage. The stage have connected usage plan.|스테이지가 연결된 사용량 계획이 있습니다. 스테이지 연결 해제 후 스테이지를 삭제할 수 있습니다.|
 |400103006|Exceeded the maximum stage count.|스테이지 최대 생성 개수를 초과하였습니다.|
+|404103000|Could not find stage.|스테이지가 존재하지 않습니다.|
+|404103001|Could not find stage resource.|스테이지 리소스가 존재하지 않습니다.|
 |409103002|Failed to create duplicated stage name.|중복된 스테이지 이름은 생성할 수 없습니다.|
 |409103003|The latest resource has already been applied.|이미 스테이지에 최신 리소스가 적용되었습니다.|
 |500103000|Invalid stage resource plugin configuration.|스테이지 배포 요청에 실패했습니다. 잠시 후 다시 시도해 주세요.|
@@ -47,9 +49,6 @@
 |400104001|Only possible to rollback stage for the completed deploy status.|스테이지 되돌리기를 할 수 없는 배포 상태의 이력입니다.|
 |400104002|Empty Stage Resource for deploying.|생성된 리소스가 없어 스테이지를 생성할 수 없습니다.|
 |400104003|Empty path on Stage Resource for deploying.|생성된 리소스가 없어 스테이지를 생성할 수 없습니다.|
-|400104004|Could not find API Gateway Service. API gateway service ID:|이미 삭제된 스테이지이거나 스테이지 정보를 찾을 수 없어 배포 요청에 실패했습니다.|
-|400104005|Could not find stage. Stage ID:|이미 삭제된 스테이지이거나 스테이지 정보를 찾을 수 없어 배포 요청에 실패했습니다.|
-|400104006|Could not find stage resource. Stage ID:|생성된 리소스가 없어 스테이지를 생성할 수 없습니다.|
 |409104000|Unable to rollback stage. No difference with current stage.|이미 되돌리기가 된 배포 이력입니다.|
 |409104001|Failed to deploy because current stage is deploying.|이미 스테이지 배포가 진행 중입니다.|
 |409104002|Failed to deploy because stage is not changed.|이미 최신 스테이지가 배포되었습니다.|
