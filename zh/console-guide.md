@@ -42,7 +42,7 @@ Resource manages the resource path and method of the API.
 2. Write the **Resource Path**. The entire path including the written resource path must not exceed 255 characters.
     - –	e.g./products/, /products/{productsId}, /{proxy+}
 3. **Path Variable**: Curly brackets can be used in the Resource path to create a **Path Variable**.
-    - **Path Variable**containing **{variable}** or sub-path can be declared as **{variable+}**.
+    - **Path Variable** containing **{variable}** or sub-path can be declared as **{variable+}**.
         - **Path Variable** can be utilized in the plugin and backend endpoint settings.
         - **{variable}** declares the value of the path where the path variable is located.
             - e.g./members/{memberId} 
@@ -61,7 +61,126 @@ You can bring the resource through the file format of Swagger v2.0 [OpenAPI Spec
 3. Click the **Apply** button.
 
 > **[Caution] When a resource is imported, the existing resources and models are overwritten**
+> When a resource is imported, all existing resources are deleted and overwritten with the imported resource.
 > When a resource is imported, all existing models created in the service are deleted and overwritten with the imported model.
+
+> **[Note] Failing to import stage files exported before Nov. 23, 2021** 
+> If you import resources with files downloaded via stage export before Nov. 23, 2021, the operation may fail.
+> Use the resource import using the newly created file through stage export, or change the existing file with the following:
+> Modification
+> 1. Convert the plugin configuration string of x-api-nhn-apigateway > plugins in the file to a JSON object.
+> 2. If the CORS plugin configuration string exists in the resource method > x-api-nhn-apigateway > plugins in the file, it must be removed. You cannot configure a CORS plugin on a resource method, and if a CORS plugin is configured in its parent resource path, it is automatically added when importing a resource.
+> If the guide does not solve the problem, please contact the Customer Center.
+
+<details>
+<summary>Example of failing to import stage files exported before Nov. 23, 2021</summary>
+
+```
+- [Example 1] Import failure: Stage export files before Nov. 23, 2021 includes plugin setting of plugins in JSON format strings
+{
+... 
+    "x-nhncloud-apigateway": {
+        "plugins": {
+            "HTTP": "{\"frontendEndpointPath\":\"/{proxy+}\",\"backendEndpointPath\":\"/anything/${request.path.proxy+}\"}",
+        }
+    }
+...
+}
+```
+
+```
+- [Example 1] Import success: Stage export file in which JSON format string is modified into JSON object in plugin setting of plugins
+{
+...
+    "x-nhncloud-apigateway": {
+        "plugins": {
+            "HTTP": {
+                "frontendEndpointPath": "/{proxy+}",
+                "backendEndpointPath": "/anything/${request.path.proxy+}"
+            }
+        }
+    }
+...
+}
+```
+
+```
+- [Example 2] Import failure: For stage export files before Nov. 23, 2021, if CORS plugin is configured in resource path, CORS plugin setting is included in sub-resource method
+{
+...
+        "paths": {
+            "/anything": {
+                "get": {
+                    ...
+                    "x-nhncloud-apigateway": {
+                        "plugins": {
+                            "MOCK": {
+                                "statusCode": 200
+                            },
+                            "CORS": {
+                                "allowedMethods": ["GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "PATCH"],
+                                "allowedHeaders": ["*"],
+                                "allowedOrigins": ["*"],
+                                "exposedHeaders": [],
+                                "maxCredentialsAge": null,
+                                "allowCredentials": false
+                            }                            
+                        }
+                    }
+                },
+                "options": {
+                    "summary": "CORS",
+                    ...
+                },
+                "x-nhncloud-apigateway": {
+                    "plugins": {
+                        "CORS": {
+                            "allowedMethods": ["GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "PATCH"],
+                            "allowedHeaders": ["*"],
+                            "allowedOrigins": ["*"],
+                            "exposedHeaders": [],
+                            "maxCredentialsAge": null,
+                            "allowCredentials": false
+                        }
+                    }
+                }
+            }
+        }
+...
+}
+```
+
+```
+- [Example 2] Import success: Stage export file with CORS plugin setting removed from resource method
+{
+...
+        "paths": {
+            "/anything": {
+                "get": {
+                    ...
+                },
+                "options": {
+                    "summary": "CORS",
+                    ...
+                },
+                "x-nhncloud-apigateway": {
+                    "plugins": {
+                        "CORS": {
+                            "allowedMethods": ["GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "PATCH"],
+                            "allowedHeaders": ["*"],
+                            "allowedOrigins": ["*"],
+                            "exposedHeaders": [],
+                            "maxCredentialsAge": null,
+                            "allowCredentials": false
+                        }
+                    }
+                }
+            }
+        }
+...
+}
+```
+</details>
 
 ### Create Method
 - Create **HTTP Method** under the selected resource path. 
@@ -118,11 +237,11 @@ You can bring the resource through the file format of Swagger v2.0 [OpenAPI Spec
 To change resources and apply the changed resources to the stage, you must **Apply Stage Resource**.
 
 1. To apply the changed resources to the stage, click the **Apply Stage Resource** button.
-2. Select the **stage** to apply the changed resources.
+2. Select the **Stage** to apply the changed resources.
 3. Click the **Apply** button.
 
 
-> **[Caution] Application of stage resource**
+> **[Caution] Applying stage resource**
 > - To apply a stage resource, one or more stages must exist.
 > - Once a resource is applied to a stage, the resource cannot be restored to the previous state.
 > - If the latest resource is already applied to the stage, stage resource cannot be applied.
@@ -208,11 +327,11 @@ The variables defined below can be used when creating methods of resources or se
 | Context Variables | Description |
 | -- | -- |
 | ${request.clientIp} | IP of client requesting API |
-| ${request.path.variable-name} | Refer to the value of a single path variable {variable-name} value claimed by the resource |
-| ${request.path.variable-name+} | Refer to the value of path variable {variable-name+} value including subpaths claimed by the resource |
+| ${request.path.variable-name} | Refer to the value of a single path variable {variable-name} value declared by the resource |
+| ${request.path.variable-name+} | Refer to the value of path variable {variable-name+} value including subpaths declared by the resource |
 
 > **[Caution] Path Variables**
-> Can only use the path variable claimed in the selected path and parent path.
+> Can only use the path variable declared in the selected path and parent path.
 
 ##  Plugin 
 ### CORS 
@@ -240,32 +359,32 @@ Allows you to call XMLHttpRequest API within the Cross-Site method.
 > - If the CORS plugin gets deleted, the OPTIONS method auto-generated by the CORS plugin is batch deleted. 
 
 ### Change Request Header 
-Add or change the request header. 
+Adds or changes the request header. 
 
 - **The location where the plugins can be applied to**: Resource path and method
 - **Steps for applying plugins**: Backend request pre-task
 - **Change Request Header Settings**
     - You can click the **\+** button to add a header list.
     - Enter the header name and value.
-    - Context variables claimed by the resources can be set for the header value. (For more information on context variables, see [Context Variables](./console-guide/#context-variables).) 
+    - Context variables declared by the resources can be set for the header value. (For more information on context variables, see [Context Variables](./console-guide/#context-variables).) 
       
       
-> **[Note] Addition and change of request header**
+> **[Note] Adding and changing the request header**
 > - Any headers missing from the original request are added.
 > - Any headers available in the original request are replaced with the header value set by the change request header plugin.
 > - Any headers available in the original request cannot be deleted.
 
-###   Change Response Header 
-Change response header plugin adds the header to the backend header or changes it. 
+### Change Response Header 
+Change response header plugin adds the header to the backend response or changes the header. 
 
 - **The location where the plugins can be applied to**: Resource path and method
 - **Steps for applying plugins**: Frontend response pre-task
 - You can click the **\+** button to add a header list.
 - Enter the header name and value. 
-- Context variables claimed by the resources can be set for the header value. (For more information on context variables, see [Context Variables](./console-guide/#context-variables).)
+- Context variables declared by the resources can be set for the header value. (For more information on context variables, see [Context Variables](./console-guide/#context-variables).)
 
 
-> **[Note] Addition and change of the response header**
+> **[Note] Adding and changing the response header**
 > - Any headers missing from the backend endpoint response are added.
 > - Any headers available in the response of the backend endpoint response are replaced with the header value set by the change request header plugin.
 
@@ -277,7 +396,7 @@ Example: If the parameter name and value are set to 'name' and 'value', **name=v
 - **Steps for applying plugins**: Backend request pre-task
 - **\+** button allows you to add a parameter list.
 - Enter the parameter name and value. 
-- Context variables claimed by the resources can be set for the parameter value. (For more information on context variables, see [Context Variables](./console-guide/#context-variables).)
+- Context variables declared by the resources can be set for the parameter value. (For more information on context variables, see [Context Variables](./console-guide/#context-variables).)
 
 > **[Note] Request Query String Parameter**
 > - The requested query string parameter that has the same key as the originally requested query string parameter does not replace the originally requested query string but instead adds the query string parameter. 
@@ -298,11 +417,11 @@ Stage is a phase where resources are deployed.
     - **Stage Name** 
         - Only lowercase alphanumeric characters are allowed, and the length cannot exceed 30 characters.
         - Stage Name is included in Stage URL.
-        - A basic stage is created if no stage name has been written. Stage Name is not included in the Stage URL of the basic stage.
+        - A default stage is created if no stage name has been written. Stage Name is not included in the Stage URL of the default stage.
     - **Stage URL**: This is a stage URL which can be requested for integration with API Gateway. 
         - API request client can request APIs through the Stage URL.
         - Stage URLs are issued in the following format: 
-            - Basic stage: {region}-{api-gateway-service-id}.api.nhncloudservice.com
+            - Default stage: {region}-{api-gateway-service-id}.api.nhncloudservice.com
                 - {region}:  Pangyo region(kr1)
                 - {api-gateway-service-id}: API Gateway Service ID
             - Normal stage: {region}-{api-gateway-service-id}-{stage-name}.api.nhncloudservice.com
@@ -536,7 +655,7 @@ Verifies the signature and claim of JWT token. Token values can be used without 
             - Secret Key: Enter the secret key used to sign the token. Secret key with the length of 256 or above is recommended.
         - RS256 Token Algorithm
             - Public Key (PEM): Enter the public key to verify the token. It must be entered in PEM format.
-            - The JWKS URI: Enter the HTTP JWKS(Json Web Key Sets) URI necessary for token signature verification and encryption in bringing the Json Web Key Sets Json objects by API Gateway. 
+            - JWKS URI: Enter the HTTP JWKS (JSON Web Key Set) URI from which API Gateway retrieves the JWKS object required for token signature verification and encryption.
     - **Claim Verification Condition**
         - Enter the claim verification conditions for the registered claim of the token payload.
         - For more information on the registered claims, see [RFC7519-4.1.Registered Claim Names](https://tools.ietf.org/html/rfc7519#section-4.1).
@@ -557,14 +676,14 @@ Verifies the signature and claim of JWT token. Token values can be used without 
 
 > **[Note] JWT Token Authentication Failure Response**
 > If the authentication of JWT token fails, 401 Unauthorized response is returned.
-> For more information, see the [Error Code](./error-code/) document.
+> For more information, see the [Gateway Error Code](./error-code/) document.
 >
 > **[Note] Creating JWT Token**
 > API Gateway only verifies whether the JWT token signature and claims match or not. A JWT Token must be created via user applications or authentication service providers.
 > To learn how to create a JWT token for the purpose of development and testing, see [JWT Token Debugger](https://jwt.io/).
 >
-> **[Note] JWKS(Json Web Key Sets) URI description and precautions**
-> JWKS is the JSON data concerning the JWK (Json Web Key) that the API Gateway needs to verify token signatures.
+> **[Note] JWKS (JSON Web Key Set) URI description and precautions**
+> JWKS is the JSON data for the JWK (JSON Web Key) encryption key that the API Gateway needs to verify token signatures.
 > For more details and specifications on JWK, please refer to the [RFC7515](https://tools.ietf.org/html/rfc7517) document.
 > The selected JWKS URI must be disclosed so that the API Gateway can access it, and should not be blocked with networks, firewalls, etc.
 > The selected JWKS URI must be operated so that the API Gateway can always access it. 
@@ -586,12 +705,12 @@ This can be used in a situation where authentication through a separate API call
 1. On the **Stage** tab, select a stage.
 2. Select the **Setup** tab. 
 3. In the Stage Tree screen, select path or method to apply to the Pre-Call API.
-  - Pre-call API set for the path will be applied to all subdefined subpaths and submethods.
-  - Pre-call API set for the method will be applied when calling the said method, but Pre-call API set for the root path will not be applied.
+    - Pre-call API set for the path will be applied to all subdefined subpaths and submethods.
+    - Pre-call API set for the method will be applied when calling the said method, but Pre-call API set for the root path will not be applied.
 4. Activate (On) the Pre-Call API.
-  - Enter the method type and URL for Pre-call API.
-  - Cache time limit can be set to 86400 sec at maximum, and the response results are cached for the period specified by the entered number (sec).
-  - If the cache time limit it set to 0, response results for Pre-call API will not be cached and Pre-call API will be called for every request.
+    - Enter the method type and URL for Pre-call API.
+    - Cache time limit can be set to 86400 sec at maximum, and the response results are cached for the period specified by the entered number (sec).
+    - If the cache time limit it set to 0, response results for Pre-call API will not be cached and Pre-call API will be called for every request.
   
 > **[Note] Response Result Caching for Pre-Call API**
 > Response results are only cached if Pre-call API’s response result code is 200.
@@ -649,7 +768,7 @@ When making an API request to API Gateway, it is restricted to only the specifie
 
 > **[Note] API key failure response**
 > The API request is rejected when the API key value is not included in the requested header, of its invalid, or exceeds the usage limit.
-> For more information, see the [Error Code](./error-code/) document.
+> For more information, see the [Gateway Error Code](./error-code/) document.
 1. On the **Stage** tab, select a stage.
 2. Select the **Settings** tab.
 3. Select the path or method to enable API key in the stage tree screen.
@@ -660,7 +779,36 @@ When making an API request to API Gateway, it is restricted to only the specifie
 
 | Header name | Header value |
 | --- | --- |
-| x-nhn-apikey | <primary api key 또는 secondary api key\> |
+| x-nhn-apikey | <primary api key or secondary api key\> |
+
+
+## Model
+You can define a model to specify the format of body that you can use in the request parameters and the response.
+
+### Create Model
+1. Click **Resource** in the service settings column from the list of API Gateway services.
+2. In the **Model** tab, click the **Create model** button.
+3. Enter the model information and click **Create**.
+    - **Model name**:
+        - The name of the model. It cannot be the same as the name of the existing model.
+        - Only numbers and English letters can be entered, up to 50 characters.
+    - **Model description**: It is the description of the model. (optional)
+    - **Model schema**:
+        - Define the structure that the model can have.
+        - Use [JSON Schema](https://json-schema.org/) draft-04 for the model schema definition.
+
+### Edit Model
+1. Select the model to edit from the list of models.
+2. Click the **Edit** button.
+3. Edit the model information. Items that can be edited are model description and model schema.
+4. After changing the settings, click the **Edit** button.
+
+### Delete Model
+1. Select the model to delete from the list of models.
+2. Click the **Delete** button.
+   - The model cannot be deleted while being used in the request parameters or response.
+3. When the delete confirmation window appears, click the **Confirm** button. Deleted data cannot be restored.
+
 
 
 ## Model
@@ -712,7 +860,7 @@ You can define a model to specify the format of body that you can use in the req
 >    1. See if the stage deployment status is Deployed.
 >    2. See if the request method and stage URL/path are correct.
 >    3. In the backend *endpoint* service, see if there is a request URL regarding the backend endpoint URL path. 
-> - As for other error codes, see [Error Code](error-code/) documentation. 
+> - As for other error codes, see [Gateway Error Code](./error-code/) documentation. 
 
 
 > **[Caution] API Call constraints**
