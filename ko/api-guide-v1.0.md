@@ -50,8 +50,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | header.resultCode    | Integer | 결과 코드  |
 | header.resultMessage | String  | 결과 메시지 |
 
-[실패: Response Body]  
-잘못된 API 요청을 한 경우, errorList 필드에 자세한 오류 원인과 필드 정보가 응답됩니다.  
+[실패: Response Body]
 
 ```json
 {
@@ -78,6 +77,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | errorList[0].errorProperty | String | 오류 프로퍼티(모델) |
 | errorList[0].errorField | String  | 오류 상세 필드 |
 | errorList[0].errorMessage | String  | 오류 메시지 |
+
+* 잘못된 API 요청을 한 경우, errorList 필드에 자세한 오류 원인과 필드 정보가 응답됩니다.
+
 
 ## API Gateway 서비스
 
@@ -2203,8 +2205,6 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 * 서명 검증을 위한 토큰 암호화 알고리즘과 암호화 알고리즘 방식에 따른 비밀키 혹은 공개키를 설정합니다.
 * 요청 클레임의 값, 필수 여부 검증을 위한 클레임 검증 조건을 설정합니다. 
 * 시간 차로 발생하는 검증 실패를 방지하기 위한 검증 유효 시간을 설정합니다.
-
-
 * **암호화 알고리즘 HS256** 
 ```json
 {
@@ -2737,7 +2737,6 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 [Response]
 
 ```json
-
 {
   "header": {
     "isSuccessful": true,
