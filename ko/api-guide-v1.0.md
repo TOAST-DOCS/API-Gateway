@@ -1516,7 +1516,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
       "apigwServiceId": "{apigwServiceId}",
       "regionCode": "KR1",
       "stageName": "alpha",
-      "stageDescription": "alpha 환경 스테이지",
+      "stageDescription": "alpha environment stage",
       "stageUrl": "kr1-{apigwServiceId}-alpha.api.nhncloudservice.com",
       "stageCustomUrl": null,
       "backendEndpointUrl": "https://backend.com",
@@ -1607,7 +1607,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 ```json
 {
   "stageName": "alpha",
-  "stageDescription": "alpha환경 스테이지",
+  "stageDescription": "alpha environment stage",
   "backendEndpointUrl": "https://backend.com"
 }
 ```
@@ -1641,12 +1641,12 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
     "apigwServiceId": "{apigwServiceId}",
     "regionCode": "KR1",
     "stageName": "alpha",
-    "stageDescription": "alpha환경 스테이지",
+    "stageDescription": "alpha environment stage",
     "stageUrl": "kr1-{apigwServiceId}-alpha.api.nhncloudservice.com",
     "stageCustomUrl": null,
     "backendEndpointUrl": "https://backend.com",
     "resourceUpdatedAt": "2021-10-22T02:22:11.182Z",
-    "createddAt": "2021-10-22T02:22:11.182Z",
+    "createdAt": "2021-10-22T02:22:11.182Z",
     "updatedAt": "2021-10-22T02:22:11.182Z"
   }
 }
@@ -1691,7 +1691,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 ```json
 {
   "backendEndpointUrl": "https://v2.backend.com",
-  "stageDescription": "alpha 스테이지 v2"
+  "stageDescription": "alpha v2 environment stage"
 }
 ```
 
@@ -1717,7 +1717,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
     "apigwServiceId": "{apigwServiceId}",
     "regionCode": "KR1",
     "stageName": "alpha",
-    "stageDescription": "alpha 스테이지 v2",
+    "stageDescription": "alpha v2 environment stage",
     "stageUrl": "kr1-{apigwServiceId}-alpha.api.nhncloudservice.com",
     "stageCustomUrl": null,
     "backendEndpointUrl": "https://v2.backend.com",
@@ -2020,7 +2020,9 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 | --- | --- | --- | --- | --- | --- |
 | customBackendEndpointUrl | String | 선택 | 없음 | 최대 150자, URL 형식 | 백엔드 엔드포인트 재정의 URL |
 | stageResourcePluginList | List | 필수 | 없음 | 없음 | 스테이지 리소스 플러그인 목록 영역 |
-| stageResourcePluginList[0] | Object | 필수 | 없음 | 없음 | 스테이지 리소스 플러그인 별 JSON 형식의 객체<br>[스테이지 리소스 플러그인]() 참고|
+| stageResourcePluginList[0] | Object | 필수 | 없음 | 없음 | 스테이지 리소스의 플러그인 영역 |
+| stageResourcePluginList[0].pluginType  | Enum | 필수 | 없음 | IP_ACL, HMAC, JWT, API_KEY, PRE_API, RATE_LIMIT | [스테이지 리소스 > 플러그인 타입](./enum-code/#???) 참고|
+| stageResourcePluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | 스테이지 리소스 플러그인 별 JSON 형식의 객체<br>[스테이지 리소스 플러그인]() 참고|
 
 * customBackendEndpointUrl 필드는 루트(/) 리소스 경로에는 설정할 수 없습니다.
 
@@ -2830,7 +2832,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
   "paths": {
     "/members/{proxy+}": {
       "get": {
-        "summary": "회원 API",
+        "summary": "Member API",
         "description": "",
         "consumes": [
           "application/json"
@@ -2857,14 +2859,14 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
           {
             "name": "x-request-id",
             "in": "header",
-            "description": "요청 ID",
+            "description": "Request ID",
             "required": false,
             "type": "string"
           },
           {
             "in": "body",
             "name": "Member",
-            "description": "회원 객체",
+            "description": "Member object",
             "required": false,
             "schema": {
               "$ref": "#/definitions/MemberModel",
@@ -2874,11 +2876,11 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
         ],
         "responses": {
           "200": {
-            "description": "조회 성공 응답",
+            "description": "Query success response",
             "headers": {
               "x-response-id": {
                 "type": "string",
-                "description": "응답 ID"
+                "description": "Response ID"
               }
             },
             "schema": {
@@ -2891,11 +2893,11 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
             }
           },
           "404": {
-            "description": "존재하지 않는 회원",
+            "description": "Unavailable member",
             "headers": {
               "x-response-id": {
                 "type": "string",
-                "description": "응답 ID"
+                "description": "Response ID"
               }
             }
           }
@@ -2920,7 +2922,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
         }
       },
       "post": {
-        "summary": "회원 API",
+        "summary": "Member API",
         "description": "",
         "parameters": [
           {
@@ -3229,7 +3231,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 
 ### API Key 삭제
 - API Key를 삭제합니다. 삭제된 API Key는 복구할 수 없습니다.
-- 사용량 계획의 스테이지에 연결된 API Key가 있는 경우, API Key를 삭제할 수 없습니다. 삭제하려면 API Key를 연결해제를 해야 합니다.
+- 사용량 계획의 스테이지에 연결된 API Key가 있는 경우, API Key를 삭제할 수 없습니다. 삭제하려면 API Key를 연결 해제해야 합니다.
 
 #### 요청
 
