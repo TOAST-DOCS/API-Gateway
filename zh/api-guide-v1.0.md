@@ -736,7 +736,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
 | allowedMethods | List | Required | N/A | N/A | Area for the list of methods to allow access to resources |
-| allowedMethods[0] | Enum | Required | N/A | "GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "PATCH" | See [HTTP Method Type Enum Code](./enum-code/#http-method-type) |
+| allowedMethods[0] | Enum | Required | N/A | GET, POST, DELETE, PUT, OPTIONS, HEAD, PATCH | See [HTTP Method Type Enum Code](./enum-code/#http-method-type) |
 | allowedHeaders | List | Required | N/A | N/A | Area for the list of HTTP headers that can be used in the request. |
 | allowedHeaders[0] | String | Required | N/A | N/A | HTTP header that can be used in the request (e.g. wildcard format: '\*' or 'X-NHN-HEADER, Content-Type') |
 | allowedOrigins    | List | Required | N/A | N/A | Area for the list of domains of the origin servers that can access the resource. |
@@ -744,7 +744,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | exposedHeaders    | List | Optional | N/A | N/A | Area for list of headers accessible by browser (client) |
 | exposedHeaders[0] | String | Required | N/A | N/A |Header accessible by browser (client) |
 | maxCredentialsAge | Integer | Optional | N/A | -1~86400 |Response browser cache time for preflight requests (in seconds) |
-| allowCredentials  | Boolean | Required | N/A |true/false | Whether to request with credentials |
+| allowCredentials  | Boolean | Required | N/A |true, false | Whether to request with credentials |
 
 
 
@@ -1873,7 +1873,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)            |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -1974,7 +1974,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)            |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)               |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -2021,8 +2021,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | customBackendEndpointUrl | String | Optional | N/A | Max. 150 characters, URL format | Backend endpoint override URL |
 |stageResourcePluginList|List | Required | N/A | N/A  |Stage resource's plugin list area                       |
 |stageResourcePluginList[0]|Object | Required | N/A | N/A |Stage resource's plugin area                       |
-|stageResourcePluginList[0].pluginType  | Enum |Required | N/A | IP_ACL, HMAC, JWT, API_KEY, PRE_API, RATE_LIMIT | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                        |
-|stageResourcePluginList[0].pluginConfigJson       | Object | Required | N/A | N/A |See configuration JSON by [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)            |
+|stageResourcePluginList[0].pluginType  | Enum |Required | N/A | IP_ACL, HMAC, JWT, API_KEY, PRE_API, RATE_LIMIT | See [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                        |
+|stageResourcePluginList[0].pluginConfigJson       | Object | Required | N/A | N/A |See configuration JSON by [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)                        |
 
 * The customBackendEndpointUrl field cannot be set in the root (/) resource path.
 
@@ -2100,7 +2100,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)            |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)             |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -2600,8 +2600,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0]|Object    |Stage resource's plugin area                       |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                       |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)           |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type) |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)           |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -2784,8 +2784,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |stageResourceList[0].stageResourcePluginList[0]|Object    |Stage resource's plugin area                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                       |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)         |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                       |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)           |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -3288,7 +3288,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 | Name                | Type     | Required | Default value | Valid range            | Description                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
-| apiKeyType      | Enum   | Required    | N/A  | PRIMARY, SECONDARY | The API Key type you want to change. Refer to [API Key Type Enum Code](./enum-code/#api-key-type) |
+| apiKeyType      | Enum   | Required    | N/A  | PRIMARY, SECONDARY | The API Key type you want to change. See [API Key Type Enum Code](./enum-code/#api-key-type) |
 
 #### Response
 
