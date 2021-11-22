@@ -1646,7 +1646,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
     "stageCustomUrl": null,
     "backendEndpointUrl": "https://backend.com",
     "resourceUpdatedAt": "2021-10-22T02:22:11.182Z",
-    "createddAt": "2021-10-22T02:22:11.182Z",
+    "createdAt": "2021-10-22T02:22:11.182Z",
     "updatedAt": "2021-10-22T02:22:11.182Z"
   }
 }
