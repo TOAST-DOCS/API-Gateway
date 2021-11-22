@@ -740,7 +740,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | allowedHeaders | List | Required | N/A | N/A | Area for the list of HTTP headers that can be used in the request. |
 | allowedHeaders[0] | String | Required | N/A | N/A | HTTP header that can be used in the request (e.g. wildcard format: '\*' or 'X-NHN-HEADER, Content-Type') |
 | allowedOrigins    | List | Required | N/A | N/A | Area for the list of domains of the origin servers that can access the resource. |
-| allowedOrigins[0] | String | Required | N/A | N/A | Domain of the origin server that can access the resource (e.g., wildcard format: '\*' or ') |
+| allowedOrigins[0] | String | Required | N/A | N/A | Domain of the origin server that can access the resource (e.g., wildcard format: '\*' or 'http://example.nhncloudservice.com:8080') |
 | exposedHeaders    | List | Optional | N/A | N/A | Area for list of headers accessible by browser (client) |
 | exposedHeaders[0] | String | Required | N/A | N/A |Header accessible by browser (client) |
 | maxCredentialsAge | Integer | Optional | N/A | -1~86400 |Response browser cache time for preflight requests (in seconds) |

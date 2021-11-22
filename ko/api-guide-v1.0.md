@@ -740,7 +740,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 | allowedHeaders | List | 필수 | 없음 | 없음 | 요청에서 사용할 수 있는 HTTP 헤더 목록 영역 |
 | allowedHeaders[0] | String | 필수 | 없음 | 없음 | 요청에서 사용할 수 있는 HTTP 헤더(예시: 와일드카드 형식: '\*' 또는 'X-NHN-HEADER, Content-Type') |
 | allowedOrigins    | List | 필수 | 없음 | 없음 | 리소스에 액세스할 수 있는 원본 서버의 도메인 목록 영역 |
-| allowedOrigins[0] | String | 필수 | 없음 | 없음 | 리소스에 액세스할 수 있는 원본 서버의 도메인(예시: 와일드카드 형식: '\*' 또는 ') |
+| allowedOrigins[0] | String | 필수 | 없음 | 없음 | 리소스에 액세스할 수 있는 원본 서버의 도메인(예시: 와일드카드 형식: '\*' 또는 'http://example.nhncloudservice.com:8080') |
 | exposedHeaders    | List | 선택 | 없음 | 없음 | 브라우저(클라이언트)가 접근할 수 있는 헤더 목록 영역 |
 | exposedHeaders[0] | String | 필수 | 없음 | 없음 |브라우저(클라이언트)가 접근할 수 있는 헤더 |
 | maxCredentialsAge | Integer | 선택 | 없음 | -1~86400 |사전 전달 요청(Preflight)에 대한 응답 브라우저 캐시 시간(초 단위) |
