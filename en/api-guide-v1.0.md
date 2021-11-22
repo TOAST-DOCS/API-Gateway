@@ -1781,7 +1781,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 ### Query Stage Resource List
 * Get a list of resources registered on the stage. The stage resource plugin information set for each resource is included.
-* For more information about the stage resource plugin, see [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type).
+* For more information about the stage resource plugin, see [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin).
 
 
 #### Request
@@ -1983,7 +1983,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 ### Modify Stage Resource
 * Modify the backend endpoint URL override and stage resource plugin set in the resource path or resource method.
 * When a stage resource is modified, all registered stage resource plugins are deleted, and only the requested resource plugin is newly registered.
-* For more information about the Stage Resource Plugin, see [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type).
+* For more information about the Stage Resource Plugin, see [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin).
 
 #### Request
 
