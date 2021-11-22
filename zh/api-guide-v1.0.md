@@ -3404,7 +3404,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | apiKeyList[0].apiKeyDescription | String   | API Key description                                        |
 | apiKeyList[0].primaryApiKey     | String   | Primary API Key value                                 |
 | apiKeyList[0].secondaryApiKey   | String   | Secondary API Key value                               |
-| apiKeyList[0].apiKeyStatus      | Enum     | See [API Key Status Enum Code](./enum-code/#API Key Status Enum Code) |
+| apiKeyList[0].apiKeyStatus      | Enum     | See [API Key Status Enum Code](./enum-code/#api-key-status) |
 | apiKeyList[0].createdAt         | DateTime | API Key creation date and time                                      |
 | apiKeyList[0].updatedAt         | DateTime | API Key modification date and time                                      |
 
