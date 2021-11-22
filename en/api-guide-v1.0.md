@@ -1582,7 +1582,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 |Field                                  |Type     |Description                                           |
 |-------------------------------------|--------|----------------------------------------------|
-|swaggerData        |Object    | A Swagger JSON object based on the current stage. See [Swagger v2.0 OpenAPI Specification] (https://swagger.io/specification/v2/). |
+|swaggerData        |Object    | A Swagger JSON object based on the current stage. See [Swagger v2.0 OpenAPI Specification](https://swagger.io/specification/v2/). |
 
 
 ### Create Stage
@@ -1873,7 +1873,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type](./enum-code/#???), [Stage Resource > Plugin Type](./enum-code/#???)                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type] (), [Stage Plugin Type] ()            |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](), [Stage Plugin Type]()            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -1974,7 +1974,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type](./enum-code/#???), [Stage Resource > Plugin Type](./enum-code/#???)                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type] (), [Stage Plugin Type] ()            |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](), [Stage Plugin Type]()            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -2098,7 +2098,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type](./enum-code/#???), [Stage Resource > Plugin Type](./enum-code/#???)                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type] (), [Stage Plugin Type] ()            |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](), [Stage Plugin Type]()            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -2186,7 +2186,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | Required | N/A | HMAC | See HMAC in [Stage Resources > Plugin Type] () |
+| pluginType | Enum | Required | N/A | HMAC | See HMAC in [Stage Resources > Plugin Type]() |
 | pluginConfigJson | Object | Required | N/A | N/A | HMAC plugin configuration area |
 | pluginConfigJson.secretKey | String | Required | N/A | N/A | Set the secret key used for signing. It is recommended to set it to a string of at least 32 bytes.|
 | pluginConfigJson.clockSkewSeconds | Integer | Optional | 0 | 0~86400 | Specify the request validity period (in seconds). |
@@ -2263,7 +2263,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | Required | N/A | JWT | See JWT in [Stage Resources > Plugin Type] () |
+| pluginType | Enum | Required | N/A | JWT | See JWT in [Stage Resources > Plugin Type]() |
 | pluginConfigJson | Object | Required | N/A  | N/A | JWT plugin configuration area |
 | pluginConfigJson.encryptAlgorithm | Enum | Required | HS256 | HS256 | See [JWT > Encryption Algorithm]()  |
 | pluginConfigJson.hs256 | Object | Required | N/A | N/A | HS256 validation area |
@@ -2327,7 +2327,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | Required | N/A | JWT | See JWT in [Stage Resources > Plugin Type] () |
+| pluginType | Enum | Required | N/A | JWT | See JWT in [Stage Resources > Plugin Type]() |
 | pluginConfigJson | Object | Required | N/A  | N/A | JWT plugin configuration area |
 | pluginConfigJson.encryptAlgorithm | Enum | Required | RS256 | RS256 | See [JWT > Encryption Algorithm]()  |
 | pluginConfigJson.rs256 | Object | Required | N/A | N/A | RS256 configuration area |
@@ -2357,7 +2357,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | Required | N/A | JWT | See JWT in [Stage Resources > Plugin Type] () |
+| pluginType | Enum | Required | N/A | JWT | See JWT in [Stage Resources > Plugin Type]() |
 | pluginConfigJson | Object | Required | N/A  | N/A | JWT plugin configuration area |
 | pluginConfigJson.encryptAlgorithm | Enum | Required | RS256 | RS256 | See [JWT > Encryption Algorithm]()  |
 | pluginConfigJson.rs256 | Object | Required | N/A | N/A | RS256 configuration area |
@@ -2599,7 +2599,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Stage Plugin Type]()                       |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type] (), [Stage Plugin Type] ()           |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](), [Stage Plugin Type]()           |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -2783,7 +2783,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Stage Plugin type]()                       |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type] (), [Stage Plugin Type] ()         |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](), [Stage Plugin Type]()         |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -2792,7 +2792,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 ### Query API Document
 - Query API document based on the deployed stage configuration.
-- The API document is returned as a JSON object that follows the [Swagger v2.0] (https://swagger.io/specification/v2/) specification.
+- The API document is returned as a JSON object that follows the [Swagger v2.0](https://swagger.io/specification/v2/) specification.
 - API document cannot be queried for undeployed stages, and a 404 Not Found response is returned.
 
 
