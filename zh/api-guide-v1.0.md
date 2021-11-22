@@ -96,7 +96,7 @@ If an invalid API request is made, detailed error reason and field information i
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | String | Required | N/A | KR1 | See [API Gateway Service Type Enum Code](./enum-code/#api-gateway-service-type) |
+| regionCode | String | Required | N/A | KR1 | See [API Gateway Region Enum Code](./enum-code/#api-gateway-region) |
 | page | Integer | Optional | 1 | N/A | Page |
 | limit | Integer | Optional | 10 | Max. 1000 | Count per page |
 
@@ -246,7 +246,7 @@ If an invalid API request is made, detailed error reason and field information i
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | Enum | Required | N/A | KR1 | See [API Gateway Service Type Enum Code](./enum-code/#api-gateway-service-type) |
+| regionCode | Enum | Required | N/A | KR1 | See [API Gateway Region Enum Code](./enum-code/#api-gateway-region) |
 | apigwServiceName | String | Required | N/A | Max. 50 characters  | API Gateway service name |
 | apigwServiceDescription | String | Optional | N/A | Max. 200 characters  | API Gateway service alias |
 
