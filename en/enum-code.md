@@ -102,7 +102,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | JWKS_URI | This method sets the JSON Web Key Set URI where public key can be queried.|
 
 
-### Request Number List > Limit Key
+### Request Number Limit > Limit Key
 - The key to which the request number limit applies.
 
 | Name | Description |

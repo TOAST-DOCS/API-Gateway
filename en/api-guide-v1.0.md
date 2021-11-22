@@ -96,7 +96,7 @@ If an invalid API request is made, detailed error reason and field information i
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | String | Required | N/A | KR1 | See [API Gateway Service Type Enum Code](./enum-code/#apigwServiceType) |
+| regionCode | String | Required | N/A | KR1 | See [API Gateway Service Type Enum Code](./enum-code/#api-gateway-service-type) |
 | page | Integer | Optional | 1 | N/A | Page |
 | limit | Integer | Optional | 10 | Max. 1000 | Count per page |
 
@@ -145,12 +145,12 @@ If an invalid API request is made, detailed error reason and field information i
 |apigwServiceList[0].apigwDomain         |String  | API Gateway service domain                  |
 |apigwServiceList[0].apigwServiceAlias   |String  | API Gateway service alias               |
 |apigwServiceList[0].apigwServiceId      |String  | API Gateway service ID                  |
-|apigwServiceList[0].apigwServiceTypeCode|Enum    | See [API Gateway Service Type Enum Code](./enum-code/#apigwServiceType)|
+|apigwServiceList[0].apigwServiceTypeCode|Enum    | See [API Gateway Service Type Enum Code](.enum-code/#api-gateway-service-type)|
 |apigwServiceList[0].appKey              |String  | AppKey                                        |
 |apigwServiceList[0].dedicatedId         |String  | ID of the dedicated API Gateway service                        |
 |apigwServiceList[0].apigwServiceDescription         |String  | API Gateway service alias                                        |
 |apigwServiceList[0].apigwServiceName                |String  | API Gateway service name                                        |
-|apigwServiceList[0].regionCode          |Enum    | See [API Gateway Region Enum Code](./enum-code/#regionCode) |
+|apigwServiceList[0].regionCode          |Enum    | See [API Gateway Region Enum Code](.enum-code/#api-gateway-region) |
 |apigwServiceList[0].serverGroupId       |String  | ID of the server group to which the API Gateway service belongs                              |
 |apigwServiceList[0].createdAt           |DateTime| API Gateway service creation date and time                                      |
 |apigwServiceList[0].updatedAt           |DateTime| API Gateway service modification date and time                                      |
@@ -208,12 +208,12 @@ If an invalid API request is made, detailed error reason and field information i
 |apigwService.apigwDomain         |String  | API Gateway service domain                  |
 |apigwService.apigwServiceAlias   |String  | API Gateway service alias                            |
 |apigwService.apigwServiceId      |String  | API Gateway service ID                            |
-|apigwService.apigwServiceTypeCode|Enum    | See [API Gateway Service Type Enum Code](./enum-code/#apigwServiceType) |
+|apigwService.apigwServiceTypeCode|Enum    | See [API Gateway Service Type Enum Code](./enum-code/#api-gateway-service-type) |
 |apigwService.appKey              |String  | AppKey                                        |
 |apigwService.dedicatedId         |String  | ID of the dedicated API Gateway service                        |
 |apigwService.apigwServiceDescription         |String  | API Gateway service alias                                        |
 |apigwService.apigwServiceName                |String  | API Gateway service name                                        |
-|apigwService.regionCode          |Enum    |See [API Gateway Region Enum Code](./enum-code/#regionCode)|
+|apigwService.regionCode          |Enum    |See [API Gateway Region Enum Code](.enum-code/#api-gateway-region)|
 |apigwService.serverGroupId       |String  | ID of the server group to which the API Gateway service belongs                              |
 |apigwService.createdAt           |DateTime| API Gateway service creation date and time                                      |
 |apigwService.updatedAt           |DateTime| API Gateway service modification date and time                                      |
@@ -246,7 +246,7 @@ If an invalid API request is made, detailed error reason and field information i
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | Enum | Required | N/A | KR1 | See [API Gateway Service Type Enum Code](./enum-code/#apigwServiceType) |
+| regionCode | Enum | Required | N/A | KR1 | See [API Gateway Service Type Enum Code](./enum-code/#api-gateway-service-type) |
 | apigwServiceName | String | Required | N/A | Max. 50 characters  | API Gateway service name |
 | apigwServiceDescription | String | Optional | N/A | Max. 200 characters  | API Gateway service alias |
 
@@ -285,12 +285,12 @@ If an invalid API request is made, detailed error reason and field information i
 |apigwService.apigwDomain         |String  | API Gateway service domain                  |
 |apigwService.apigwServiceAlias   |String  | API Gateway service alias                            |
 |apigwService.apigwServiceId      |String  | API Gateway service ID                            |
-|apigwService.apigwServiceTypeCode|Enum    | See [API Gateway Service Type Enum Code](./enum-code/#apigwServiceType) |
+|apigwService.apigwServiceTypeCode|Enum    | See [API Gateway Service Type Enum Code](./enum-code/#api-gateway-service-type) |
 |apigwService.appKey              |String  | AppKey                                        |
 |apigwService.dedicatedId         |String  | ID of the dedicated API Gateway service                        |
-|apigwService.apigwServiceDescription         |String  | Service description                                        |
+|apigwService.apigwServiceDescription      | String  | Service description                                        |
 |apigwService.apigwServiceName    |String  | API Gateway service name                                        |
-|apigwService.regionCode          |Enum    | See [API Gateway Region Enum Code](./enum-code/#regionCode)|
+|apigwService.regionCode          |Enum    | See [API Gateway Region Enum Code](.enum-code/#api-gateway-region)|
 |apigwService.serverGroupId       |String  | ID of the server group to which the API Gateway service belongs                              |
 |apigwService.createdAt           |DateTime| API Gateway service creation date and time                                      |
 |apigwService.updatedAt           |DateTime| API Gateway service modification date and time                                      |
@@ -363,12 +363,12 @@ If an invalid API request is made, detailed error reason and field information i
 |apigwService.apigwDomain         |String  |API Gateway service domain                  |
 |apigwService.apigwServiceAlias   |String  |API Gateway service alias                            |
 |apigwService.apigwServiceId      |String  |API Gateway service ID                            |
-|apigwService.apigwServiceTypeCode|Enum    |See [API Gateway Service Type Enum Code](./enum-code/#apigwServiceType)|
+|apigwService.apigwServiceTypeCode|Enum    |See [API Gateway Service Type Enum Code](./enum-code/#api-gateway-service-type)|
 |apigwService.appKey              |String  |AppKey                                        |
 |apigwService.dedicatedId         |String  |ID of the dedicated API Gateway service                        |
 |apigwService.apigwServiceDescription         |String  |Service description                                        |
 |apigwService.apigwServiceName                |String  |Service name                                        |
-|apigwService.regionCode          |Enum    |See [API Gateway Region Enum Code](./enum-code/#regionCode)|
+|apigwService.regionCode          |Enum    |See [API Gateway Region Enum Code](.enum-code/#api-gateway-region)|
 |apigwService.serverGroupId       |String  |ID of the server group to which the service belongs                              |
 |apigwService.createdAt           |DateTime|Service creation date and time                                      |
 |apigwService.updatedAt           |DateTime|Service modification date and time                                      |
@@ -496,14 +496,14 @@ If an invalid API request is made, detailed error reason and field information i
 | resourceList[0].path                                   | String   | Resource path                                         |
 | resourceList[0].createdAt                              | DateTime | Resource creation date and time                                       |
 | resourceList[0].updatedAt                              | DateTime | Resource modification date and time                                       |
-| resourceList[2].methodType                             | Enum     | See [HTTP Method Type Enum Code](./enum-code/#???) |
+| resourceList[2].methodType                             | Enum     | See [HTTP Method Type Enum Code](./enum-code/#http-method-type) |
 | resourceList[2].methodName                             | String   | Method resource name                                     |
 | resourceList[2].methodDescription                      | String   | Method resource description                                     |
 | resourceList[2].resourcePluginList                     | List     | Resource plugin list area                                 |
 | resourceList[2].resourcePluginList[0].resourcePluginId | String   | Resource plugin ID                                    |
 | resourceList[2].resourcePluginList[0].resourceId       | String   | Resource ID                                         |
-| resourceList[2].resourcePluginList[0].pluginType       | Enum     | See [Resource Plugin Type Enum Code](./enum-code/#???)    |
-| resourceList[2].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type]()                   |
+| resourceList[2].resourcePluginList[0].pluginType       | Enum     | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type)    |
+| resourceList[2].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin)                   |
 | resourceList[2].resourcePluginList[0].createdAt        | DateTime | Resource plugin creation date and time                                  |
 | resourceList[2].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
 
@@ -672,7 +672,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.schema.$ref | String | Required | N/A | Objects declared in Swagger definitions | API Gateway resource response > Response HTTP status code > Response Body > Model. |
 | swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway | Object | Optional | N/A | N/A | API Gateway-provided feature definition object area. |
 | swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins | Object | Required | N/A | N/A | API Gateway custom plugin object area. |
-| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins.{pluginCode} | Object | Required | N/A | {pluginCode} HTTP, MOCK, CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | See [Resource Plugin Type Enum Code](./enum-code/#???). See [JSON setting value by resource plugin type](???). |
+| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins.{pluginCode} | Object | Required | N/A | {pluginCode} HTTP, MOCK, CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type). See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin). |
 | swaggerData.definitions | Object | Optional | N/A | N/A | API Gateway resource request parameters, body object definition area used in response. See [Definitions Object](https://swagger.io/specification/v2/#definitionsObject) |
 
 
@@ -736,7 +736,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
 | allowedMethods | List | Required | N/A | N/A | Area for the list of methods to allow access to resources |
-| allowedMethods[0] | Enum | Required | N/A | "GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "PATCH" | See [HTTP Method Type Enum Code](./enum-code/#???) |
+| allowedMethods[0] | Enum | Required | N/A | "GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "PATCH" | See [HTTP Method Type Enum Code](./enum-code/#http-method-type) |
 | allowedHeaders | List | Required | N/A | N/A | Area for the list of HTTP headers that can be used in the request. |
 | allowedHeaders[0] | String | Required | N/A | N/A | HTTP header that can be used in the request (e.g. wildcard format: '\*' or 'X-NHN-HEADER, Content-Type') |
 | allowedOrigins    | List | Required | N/A | N/A | Area for the list of domains of the origin servers that can access the resource. |
@@ -877,19 +877,19 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | queryStringList                | List    | Query string list area                                         |
 | queryStringList[0].name        | String  | Query string name                                            |
 | queryStringList[0].description | String  | Query string description                                            |
-| queryStringList[0].dataType    | Enum    | See [Resource Request/Response Parameter Data Type Enum Code](./enum-code/#???)|
+| queryStringList[0].dataType    | Enum    | See [Resource Request/Response Parameter Data Type Enum Code](./enum-code/#resource-requestresponse-parameter-data-type)|
 | queryStringList[0].required    | Boolean | Whether the query string is required or not                                         |
 | queryStringList[0].isArray     | Boolean | Whether the query string is Array or not                                      |
 | headerList                     | List    | Header list area                                             |
 | headerList[0].name             | String  | Header Value                                                |
 | headerList[0].description      | String  | Header description                                                |
-| headerList[0].dataType         | Enum    | See [Resource Request/Response Parameter Data Type Enum Code](./enum-code/#???) |
+| headerList[0].dataType         | Enum    | See [Resource Request/Response Parameter Data Type Enum Code](./enum-code/#resource-requestresponse-parameter-data-type) |
 | headerList[0].required         | Boolean | Header required or not                                             |
 | headerList[0].isArray          | null    | Whether the header is Array is not provided.                                      |
 | formDataList                   | List    | Form data list area                                          |
 | formDataList[0].name           | String  | Form data name                                             |
 | formDataList[0].description    | String  | Form data description                                             |
-| formDataList[0].dataType       | Enum    | See [Resource Request/Response Parameter Data Type Enum Code](./enum-code/#???) |
+| formDataList[0].dataType       | Enum    | See [Resource Request/Response Parameter Data Type Enum Code](./enum-code/#resource-requestresponse-parameter-data-type) |
 | formDataList[0].required       | Boolean | Whether the form data is required or not                                          |
 | formDataList[0].isArray        | Boolean | Whether the form data is Array or not                                       |
 | requestBody                    | Object  | Request body area                                             |
@@ -965,18 +965,18 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | queryStringList                | List    | Optional    | Empty List    | Max. 50 items                                              | Query string list area                                         |
 | queryStringList[0].name        | String  | Required    | N/A           | Max. 50 characters                                              | Query string name                                            |
 | queryStringList[0].description | String  | Optional    | N/A           | Max. 200 characters                                             | Query string description                                            |
-| queryStringList[0].dataType    | Enum    | Required    | N/A           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE        | See [Resource Request/Response Parameter Data Type Enum Code](./enum-code/#???)|
+| queryStringList[0].dataType    | Enum    | Required    | N/A           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE        | See [Resource Request/Response Parameter Data Type Enum Code](./enum-code/#resource-requestresponse-parameter-data-type)|
 | queryStringList[0].required    | Boolean | Required    | N/A           | true, false                                          | Whether the query string is required or not                                         |
 | queryStringList[0].isArray     | Boolean | Required    | N/A           | true, false                                          | Whether the query string is Array or not                                      |
 | headerList                     | List    | Optional    | Empty List    | Max. 50 items                                              | Header list area                                             |
 | headerList[0].name             | String  | Required    | N/A           | Max. 50 characters                                              | Header Value                                                |
 | headerList[0].description      | String  | Optional    | N/A           | Max. 200 characters                                             | Header description                                                |
-| headerList[0].dataType         | Enum    | Required    | N/A           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE        | See [Resource Request/Response parameter data type Enum code](./enum-code/#???)|
+| headerList[0].dataType         | Enum    | Required    | N/A           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE        | See [Resource Request/Response Parameter Data Type Enum Code](./enum-code/#resource-requestresponse-parameter-data-type)|
 | headerList[0].required         | Boolean | Required    | N/A           | true, false                                          | Header required or not                                             |
 | formDataList                   | List    | Optional    | Empty List    | Max. 50 items                                              | Form data list area                                          |
 | formDataList[0].name           | String  | Required    | N/A           | Max. 50 characters                                              | Form data name                                             |
 | formDataList[0].description    | String  | Optional    | N/A           | Max. 200 characters                                             | Form data description                                             |
-| formDataList[0].dataType       | Enum    | Required    | N/A           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE, FILE  | See [Resource Request/Response parameter data type Enum code](./enum-code/#???)|
+| formDataList[0].dataType       | Enum    | Required    | N/A           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE, FILE  | See [Resource Request/Response Parameter Data Type Enum Code](./enum-code/#resource-requestresponse-parameter-data-type)|
 | formDataList[0].required       | Boolean | Required    | N/A           | true, false                                          | Whether the form data is required or not                                          |
 | formDataList[0].isArray        | Boolean | Required    | N/A           | true, false                                          | Whether the query string is Array or not. false if dataType is FILE.            |
 | requestBody                    | Object  | Optional    | Empty Object  | N/A                                                  | Request body object area                                          |
@@ -1063,7 +1063,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | responseList[0].headerList                | List    | HTTP response header list area                                     |
 | responseList[0].headerList[0].name        | String  | Response header name                                             |
 | responseList[0].headerList[0].description | String  | Response header description                                             |
-| responseList[0].headerList[0].dataType    | Enum    | See [Resource Request/Response parameter data type Enum code](./enum-code/#???)|
+| responseList[0].headerList[0].dataType    | Enum    | See [Resource Request/Response Parameter Data Type Enum Code](./enum-code/#resource-requestresponse-parameter-data-type)|
 | responseList[0].responseBody              | Object  | HTTP response body object area                                     |
 | responseList[0].responseBody.name         | String  | Response body name                                             |
 | responseList[0].responseBody.description  | String  | Response body description                                             |
@@ -1125,7 +1125,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | responseList[0].headerList                | List    | Optional    | Empty List   | Max. 50 items                                        | HTTP response header list area                                     |
 | responseList[0].headerList[0].name        | String  | Required    | N/A           | Max. 50 characters                                        | Response header name                                             |
 | responseList[0].headerList[0].description | String  | Optional    | N/A         | Max. 200 characters                                       | Response header description                                             |
-| responseList[0].headerList[0].dataType    | Enum    | Required    | N/A           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE | See [Resource Request/Response parameter data type Enum code](./enum-code/#???) |
+| responseList[0].headerList[0].dataType    | Enum    | Required    | N/A           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE | See [Resource Request/Response Parameter Data Type Enum Code](./enum-code/#resource-requestresponse-parameter-data-type) |
 | responseList[0].responseBody              | Object  | Optional    | Empty Object | N/A                                            | HTTP response body object area                                     |
 | responseList[0].responseBody.name         | String  | Required    | N/A           | Max. 50 characters                                        | Response body name                                             |
 | responseList[0].responseBody.description  | String  | Optional    | N/A         | Max. 200 characters                                       | Response body description                                             |
@@ -1535,7 +1535,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |paging.limit                         |Integer | Count per page                                  |
 |paging.totalCount                    |Integer | Total count                                        |
 |stageList        |List    | Stage list area |
-|stageList[0].regionCode       |Enum    |See [API Gateway Region Enum Code](./enum-code/#regionCode)                |
+|stageList[0].regionCode       |Enum    |See [API Gateway Region Enum Code](.enum-code/#api-gateway-region)                |
 |stageList[0].apigwServiceId   |String  |API Gateway service ID  |
 |stageList[0].stageId          |String  |Stage ID             |
 |stageList[0].stageName        |String  |Stage name             |
@@ -1655,7 +1655,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |Field                                   |Type      |Description                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |stage        |Object    | Stage area |
-|stage.regionCode       |Enum    |See [API Gateway Region Enum Code](./enum-code/#regionCode)                |
+|stage.regionCode       |Enum    |See [API Gateway Region Enum Code](.enum-code/#api-gateway-region)                |
 |stage.apigwServiceId   |String  |API Gateway service ID  |
 |stage.stageId          |String  |Stage ID             |
 |stage.stageName        |String  |Stage name             |
@@ -1731,7 +1731,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |Field                                   |Type      |Description                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |stage        |Object    | Stage area |
-|stage.regionCode       |Enum    |See [API Gateway Region Enum Code](./enum-code/#regionCode)                |
+|stage.regionCode       |Enum    |See [API Gateway Region Enum Code](.enum-code/#api-gateway-region)                |
 |stage.apigwServiceId   |String  |API Gateway service ID  |
 |stage.stageId          |String  |Stage ID             |
 |stage.stageName        |String  |Stage name             |
@@ -1781,7 +1781,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 ### Query Stage Resource List
 * Get a list of resources registered on the stage. The stage resource plugin information set for each resource is included.
-* For more information about the stage resource plugin, see [Stage Resource Plugin]().
+* For more information about the stage resource plugin, see [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type).
 
 
 #### Request
@@ -1863,7 +1863,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |stageResourceList[0].parentPath             |String  |Parent resource path of the stage (parentPath for root (/) path is null)|
 |stageResourceList[0].stageId                |String  |Stage ID                                    |
 |stageResourceList[0].customBackendEndpointUrl      |String  |Backend endpoint override URL                          |
-|stageResourceList[0].methodType             |Enum    |See [HTTP Method Type Enum Code](./enum-code/#???)  |
+|stageResourceList[0].methodType             |Enum    |See [HTTP Method Type Enum Code](./enum-code/#http-method-type)  |
 |stageResourceList[0].methodName             |String  |Method name                                     |
 |stageResourceList[0].methodDescription      |String  |Method description                                     |
 |stageResourceList[0].createdAt              |DateTime|Stage resource creation date and time                              |
@@ -1872,8 +1872,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |stageResourceList[0].stageResourcePluginList[0]|Object    |Stage resource's plugin area                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type](./enum-code/#???), [Stage Resource > Plugin Type](./enum-code/#???)                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](), [Stage Plugin Type]()            |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code//#stage-resource-plugin-type)                        |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code//#stage-resource-plugin-type)            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -1964,7 +1964,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |stageResourceList[0].parentPath             |String  |Parent resource path of the stage (parentPath for root (/) path is null)|
 |stageResourceList[0].stageId                |String  |Stage ID                                    |
 |stageResourceList[0].customBackendEndpointUrl      |String  |Backend endpoint override URL                          |
-|stageResourceList[0].methodType             |Enum    |See [HTTP Method Type Enum Code](./enum-code/#???)               |
+|stageResourceList[0].methodType             |Enum    |See [HTTP Method Type Enum Code](./enum-code/#http-method-type)               |
 |stageResourceList[0].methodName             |String  |Method name                                     |
 |stageResourceList[0].methodDescription      |String  |Method description                                     |
 |stageResourceList[0].createdAt              |DateTime|Stage resource creation date and time                              |
@@ -1973,8 +1973,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |stageResourceList[0].stageResourcePluginList[0]|Object    |Stage resource's plugin area                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type](./enum-code/#???), [Stage Resource > Plugin Type](./enum-code/#???)                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](), [Stage Plugin Type]()            |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code//#stage-resource-plugin-type)                        |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code//#stage-resource-plugin-type)            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -1983,7 +1983,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 ### Modify Stage Resource
 * Modify the backend endpoint URL override and stage resource plugin set in the resource path or resource method.
 * When a stage resource is modified, all registered stage resource plugins are deleted, and only the requested resource plugin is newly registered.
-* For more information about the Stage Resource Plugin, see [Stage Resource Plugin]().
+* For more information about the Stage Resource Plugin, see [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type).
 
 #### Request
 
@@ -2021,8 +2021,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | customBackendEndpointUrl | String | Optional | N/A | Max. 150 characters, URL format | Backend endpoint override URL |
 |stageResourcePluginList|List | Required | N/A | N/A  |Stage resource's plugin list area                       |
 |stageResourcePluginList[0]|Object | Required | N/A | N/A |Stage resource's plugin area                       |
-|stageResourcePluginList[0].pluginType  | Enum |Required | N/A | IP_ACL, HMAC, JWT, API_KEY, PRE_API, RATE_LIMIT | See [Resource Plugin Type](./enum-code/#???), [Stage Resource > Plugin Type](./enum-code/#???)                        |
-|stageResourcePluginList[0].pluginConfigJson       | Object | Required | N/A | N/A |See configuration JSON by [Resource Plugin Type](), [Stage Plugin Type]()            |
+|stageResourcePluginList[0].pluginType  | Enum |Required | N/A | IP_ACL, HMAC, JWT, API_KEY, PRE_API, RATE_LIMIT | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code//#stage-resource-plugin-type)                        |
+|stageResourcePluginList[0].pluginConfigJson       | Object | Required | N/A | N/A |See configuration JSON by [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code//#stage-resource-plugin-type)            |
 
 * The customBackendEndpointUrl field cannot be set in the root (/) resource path.
 
@@ -2090,7 +2090,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |stageResourceList[0].parentPath             |String  |Parent resource path of the stage (parentPath for root (/) path is null)|
 |stageResourceList[0].stageId                |String  |Stage ID                                    |
 |stageResourceList[0].customBackendEndpointUrl      |String  |Backend endpoint override URL                          |
-|stageResourceList[0].methodType             |Enum    |See [HTTP Method Type Enum Code](./enum-code/#???)               |
+|stageResourceList[0].methodType             |Enum    |See [HTTP Method Type Enum Code](./enum-code/#http-method-type)               |
 |stageResourceList[0].methodName             |String  |Method name                                     |
 |stageResourceList[0].methodDescription      |String  |Method description                                     |
 |stageResourceList[0].createdAt              |DateTime|Stage resource creation date and time                              |
@@ -2099,8 +2099,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |stageResourceList[0].stageResourcePluginList[0]|Object    |Stage resource's plugin area                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type](./enum-code/#???), [Stage Resource > Plugin Type](./enum-code/#???)                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](), [Stage Plugin Type]()            |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code//#stage-resource-plugin-type)                        |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code//#stage-resource-plugin-type)            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -2157,7 +2157,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | Required | N/A | IP_ACL | See IP_ACL in [Stage Resources > Plugin Type]() |
+| pluginType | Enum | Required | N/A | IP_ACL | See IP_ACL in [Stage Resource > Plugin Type Enum Code](./num-code/#stage-resource-plugin-type) |
 | pluginConfigJson | Object | Required | N/A | N/A | IP ACL plugin configuration area |
 | pluginConfigJson.isPermit | Boolean | Required | N/A | true, false | If set to false, the request is denied for the configured IP/CIDR. If set to true, the request is allowed only for the configured IP/CIDR.  |
 | pluginConfigJson.ipAclList | List | Required | N/A | 1~100 items | Area for IP or CIDR list to allow/deny requests |
@@ -2188,7 +2188,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | Required | N/A | HMAC | See HMAC in [Stage Resources > Plugin Type]() |
+| pluginType | Enum | Required | N/A | HMAC | See HMAC in [Stage Resource > Plugin Type Enum Code](./num-code/#stage-resource-plugin-type) |
 | pluginConfigJson | Object | Required | N/A | N/A | HMAC plugin configuration area |
 | pluginConfigJson.secretKey | String | Required | N/A | N/A | Set the secret key used for signing. It is recommended to set it to a string of at least 32 bytes.|
 | pluginConfigJson.clockSkewSeconds | Integer | Optional | 0 | 0~86400 | Specify the request validity period (in seconds). |
@@ -2265,9 +2265,9 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | Required | N/A | JWT | See JWT in [Stage Resources > Plugin Type]() |
+| pluginType | Enum | Required | N/A | JWT | See JWT in [Stage Resource > Plugin Type Enum Code](./num-code/#stage-resource-plugin-type) |
 | pluginConfigJson | Object | Required | N/A  | N/A | JWT plugin configuration area |
-| pluginConfigJson.encryptAlgorithm | Enum | Required | HS256 | HS256 | See [JWT > Encryption Algorithm]()  |
+| pluginConfigJson.encryptAlgorithm | Enum | Required | HS256 | HS256 | See [JWT > Encryption Algorithm Enum Code](./enum-code/#jwt-encryption-algorithm)  |
 | pluginConfigJson.hs256 | Object | Required | N/A | N/A | HS256 validation area |
 | pluginConfigJson.hs256.secretKey | String | Required | N/A | N/A | Set the secret key used for signing. It is recommended to set it to a string of at least 32 bytes.|
 | pluginConfigJson.clockSkew | Integer | Optional | 0 | 0~86400 | Specify the validation validity period (in seconds) of the exp, nbf claim. |
@@ -2275,35 +2275,35 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | pluginConfigJson.claimValidationCondition.iss | Object | Optional | Default Object | N/A | The iss claim validation condition area. If not requested, it will be stored as the default value for each field. |
 | pluginConfigJson.claimValidationCondition.iss.value | Array | Required | Empty Array | N/A |  Set the value of the claim to allow among the values of the iss request claim as a string array. |
 | pluginConfigJson.claimValidationCondition.iss.value[0] | String | Optional | N/A | N/A |  Set the string to allow among the values of the iss request claim. |
-| pluginConfigJson.claimValidationCondition.iss.dataType | Enum | Optional | Array | Array | Set the data type of the iss claim. Only Array is valid. See <br/> [JWT > Claim Data Type]() |
+| pluginConfigJson.claimValidationCondition.iss.dataType | Enum | Optional | Array | Array | Set the data type of the iss claim. Only Array is valid. See <br/> [JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type) |
 | pluginConfigJson.claimValidationCondition.iss.required | Boolean | Required | false | true, false | Set whether the iss request claim value is required to be validated. |
 | pluginConfigJson.claimValidationCondition.iss.validate | Boolean | Required | false | true, false | Set whether to validate the iss request claim value. |
 | pluginConfigJson.claimValidationCondition.aud | Object | Optional | Default Object | N/A | The aud claim validation condition area. If not requested, it will be stored as the default value for each field.  |
 | pluginConfigJson.claimValidationCondition.aud.value | Array | Required | Empty Array | N/A |  Set the value of the claim to allow among the values of the aud request claim as a string array. |
 | pluginConfigJson.claimValidationCondition.aud.value[0] | String | Optional | N/A | N/A |  Set the string to allow among the values of the aud request claim. |
-| pluginConfigJson.claimValidationCondition.aud.dataType | Enum | Optional | Array | Array | Set the data type of the aud claim. Only Array is valid. <br/>See [JWT > Claim Data Type]() |
+| pluginConfigJson.claimValidationCondition.aud.dataType | Enum | Optional | Array | Array | Set the data type of the aud claim. Only Array is valid. <br/>See [JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type) |
 | pluginConfigJson.claimValidationCondition.aud.required | Boolean | Required | false | true, false | Set whether the aud request claim value is required to be validated. |
 | pluginConfigJson.claimValidationCondition.aud.validate | Boolean | Required | true | true | Set whether to validate the aud request claim value. Only true is valid. |
 | pluginConfigJson.claimValidationCondition.sub | Object | Optional | Default Object | N/A | The sub claim validation condition area. If not requested, it will be stored as the default value for each field. |
 | pluginConfigJson.claimValidationCondition.sub.value | String | Required | Empty String | N/A |  Set the value of the claim to allow among the values of the sub request claim as a string value. |
-| pluginConfigJson.claimValidationCondition.sub.dataType | Enum | Optional | String | String | Set the data type of the sub claim. Only Array is valid. <br/>See [JWT > Claim Data Type]()|
+| pluginConfigJson.claimValidationCondition.sub.dataType | Enum | Optional | String | String | Set the data type of the sub claim. Only Array is valid. <br/>See [JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type)|
 | pluginConfigJson.claimValidationCondition.sub.required | Boolean | Required | false | true, false | Set whether the sub request claim value is required to be validated. <br/> If the validate field value is true, required must be set to true.  |
 | pluginConfigJson.claimValidationCondition.sub.validate | Boolean | Required | false | true, false | Set whether to validate the sub request claim value. |
 | pluginConfigJson.claimValidationCondition.jti | Object | Optional | Default Object | N/A | The jti claim validation condition area. If not requested, it will be stored as the default value for each field. |
 | pluginConfigJson.claimValidationCondition.jti.value | String | Required | Empty String | N/A | The jti claim does not require setting the validation values to allow, so set it to an empty string. |
-| pluginConfigJson.claimValidationCondition.jti.dataType | Enum | Optional | String | String | Set the data type of the jti claim. <br/>See [JWT > Claim Data Type]()|
+| pluginConfigJson.claimValidationCondition.jti.dataType | Enum | Optional | String | String | Set the data type of the jti claim. <br/>See [JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type)|
 | pluginConfigJson.claimValidationCondition.jti.required | Boolean | Required | false | true, false | Set whether the jti request claim value is required to be validated. |
 | pluginConfigJson.claimValidationCondition.jti.validate | Boolean | Required | false | false | Set whether to validate the jti request claim value. Only false is valid.|
 | pluginConfigJson.claimValidationCondition.exp | Object | Optional | Default Object | N/A | The exp claim validation condition area. If not requested, it will be stored as the default value for each field. |
-| pluginConfigJson.claimValidationCondition.exp.dataType | Enum | Optional | NumericDate | NumericDate | Set the data type of the exp claim. Only NumericDate is valid. See <br/> [JWT > Claim Data Type]() |
+| pluginConfigJson.claimValidationCondition.exp.dataType | Enum | Optional | NumericDate | NumericDate | Set the data type of the exp claim. Only NumericDate is valid. See <br/> [JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type) |
 | pluginConfigJson.claimValidationCondition.exp.required | Boolean | Required | false | true, false | Set whether the exp request claim value is required to be validated. |
 | pluginConfigJson.claimValidationCondition.exp.validate | Boolean | Optional | true | true | Set whether to validate the exp request claim value. Only true is valid. |
 | pluginConfigJson.claimValidationCondition.iat | Object | Optional | Default Object | N/A | The iat claim validation condition area. If not requested, it will be stored as the default value for each field. |
-| pluginConfigJson.claimValidationCondition.iat.dataType | Enum | Optional | NumericDate | NumericDate | Set the data type of the iat claim. Only NumericDate is valid. See <br/> [JWT > Claim Data Type]() |
+| pluginConfigJson.claimValidationCondition.iat.dataType | Enum | Optional | NumericDate | NumericDate | Set the data type of the iat claim. Only NumericDate is valid. See <br/> [JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type) |
 | pluginConfigJson.claimValidationCondition.iat.required | Boolean | Required | false | true, false | Set whether the iat request claim value is required to be validated. |
 | pluginConfigJson.claimValidationCondition.iat.validate | Boolean | Optional | true | true | Set whether to validate the iat request claim value. Only true is valid. |
 | pluginConfigJson.claimValidationCondition.nbf | Object | Optional | Default Object | N/A | The nbf claim validation condition area. If not requested, it will be stored as the default value for each field. |
-| pluginConfigJson.claimValidationCondition.nbf.dataType | Enum | Optional | NumericDate | NumericDate | Set the data type of the nbf claim. Only NumericDate is valid. See <br/> [JWT > Claim Data Type]()|
+| pluginConfigJson.claimValidationCondition.nbf.dataType | Enum | Optional | NumericDate | NumericDate | Set the data type of the nbf claim. Only NumericDate is valid. See <br/> [JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type)|
 | pluginConfigJson.claimValidationCondition.nbf.required | Boolean | Required | false | true, false | Set whether the nbf request claim value is required to be validated. |
 | pluginConfigJson.claimValidationCondition.nbf.validate | Boolean | Optional | true | true | Sets whether to validate the nbf request claim value. Only true is valid. |
 
@@ -2329,11 +2329,11 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | Required | N/A | JWT | See JWT in [Stage Resources > Plugin Type]() |
+| pluginType | Enum | Required | N/A | JWT | See JWT in [Stage Resource > Plugin Type Enum Code](./num-code/#stage-resource-plugin-type) |
 | pluginConfigJson | Object | Required | N/A  | N/A | JWT plugin configuration area |
-| pluginConfigJson.encryptAlgorithm | Enum | Required | RS256 | RS256 | See [JWT > Encryption Algorithm]()  |
+| pluginConfigJson.encryptAlgorithm | Enum | Required | RS256 | RS256 | See [JWT > Encryption Algorithm Enum Code](./enum-code/#jwt-encryption-algorithm)  |
 | pluginConfigJson.rs256 | Object | Required | N/A | N/A | RS256 configuration area |
-| pluginConfigJson.rs256.publicKeyType | Enum | Required | N/A | RSA_PUBLIC_KEY | Set the public key in PEM format. See [JWT > RS256 Encryption Algorithm > Public Key Type]() |
+| pluginConfigJson.rs256.publicKeyType | Enum | Required | N/A | RSA_PUBLIC_KEY | Set the public key in PEM format. See [JWT > RS256 Encryption Algorithm > Public Key Type Enum Code](./enum-code/#jwt-rs256-encryption-algorithm-public-key-type) |
 | pluginConfigJson.rs256.rsaPublicKey | String | Required | N/A | Public key in PEM format | Set the public key value in PEM format. It must be entered including the newline character (\n). |
 | pluginConfigJson.clockSkew | Integer | Optional | 0 | 0~86400 | Specify the validation validity period (in seconds) of the exp, nbf claim. |
 | pluginConfigJson.claimValidationCondition | Object | Optional | Default Object | N/A | Claim validation condition field (encryption algorithm: same as claimValidationCondition field description of HS256) |
@@ -2359,11 +2359,11 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | Required | N/A | JWT | See JWT in [Stage Resources > Plugin Type]() |
+| pluginType | Enum | Required | N/A | JWT | See JWT in [Stage Resource > Plugin Type Enum Code](./num-code/#stage-resource-plugin-type) |
 | pluginConfigJson | Object | Required | N/A  | N/A | JWT plugin configuration area |
-| pluginConfigJson.encryptAlgorithm | Enum | Required | RS256 | RS256 | See [JWT > Encryption Algorithm]()  |
+| pluginConfigJson.encryptAlgorithm | Enum | Required | RS256 | RS256 | See [JWT > Encryption Algorithm Enum Code](./enum-code/#jwt-encryption-algorithm)  |
 | pluginConfigJson.rs256 | Object | Required | N/A | N/A | RS256 configuration area |
-| pluginConfigJson.rs256.publicKeyType | String | Required | N/A | JWKS_URI | Set the public key in JSON Web Key Set (JWKS) URI format. See [JWT > RS256 Encryption Algorithm > Public Key Type]() |
+| pluginConfigJson.rs256.publicKeyType | String | Required | N/A | JWKS_URI | Set the public key in JSON Web Key Set (JWKS) URI format. See [JWT > RS256 Encryption Algorithm > Public Key Type Enum Code](./enum-code/#jwt-rs256-encryption-algorithm-public-key-type) |
 | pluginConfigJson.rs256.rsaPublicKey | String | Required | N/A | N/A | Set the JSON Web Key Set URI. |
 | pluginConfigJson.clockSkew | Integer | Optional | 0 | 0~86400 | Specify the validation validity period (in seconds) of the exp, nbf claim. |
 | pluginConfigJson.claimValidationCondition | Object | Optional | Default Object | N/A | Claim validation condition field (encryption algorithm: same as claimValidationCondition field description of HS256) |
@@ -2386,9 +2386,9 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | Required | N/A | PRE_API | See PRE_API in [Stage Resources > Plugin Type]() |
+| pluginType | Enum | Required | N/A | PRE_API | See PRE_API in [Stage Resource > Plugin Type Enum Code](./num-code/#stage-resource-plugin-type) |
 | pluginConfigJson | Object | Required | N/A | N/A | Pre-call API plugin configuration area |
-| pluginConfigJson.httpMethod | Enum | Required | N/A | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | See [HTTP Method Type Enum Code](./enum-code/#???)  |
+| pluginConfigJson.httpMethod | Enum | Required | N/A | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | See [HTTP Method Type Enum Code](./enum-code/#http-method-type)  |
 | pluginConfigJson.url | String | Required | N/A | URL format | Enter the URL of the pre-call API. |
 | pluginConfigJson.cacheTtl | Integer | Optional | 0 | 0~86400 | Set the cache period of the response status code of the pre-call API. <br/> The code is cached for the configured amount of time only if the response status code is 200 OK. If it is cached, the pre-call API is not called. |
 
@@ -2411,9 +2411,9 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | Required | N/A | RATE_LIMIT | See RATE_LIMIT in [Stage Resources > Plugin Type]() |
+| pluginType | Enum | Required | N/A | RATE_LIMIT | See RATE_LIMIT in [Stage Resource > Plugin Type Enum Code](./num-code/#stage-resource-plugin-type) |
 | pluginConfigJson | Object | Required | N/A | N/A | Request number limit plugin configuration area |
-| pluginConfigJson.keyType | Enum | Required | N/A | DEFAULT, IP, HEADER, PATH_VARIABLE | See [Request Number Limit > Limit key]()  |
+| pluginConfigJson.keyType | Enum | Required | N/A | DEFAULT, IP, HEADER, PATH_VARIABLE | See [Request Number Limit > Limit Key Enum Code](./enum-code/#request-number-list-limit-key)  |
 | pluginConfigJson.extraKeyValue | String | Conditionally required | N/A | N/A | If keyType is HEADER, the header name must be set. <br/> If the keyType is PATH_VARIABLE, you must set a path variable of the format ${request.path.variable-name}. |
 | pluginConfigJson.requestPerSec | Integer | Required | N/A | 1~5000 | Set the maximum number of requests per second. |
 
@@ -2435,7 +2435,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | Required | N/A | API_KEY | See API_KEY in [Stage Resources > Plugin Type]() |
+| pluginType | Enum | Required | N/A | API_KEY | See API_KEY in [Stage Resource > Plugin Type Enum Code](./num-code/#stage-resource-plugin-type) |
 | pluginConfigJson | Object | Required | N/A | N/A | API Key plugin configuration area |
 | pluginConfigJson.isActive | Boolean | Required | N/A | true | Set whether to verify the API key. Must be set to true. |
 
@@ -2446,7 +2446,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 - Deploy the current stage resources and configurations to the API Gateway service.
 - If there is no changed configuration, the stage deployment request will fail.
 - If the stage deployment fails, it is restored to the previous successful stage deployment configuration.
-- After requesting stage deployment, you can check whether stage deployment was successful in [View Recent Stage Deployment Results]().
+- After requesting stage deployment, you can check whether stage deployment was successful in [Query Result of Recent Stage Deployment](./api-guide-v1.0/#query-result-of-recent-stage-deployment).
 
 #### Request
 
@@ -2490,7 +2490,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 
 ### Query Result of Recent Stage Deployment
-- You can query the result of [Deploy Stage]().
+- You can query the result of [Deploy Stage](./api-guide-v1.0/#deploy-stage_1).
 - After a stage deployment request, it can take up to a minute for the deployment results to be updated.
 
 
@@ -2580,7 +2580,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |latestStageDeployResult.deployId       |String    | Deployment ID |
 |latestStageDeployResult.stageId   |String  | Stage ID  |
 |latestStageDeployResult.deployDescription        |String  | Deployment description  |
-|latestStageDeployResult.deployStatus        |Enum  | See [Stage Deployment > Deployment Status]() |
+|latestStageDeployResult.deployStatus        |Enum  | See [Stage Deployment > Deployment Status Enum Code](./enum-code/#stage-deployment-deployment-status) |
 |latestStageDeployResult.isBase         |String  | Whether the deployment history is the base for the current stage configuration. |
 |latestStageDeployResult.deployedAt          |DateTime  | Deployment request date and time |
 |latestStageDeployResult.rollbackAt   |DateTime  | Stage rollback request date and time |
@@ -2591,7 +2591,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |latestStageDeployResult.stageResourceList[0].parentPath             |String  |Parent resource path of the stage (parentPath for root (/) path is null)|
 |latestStageDeployResult.stageResourceList[0].stageId                |String  |Stage ID                                    |
 |latestStageDeployResult.stageResourceList[0].customBackendEndpointUrl      |String  |Backend endpoint override URL                          |
-|latestStageDeployResult.stageResourceList[0].methodType             |Enum    |See [HTTP Method Type Enum Code](./enum-code/#???)               |
+|latestStageDeployResult.stageResourceList[0].methodType             |Enum    |See [HTTP Method Type Enum Code](./enum-code/#http-method-type)               |
 |latestStageDeployResult.stageResourceList[0].methodName             |String  |Method name                                     |
 |latestStageDeployResult.stageResourceList[0].methodDescription      |String  |Method description                                     |
 |latestStageDeployResult.stageResourceList[0].createdAt              |DateTime|Stage resource creation date and time                              |
@@ -2600,8 +2600,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0]|Object    |Stage resource's plugin area                       |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Stage Plugin Type]()                       |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](), [Stage Plugin Type]()           |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Stage Resource > Plugin Type Enum Code](./enum-code//#stage-resource-plugin-type)                       |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code//#stage-resource-plugin-type)           |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -2775,7 +2775,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |stageResourceList[0].parentPath             |String  |Parent resource path of the stage (parentPath for root (/) path is null)|
 |stageResourceList[0].stageId                |String  |Stage ID                                    |
 |stageResourceList[0].customBackendEndpointUrl      |String  |Backend endpoint override URL                          |
-|stageResourceList[0].methodType             |Enum    |See [HTTP Method Type Enum Code](./enum-code/#???)               |
+|stageResourceList[0].methodType             |Enum    |See [HTTP Method Type Enum Code](./enum-code/#http-method-type)               |
 |stageResourceList[0].methodName             |String  |Method name                                     |
 |stageResourceList[0].methodDescription      |String  |Method description                                     |
 |stageResourceList[0].createdAt              |DateTime|Stage resource creation date and time                              |
@@ -2784,8 +2784,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |stageResourceList[0].stageResourcePluginList[0]|Object    |Stage resource's plugin area                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Stage Plugin type]()                       |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](), [Stage Plugin Type]()         |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Stage Resource > Plugin Type Enum Code](./enum-code//#stage-resource-plugin-type)                       |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code//#stage-resource-plugin-type)         |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -3040,7 +3040,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | apiKey | String | Optional | N/A | N/A | Primary or Secondary API Key filter condition |
 | apiKeyId | String | Optional | N/A | N/A | API Key ID filter condition |
 | apiKeyName | String | Optional | N/A | N/A | API Key name filter condition. The starting string of the API Key name must match. |
-| apiKeyStatus | Enum | Optional | N/A | ACTIVE, INACTIVE | API Key status filter condition. See [API Key Status](./enum-code/#???) |
+| apiKeyStatus | Enum | Optional | N/A | ACTIVE, INACTIVE | API Key status filter condition. See [API Key Status Enum Code](./enum-code/#api-key-status) |
 
 #### Response
 
@@ -3088,7 +3088,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | apiKeyList[0].apiKeyDescription | String   | API Key description                                        |
 | apiKeyList[0].primaryApiKey     | String   | Primary API Key value                                 |
 | apiKeyList[0].secondaryApiKey   | String   | Secondary API Key value                               |
-| apiKeyList[0].apiKeyStatus      | Enum     | See [API Key Status Enum Code](./enum-code/#???) |
+| apiKeyList[0].apiKeyStatus      | Enum     | See [API Key Status Enum Code](./enum-code/#api-key-status) |
 | apiKeyList[0].createdAt         | DateTime | API Key creation date and time                                      |
 | apiKeyList[0].updatedAt         | DateTime | API Key modification date and time                                      |
 
@@ -3116,7 +3116,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
 | apiKeyName        | String | Required    | N/A  | Max. 50 characters           | API Key name                                        |
 | apiKeyDescription | String | Optional    | N/A  | Max. 200 characters          | API Key description                                        |
-| apiKeyStatus      | Enum   | Required    | N/A  | ACTIVE, INACTIVE | See [API Key Status Enum Code](./enum-code/#???) |
+| apiKeyStatus      | Enum   | Required    | N/A  | ACTIVE, INACTIVE | See [API Key Status Enum Code](./enum-code/#api-key-status) |
 
 #### Response
 
@@ -3152,7 +3152,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | apiKey.apiKeyDescription | String   | API Key description                                        |
 | apiKey.primaryApiKey     | String   | Primary API Key value                                 |
 | apiKey.secondaryApiKey   | String   | Secondary API Key value                               |
-| apiKey.apiKeyStatus      | Enum     | See [API Key Status Enum Code](./enum-code/#???) |
+| apiKey.apiKeyStatus      | Enum     | See [API Key Status Enum Code](./enum-code/#api-key-status) |
 | apiKey.createdAt         | DateTime | API Key creation date and time                                      |
 | apiKey.updatedAt         | DateTime | API Key modification date and time                                      |
 
@@ -3188,7 +3188,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
 | apiKeyName        | String | Required    | N/A  | Max. 50 characters           | API Key name                                        |
 | apiKeyDescription | String | Optional    | N/A  | Max. 200 characters          | API Key description                                        |
-| apiKeyStatus      | Enum   | Required    | N/A  | ACTIVE, INACTIVE | See [API Key Status Enum Code](./enum-code/#???) |
+| apiKeyStatus      | Enum   | Required    | N/A  | ACTIVE, INACTIVE | See [API Key Status Enum Code](./enum-code/#api-key-status) |
 
 #### Response
 
@@ -3224,7 +3224,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | apiKey.apiKeyDescription | String   | API Key description                                        |
 | apiKey.primaryApiKey     | String   | Primary API Key value                                 |
 | apiKey.secondaryApiKey   | String   | Secondary API Key value                               |
-| apiKey.apiKeyStatus      | Enum     | See [API Key Status Enum Code](./enum-code/#???) |
+| apiKey.apiKeyStatus      | Enum     | See [API Key Status Enum Code](./enum-code/#api-key-status) |
 | apiKey.createdAt         | DateTime | API Key creation date and time                                      |
 | apiKey.updatedAt         | DateTime | API Key modification date and time                                      |
 
@@ -3288,7 +3288,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 | Name                | Type     | Required | Default value | Valid range            | Description                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
-| apiKeyType      | Enum   | Required    | N/A  | PRIMARY, SECONDARY | The API Key type you want to change. Refer to [API Key Type Enum Code](./enum-code/#???) |
+| apiKeyType      | Enum   | Required    | N/A  | PRIMARY, SECONDARY | The API Key type you want to change. Refer to [API Key Type Enum Code](./enum-code/#api-key-type) |
 
 #### Response
 
@@ -3324,7 +3324,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | apiKey.apiKeyDescription | String   | API Key description                                        |
 | apiKey.primaryApiKey     | String   | Primary API Key value                                 |
 | apiKey.secondaryApiKey   | String   | Secondary API Key value                               |
-| apiKey.apiKeyStatus      | Enum     | See [API Key Status Enum Code](./enum-code/#???) |
+| apiKey.apiKeyStatus      | Enum     | See [API Key Status Enum Code](./enum-code/#api-key-status) |
 | apiKey.createdAt         | DateTime | API Key creation date and time                                      |
 | apiKey.updatedAt         | DateTime | API Key modification date and time                                      |
 
@@ -3356,7 +3356,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | apiKey | String | Optional | N/A | N/A | Primary or secondary API key value |
 | apiKeyId | String | Optional | N/A | N/A | API Key ID |
 | apiKeyName | String | Optional | N/A | N/A | API Key name start string |
-| apiKeyStatus | Enum | Optional | N/A | ACTIVE, INACTIVE | See [API Key Status](./enum-code/#???) |
+| apiKeyStatus | Enum | Optional | N/A | ACTIVE, INACTIVE | See [API Key Status Enum Code](./enum-code/#api-key-status) |
 
 #### Response
 
@@ -3474,7 +3474,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | usagePlanList[0].usagePlanName             | String   | Usage plan name                                         |
 | usagePlanList[0].usagePlanDescription      | String   | Usage plan description                                         |
 | usagePlanList[0].rateLimitRequestPerSecond | Integer  | Limit on the number of requests per second                                        |
-| usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | See [Usage Plan > Quota Duration Unit Enum Code](./enum-code/#???) |
+| usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | See [Usage Plan > Quota Period Unit Enum Code](./enum-code/#usage-plan-quota-period-unit) |
 | usagePlanList[0].quotaLimit                | Integer  | Request quota per quota period unit                                |
 | usagePlanList[0].createdAt                 | DateTime | Usage plan creation date and time                                       |
 | usagePlanList[0].updatedAt                 | DateTime | Usage plan modification date and time                                       |
@@ -3531,7 +3531,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | usagePlan.usagePlanName             | String   | Usage plan name                                         |
 | usagePlan.usagePlanDescription      | String   | Usage plan description                                         |
 | usagePlan.rateLimitRequestPerSecond | Integer  | Limit on the number of requests per second                                        |
-| usagePlan.quotaLimitPeriodUnitCode  | Enum     | See [Usage Plan > Quota Duration Unit Enum Code](./enum-code/#???) |
+| usagePlan.quotaLimitPeriodUnitCode  | Enum     | See [Usage Plan > Quota Period Unit Enum Code](./enum-code/#usage-plan-quota-period-unit) |
 | usagePlan.quotaLimit                | Integer  | Request quota per quota period unit                                |
 | usagePlan.createdAt                 | DateTime | Usage plan creation date and time                                       |
 | usagePlan.updatedAt                 | DateTime | Usage plan modification date and time                                       |
@@ -3563,7 +3563,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | usagePlanName             | String  | Required    | N/A  | Max. 50 characters       | Usage plan name                                         |
 | usagePlanDescription      | String  | Optional    | N/A  | Max. 200 characters      | Usage plan description                                         |
 | rateLimitRequestPerSecond | Integer | Optional    | N/A  | 1~5000       | Limit on the number of requests per second                                        |
-| quotaLimitPeriodUnitCode  | Enum    | Optional    | N/A  | DAY, MONTH   | See [Usage Plan > Quota Duration Unit Enum Code](./enum-code/#???) |
+| quotaLimitPeriodUnitCode  | Enum    | Optional    | N/A  | DAY, MONTH   | See [Usage Plan > Quota Period Unit Enum Code](./enum-code/#usage-plan-quota-period-unit) |
 | quotaLimit                | Integer | Conditionally required | N/A  | 1~2147483647 | Required if quotaLimitPeriodUnitCode is set. Request quota per quota period unit                                |
 
 #### Response
@@ -3599,7 +3599,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | usagePlan.usagePlanName             | String   | Usage plan name                                         |
 | usagePlan.usagePlanDescription      | String   | Usage plan description                                         |
 | usagePlan.rateLimitRequestPerSecond | Integer  | Limit on the number of requests per second                                        |
-| usagePlan.quotaLimitPeriodUnitCode  | Enum     | See [Usage Plan > Quota Duration Unit Enum Code](./enum-code/#???) |
+| usagePlan.quotaLimitPeriodUnitCode  | Enum     | See [Usage Plan > Quota Period Unit Enum Code](./enum-code/#usage-plan-quota-period-unit) |
 | usagePlan.quotaLimit                | Integer  | Request quota per quota period unit                                |
 | usagePlan.createdAt                 | DateTime | Usage plan creation date and time                                       |
 | usagePlan.updatedAt                 | DateTime | Usage plan modification date and time                                       |
@@ -3639,7 +3639,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | usagePlanName             | String  | Required    | N/A  | Max. 50 characters       | Usage plan name                                         |
 | usagePlanName             | String  | Optional    | N/A  | Max. 200 characters      | Usage plan description                                         |
 | rateLimitRequestPerSecond | Integer | Optional    | N/A  | 1~5000       | Limit on the number of requests per second                                        |
-| quotaLimitPeriodUnitCode  | Enum    | Optional    | N/A  | DAY, MONTH   | See [Usage Plan > Quota Duration Unit Enum Code](./enum-code/#???) |
+| quotaLimitPeriodUnitCode  | Enum    | Optional    | N/A  | DAY, MONTH   | See [Usage Plan > Quota Period Unit Enum Code](./enum-code/#usage-plan-quota-period-unit) |
 | quotaLimit                | Integer | Conditionally required | N/A  | 1~2147483647 | Required if quotaLimitPeriodUnitCode is set. Request quota per quota period unit                                |
 
 #### Response
@@ -3675,7 +3675,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | usagePlan.usagePlanName             | String   | Usage plan name                                         |
 | usagePlan.usagePlanDescription      | String   | Usage plan description                                         |
 | usagePlan.rateLimitRequestPerSecond | Integer  | Limit on the number of requests per second                                        |
-| usagePlan.quotaLimitPeriodUnitCode  | Enum     | See [Usage Plan > Quota Duration Unit Enum Code](./enum-code/#???) |
+| usagePlan.quotaLimitPeriodUnitCode  | Enum     | See [Usage Plan > Quota Period Unit Enum Code](./enum-code/#usage-plan-quota-period-unit) |
 | usagePlan.quotaLimit                | Integer  | Request quota per quota period unit                                |
 | usagePlan.createdAt                 | DateTime | Usage plan creation date and time                                       |
 | usagePlan.updatedAt                 | DateTime | Usage plan modification date and time                                       |
@@ -3908,7 +3908,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | usagePlanList[0].usagePlanName             | String   | Usage plan name                                         |
 | usagePlanList[0].usagePlanDescription      | String   | Usage plan description                                         |
 | usagePlanList[0].rateLimitRequestPerSecond | Integer  | Limit on the number of requests per second                                        |
-| usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | See [Usage Plan > Quota Duration Unit Enum Code](./enum-code/#???) |
+| usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | See [Usage Plan > Quota Period Unit Enum Code](./enum-code/#usage-plan-quota-period-unit) |
 | usagePlanList[0].quotaLimit                | Integer  | Request quota per quota period unit                                |
 | usagePlanList[0].createdAt                 | DateTime | Usage plan creation date and time                                       |
 | usagePlanList[0].updatedAt                 | DateTime | Usage plan modification date and time                                       |
@@ -3986,7 +3986,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | subscribedStageAndUsagePlanList                              | List    | Area for the list of the stage and the usage plan connected with API key                |
 | subscribedStageAndUsagePlanList[0]                           | Object    | Area for the stage and the usage plan connected with API key                |
 | subscribedStageAndUsagePlanList[0].subscriptionId            | String  | Subscription ID                                     |
-| subscribedStageAndUsagePlanList[0].subscriptionStatus        | Enum    | See [API Key Subscription Status](./enum-code/#???)              |
+| subscribedStageAndUsagePlanList[0].subscriptionStatus        | Enum    | See [API Key Subscription Status Enum Code](./enum-code/#api-key-subscription-status)              |
 | subscribedStageAndUsagePlanList[0].apiKeyId                  | String  | API Key ID                                        |
 | subscribedStageAndUsagePlanList[0].apigwServiceName          | String  | API Gateway service name                                |
 | subscribedStageAndUsagePlanList[0].stageId                   | String  | Stage ID                                           |
@@ -3997,7 +3997,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | subscribedStageAndUsagePlanList[0].usagePlanName             | String  | Usage plan name                                         |
 | subscribedStageAndUsagePlanList[0].usagePlanDescription      | String  | Usage plan description                                         |
 | subscribedStageAndUsagePlanList[0].rateLimitRequestPerSecond | Integer | Limit on the number of requests per second                                        |
-| subscribedStageAndUsagePlanList[0].quotaLimitPeriodUnitCode  | Enum    | See [Usage Plan > Quota Duration Unit Enum Code](./enum-code/#???) |
+| subscribedStageAndUsagePlanList[0].quotaLimitPeriodUnitCode  | Enum    | See [Usage Plan > Quota Period Unit Enum Code](./enum-code/#usage-plan-quota-period-unit) |
 | subscribedStageAndUsagePlanList[0].quotaLimit                | Integer | Request quota per quota period unit                                |
 
 
@@ -4029,7 +4029,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | apiKey | String | Optional | N/A | N/A | Primary or Secondary API Key filter condition |
 | apiKeyId | String | Optional | N/A | N/A | API Key ID filter condition |
 | apiKeyName | String | Optional | N/A | N/A | API Key name filter condition. The starting string of the API Key name must match.  |
-| apiSubscriptionStatus | Enum | Optional | N/A | APPROVAL | See [API Key Subscription Status](./enum-code/#???) |
+| apiSubscriptionStatus | Enum | Optional | N/A | APPROVAL | See [API Key Subscription Status Enum Code](./enum-code/#api-key-subscription-status) |
 
 #### Response
 
@@ -4072,7 +4072,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | apiSubscriptionList                            | List     | Subscription information list area      |
 | apiSubscriptionList[0]                         | Object   | Subscription information area      |
 | apiSubscriptionList[0].subscriptionId          | String   | Subscription ID                                |
-| apiSubscriptionList[0].subscriptionStatus      | Enum     | See [API Key Subscription Status](./enum-code/#???) |
+| apiSubscriptionList[0].subscriptionStatus      | Enum     | See [API Key Subscription Status Enum Code](./enum-code/#api-key-subscription-status) |
 | apiSubscriptionList[0].subscriptionDescription | String   | Subscription description                                |
 | apiSubscriptionList[0].stageId                 | String   | Stage ID                              |
 | apiSubscriptionList[0].usagePlanId             | String   | Usage plan ID                            |
@@ -4148,7 +4148,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | apiSubscriptionList                            | List     | Subscription information list area                          |
 | apiSubscriptionList[0]                         | Object   | Subscription information area                        |
 | apiSubscriptionList[0].subscriptionId          | String   | Subscription ID                                |
-| apiSubscriptionList[0].subscriptionStatus      | Enum     | See [API Key Subscription Status](./enum-code/#???) |
+| apiSubscriptionList[0].subscriptionStatus      | Enum     | See [API Key Subscription Status Enum Code](./enum-code/#api-key-subscription-status) |
 | apiSubscriptionList[0].subscriptionDescription | String   | Subscription description                                |
 | apiSubscriptionList[0].stageId                 | String   | Stage ID                              |
 | apiSubscriptionList[0].usagePlanId             | String   | Usage plan ID                            |
@@ -4344,7 +4344,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |data                                 |List    | Area for statistics data list by resource                      |
 |data[0]                              |Object    | Area for statistics data by resource                      |
 |data[0].uriPattern                   |String  | Resource path or path pattern                         |
-|data[0].httpMethodType               |Enum  | See [HTTP Method Type Enum Code](./enum-code/#???)                             |
+|data[0].httpMethodType               |Enum  | See [HTTP Method Type Enum Code](./enum-code/#http-method-type)                             |
 |data[0].successCount                 |Long    | Number of API call successes (response HTTP status code is 2xx, 3xx) |
 |data[0].failCount               |Long    | Number of API call failures (response HTTP status code is 4xx, 5xx) |
 |data[0].status2xxCount               |Long    | Number of API calls with response HTTP status code 2xx |

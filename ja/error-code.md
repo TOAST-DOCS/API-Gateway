@@ -164,7 +164,7 @@
     "header": {
         "isSuccessful": false,
         "resultCode": 4041007,
-        "resultMessage": "Not Found a Route"
+        "resultMessage": "URL Not Found"
     }
 }
 ```
