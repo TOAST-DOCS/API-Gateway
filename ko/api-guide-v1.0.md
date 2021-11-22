@@ -96,7 +96,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | String | 필수 | 없음 | KR1 | [API Gateway 서비스 타입 Enum 코드](./enum-code/#api-gateway_1) 참고 |
+| regionCode | Enum | 필수 | 없음 | KR1 | [API Gateway 리전 Enum 코드](./enum-code/#api-gateway) 참고 |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
 | limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 
