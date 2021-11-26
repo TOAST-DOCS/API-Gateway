@@ -409,7 +409,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 }
 ```
 
-## 리소스 API
+## 리소스
 
 ### 리소스 조회
 
@@ -4438,10 +4438,6 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 
 |필드                                   |타입      |설명                                         |
 |-------------------------------------|--------|----------------------------------------------|
-|paging                               |Object  | 페이징 영역                                     |
-|paging.page                          |Integer | 현재 페이지                                     |
-|paging.limit                         |Integer | 페이지당 건 수                                 |
-|paging.totalCount                    |Integer | 전체 건 수                                     |
 |data                                 |Object  | API Key 통계 데이터 영역                         |
 |data.{requestApigwEndpoint}          |Object  | API 호출 엔드포인트별 통계 영역                |
 |data.{requestApigwEndpoint}.stageName                    |String    | 스테이지 이름            |

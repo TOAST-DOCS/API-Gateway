@@ -408,7 +408,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
-## Resource API
+## Resource
 
 ### Query Resource
 
@@ -4437,10 +4437,6 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 |Field                                   |Type      |Description                                         |
 |-------------------------------------|--------|----------------------------------------------|
-|paging                               |Object  | Paging area                                     |
-|paging.page                          |Integer | Current page                                     |
-|paging.limit                         |Integer | Count per page                                 |
-|paging.totalCount                    |Integer | Total count                                     |
 |data                                 |Object  | API Key statistics data area                         |
 |data.{requestApigwEndpoint}          |Object  | Area for statistics by API call endpoint                |
 |data.{requestApigwEndpoint}.stageName                    |String    | Stage name            |
