@@ -1,37 +1,37 @@
-## Application Service > API Gateway > API v1.0 Guide
+## Application Service > API Gateway > API v1.0ガイド
 
-This guide describes Public API v1.0 provided by NHN Cloud API Gateway.
+NHN Cloud API Gatewayで提供するPublic API v1.0を説明します。
 
-## API Common Information
+## API共通情報
 
-### Domain
+### ドメイン
 
-| Name              | Domain                                   |
+| 名前            | ドメイン                                 |
 | --------------- | ------------------------------------- |
-| API domain | https://kr1-apigateway.api.nhncloudservice.com |
+| APIドメイン | https://kr1-apigateway.api.nhncloudservice.com |
 
-### Prerequisites
+### 事前準備
 
-To use the API, you need an Appkey.
-You can find your Appkey in the **URL & Appkey** menu at the top right of the console.
+APIを使用するにはアプリキー(Appkey)が必要です。
+アプリキーはコンソール右上の**URL & Appkey** メニューで確認できます。
 
-### Request Common Information
+### リクエスト共通情報
 
 #### Path Parameter
 
-All APIs must specify the appkey as a path parameter.
-* Example: /v1.0/appkeys/**{appKey}**/**
+すべてのAPIはアプリキーをPath Parameterで指定する必要があります。
+* 例) /v1.0/appkeys/**{appKey}**/**
 
-| Name     | Description                    |
+| 名前   | 説明                  |
 | ------ | --------------------- |
-| appKey | Appkey issued from the console |
+| appKey | コンソールで発行されたアプリキー(Appkey) |
 
-### Response Common Information
+### レスポンス共通情報
 
-#### Header
-The service responds with **200 OK** to all API requests. For detailed response results, refer to the header of the response body as in the following example.
+#### ヘッダ
+すべてのAPIリクエストに対して**200 OK**でレスポンスします。詳細なレスポンス結果は、次の例のようにレスポンス本文のヘッダを参照します。
 
-[Success: Response Body]
+[成功: Response Body]
 
 ```json
 {
@@ -43,14 +43,15 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
-| Field | Type | Description |
+| フィールド | タイプ | 説明 |
 | --- | --- | --- |
-| header               | Object  | Header area  |
-| header.isSuccessful  | Boolean | Successful or not  |
-| header.resultCode    | Integer | Result code  |
-| header.resultMessage | String  | Result message |
+| header               | Object  | ヘッダ領域 |
+| header.isSuccessful  | Boolean | 成否 |
+| header.resultCode    | Integer | 結果コード |
+| header.resultMessage | String  | 結果メッセージ |
 
-[Failure: Response Body]
+[失敗：Response Body]  
+無効なAPIリクエストを行った場合、 errorListフィールドに詳細なエラー原因とフィールド情報がレスポンスされます。  
 
 ```json
 {
@@ -70,38 +71,36 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
-| Field | Type | Description |
+| フィールド | タイプ | 説明 |
 | --- | --- | --- |
-| errorList            | List  | Error list area  |
-| errorList[0].resultCode  | Integer | Error Code  |
-| errorList[0].errorProperty | String | Error property (model) |
-| errorList[0].errorField | String  | Error details field |
-| errorList[0].errorMessage | String  | Error Message |
+| errorList            | List  | エラーリスト領域 |
+| errorList[0].resultCode  | Integer | エラーコード |
+| errorList[0].errorProperty | String | エラープロパティ(モデル) |
+| errorList[0].errorField | String  | エラー詳細フィールド |
+| errorList[0].errorMessage | String  | エラーメッセージ |
 
-* If an invalid API request is made, detailed error reason and field information is responded in the errorList field.
+## API Gatewayサービス
 
-## API Gateway Service
+### API Gatewayサービスリスト照会 
+- API Gatewayサービスリストを照会します。
 
-### Query API Gateway Service List
-- Query the list of API Gateway services.
-
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/services |
 
 [QueryString Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | Enum | Required | N/A | KR1 | See [API Gateway Region Enum Code](./enum-code/#api-gateway-region) |
-| page | Integer | Optional | 1 | N/A | Page |
-| limit | Integer | Optional | 10 | Max. 1000 | Count per page |
+| regionCode | String | 必須 | なし | KR1 | [API GatewayサービスタイプEnumコード](./enum-code/#apigwServiceType)参考 |
+| page | Integer | 任意 | 1 | なし | ページ |
+| limit | Integer | 任意 | 10 | 最大1000 | ページあたりの件数 |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -136,46 +135,46 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
-|Field                                   |Type      |Description                                            |
+|フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
-|paging                               |Object  | Paging area                                        |
-|paging.page                          |Integer | Current page                                        |
-|paging.limit                         |Integer | Count per page                                  |
-|paging.totalCount                    |Integer | Total count                                        |
-|apigwServiceList                     |List    | API Gateway service list area                         |
-|apigwServiceList[0].apigwDomain         |String  | API Gateway service domain                  |
-|apigwServiceList[0].apigwServiceAlias   |String  | API Gateway service alias               |
-|apigwServiceList[0].apigwServiceId      |String  | API Gateway service ID                  |
-|apigwServiceList[0].apigwServiceTypeCode|Enum    | See [API Gateway Service Type Enum Code](./enum-code/#api-gateway-service-type)|
+|paging                               |Object  | ページング領域                                      |
+|paging.page                          |Integer | 現在のページ                                      |
+|paging.limit                         |Integer | ページあたりの件数                                 |
+|paging.totalCount                    |Integer | 総件数                                       |
+|apigwServiceList                     |List    | API Gatewayサービスリスト領域                       |
+|apigwServiceList[0].apigwDomain         |String  | API Gatewayサービスドメイン                |
+|apigwServiceList[0].apigwServiceAlias   |String  | API Gatewayサービスエイリアス             |
+|apigwServiceList[0].apigwServiceId      |String  | API GatewayサービスID                  |
+|apigwServiceList[0].apigwServiceTypeCode|Enum    | [API GatewayサービスタイプEnumコード](./enum-code/#apigwServiceType)参考|
 |apigwServiceList[0].appKey              |String  | AppKey                                        |
-|apigwServiceList[0].dedicatedId         |String  | ID of the dedicated API Gateway service                        |
-|apigwServiceList[0].apigwServiceDescription         |String  | API Gateway service alias                                        |
-|apigwServiceList[0].apigwServiceName                |String  | API Gateway service name                                        |
-|apigwServiceList[0].regionCode          |Enum    | See [API Gateway Region Enum Code](./enum-code/#api-gateway-region) |
-|apigwServiceList[0].serverGroupId       |String  | ID of the server group to which the API Gateway service belongs                              |
-|apigwServiceList[0].createdAt           |DateTime| API Gateway service creation date and time                                      |
-|apigwServiceList[0].updatedAt           |DateTime| API Gateway service modification date and time                                      |
+|apigwServiceList[0].dedicatedId         |String  | 専用API GatewayサービスのID                        |
+|apigwServiceList[0].apigwServiceDescription         |String  | API Gatewayサービスの説明                                      |
+|apigwServiceList[0].apigwServiceName                |String  | API Gatewayサービス名                                      |
+|apigwServiceList[0].regionCode          |Enum    | [API GatewayリージョンEnumコード](./enum-code/#regionCode)参考 |
+|apigwServiceList[0].serverGroupId       |String  | API Gatewayサービスが属すサーバーグループID                              |
+|apigwServiceList[0].createdAt           |DateTime| API Gatewayサービス作成日時                                    |
+|apigwServiceList[0].updatedAt           |DateTime| API Gatewayサービス修正日時                                    |
 
 
-### Query Single API Gateway Service
-- Query a single API Gateway service by API Gateway service ID.
+### 単一API Gatewayサービス照会 
+- API GatewayサービスIDで単一API Gatewayサービスを照会します。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId} |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
 
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -203,35 +202,35 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
-|Field                                   |Type      |Description                                            |
+|フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
-|apigwService                     |Object  | API Gateway service area                         |
-|apigwService.apigwDomain         |String  | API Gateway service domain                  |
-|apigwService.apigwServiceAlias   |String  | API Gateway service alias                            |
-|apigwService.apigwServiceId      |String  | API Gateway service ID                            |
-|apigwService.apigwServiceTypeCode|Enum    | See [API Gateway Service Type Enum Code](./enum-code/#api-gateway-service-type) |
+|apigwService                     |Object  | API Gatewayサービス領域                       |
+|apigwService.apigwDomain         |String  | API Gatewayサービスドメイン                |
+|apigwService.apigwServiceAlias   |String  | API Gatewayサービスエイリアス                          |
+|apigwService.apigwServiceId      |String  | API GatewayサービスID                            |
+|apigwService.apigwServiceTypeCode|Enum    | [API GatewayサービスタイプEnumコード](./enum-code/#apigwServiceType)参考 |
 |apigwService.appKey              |String  | AppKey                                        |
-|apigwService.dedicatedId         |String  | ID of the dedicated API Gateway service                        |
-|apigwService.apigwServiceDescription         |String  | API Gateway service alias                                        |
-|apigwService.apigwServiceName                |String  | API Gateway service name                                        |
-|apigwService.regionCode          |Enum    |See [API Gateway Region Enum Code](./enum-code/#api-gateway-region)|
-|apigwService.serverGroupId       |String  | ID of the server group to which the API Gateway service belongs                              |
-|apigwService.createdAt           |DateTime| API Gateway service creation date and time                                      |
-|apigwService.updatedAt           |DateTime| API Gateway service modification date and time                                      |
+|apigwService.dedicatedId         |String  | 専用API GatewayサービスのID                        |
+|apigwService.apigwServiceDescription         |String  | API Gatewayサービスの説明                                      |
+|apigwService.apigwServiceName                |String  | API Gatewayサービス名                                      |
+|apigwService.regionCode          |Enum    |[API GatewayリージョンEnumコード](./enum-code/#regionCode)参考|
+|apigwService.serverGroupId       |String  | API Gatewayサービスが属すサーバーグループID                              |
+|apigwService.createdAt           |DateTime| API Gatewayサービス作成日時                                    |
+|apigwService.updatedAt           |DateTime| API Gatewayサービス修正日時                                    |
 
 
 
-### Create API Gateway Service
-- Create an API Gateway service.
-- You can choose the region where the API Gateway server will be created. Currently, only the Korea (Pangyo) region is supported.
-- When you create an API Gateway service, an API Gateway service ID is automatically issued.
+### API Gatewayサービスの作成
+- API Gatewayサービスを作成します。
+- API Gatewayサーバーが作成されるリージョンを選択できます。現在は韓国(パンギョ)リージョンのみサポートします。
+- API Gatewayサービスを作成するとAPI GatewayサービスIDが自動発行されます。
 
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | POST | /v1.0/appkeys/{appKey}/services |
 
@@ -245,14 +244,14 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | Enum | Required | N/A | KR1 | See [API Gateway Region Enum Code](./enum-code/#api-gateway-region) |
-| apigwServiceName | String | Required | N/A | Max. 50 characters  | API Gateway service name |
-| apigwServiceDescription | String | Optional | N/A | Max. 200 characters  | API Gateway service alias |
+| regionCode | Enum | 必須 | なし | KR1 | [API GatewayサービスタイプEnumコード](./enum-code/#apigwServiceType)参考 |
+| apigwServiceName | String | 必須 | なし | 最大50文字 | API Gatewayサービス名 |
+| apigwServiceDescription | String | 任意 | なし | 最大200文字 | API Gatewayサービスの説明 |
 
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -280,39 +279,39 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
-|Field                                   |Type      |Description                                            |
+|フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
-|apigwService                     |Object    | API Gateway service area                         |
-|apigwService.apigwDomain         |String  | API Gateway service domain                  |
-|apigwService.apigwServiceAlias   |String  | API Gateway service alias                            |
-|apigwService.apigwServiceId      |String  | API Gateway service ID                            |
-|apigwService.apigwServiceTypeCode|Enum    | See [API Gateway Service Type Enum Code](./enum-code/#api-gateway-service-type) |
+|apigwService                     |Object    | API Gatewayサービス領域                       |
+|apigwService.apigwDomain         |String  | API Gatewayサービスドメイン                |
+|apigwService.apigwServiceAlias   |String  | API Gatewayサービスエイリアス                          |
+|apigwService.apigwServiceId      |String  | API GatewayサービスID                            |
+|apigwService.apigwServiceTypeCode|Enum    | [API GatewayサービスタイプEnumコード](./enum-code/#apigwServiceType)参考 |
 |apigwService.appKey              |String  | AppKey                                        |
-|apigwService.dedicatedId         |String  | ID of the dedicated API Gateway service                        |
-|apigwService.apigwServiceDescription      | String  | Service description                                        |
-|apigwService.apigwServiceName    |String  | API Gateway service name                                        |
-|apigwService.regionCode          |Enum    | See [API Gateway Region Enum Code](./enum-code/#api-gateway-region)|
-|apigwService.serverGroupId       |String  | ID of the server group to which the API Gateway service belongs                              |
-|apigwService.createdAt           |DateTime| API Gateway service creation date and time                                      |
-|apigwService.updatedAt           |DateTime| API Gateway service modification date and time                                      |
+|apigwService.dedicatedId         |String  | 専用API GatewayサービスのID                        |
+|apigwService.apigwServiceDescription         |String  | サービスの説明                                      |
+|apigwService.apigwServiceName    |String  | API Gatewayサービス名                                      |
+|apigwService.regionCode          |Enum    | [API GatewayリージョンEnumコード](./enum-code/#regionCode)参考|
+|apigwService.serverGroupId       |String  | API Gatewayサービスが属すサーバーグループID                              |
+|apigwService.createdAt           |DateTime| API Gatewayサービス作成日時                                    |
+|apigwService.updatedAt           |DateTime| API Gatewayサービス修正日時                                    |
 
 
-### Modify API Gateway Service
-- Modify the name and description of an API Gateway service.
+### API Gatewayサービスの修正
+- API Gatewayサービスの名前と説明を修正します。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI                                  |
+| メソッド | URI                                  |
 | ---- | ------------------------------------ |
 | PUT  | /v1.0/appkeys/{appKey}/services/{apigwServiceId} |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
 
 
 [Request Body]
@@ -324,13 +323,13 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceName | String | Required | N/A | Max. 50 characters  | API Gateway service name |
-| apigwServiceDescription | String | Optional | N/A | Max. 200 characters  | API Gateway service alias |
+| apigwServiceName | String | 必須 | なし | 最大50文字 | API Gatewayサービス名 |
+| apigwServiceDescription | String | 任意 | なし | 最大200文字 | API Gatewayサービスの説明 |
 
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -358,43 +357,43 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
-|Field                                   |Type      |Description                                            |
+|フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
-|apigwService                     |Object    |API Gateway service area                         |
-|apigwService.apigwDomain         |String  |API Gateway service domain                  |
-|apigwService.apigwServiceAlias   |String  |API Gateway service alias                            |
-|apigwService.apigwServiceId      |String  |API Gateway service ID                            |
-|apigwService.apigwServiceTypeCode|Enum    |See [API Gateway Service Type Enum Code](./enum-code/#api-gateway-service-type)|
+|apigwService                     |Object    |API Gatewayサービス領域                       |
+|apigwService.apigwDomain         |String  |API Gatewayサービスドメイン                |
+|apigwService.apigwServiceAlias   |String  |API Gatewayサービスエイリアス                          |
+|apigwService.apigwServiceId      |String  |API GatewayサービスID                            |
+|apigwService.apigwServiceTypeCode|Enum    |[API GatewayサービスタイプEnumコード](./enum-code/#apigwServiceType)参考|
 |apigwService.appKey              |String  |AppKey                                        |
-|apigwService.dedicatedId         |String  |ID of the dedicated API Gateway service                        |
-|apigwService.apigwServiceDescription         |String  |Service description                                        |
-|apigwService.apigwServiceName                |String  |Service name                                        |
-|apigwService.regionCode          |Enum    |See [API Gateway Region Enum Code](./enum-code/#api-gateway-region)|
-|apigwService.serverGroupId       |String  |ID of the server group to which the service belongs                              |
-|apigwService.createdAt           |DateTime|Service creation date and time                                      |
-|apigwService.updatedAt           |DateTime|Service modification date and time                                      |
+|apigwService.dedicatedId         |String  |専用API GatewayサービスのID                        |
+|apigwService.apigwServiceDescription         |String  |サービスの説明                                      |
+|apigwService.apigwServiceName                |String  |サービス名                                      |
+|apigwService.regionCode          |Enum    |[API GatewayリージョンEnumコード](./enum-code/#regionCode)参考|
+|apigwService.serverGroupId       |String  |サービスが属すサーバーグループID                              |
+|apigwService.createdAt           |DateTime|サービス作成日時                                    |
+|apigwService.updatedAt           |DateTime|サービス修正日時                                    |
 
-### Delete API Gateway Service
-- Delete API Gateway Service
-- Deleting the API Gateway service deletes all stages.
-- If the stage of the API Gateway service you want to delete is associated with a usage plan, the service cannot be deleted. To delete the service, disassociate all stages associated with the usage plan and then delete it.
-- Please note that deleted API Gateway services cannot be recovered.
+### API Gatewayサービスの削除
+- API Gatewayサービスを削除します。  
+- API Gatewayサービスを削除するとすべてのステージが削除されます。  
+- 削除しようとしているAPI Gatewayサービスのステージが使用量プランと関連付けられている場合は、削除できません。削除するには使用量プランに関連付けられているステージの関連付けを全て削除した後、削除してください。
+- 削除されたAPI Gatewayサービスは復元できないため、注意してください。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method    | URI                                 |
+| メソッド  | URI                                 |
 | ------ | ------------------------------------ |
 | DELETE | /v1.0/appkeys/{appKey}/services/{apigwServiceId} |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -408,27 +407,27 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
-## Resource
+## リソースAPI
 
-### Query Resource
+### リソース照会
 
-- Query a list of resources.
+- リソースリストを照会します。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method | URI | 
+| メソッド | URI | 
 | --- | --- | 
 | GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
 
 [Path Parameter]
 
-| Name             | Type     | Required | Default value | Valid range | Description                 |
+| 名前           | タイプ   | 必須かどうか | デフォルト値 | 有効範囲 | 説明               |
 | -------------- | ------ | ----- | --- | ----- | ------------------ |
-| apigwServiceId | String | Required    | N/A  | N/A    | API Gateway service ID |
+| apigwServiceId | String | 必須  | なし | なし   | API GatewayサービスID |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -489,50 +488,50 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
-| Field                                                     | Type       | Description                                             |
+| フィールド                                                   | タイプ     | 説明                                           |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
-| resourceList                                           | List     | Resource list area                                      |
-| resourceList[0].resourceId                             | String   | Resource ID                                         |
-| resourceList[0].apigwServiceId                         | String   | API Gateway service ID                             |
-| resourceList[0].path                                   | String   | Resource path                                         |
-| resourceList[0].createdAt                              | DateTime | Resource creation date and time                                       |
-| resourceList[0].updatedAt                              | DateTime | Resource modification date and time                                       |
-| resourceList[2].methodType                             | Enum     | See [HTTP Method Type Enum Code](./enum-code/#http-method-type) |
-| resourceList[2].methodName                             | String   | Method resource name                                     |
-| resourceList[2].methodDescription                      | String   | Method resource description                                     |
-| resourceList[2].resourcePluginList                     | List     | Resource plugin list area                                 |
-| resourceList[2].resourcePluginList[0].resourcePluginId | String   | Resource plugin ID                                    |
-| resourceList[2].resourcePluginList[0].resourceId       | String   | Resource ID                                         |
-| resourceList[2].resourcePluginList[0].pluginType       | Enum     | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type)    |
-| resourceList[2].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin)                   |
-| resourceList[2].resourcePluginList[0].createdAt        | DateTime | Resource plugin creation date and time                                  |
-| resourceList[2].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
+| resourceList                                           | List     | リソースリスト領域                                    |
+| resourceList[0].resourceId                             | String   | リソースID                                         |
+| resourceList[0].apigwServiceId                         | String   | API GatewayサービスID                             |
+| resourceList[0].path                                   | String   | リソースパス                                       |
+| resourceList[0].createdAt                              | DateTime | リソース作成日時                                     |
+| resourceList[0].updatedAt                              | DateTime | リソース修正日時                                     |
+| resourceList[2].methodType                             | Enum     | [HTTPメソッドタイプEnumコード](./enum-code/#???)参考 |
+| resourceList[2].methodName                             | String   | メソッドリソース名                                   |
+| resourceList[2].methodDescription                      | String   | メソッドリソースの説明                                   |
+| resourceList[2].resourcePluginList                     | List     | リソースプラグインリスト領域                               |
+| resourceList[2].resourcePluginList[0].resourcePluginId | String   | リソースプラグインID                                    |
+| resourceList[2].resourcePluginList[0].resourceId       | String   | リソースID                                         |
+| resourceList[2].resourcePluginList[0].pluginType       | Enum     | [リソースプラグインタイプEnumコード](./enum-code/#???)参考  |
+| resourceList[2].resourcePluginList[0].pluginConfigJson | Object   | [リソースプラグインタイプ別のJSON設定値]()参考                 |
+| resourceList[2].resourcePluginList[0].createdAt        | DateTime | リソースプラグインの作成日時                                |
+| resourceList[2].resourcePluginList[0].updatedAt        | DateTime | リソースプラグインの修正日時                                |
 
 
-### Delete Resource
-- Delete a resource.
-- The root ("/") path resource cannot be deleted.
-- The OPTIONS method created by the CORS plugin cannot be deleted.
-The OPTIONS method created by the CORS plugin is deleted collectively when the CORS plugin is removed from the resource with the plugin configured.
-- Deleting a path resource deletes all sub-paths and method resources.
-- Deleted resources cannot be recovered.
+### リソースの削除
+- リソースを削除します。
+- ルート("/")パスリソースは削除できません。
+- CORSプラグインにより作成されたOPTIONSメソッドは削除できません。 
+CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラグインが設定されたリソースからプラグインを削除すると一括削除されます。
+- パスリソースを削除すると、サブパスとメソッドリソースが全て削除されます。
+- 削除されたリソースは復元できませ。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI                                  |
+| メソッド | URI                                  |
 | ---- | ------------------------------------ |
 | DELETE  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId} |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
-| resourceId | String | Required | N/A | N/A | Resource ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
+| resourceId | String | 必須 | なし | なし | リソースID |
 
-#### Response
+#### レスポンス
 
 [Response Body]
 
@@ -546,25 +545,25 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-### Import Resource
-- Import resources from a file in the [Swagger v2.0 OpenAPI Specification](https://swagger.io/specification/v2/) format.
-- When resources are imported, all existing resources created in the service are deleted and overwritten with the imported resources.
-- When a resource is imported, all existing models created in the service are deleted and overwritten with the imported model.
-- Note that data of invalid operation in Swagger paths > path > operation will be ignored and not registered.
+### リソースのインポート
+- [Swagger v2.0 OpenAPI Specification](https://swagger.io/specification/v2/)形式のファイルからリソースを取得します。
+- リソースをインポートすると、そのサービスに作成されていた既存のリソースは全て削除され、インポートしたリソースで上書きされます。
+- リソースをインポートすると、そのサービスに作成されていた既存のモデルは全て削除され、インポートしたモデルで上書きされます。
+- Swagger paths > path > operationで有効ではないoperationのデータは無視され、登録されませんので注意してください。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI                                  |
+| メソッド | URI                                  |
 | ---- | ------------------------------------ |
 | POST  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/import |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
 
 [Request Body]
 ```json
@@ -642,49 +641,49 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| swaggerData | Object  | Required    | N/A | Swagger JSON format | [Swagger v2.0 OpenAPI Specification](https://swagger.io/specification/v2/) |
-| swaggerData.info | Object | Required | N/A | N/A | API metadata area. See [Info Object](https://swagger.io/specification/v2/#swagger-object) |
-| swaggerData.info.title | String | Optional | N/A | N/A | API title. See [Info Object](https://swagger.io/specification/v2/#info-object) |
-| swaggerData.info.version | String  | Optional | N/A | N/A | API version information. See [Info Object](https://swagger.io/specification/v2/#info-object) |
-| swaggerData.paths | Object | Required | N/A | N/A | Object area with route information of the API that sets the API Gateway route. See [Paths Object](https://swagger.io/specification/v2/#paths-object) |
-| swaggerData.paths.{path} | Object | Required | N/A | {path} Max. 255 characters | Object area with {path}, which is the API Gateway route, and method information in {path}. See [Paths Item Object](https://swagger.io/specification/v2/#path-item-object) |
-| swaggerData.paths.{path}.{operation} | Object | Optional | N/A | {operation} get, post, put, delete, head, options, patch | Object area with {operation}, which is the API Gateway method, and method information. Data from invalid operations is ignored and not registered. See [Operation Object](https://swagger.io/specification/v2/#operation-object)  |
-| swaggerData.paths.{path}.{operation}.summary | String | Optional | {operation} Uppercase | Max. 50 characters | API Gateway method name. |
-| swaggerData.paths.{path}.{operation}.description | String | Optional | {operation} Uppercase | Max. 200 characters | API Gateway method description. |
-| swaggerData.paths.{path}.{operation}.consumes | Array | Optional | Empty Array | N/A | API Gateway resource request parameters > Content Type List area. |
-| swaggerData.paths.{path}.{operation}.consumes[0] | String  | Optional | N/A | \*/\* format | API Gateway Resource Request Parameters > Content Type. |
-| swaggerData.paths.{path}.{operation}.parameters | Array | Optional | N/A | N/A | API Gateway resource request parameters > Query String, Header, Form Data, Request Body area. See [Parameter Object](https://swagger.io/specification/v2/#parameter-object) |
-| swaggerData.paths.{path}.{operation}.parameters[0].name | String | Required | N/A | Max. 50 characters | API Gateway resource request parameters > Query String, Header, Form Data, Request Body name. |
-| swaggerData.paths.{path}.{operation}.parameters[0].in | String | Required | N/A | query, header, formData, body | API Gateway resource request parameters > Separate Query String, Header, Form Data, and Request location. |
-| swaggerData.paths.{path}.{operation}.parameters[0].description | String | Optional | N/A | Max. 200 characters | API Gateway resource request parameters > Query String, Header, Form Data, Request Body description. |
-| swaggerData.paths.{path}.{operation}.parameters[0].required | Boolean | Required | N/A | true, false | API Gateway resource request parameters > Query String, Header, Form Data, Request Body required |
-| swaggerData.paths.{path}.{operation}.produces | Array | Optional | Empty Array | N/A | API Gateway resource response > Content Type List area. |
-| swaggerData.paths.{path}.{operation}.produces[0] | String | Optional | N/A | \*/\* format | API Gateway Resource Response > Content Type. |
-| swaggerData.paths.{path}.{operation}.responses | Object | Optional | N/A | N/A | API Gateway resource response > Object area with response HTTP status code information. See [Responses Object](https://swagger.io/specification/v2/#response-object) |
-| swaggerData.paths.{path}.{operation}.responses.{httpStatusCode} | Object | Optional | N/A | {httpStatusCode} 100~599 | API Gateway resource response > Response HTTP status code object area. |
-| swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.description | String | Optional | N/A |Max. 200 characters | API Gateway resource response > Response HTTP status code > Description. |
-| swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.headers | Object | Optional | N/A | N/A | API Gateway resource response > Response HTTP status code > Header object area. See [Header Object](https://swagger.io/specification/v2/#headers-object) |
-| swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.headers.{headerName} | Object | Optional | N/A | {headerName} Max. 50 characters | API Gateway resource response > Response HTTP status code > Header area. |
-| swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.headers.{headerName}.description | String | Optional | N/A | Max. 200 characters | API Gateway resource response > Response HTTP status code > Header > Description. |
-| swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.headers.{headerName}.type | String | Required | N/A | string, number, integer, boolean | API Gateway resource response > Response HTTP status code > Header > Data Type. |
-| swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.schema | Object | Optional | N/A | N/A | API Gateway resource response > Response HTTP status code > Response Body area.|
-| swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.schema.$ref | String | Required | N/A | Objects declared in Swagger definitions | API Gateway resource response > Response HTTP status code > Response Body > Model. |
-| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway | Object | Optional | N/A | N/A | API Gateway-provided feature definition object area. |
-| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins | Object | Required | N/A | N/A | API Gateway custom plugin object area. |
-| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins.{pluginCode} | Object | Required | N/A | {pluginCode} HTTP, MOCK, CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type). See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin). |
-| swaggerData.definitions | Object | Optional | N/A | N/A | API Gateway resource request parameters, body object definition area used in response. See [Definitions Object](https://swagger.io/specification/v2/#definitionsObject) |
+| swaggerData | Object  | 必須  | なし | Swagger JSON形式 | [Swagger v2.0 OpenAPI Specification](https://swagger.io/specification/v2/) |
+| swaggerData.info | Object | 必須 | なし | なし | APIのメタデータ領域。 [Info Object](https://swagger.io/specification/v2/#swagger-object)参考 |
+| swaggerData.info.title | String | 任意 | なし | なし | APIのタイトル。 [Info Object](https://swagger.io/specification/v2/#info-object)参考 |
+| swaggerData.info.version | String  | 任意 | なし | なし | APIのバージョン情報。 [Info Object](https://swagger.io/specification/v2/#info-object)参考 |
+| swaggerData.paths | Object | 必須 | なし | なし | API Gatewayパスを設定するAPIのパス情報を持つオブジェクト領域。 [Paths Object](https://swagger.io/specification/v2/#paths-object)参考 |
+| swaggerData.paths.{path} | Object | 必須 | なし | {path}最大255文字 | API Gatewayパス{path}と{path}内のメソッド情報を持つオブジェクト領域。 [Paths Item Object](https://swagger.io/specification/v2/#path-item-object)参考 |
+| swaggerData.paths.{path}.{operation} | Object | 任意 | なし | {operation} get, post, put, delete, head, options, patch | API Gatewayメソッド{operation}とメソッド情報を持つオブジェクト領域。有効ではないoperationのデータは無視され、登録されません。 [Operation Object](https://swagger.io/specification/v2/#operation-object)参考 |
+| swaggerData.paths.{path}.{operation}.summary | String | 任意 | {operation}大文字 | 最大50文字 | API Gatewayメソッド名。 |
+| swaggerData.paths.{path}.{operation}.description | String | 任意 | {operation}大文字 | 最大200文字 | API Gatewayメソッド説明。 |
+| swaggerData.paths.{path}.{operation}.consumes | Array | 任意 | Empty Array | なし | API Gatewayリソースリクエストパラメータ > コンテンツタイプリスト領域。 |
+| swaggerData.paths.{path}.{operation}.consumes[0] | String  | 任意 | なし | \*/\* 形式 | API Gatewayリソースリクエストパラメータ > コンテンツタイプ。 |
+| swaggerData.paths.{path}.{operation}.parameters | Array | 任意 | なし | なし | API Gatewayリソースリクエストパラメータ > クエリ文字列、ヘッダ、フォームデータ、リクエスト本文領域。 [Parameter Object](https://swagger.io/specification/v2/#parameter-object)参考 |
+| swaggerData.paths.{path}.{operation}.parameters[0].name | String | 必須 | なし | 最大50文字 | API Gatewayリソースリクエストパラメータ > クエリ文字列、ヘッダ、フォームデータ、リクエスト本文の名前。 |
+| swaggerData.paths.{path}.{operation}.parameters[0].in | String | 必須 | なし | query, header, formData, body | API Gatewayリソースリクエストパラメータ > クエリ文字列、ヘッダ、フォームデータ、リクエスト本文区分。 |
+| swaggerData.paths.{path}.{operation}.parameters[0].description | String | 任意 | なし | 最大200文字 | API Gatewayリソースリクエストパラメータ > クエリ文字列、ヘッダ、フォームデータ、リクエスト本文の説明。 |
+| swaggerData.paths.{path}.{operation}.parameters[0].required | Boolean | 必須 | なし | true, false | API Gatewayリソースリクエストパラメータ > クエリ文字列、ヘッダ、フォームデータ、リクエストが本文必須かどうか。 |
+| swaggerData.paths.{path}.{operation}.produces | Array | 任意 | Empty Array | なし | API Gatewayリソースレスポンス > コンテンツタイプリスト領域。 |
+| swaggerData.paths.{path}.{operation}.produces[0] | String | 任意 | なし | \*/\* 形式 | API Gatewayリソースレスポンス > コンテンツタイプ。 |
+| swaggerData.paths.{path}.{operation}.responses | Object | 任意 | なし | なし | API Gatewayリソースレスポンス > レスポンスHTTPステータスコード情報を持つオブジェクト領域。 [Responses Object](https://swagger.io/specification/v2/#response-object)参考 |
+| swaggerData.paths.{path}.{operation}.responses.{httpStatusCode} | Object | 任意 | なし | {httpStatusCode} 100～599 | API Gatewayリソースレスポンス > レスポンスHTTPステータスコードオブジェクト領域。 |
+| swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.description | String | 任意 | なし |最大200文字 | API Gatewayリソースレスポンス > レスポンスHTTPステータスコード > 説明。 |
+| swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.headers | Object | 任意 | なし | なし | API Gatewayリソースレスポンス > レスポンスHTTPステータスコード > ヘッダオブジェクト領域。 [Header Object](https://swagger.io/specification/v2/#headers-object)参考 |
+| swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.headers.{headerName} | Object | 任意 | なし | {headerName}最大50文字 | API Gatewayリソースレスポンス > レスポンスHTTPステータスコード > ヘッダ領域。 |
+| swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.headers.{headerName}.description | String | 任意 | なし | 最大200文字 | API Gatewayリソースレスポンス > レスポンスHTTPステータスコード > ヘッダ > 説明。 |
+| swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.headers.{headerName}.type | String | 必須 | なし | string, number, integer, boolean | API Gatewayリソースレスポンス > レスポンスHTTPステータスコード > ヘッダ > データ型。 |
+| swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.schema | Object | 任意 | なし | なし | API Gatewayリソースレスポンス > レスポンスHTTPステータスコード > レスポンス本文領域。|
+| swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.schema.$ref | String | 必須 | なし | Swagger definitionsに宣言されたオブジェクト | API Gatewayリソースレスポンス > レスポンスHTTPステータスコード > レスポンス本文 > モデル。 |
+| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway | Object | 任意 | なし | なし | API Gateway提供機能定義オブジェクト領域。 |
+| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins | Object | 必須 | なし | なし | API Gatewayユーザー定義プラグインオブジェクト領域。 |
+| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins.{pluginCode} | Object | 必須 | なし | {pluginCode} HTTP, MOCK, CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [リソースプラグインタイプEnumコード](./enum-code/#???)参考。 [リソースプラグインタイプ別JSON設定値](???)参考。 |
+| swaggerData.definitions | Object | 任意 | なし | なし | API Gatewayリソースリクエストパラメータ、レスポンスで使用される本文オブジェクト定義領域。 [Definitions Object](https://swagger.io/specification/v2/#definitionsObject)参考 |
 
 
 
 
-## Resource Plugin
+## リソースプラグイン
 
 ### HTTP
-- Set the backend endpoint path to forward the request to for the resource path where API Gateway will receive the request.
-- It can only be set in resource methods.
-- It cannot be set at the same time as the MOCK plugin.
+- API Gatewayでリクエストを受信するリソースパスにリクエストを伝達するバックエンドエンドポイントパスを設定します。
+- リソースメソッドにのみ設定可能です。
+- MOCKプラグインと同時に設定できません。
 
 ```json
 {
@@ -693,15 +692,15 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| frontendEndpointPath | String | Required | N/A | Max. 255 characters | The resource path where API Gateway will receive requests. |
-| backendEndpointPath  | String | Required | N/A | Max. 255 characters | Backend endpoint path to forward requests received from API Gateway |
+| frontendEndpointPath | String | 必須 | なし | 最大255文字 | API Gatewayでリクエストを受信するリソースパス |
+| backendEndpointPath  | String | 必須 | なし | 最大255文字 | API Gatewayから受信したリクエストを伝達するバックエンドエンドポイントパス |
 
 ### MOCK
-- Return a response defined for a received request.
-- It can only be set on resource methods.
-- It cannot be set at the same time as the HTTP plugin.
+- 受信したリクエストに対して定義されたレスポンスを返します。
+- リソースメソッドにのみ設定できます。
+- HTTPプラグインと同時に設定できません。
 ```json
 {
   "statusCode": 200,
@@ -712,17 +711,17 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| statusCode | String | Required | N/A | 100-599 | Custom response HTTP status code                 |
-| headers | Map | Optional | N/A | N/A |Custom response header object area                  |
-| headers[{HeaderName}] | String | Required | N/A | N/A | The object property key/value is the name and value of the custom response header. |
-| body                  | String | Optional | N/A | N/A | Custom response body                         |
+| statusCode | String | 必須 | なし | 100～599 | ユーザー定義レスポンスHTTPステータスコード               |
+| headers | Map | 任意 | なし | なし |ユーザー定義レスポンスヘッダオブジェクト領域                |
+| headers[{HeaderName}] | String | 必須 | なし | なし | オブジェクトプロパティキー/値がユーザー定義レスポンスヘッダの名前と値 |
+| body                  | String | 任意 | なし | なし | ユーザー定義レスポンス本文                       |
 
 ### CORS
-- Allow XMLHttpRequest API calls within a cross-site method.
-- It can only be set on resource paths.
-- The OPTIONS method is automatically created under the path where the CORS plugin is set, and if there is a registered OPTIONS method, it is replaced.
+- Cross-Site方式内でXMLHttpRequest APIを呼び出せるようにします。
+- リソースパスにのみ設定できます。
+- CORSプラグインが設定されたパス下位にはOPTIONSメソッドが自動的に作成され、登録されたOPTIONSメソッドがある場合、置き換えられます。
 ```json
 {
   "allowedMethods": ["GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "PATCH"],
@@ -734,24 +733,24 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| allowedMethods | List | Required | N/A | N/A | Area for the list of methods to allow access to resources |
-| allowedMethods[0] | Enum | Required | N/A | GET, POST, DELETE, PUT, OPTIONS, HEAD, PATCH | See [HTTP Method Type Enum Code](./enum-code/#http-method-type) |
-| allowedHeaders | List | Required | N/A | N/A | Area for the list of HTTP headers that can be used in the request. |
-| allowedHeaders[0] | String | Required | N/A | N/A | HTTP header that can be used in the request (e.g. wildcard format: '\*' or 'X-NHN-HEADER, Content-Type') |
-| allowedOrigins    | List | Required | N/A | N/A | Area for the list of domains of the origin servers that can access the resource. |
-| allowedOrigins[0] | String | Required | N/A | N/A | Domain of the origin server that can access the resource (e.g., wildcard format: '\*' or 'http://example.nhncloudservice.com:8080') |
-| exposedHeaders    | List | Optional | N/A | N/A | Area for list of headers accessible by browser (client) |
-| exposedHeaders[0] | String | Required | N/A | N/A |Header accessible by browser (client) |
-| maxCredentialsAge | Integer | Optional | N/A | -1~86400 |Response browser cache time for preflight requests (in seconds) |
-| allowCredentials  | Boolean | Required | N/A |true, false | Whether to request with credentials |
+| allowedMethods | List | 必須 | なし | なし | リソースへのアクセスを許可するメソッドリスト領域 |
+| allowedMethods[0] | Enum | 必須 | なし | "GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "PATCH" | [HTTPメソッドタイプEnumコード](./enum-code/#???)参考 |
+| allowedHeaders | List | 必須 | なし | なし | リクエストで使用できるHTTPヘッダリスト領域 |
+| allowedHeaders[0] | String | 必須 | なし | なし | リクエストで使用できるHTTPヘッダ(例：ワイルドカード形式： '\*'または'X-NHN-HEADER, Content-Type') |
+| allowedOrigins    | List | 必須 | なし | なし | リソースにアクセスできるオリジンサーバーのドメインリスト領域 |
+| allowedOrigins[0] | String | 必須 | なし | なし | リソースにアクセスできるオリジンサーバーのドメイン(例：ワイルドカード形式：'\*'または') |
+| exposedHeaders    | List | 任意 | なし | なし | ブラウザ(クライアント)がアクセスできるヘッダリスト領域 |
+| exposedHeaders[0] | String | 必須 | なし | なし |ブラウザ(クライアント)がアクセスできるヘッダ |
+| maxCredentialsAge | Integer | 任意 | なし | -1～86400 |事前伝達リクエスト(Preflight)に対するレスポンスブラウザキャッシュ時間(秒単位) |
+| allowCredentials  | Boolean | 必須 | なし |true/false | 資格情報でリクエストするかどうか |
 
 
 
 ### SET_REQUEST_HEADER
-- Add or change the request header.
-- It can be set in the resource path and method.
+- リクエストヘッダを追加または変更します。 
+- リソースパス、メソッドに設定できます。
 ```json
 {
   "headers": {
@@ -760,14 +759,14 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| headers | Map | Required | N/A | N/A | Area for request header object to add or change |
-| headers[{HeaderName}] | String | Required | N/A | N/A | The name and value of the request header to be added/changed by the object property key/value. |
+| headers | Map | 必須 | なし | なし | 追加/変更するリクエストヘッダオブジェクト領域 |
+| headers[{HeaderName}] | String | 必須 | なし | なし | オブジェクトプロパティキー/値を追加/変更するリクエストヘッダの名前と値 |
 
 ### SET_RESPONSE_HEADER
-- The response header change plugin adds or changes a header to backend responses.
-- It can be set in the resource path and method.
+- レスポンスヘッダ変更プラグインはバックエンドレスポンスにヘッダを追加または変更します。 
+- リソースパス、メソッドに設定できます。
 ```json
 {
   "headers": {
@@ -776,14 +775,14 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| headers | Map | Required | N/A | N/A | Area for request header object to add or change |
-| headers[{HeaderName}] | String | Required | N/A | N/A | The name and value of the response header to be added/changed by the object property key/value |
+| headers | Map | 必須 | なし | なし | 追加/変更するレスポンスヘッダオブジェクト領域 |
+| headers[{HeaderName}] | String | 必須 | なし | なし | オブジェクトプロパティキー/値を追加/変更するレスポンスヘッダの名前と値 |
 
 ### ADD_REQUEST_QUERY_PARAMETER
-- Add a query string parameter to the backend endpoint request.
-- It can be set in the resource path and method.
+- バックエンドエンドポイントリクエストにクエリ文字列パラメータを追加します。
+- リソースパス、メソッドに設定できます。
 ```json
 {
   "parameters": {
@@ -792,32 +791,32 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| parameters | Map| Required | N/A | N/A | Area for objects of request query string parameters to add |
-| parameters[{QueryName}] | String | Required | N/A | N/A | The object property key/value is the name and value of the request query string parameters to be added |
+| parameters | Map| 必須 | なし | なし | 追加するリクエストクエリ文字列パラメータオブジェクト領域 |
+| parameters[{QueryName}] | String | 必須 | なし | なし | オブジェクトプロパティキー/値を追加するリクエストクエリ文字列パラメータの名前と値 |
 
-## Resource Parameter
+## リソースパラメータ
 
-### Query Resource Parameter
-- Query a list of resource parameters.
+### リソースパラメータ照会 
+- リソースパラメータのリストを照会します。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/parameters |
 
 [Path Parameter]
 
-| Name             | Type     | Required | Default value | Valid range | Description                 |
+| 名前           | タイプ   | 必須かどうか | デフォルト値 | 有効範囲 | 説明               |
 | -------------- | ------ | ----- | --- | ----- | ------------------ |
-| apigwServiceId | String | Required    | N/A  | N/A    | API Gateway service ID |
-| resourceId     | String | Required    | N/A  | N/A    | API Gateway resource ID |
+| apigwServiceId | String | 必須  | なし | なし   | API GatewayサービスID |
+| resourceId     | String | 必須  | なし | なし   | API GatewayリソースID |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -831,7 +830,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   "queryStringList": [
     {
       "name": "query1",
-      "description": "This is a query1.",
+      "description": "This is a query1",
       "dataType": "STRING",
       "required": false,
       "isArray": false
@@ -840,7 +839,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   "headerList": [
     {
       "name": "header1",
-      "description": "This is a header1.",
+      "description": "This is a header1",
       "dataType": "STRING",
       "required": false,
       "isArray": null
@@ -849,14 +848,14 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   "formDataList": [
     {
       "name": "formDataString",
-      "description": "This is a form data string.",
+      "description": "This is a formData String",
       "dataType": "STRING",
       "required": false,
       "isArray": false
     },
     {
       "name": "formDataFile",
-      "description": "This is a form data file.",
+      "description": "This is a formData File",
       "dataType": "FILE",
       "required": false,
       "isArray": false
@@ -864,7 +863,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   ],
   "requestBody": {
     "name": "requestBody",
-    "description": "This is a request body.",
+    "description": "This is a requestBody",
     "modelId": "{modelId}"
   },
   "contentTypeList": [
@@ -873,53 +872,53 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Field                             | Type      | Description                                                   |
+| フィールド                           | タイプ    | 説明                                                 |
 | ------------------------------ | ------- | ---------------------------------------------------- |
-| queryStringList                | List    | Query string list area                                         |
-| queryStringList[0].name        | String  | Query string name                                            |
-| queryStringList[0].description | String  | Query string description                                            |
-| queryStringList[0].dataType    | Enum    | See [Resource Request/Response Parameter Data Type Enum Code](./enum-code/#resource-requestresponse-parameter-data-type)|
-| queryStringList[0].required    | Boolean | Whether the query string is required or not                                         |
-| queryStringList[0].isArray     | Boolean | Whether the query string is Array or not                                      |
-| headerList                     | List    | Header list area                                             |
-| headerList[0].name             | String  | Header Value                                                |
-| headerList[0].description      | String  | Header description                                                |
-| headerList[0].dataType         | Enum    | See [Resource Request/Response Parameter Data Type Enum Code](./enum-code/#resource-requestresponse-parameter-data-type) |
-| headerList[0].required         | Boolean | Header required or not                                             |
-| headerList[0].isArray          | null    | Whether the header is Array is not provided.                                      |
-| formDataList                   | List    | Form data list area                                          |
-| formDataList[0].name           | String  | Form data name                                             |
-| formDataList[0].description    | String  | Form data description                                             |
-| formDataList[0].dataType       | Enum    | See [Resource Request/Response Parameter Data Type Enum Code](./enum-code/#resource-requestresponse-parameter-data-type) |
-| formDataList[0].required       | Boolean | Whether the form data is required or not                                          |
-| formDataList[0].isArray        | Boolean | Whether the form data is Array or not                                       |
-| requestBody                    | Object  | Request body area                                             |
-| requestBody.name               | String  | Request body name                                             |
-| requestBody.description        | String  | Request body description                                             |
-| requestBody.modelId            | String  | Model ID associated with the request body                                     |
-| contentTypeList                | List    | Content type list area                                         |
-| contentTypeList[0]             | String  | Enter the content type (e.g., application/json) of the documents to send to the server.                                               |
+| queryStringList                | List    | クエリ文字列リスト領域                                       |
+| queryStringList[0].name        | String  | クエリ文字列名                                          |
+| queryStringList[0].description | String  | クエリ文字列の説明                                          |
+| queryStringList[0].dataType    | Enum    | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#???)参考|
+| queryStringList[0].required    | Boolean | クエリ文字列が必須かどうか                                        |
+| queryStringList[0].isArray     | Boolean | クエリ文字列がArrayかどうか                                     |
+| headerList                     | List    | ヘッダリスト領域                                           |
+| headerList[0].name             | String  | ヘッダ名                                              |
+| headerList[0].description      | String  | ヘッダの説明                                              |
+| headerList[0].dataType         | Enum    | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#???)参考 |
+| headerList[0].required         | Boolean | ヘッダ必須かどうか                                            |
+| headerList[0].isArray          | null    | ヘッダArrayかどうか未提供                                    |
+| formDataList                   | List    | フォームデータリスト領域                                        |
+| formDataList[0].name           | String  | フォームデータ名                                           |
+| formDataList[0].description    | String  | フォームデータの説明                                           |
+| formDataList[0].dataType       | Enum    | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#???)参考 |
+| formDataList[0].required       | Boolean | フォームデータ必須かどうか                                         |
+| formDataList[0].isArray        | Boolean | フォームデータArrayかどうか                                      |
+| requestBody                    | Object  | リクエスト本文領域                                           |
+| requestBody.name               | String  | リクエスト本文の名前                                           |
+| requestBody.description        | String  | リクエスト本文の説明                                           |
+| requestBody.modelId            | String  | リクエスト本文に関連付けられているモデルID                                     |
+| contentTypeList                | List    | コンテンツタイプリスト領域                                       |
+| contentTypeList[0]             | String  | コンテンツタイプ                                             |
 
 
 
-### Create Resource Parameter
-- Create parameters of a resource method.
-- Existing resource parameters are deleted, and requested resource parameters are created.
+### リソースパラメータの作成
+- リソースメソッドのパラメータを作成します。
+- 既存リソースパラメータは削除され、リクエストされたリソースパラメータが作成されます。 
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/parameters |
 
 [Path Parameter]
 
-| Name             | Type     | Required | Default value | Valid range | Description                 |
+| 名前           | タイプ   | 必須かどうか | デフォルト値 | 有効範囲 | 説明               |
 | -------------- | ------ | ----- | --- | ----- | ------------------ |
-| apigwServiceId | String | Required    | N/A  | N/A    | API Gateway service ID |
-| resourceId     | String | Required    | N/A  | N/A    | API Gateway resource ID |
+| apigwServiceId | String | 必須  | なし | なし   | API GatewayサービスID |
+| resourceId     | String | 必須  | なし | なし   | API GatewayリソースID |
 
 [Request Body]
 ```json
@@ -927,7 +926,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   "queryStringList": [
     {
       "name": "query1",
-      "description": "This is a query1.",
+      "description": "This is a query1",
       "dataType": "BOOLEAN",
       "required": true,
       "isArray": true
@@ -936,7 +935,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   "headerList": [
     {
       "name": "header1",
-      "description": "This is a header1.",
+      "description": "This is a header1",
       "dataType": "BOOLEAN",
       "required": true
     }
@@ -944,7 +943,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   "formDataList": [
     {
       "name": "formDataString",
-      "description": "This is a form data string.",
+      "description": "This is a formDataString",
       "dataType": "BOOLEAN",
       "required": true,
       "isArray": true
@@ -952,7 +951,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   ],
   "requestBody": {
     "name": "requestBody",
-    "description": "This is a request body.",
+    "description": "This is a requestBody",
     "modelId": "{modelId}"
   },
   "contentTypeList": [
@@ -961,33 +960,33 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| queryStringList                | List    | Optional    | Empty List    | Max. 50 items                                              | Query string list area                                         |
-| queryStringList[0].name        | String  | Required    | N/A           | Max. 50 characters                                              | Query string name                                            |
-| queryStringList[0].description | String  | Optional    | N/A           | Max. 200 characters                                             | Query string description                                            |
-| queryStringList[0].dataType    | Enum    | Required    | N/A           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE        | See [Resource Request/Response Parameter Data Type Enum Code](./enum-code/#resource-requestresponse-parameter-data-type)|
-| queryStringList[0].required    | Boolean | Required    | N/A           | true, false                                          | Whether the query string is required or not                                         |
-| queryStringList[0].isArray     | Boolean | Required    | N/A           | true, false                                          | Whether the query string is Array or not                                      |
-| headerList                     | List    | Optional    | Empty List    | Max. 50 items                                              | Header list area                                             |
-| headerList[0].name             | String  | Required    | N/A           | Max. 50 characters                                              | Header Value                                                |
-| headerList[0].description      | String  | Optional    | N/A           | Max. 200 characters                                             | Header description                                                |
-| headerList[0].dataType         | Enum    | Required    | N/A           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE        | See [Resource Request/Response Parameter Data Type Enum Code](./enum-code/#resource-requestresponse-parameter-data-type)|
-| headerList[0].required         | Boolean | Required    | N/A           | true, false                                          | Header required or not                                             |
-| formDataList                   | List    | Optional    | Empty List    | Max. 50 items                                              | Form data list area                                          |
-| formDataList[0].name           | String  | Required    | N/A           | Max. 50 characters                                              | Form data name                                             |
-| formDataList[0].description    | String  | Optional    | N/A           | Max. 200 characters                                             | Form data description                                             |
-| formDataList[0].dataType       | Enum    | Required    | N/A           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE, FILE  | See [Resource Request/Response Parameter Data Type Enum Code](./enum-code/#resource-requestresponse-parameter-data-type)|
-| formDataList[0].required       | Boolean | Required    | N/A           | true, false                                          | Whether the form data is required or not                                          |
-| formDataList[0].isArray        | Boolean | Required    | N/A           | true, false                                          | Whether the query string is Array or not. false if dataType is FILE.            |
-| requestBody                    | Object  | Optional    | Empty Object  | N/A                                                  | Request body object area                                          |
-| requestBody.name               | String  | Required    | N/A           | Max. 50 characters                                              | Request body name                                             |
-| requestBody.description        | String  | Optional    | N/A           | Max. 200 characters                                             | Request body description                                             |
-| requestBody.modelId            | String  | Required    | N/A           | N/A                                                  | Model ID associated with the request body                                    |
-| contentTypeList                | List    | Optional    | Empty List    | Max. 10 items                                              | Content type list area                                         |
-| contentTypeList[0]             | String  | Required    | N/A           | \*/\* format                                             | Enter the content type (e.g., application/json) of the documents to send to the server.                                               |
+| queryStringList                | List    | 任意  | Empty List    | 最大50個                                            | クエリ文字列リスト領域                                       |
+| queryStringList[0].name        | String  | 必須  | なし          | 最大50文字                                            | クエリ文字列名                                          |
+| queryStringList[0].description | String  | 任意  | なし          | 最大200文字                                           | クエリ文字列の説明                                          |
+| queryStringList[0].dataType    | Enum    | 必須  | なし          | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE        | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#???)参考|
+| queryStringList[0].required    | Boolean | 必須  | なし          | true, false                                          | クエリ文字列必須かどうか                                        |
+| queryStringList[0].isArray     | Boolean | 必須  | なし          | true, false                                          | クエリ文字列Arrayかどうか                                     |
+| headerList                     | List    | 任意  | Empty List    | 最大50個                                            | ヘッダリスト領域                                           |
+| headerList[0].name             | String  | 必須  | なし          | 最大50文字                                            | ヘッダ名                                              |
+| headerList[0].description      | String  | 任意  | なし          | 最大200文字                                           | ヘッダ説明                                              |
+| headerList[0].dataType         | Enum    | 必須  | なし          | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE        | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#???)参考|
+| headerList[0].required         | Boolean | 必須  | なし          | true, false                                          | ヘッダ必須かどうか                                            |
+| formDataList                   | List    | 任意  | Empty List    | 最大50個                                            | フォームデータリスト領域                                        |
+| formDataList[0].name           | String  | 必須  | なし          | 最大50文字                                            | フォームデータ名                                           |
+| formDataList[0].description    | String  | 任意  | なし          | 最大200文字                                           | フォームデータの説明                                           |
+| formDataList[0].dataType       | Enum    | 必須  | なし          | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE, FILE  | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#???)参考|
+| formDataList[0].required       | Boolean | 必須  | なし          | true, false                                          | フォームデータ必須かどうか                                         |
+| formDataList[0].isArray        | Boolean | 必須  | なし          | true, false                                          | フォームデータArrayかどうか。 dataTypeがFILEの場合はfalse。            |
+| requestBody                    | Object  | 任意  | Empty Object  | なし                                                 | リクエスト本文オブジェクト領域                                        |
+| requestBody.name               | String  | 必須  | なし          | 最大50文字                                            | リクエスト本文の名前                                           |
+| requestBody.description        | String  | 任意  | なし          | 最大200文字                                           | リクエスト本文の説明                                           |
+| requestBody.modelId            | String  | 必須  | なし          | なし                                                 | リクエスト本文に関連付けられているモデルID                                    |
+| contentTypeList                | List    | 任意  | Empty List    | 最大10個                                            | コンテンツタイプリスト領域                                       |
+| contentTypeList[0]             | String  | 必須  | なし          | \*/\* 形式                                           | コンテンツタイプ                                             |
 
-#### Response
+#### レスポンス
 
 [Response Body]
 
@@ -1001,27 +1000,27 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-## Resource Response
+## リソースレスポンス
 
-### Query Resource Response
-- Query the header, request body item, and content type for each HTTP response status code.
+### リソースレスポンス照会 
+- HTTPレスポンスステータスコード別ヘッダとリクエスト本文項目とコンテンツタイプを照会します。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/responses |
 
 [Path Parameter]
 
-| Name             | Type     | Required | Default value | Valid range | Description                 |
+| 名前           | タイプ   | 必須かどうか | デフォルト値 | 有効範囲 | 説明               |
 | -------------- | ------ | ----- | --- | ----- | ------------------ |
-| apigwServiceId | String | Required    | N/A  | N/A    | API Gateway service ID |
-| resourceId     | String | Required    | N/A  | N/A    | API Gateway resource ID |
+| apigwServiceId | String | 必須  | なし | なし   | API GatewayサービスID |
+| resourceId     | String | 必須  | なし | なし   | API GatewayリソースID |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -1039,13 +1038,13 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
       "headerList": [
         {
           "name": "header1",
-          "description": "This is a response header1.",
+          "description": "This is a response header1",
           "dataType": "STRING"
         }
       ],
       "responseBody": {
         "name": "responseBody",
-        "description": "This is a response body.",
+        "description": "This is a responseBody",
         "modelId": "{modelId}"
       }
     }
@@ -1056,40 +1055,40 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Field                                        | Type      | Description                                                   |
+| フィールド                                      | タイプ    | 説明                                                 |
 | ----------------------------------------- | ------- | ---------------------------------------------------- |
-| responseList                              | List    | Response information list area by HTTP response status code                           |
-| responseList[0].responseStatusCode        | Integer | HTTP response status code                                        |
-| responseList[0].description               | String  | HTTP response status code description                                     |
-| responseList[0].headerList                | List    | HTTP response header list area                                     |
-| responseList[0].headerList[0].name        | String  | Response header name                                             |
-| responseList[0].headerList[0].description | String  | Response header description                                             |
-| responseList[0].headerList[0].dataType    | Enum    | See [Resource Request/Response Parameter Data Type Enum Code](./enum-code/#resource-requestresponse-parameter-data-type)|
-| responseList[0].responseBody              | Object  | HTTP response body object area                                     |
-| responseList[0].responseBody.name         | String  | Response body name                                             |
-| responseList[0].responseBody.description  | String  | Response body description                                             |
-| responseList[0].responseBody.modelId      | String  | Model ID associated with the response body                                     |
-| contentTypeList                           | List    | Content type list area                                         |
-| contentTypeList[0]                        | String  | Enter the content type (e.g., application/json) of the documents to send to the server.                                               |
+| responseList                              | List    | HTTPレスポンスステータスコード別レスポンス情報リスト領域                         |
+| responseList[0].responseStatusCode        | Integer | HTTPレスポンスステータスコード                                      |
+| responseList[0].description               | String  | HTTPレスポンスステータスコードの説明                                   |
+| responseList[0].headerList                | List    | HTTPレスポンスヘッダリスト領域                                   |
+| responseList[0].headerList[0].name        | String  | レスポンスヘッダ名                                           |
+| responseList[0].headerList[0].description | String  | レスポンスヘッダの説明                                           |
+| responseList[0].headerList[0].dataType    | Enum    | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#???)参考|
+| responseList[0].responseBody              | Object  | HTTPレスポンス本文オブジェクト領域                                   |
+| responseList[0].responseBody.name         | String  | レスポンス本文の名前                                           |
+| responseList[0].responseBody.description  | String  | レスポンス本文の説明                                           |
+| responseList[0].responseBody.modelId      | String  | レスポンス本文に関連付けられているモデルID                                     |
+| contentTypeList                           | List    | コンテンツタイプリスト領域                                       |
+| contentTypeList[0]                        | String  | コンテンツタイプ                                             |
 
 
-### Create Resource Response
-- Existing resource responses are deleted, and header, request body items, and content type for each requested HTTP response status code are created.
+### リソースレスポンスの作成
+- 既存リソースレスポンスは削除され、リクエストしたHTTPレスポンスステータスコード別ヘッダとリクエスト本文項目とコンテンツタイプを作成します。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/responses |
 
 [Path Parameter]
 
-| Name             | Type     | Required | Default value | Valid range | Description                 |
+| 名前           | タイプ   | 必須かどうか | デフォルト値 | 有効範囲 | 説明               |
 | -------------- | ------ | ----- | --- | ----- | ------------------ |
-| apigwServiceId | String | Required    | N/A  | N/A    | API Gateway service ID |
-| resourceId     | String | Required    | N/A  | N/A    | API Gateway resource ID |
+| apigwServiceId | String | 必須  | なし | なし   | API GatewayサービスID |
+| resourceId     | String | 必須  | なし | なし   | API GatewayリソースID |
 
 [Request Body]
 ```json
@@ -1101,13 +1100,13 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
       "headerList": [
         {
           "name": "header1",
-          "description": "This is a response header1.",
+          "description": "This is a response header1",
           "dataType": "STRING",
         }
       ],
       "requestBody": {
         "name": "responseBody",
-        "description": "This is a response body.",
+        "description": "This is a response body",
         "modelId": "{modelId}"
       }
     }
@@ -1118,24 +1117,24 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name                                        | Type      | Required | Default value          | Valid range                                         | Description                                                   |
+| 名前                                      | タイプ    | 必須かどうか | デフォルト値        | 有効範囲                                       | 説明                                                 |
 | ----------------------------------------- | ------- | ----- | ------------ | --------------------------------------------- | ---------------------------------------------------- |
-| responseList                              | List    | Optional    | Empty List   | N/A                                            | Response information list area by HTTP response status code                           |
-| responseList[0].responseStatusCode        | Integer | Required    | N/A           | 100-599                                       | HTTP response status code                                        |
-| responseList[0].description               | String  | Optional    | N/A         | Max. 200 characters                                       | HTTP response status code description                                     |
-| responseList[0].headerList                | List    | Optional    | Empty List   | Max. 50 items                                        | HTTP response header list area                                     |
-| responseList[0].headerList[0].name        | String  | Required    | N/A           | Max. 50 characters                                        | Response header name                                             |
-| responseList[0].headerList[0].description | String  | Optional    | N/A         | Max. 200 characters                                       | Response header description                                             |
-| responseList[0].headerList[0].dataType    | Enum    | Required    | N/A           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE | See [Resource Request/Response Parameter Data Type Enum Code](./enum-code/#resource-requestresponse-parameter-data-type) |
-| responseList[0].responseBody              | Object  | Optional    | Empty Object | N/A                                            | HTTP response body object area                                     |
-| responseList[0].responseBody.name         | String  | Required    | N/A           | Max. 50 characters                                        | Response body name                                             |
-| responseList[0].responseBody.description  | String  | Optional    | N/A         | Max. 200 characters                                       | Response body description                                             |
-| responseList[0].responseBody.modelId      | String  | Required    | N/A           | N/A                                           | Model ID associated with response body                                     |
-| contentTypeList                           | List    | Optional    | Empty List   | Max. 10 items                                        | Content type list area                                         |
-| contentTypeList[0]                        | String  | Required    | N/A           | \*/\* format                                        | Enter the content type (e.g., application/json) of the documents to send to the server.                                               |
+| responseList                              | List    | 任意  | Empty List   | なし                                           | HTTPレスポンスステータスコード別レスポンス情報リスト領域                         |
+| responseList[0].responseStatusCode        | Integer | 必須  | なし          | 100～599                                       | HTTPレスポンスステータスコード                                      |
+| responseList[0].description               | String  | 任意  | なし        | 最大200文字                                     | HTTPレスポンスステータスコードの説明                                   |
+| responseList[0].headerList                | List    | 任意  | Empty List   | 最大50個                                      | HTTPレスポンスヘッダリスト領域                                   |
+| responseList[0].headerList[0].name        | String  | 必須  | なし          | 最大50文字                                      | レスポンスヘッダ名                                           |
+| responseList[0].headerList[0].description | String  | 任意  | なし        | 最大200文字                                     | レスポンスヘッダの説明                                           |
+| responseList[0].headerList[0].dataType    | Enum    | 必須  | なし          | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#???)参考 |
+| responseList[0].responseBody              | Object  | 任意  | Empty Object | なし                                           | HTTPレスポンス本文オブジェクト領域                                   |
+| responseList[0].responseBody.name         | String  | 必須  | なし          | 最大50文字                                      | レスポンス本文名                                           |
+| responseList[0].responseBody.description  | String  | 任意  | なし        | 最大200文字                                     | レスポンス本文の説明                                           |
+| responseList[0].responseBody.modelId      | String  | 必須  | なし          | なし                                          | レスポンス本文に関連付けられているモデルID                                     |
+| contentTypeList                           | List    | 任意  | Empty List   | 最大10個                                      | コンテンツタイプリスト領域                                       |
+| contentTypeList[0]                        | String  | 必須  | なし          | \*/\* 形式                                      | コンテンツタイプ                                             |
 
 
-#### Response
+#### レスポンス
 
 [Response Body]
 
@@ -1149,33 +1148,33 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-## Model
+## モデル
 
-### Query Model List
-- Query a list of models.
+### モデルリスト照会 
+- モデルリストを照会します。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/models |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
 
 [QueryString Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| page | Integer | Optional | 1 | N/A | Page |
-| limit | Integer | Optional | 10 | Max. 1000 | Count per page |
+| page | Integer | 任意 | 1 | なし | ページ |
+| limit | Integer | 任意 | 10 | 最大1000 | ページあたりの件数 |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -1220,40 +1219,40 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-|Field                                   |Type      |Description                                            |
+|フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
-|paging                               |Object  | Paging area                                        |
-|paging.page                          |Integer | Current page                                        |
-|paging.limit                         |Integer | Count per page                                  |
-|paging.totalCount                    |Integer | Total count                                        |
-|modelList                     |List    | Model list area                         |
-|modelList[0].apigwServiceId  |String  |API Gateway service ID |
-|modelList[0].modelId         |String  |Model ID              |
-|modelList[0].modelName       |String  |Model name              |
-|modelList[0].modelDescription|String  |Model description              |
-|modelList[0].modelSchema     |Object  |[JSON Schema](https://json-schema.org/) draft-04 JSON object of model |
-|modelList[0].createdAt       |DateTime|Model creation date and time            |
-|modelList[0].updatedAt       |DateTime|Model modification date and time            |
+|paging                               |Object  | ページング領域                                      |
+|paging.page                          |Integer | 現在のページ                                      |
+|paging.limit                         |Integer | ページあたりの件数                                 |
+|paging.totalCount                    |Integer | 総件数                                       |
+|modelList                     |List    | モデルリスト領域                       |
+|modelList[0].apigwServiceId  |String  |API GatewayサービスID |
+|modelList[0].modelId         |String  |モデルID              |
+|modelList[0].modelName       |String  |モデル名            |
+|modelList[0].modelDescription|String  |モデル説明            |
+|modelList[0].modelSchema     |Object  |モデルの[JSON Schema](https://json-schema.org/) draft-04 JSONオブジェクト |
+|modelList[0].createdAt       |DateTime|モデル作成日時          |
+|modelList[0].updatedAt       |DateTime|モデル修正日時          |
 
 
 
-### Create Model
-- Create a model in JSON Schema format.
-- Mode names cannot be duplicated.
+### モデルの作成
+- モデルをJSON Schema形式で作成します。
+- モデル名は重複してはいけません。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/models |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
 
 
 [Request Body]
@@ -1281,13 +1280,13 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name               | Type     | Required | Default value | Valid range   | Description                                                           |
+| 名前             | タイプ   | 必須かどうか | デフォルト値 | 有効範囲 | 説明                                                         |
 | ---------------- | ------ | ----- | --- | ------- | ------------------------------------------------------------ |
-| modelName        | String | Required    | N/A  | Max. 50 characters  | Model name                                                        |
-| modelDescription | String | Optional    | N/A  | Max. 200 characters | Model description                                                        |
-| modelSchema      | Object | Required    | N/A  | Max. 65535 characters| [JSON Schema](https://json-schema.org/) draft-04 JSON object of model |
+| modelName        | String | 必須  | なし | 最大50文字 | モデル名                                                      |
+| modelDescription | String | 任意  | なし | 最大200文字 | モデル説明                                                      |
+| modelSchema      | Object | 必須  | なし | 最大65535文字| モデルの[JSON Schema](https://json-schema.org/) draft-04 JSONオブジェクト |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -1325,36 +1324,36 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-|Field                                   |Type      |Description                                            |
+|フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
-|model                     |Object    | Model area                         |
-|model.apigwServiceId  |String  |API Gateway service ID |
-|model.modelId         |String  |Model ID              |
-|model.modelName       |String  |Model name              |
-|model.modelDescription|String  |Model description              |
-|model.modelSchema     |Object  |[JSON Schema](https://json-schema.org/) draft-04 JSON object of model |
-|model.createdAt       |DateTime|Model creation date and time            |
-|model.updatedAt       |DateTime|Model modification date and time            |
+|model                     |Object    | モデル領域                       |
+|model.apigwServiceId  |String  |API GatewayサービスID |
+|model.modelId         |String  |モデルID              |
+|model.modelName       |String  |モデル名            |
+|model.modelDescription|String  |モデル説明            |
+|model.modelSchema     |Object  |モデルの[JSON Schema](https://json-schema.org/) draft-04 JSONオブジェクト |
+|model.createdAt       |DateTime|モデル作成日時          |
+|model.updatedAt       |DateTime|モデル修正日時          |
 
 
-### Modify Model
-- Modify the description and schema of model
-- Model name cannot be changed.
+### モデルの修正 
+- モデルの説明とスキーマを修正します。 
+- モデル名は変更できません。 
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/models/{modelId} |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
-| modelId | String | Required | N/A | N/A | Model ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
+| modelId | String | 必須 | なし | なし | モデルID |
 
 [Request Body]
 
@@ -1380,13 +1379,13 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| modelDescription | String | Optional    | N/A  | Max. 200 characters | Model description                                                        |
-| modelSchema      | Object | Required    | N/A  | Max. 65535 characters| [JSON Schema](https://json-schema.org/) draft-04 JSON object of model |
+| modelDescription | String | 任意  | なし | 最大200文字 | モデル説明                                                      |
+| modelSchema      | Object | 必須  | なし | 最大65535文字| モデルの[JSON Schema](https://json-schema.org/) draft-04 JSONオブジェクト |
 
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -1424,38 +1423,38 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-|Field                                   |Type      |Description                                            |
+|フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
-|model                     |Object    | Model area                         |
-|model.apigwServiceId  |String  |API Gateway service ID |
-|model.modelId         |String  |Model ID              |
-|model.modelName       |String  |Model name              |
-|model.modelDescription|String  |Model description              |
-|model.modelSchema     |Object  |[JSON Schema](https://json-schema.org/) draft-04 JSON object of model |
-|model.createdAt       |DateTime|Model creation date and time            |
-|model.updatedAt       |DateTime|Model modification date and time            |
+|model                     |Object    | モデル領域                       |
+|model.apigwServiceId  |String  |API GatewayサービスID |
+|model.modelId         |String  |モデルID              |
+|model.modelName       |String  |モデル名            |
+|model.modelDescription|String  |モデル説明            |
+|model.modelSchema     |Object  |モデルの[JSON Schema](https://json-schema.org/) draft-04 JSONオブジェクト |
+|model.createdAt       |DateTime|モデル作成日時          |
+|model.updatedAt       |DateTime|モデル修正日時          |
 
 
-### Delete Model
-- Delete a model.
-- If the model is referenced in a request parameter or response of a resource, the model cannot be deleted. To delete a model, please release the reference and then delete the model.
+### モデルの削除
+- モデルを削除します。
+- モデルがリソースのリクエストパラメータまたはレスポンスで参照されている場合にはモデルの削除ができません。参照を解除してからモデルを削除してください。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI                                  |
+| メソッド | URI                                  |
 | ---- | ------------------------------------ |
 | DELETE  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/models/{modelId} |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
-| modelId | String | Required | N/A | N/A | Model ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
+| modelId | String | 必須 | なし | なし | モデルID |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -1469,33 +1468,33 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-## Stage
+## ステージ
 
-### Query Stage List
-- Query a list of stages.
+### ステージリスト照会 
+- ステージリストを照会します。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
 
 [QueryString Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| page | Integer | Optional | 1 | N/A | Page |
-| limit | Integer | Optional | 10 | Max. 1000 | Count per page |
+| page | Integer | 任意 | 1 | なし | ページ |
+| limit | Integer | 任意 | 10 | 最大1000 | ページあたりの件数 |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -1517,7 +1516,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
       "apigwServiceId": "{apigwServiceId}",
       "regionCode": "KR1",
       "stageName": "alpha",
-      "stageDescription": "alpha environment stage",
+      "stageDescription": "alpha環境ステージ",
       "stageUrl": "kr1-{apigwServiceId}-alpha.api.nhncloudservice.com",
       "stageCustomUrl": null,
       "backendEndpointUrl": "https://backend.com",
@@ -1529,46 +1528,46 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-|Field                                   |Type      |Description                                            |
+|フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
-|paging                               |Object  | Paging area                                        |
-|paging.page                          |Integer | Current page                                        |
-|paging.limit                         |Integer | Count per page                                  |
-|paging.totalCount                    |Integer | Total count                                        |
-|stageList        |List    | Stage list area |
-|stageList[0].regionCode       |Enum    |See [API Gateway Region Enum Code](./enum-code/#api-gateway-region)                |
-|stageList[0].apigwServiceId   |String  |API Gateway service ID  |
-|stageList[0].stageId          |String  |Stage ID             |
-|stageList[0].stageName        |String  |Stage name             |
-|stageList[0].stageUrl         |String  |Stage URL            |
-|stageList[0].stageCustomUrl   |String  |Stage custom URL   |
-|stageList[0].stageDescription |String  |Stage description             |
-|stageList[0].backendEndpointUrl|String  |Backend endpoint URL       |
-|stageList[0].resourceUpdatedAt|DateTime|Date and time of importing resource to the stage recently |
-|stageList[0].createdAt        |DateTime|Stage creation date and time           |
-|stageList[0].updatedAt        |DateTime|Stage modification date and time           |
+|paging                               |Object  | ページング領域                                      |
+|paging.page                          |Integer | 現在のページ                                      |
+|paging.limit                         |Integer | ページあたりの件数                                 |
+|paging.totalCount                    |Integer | 総件数                                       |
+|stageList        |List    | ステージリスト領域 |
+|stageList[0].regionCode       |Enum    |[API GatewayリージョンEnumコード](./enum-code/#regionCode)参考              |
+|stageList[0].apigwServiceId   |String  |API GatewayサービスID  |
+|stageList[0].stageId          |String  |ステージID             |
+|stageList[0].stageName        |String  |ステージ名           |
+|stageList[0].stageUrl         |String  |ステージURL            |
+|stageList[0].stageCustomUrl   |String  |ステージユーザー定義URL   |
+|stageList[0].stageDescription |String  |ステージの説明           |
+|stageList[0].backendEndpointUrl|String  |バックエンドエンドポイントURL       |
+|stageList[0].resourceUpdatedAt|DateTime|最近ステージにリソースをインポートした日時 |
+|stageList[0].createdAt        |DateTime|ステージ作成日時         |
+|stageList[0].updatedAt        |DateTime|ステージ修正日時         |
 
 
 ### Swagger Export
-- Query a Swagger document.
-- Swagger documents are extracted based on the current stage settings, not the settings deployed in API Gateway.
+- Swagger文書を照会します。 
+- Swagger文書はAPI Gatewayに配布された設定ではなく、現在のステージ設定に基づいて抽出されます。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/swagger |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
-| stageId | String | Required | N/A | N/A | Stage ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
+| stageId | String | 必須 | なし | なし | ステージID |
 
-#### Response
+#### レスポンス
 
 ```json
 {
@@ -1581,52 +1580,52 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-|Field                                  |Type     |Description                                           |
+|フィールド                                |タイプ   |説明                                         |
 |-------------------------------------|--------|----------------------------------------------|
-|swaggerData        |Object    | A Swagger JSON object based on the current stage. See [Swagger v2.0 OpenAPI Specification](https://swagger.io/specification/v2/). |
+|swaggerData        |Object    | 現在ステージ基準Swagger JSONオブジェクト。 [Swagger v2.0 OpenAPI Specification](https://swagger.io/specification/v2/)参考。 |
 
 
-### Create Stage
-- Create a stage.
+### ステージの作成
+- ステージを作成します。 
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
 
 
 [Request Body]
 ```json
 {
   "stageName": "alpha",
-  "stageDescription": "alpha environment stage",
+  "stageDescription": "alpha環境ステージ",
   "backendEndpointUrl": "https://backend.com"
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| stageName | String | Conditionally required | N/A | Max. 30 characters, English lowercase letters and numbers only | Stage name <br/> Required for non-default stage.  |
-| stageDescription | String | Optional | N/A | Max. 200 characters  | Stage description |
-| backendEndpointUrl | String | Required | N/A | Max. 150 characters, URL format  | Backend endpoint URL |
+| stageName | String | 条件付き必須 | なし | 最大30文字、英小文字と数字のみ | ステージ名<br/>基本ステージではない場合は必須値です。  |
+| stageDescription | String | 任意 | なし | 最大200文字 | ステージの説明 |
+| backendEndpointUrl | String | 必須 | なし | 最大150文字、 URL形式 | バックエンドエンドポイントURL |
 
-- The stageName field value must be unique.
-- Setting the stageName field to null creates a default stage. Only one default stage can be created.
-- The stage URL changes according to the stageName field value.
-    - Stage URL format: {regionCode}-{apigwServiceId}-{stageName}.api.nhncloudservice.com
+- stageNameフィールドの値は唯一でなければなりません。
+- stageName(ステージ名)フィールドをnullに設定すると、基本ステージとして作成されます。基本ステージは1つだけ作成できます。 
+- stageNameフィールドの値に応じてステージURLが変更されます。
+    - ステージURLフォーマット：{regionCode}-{apigwServiceId}-{stageName}.api.nhncloudservice.com
 
 
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -1642,67 +1641,67 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
     "apigwServiceId": "{apigwServiceId}",
     "regionCode": "KR1",
     "stageName": "alpha",
-    "stageDescription": "alpha environment stage",
+    "stageDescription": "alpha環境ステージ",
     "stageUrl": "kr1-{apigwServiceId}-alpha.api.nhncloudservice.com",
     "stageCustomUrl": null,
     "backendEndpointUrl": "https://backend.com",
     "resourceUpdatedAt": "2021-10-22T02:22:11.182Z",
-    "createdAt": "2021-10-22T02:22:11.182Z",
+    "createddAt": "2021-10-22T02:22:11.182Z",
     "updatedAt": "2021-10-22T02:22:11.182Z"
   }
 }
 ```
 
-|Field                                   |Type      |Description                                            |
+|フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
-|stage        |Object    | Stage area |
-|stage.regionCode       |Enum    |See [API Gateway Region Enum Code](./enum-code/#api-gateway-region)                |
-|stage.apigwServiceId   |String  |API Gateway service ID  |
-|stage.stageId          |String  |Stage ID             |
-|stage.stageName        |String  |Stage name             |
-|stage.stageUrl         |String  |Stage URL            |
-|stage.stageCustomUrl   |String  |Stage custom URL   |
-|stage.stageDescription |String  |Stage description             |
-|stage.backendEndpointUrl      |String  |Backend endpoint URL       |
-|stage.resourceUpdatedAt|DateTime|Date and time of importing resource to the stage recently |
-|stage.createdAt        |DateTime|Stage creation date and time           |
-|stage.updatedAt        |DateTime|Stage modification date and time           |
+|stage        |Object    | ステージ領域 |
+|stage.regionCode       |Enum    |[API GatewayリージョンEnumコード](./enum-code/#regionCode)参考              |
+|stage.apigwServiceId   |String  |API GatewayサービスID  |
+|stage.stageId          |String  |ステージID             |
+|stage.stageName        |String  |ステージ名           |
+|stage.stageUrl         |String  |ステージURL            |
+|stage.stageCustomUrl   |String  |ステージユーザー定義URL   |
+|stage.stageDescription |String  |ステージの説明           |
+|stage.backendEndpointUrl      |String  |バックエンドエンドポイントURL       |
+|stage.resourceUpdatedAt|DateTime|最近ステージにリソースをインポートした日時 |
+|stage.createdAt        |DateTime|ステージ作成日時         |
+|stage.updatedAt        |DateTime|ステージ修正日時         |
 
-### Modify Stage
-- You can modify the backend endpoint URL and description of the stage.
-- Stage name cannot be changed.
+### ステージの修正 
+- ステージのバックエンドエンドポイントURLと説明を修正できます。
+- ステージ名は変更できません。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId} |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
-| stageId | String | Required | N/A | N/A | Stage ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
+| stageId | String | 必須 | なし | なし | ステージID |
 
 
 [Request Body]
 ```json
 {
   "backendEndpointUrl": "https://v2.backend.com",
-  "stageDescription": "alpha stage v2"
+  "stageDescription": "alphaステージv2"
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| backendEndpointUrl | String | Required | N/A | Max. 150 characters, URL format  | Backend endpoint URL |
-| stageDescription | String | Optional | N/A | Max. 200 characters  | Stage description |
+| backendEndpointUrl | String | 必須 | なし | 最大150文字、 URL形式 | バックエンドエンドポイントURL |
+| stageDescription | String | 任意 | なし | 最大200文字 | ステージの説明 |
 
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -1718,7 +1717,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
     "apigwServiceId": "{apigwServiceId}",
     "regionCode": "KR1",
     "stageName": "alpha",
-    "stageDescription": "alpha stage v2",
+    "stageDescription": "alphaステージv2",
     "stageUrl": "kr1-{apigwServiceId}-alpha.api.nhncloudservice.com",
     "stageCustomUrl": null,
     "backendEndpointUrl": "https://v2.backend.com",
@@ -1729,43 +1728,43 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-|Field                                   |Type      |Description                                            |
+|フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
-|stage        |Object    | Stage area |
-|stage.regionCode       |Enum    |See [API Gateway Region Enum Code](./enum-code/#api-gateway-region)                |
-|stage.apigwServiceId   |String  |API Gateway service ID  |
-|stage.stageId          |String  |Stage ID             |
-|stage.stageName        |String  |Stage name             |
-|stage.stageUrl         |String  |Stage URL            |
-|stage.stageCustomUrl   |String  |Stage custom URL   |
-|stage.stageDescription |String  |Stage description             |
-|stage.backendEndpointUrl      |String  |Backend endpoint URL       |
-|stage.resourceUpdatedAt|DateTime|Date and time of importing resource to the stage recently |
-|stage.createdAt        |DateTime|Stage creation date and time           |
-|stage.updatedAt        |DateTime|Stage modification date and time           |
+|stage        |Object    | ステージ領域 |
+|stage.regionCode       |Enum    |[API GatewayリージョンEnumコード](./enum-code/#regionCode)参考              |
+|stage.apigwServiceId   |String  |API GatewayサービスID  |
+|stage.stageId          |String  |ステージID             |
+|stage.stageName        |String  |ステージ名           |
+|stage.stageUrl         |String  |ステージURL            |
+|stage.stageCustomUrl   |String  |ステージユーザー定義URL   |
+|stage.stageDescription |String  |ステージの説明           |
+|stage.backendEndpointUrl      |String  |バックエンドエンドポイントURL       |
+|stage.resourceUpdatedAt|DateTime|最近ステージにリソースをインポートした日時 |
+|stage.createdAt        |DateTime|ステージ作成日時         |
+|stage.updatedAt        |DateTime|ステージ修正日時         |
 
 
-### Delete Stage
-- Delete a stage.
-- If the stage you want to delete is connected to a usage plan, it cannot be deleted. Disconnect the stage from the usage plan and delete it.
-- Deleted stages cannot be recovered.
+### ステージの削除
+- ステージを削除します。
+- 削除しようとしているステージが使用量プランと関連付けられている場合は削除できません。使用量プランからステージの関連付けを削除してから削除してください。
+- 削除されたステージは回復できません。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI                                  |
+| メソッド | URI                                  |
 | ---- | ------------------------------------ |
 | DELETE  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId} |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
-| stageId | String | Required | N/A | N/A | Stage ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
+| stageId | String | 必須 | なし | なし | ステージID |
 
-#### Response
+#### レスポンス
 
 [Response Body]
 
@@ -1780,28 +1779,28 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 ```
 
 
-### Query Stage Resource List
-* Get a list of resources registered on the stage. The stage resource plugin information set for each resource is included.
-* For more information about the stage resource plugin, see [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin).
+### ステージリソースリストの照会 
+* ステージに登録されたリソースリストを取得します。各リソースに設定されたステージリソースプラグイン情報が含まれます。
+* ステージリソースプラグインの詳細については[ステージリソースプラグイン]()を参照します。
 
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI                                  |
+| メソッド | URI                                  |
 | ---- | ------------------------------------ |
 | GET  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/resources |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
-| stageId | String | Required | N/A | N/A | Stage ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
+| stageId | String | 必須 | なし | なし | ステージID |
 
 
-#### Response
+#### レスポンス
 
 [Response]
 ```json
@@ -1855,54 +1854,54 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-|Field                                   |Type      |Description                                            |
+|フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
-|stageResourceList      |List    |Stage resource list area                             |
-|stageResourceList[0]      |Object    |Stage resource area                             |
-|stageResourceList[0].stageResourceId        |String  |Stage resource ID                                |
-|stageResourceList[0].path                   |String  |Stage resource path                                |
-|stageResourceList[0].parentPath             |String  |Parent resource path of the stage (parentPath for root (/) path is null)|
-|stageResourceList[0].stageId                |String  |Stage ID                                    |
-|stageResourceList[0].customBackendEndpointUrl      |String  |Backend endpoint override URL                          |
-|stageResourceList[0].methodType             |Enum    |See [HTTP Method Type Enum Code](./enum-code/#http-method-type)  |
-|stageResourceList[0].methodName             |String  |Method name                                     |
-|stageResourceList[0].methodDescription      |String  |Method description                                     |
-|stageResourceList[0].createdAt              |DateTime|Stage resource creation date and time                              |
-|stageResourceList[0].updatedAt              |DateTime|Stage resource modification date and time                              |
-|stageResourceList[0].stageResourcePluginList|List    |Stage resource's plugin list area                       |
-|stageResourceList[0].stageResourcePluginList[0]|Object    |Stage resource's plugin area                       |
-|stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
-|stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)            |
-|stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
-|stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
+|stageResourceList      |List    |ステージリソースリスト領域                           |
+|stageResourceList[0]      |Object    |ステージリソース領域                           |
+|stageResourceList[0].stageResourceId        |String  |ステージリソースID                                |
+|stageResourceList[0].path                   |String  |ステージリソースパス                              |
+|stageResourceList[0].parentPath             |String  |ステージ上位リソースパス(ルート(/)パスのparentPathはnull)|
+|stageResourceList[0].stageId                |String  |ステージID                                    |
+|stageResourceList[0].customBackendEndpointUrl      |String  |バックエンドエンドポイント再定義URL                          |
+|stageResourceList[0].methodType             |Enum    |[HTTPメソッドタイプEnumコード](./enum-code/#???)参考 |
+|stageResourceList[0].methodName             |String  |メソッド名                                   |
+|stageResourceList[0].methodDescription      |String  |メソッドの説明                                   |
+|stageResourceList[0].createdAt              |DateTime|ステージリソースの作成日時                            |
+|stageResourceList[0].updatedAt              |DateTime|ステージリソースの修正日時                            |
+|stageResourceList[0].stageResourcePluginList|List    |ステージリソースのプラグインリスト領域                     |
+|stageResourceList[0].stageResourcePluginList[0]|Object    |ステージリソースのプラグイン領域                     |
+|stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |ステージリソースプラグインID                           |
+|stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |ステージリソースID                                |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[リソースプラグインタイプ](./enum-code/#???), [ステージリソース > プラグインタイプ](./enum-code/#???)参考                      |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](), [ステージプラグインタイプ]()別設定JSON参考          |
+|stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|ステージリソースプラグインの作成日時                       |
+|stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|ステージリソースプラグインの修正日時                       |
 
 
 
-### Import Resources to Stage
-* Import API Gateway Service > Resources to stage.
-* When a resource is imported, stage resources and stage resource plugins are all newly created.
-* Existing resource paths and stage resource plugin settings set in methods are maintained.
-* If no changes are found on the resource, no action is taken.
+### ステージにリソースをインポートする
+* API Gatewayサービス > リソースをステージにインポートします。
+* リソースをインポートすると、ステージリソース、ステージリソースプラグインは全て新しく作成されます。 
+* 既存のリソースパス、メソッドに設定されたステージリソースプラグインの設定値はそのまま維持されます。 
+* リソースに変更された事項がない場合は、実行されません。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/resources |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
-| stageId | String | Required | N/A | N/A | Stage ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
+| stageId | String | 必須 | なし | なし | ステージID |
 
 
-#### Response
+#### レスポンス
 
 [Response]
 ```json
@@ -1956,51 +1955,51 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-|Field                                   |Type      |Description                                            |
+|フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
-|stageResourceList      |List    |Stage resource list area                             |
-|stageResourceList[0]      |Object    |Stage resource area                             |
-|stageResourceList[0].stageResourceId        |String  |Stage resource ID                                |
-|stageResourceList[0].path                   |String  |Stage resource path                                |
-|stageResourceList[0].parentPath             |String  |Parent resource path of the stage (parentPath for root (/) path is null)|
-|stageResourceList[0].stageId                |String  |Stage ID                                    |
-|stageResourceList[0].customBackendEndpointUrl      |String  |Backend endpoint override URL                          |
-|stageResourceList[0].methodType             |Enum    |See [HTTP Method Type Enum Code](./enum-code/#http-method-type)               |
-|stageResourceList[0].methodName             |String  |Method name                                     |
-|stageResourceList[0].methodDescription      |String  |Method description                                     |
-|stageResourceList[0].createdAt              |DateTime|Stage resource creation date and time                              |
-|stageResourceList[0].updatedAt              |DateTime|Stage resource modification date and time                              |
-|stageResourceList[0].stageResourcePluginList|List    |Stage resource's plugin list area                       |
-|stageResourceList[0].stageResourcePluginList[0]|Object    |Stage resource's plugin area                       |
-|stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
-|stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)               |
-|stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
-|stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
+|stageResourceList      |List    |ステージリソースリスト領域                           |
+|stageResourceList[0]      |Object    |ステージリソース領域                           |
+|stageResourceList[0].stageResourceId        |String  |ステージリソースID                                |
+|stageResourceList[0].path                   |String  |ステージリソースパス                              |
+|stageResourceList[0].parentPath             |String  |ステージ上位リソースパス(ルート(/)パスのparentPathはnull)|
+|stageResourceList[0].stageId                |String  |ステージID                                    |
+|stageResourceList[0].customBackendEndpointUrl      |String  |バックエンドエンドポイント再定義URL                          |
+|stageResourceList[0].methodType             |Enum    |[HTTPメソッドタイプEnumコード](./enum-code/#???)参考             |
+|stageResourceList[0].methodName             |String  |メソッド名                                   |
+|stageResourceList[0].methodDescription      |String  |メソッドの説明                                   |
+|stageResourceList[0].createdAt              |DateTime|ステージリソースの作成日時                            |
+|stageResourceList[0].updatedAt              |DateTime|ステージリソースの修正日時                            |
+|stageResourceList[0].stageResourcePluginList|List    |ステージリソースのプラグインリスト領域                     |
+|stageResourceList[0].stageResourcePluginList[0]|Object    |ステージリソースのプラグイン領域                     |
+|stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |ステージリソースプラグインID                           |
+|stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |ステージリソースID                                |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[リソースプラグインタイプ](./enum-code/#???), [ステージリソース > プラグインタイプ](./enum-code/#???)参考                      |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](), [ステージプラグインタイプ]()別設定JSON参考          |
+|stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|ステージリソースプラグインの作成日時                       |
+|stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|ステージリソースプラグインの修正日時                       |
 
 
 
-### Modify Stage Resource
-* Modify the backend endpoint URL override and stage resource plugin set in the resource path or resource method.
-* When a stage resource is modified, all registered stage resource plugins are deleted, and only the requested resource plugin is newly registered.
-* For more information about the Stage Resource Plugin, see [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin).
+### ステージリソースの修正
+* リソースパスまたはリソースメソッドに設定されたバックエンドエンドポイントURLを再定義し、ステージリソースプラグインを修正します。
+* ステージリソースを修正すると、登録されたステージリソースプラグインは全て削除され、リクエストしたリソースプラグインのみ新しく登録されます。
+* ステージリソースプラグインの詳細については[ステージリソースプラグイン]()を参照してください。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/resources/{stageResourceId} |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
-| stageId | String | Required | N/A | N/A | Stage ID |
-| stageResourceId | String | Required | N/A | N/A | Stage resource ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
+| stageId | String | 必須 | なし | なし | ステージID |
+| stageResourceId | String | 必須 | なし | なし | ステージリソースID |
 
 
 [Request Body]
@@ -2017,18 +2016,16 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| customBackendEndpointUrl | String | Optional | N/A | Max. 150 characters, URL format | Backend endpoint override URL |
-|stageResourcePluginList|List | Required | N/A | N/A  |Stage resource's plugin list area                       |
-|stageResourcePluginList[0]|Object | Required | N/A | N/A |Stage resource's plugin area                       |
-|stageResourcePluginList[0].pluginType  | Enum |Required | N/A | IP_ACL, HMAC, JWT, API_KEY, PRE_API, RATE_LIMIT | See [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                        |
-|stageResourcePluginList[0].pluginConfigJson       | Object | Required | N/A | N/A |See configuration JSON by [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)                        |
+| customBackendEndpointUrl | String | 任意 | なし | 最大150文字、 URL形式 | バックエンドエンドポイント再定義URL |
+| stageResourcePluginList | List | 必須 | なし | なし | ステージリソースプラグインリスト領域 |
+| stageResourcePluginList[0] | Object | 必須 | なし | なし | ステージリソースプラグイン別JSON形式のオブジェクト<br>[ステージリソースプラグイン]()参考|
 
-* The customBackendEndpointUrl field cannot be set in the root (/) resource path.
+* customBackendEndpointUrlフィールドはルート(/)リソースパスには設定できません。
 
 
-#### Response
+#### レスポンス
 
 [Response]
 ```json
@@ -2082,60 +2079,60 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-|Field                                   |Type      |Description                                            |
+|フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
-|stageResourceList      |List    |Stage resource list area                             |
-|stageResourceList[0]      |Object    |Stage resource area                             |
-|stageResourceList[0].stageResourceId        |String  |Stage resource ID                                |
-|stageResourceList[0].path                   |String  |Stage resource path                                |
-|stageResourceList[0].parentPath             |String  |Parent resource path of the stage (parentPath for root (/) path is null)|
-|stageResourceList[0].stageId                |String  |Stage ID                                    |
-|stageResourceList[0].customBackendEndpointUrl      |String  |Backend endpoint override URL                          |
-|stageResourceList[0].methodType             |Enum    |See [HTTP Method Type Enum Code](./enum-code/#http-method-type)               |
-|stageResourceList[0].methodName             |String  |Method name                                     |
-|stageResourceList[0].methodDescription      |String  |Method description                                     |
-|stageResourceList[0].createdAt              |DateTime|Stage resource creation date and time                              |
-|stageResourceList[0].updatedAt              |DateTime|Stage resource modification date and time                              |
-|stageResourceList[0].stageResourcePluginList|List    |Stage resource's plugin list area                       |
-|stageResourceList[0].stageResourcePluginList[0]|Object    |Stage resource's plugin area                       |
-|stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
-|stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)             |
-|stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
-|stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
+|stageResourceList      |List    |ステージリソースリスト領域                           |
+|stageResourceList[0]      |Object    |ステージリソース領域                           |
+|stageResourceList[0].stageResourceId        |String  |ステージリソースID                                |
+|stageResourceList[0].path                   |String  |ステージリソースパス                              |
+|stageResourceList[0].parentPath             |String  |ステージ上位リソースパス(ルート(/)パスのparentPathはnull)|
+|stageResourceList[0].stageId                |String  |ステージID                                    |
+|stageResourceList[0].customBackendEndpointUrl      |String  |バックエンドエンドポイント再定義URL                          |
+|stageResourceList[0].methodType             |Enum    |[HTTPメソッドタイプEnumコード](./enum-code/#???)参考             |
+|stageResourceList[0].methodName             |String  |メソッド名                                   |
+|stageResourceList[0].methodDescription      |String  |メソッドの説明                                   |
+|stageResourceList[0].createdAt              |DateTime|ステージリソースの作成日時                            |
+|stageResourceList[0].updatedAt              |DateTime|ステージリソースの修正日時                            |
+|stageResourceList[0].stageResourcePluginList|List    |ステージリソースのプラグインリスト領域                     |
+|stageResourceList[0].stageResourcePluginList[0]|Object    |ステージリソースのプラグイン領域                     |
+|stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |ステージリソースプラグインID                           |
+|stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |ステージリソースID                                |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[リソースプラグインタイプ](./enum-code/#???), [ステージリソース > プラグインタイプ](./enum-code/#???)参考                      |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](), [ステージプラグインタイプ]()別設定JSON参考          |
+|stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|ステージリソースプラグインの作成日時                       |
+|stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|ステージリソースプラグインの修正日時                       |
 
 
-## Stage Resource Plugin
-* For resources of the stage, features such as access control, authentication, and usage control can be set in the form of plug-ins.
-* When a plugin is set in the upper level, it is applied to all sub-methods collectively, and can be overridden in sub-paths/methods.
+## ステージリソースプラグイン
+* ステージのリソースにはアクセス制限、認証、使用量制御などの機能をプラグイン形式で設定できます。 
+* プラグインは上位で設定すると下位すべてのメソッドに一括適用され、サブパス/メソッドで再定義できます。 
 
-* [Example]: Plugin configuration override
+* [例]：プラグイン設定の再定義
     ```
     /
       /members
         - GET
         - POST
     ```
-    * Configuration
-        1. Limit the request number limit on the root (/) resource path to 100 per second
-        2. Limit the request number limit on the POST resource method to 10 per second (override)
-    * Operation result
-        - For GET /members, limit of 100 per second on the request limit set on root (/) is applied.
-        - For POST /members, the 100 requests per second limit set on root (/) is ignored, and the 10 per second limit is applied.
+    * 設定 
+        1. ルート(/)リソースパスでリクエスト数制限を1秒あたり100個に制限
+        2. POSTリソースメソッドにリクエスト数制限を1秒あたり10個に制限(再定義)
+    * 動作結果 
+        - GET /membersはルート(/)に設定されたリクエスト数制限の1秒あたり100個に制限が適用されます。
+        - POST /membersはルート(/)に設定されたリクエスト数制限の1秒あたり100個制限が無視され、1秒あたり10個制限で適用されます。
 
-* Plugins configurable depending on resources
+* リソースに応じて設定可能なプラグイン
 
-| Resource type | List of configurable plugins |
+| リソースタイプ | 設定可能なプラグインリスト |
 | --- | --- |
-| Root (/) resource path |IP ACL, Authentication (either JWT or HMAC), Pre-call API, Request number limit, API key |
-| Resource path |Backend endpoint URL override, Pre-call API, API Key |
-| Resource method  |Backend endpoint URL override, Pre-call API, Request number limit, API Key |
+| ルート(/)リソースパス |IP ACL、認証(JWTまたはHMACのいずれか)、事前呼び出しAPI、リクエスト数制限、 API Key |
+| リソースパス |バックエンドエンドポイントURL再定義、事前呼び出しAPI、API Key |
+| リソースメソッド |バックエンドエンドポイントURL再定義、事前呼び出しAPI、リクエスト数制限、 API Key |
 
 
 ### IP ACL 
-* API Gateway requests can be allowed/denied for the client IDs specified through IP ACL.
-* It can only be set on the root (/) resource path. The settings are applied to all sub-resources.
+* IP ACLを使用して指定されたクライアントIPのAPI Gatewayリクエストを許可/拒否できます。
+* ルート(/)リソースパスにのみ設定できます。設定内容は下位すべてのリソースに適用されます。
 
 ```json
 {
@@ -2156,23 +2153,23 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | Required | N/A | IP_ACL | See IP_ACL in [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type) |
-| pluginConfigJson | Object | Required | N/A | N/A | IP ACL plugin configuration area |
-| pluginConfigJson.isPermit | Boolean | Required | N/A | true, false | If set to false, the request is denied for the configured IP/CIDR. If set to true, the request is allowed only for the configured IP/CIDR.  |
-| pluginConfigJson.ipAclList | List | Required | N/A | 1~100 items | Area for IP or CIDR list to allow/deny requests |
-| pluginConfigJson.ipAclList[0].ipCidrAddress | String | Required | N/A | IP or CIDR format | Set IP or CIDR. |
-| pluginConfigJson.ipAclList[0].description | String | Optional | N/A | Max. 200 characters | Set the description. |
+| pluginType | Enum | 必須 | なし | IP_ACL | [ステージリソース > プラグインタイプ]()のうちIP_ACL参考 |
+| pluginConfigJson | Object | 必須 | なし | なし | IP ACLプラグイン設定領域 |
+| pluginConfigJson.isPermit | Boolean | 必須 | なし | true, false | falseに設定すると、設定されたIP/CIDRのリクエストを拒否し、trueに設定すると設定されたIP/CIDRのみリクエストを許可します。  |
+| pluginConfigJson.ipAclList | List | 必須 | なし | 1～100個 | リクエストを許可/拒否するIPまたはCIDRリスト領域 |
+| pluginConfigJson.ipAclList[0].ipCidrAddress | String | 必須 | なし | IPまたはCIDR形式 | IPまたはCIDRを設定します。 |
+| pluginConfigJson.ipAclList[0].description | String | 任意 | なし | 最大200文字 | 説明を設定します。 |
 
 
 ### HMAC
-* Settings for validating the tampering of client requests through HMAC signature verification.
-* It can only be set on the root (/) resource path. The settings are applied to all sub-resources.
-* HMAC authentication cannot be set at the same time as JWT authentication.
-* Set the secret key used for signing.
-* Set the validation validity period to prevent validation failures caused by time differences.
-* Set a list of headers that must be included in the request.
+* HMAC署名検証を通じてクライアントリクエストの改ざんを検証するための設定です。 
+* ルート(/)リソースパスにのみ設定できます。設定内容は下位すべてのリソースに適用されます。
+* HMAC認証はJWT認証と同時に設定できません。
+* 署名に使用する秘密鍵を設定します。
+* 時間差で発生する検証失敗を防止するための検証有効時間を設定します。
+* リクエストに必ず含める必要があるヘッダリストを設定します。
 
 ```json
 {
@@ -2187,24 +2184,26 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | Required | N/A | HMAC | See HMAC in [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type) |
-| pluginConfigJson | Object | Required | N/A | N/A | HMAC plugin configuration area |
-| pluginConfigJson.secretKey | String | Required | N/A | N/A | Set the secret key used for signing. It is recommended to set it to a string of at least 32 bytes.|
-| pluginConfigJson.clockSkewSeconds | Integer | Optional | 0 | 0~86400 | Specify the request validity period (in seconds). |
-| pluginConfigJson.enforceHeaders | Array | Optional | Empty List | N/A | Enter a string array of required validation headers. |
-| pluginConfigJson.enforceHeaders[0] | String | Required | N/A | N/A| String of required validation headers |
+| pluginType | Enum | 必須 | なし | HMAC | [ステージリソース > プラグインタイプ]()のHMAC参考 |
+| pluginConfigJson | Object | 必須 | なし | なし | HMACプラグイン設定領域 |
+| pluginConfigJson.secretKey | String | 必須 | なし | なし | 署名に使用される秘密鍵を設定します。32バイト以上の文字列に設定することを推奨します。|
+| pluginConfigJson.clockSkewSeconds | Integer | 任意 | 0 | 0～86400 | リクエスト有効時間(単位：秒)を指定します。 |
+| pluginConfigJson.enforceHeaders | Array | 任意 | Empty List | なし | 必須検証ヘッダの文字列配列を入力します。 |
+| pluginConfigJson.enforceHeaders[0] | String | 必須 | なし | なし| 必須検証ヘッダの文字列 |
 
 
 ### JWT 
-* Settings for validating the signature of the JWT token and request claims.
-* It can only be set on the root (/) resource path. The settings are applied to all sub-resources.
-* JWT authentication cannot be set at the same time as HMAC authentication.
-* Set the token encryption algorithm for signature verification and the private or public key according to the encryption algorithm method.
-* Set the claim validation condition to validation the value of the request claim and whether it is required or not.
-* Set the validation validity period to prevent validation failures caused by time differences.
-* **Encryption Algorithm HS256**
+* JWTトークンの署名とリクエストクレームを検証するための設定です。
+* ルート(/)リソースパスにのみ設定できます。設定内容は下位すべてのリソースに適用されます。
+* JWT認証はHMAC認証と同時に設定できません。
+* 署名を検証するためのトークン暗号化アルゴリズムと暗号化アルゴリズム方式に基づく秘密鍵または公開鍵を設定します。
+* リクエストクレームの値、必須かどうか、検証を行うためのクレーム検証条件を設定します。 
+* 時間差で発生する検証失敗を防止するための検証有効時間を設定します。
+
+
+* **暗号化アルゴリズムHS256** 
 ```json
 {
   "pluginType": "JWT",
@@ -2262,52 +2261,52 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | Required | N/A | JWT | See JWT in [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type) |
-| pluginConfigJson | Object | Required | N/A  | N/A | JWT plugin configuration area |
-| pluginConfigJson.encryptAlgorithm | Enum | Required | HS256 | HS256 | See [JWT > Encryption Algorithm Enum Code](./enum-code/#jwt-encryption-algorithm)  |
-| pluginConfigJson.hs256 | Object | Required | N/A | N/A | HS256 validation area |
-| pluginConfigJson.hs256.secretKey | String | Required | N/A | N/A | Set the secret key used for signing. It is recommended to set it to a string of at least 32 bytes.|
-| pluginConfigJson.clockSkew | Integer | Optional | 0 | 0~86400 | Specify the validation validity period (in seconds) of the exp, nbf claim. |
-| pluginConfigJson.claimValidationCondition | Object | Optional | Default Object | N/A | Claim validation condition area |
-| pluginConfigJson.claimValidationCondition.iss | Object | Optional | Default Object | N/A | The iss claim validation condition area. If not requested, it will be stored as the default value for each field. |
-| pluginConfigJson.claimValidationCondition.iss.value | Array | Required | Empty Array | N/A |  Set the value of the claim to allow among the values of the iss request claim as a string array. |
-| pluginConfigJson.claimValidationCondition.iss.value[0] | String | Optional | N/A | N/A |  Set the string to allow among the values of the iss request claim. |
-| pluginConfigJson.claimValidationCondition.iss.dataType | Enum | Optional | Array | Array | Set the data type of the iss claim. Only Array is valid. See <br/> [JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type) |
-| pluginConfigJson.claimValidationCondition.iss.required | Boolean | Required | false | true, false | Set whether the iss request claim value is required to be validated. |
-| pluginConfigJson.claimValidationCondition.iss.validate | Boolean | Required | false | true, false | Set whether to validate the iss request claim value. |
-| pluginConfigJson.claimValidationCondition.aud | Object | Optional | Default Object | N/A | The aud claim validation condition area. If not requested, it will be stored as the default value for each field.  |
-| pluginConfigJson.claimValidationCondition.aud.value | Array | Required | Empty Array | N/A |  Set the value of the claim to allow among the values of the aud request claim as a string array. |
-| pluginConfigJson.claimValidationCondition.aud.value[0] | String | Optional | N/A | N/A |  Set the string to allow among the values of the aud request claim. |
-| pluginConfigJson.claimValidationCondition.aud.dataType | Enum | Optional | Array | Array | Set the data type of the aud claim. Only Array is valid. <br/>See [JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type) |
-| pluginConfigJson.claimValidationCondition.aud.required | Boolean | Required | false | true, false | Set whether the aud request claim value is required to be validated. |
-| pluginConfigJson.claimValidationCondition.aud.validate | Boolean | Required | true | true | Set whether to validate the aud request claim value. Only true is valid. |
-| pluginConfigJson.claimValidationCondition.sub | Object | Optional | Default Object | N/A | The sub claim validation condition area. If not requested, it will be stored as the default value for each field. |
-| pluginConfigJson.claimValidationCondition.sub.value | String | Required | Empty String | N/A |  Set the value of the claim to allow among the values of the sub request claim as a string value. |
-| pluginConfigJson.claimValidationCondition.sub.dataType | Enum | Optional | String | String | Set the data type of the sub claim. Only Array is valid. <br/>See [JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type)|
-| pluginConfigJson.claimValidationCondition.sub.required | Boolean | Required | false | true, false | Set whether the sub request claim value is required to be validated. <br/> If the validate field value is true, required must be set to true.  |
-| pluginConfigJson.claimValidationCondition.sub.validate | Boolean | Required | false | true, false | Set whether to validate the sub request claim value. |
-| pluginConfigJson.claimValidationCondition.jti | Object | Optional | Default Object | N/A | The jti claim validation condition area. If not requested, it will be stored as the default value for each field. |
-| pluginConfigJson.claimValidationCondition.jti.value | String | Required | Empty String | N/A | The jti claim does not require setting the validation values to allow, so set it to an empty string. |
-| pluginConfigJson.claimValidationCondition.jti.dataType | Enum | Optional | String | String | Set the data type of the jti claim. <br/>See [JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type)|
-| pluginConfigJson.claimValidationCondition.jti.required | Boolean | Required | false | true, false | Set whether the jti request claim value is required to be validated. |
-| pluginConfigJson.claimValidationCondition.jti.validate | Boolean | Required | false | false | Set whether to validate the jti request claim value. Only false is valid.|
-| pluginConfigJson.claimValidationCondition.exp | Object | Optional | Default Object | N/A | The exp claim validation condition area. If not requested, it will be stored as the default value for each field. |
-| pluginConfigJson.claimValidationCondition.exp.dataType | Enum | Optional | NumericDate | NumericDate | Set the data type of the exp claim. Only NumericDate is valid. See <br/> [JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type) |
-| pluginConfigJson.claimValidationCondition.exp.required | Boolean | Required | false | true, false | Set whether the exp request claim value is required to be validated. |
-| pluginConfigJson.claimValidationCondition.exp.validate | Boolean | Optional | true | true | Set whether to validate the exp request claim value. Only true is valid. |
-| pluginConfigJson.claimValidationCondition.iat | Object | Optional | Default Object | N/A | The iat claim validation condition area. If not requested, it will be stored as the default value for each field. |
-| pluginConfigJson.claimValidationCondition.iat.dataType | Enum | Optional | NumericDate | NumericDate | Set the data type of the iat claim. Only NumericDate is valid. See <br/> [JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type) |
-| pluginConfigJson.claimValidationCondition.iat.required | Boolean | Required | false | true, false | Set whether the iat request claim value is required to be validated. |
-| pluginConfigJson.claimValidationCondition.iat.validate | Boolean | Optional | true | true | Set whether to validate the iat request claim value. Only true is valid. |
-| pluginConfigJson.claimValidationCondition.nbf | Object | Optional | Default Object | N/A | The nbf claim validation condition area. If not requested, it will be stored as the default value for each field. |
-| pluginConfigJson.claimValidationCondition.nbf.dataType | Enum | Optional | NumericDate | NumericDate | Set the data type of the nbf claim. Only NumericDate is valid. See <br/> [JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type)|
-| pluginConfigJson.claimValidationCondition.nbf.required | Boolean | Required | false | true, false | Set whether the nbf request claim value is required to be validated. |
-| pluginConfigJson.claimValidationCondition.nbf.validate | Boolean | Optional | true | true | Sets whether to validate the nbf request claim value. Only true is valid. |
+| pluginType | Enum | 必須 | なし | JWT | [ステージリソース > プラグインタイプ]()のJWT参考 |
+| pluginConfigJson | Object | 必須 | なし | なし | JWTプラグイン設定領域 |
+| pluginConfigJson.encryptAlgorithm | Enum | 必須 | HS256 | HS256 | [JWT > 暗号化アルゴリズム]()参考 |
+| pluginConfigJson.hs256 | Object | 必須 | なし | なし | HS256設定領域 |
+| pluginConfigJson.hs256.secretKey | String | 必須 | なし | なし | 署名に使用される秘密鍵を設定します。32バイト以上の文字列に設定することを推奨します。|
+| pluginConfigJson.clockSkew | Integer | 任意 | 0 | 0～86400 | exp, nbfクレームの検証有効時間(単位：秒)を指定します。 |
+| pluginConfigJson.claimValidationCondition | Object | 任意 | Default Object | なし | クレーム検証条件領域 |
+| pluginConfigJson.claimValidationCondition.iss | Object | 任意 | Default Object | なし | issクレーム検証条件領域。リクエストしない場合、各フィールドのデフォルト値で保存されます。 |
+| pluginConfigJson.claimValidationCondition.iss.value | Array | 必須 | Empty Array | なし |  issリクエストクレームの値のうち、許可するクレーム値を文字列配列で設定します。 |
+| pluginConfigJson.claimValidationCondition.iss.value[0] | String | 任意 | なし | なし |  issリクエストクレームの値のうち、許可する文字列を設定します。 |
+| pluginConfigJson.claimValidationCondition.iss.dataType | Enum | 任意 | Array | Array | issクレームのデータ型を設定します。 Arrayのみ有効です。 <br/> [JWT > クレームデータ型]()参考 |
+| pluginConfigJson.claimValidationCondition.iss.required | Boolean | 必須 | false | true, false | issリクエストクレーム値が必須検証かどうかを設定します。 |
+| pluginConfigJson.claimValidationCondition.iss.validate | Boolean | 必須 | false | true, false | issリクエストクレーム値を検証するかどうかを設定します。 |
+| pluginConfigJson.claimValidationCondition.aud | Object | 任意 | Default Object | なし | audクレーム検証条件領域。リクエストしない場合、各フィールドのデフォルト値で保存されます。  |
+| pluginConfigJson.claimValidationCondition.aud.value | Array | 必須 | Empty Array | なし |  audリクエストクレームの値のうち、許可するクレーム値を文字列配列で設定します。 |
+| pluginConfigJson.claimValidationCondition.aud.value[0] | String | 任意 | なし | なし |  audリクエストクレームの値のうち、許可する文字列を設定します。 |
+| pluginConfigJson.claimValidationCondition.aud.dataType | Enum | 任意 | Array | Array | audクレームのデータ型を設定します。 Arrayのみ有効です。 <br/> [JWT > クレームデータ型]()参考 |
+| pluginConfigJson.claimValidationCondition.aud.required | Boolean | 必須 | false | true, false | audリクエストクレーム値が必須検証かどうかを設定します。 |
+| pluginConfigJson.claimValidationCondition.aud.validate | Boolean | 必須 | true | true | audリクエストクレーム値を検証するかどうかを設定します。 trueのみ有効です。 |
+| pluginConfigJson.claimValidationCondition.sub | Object | 任意 | Default Object | なし | subクレーム検証条件領域。リクエストしない場合、各フィールドのデフォルト値で保存されます。 |
+| pluginConfigJson.claimValidationCondition.sub.value | String | 必須 | Empty String | なし |  subリクエストクレームの値のうち、許可するクレーム文字列値を設定します。 |
+| pluginConfigJson.claimValidationCondition.sub.dataType | Enum | 任意 | String | String | subクレームのデータ型を設定します。 Stringのみ有効です。<br/> [JWT > クレームデータ型]()参考|
+| pluginConfigJson.claimValidationCondition.sub.required | Boolean | 必須 | false | true, false | subリクエストクレーム値が必須検証かどうかを設定します。 <br/> validateフィールド値がtrueの場合、 requriedは必ずtrueに設定する必要があります。  |
+| pluginConfigJson.claimValidationCondition.sub.validate | Boolean | 必須 | false | true, false | subリクエストクレーム値を検証するかどうかを設定します。 |
+| pluginConfigJson.claimValidationCondition.jti | Object | 任意 | Default Object | なし | jtiクレーム検証条件領域。リクエストしない場合、各フィールドのデフォルト値で保存されます。 |
+| pluginConfigJson.claimValidationCondition.jti.value | String | 必須 | Empty String | なし | jtiクレームは許可する検証値設定を要求しないため、空の文字列に設定します。 |
+| pluginConfigJson.claimValidationCondition.jti.dataType | Enum | 任意 | String | String | jtiクレームのデータ型を設定します。 <br/> [JWT > クレームデータ型]()参考|
+| pluginConfigJson.claimValidationCondition.jti.required | Boolean | 必須 | false | true, false | jtiリクエストクレーム値が必須検証かどうかを設定します。 |
+| pluginConfigJson.claimValidationCondition.jti.validate | Boolean | 必須 | false | false | jtiリクエストクレーム値を検証するかどうかを設定します。 falseのみ有効です。|
+| pluginConfigJson.claimValidationCondition.exp | Object | 任意 | Default Object | なし | expクレーム検証条件領域。リクエストしない場合、各フィールドのデフォルト値で保存されます。 |
+| pluginConfigJson.claimValidationCondition.exp.dataType | Enum | 任意 | NumericDate | NumericDate | expクレームのデータ型を設定します。 NumericDateのみ有効です。 <br/> [JWT > クレームデータ型]()参考 |
+| pluginConfigJson.claimValidationCondition.exp.required | Boolean | 必須 | false | true, false | expリクエストクレーム値が必須検証かどうかを設定します。 |
+| pluginConfigJson.claimValidationCondition.exp.validate | Boolean | 任意 | true | true | expリクエストクレーム値を検証するかどうかを設定します。 trueのみ有効です。 |
+| pluginConfigJson.claimValidationCondition.iat | Object | 任意 | Default Object | なし | iatクレーム検証条件領域。リクエストしない場合、各フィールドのデフォルト値で保存されます。 |
+| pluginConfigJson.claimValidationCondition.iat.dataType | Enum | 任意 | NumericDate | NumericDate | iatクレームのデータ型を設定します。 NumericDateのみ有効です。 <br/> [JWT > クレームデータ型]()参考 |
+| pluginConfigJson.claimValidationCondition.iat.required | Boolean | 必須 | false | true, false | iatリクエストクレーム値が必須検証かどうかを設定します。 |
+| pluginConfigJson.claimValidationCondition.iat.validate | Boolean | 任意 | true | true | iatリクエストクレーム値を検証するかどうかを設定します。 trueのみ有効です。 |
+| pluginConfigJson.claimValidationCondition.nbf | Object | 任意 | Default Object | なし | nbfクレーム検証条件領域。リクエストしない場合、各フィールドのデフォルト値で保存されます。 |
+| pluginConfigJson.claimValidationCondition.nbf.dataType | Enum | 任意 | NumericDate | NumericDate | nbfクレームのデータ型を設定します。 NumericDateのみ有効です。 <br/> [JWT > クレームデータ型]()参考|
+| pluginConfigJson.claimValidationCondition.nbf.required | Boolean | 必須 | false | true, false | nbfリクエストクレーム値が必須検証かどうかを設定します。 |
+| pluginConfigJson.claimValidationCondition.nbf.validate | Boolean | 任意 | true | true | nbfリクエストクレーム値を検証するかどうかを設定します。 trueのみ有効です。 |
 
 
-* **Encryption algorithm RS256: (PEM format public key setting method)**
+* **暗号化アルゴリズムRS256： (PEM形式の公開鍵設定方式)** 
 
 ```json
 {
@@ -2326,19 +2325,19 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | Required | N/A | JWT | See JWT in [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type) |
-| pluginConfigJson | Object | Required | N/A  | N/A | JWT plugin configuration area |
-| pluginConfigJson.encryptAlgorithm | Enum | Required | RS256 | RS256 | See [JWT > Encryption Algorithm Enum Code](./enum-code/#jwt-encryption-algorithm)  |
-| pluginConfigJson.rs256 | Object | Required | N/A | N/A | RS256 configuration area |
-| pluginConfigJson.rs256.publicKeyType | Enum | Required | N/A | RSA_PUBLIC_KEY | Set the public key in PEM format. See [JWT > RS256 Encryption Algorithm > Public Key Type Enum Code](./enum-code/#jwt-rs256-encryption-algorithm-public-key-type) |
-| pluginConfigJson.rs256.rsaPublicKey | String | Required | N/A | Public key in PEM format | Set the public key value in PEM format. It must be entered including the newline character (\n). |
-| pluginConfigJson.clockSkew | Integer | Optional | 0 | 0~86400 | Specify the validation validity period (in seconds) of the exp, nbf claim. |
-| pluginConfigJson.claimValidationCondition | Object | Optional | Default Object | N/A | Claim validation condition field (encryption algorithm: same as claimValidationCondition field description of HS256) |
+| pluginType | Enum | 必須 | なし | JWT | [ステージリソース > プラグインタイプ]()のJWT参考 |
+| pluginConfigJson | Object | 必須 | なし | なし | JWTプラグイン設定領域 |
+| pluginConfigJson.encryptAlgorithm | Enum | 必須 | RS256 | RS256 | [JWT > 暗号化アルゴリズム]()参考 |
+| pluginConfigJson.rs256 | Object | 必須 | なし | なし | RS256設定領域 |
+| pluginConfigJson.rs256.publicKeyType | Enum | 必須 | なし | RSA_PUBLIC_KEY | PEM形式の公開鍵設定[JWT > RS256暗号化アルゴリズム > Public Key Type]()参考 |
+| pluginConfigJson.rs256.rsaPublicKey | String | 必須 | なし | PEM形式の公開鍵 | PEM形式の公開鍵値を設定します。 改行文字(\n)を含めて入力する必要があります。 |
+| pluginConfigJson.clockSkew | Integer | 任意 | 0 | 0～86400 | exp, nbfクレームの検証有効時間(単位：秒)を指定します。 |
+| pluginConfigJson.claimValidationCondition | Object | 任意 | Default Object | なし | クレーム検証条件領域(暗号化アルゴリズム： HS256のclaimValidationConditionフィールド説明と同じです。) |
 
 
-* **Encryption algorithm RS256: (JSON Web Key Set URI public key setting method)**
+* **暗号化アルゴリズムRS256： (JSON Web Key Sets URI公開鍵設定方式)** 
 
 ```json
 {
@@ -2356,21 +2355,21 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | Required | N/A | JWT | See JWT in [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type) |
-| pluginConfigJson | Object | Required | N/A  | N/A | JWT plugin configuration area |
-| pluginConfigJson.encryptAlgorithm | Enum | Required | RS256 | RS256 | See [JWT > Encryption Algorithm Enum Code](./enum-code/#jwt-encryption-algorithm)  |
-| pluginConfigJson.rs256 | Object | Required | N/A | N/A | RS256 configuration area |
-| pluginConfigJson.rs256.publicKeyType | String | Required | N/A | JWKS_URI | Set the public key in JSON Web Key Set (JWKS) URI format. See [JWT > RS256 Encryption Algorithm > Public Key Type Enum Code](./enum-code/#jwt-rs256-encryption-algorithm-public-key-type) |
-| pluginConfigJson.rs256.rsaPublicKey | String | Required | N/A | N/A | Set the JSON Web Key Set URI. |
-| pluginConfigJson.clockSkew | Integer | Optional | 0 | 0~86400 | Specify the validation validity period (in seconds) of the exp, nbf claim. |
-| pluginConfigJson.claimValidationCondition | Object | Optional | Default Object | N/A | Claim validation condition field (encryption algorithm: same as claimValidationCondition field description of HS256) |
+| pluginType | Enum | 必須 | なし | JWT | [ステージリソース > プラグインタイプ]()のJWT参考 |
+| pluginConfigJson | Object | 必須 | なし | なし | JWTプラグイン設定領域 |
+| pluginConfigJson.encryptAlgorithm | Enum | 必須 | RS256 | RS256 | [JWT > 暗号化アルゴリズム]()参考 |
+| pluginConfigJson.rs256 | Object | 必須 | なし | なし | RS256設定領域 |
+| pluginConfigJson.rs256.publicKeyType | String | 必須 | なし | JWKS_URI | JWKS(JSON Web Key Sets) URI形式で開鍵を設定します。 [JWT > RS256暗号化アルゴリズム > Public Key Type]()参考 |
+| pluginConfigJson.rs256.rsaPublicKey | String | 必須 | なし | なし | JSON Web Key Set URIを設定します。 |
+| pluginConfigJson.clockSkew | Integer | 任意 | 0 | 0～86400 | exp, nbfクレームの検証有効時間(単位：秒)を指定します。 |
+| pluginConfigJson.claimValidationCondition | Object | 任意 | Default Object | なし | クレーム検証条件領域(暗号化アルゴリズム： HS256のclaimValidationConditionフィールド説明と同じです。) |
 
 
-### Pre-call API
-* The pre-call API calls the user-specified API before calling the backend endpoint to ensure that the backend endpoint is called only if the call's response code is 200 OK.
-* It can be set on any resource path and method.
+### 事前呼び出しAPI 
+* 事前呼び出しAPIは、バックエンドエンドポイントを呼び出す前にユーザーが指定したAPIを呼び出して呼び出しのレスポンスコードが200 OKの場合にのみバックエンドエンドポイントを呼び出すようにします。
+* すべてのリソースパス、メソッドに設定できます。 
 
 ```json
 {
@@ -2383,19 +2382,19 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | Required | N/A | PRE_API | See PRE_API in [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type) |
-| pluginConfigJson | Object | Required | N/A | N/A | Pre-call API plugin configuration area |
-| pluginConfigJson.httpMethod | Enum | Required | N/A | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | See [HTTP Method Type Enum Code](./enum-code/#http-method-type)  |
-| pluginConfigJson.url | String | Required | N/A | URL format | Enter the URL of the pre-call API. |
-| pluginConfigJson.cacheTtl | Integer | Optional | 0 | 0~86400 | Set the cache period of the response status code of the pre-call API. <br/> The code is cached for the configured amount of time only if the response status code is 200 OK. If it is cached, the pre-call API is not called. |
+| pluginType | Enum | 必須 | なし | PRE_API | [ステージリソース > プラグインタイプ]()のPRE_API参考 |
+| pluginConfigJson | Object | 必須 | なし | なし | 事前呼び出しAPIプラグイン設定領域 |
+| pluginConfigJson.httpMethod | Enum | 必須 | なし | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTPメソッドタイプEnumコード](./enum-code/#???)参考 |
+| pluginConfigJson.url | String | 必須 | なし | URL形式 | 事前呼び出しAPIのURLを入力します。 |
+| pluginConfigJson.cacheTtl | Integer | 任意 | 0 | 0～86400 | 事前呼び出しAPIのレスポンスステータスコードのキャッシュ時間を設定します。 <br/>レスポンスステータスコードが200 OKの場合にのみ設定された時間キャッシュされ、キャッシュされている場合には事前呼び出しAPIを呼び出しません。 |
 
 
-### Request Number Limit
-* Limit the number of requests per second.
-* It can be set in the root (/) resource path and the resource method.
-* By setting the request limit key, you can set a limit on the number of requests per IP, header, and path variable values.
+### リクエスト数制限 
+* 1秒あたりのリクエスト数を制限します。 
+* ルート(/)リソースパスとリソースメソッドに設定できます。 
+* リクエスト制限キーを設定して、IP、ヘッダ、パス変数値ごとにリクエスト数制限を設定できます。
 
 ```json
 {
@@ -2408,19 +2407,19 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | Required | N/A | RATE_LIMIT | See RATE_LIMIT in [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type) |
-| pluginConfigJson | Object | Required | N/A | N/A | Request number limit plugin configuration area |
-| pluginConfigJson.keyType | Enum | Required | N/A | DEFAULT, IP, HEADER, PATH_VARIABLE | See [Request Number Limit > Limit Key Enum Code](./enum-code/#request-number-limit-limit-key)  |
-| pluginConfigJson.extraKeyValue | String | Conditionally required | N/A | N/A | If keyType is HEADER, the header name must be set. <br/> If the keyType is PATH_VARIABLE, you must set a path variable of the format ${request.path.variable-name}. |
-| pluginConfigJson.requestPerSec | Integer | Required | N/A | 1~5000 | Set the maximum number of requests per second. |
+| pluginType | Enum | 必須 | なし | RATE_LIMIT | [ステージリソース > プラグインタイプ]()のRATE_LIMIT参考 |
+| pluginConfigJson | Object | 必須 | なし | なし | リクエスト数制限プラグイン設定領域 |
+| pluginConfigJson.keyType | Enum | 必須 | なし | DEFAULT, IP, HEADER, PATH_VARIABLE | [リクエスト数制限 > 制限キー]()参考 |
+| pluginConfigJson.extraKeyValue | String | 条件付き必須 | なし | なし | keyTypeがHEADERの場合、ヘッダ名を必ず設定する必要があります。<br/> keyTypeがPATH_VARIABLEの場合、 ${request.path.variable-name}形式のパス変数を必ず設定する必要があります。 |
+| pluginConfigJson.requestPerSec | Integer | 必須 | なし | 1～5000 | 1秒あたりの最大リクエスト可能数を設定します。 |
 
 
 ### API Key
 
-* Validate that the API Key is valid when calling the API, and verify whether the usage of the specified usage plan has been exceeded.
-* It can be set in the root (/) resource path and in the resource method.
+* APIの呼び出し時にAPI Keyの有効性を検証し、指定された使用量プランの使用量を超えているかを検証します。 
+* ルート(/)リソースパスとリソースメソッドに設定できます。 
 
 
 ```json
@@ -2432,35 +2431,35 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | Required | N/A | API_KEY | See API_KEY in [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type) |
-| pluginConfigJson | Object | Required | N/A | N/A | API Key plugin configuration area |
-| pluginConfigJson.isActive | Boolean | Required | N/A | true | Set whether to verify the API key. Must be set to true. |
+| pluginType | Enum | 必須 | なし | API_KEY | [ステージリソース > プラグインタイプ]()のAPI_KEY参考 |
+| pluginConfigJson | Object | 必須 | なし | なし | API Keyプラグイン設定領域 |
+| pluginConfigJson.isActive | Boolean | 必須 | なし | true | API Key検証を行うかどうかを設定します。必ずtrueに設定する必要があります。 |
 
-## Deploy Stage
+## ステージ配布
 
 
-### Deploy Stage
-- Deploy the current stage resources and configurations to the API Gateway service.
-- If there is no changed configuration, the stage deployment request will fail.
-- If the stage deployment fails, it is restored to the previous successful stage deployment configuration.
-- After requesting stage deployment, you can check whether stage deployment was successful in [Query Result of Recent Stage Deployment](./api-guide-v1.0/#query-result-of-recent-stage-deployment).
+### ステージ配布
+- 現在のステージリソースと設定をAPI Gatewayサービスに配布します。 
+- 変更された設定情報がない場合、ステージ配布リクエストが失敗します。
+- ステージ配布が失敗した場合、既存の成功したステージ配布設定に戻ります。
+- ステージ配布リクエスト後、ステージ配布成否は[最近のステージ配布結果照会]()で確認できます。 
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method    | URI                                 |
+| メソッド  | URI                                 |
 | ------ | ------------------------------------ |
 | POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
-| stageId | String | Required | N/A | N/A | Stage ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
+| stageId | String | 必須 | なし | なし | ステージID |
 
 [Request Body]
 ```json
@@ -2468,12 +2467,12 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   "deployDescription": "deploy description"
 }
 ```
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| deployDescription | String | Optional | N/A | Max. 200 characters | Deployment description |
+| deployDescription | String | 任意 | なし | 最大200文字 | 配布説明 |
 
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -2488,28 +2487,28 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 ```
 
 
-### Query Result of Recent Stage Deployment
-- You can query the result of [Deploy Stage](./api-guide-v1.0/#deploy-stage_1).
-- After a stage deployment request, it can take up to a minute for the deployment results to be updated.
+### 最近のステージ配布結果照会 
+- [ステージ配布]()の結果を照会できます。
+- ステージ配布リクエスト後に配布結果がアップデートされるまで最長1分ほどかかる場合があります。 
 
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/latest |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
-| stageId | String | Required | N/A | N/A | Stage ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
+| stageId | String | 必須 | なし | なし | ステージID |
 
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -2573,58 +2572,58 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-|Field                                   |Type      |Description                                            |
+|フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
-|latestStageDeployResult              |Object  | Stage deployment result area                                        |
-|latestStageDeployResult.deployId       |String    | Deployment ID |
-|latestStageDeployResult.stageId   |String  | Stage ID  |
-|latestStageDeployResult.deployDescription        |String  | Deployment description  |
-|latestStageDeployResult.deployStatus        |Enum  | See [Stage Deployment > Deployment Status Enum Code](./enum-code/#stage-deployment-deployment-status) |
-|latestStageDeployResult.isBase         |String  | Whether the deployment history is the base for the current stage configuration. |
-|latestStageDeployResult.deployedAt          |DateTime  | Deployment request date and time |
-|latestStageDeployResult.rollbackAt   |DateTime  | Stage rollback request date and time |
-|latestStageDeployResult.stageResourceList      |List    |Stage resource list area                             |
-|latestStageDeployResult.stageResourceList[0]      |Object    |Stage resource area                             |
-|latestStageDeployResult.stageResourceList[0].stageResourceId        |String  |Stage resource ID                                |
-|latestStageDeployResult.stageResourceList[0].path                   |String  |Stage resource path                                |
-|latestStageDeployResult.stageResourceList[0].parentPath             |String  |Parent resource path of the stage (parentPath for root (/) path is null)|
-|latestStageDeployResult.stageResourceList[0].stageId                |String  |Stage ID                                    |
-|latestStageDeployResult.stageResourceList[0].customBackendEndpointUrl      |String  |Backend endpoint override URL                          |
-|latestStageDeployResult.stageResourceList[0].methodType             |Enum    |See [HTTP Method Type Enum Code](./enum-code/#http-method-type)               |
-|latestStageDeployResult.stageResourceList[0].methodName             |String  |Method name                                     |
-|latestStageDeployResult.stageResourceList[0].methodDescription      |String  |Method description                                     |
-|latestStageDeployResult.stageResourceList[0].createdAt              |DateTime|Stage resource creation date and time                              |
-|latestStageDeployResult.stageResourceList[0].updatedAt              |DateTime|Stage resource modification date and time                              |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList|List    |Stage resource's plugin list area                       |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0]|Object    |Stage resource's plugin area                       |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type) |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)           |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
+|latestStageDeployResult              |Object  | ステージ配布結果領域                                      |
+|latestStageDeployResult.deployId       |String    | 配布ID |
+|latestStageDeployResult.stageId   |String  | ステージID  |
+|latestStageDeployResult.deployDescription        |String  | 配布説明 |
+|latestStageDeployResult.deployStatus        |Enum  | [ステージ配布 > 配布状態]()参考 |
+|latestStageDeployResult.isBase         |String  | 現在のステージ設定のベースになる配布履歴かどうか |
+|latestStageDeployResult.deployedAt          |DateTime  | 配布リクエスト日時 |
+|latestStageDeployResult.rollbackAt   |DateTime  | ステージ復元リクエスト日時 |
+|latestStageDeployResult.stageResourceList      |List    |ステージリソースリスト領域                           |
+|latestStageDeployResult.stageResourceList[0]      |Object    |ステージリソース領域                           |
+|latestStageDeployResult.stageResourceList[0].stageResourceId        |String  |ステージリソースID                                |
+|latestStageDeployResult.stageResourceList[0].path                   |String  |ステージリソースパス                              |
+|latestStageDeployResult.stageResourceList[0].parentPath             |String  |ステージ上位リソースパス(ルート(/)パスのparentPathはnull)|
+|latestStageDeployResult.stageResourceList[0].stageId                |String  |ステージID                                    |
+|latestStageDeployResult.stageResourceList[0].customBackendEndpointUrl      |String  |バックエンドエンドポイント再定義URL                          |
+|latestStageDeployResult.stageResourceList[0].methodType             |Enum    |[HTTPメソッドタイプEnumコード](./enum-code/#???)参考             |
+|latestStageDeployResult.stageResourceList[0].methodName             |String  |メソッド名                                   |
+|latestStageDeployResult.stageResourceList[0].methodDescription      |String  |メソッド説明                                   |
+|latestStageDeployResult.stageResourceList[0].createdAt              |DateTime|ステージリソースの作成日時                            |
+|latestStageDeployResult.stageResourceList[0].updatedAt              |DateTime|ステージリソースの修正日時                            |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList|List    |ステージリソースのプラグインリスト領域                     |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0]|Object    |ステージリソースのプラグイン領域                     |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |ステージリソースプラグインID                           |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |ステージリソースID                                |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[ステージプラグインタイプ]()参考                     |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](), [ステージプラグインタイプ]()別設定JSON参考         |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|ステージリソースプラグインの作成日時                       |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|ステージリソースプラグインの修正日時                       |
 
-### Delete Stage Deployment History
-- Delete stage deployment history.
-- You cannot delete the current stage's base deployment history (if isBase is true) and the current API Gateway service's deployment history.
+### ステージ配布履歴の削除
+- ステージ配布履歴を削除します。
+- 現在のステージのベース配布履歴(isBaseがtrueの場合)と現在API Gatewayサービスの配布履歴は削除できません。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method    | URI                                 |
+| メソッド  | URI                                 |
 | ------ | ------------------------------------ |
 | DELETE | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/{deployId} |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
-| stageId | String | Required | N/A | N/A | Stage ID |
-| deployId | String | Required | N/A | N/A | Deployment ID to delete |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
+| stageId | String | 必須 | なし | なし | ステージID |
+| deployId | String | 必須 | なし | なし | 削除する配布ID |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -2639,32 +2638,32 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 ```
 
 
-### Query Stage Deployment History
-- Query the history of stage deployment in deployment success status.
+### ステージ配布履歴の照会 
+- 配布成功状態のステージ配布履歴を照会します。 
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
-| stageId | String | Required | N/A | N/A | Stage ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
+| stageId | String | 必須 | なし | なし | ステージID |
 
 [QueryString Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| page | Integer | Optional | 1 | N/A | Page |
-| limit | Integer | Optional | 10 | Max. 1000 | Count per page |
+| page | Integer | 任意 | 1 | なし | ページ |
+| limit | Integer | 任意 | 10 | 最大1000 | ページあたりの件数 |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -2693,49 +2692,50 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-|Field                                   |Type      |Description                                            |
+|フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
-|paging                               |Object  | Paging area                                        |
-|paging.page                          |Integer | Current page                                        |
-|paging.limit                         |Integer | Count per page                                  |
-|paging.totalCount                    |Integer | Total count                                        |
-|stageDeployHistoryList        |List    | Stage deployment history list area |
-|stageDeployHistoryList[0]        |Object    | Stage deployment history area |
-|stageDeployHistoryList[0].deployId       |String    | Deployment ID |
-|stageDeployHistoryList[0].stageId   |String  | Stage ID  |
-|stageDeployHistoryList[0].deployDescription        |String  | Deployment description  |
-|stageDeployHistoryList[0].isBase         |Boolean  | Whether the deployment history is the base for the current stage configuration. |
-|stageDeployHistoryList[0].deployedAt          |DateTime  | Deployment request date and time |
-|stageDeployHistoryList[0].rollbackAt   |DateTime  | Stage rollback request date and time |
+|paging                               |Object  | ページング領域                                      |
+|paging.page                          |Integer | 現在のページ                                      |
+|paging.limit                         |Integer | ページあたりの件数                                 |
+|paging.totalCount                    |Integer | 総件数                                       |
+|stageDeployHistoryList        |List    | ステージ配布履歴リスト領域 |
+|stageDeployHistoryList[0]        |Object    | ステージ配布履歴領域 |
+|stageDeployHistoryList[0].deployId       |String    | 配布ID |
+|stageDeployHistoryList[0].stageId   |String  | ステージID  |
+|stageDeployHistoryList[0].deployDescription        |String  | 配布説明 |
+|stageDeployHistoryList[0].isBase         |Boolean  | 現在のステージ設定のベースになる配布履歴かどうか |
+|stageDeployHistoryList[0].deployedAt          |DateTime  | 配布リクエスト日時 |
+|stageDeployHistoryList[0].rollbackAt   |DateTime  | ステージ復元リクエスト日時 |
 
 
-### Rollback Stage
-- Rollback the current stage configuration to the deployed stage configuration history.
-- Note that all current stage configurations will be deleted when performing the stage rollback.
-- To apply the rolled back stage configurations to the API Gateway service, you must deploy the stage.
-- You cannot perform rollback with the deployment history in deployment failure state.
+### ステージの復元
+- 配布されたステージ設定履歴で現在のステージ設定を復元します。
+- ステージを復元すると、現在のステージ設定は全て削除されますのでご注意ください。
+- 復元されたステージ設定をAPI Gatewayサービスに適用するには、ステージを配布する必要があります。
+- 配布失敗状態の配布履歴には復元できません。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method    | URI                                 |
+| メソッド  | URI                                 |
 | ------ | ------------------------------------ |
 | POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/{deployId}/rollback |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
-| stageId | String | Required | N/A | N/A | Stage ID |
-| deployId | String | Required | N/A | N/A | Deployment ID to rollback |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
+| stageId | String | 必須 | なし | なし | ステージID |
+| deployId | String | 必須 | なし | なし | 復元する配布ID |
 
-#### Response
+#### レスポンス
 
 [Response]
 
 ```json
+
 {
   "header": {
     "isSuccessful": true,
@@ -2764,54 +2764,54 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-|Field                                   |Type      |Description                                            |
+|フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
-|stageResourceList      |List    |Stage resource list area                             |
-|stageResourceList[0]      |Object    |Stage resource area                             |
-|stageResourceList[0].stageResourceId        |String  |Stage resource ID                                |
-|stageResourceList[0].path                   |String  |Stage resource path                                |
-|stageResourceList[0].parentPath             |String  |Parent resource path of the stage (parentPath for root (/) path is null)|
-|stageResourceList[0].stageId                |String  |Stage ID                                    |
-|stageResourceList[0].customBackendEndpointUrl      |String  |Backend endpoint override URL                          |
-|stageResourceList[0].methodType             |Enum    |See [HTTP Method Type Enum Code](./enum-code/#http-method-type)               |
-|stageResourceList[0].methodName             |String  |Method name                                     |
-|stageResourceList[0].methodDescription      |String  |Method description                                     |
-|stageResourceList[0].createdAt              |DateTime|Stage resource creation date and time                              |
-|stageResourceList[0].updatedAt              |DateTime|Stage resource modification date and time                              |
-|stageResourceList[0].stageResourcePluginList|List    |Stage resource's plugin list area                       |
-|stageResourceList[0].stageResourcePluginList[0]|Object    |Stage resource's plugin area                       |
-|stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
-|stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                       |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)           |
-|stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
-|stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
+|stageResourceList      |List    |ステージリソースリスト領域                           |
+|stageResourceList[0]      |Object    |ステージリソース領域                           |
+|stageResourceList[0].stageResourceId        |String  |ステージリソースID                                |
+|stageResourceList[0].path                   |String  |ステージリソースパス                              |
+|stageResourceList[0].parentPath             |String  |ステージ上位リソースパス(ルート(/)パスのparentPathはnull)|
+|stageResourceList[0].stageId                |String  |ステージID                                    |
+|stageResourceList[0].customBackendEndpointUrl      |String  |バックエンドエンドポイント再定義URL                          |
+|stageResourceList[0].methodType             |Enum    |[HTTPメソッドタイプEnumコード](./enum-code/#???)参考             |
+|stageResourceList[0].methodName             |String  |メソッド名                                   |
+|stageResourceList[0].methodDescription      |String  |メソッドの説明                                   |
+|stageResourceList[0].createdAt              |DateTime|ステージリソースの作成日時                            |
+|stageResourceList[0].updatedAt              |DateTime|ステージリソースの修正日時                            |
+|stageResourceList[0].stageResourcePluginList|List    |ステージリソースのプラグインリスト領域                     |
+|stageResourceList[0].stageResourcePluginList[0]|Object    |ステージリソースのプラグイン領域                     |
+|stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |ステージリソースプラグインID                           |
+|stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |ステージリソースID                                |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[ステージプラグインタイプ]()参考                     |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](), [ステージプラグインタイプ]()別設定JSON参考       |
+|stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|ステージリソースプラグインの作成日時                       |
+|stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|ステージリソースプラグインの修正日時                       |
 
 
-## API Document
+## API説明書
 
-### Query API Document
-- Query API document based on the deployed stage configuration.
-- The API document is returned as a JSON object that follows the [Swagger v2.0](https://swagger.io/specification/v2/) specification.
-- API document cannot be queried for undeployed stages, and a 404 Not Found response is returned.
+### API説明書照会
+- 配布されたステージ設定基準でAPI説明書を照会します。 
+- API説明書は[Swagger v2.0](https://swagger.io/specification/v2/)仕様のJSONオブジェクトでレスポンスされます。
+- 配布されていないステージについてはAPI説明書を照会できず、404 Not Foundが返されます。
 
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method    | URI                                 |
+| メソッド  | URI                                 |
 | ------ | ------------------------------------ |
 | GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/documents/swagger |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
-| stageId | String | Required | N/A | N/A | Stage ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
+| stageId | String | 必須 | なし | なし | ステージID |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -2830,7 +2830,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   "paths": {
     "/members/{proxy+}": {
       "get": {
-        "summary": "Member API",
+        "summary": "会員API",
         "description": "",
         "consumes": [
           "application/json"
@@ -2857,14 +2857,14 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
           {
             "name": "x-request-id",
             "in": "header",
-            "description": "Request ID",
+            "description": "リクエストID",
             "required": false,
             "type": "string"
           },
           {
             "in": "body",
             "name": "Member",
-            "description": "Member object",
+            "description": "会員オブジェクト",
             "required": false,
             "schema": {
               "$ref": "#/definitions/MemberModel",
@@ -2874,11 +2874,11 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
         ],
         "responses": {
           "200": {
-            "description": "Query success response",
+            "description": "照会成功レスポンス",
             "headers": {
               "x-response-id": {
                 "type": "string",
-                "description": "Response ID"
+                "description": "レスポンスID"
               }
             },
             "schema": {
@@ -2891,11 +2891,11 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
             }
           },
           "404": {
-            "description": "Unavailable member",
+            "description": "存在しない会員",
             "headers": {
               "x-response-id": {
                 "type": "string",
-                "description": "Response ID"
+                "description": "レスポンスID"
               }
             }
           }
@@ -2920,7 +2920,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
         }
       },
       "post": {
-        "summary": "Member API",
+        "summary": "会員API",
         "description": "",
         "parameters": [
           {
@@ -2990,57 +2990,57 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-|Field                                   |Type      |Description                                            |
+|フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
-|swagger                     |String    | Swagger specification version. See [Swagger Object](https://swagger.io/specification/v2/#swagger-object)|
-|info         | Object   | The metadata area of the API. See [Info Object](https://swagger.io/specification/v2/#swagger-object)|
-|info.version   |String  | The version information of the API, where the date and time of the stage deployment request is set. See [Info Object](https://swagger.io/specification/v2/#info-object)|
-|info.title      |String  | The title of the API, where the stage name is set. See [Info Object](https://swagger.io/specification/v2/#info-object)|
-|host|String    |The host that provides the API, where the stage URL is set. See [Swagger Object](https://swagger.io/specification/v2/#swagger-object)|
-|schemes              |Array  | Supported transport protocol of the API, where [http, https] is set. See [Swagger Object > schemes](https://swagger.io/specification/v2/#swagger-object)|
-|paths         | Object  | Paths of APIs, where paths of resource methods are set. See [Paths Object](https://swagger.io/specification/v2/#pathsObject)|
-|paths.{path} | Object | {path} is the path of the API, where the path to the resource method is set. See [Paths Object](https://swagger.io/specification/v2/#pathsObject)|
-|paths.{path}.{operation}         |Object  | {operation} is an operation on the API path, which is set as a resource method. See [Path Item Object](https://swagger.io/specification/v2/#path-item-object)|
-|paths.{path}.{operation}.consumes         | Array  | A list of MIME types that operation on the API path can use. |
-|paths.{path}.{operation}.consumes[0]         | String  | MIME types that operation of the API path can use. |
-|paths.{path}.{operation}.produces         | Array  | A list of MIME types that operation on the API path can generate. |
-|paths.{path}.{operation}.produces[0]         | String  | The MIME types that operation on the API path can generate. |
-|paths.{path}.{operation}.summary                |String  | API summary, where the name of the resource is set. See [Operation Object](https://swagger.io/specification/v2/#operation-object)|
-|paths.{path}.{operation}.description                |String  |API description, where the description of the resource is set. See [Operation Object](https://swagger.io/specification/v2/#operation-object)|
-|paths.{path}.{operation}.parameters                | Object  | API parameter, where the path variable and request parameters of the resource are set. See [Parameter Object](https://swagger.io/specification/v2/#parameter-object)|
-|paths.{path}.{operation}.responses                | Object  | API response, where resource response is set. See [Responses Object](https://swagger.io/specification/v2/#responses-object)|
-|paths.{path}.{operation}.security     | Array  | A security definition used for the task of an API operation. When setting API Key and authentication (HMAC, JWT), custom settings of API Gateway are included. |
-|paths.{path}.{operation}.x-nhncloud-apigateway     | Object  | NHN Cloud API Gateway definition setting area |
-|paths.{path}.{operation}.x-nhncloud-apigateway.plugins     | Object  | This is the custom plugin information area for API Gateway. This includes settings in Resources > Plugins and backend endpoint paths mapped to resources. |
-|securityDefinitions          |Object    | A security definition object. When setting API Key and authentication (HMAC, JWT), custom settings of API Gateway are included. See [Security Definitions Object](https://swagger.io/specification/v2/#securityDefinitionsObject)|
-|definitions | Object | An area for data types used in requests and responses. The model referenced in the request parameter/response is defined. See [Definitions Object](https://swagger.io/specification/v2/#definitionsObject)| 
+|swagger                     |String    | Swagger仕様のバージョン。 [Swagger Object](https://swagger.io/specification/v2/#swagger-object)参考|
+|info         | Object   | APIのメタデータ領域です。 [Info Object](https://swagger.io/specification/v2/#swagger-object)参考|
+|info.version   |String  | APIのバージョン情報です。ステージ配布リクエスト日時が設定されます。 [Info Object](https://swagger.io/specification/v2/#info-object)参考|
+|info.title      |String  | APIのタイトルです。ステージ名が設定されます。 [Info Object](https://swagger.io/specification/v2/#info-object)参考|
+|host|String    |APIを提供するホストです。ステージURLが設定されます。 [Swagger Object](https://swagger.io/specification/v2/#swagger-object)参考|
+|schemes              |Array  | APIのサポート転送プロトコルです。[http、https]が設定されます。 [Swagger Object > schemes](https://swagger.io/specification/v2/#swagger-object)参考|
+|paths         | Object  | APIのパスです。リソースメソッドのパスが設定されます。 [Paths Object](https://swagger.io/specification/v2/#pathsObject)参考|
+|paths.{path} | Object | {path}はAPIのパスです。リソースメソッドのパスが設定されます。 [Paths Object](https://swagger.io/specification/v2/#pathsObject)参考|
+|paths.{path}.{operation}         |Object  | {operation}はAPIパスのオペレーションです。リソースメソッドに設定されます。 [Path Item Object](https://swagger.io/specification/v2/#path-item-object)参考|
+|paths.{path}.{operation}.consumes         | Array  | APIパスのオペレーションが使用できるMIMEタイプリストです。 |
+|paths.{path}.{operation}.consumes[0]         | String  | APIパスのオペレーションが使用できるMIMEタイプです。 |
+|paths.{path}.{operation}.produces         | Array  | APIパスのオペレーションが作成できるMIMEタイプリストです。 |
+|paths.{path}.{operation}.produces[0]         | String  | APIパスのオペレーションが作成できるMIMEタイプです。 |
+|paths.{path}.{operation}.summary                |String  | APIの要約です。リソースの名前が設定されます。 [Operation Object](https://swagger.io/specification/v2/#operation-object)参考|
+|paths.{path}.{operation}.description                |String  |APIの説明です。リソースの説明が設定されます。 [Operation Object](https://swagger.io/specification/v2/#operation-object)参考|
+|paths.{path}.{operation}.parameters                | Object  | APIパラメータです。リソースのパス変数とリクエストパラメータが設定されます。 [Parameter Object](https://swagger.io/specification/v2/#parameter-object)参考|
+|paths.{path}.{operation}.responses                | Object  | APIレスポンスです。リソースレスポンスが設定されます。 [Responses Object](https://swagger.io/specification/v2/#responses-object)参考|
+|paths.{path}.{operation}.security     | Array  | APIオペレーションの作業に使用されるセキュリティ定義です。 API Key、認証(HMAC、JWT)設定時のAPI Gatewayのユーザー定義設定が含まれます。 |
+|paths.{path}.{operation}.x-nhncloud-apigateway     | Object  | NHN Cloud API Gateway定義設定領域 |
+|paths.{path}.{operation}.x-nhncloud-apigateway.plugins     | Object  | API Gatewayのユーザー定義プラグイン情報領域です。リソース > プラグイン設定とリソースとマッピングされたバックエンドエンドポイントパスの設定が含まれます。 |
+|securityDefinitions          |Object    | セキュリティ定義オブジェクトです。 API Key、認証(HMAC、JWT)設定時にAPI Gatewayのユーザー定義設定が含まれます。 [Security Definitions Object](https://swagger.io/specification/v2/#securityDefinitionsObject)参考|
+|definitions | Object | リクエストおよびレスポンスで使用されるデータ型の領域。リクエストパラメータ/レスポンスから参照したモデルの定義が設定されます。 [Definitions Object](https://swagger.io/specification/v2/#definitionsObject)参考| 
 
 ## API Key
 
-### Query API Key List
-- Query the list of API keys.
-- If there are multiple request query parameters, a list that satisfies all conditions is returned.
+### API Keyリスト照会 
+- API Keyリストを照会します。
+- 複数のリクエストクエリパラメータがある場合、すべての条件を満たすリストを返します。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/apikeys |
 
 [QueryString Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| page | Integer | Optional | 1 | N/A | Page |
-| limit | Integer | Optional | 10 | Max. 1000 | Count per page |
-| apiKey | String | Optional | N/A | N/A | Primary or Secondary API Key filter condition |
-| apiKeyId | String | Optional | N/A | N/A | API Key ID filter condition |
-| apiKeyName | String | Optional | N/A | N/A | API Key name filter condition. The starting string of the API Key name must match. |
-| apiKeyStatus | Enum | Optional | N/A | ACTIVE, INACTIVE | API Key status filter condition. See [API Key Status Enum Code](./enum-code/#api-key-status) |
+| page | Integer | 任意 | 1 | なし | ページ |
+| limit | Integer | 任意 | 10 | 最大1000 | ページあたりの件数 |
+| apiKey | String | 任意 | なし | なし | PrimaryまたはSecondary API Keyフィルタ条件 |
+| apiKeyId | String | 任意 | なし | なし | API Key IDフィルタ条件 |
+| apiKeyName | String | 任意 | なし | なし | API Key名フィルタ条件。 API Key名の開始文字列は一致する必要があります。 |
+| apiKeyStatus | Enum | 任意 | なし | ACTIVE, INACTIVE | API Key状態フィルタ条件。 [API Key状態](./enum-code/#???)参考 |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -3072,32 +3072,32 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Field                              | Type       | Description                                                |
+| フィールド                            | タイプ     | 説明                                              |
 | ------------------------------- | -------- | ------------------------------------------------- |
-| paging                          | Object   | Paging area                                            |
-| paging.page                     | Integer  | Current page                                            |
-| paging.limit                    | Integer  | Count per page                                         |
-| paging.totalCount               | Integer  | Total count                                            |
-| apiKeyList                      | List     | API Key list area                                     |
-| apiKeyList[0]                   | Object   | API Key area                                        |
+| paging                          | Object   | ページング領域                                          |
+| paging.page                     | Integer  | 現在ページ                                          |
+| paging.limit                    | Integer  | ページあたりの件数                                       |
+| paging.totalCount               | Integer  | 総件数                                           |
+| apiKeyList                      | List     | API Keyリスト領域                                   |
+| apiKeyList[0]                   | Object   | API Key領域                                      |
 | apiKeyList[0].appKey            | String   | AppKey                                            |
 | apiKeyList[0].apiKeyId          | String   | API Key ID                                        |
-| apiKeyList[0].apiKeyName        | String   | API Key name                                        |
-| apiKeyList[0].apiKeyDescription | String   | API Key description                                        |
-| apiKeyList[0].primaryApiKey     | String   | Primary API Key value                                 |
-| apiKeyList[0].secondaryApiKey   | String   | Secondary API Key value                               |
-| apiKeyList[0].apiKeyStatus      | Enum     | See [API Key Status Enum Code](./enum-code/#api-key-status) |
-| apiKeyList[0].createdAt         | DateTime | API Key creation date and time                                      |
-| apiKeyList[0].updatedAt         | DateTime | API Key modification date and time                                      |
+| apiKeyList[0].apiKeyName        | String   | API Key名                                      |
+| apiKeyList[0].apiKeyDescription | String   | API Keyの説明                                      |
+| apiKeyList[0].primaryApiKey     | String   | Primary API Keyの値                               |
+| apiKeyList[0].secondaryApiKey   | String   | Secondary API Keyの値                             |
+| apiKeyList[0].apiKeyStatus      | Enum     | [API KeyのステータスEnumコード](./enum-code/#???)参考 |
+| apiKeyList[0].createdAt         | DateTime | API Keyの作成日時                                    |
+| apiKeyList[0].updatedAt         | DateTime | API Keyの修正日時                                    |
 
-### Create API Key
-- Generate API Key.
+### API Keyの作成
+- API Keyを作成します。 
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | POST |  /v1.0/appkeys/{appKey}/apikeys |
 
@@ -3110,13 +3110,13 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name                | Type     | Required | Default value | Valid range            | Description                                                |
+| 名前              | タイプ   | 必須かどうか | デフォルト値 | 有効範囲          | 説明                                              |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
-| apiKeyName        | String | Required    | N/A  | Max. 50 characters           | API Key name                                        |
-| apiKeyDescription | String | Optional    | N/A  | Max. 200 characters          | API Key description                                        |
-| apiKeyStatus      | Enum   | Required    | N/A  | ACTIVE, INACTIVE | See [API Key Status Enum Code](./enum-code/#api-key-status) |
+| apiKeyName        | String | 必須  | なし | 最大50文字         | API Key名                                      |
+| apiKeyDescription | String | 任意  | なし | 最大200文字        | API Keyの説明                                      |
+| apiKeyStatus      | Enum   | 必須  | なし | ACTIVE, INACTIVE | [API Key状態Enumコード](./enum-code/#???)参考 |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -3141,37 +3141,37 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Field                       | Type       | Description                                                |
+| フィールド                     | タイプ     | 説明                                              |
 | ------------------------ | -------- | ------------------------------------------------- |
-| apiKey                   | Object   | API Key area                                        |
+| apiKey                   | Object   | API Key領域                                      |
 | apiKey.appKey            | String   | AppKey                                            |
 | apiKey.apiKeyId          | String   | API Key ID                                        |
-| apiKey.apiKeyName        | String   | API Key name                                        |
-| apiKey.apiKeyDescription | String   | API Key description                                        |
-| apiKey.primaryApiKey     | String   | Primary API Key value                                 |
-| apiKey.secondaryApiKey   | String   | Secondary API Key value                               |
-| apiKey.apiKeyStatus      | Enum     | See [API Key Status Enum Code](./enum-code/#api-key-status) |
-| apiKey.createdAt         | DateTime | API Key creation date and time                                      |
-| apiKey.updatedAt         | DateTime | API Key modification date and time                                      |
+| apiKey.apiKeyName        | String   | API Key名                                      |
+| apiKey.apiKeyDescription | String   | API Keyの説明                                      |
+| apiKey.primaryApiKey     | String   | Primary API Key値                               |
+| apiKey.secondaryApiKey   | String   | Secondary API Key値                             |
+| apiKey.apiKeyStatus      | Enum     | [API Key状態Enumコード](./enum-code/#???)参考 |
+| apiKey.createdAt         | DateTime | API Key作成日時                                    |
+| apiKey.updatedAt         | DateTime | API Key修正日時                                    |
 
 
-### Modify API Key
-- Modify the name, description, and status of the API key.
-- If the API Key status is changed to INACTIVE, the API Key is deactivated and API calls are disabled.
+### API Keyの修正
+- API Key名、説明、状態を修正します。
+- API Keyの状態をINACTIVEに変更すると、API Keyが無効化され、APIの呼び出しができなくなります。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | PUT |  /v1.0/appkeys/{appKey}/apikeys/{apiKeyId} |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apiKeyId | String | Required | N/A | N/A | API Key ID |
+| apiKeyId | String | 必須 | なし | なし | API Key ID |
 
 [Request Body]
 ```json
@@ -3182,13 +3182,13 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name                | Type     | Required | Default value | Valid range            | Description                                                |
+| 名前              | タイプ   | 必須かどうか | デフォルト値 | 有効範囲          | 説明                                              |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
-| apiKeyName        | String | Required    | N/A  | Max. 50 characters           | API Key name                                        |
-| apiKeyDescription | String | Optional    | N/A  | Max. 200 characters          | API Key description                                        |
-| apiKeyStatus      | Enum   | Required    | N/A  | ACTIVE, INACTIVE | See [API Key Status Enum Code](./enum-code/#api-key-status) |
+| apiKeyName        | String | 必須  | なし | 最大50文字         | API Key名                                      |
+| apiKeyDescription | String | 任意  | なし | 最大200文字        | API Keyの説明                                      |
+| apiKeyStatus      | Enum   | 必須  | なし | ACTIVE, INACTIVE | [API Key状態Enumコード](./enum-code/#???)参考 |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -3213,39 +3213,39 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Field                       | Type       | Description                                                |
+| フィールド                     | タイプ     | 説明                                              |
 | ------------------------ | -------- | ------------------------------------------------- |
-| apiKey                   | Object   | API Key area                                        |
+| apiKey                   | Object   | API Key領域                                      |
 | apiKey.appKey            | String   | AppKey                                            |
 | apiKey.apiKeyId          | String   | API Key ID                                        |
-| apiKey.apiKeyName        | String   | API Key name                                        |
-| apiKey.apiKeyDescription | String   | API Key description                                        |
-| apiKey.primaryApiKey     | String   | Primary API Key value                                 |
-| apiKey.secondaryApiKey   | String   | Secondary API Key value                               |
-| apiKey.apiKeyStatus      | Enum     | See [API Key Status Enum Code](./enum-code/#api-key-status) |
-| apiKey.createdAt         | DateTime | API Key creation date and time                                      |
-| apiKey.updatedAt         | DateTime | API Key modification date and time                                      |
+| apiKey.apiKeyName        | String   | API Key名                                      |
+| apiKey.apiKeyDescription | String   | API Keyの説明                                      |
+| apiKey.primaryApiKey     | String   | Primary API Key値                               |
+| apiKey.secondaryApiKey   | String   | Secondary API Key値                             |
+| apiKey.apiKeyStatus      | Enum     | [API Key状態Enumコード](./enum-code/#???)参考 |
+| apiKey.createdAt         | DateTime | API Key作成日時                                    |
+| apiKey.updatedAt         | DateTime | API Key修正日時                                    |
 
 
-### Delete API Key
-- Delete the API key. A deleted API key cannot be recovered.
-- If you have an API Key connected to a stage in your usage plan, you cannot delete the API Key. To delete it, you need to disconnect the API Key.
+### API Keyの削除
+- API Keyを削除します。削除されたAPI Keyは復元できません。
+- 使用量プランのステージに関連付けられているAPI Keyがある場合、 API Keyを削除できません。削除するにはAPI Keyを接続解除する必要があります。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | DELETE |  /v1.0/appkeys/{appKey}/apikeys/{apiKeyId} |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apiKeyId | String | Required | N/A | N/A | API Key ID |
+| apiKeyId | String | 必須 | なし | なし | API Key ID |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -3259,23 +3259,23 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-### Reissue API Key
-- Primary API Key and Secondary API Key used as API Key values can be reissued respectively.
-- In case of reissuance, API calls cannot be made with the old API Key. It is not possible to recover the API Key used before reissuance.
+### API Keyの再発行
+- API Key値として使用されるPrimary API Key、Secondary API Keyはそれぞれ再発行できます。
+- 再発行する場合、以前のAPI KeyではAPIを呼び出せません。再発行前のAPI Keyへ戻すことはできません。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | POST | /v1.0/appkeys/{appKey}/apikeys/{apiKeyId}/regenerate |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apiKeyId | String | Required | N/A | N/A | API Key ID |
+| apiKeyId | String | 必須 | なし | なし | API Key ID |
 
 [Request Body]
 ```json
@@ -3284,11 +3284,11 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name                | Type     | Required | Default value | Valid range            | Description                                                |
+| 名前              | タイプ   | 必須かどうか | デフォルト値 | 有効範囲          | 説明                                              |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
-| apiKeyType      | Enum   | Required    | N/A  | PRIMARY, SECONDARY | The API Key type you want to change. See [API Key Type Enum Code](./enum-code/#api-key-type) |
+| apiKeyType      | Enum   | 必須  | なし | PRIMARY、SECONDARY | 変更したいAPI Keyタイプ。 [API KeyタイプEnumコード](./enum-code/#???)参考 |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -3313,50 +3313,50 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Field                       | Type       | Description                                                |
+| フィールド                     | タイプ     | 説明                                              |
 | ------------------------ | -------- | ------------------------------------------------- |
-| apiKey                   | Object   | API Key area                                        |
+| apiKey                   | Object   | API Key領域                                      |
 | apiKey.appKey            | String   | AppKey                                            |
 | apiKey.apiKeyId          | String   | API Key ID                                        |
-| apiKey.apiKeyName        | String   | API Key name                                        |
-| apiKey.apiKeyDescription | String   | API Key description                                        |
-| apiKey.primaryApiKey     | String   | Primary API Key value                                 |
-| apiKey.secondaryApiKey   | String   | Secondary API Key value                               |
-| apiKey.apiKeyStatus      | Enum     | See [API Key Status Enum Code](./enum-code/#api-key-status) |
-| apiKey.createdAt         | DateTime | API Key creation date and time                                      |
-| apiKey.updatedAt         | DateTime | API Key modification date and time                                      |
+| apiKey.apiKeyName        | String   | API Key名                                      |
+| apiKey.apiKeyDescription | String   | API Keyの説明                                      |
+| apiKey.primaryApiKey     | String   | Primary API Key値                               |
+| apiKey.secondaryApiKey   | String   | Secondary API Key値                             |
+| apiKey.apiKeyStatus      | Enum     | [API Key状態Enumコード](./enum-code/#???)参考 |
+| apiKey.createdAt         | DateTime | API Key作成日時                                    |
+| apiKey.updatedAt         | DateTime | API Key修正日時                                    |
 
-### Query list of API Keys that can be connected to stage
-- Query the list of API keys that can be connected to the stage.
-- If there are multiple request query parameters, a list that satisfies all conditions is returned.
+### ステージに関連付けることができるAPI Keyリストの照会
+- ステージに関連付けることができるAPI Keyリストを照会します。
+- 複数のリクエストクエリパラメータがある場合、すべての条件を満たすリストを返します。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/stages/{stageId}/apikeys/connectable |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| stageId | String | Required | N/A | N/A | Stage ID |
+| stageId | String | 必須 | なし | なし | Stage ID |
 
 
 [QueryString Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| page | Integer | Optional | 1 | N/A | Page |
-| limit | Integer | Optional | 10 | Max. 1000 | Count per page |
-| apiKey | String | Optional | N/A | N/A | Primary or secondary API key value |
-| apiKeyId | String | Optional | N/A | N/A | API Key ID |
-| apiKeyName | String | Optional | N/A | N/A | API Key name start string |
-| apiKeyStatus | Enum | Optional | N/A | ACTIVE, INACTIVE | See [API Key Status Enum Code](./enum-code/#api-key-status) |
+| page | Integer | 任意 | 1 | なし | ページ |
+| limit | Integer | 任意 | 10 | 最大1000 | ページあたりの件数 |
+| apiKey | String | 任意 | なし | なし | primaryまたはsecondary API Key値 |
+| apiKeyId | String | 任意 | なし | なし | API Key ID |
+| apiKeyName | String | 任意 | なし | なし | API Key名の開始文字列 |
+| apiKeyStatus | Enum | 任意 | なし | ACTIVE、INACTIVE | [API Key状態](./enum-code/#???)参考 |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -3388,46 +3388,46 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Field                              | Type       | Description                                                |
+| フィールド                            | タイプ     | 説明                                              |
 | ------------------------------- | -------- | ------------------------------------------------- |
-| paging                          | Object   | Paging area                                            |
-| paging.page                     | Integer  | Current page                                            |
-| paging.limit                    | Integer  | Count per page                                         |
-| paging.totalCount               | Integer  | Total count                                            |
-| apiKeyList                      | List     | API Key list area                                     |
-| apiKeyList[0]                   | Object   | API Key area                                        |
+| paging                          | Object   | ページング領域                                          |
+| paging.page                     | Integer  | 現在ページ                                          |
+| paging.limit                    | Integer  | ページあたりの件数                                       |
+| paging.totalCount               | Integer  | 総件数                                           |
+| apiKeyList                      | List     | API Keyリスト領域                                   |
+| apiKeyList[0]                   | Object   | API Key領域                                      |
 | apiKeyList[0].appKey            | String   | AppKey                                            |
 | apiKeyList[0].apiKeyId          | String   | API Key ID                                        |
-| apiKeyList[0].apiKeyName        | String   | API Key name                                        |
-| apiKeyList[0].apiKeyDescription | String   | API Key description                                        |
-| apiKeyList[0].primaryApiKey     | String   | Primary API Key value                                 |
-| apiKeyList[0].secondaryApiKey   | String   | Secondary API Key value                               |
-| apiKeyList[0].apiKeyStatus      | Enum     | See [API Key Status Enum Code](./enum-code/#api-key-status) |
-| apiKeyList[0].createdAt         | DateTime | API Key creation date and time                                      |
-| apiKeyList[0].updatedAt         | DateTime | API Key modification date and time                                      |
+| apiKeyList[0].apiKeyName        | String   | API Key名                                      |
+| apiKeyList[0].apiKeyDescription | String   | API Keyの説明                                      |
+| apiKeyList[0].primaryApiKey     | String   | Primary API Keyの値                               |
+| apiKeyList[0].secondaryApiKey   | String   | Secondary API Keyの値                             |
+| apiKeyList[0].apiKeyStatus      | Enum     | [API Key状態Enumコード](./enum-code/#API Key状態Enumコード)参考 |
+| apiKeyList[0].createdAt         | DateTime | API Keyの作成日時                                    |
+| apiKeyList[0].updatedAt         | DateTime | API Keyの修正日時                                    |
 
 
-## Usage Plan
+## 使用量プラン
 
-### Query Usage Plan List
-- Query a list of usage plans.
+### 使用量プランリストの照会 
+- 使用量プランリストを照会します。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/usage-plans |
 
 [QueryString Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| page | Integer | Optional | 1 | N/A | Page |
-| limit | Integer | Optional | 10 | Max. 1000 | Count per page |
+| page | Integer | 任意 | 1 | なし | ページ |
+| limit | Integer | 任意 | 10 | 最大1000 | ページあたりの件数 |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -3459,44 +3459,44 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Field                                         | Type       | Description                                                |
+| フィールド                                       | タイプ     | 説明                                              |
 | ------------------------------------------ | -------- | ------------------------------------------------- |
-| paging                                     | Object   | Paging area                                            |
-| paging.page                                | Integer  | Current page                                            |
-| paging.limit                               | Integer  | Count per page                                         |
-| paging.totalCount                          | Integer  | Total count                                            |
-| usagePlanList                              | List     | Usage plan list area                                      |
-| usagePlanList[0]                           | Object   | Usage plan area                                         |
+| paging                                     | Object   | ページング領域                                          |
+| paging.page                                | Integer  | 現在ページ                                          |
+| paging.limit                               | Integer  | ページあたりの件数                                        |
+| paging.totalCount                          | Integer  | 総件数                                           |
+| usagePlanList                              | List     | 使用量プランリスト領域                                    |
+| usagePlanList[0]                           | Object   | 使用量プラン領域                                       |
 | usagePlanList[0].appKey                    | String   | AppKey                                            |
-| usagePlanList[0].usagePlanId               | String   | Usage plan ID                                         |
-| usagePlanList[0].usagePlanName             | String   | Usage plan name                                         |
-| usagePlanList[0].usagePlanDescription      | String   | Usage plan description                                         |
-| usagePlanList[0].rateLimitRequestPerSecond | Integer  | Limit on the number of requests per second                                        |
-| usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | See [Usage Plan > Quota Period Unit Enum Code](./enum-code/#usage-plan-quota-period-unit) |
-| usagePlanList[0].quotaLimit                | Integer  | Request quota per quota period unit                                |
-| usagePlanList[0].createdAt                 | DateTime | Usage plan creation date and time                                       |
-| usagePlanList[0].updatedAt                 | DateTime | Usage plan modification date and time                                       |
+| usagePlanList[0].usagePlanId               | String   | 使用量プランID                                         |
+| usagePlanList[0].usagePlanName             | String   | 使用量プランの名前                                       |
+| usagePlanList[0].usagePlanDescription      | String   | 使用量プランの説明                                       |
+| usagePlanList[0].rateLimitRequestPerSecond | Integer  | 1秒あたりのリクエスト数制限                                      |
+| usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#???)参考 |
+| usagePlanList[0].quotaLimit                | Integer  | 割り当て量期間単位別リクエスト割り当て量                              |
+| usagePlanList[0].createdAt                 | DateTime | 使用量プランの作成日時                                     |
+| usagePlanList[0].updatedAt                 | DateTime | 使用量プランの修正日時                                     |
 
 
 
-### Query Single Usage Plan
-- Query a single usage plan.
+### 単一使用量プランの照会
+- 単一使用量プランを照会します。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| usagePlanId | String | Required | N/A | N/A | Usage plan ID |
+| usagePlanId | String | 必須 | なし | なし | 使用量プランID |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -3521,27 +3521,27 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Field                                  | Type       | Description                                                |
+| フィールド                                | タイプ     | 説明                                              |
 | ----------------------------------- | -------- | ------------------------------------------------- |
-| usagePlan                           | Object   | Usage plan area                                         |
+| usagePlan                           | Object   | 使用量プラン領域                                       |
 | usagePlan.appKey                    | String   | AppKey                                            |
-| usagePlan.usagePlanId               | String   | Usage plan ID                                         |
-| usagePlan.usagePlanName             | String   | Usage plan name                                         |
-| usagePlan.usagePlanDescription      | String   | Usage plan description                                         |
-| usagePlan.rateLimitRequestPerSecond | Integer  | Limit on the number of requests per second                                        |
-| usagePlan.quotaLimitPeriodUnitCode  | Enum     | See [Usage Plan > Quota Period Unit Enum Code](./enum-code/#usage-plan-quota-period-unit) |
-| usagePlan.quotaLimit                | Integer  | Request quota per quota period unit                                |
-| usagePlan.createdAt                 | DateTime | Usage plan creation date and time                                       |
-| usagePlan.updatedAt                 | DateTime | Usage plan modification date and time                                       |
+| usagePlan.usagePlanId               | String   | 使用量プランID                                         |
+| usagePlan.usagePlanName             | String   | 使用量プランの名前                                       |
+| usagePlan.usagePlanDescription      | String   | 使用量プランの説明                                       |
+| usagePlan.rateLimitRequestPerSecond | Integer  | 1秒あたりのリクエスト数制限                                      |
+| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#???)参考 |
+| usagePlan.quotaLimit                | Integer  | 割り当て量期間単位別リクエスト割り当て量                              |
+| usagePlan.createdAt                 | DateTime | 使用量プランの作成日時                                     |
+| usagePlan.updatedAt                 | DateTime | 使用量プランの修正日時                                     |
 
-### Create Usage Plan
-- Create a usage plan.
+### 使用量プランの作成
+- 使用量プランを作成します。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | POST |  /v1.0/appkeys/{appKey}/usage-plans |
 
@@ -3556,15 +3556,15 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name                        | Type      | Required | Default value | Valid range        | Description                                                |
+| 名前                      | タイプ    | 必須かどうか | デフォルト値 | 有効範囲      | 説明                                              |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
-| usagePlanName             | String  | Required    | N/A  | Max. 50 characters       | Usage plan name                                         |
-| usagePlanDescription      | String  | Optional    | N/A  | Max. 200 characters      | Usage plan description                                         |
-| rateLimitRequestPerSecond | Integer | Optional    | N/A  | 1~5000       | Limit on the number of requests per second                                        |
-| quotaLimitPeriodUnitCode  | Enum    | Optional    | N/A  | DAY, MONTH   | See [Usage Plan > Quota Period Unit Enum Code](./enum-code/#usage-plan-quota-period-unit) |
-| quotaLimit                | Integer | Conditionally required | N/A  | 1~2147483647 | Required if quotaLimitPeriodUnitCode is set. Request quota per quota period unit                                |
+| usagePlanName             | String  | 必須  | なし | 最大50文字     | 使用量プランの名前                                       |
+| usagePlanDescription      | String  | 任意  | なし | 最大200文字    | 使用量プランの説明                                       |
+| rateLimitRequestPerSecond | Integer | 任意  | なし | 1～5000       | 1秒あたりのリクエスト数制限                                      |
+| quotaLimitPeriodUnitCode  | Enum    | 任意  | なし | DAY, MONTH   | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#???)参考 |
+| quotaLimit                | Integer | 条件付き必須 | なし | 1～2147483647 | quotaLimitPeriodUnitCodeが設定されている場合は必須。割り当て量期間単位別リクエスト割り当て量                              |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -3589,37 +3589,37 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Field                                  | Type       | Description                                                |
+| フィールド                                | タイプ     | 説明                                              |
 | ----------------------------------- | -------- | ------------------------------------------------- |
-| usagePlan                           | Object   | Usage plan area                                         |
+| usagePlan                           | Object   | 使用量プラン領域                                       |
 | usagePlan.appKey                    | String   | AppKey                                            |
-| usagePlan.usagePlanId               | String   | Usage plan ID                                         |
-| usagePlan.usagePlanName             | String   | Usage plan name                                         |
-| usagePlan.usagePlanDescription      | String   | Usage plan description                                         |
-| usagePlan.rateLimitRequestPerSecond | Integer  | Limit on the number of requests per second                                        |
-| usagePlan.quotaLimitPeriodUnitCode  | Enum     | See [Usage Plan > Quota Period Unit Enum Code](./enum-code/#usage-plan-quota-period-unit) |
-| usagePlan.quotaLimit                | Integer  | Request quota per quota period unit                                |
-| usagePlan.createdAt                 | DateTime | Usage plan creation date and time                                       |
-| usagePlan.updatedAt                 | DateTime | Usage plan modification date and time                                       |
+| usagePlan.usagePlanId               | String   | 使用量プランID                                         |
+| usagePlan.usagePlanName             | String   | 使用量プランの名前                                       |
+| usagePlan.usagePlanDescription      | String   | 使用量プランの説明                                       |
+| usagePlan.rateLimitRequestPerSecond | Integer  | 1秒あたりのリクエスト数制限                                      |
+| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#???)参考 |
+| usagePlan.quotaLimit                | Integer  | 割り当て量期間単位別リクエスト割り当て量                              |
+| usagePlan.createdAt                 | DateTime | 使用量プランの作成日時                                     |
+| usagePlan.updatedAt                 | DateTime | 使用量プランの修正日時                                     |
 
 
-### Modify Usage Plan
-- Modify a usage plan.
-- If you modify the quota period unit to 'None', the request quota usage of the connected API keys is initialized.
+### 使用量プランの修正
+- 使用量プランを修正します。 
+- 割り当て量期間単位を「なし」に修正すると、関連付けられているAPI Keyのリクエスト割り当て量使用量は初期化されます。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | PUT |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| usagePlanId | String | Required | N/A | N/A | Usage plan ID |
+| usagePlanId | String | 必須 | なし | なし | 使用量プランID |
 
 [Request Body]
 ```json
@@ -3632,15 +3632,15 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name                        | Type      | Required | Default value | Valid range        | Description                                                |
+| 名前                      | タイプ    | 必須かどうか | デフォルト値 | 有効範囲      | 説明                                              |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
-| usagePlanName             | String  | Required    | N/A  | Max. 50 characters       | Usage plan name                                         |
-| usagePlanName             | String  | Optional    | N/A  | Max. 200 characters      | Usage plan description                                         |
-| rateLimitRequestPerSecond | Integer | Optional    | N/A  | 1~5000       | Limit on the number of requests per second                                        |
-| quotaLimitPeriodUnitCode  | Enum    | Optional    | N/A  | DAY, MONTH   | See [Usage Plan > Quota Period Unit Enum Code](./enum-code/#usage-plan-quota-period-unit) |
-| quotaLimit                | Integer | Conditionally required | N/A  | 1~2147483647 | Required if quotaLimitPeriodUnitCode is set. Request quota per quota period unit                                |
+| usagePlanName             | String  | 必須  | なし | 最大50文字     | 使用量プランの名前                                       |
+| usagePlanName             | String  | 任意  | なし | 最大200文字    | 使用量プランの説明                                       |
+| rateLimitRequestPerSecond | Integer | 任意  | なし | 1～5000       | 1秒あたりのリクエスト数制限                                      |
+| quotaLimitPeriodUnitCode  | Enum    | 任意  | なし | DAY, MONTH   | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#???)参考 |
+| quotaLimit                | Integer | 条件付き必須 | なし | 1～2147483647 | quotaLimitPeriodUnitCodeが設定されている場合は必須。割り当て量期間単位別リクエスト割り当て量                              |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -3665,39 +3665,39 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Field                                  | Type       | Description                                                |
+| フィールド                                | タイプ     | 説明                                              |
 | ----------------------------------- | -------- | ------------------------------------------------- |
-| usagePlan                           | Object   | Usage plan area                                         |
+| usagePlan                           | Object   | 使用量プラン領域                                       |
 | usagePlan.appKey                    | String   | AppKey                                            |
-| usagePlan.usagePlanId               | String   | Usage plan ID                                         |
-| usagePlan.usagePlanName             | String   | Usage plan name                                         |
-| usagePlan.usagePlanDescription      | String   | Usage plan description                                         |
-| usagePlan.rateLimitRequestPerSecond | Integer  | Limit on the number of requests per second                                        |
-| usagePlan.quotaLimitPeriodUnitCode  | Enum     | See [Usage Plan > Quota Period Unit Enum Code](./enum-code/#usage-plan-quota-period-unit) |
-| usagePlan.quotaLimit                | Integer  | Request quota per quota period unit                                |
-| usagePlan.createdAt                 | DateTime | Usage plan creation date and time                                       |
-| usagePlan.updatedAt                 | DateTime | Usage plan modification date and time                                       |
+| usagePlan.usagePlanId               | String   | 使用量プランID                                         |
+| usagePlan.usagePlanName             | String   | 使用量プランの名前                                       |
+| usagePlan.usagePlanDescription      | String   | 使用量プランの説明                                       |
+| usagePlan.rateLimitRequestPerSecond | Integer  | 1秒あたりのリクエスト数制限                                      |
+| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#???)参考 |
+| usagePlan.quotaLimit                | Integer  | 割り当て量期間単位別リクエスト割り当て量                              |
+| usagePlan.createdAt                 | DateTime | 使用量プランの作成日時                                     |
+| usagePlan.updatedAt                 | DateTime | 使用量プランの修正日時                                     |
 
 
-### Delete Usage Plan
-- Delete a usage plan.
-- You can delete a usage plan after releasing all stages associated with the usage plan.
+### 使用量プランの削除
+- 使用量プランを削除します。
+- 使用量プランに関連付けられたステージを全て解除した後、使用量プランを削除できます。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | DELETE |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| usagePlanId | String | Required | N/A | N/A | Usage plan ID |
+| usagePlanId | String | 必須 | なし | なし | 使用量プランID |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -3712,24 +3712,24 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 ```
 
 
-### Query Stage List Associated with Usage Plan
-- Query a list of stages associated with the usage plan.
+### 使用量プランに関連付けられたステージリストの照会
+- 使用量プランに関連付けられたステージリストを照会します。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | GET |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| usagePlanId | String | Required | N/A | N/A | Usage plan ID |
+| usagePlanId | String | 必須 | なし | なし | 使用量プランID |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -3760,43 +3760,43 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Field                                    | Type      | Description                     |
+| フィールド                                  | タイプ    | 説明                   |
 | ------------------------------------- | ------- | ---------------------- |
-| paging                                | Object  | Paging area                 |
-| paging.page                           | Integer | Current page                 |
-| paging.limit                          | Integer | Count per page              |
-| paging.totalCount                     | Integer | Total count                 |
-| usagePlanStageList                    | List    | Stage list area associated with the usage plan |
-| usagePlanStageList[0]                | Object  | Stage area associated with the usage plan    |
-| usagePlanStageList[0].apigwServiceId | String  | API Gateway service ID     |
-| usagePlanStageList[0].apigwServiceName      | String  | API Gateway service name     |
-| usagePlanStageList[0].stageId        | String  | Stage ID                |
-| usagePlanStageList[0].stageName      | String  | Stage name                |
-| usagePlanStageList[0].stageUrl       | String  | Stage URL               |
-| usagePlanStageList[0].stageCustomUrl | String  | Stage custom URL        |
-| usagePlanStageList[0].usagePlanId    | String  | Usage plan ID              |
-| usagePlanStageList[0].usagePlanName  | String  | Usage plan name              |
+| paging                                | Object  | ページング領域               |
+| paging.page                           | Integer | 現在ページ               |
+| paging.limit                          | Integer | ページあたりの件数             |
+| paging.totalCount                     | Integer | 総件数                |
+| usagePlanStageList                    | List    | 使用量プランに関連付けられたステージリスト領域 |
+| usagePlanStageList[0]                | Object  | 使用量プランに関連付けられたステージ領域  |
+| usagePlanStageList[0].apigwServiceId | String  | API GatewayサービスID     |
+| usagePlanStageList[0].apigwServiceName      | String  | API Gatewayサービス名   |
+| usagePlanStageList[0].stageId        | String  | ステージID                |
+| usagePlanStageList[0].stageName      | String  | ステージ名              |
+| usagePlanStageList[0].stageUrl       | String  | ステージURL               |
+| usagePlanStageList[0].stageCustomUrl | String  | ステージユーザー定義URL        |
+| usagePlanStageList[0].usagePlanId    | String  | 使用量プランID              |
+| usagePlanStageList[0].usagePlanName  | String  | 使用量プランの名前            |
 
 
-### Connect Stage to Usage Plan
-- Connect a stage to the usage plan.
+### 使用量プランにステージを関連付ける
+- 使用量プランにステージを関連付けます。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | POST |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId} |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| usagePlanId | String | Required | N/A | N/A | Usage plan ID |
-| stageId | String | Required | N/A | N/A | Stage ID |
+| usagePlanId | String | 必須 | なし | なし | 使用量プランID |
+| stageId | String | 必須 | なし | なし | ステージID |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -3810,26 +3810,26 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-### Disconnect Stage from Usage Plan
-- Disassociate the stage associated with the usage plan.
-- If an API Key connected to the stage exists, the stage cannot be disassociated.
+### 使用量プランに関連付けられたステージの解除
+- 使用量プランに関連付けられたステージを解除します。
+- ステージに関連付けられたAPI Keyが存在する場合は関連付けを削除できません。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | DELETE |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId} |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| usagePlanId | String | Required | N/A | N/A | Usage plan ID |
-| stageId | String | Required | N/A | N/A | Stage ID |
+| usagePlanId | String | 必須 | なし | なし | 使用量プランID |
+| stageId | String | 必須 | なし | なし | ステージID |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -3843,25 +3843,25 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-### Query List of Usage Plans Associated with a Stage
-- Query the list of usage plans associated with the stage.
+### ステージが関連付けられた使用量プランリスト照会
+- ステージが関連付けられた使用量プランリストを照会します。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | GET |  /v1.0/appkeys/{appKey}/usage-plans/stages/{stageId} |
 
 [QueryString Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| page | Integer | Optional | 1 | N/A | Page |
-| limit | Integer | Optional | 10 | Max. 1000 | Count per page |
+| page | Integer | 任意 | 1 | なし | ページ |
+| limit | Integer | 任意 | 10 | 最大1000 | ページあたりの件数 |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -3893,52 +3893,52 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Field                                         | Type       | Description                                                |
+| フィールド                                       | タイプ     | 説明                                              |
 | ------------------------------------------ | -------- | ------------------------------------------------- |
-| paging                                     | Object   | Paging area                                            |
-| paging.page                                | Integer  | Current page                                            |
-| paging.limit                               | Integer  | Count per page                                         |
-| paging.totalCount                          | Integer  | Total count                                            |
-| usagePlanList                              | List     | Usage plan list area                                      |
-| usagePlanList[0]                           | Object   | Usage plan area                                         |
+| paging                                     | Object   | ページング領域                                          |
+| paging.page                                | Integer  | 現在ページ                                          |
+| paging.limit                               | Integer  | ページあたりの件数                                        |
+| paging.totalCount                          | Integer  | 総件数                                           |
+| usagePlanList                              | List     | 使用量プランリスト領域                                    |
+| usagePlanList[0]                           | Object   | 使用量プラン領域                                       |
 | usagePlanList[0].appKey                    | String   | AppKey                                            |
-| usagePlanList[0].usagePlanId               | String   | Usage plan ID                                         |
-| usagePlanList[0].usagePlanName             | String   | Usage plan name                                         |
-| usagePlanList[0].usagePlanDescription      | String   | Usage plan description                                         |
-| usagePlanList[0].rateLimitRequestPerSecond | Integer  | Limit on the number of requests per second                                        |
-| usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | See [Usage Plan > Quota Period Unit Enum Code](./enum-code/#usage-plan-quota-period-unit) |
-| usagePlanList[0].quotaLimit                | Integer  | Request quota per quota period unit                                |
-| usagePlanList[0].createdAt                 | DateTime | Usage plan creation date and time                                       |
-| usagePlanList[0].updatedAt                 | DateTime | Usage plan modification date and time                                       |
+| usagePlanList[0].usagePlanId               | String   | 使用量プランID                                         |
+| usagePlanList[0].usagePlanName             | String   | 使用量プランの名前                                       |
+| usagePlanList[0].usagePlanDescription      | String   | 使用量プランの説明                                       |
+| usagePlanList[0].rateLimitRequestPerSecond | Integer  | 1秒あたりのリクエスト数制限                                      |
+| usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#???)参考 |
+| usagePlanList[0].quotaLimit                | Integer  | 割り当て量期間単位別リクエスト割り当て量                              |
+| usagePlanList[0].createdAt                 | DateTime | 使用量プランの作成日時                                     |
+| usagePlanList[0].updatedAt                 | DateTime | 使用量プランの修正日時                                     |
 
-## API Key Subscription
+## API Keyの購読
 
-### Query API Key Subscription List
-- Query the list of stage and usage plan connected with API Key.
+### API Key購読リスト照会
+- API Keyが関連付けられたステージと使用量プラン情報のリストを照会します。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/apikeys/{apiKeyId}/subscriptions |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apiKeyId | String | Required | N/A | N/A | API Key ID |
+| apiKeyId | String | 必須 | なし | なし | API Key ID |
 
 [QueryString Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| page | Integer | Optional | 1 | N/A | Page |
-| limit | Integer | Optional | 10 | Max. 1000 | Count per page |
-| stageUrl | String | Optional | N/A | N/A | Stage URL filter condition |
+| page | Integer | 任意 | 1 | なし | ページ |
+| limit | Integer | 任意 | 10 | 最大1000 | ページあたりの件数 |
+| stageUrl | String | 任意 | なし | なし | Stage Urlフィルタ条件 |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -3975,61 +3975,61 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Field                                                           | Type      | Description                                                |
+| フィールド                                                         | タイプ    | 説明                                              |
 | ------------------------------------------------------------ | ------- | ------------------------------------------------- |
-| paging                                                       | Object  | Paging area                                            |
-| paging.page                                                  | Integer | Current page                                            |
-| paging.limit                                                 | Integer | Count per page                                         |
-| paging.totalCount                                            | Integer | Total count                                            |
-| subscribedStageAndUsagePlanList                              | List    | Area for the list of the stage and the usage plan connected with API key                |
-| subscribedStageAndUsagePlanList[0]                           | Object    | Area for the stage and the usage plan connected with API key                |
-| subscribedStageAndUsagePlanList[0].subscriptionId            | String  | Subscription ID                                     |
-| subscribedStageAndUsagePlanList[0].subscriptionStatus        | Enum    | See [API Key Subscription Status Enum Code](./enum-code/#api-key-subscription-status)              |
+| paging                                                       | Object  | ページング領域                                          |
+| paging.page                                                  | Integer | 現在ページ                                          |
+| paging.limit                                                 | Integer | ページあたりの件数                                        |
+| paging.totalCount                                            | Integer | 総件数                                           |
+| subscribedStageAndUsagePlanList                              | List    | API Keyが関連付けられたステージと使用量プランリスト領域              |
+| subscribedStageAndUsagePlanList[0]                           | Object    | API Keyが関連付けられたステージと使用量プラン領域              |
+| subscribedStageAndUsagePlanList[0].subscriptionId            | String  | 購読ID                                     |
+| subscribedStageAndUsagePlanList[0].subscriptionStatus        | Enum    | [API Key購読状態](./enum-code/#???)参考            |
 | subscribedStageAndUsagePlanList[0].apiKeyId                  | String  | API Key ID                                        |
-| subscribedStageAndUsagePlanList[0].apigwServiceName          | String  | API Gateway service name                                |
-| subscribedStageAndUsagePlanList[0].stageId                   | String  | Stage ID                                           |
-| subscribedStageAndUsagePlanList[0].stageName                 | String  | Stage name                                           |
-| subscribedStageAndUsagePlanList[0].stageUrl                  | String  | Stage URL                                          |
-| subscribedStageAndUsagePlanList[0].stageCustomUrl            | String  | Stage custom URL                                   |
-| subscribedStageAndUsagePlanList[0].usagePlanId               | String  | Usage plan ID                                         |
-| subscribedStageAndUsagePlanList[0].usagePlanName             | String  | Usage plan name                                         |
-| subscribedStageAndUsagePlanList[0].usagePlanDescription      | String  | Usage plan description                                         |
-| subscribedStageAndUsagePlanList[0].rateLimitRequestPerSecond | Integer | Limit on the number of requests per second                                        |
-| subscribedStageAndUsagePlanList[0].quotaLimitPeriodUnitCode  | Enum    | See [Usage Plan > Quota Period Unit Enum Code](./enum-code/#usage-plan-quota-period-unit) |
-| subscribedStageAndUsagePlanList[0].quotaLimit                | Integer | Request quota per quota period unit                                |
+| subscribedStageAndUsagePlanList[0].apigwServiceName          | String  | API Gatewayサービス名                              |
+| subscribedStageAndUsagePlanList[0].stageId                   | String  | ステージID                                           |
+| subscribedStageAndUsagePlanList[0].stageName                 | String  | ステージ名                                         |
+| subscribedStageAndUsagePlanList[0].stageUrl                  | String  | ステージURL                                          |
+| subscribedStageAndUsagePlanList[0].stageCustomUrl            | String  | ステージユーザー定義URL                                   |
+| subscribedStageAndUsagePlanList[0].usagePlanId               | String  | 使用量プランID                                         |
+| subscribedStageAndUsagePlanList[0].usagePlanName             | String  | 使用量プランの名前                                       |
+| subscribedStageAndUsagePlanList[0].usagePlanDescription      | String  | 使用量プランの説明                                       |
+| subscribedStageAndUsagePlanList[0].rateLimitRequestPerSecond | Integer | 1秒あたりのリクエスト数制限                                      |
+| subscribedStageAndUsagePlanList[0].quotaLimitPeriodUnitCode  | Enum    | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#???)参考 |
+| subscribedStageAndUsagePlanList[0].quotaLimit                | Integer | 割り当て量期間単位別リクエスト割り当て量                              |
 
 
-### Query List of API Keys Subscribing to a Stage in the Usage Plan
-- Query the list of API Keys connected to the stage of the usage plan.
-- If there are multiple request query parameters, a list that satisfies all conditions is returned.
+### 使用量プランのステージを購読中のAPI Keyリスト照会
+- 使用量プランのステージに関連付けられているAPI Keyリストを照会します。
+- 複数のリクエストクエリパラメータがある場合、すべての条件を満たすリストを返します。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| usagePlanId | String | Required | N/A | N/A | Usage plan ID |
-| stageId | String | Required | N/A | N/A | Stage ID |
+| usagePlanId | String | 必須 | なし | なし | 使用量プランID |
+| stageId | String | 必須 | なし | なし | ステージID |
 
 [QueryString Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| page | Integer | Optional | 1 | N/A | Page |
-| limit | Integer | Optional | 10 | Max. 1000 | Count per page |
-| apiKey | String | Optional | N/A | N/A | Primary or Secondary API Key filter condition |
-| apiKeyId | String | Optional | N/A | N/A | API Key ID filter condition |
-| apiKeyName | String | Optional | N/A | N/A | API Key name filter condition. The starting string of the API Key name must match.  |
-| apiSubscriptionStatus | Enum | Optional | N/A | APPROVAL | See [API Key Subscription Status Enum Code](./enum-code/#api-key-subscription-status) |
+| page | Integer | 任意 | 1 | なし | ページ |
+| limit | Integer | 任意 | 10 | 最大1000 | ページあたりの件数 |
+| apiKey | String | 任意 | なし | なし | PrimaryまたはSecondary API Keyフィルタ条件 |
+| apiKeyId | String | 任意 | なし | なし | API Key IDフィルタ条件 |
+| apiKeyName | String | 任意 | なし | なし | API Key名フィルタ条件。 API Key名の開始文字列は一致する必要があります。  |
+| apiSubscriptionStatus | Enum | 任意 | なし | APPROVAL | [API Key購読状態](./enum-code/#???)参考 |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -4061,44 +4061,44 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Field                                             | Type       | Description                                   |
+| フィールド                                           | タイプ     | 説明                                 |
 | ---------------------------------------------- | -------- | ------------------------------------ |
-| paging                                         | Object   | Paging area                               |
-| paging.page                                    | Integer  | Current page                               |
-| paging.limit                                   | Integer  | Count per page                            |
-| paging.totalCount                              | Integer  | Total count                               |
-| apiSubscriptionList                            | List     | Subscription information list area      |
-| apiSubscriptionList[0]                         | Object   | Subscription information area      |
-| apiSubscriptionList[0].subscriptionId          | String   | Subscription ID                                |
-| apiSubscriptionList[0].subscriptionStatus      | Enum     | See [API Key Subscription Status Enum Code](./enum-code/#api-key-subscription-status) |
-| apiSubscriptionList[0].subscriptionDescription | String   | Subscription description                                |
-| apiSubscriptionList[0].stageId                 | String   | Stage ID                              |
-| apiSubscriptionList[0].usagePlanId             | String   | Usage plan ID                            |
+| paging                                         | Object   | ページング領域                             |
+| paging.page                                    | Integer  | 現在ページ                             |
+| paging.limit                                   | Integer  | ページあたりの件数                           |
+| paging.totalCount                              | Integer  | 総件数                              |
+| apiSubscriptionList                            | List     | 購読情報リスト領域    |
+| apiSubscriptionList[0]                         | Object   | 購読情報領域    |
+| apiSubscriptionList[0].subscriptionId          | String   | 購読ID                                |
+| apiSubscriptionList[0].subscriptionStatus      | Enum     | [API Key購読状態](./enum-code/#???)参考 |
+| apiSubscriptionList[0].subscriptionDescription | String   | 購読の説明                              |
+| apiSubscriptionList[0].stageId                 | String   | ステージID                              |
+| apiSubscriptionList[0].usagePlanId             | String   | 使用量プランID                            |
 | apiSubscriptionList[0].apiKeyId                | String   | API Key ID                           |
-| apiSubscriptionList[0].apiKeyName              | String   | API Key name                           |
-| apiSubscriptionList[0].createdAt               | DateTime | Subscription creation date and time                              |
-| apiSubscriptionList[0].updatedAt               | DateTime | Subscription modification date and time                              |
+| apiSubscriptionList[0].apiKeyName              | String   | API Key名                         |
+| apiSubscriptionList[0].createdAt               | DateTime | 購読作成日時                            |
+| apiSubscriptionList[0].updatedAt               | DateTime | 購読修正日時                            |
 
 
-### Subscribe to API Key (Connect API Key)
-- Connect the requested API Key list to the stage of your usage plan.
-- Only the connected API Key will succeed in API Key authentication, and the usage limit of the usage plan will be applied.
-- API Keys connected to the same stage in different usage plans cannot be connected.
+### API Key購読(API Key接続)
+- 使用量プランのステージにリクエストしたAPI Keyリストを接続します。
+- 関連付けられたAPI KeyのみAPI Keyの認証に成功し、使用量プランの使用量制限が適用されます。
+- 異なる使用量プランの同じステージに関連付けられているAPI Keyは接続できません。
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | POST | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| usagePlanId | String | Required | N/A | N/A | Usage plan ID |
-| stageId | String | Required | N/A | N/A | Stage ID |
+| usagePlanId | String | 必須 | なし | なし | 使用量プランID |
+| stageId | String | 必須 | なし | なし | ステージID |
 
 [Request Body]
 ```json
@@ -4109,12 +4109,12 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name                        | Type      | Required | Default value | Valid range        | Description                                                |
+| 名前                      | タイプ    | 必須かどうか | デフォルト値 | 有効範囲      | 説明                                              |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
-| apiKeyIdList              | List  | Required    | N/A  | Max. 100 items       | API Key ID list area                                        |
-| apiKeyIdList[0]           | String  | Required    | N/A  | N/A       | API Key ID                                        |
+| apiKeyIdList              | List  | 必須  | なし | 最大100個     | API Key IDリスト領域                                      |
+| apiKeyIdList[0]           | String  | 必須  | なし | なし      | API Key ID                                        |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -4141,39 +4141,39 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Field                                             | Type       | Description                                   |
+| フィールド                                           | タイプ     | 説明                                 |
 | ---------------------------------------------- | -------- | ------------------------------------ |
-| apiSubscriptionList                            | List     | Subscription information list area                          |
-| apiSubscriptionList[0]                         | Object   | Subscription information area                        |
-| apiSubscriptionList[0].subscriptionId          | String   | Subscription ID                                |
-| apiSubscriptionList[0].subscriptionStatus      | Enum     | See [API Key Subscription Status Enum Code](./enum-code/#api-key-subscription-status) |
-| apiSubscriptionList[0].subscriptionDescription | String   | Subscription description                                |
-| apiSubscriptionList[0].stageId                 | String   | Stage ID                              |
-| apiSubscriptionList[0].usagePlanId             | String   | Usage plan ID                            |
+| apiSubscriptionList                            | List     | 購読情報リスト領域                        |
+| apiSubscriptionList[0]                         | Object   | 購読情報領域                      |
+| apiSubscriptionList[0].subscriptionId          | String   | 購読ID                                |
+| apiSubscriptionList[0].subscriptionStatus      | Enum     | [API Key購読状態](./enum-code/#???)参考 |
+| apiSubscriptionList[0].subscriptionDescription | String   | 購読の説明                              |
+| apiSubscriptionList[0].stageId                 | String   | ステージID                              |
+| apiSubscriptionList[0].usagePlanId             | String   | 使用量プランID                            |
 | apiSubscriptionList[0].apiKeyId                | String   | API Key ID                           |
-| apiSubscriptionList[0].apiKeyName              | String   | API Key name                           |
-| apiSubscriptionList[0].createdAt               | DateTime | Subscription creation date and time                              |
-| apiSubscriptionList[0].updatedAt               | DateTime | Subscription modification date and time                              |
+| apiSubscriptionList[0].apiKeyName              | String   | API Key名                         |
+| apiSubscriptionList[0].createdAt               | DateTime | 購読作成日時                            |
+| apiSubscriptionList[0].updatedAt               | DateTime | 購読修正日時                            |
 
 
-### Unsubscribe from API Key (Disconnect API Key)
-- Disconnect the list of API Keys requested by the stage of the usage plan.
-- Disconnected API Key fails API Key authentication, causing API calls to fail.
+### API Key購読キャンセル(API Key接続解除)
+- 使用量プランのステージから、リクエストしたAPI Keyリストの関連付けを削除します。
+- 関連付けが削除されたAPI KeyはAPI Keyの認証に失敗し、APIの呼び出しが失敗します。 
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | DELETE | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| usagePlanId | String | Required | N/A | N/A | Usage plan ID |
-| stageId | String | Required | N/A | N/A | Stage ID |
+| usagePlanId | String | 必須 | なし | なし | 使用量プランID |
+| stageId | String | 必須 | なし | なし | ステージID |
 
 [Request Body]
 ```json
@@ -4184,12 +4184,12 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name                        | Type      | Required | Default value | Valid range        | Description                                                |
+| 名前                      | タイプ    | 必須かどうか | デフォルト値 | 有効範囲      | 説明                                              |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
-| apiSubscriptionIdList             | List  | Required    | N/A  | Max. 100 items       | Subscription ID list area                                        |
-| apiSubscriptionIdList[0]             | String  | Required    | N/A  | N/A       | Subscription ID                                        |
+| apiSubscriptionIdList             | List  | 必須  | なし | 最大100個     | 購読IDリスト領域                                      |
+| apiSubscriptionIdList[0]             | String  | 必須  | なし | なし      | 購読ID                                        |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -4204,27 +4204,27 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 ```
 
 
-### Change Usage Plan of API Key
-- You can only change to a different usage plan associated with the selected stage.
-- When the usage plan is changed, the usage of the API Key request quota is initialized.
-    - If you change to a usage plan with a quota period unit of 'day' or 'month', the usage of the connected API Key request quota is maintained. If you change to a usage plan with a lower request quota limit, your usage may be exceeded.
-    - If you change to a usage plan with a quota period unit of 'None', the usage of the connected API Key request quota is initialized.
+### API Keyの使用量プラン変更
+- 選択したステージが関連付けられている他の使用量プランにのみ変更できます。
+- 使用量プランを変更すると、API Keyリクエスト割り当て量の使用量は初期化されます。
+    - 割り当て量期間単位が「日」または「月」の使用量プランに変更された場合、関連付けられているAPI Keyリクエスト割り当て量の使用量は維持されます。リクエスト割り当て量の限度が低い使用量プランに変更すると、使用量を超えることがあります。 
+    - 割り当て量期間単位が「なし」の使用量プランに変更すると、関連付けられているAPI Keyリクエスト割り当て量の使用量は初期化されます。
   
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | POST | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions/{subscriptionId}/change-usage-plan |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| usagePlanId | String | Required | N/A | N/A | Usage plan ID |
-| stageId | String | Required | N/A | N/A | Stage ID |
-| subscriptionId | String | Required | N/A | N/A | Subscription ID |
+| usagePlanId | String | 必須 | なし | なし | 使用量プランID |
+| stageId | String | 必須 | なし | なし | ステージID |
+| subscriptionId | String | 必須 | なし | なし | 購読ID |
 
 [Request Body]
 ```json
@@ -4233,11 +4233,11 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-| Name                        | Type      | Required | Default value | Valid range        | Description                                                |
+| 名前                      | タイプ    | 必須かどうか | デフォルト値 | 有効範囲      | 説明                                              |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
-| changeUsagePlanId            | String  | Required    | N/A  | N/A       | ID of the usage plan to change                                        |
+| changeUsagePlanId            | String  | 必須  | なし | なし      | 変更する使用量計画ID                                        |
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -4251,43 +4251,43 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-## Statistics
+## 統計
 
-### Query by Stage Resource
-- Query statistics data for each resource during the query period.
+### ステージリソース別照会
+- 照会期間中のリソース別統計データを照会します。
 
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/metrics |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
-| stageId | String | Required | N/A | N/A | Stage ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
+| stageId | String | 必須 | なし | なし | ステージID |
 
 [QueryString Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| startTime | DateTime | Required | N/A | N/A | Statistics query start date and time |
-| endTime | DateTime | Required | N/A | N/A | Statistics query end date and time |
-| page | Integer | Optional | 1 | N/A | Page |
-| limit | Integer | Optional | 10 | Max. 1000 | Count per page |
+| startTime | DateTime | 必須 | なし | なし | 統計照会開始日時 |
+| endTime | DateTime | 必須 | なし | なし | 統計照会終了日時 |
+| page | Integer | 任意 | 1 | なし | ページ |
+| limit | Integer | 任意 | 10 | 最大1000 | ページあたりの件数 |
 
-* The search period of the startTime, endTime fields can be up to 3 months.
-* Enter the stageTime, endTime fields in ISO8601 format date string format.
-    * UTC notation: yyyy-MM-dd'T'HH:mm:ssZ
-    * UTC-based time offset notation: yyyy-MM-dd'T'HH:mm:ss±hh:mm
+* startTime, endTimeフィールドの照会期間は最大3か月まで照会できます。
+* stageTime, endTimeフィールドはISO8601形式の日文字列形式で入力します。 
+    * UTC表記：yyyy-MM-dd'T'HH:mm:ssZ
+    * UTC基準タイムオフセット表記：yyyy-MM-dd'T'HH:mm:ss±hh:mm
 
 
-#### Response
+#### レスポンス
 
 [Response]
 ```json
@@ -4333,59 +4333,59 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-|Field                                   |Type      |Description                                         |
+|フィールド                                 |タイプ    |説明                                       |
 |-------------------------------------|--------|----------------------------------------------|
-|paging                               |Object  | Paging area                                     |
-|paging.page                          |Integer | Current page                                    |
-|paging.limit                         |Integer | Count per page                                 |
-|paging.totalCount                    |Integer | Total count                                     |
-|data                                 |List    | Area for statistics data list by resource                      |
-|data[0]                              |Object    | Area for statistics data by resource                      |
-|data[0].uriPattern                   |String  | Resource path or path pattern                         |
-|data[0].httpMethodType               |Enum  | See [HTTP Method Type Enum Code](./enum-code/#http-method-type)                             |
-|data[0].successCount                 |Long    | Number of API call successes (response HTTP status code is 2xx, 3xx) |
-|data[0].failCount               |Long    | Number of API call failures (response HTTP status code is 4xx, 5xx) |
-|data[0].status2xxCount               |Long    | Number of API calls with response HTTP status code 2xx |
-|data[0].status3xxCount               |Long    | Number of API calls with response HTTP status code 3xx |
-|data[0].status4xxCount               |Long    | Number of API calls with response HTTP status code 4xx |
-|data[0].status5xxCount               |Long    | Number of API calls with response HTTP status code 5xx |
-|data[0].statusEtcCount               |Long    | Number of API calls with response HTTP status code other than 2xx, 3xx, 4xx, 5xx |
-|data[0].avgResponseTimeMs            |Long    | Average API response time (ms) |
-|data[0].networkOutboundByte          |Long    | Total outbound network bytes (bytes) |
+|paging                               |Object  | ページング領域                                   |
+|paging.page                          |Integer | 現在ページ                                  |
+|paging.limit                         |Integer | ページあたりの件数                                |
+|paging.totalCount                    |Integer | 総件数                                    |
+|data                                 |List    | リソース別統計データリスト領域                    |
+|data[0]                              |Object    | リソース別統計データ領域                    |
+|data[0].uriPattern                   |String  | リソースパスまたはパスパターン                       |
+|data[0].httpMethodType               |Enum  | [HTTPメソッドタイプEnumコード](./enum-code/#???)参考                           |
+|data[0].successCount                 |Long    | API成功数(レスポンスHTTPステータスコードが2xx、3xxの場合) |
+|data[0].failCount               |Long    | API失敗数(レスポンスHTTPステータスコードが4xx、5xxの場合) |
+|data[0].status2xxCount               |Long    | レスポンスHTTPステータスコードが2xxのAPI呼び出し数 |
+|data[0].status3xxCount               |Long    | レスポンスHTTPステータスコードが3xxのAPI呼び出し数 |
+|data[0].status4xxCount               |Long    | レスポンスHTTPステータスコードが4xxのAPI呼び出し数 |
+|data[0].status5xxCount               |Long    | レスポンスHTTPステータスコードが5xxのAPI呼び出し数 |
+|data[0].statusEtcCount               |Long    | 2xx、3xx、4xx、5xx以外のレスポンスHTTPステータスコードAPI呼び出し数 |
+|data[0].avgResponseTimeMs            |Long    | 平均APIレスポンス時間(ms) |
+|data[0].networkOutboundByte          |Long    | アウトバウンドネットワークバイト合計(bytes) |
 
 
-### Query by API Key
-- Query daily statistics by API Key.
+### API Key別照会
+- API Key別の日単位の統計を照会します。
 
 
-#### Request
+#### リクエスト
 
 [URI]
 
-| Method  | URI |
+| メソッド | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/apikeys/{apiKeyId}/metrics |
 
 [Path Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
-| apiKeyId | String | Required | N/A | N/A | API Key ID |
+| apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
+| apiKeyId | String | 必須 | なし | なし | API Key ID |
 
 [QueryString Parameter]
 
-| Name | Type | Required | Default value | Valid range | Description |
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| startTime | DateTime | Required | N/A | N/A | Statistics query start date and time |
-| endTime | DateTime | Required | N/A | N/A | Statistics query end date and time |
+| startTime | DateTime | 必須 | なし | なし | 統計照会開始日時 |
+| endTime | DateTime | 必須 | なし | なし | 統計照会終了日時 |
 
-* The search period of the startTime, endTime fields can be up to 3 months.
-* The stageTime and endTime fields are entered in date string format in ISO8601 format.
-    * UTC notation: yyyy-MM-dd'T'HH:mm:ssZ
-    * UTC-based time offset notation: yyyy-MM-dd'T'HH:mm:ss±hh:mm
+* startTime, endTimeフィールドの照会期間は最大3か月まで照会できます。
+* stageTime, endTimeフィールドはISO8601形式の日付文字列形式で入力します。
+    * UTC表記：yyyy-MM-dd'T'HH:mm:ssZ
+    * UTC基準タイムオフセット表記：yyyy-MM-dd'T'HH:mm:ss±hh:mm
 
-#### Response
+#### レスポンス
 
 [Response]
 
@@ -4435,17 +4435,21 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-|Field                                   |Type      |Description                                         |
+|フィールド                                 |タイプ    |説明                                       |
 |-------------------------------------|--------|----------------------------------------------|
-|data                                 |Object  | API Key statistics data area                         |
-|data.{requestApigwEndpoint}          |Object  | Area for statistics by API call endpoint                |
-|data.{requestApigwEndpoint}.stageName                    |String    | Stage name            |
-|data.{requestApigwEndpoint}.stageUrl                     |String    | Stage URL |
-|data.{requestApigwEndpoint}.stageCustomUrl               |String    | Stage custom URL |
-|data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries      |Object    | Area for API Key statistics by aggregation time unit|
-|data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount               |List    | API call count statistics list area |
-|data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0]               |Object    | API call count statistics area |
-|data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].dateTime   |Long    | Statistics time (Unix time format) |
-|data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].count      |Long    | Total number of API calls during statistics time |
+|paging                               |Object  | ページング領域                                   |
+|paging.page                          |Integer | 現在ページ                                   |
+|paging.limit                         |Integer | ページあたりの件数                                |
+|paging.totalCount                    |Integer | 総件数                                    |
+|data                                 |Object  | API Key統計データ領域                       |
+|data.{requestApigwEndpoint}          |Object  | API呼び出しエンドポイント別統計領域              |
+|data.{requestApigwEndpoint}.stageName                    |String    | ステージ名          |
+|data.{requestApigwEndpoint}.stageUrl                     |String    | ステージURL |
+|data.{requestApigwEndpoint}.stageCustomUrl               |String    | ステージユーザー定義URL |
+|data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries      |Object    | 集計時間単位別API Key統計領域|
+|data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount               |List    | API呼び出し数統計リスト領域 |
+|data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0]               |Object    | API呼び出し数統計領域 |
+|data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].dateTime   |Long    | 統計時間(Unix time形式) |
+|data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].count      |Long    | 統計時間中のAPI呼び出し総数 |
 
-* Daily statistics data is aggregated into time data at 00:00:00 for each day.
+* 日単位の統計データは各日の00:00:00の時間データで集計されます。
