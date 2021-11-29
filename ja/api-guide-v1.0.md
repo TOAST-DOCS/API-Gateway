@@ -97,7 +97,7 @@ APIを使用するにはアプリキー(Appkey)が必要です。
 
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | String | 必須 | なし | KR1 | [API GatewayサービスタイプEnumコード](./enum-code/#apigwServiceType)参考 |
+| regionCode | String | 必須 | なし | KR1 | [API GatewayリージョンEnumコード](./enum-code/#api-gateway)参考 |
 | page | Integer | 任意 | 1 | なし | ページ |
 | limit | Integer | 任意 | 10 | 最大1000 | ページあたりの件数 |
 
@@ -146,12 +146,12 @@ APIを使用するにはアプリキー(Appkey)が必要です。
 |apigwServiceList[0].apigwDomain         |String  | API Gatewayサービスドメイン                |
 |apigwServiceList[0].apigwServiceAlias   |String  | API Gatewayサービスエイリアス             |
 |apigwServiceList[0].apigwServiceId      |String  | API GatewayサービスID                  |
-|apigwServiceList[0].apigwServiceTypeCode|Enum    | [API GatewayサービスタイプEnumコード](./enum-code/#apigwServiceType)参考|
+|apigwServiceList[0].apigwServiceTypeCode|Enum    | [API GatewayサービスタイプEnumコード](./enum-code/#api-gateway_1)参考|
 |apigwServiceList[0].appKey              |String  | AppKey                                        |
 |apigwServiceList[0].dedicatedId         |String  | 専用API GatewayサービスのID                        |
 |apigwServiceList[0].apigwServiceDescription         |String  | API Gatewayサービスの説明                                      |
 |apigwServiceList[0].apigwServiceName                |String  | API Gatewayサービス名                                      |
-|apigwServiceList[0].regionCode          |Enum    | [API GatewayリージョンEnumコード](./enum-code/#regionCode)参考 |
+|apigwServiceList[0].regionCode          |Enum    | [API GatewayリージョンEnumコード](./enum-code/#api-gateway)参考 |
 |apigwServiceList[0].serverGroupId       |String  | API Gatewayサービスが属すサーバーグループID                              |
 |apigwServiceList[0].createdAt           |DateTime| API Gatewayサービス作成日時                                    |
 |apigwServiceList[0].updatedAt           |DateTime| API Gatewayサービス修正日時                                    |
@@ -209,12 +209,12 @@ APIを使用するにはアプリキー(Appkey)が必要です。
 |apigwService.apigwDomain         |String  | API Gatewayサービスドメイン                |
 |apigwService.apigwServiceAlias   |String  | API Gatewayサービスエイリアス                          |
 |apigwService.apigwServiceId      |String  | API GatewayサービスID                            |
-|apigwService.apigwServiceTypeCode|Enum    | [API GatewayサービスタイプEnumコード](./enum-code/#apigwServiceType)参考 |
+|apigwService.apigwServiceTypeCode|Enum    | [API GatewayサービスタイプEnumコード](./enum-code/#api-gateway_1)参考 |
 |apigwService.appKey              |String  | AppKey                                        |
 |apigwService.dedicatedId         |String  | 専用API GatewayサービスのID                        |
 |apigwService.apigwServiceDescription         |String  | API Gatewayサービスの説明                                      |
 |apigwService.apigwServiceName                |String  | API Gatewayサービス名                                      |
-|apigwService.regionCode          |Enum    |[API GatewayリージョンEnumコード](./enum-code/#regionCode)参考|
+|apigwService.regionCode          |Enum    |[API GatewayリージョンEnumコード](./enum-code/#api-gateway)参考|
 |apigwService.serverGroupId       |String  | API Gatewayサービスが属すサーバーグループID                              |
 |apigwService.createdAt           |DateTime| API Gatewayサービス作成日時                                    |
 |apigwService.updatedAt           |DateTime| API Gatewayサービス修正日時                                    |
@@ -247,7 +247,7 @@ APIを使用するにはアプリキー(Appkey)が必要です。
 
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | Enum | 必須 | なし | KR1 | [API GatewayサービスタイプEnumコード](./enum-code/#apigwServiceType)参考 |
+| regionCode | Enum | 必須 | なし | KR1 | [API GatewayサービスタイプEnumコード](./enum-code/#api-gateway_1)参考 |
 | apigwServiceName | String | 必須 | なし | 最大50文字 | API Gatewayサービス名 |
 | apigwServiceDescription | String | 任意 | なし | 最大200文字 | API Gatewayサービスの説明 |
 
@@ -286,12 +286,12 @@ APIを使用するにはアプリキー(Appkey)が必要です。
 |apigwService.apigwDomain         |String  | API Gatewayサービスドメイン                |
 |apigwService.apigwServiceAlias   |String  | API Gatewayサービスエイリアス                          |
 |apigwService.apigwServiceId      |String  | API GatewayサービスID                            |
-|apigwService.apigwServiceTypeCode|Enum    | [API GatewayサービスタイプEnumコード](./enum-code/#apigwServiceType)参考 |
+|apigwService.apigwServiceTypeCode|Enum    | [API GatewayサービスタイプEnumコード](./enum-code/#api-gateway_1)参考 |
 |apigwService.appKey              |String  | AppKey                                        |
 |apigwService.dedicatedId         |String  | 専用API GatewayサービスのID                        |
 |apigwService.apigwServiceDescription         |String  | サービスの説明                                      |
 |apigwService.apigwServiceName    |String  | API Gatewayサービス名                                      |
-|apigwService.regionCode          |Enum    | [API GatewayリージョンEnumコード](./enum-code/#regionCode)参考|
+|apigwService.regionCode          |Enum    | [API GatewayリージョンEnumコード](./enum-code/#api-gateway)参考|
 |apigwService.serverGroupId       |String  | API Gatewayサービスが属すサーバーグループID                              |
 |apigwService.createdAt           |DateTime| API Gatewayサービス作成日時                                    |
 |apigwService.updatedAt           |DateTime| API Gatewayサービス修正日時                                    |
@@ -364,12 +364,12 @@ APIを使用するにはアプリキー(Appkey)が必要です。
 |apigwService.apigwDomain         |String  |API Gatewayサービスドメイン                |
 |apigwService.apigwServiceAlias   |String  |API Gatewayサービスエイリアス                          |
 |apigwService.apigwServiceId      |String  |API GatewayサービスID                            |
-|apigwService.apigwServiceTypeCode|Enum    |[API GatewayサービスタイプEnumコード](./enum-code/#apigwServiceType)参考|
+|apigwService.apigwServiceTypeCode|Enum    |[API GatewayサービスタイプEnumコード](./enum-code/#api-gateway_1)参考|
 |apigwService.appKey              |String  |AppKey                                        |
 |apigwService.dedicatedId         |String  |専用API GatewayサービスのID                        |
 |apigwService.apigwServiceDescription         |String  |サービスの説明                                      |
 |apigwService.apigwServiceName                |String  |サービス名                                      |
-|apigwService.regionCode          |Enum    |[API GatewayリージョンEnumコード](./enum-code/#regionCode)参考|
+|apigwService.regionCode          |Enum    |[API GatewayリージョンEnumコード](./enum-code/#api-gateway)参考|
 |apigwService.serverGroupId       |String  |サービスが属すサーバーグループID                              |
 |apigwService.createdAt           |DateTime|サービス作成日時                                    |
 |apigwService.updatedAt           |DateTime|サービス修正日時                                    |
@@ -497,14 +497,14 @@ APIを使用するにはアプリキー(Appkey)が必要です。
 | resourceList[0].path                                   | String   | リソースパス                                       |
 | resourceList[0].createdAt                              | DateTime | リソース作成日時                                     |
 | resourceList[0].updatedAt                              | DateTime | リソース修正日時                                     |
-| resourceList[2].methodType                             | Enum     | [HTTPメソッドタイプEnumコード](./enum-code/#???)参考 |
+| resourceList[2].methodType                             | Enum     | [HTTPメソッドタイプEnumコード](./enum-code/#http)参考 |
 | resourceList[2].methodName                             | String   | メソッドリソース名                                   |
 | resourceList[2].methodDescription                      | String   | メソッドリソースの説明                                   |
 | resourceList[2].resourcePluginList                     | List     | リソースプラグインリスト領域                               |
 | resourceList[2].resourcePluginList[0].resourcePluginId | String   | リソースプラグインID                                    |
 | resourceList[2].resourcePluginList[0].resourceId       | String   | リソースID                                         |
-| resourceList[2].resourcePluginList[0].pluginType       | Enum     | [リソースプラグインタイプEnumコード](./enum-code/#???)参考  |
-| resourceList[2].resourcePluginList[0].pluginConfigJson | Object   | [リソースプラグインタイプ別のJSON設定値]()参考                 |
+| resourceList[2].resourcePluginList[0].pluginType       | Enum     | [リソースプラグインタイプEnumコード](./enum-code/#_1)参考  |
+| resourceList[2].resourcePluginList[0].pluginConfigJson | Object   | [リソースプラグインタイプ](./api-guide-v1.0/#_25)別のJSON設定値参考                 |
 | resourceList[2].resourcePluginList[0].createdAt        | DateTime | リソースプラグインの作成日時                                |
 | resourceList[2].resourcePluginList[0].updatedAt        | DateTime | リソースプラグインの修正日時                                |
 
@@ -673,7 +673,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.schema.$ref | String | 必須 | なし | Swagger definitionsに宣言されたオブジェクト | API Gatewayリソースレスポンス > レスポンスHTTPステータスコード > レスポンス本文 > モデル。 |
 | swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway | Object | 任意 | なし | なし | API Gateway提供機能定義オブジェクト領域。 |
 | swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins | Object | 必須 | なし | なし | API Gatewayユーザー定義プラグインオブジェクト領域。 |
-| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins.{pluginCode} | Object | 必須 | なし | {pluginCode} HTTP, MOCK, CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [リソースプラグインタイプEnumコード](./enum-code/#???)参考。 [リソースプラグインタイプ別JSON設定値](???)参考。 |
+| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins.{pluginCode} | Object | 必須 | なし | {pluginCode} HTTP, MOCK, CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [リソースプラグインタイプEnumコード](./enum-code/#_1)参考。 [リソースプラグインタイプ](./api-guide-v1.0/#_25)別JSON設定値参考。 |
 | swaggerData.definitions | Object | 任意 | なし | なし | API Gatewayリソースリクエストパラメータ、レスポンスで使用される本文オブジェクト定義領域。 [Definitions Object](https://swagger.io/specification/v2/#definitionsObject)参考 |
 
 
@@ -737,7 +737,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
 | allowedMethods | List | 必須 | なし | なし | リソースへのアクセスを許可するメソッドリスト領域 |
-| allowedMethods[0] | Enum | 必須 | なし | "GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "PATCH" | [HTTPメソッドタイプEnumコード](./enum-code/#???)参考 |
+| allowedMethods[0] | Enum | 必須 | なし | "GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "PATCH" | [HTTPメソッドタイプEnumコード](./enum-code/#http)参考 |
 | allowedHeaders | List | 必須 | なし | なし | リクエストで使用できるHTTPヘッダリスト領域 |
 | allowedHeaders[0] | String | 必須 | なし | なし | リクエストで使用できるHTTPヘッダ(例：ワイルドカード形式： '\*'または'X-NHN-HEADER, Content-Type') |
 | allowedOrigins    | List | 必須 | なし | なし | リソースにアクセスできるオリジンサーバーのドメインリスト領域 |
@@ -878,19 +878,19 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | queryStringList                | List    | クエリ文字列リスト領域                                       |
 | queryStringList[0].name        | String  | クエリ文字列名                                          |
 | queryStringList[0].description | String  | クエリ文字列の説明                                          |
-| queryStringList[0].dataType    | Enum    | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#???)参考|
+| queryStringList[0].dataType    | Enum    | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#_2)参考|
 | queryStringList[0].required    | Boolean | クエリ文字列が必須かどうか                                        |
 | queryStringList[0].isArray     | Boolean | クエリ文字列がArrayかどうか                                     |
 | headerList                     | List    | ヘッダリスト領域                                           |
 | headerList[0].name             | String  | ヘッダ名                                              |
 | headerList[0].description      | String  | ヘッダの説明                                              |
-| headerList[0].dataType         | Enum    | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#???)参考 |
+| headerList[0].dataType         | Enum    | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#_2)参考 |
 | headerList[0].required         | Boolean | ヘッダ必須かどうか                                            |
 | headerList[0].isArray          | null    | ヘッダArrayかどうか未提供                                    |
 | formDataList                   | List    | フォームデータリスト領域                                        |
 | formDataList[0].name           | String  | フォームデータ名                                           |
 | formDataList[0].description    | String  | フォームデータの説明                                           |
-| formDataList[0].dataType       | Enum    | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#???)参考 |
+| formDataList[0].dataType       | Enum    | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#_2)参考 |
 | formDataList[0].required       | Boolean | フォームデータ必須かどうか                                         |
 | formDataList[0].isArray        | Boolean | フォームデータArrayかどうか                                      |
 | requestBody                    | Object  | リクエスト本文領域                                           |
@@ -966,18 +966,18 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | queryStringList                | List    | 任意  | Empty List    | 最大50個                                            | クエリ文字列リスト領域                                       |
 | queryStringList[0].name        | String  | 必須  | なし          | 最大50文字                                            | クエリ文字列名                                          |
 | queryStringList[0].description | String  | 任意  | なし          | 最大200文字                                           | クエリ文字列の説明                                          |
-| queryStringList[0].dataType    | Enum    | 必須  | なし          | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE        | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#???)参考|
+| queryStringList[0].dataType    | Enum    | 必須  | なし          | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE        | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#_2)参考|
 | queryStringList[0].required    | Boolean | 必須  | なし          | true, false                                          | クエリ文字列必須かどうか                                        |
 | queryStringList[0].isArray     | Boolean | 必須  | なし          | true, false                                          | クエリ文字列Arrayかどうか                                     |
 | headerList                     | List    | 任意  | Empty List    | 最大50個                                            | ヘッダリスト領域                                           |
 | headerList[0].name             | String  | 必須  | なし          | 最大50文字                                            | ヘッダ名                                              |
 | headerList[0].description      | String  | 任意  | なし          | 最大200文字                                           | ヘッダ説明                                              |
-| headerList[0].dataType         | Enum    | 必須  | なし          | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE        | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#???)参考|
+| headerList[0].dataType         | Enum    | 必須  | なし          | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE        | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#_2)参考|
 | headerList[0].required         | Boolean | 必須  | なし          | true, false                                          | ヘッダ必須かどうか                                            |
 | formDataList                   | List    | 任意  | Empty List    | 最大50個                                            | フォームデータリスト領域                                        |
 | formDataList[0].name           | String  | 必須  | なし          | 最大50文字                                            | フォームデータ名                                           |
 | formDataList[0].description    | String  | 任意  | なし          | 最大200文字                                           | フォームデータの説明                                           |
-| formDataList[0].dataType       | Enum    | 必須  | なし          | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE, FILE  | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#???)参考|
+| formDataList[0].dataType       | Enum    | 必須  | なし          | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE, FILE  | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#_2)参考|
 | formDataList[0].required       | Boolean | 必須  | なし          | true, false                                          | フォームデータ必須かどうか                                         |
 | formDataList[0].isArray        | Boolean | 必須  | なし          | true, false                                          | フォームデータArrayかどうか。 dataTypeがFILEの場合はfalse。            |
 | requestBody                    | Object  | 任意  | Empty Object  | なし                                                 | リクエスト本文オブジェクト領域                                        |
@@ -1064,7 +1064,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | responseList[0].headerList                | List    | HTTPレスポンスヘッダリスト領域                                   |
 | responseList[0].headerList[0].name        | String  | レスポンスヘッダ名                                           |
 | responseList[0].headerList[0].description | String  | レスポンスヘッダの説明                                           |
-| responseList[0].headerList[0].dataType    | Enum    | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#???)参考|
+| responseList[0].headerList[0].dataType    | Enum    | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#_2)参考|
 | responseList[0].responseBody              | Object  | HTTPレスポンス本文オブジェクト領域                                   |
 | responseList[0].responseBody.name         | String  | レスポンス本文の名前                                           |
 | responseList[0].responseBody.description  | String  | レスポンス本文の説明                                           |
@@ -1126,7 +1126,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | responseList[0].headerList                | List    | 任意  | Empty List   | 最大50個                                      | HTTPレスポンスヘッダリスト領域                                   |
 | responseList[0].headerList[0].name        | String  | 必須  | なし          | 最大50文字                                      | レスポンスヘッダ名                                           |
 | responseList[0].headerList[0].description | String  | 任意  | なし        | 最大200文字                                     | レスポンスヘッダの説明                                           |
-| responseList[0].headerList[0].dataType    | Enum    | 必須  | なし          | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#???)参考 |
+| responseList[0].headerList[0].dataType    | Enum    | 必須  | なし          | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE | [リソースリクエスト/レスポンスパラメータデータ型Enumコード](./enum-code/#_2)参考 |
 | responseList[0].responseBody              | Object  | 任意  | Empty Object | なし                                           | HTTPレスポンス本文オブジェクト領域                                   |
 | responseList[0].responseBody.name         | String  | 必須  | なし          | 最大50文字                                      | レスポンス本文名                                           |
 | responseList[0].responseBody.description  | String  | 任意  | なし        | 最大200文字                                     | レスポンス本文の説明                                           |
@@ -1536,7 +1536,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |paging.limit                         |Integer | ページあたりの件数                                 |
 |paging.totalCount                    |Integer | 総件数                                       |
 |stageList        |List    | ステージリスト領域 |
-|stageList[0].regionCode       |Enum    |[API GatewayリージョンEnumコード](./enum-code/#regionCode)参考              |
+|stageList[0].regionCode       |Enum    |[API GatewayリージョンEnumコード](./enum-code/#api-gateway)参考              |
 |stageList[0].apigwServiceId   |String  |API GatewayサービスID  |
 |stageList[0].stageId          |String  |ステージID             |
 |stageList[0].stageName        |String  |ステージ名           |
@@ -1656,7 +1656,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
 |stage        |Object    | ステージ領域 |
-|stage.regionCode       |Enum    |[API GatewayリージョンEnumコード](./enum-code/#regionCode)参考              |
+|stage.regionCode       |Enum    |[API GatewayリージョンEnumコード](./enum-code/#api-gateway)参考              |
 |stage.apigwServiceId   |String  |API GatewayサービスID  |
 |stage.stageId          |String  |ステージID             |
 |stage.stageName        |String  |ステージ名           |
@@ -1732,7 +1732,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
 |stage        |Object    | ステージ領域 |
-|stage.regionCode       |Enum    |[API GatewayリージョンEnumコード](./enum-code/#regionCode)参考              |
+|stage.regionCode       |Enum    |[API GatewayリージョンEnumコード](./enum-code/#api-gateway)参考              |
 |stage.apigwServiceId   |String  |API GatewayサービスID  |
 |stage.stageId          |String  |ステージID             |
 |stage.stageName        |String  |ステージ名           |
@@ -1782,7 +1782,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 ### ステージリソースリストの照会 
 * ステージに登録されたリソースリストを取得します。各リソースに設定されたステージリソースプラグイン情報が含まれます。
-* ステージリソースプラグインの詳細については[ステージリソースプラグイン]()を参照します。
+* ステージリソースプラグインの詳細については[ステージリソースプラグイン](./api-guide-v1.0/#_77)を参照します。
 
 
 #### リクエスト
@@ -1864,7 +1864,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |stageResourceList[0].parentPath             |String  |ステージ上位リソースパス(ルート(/)パスのparentPathはnull)|
 |stageResourceList[0].stageId                |String  |ステージID                                    |
 |stageResourceList[0].customBackendEndpointUrl      |String  |バックエンドエンドポイント再定義URL                          |
-|stageResourceList[0].methodType             |Enum    |[HTTPメソッドタイプEnumコード](./enum-code/#???)参考 |
+|stageResourceList[0].methodType             |Enum    |[HTTPメソッドタイプEnumコード](./enum-code/#http)参考 |
 |stageResourceList[0].methodName             |String  |メソッド名                                   |
 |stageResourceList[0].methodDescription      |String  |メソッドの説明                                   |
 |stageResourceList[0].createdAt              |DateTime|ステージリソースの作成日時                            |
@@ -1873,8 +1873,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |stageResourceList[0].stageResourcePluginList[0]|Object    |ステージリソースのプラグイン領域                     |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |ステージリソースプラグインID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |ステージリソースID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[リソースプラグインタイプ](./enum-code/#???), [ステージリソース > プラグインタイプ](./enum-code/#???)参考                      |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](), [ステージプラグインタイプ]()別設定JSON参考          |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[リソースプラグインタイプEnumコード](./enum-code/#_1), [ステージリソース > プラグインタイプEnumコード](./enum-code/#_3)参考                      |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](./api-guide-v1.0/#_25), [ステージプラグインタイプ](./api-guide-v1.0/#_77)別設定JSON参考          |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|ステージリソースプラグインの作成日時                       |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|ステージリソースプラグインの修正日時                       |
 
@@ -1965,7 +1965,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |stageResourceList[0].parentPath             |String  |ステージ上位リソースパス(ルート(/)パスのparentPathはnull)|
 |stageResourceList[0].stageId                |String  |ステージID                                    |
 |stageResourceList[0].customBackendEndpointUrl      |String  |バックエンドエンドポイント再定義URL                          |
-|stageResourceList[0].methodType             |Enum    |[HTTPメソッドタイプEnumコード](./enum-code/#???)参考             |
+|stageResourceList[0].methodType             |Enum    |[HTTPメソッドタイプEnumコード](./enum-code/#http)参考             |
 |stageResourceList[0].methodName             |String  |メソッド名                                   |
 |stageResourceList[0].methodDescription      |String  |メソッドの説明                                   |
 |stageResourceList[0].createdAt              |DateTime|ステージリソースの作成日時                            |
@@ -1974,8 +1974,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |stageResourceList[0].stageResourcePluginList[0]|Object    |ステージリソースのプラグイン領域                     |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |ステージリソースプラグインID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |ステージリソースID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[リソースプラグインタイプ](./enum-code/#???), [ステージリソース > プラグインタイプ](./enum-code/#???)参考                      |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](), [ステージプラグインタイプ]()別設定JSON参考          |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[リソースプラグインタイプEnumコード](./enum-code/#_1), [ステージリソース > プラグインタイプEnumコード](./enum-code/#_3)参考                      |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](./api-guide-v1.0/#_25), [ステージプラグインタイプ](./api-guide-v1.0/#_77)別設定JSON参考|
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|ステージリソースプラグインの作成日時                       |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|ステージリソースプラグインの修正日時                       |
 
@@ -1984,7 +1984,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 ### ステージリソースの修正
 * リソースパスまたはリソースメソッドに設定されたバックエンドエンドポイントURLを再定義し、ステージリソースプラグインを修正します。
 * ステージリソースを修正すると、登録されたステージリソースプラグインは全て削除され、リクエストしたリソースプラグインのみ新しく登録されます。
-* ステージリソースプラグインの詳細については[ステージリソースプラグイン]()を参照してください。
+* ステージリソースプラグインの詳細については[ステージリソースプラグイン](./api-guide-v1.0/#_77)を参照してください。
 
 #### リクエスト
 
@@ -2021,7 +2021,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | --- | --- | --- | --- | --- | --- |
 | customBackendEndpointUrl | String | 任意 | なし | 最大150文字、 URL形式 | バックエンドエンドポイント再定義URL |
 | stageResourcePluginList | List | 必須 | なし | なし | ステージリソースプラグインリスト領域 |
-| stageResourcePluginList[0] | Object | 必須 | なし | なし | ステージリソースプラグイン別JSON形式のオブジェクト<br>[ステージリソースプラグイン]()参考|
+| stageResourcePluginList[0] | Object | 必須 | なし | なし | ステージリソースプラグイン別JSON形式のオブジェクト<br>[ステージリソースプラグイン](./api-guide-v1.0/#_77)参考|
 
 * customBackendEndpointUrlフィールドはルート(/)リソースパスには設定できません。
 
@@ -2089,7 +2089,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |stageResourceList[0].parentPath             |String  |ステージ上位リソースパス(ルート(/)パスのparentPathはnull)|
 |stageResourceList[0].stageId                |String  |ステージID                                    |
 |stageResourceList[0].customBackendEndpointUrl      |String  |バックエンドエンドポイント再定義URL                          |
-|stageResourceList[0].methodType             |Enum    |[HTTPメソッドタイプEnumコード](./enum-code/#???)参考             |
+|stageResourceList[0].methodType             |Enum    |[HTTPメソッドタイプEnumコード](./enum-code/#http)参考             |
 |stageResourceList[0].methodName             |String  |メソッド名                                   |
 |stageResourceList[0].methodDescription      |String  |メソッドの説明                                   |
 |stageResourceList[0].createdAt              |DateTime|ステージリソースの作成日時                            |
@@ -2098,8 +2098,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |stageResourceList[0].stageResourcePluginList[0]|Object    |ステージリソースのプラグイン領域                     |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |ステージリソースプラグインID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |ステージリソースID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[リソースプラグインタイプ](./enum-code/#???), [ステージリソース > プラグインタイプ](./enum-code/#???)参考                      |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](), [ステージプラグインタイプ]()別設定JSON参考          |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[リソースプラグインタイプEnumコード](./enum-code/#_1), [ステージリソース > プラグインタイプEnumコード](./enum-code/#_3)参考                      |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](./api-guide-v1.0/#_25), [ステージプラグインタイプ](./api-guide-v1.0/#_77)別設定JSON参考          |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|ステージリソースプラグインの作成日時                       |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|ステージリソースプラグインの修正日時                       |
 
@@ -2156,7 +2156,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 必須 | なし | IP_ACL | [ステージリソース > プラグインタイプ]()のうちIP_ACL参考 |
+| pluginType | Enum | 必須 | なし | IP_ACL | [ステージリソース > プラグインタイプEnumコード]](./enum-code/#_3)のうちIP_ACL参考 |
 | pluginConfigJson | Object | 必須 | なし | なし | IP ACLプラグイン設定領域 |
 | pluginConfigJson.isPermit | Boolean | 必須 | なし | true, false | falseに設定すると、設定されたIP/CIDRのリクエストを拒否し、trueに設定すると設定されたIP/CIDRのみリクエストを許可します。  |
 | pluginConfigJson.ipAclList | List | 必須 | なし | 1～100個 | リクエストを許可/拒否するIPまたはCIDRリスト領域 |
@@ -2187,7 +2187,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 必須 | なし | HMAC | [ステージリソース > プラグインタイプ]()のHMAC参考 |
+| pluginType | Enum | 必須 | なし | HMAC | [ステージリソース > プラグインタイプEnumコード]](./enum-code/#_3)のHMAC参考 |
 | pluginConfigJson | Object | 必須 | なし | なし | HMACプラグイン設定領域 |
 | pluginConfigJson.secretKey | String | 必須 | なし | なし | 署名に使用される秘密鍵を設定します。32バイト以上の文字列に設定することを推奨します。|
 | pluginConfigJson.clockSkewSeconds | Integer | 任意 | 0 | 0～86400 | リクエスト有効時間(単位：秒)を指定します。 |
@@ -2262,9 +2262,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 必須 | なし | JWT | [ステージリソース > プラグインタイプ]()のJWT参考 |
+| pluginType | Enum | 必須 | なし | JWT | [ステージリソース > プラグインタイプEnumコード]](./enum-code/#_3)のJWT参考 |
 | pluginConfigJson | Object | 必須 | なし | なし | JWTプラグイン設定領域 |
-| pluginConfigJson.encryptAlgorithm | Enum | 必須 | HS256 | HS256 | [JWT > 暗号化アルゴリズム]()参考 |
+| pluginConfigJson.encryptAlgorithm | Enum | 必須 | HS256 | HS256 | [JWT > 暗号化アルゴリズムEnumコード](./enum-code/#jwt)参考 |
 | pluginConfigJson.hs256 | Object | 必須 | なし | なし | HS256設定領域 |
 | pluginConfigJson.hs256.secretKey | String | 必須 | なし | なし | 署名に使用される秘密鍵を設定します。32バイト以上の文字列に設定することを推奨します。|
 | pluginConfigJson.clockSkew | Integer | 任意 | 0 | 0～86400 | exp, nbfクレームの検証有効時間(単位：秒)を指定します。 |
@@ -2272,35 +2272,35 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | pluginConfigJson.claimValidationCondition.iss | Object | 任意 | Default Object | なし | issクレーム検証条件領域。リクエストしない場合、各フィールドのデフォルト値で保存されます。 |
 | pluginConfigJson.claimValidationCondition.iss.value | Array | 必須 | Empty Array | なし |  issリクエストクレームの値のうち、許可するクレーム値を文字列配列で設定します。 |
 | pluginConfigJson.claimValidationCondition.iss.value[0] | String | 任意 | なし | なし |  issリクエストクレームの値のうち、許可する文字列を設定します。 |
-| pluginConfigJson.claimValidationCondition.iss.dataType | Enum | 任意 | Array | Array | issクレームのデータ型を設定します。 Arrayのみ有効です。 <br/> [JWT > クレームデータ型]()参考 |
+| pluginConfigJson.claimValidationCondition.iss.dataType | Enum | 任意 | Array | Array | issクレームのデータ型を設定します。 Arrayのみ有効です。 <br/> [JWT > クレームデータ型Enumコード](./enum-code/#jwt_1)参考 |
 | pluginConfigJson.claimValidationCondition.iss.required | Boolean | 必須 | false | true, false | issリクエストクレーム値が必須検証かどうかを設定します。 |
 | pluginConfigJson.claimValidationCondition.iss.validate | Boolean | 必須 | false | true, false | issリクエストクレーム値を検証するかどうかを設定します。 |
 | pluginConfigJson.claimValidationCondition.aud | Object | 任意 | Default Object | なし | audクレーム検証条件領域。リクエストしない場合、各フィールドのデフォルト値で保存されます。  |
 | pluginConfigJson.claimValidationCondition.aud.value | Array | 必須 | Empty Array | なし |  audリクエストクレームの値のうち、許可するクレーム値を文字列配列で設定します。 |
 | pluginConfigJson.claimValidationCondition.aud.value[0] | String | 任意 | なし | なし |  audリクエストクレームの値のうち、許可する文字列を設定します。 |
-| pluginConfigJson.claimValidationCondition.aud.dataType | Enum | 任意 | Array | Array | audクレームのデータ型を設定します。 Arrayのみ有効です。 <br/> [JWT > クレームデータ型]()参考 |
+| pluginConfigJson.claimValidationCondition.aud.dataType | Enum | 任意 | Array | Array | audクレームのデータ型を設定します。 Arrayのみ有効です。 <br/> [JWT > クレームデータ型Enumコード](./enum-code/#jwt_1)参考 |
 | pluginConfigJson.claimValidationCondition.aud.required | Boolean | 必須 | false | true, false | audリクエストクレーム値が必須検証かどうかを設定します。 |
 | pluginConfigJson.claimValidationCondition.aud.validate | Boolean | 必須 | true | true | audリクエストクレーム値を検証するかどうかを設定します。 trueのみ有効です。 |
 | pluginConfigJson.claimValidationCondition.sub | Object | 任意 | Default Object | なし | subクレーム検証条件領域。リクエストしない場合、各フィールドのデフォルト値で保存されます。 |
 | pluginConfigJson.claimValidationCondition.sub.value | String | 必須 | Empty String | なし |  subリクエストクレームの値のうち、許可するクレーム文字列値を設定します。 |
-| pluginConfigJson.claimValidationCondition.sub.dataType | Enum | 任意 | String | String | subクレームのデータ型を設定します。 Stringのみ有効です。<br/> [JWT > クレームデータ型]()参考|
+| pluginConfigJson.claimValidationCondition.sub.dataType | Enum | 任意 | String | String | subクレームのデータ型を設定します。 Stringのみ有効です。<br/> [JWT > クレームデータ型Enumコード](./enum-code/#jwt_1)参考|
 | pluginConfigJson.claimValidationCondition.sub.required | Boolean | 必須 | false | true, false | subリクエストクレーム値が必須検証かどうかを設定します。 <br/> validateフィールド値がtrueの場合、 requriedは必ずtrueに設定する必要があります。  |
 | pluginConfigJson.claimValidationCondition.sub.validate | Boolean | 必須 | false | true, false | subリクエストクレーム値を検証するかどうかを設定します。 |
 | pluginConfigJson.claimValidationCondition.jti | Object | 任意 | Default Object | なし | jtiクレーム検証条件領域。リクエストしない場合、各フィールドのデフォルト値で保存されます。 |
 | pluginConfigJson.claimValidationCondition.jti.value | String | 必須 | Empty String | なし | jtiクレームは許可する検証値設定を要求しないため、空の文字列に設定します。 |
-| pluginConfigJson.claimValidationCondition.jti.dataType | Enum | 任意 | String | String | jtiクレームのデータ型を設定します。 <br/> [JWT > クレームデータ型]()参考|
+| pluginConfigJson.claimValidationCondition.jti.dataType | Enum | 任意 | String | String | jtiクレームのデータ型を設定します。 <br/> [JWT > クレームデータ型Enumコード](./enum-code/#jwt_1)参考|
 | pluginConfigJson.claimValidationCondition.jti.required | Boolean | 必須 | false | true, false | jtiリクエストクレーム値が必須検証かどうかを設定します。 |
 | pluginConfigJson.claimValidationCondition.jti.validate | Boolean | 必須 | false | false | jtiリクエストクレーム値を検証するかどうかを設定します。 falseのみ有効です。|
 | pluginConfigJson.claimValidationCondition.exp | Object | 任意 | Default Object | なし | expクレーム検証条件領域。リクエストしない場合、各フィールドのデフォルト値で保存されます。 |
-| pluginConfigJson.claimValidationCondition.exp.dataType | Enum | 任意 | NumericDate | NumericDate | expクレームのデータ型を設定します。 NumericDateのみ有効です。 <br/> [JWT > クレームデータ型]()参考 |
+| pluginConfigJson.claimValidationCondition.exp.dataType | Enum | 任意 | NumericDate | NumericDate | expクレームのデータ型を設定します。 NumericDateのみ有効です。 <br/> [JWT > クレームデータ型Enumコード](./enum-code/#jwt_1)参考 |
 | pluginConfigJson.claimValidationCondition.exp.required | Boolean | 必須 | false | true, false | expリクエストクレーム値が必須検証かどうかを設定します。 |
 | pluginConfigJson.claimValidationCondition.exp.validate | Boolean | 任意 | true | true | expリクエストクレーム値を検証するかどうかを設定します。 trueのみ有効です。 |
 | pluginConfigJson.claimValidationCondition.iat | Object | 任意 | Default Object | なし | iatクレーム検証条件領域。リクエストしない場合、各フィールドのデフォルト値で保存されます。 |
-| pluginConfigJson.claimValidationCondition.iat.dataType | Enum | 任意 | NumericDate | NumericDate | iatクレームのデータ型を設定します。 NumericDateのみ有効です。 <br/> [JWT > クレームデータ型]()参考 |
+| pluginConfigJson.claimValidationCondition.iat.dataType | Enum | 任意 | NumericDate | NumericDate | iatクレームのデータ型を設定します。 NumericDateのみ有効です。 <br/> [JWT > クレームデータ型Enumコード](./enum-code/#jwt_1)参考 |
 | pluginConfigJson.claimValidationCondition.iat.required | Boolean | 必須 | false | true, false | iatリクエストクレーム値が必須検証かどうかを設定します。 |
 | pluginConfigJson.claimValidationCondition.iat.validate | Boolean | 任意 | true | true | iatリクエストクレーム値を検証するかどうかを設定します。 trueのみ有効です。 |
 | pluginConfigJson.claimValidationCondition.nbf | Object | 任意 | Default Object | なし | nbfクレーム検証条件領域。リクエストしない場合、各フィールドのデフォルト値で保存されます。 |
-| pluginConfigJson.claimValidationCondition.nbf.dataType | Enum | 任意 | NumericDate | NumericDate | nbfクレームのデータ型を設定します。 NumericDateのみ有効です。 <br/> [JWT > クレームデータ型]()参考|
+| pluginConfigJson.claimValidationCondition.nbf.dataType | Enum | 任意 | NumericDate | NumericDate | nbfクレームのデータ型を設定します。 NumericDateのみ有効です。 <br/> [JWT > クレームデータ型Enumコード](./enum-code/#jwt_1)参考|
 | pluginConfigJson.claimValidationCondition.nbf.required | Boolean | 必須 | false | true, false | nbfリクエストクレーム値が必須検証かどうかを設定します。 |
 | pluginConfigJson.claimValidationCondition.nbf.validate | Boolean | 任意 | true | true | nbfリクエストクレーム値を検証するかどうかを設定します。 trueのみ有効です。 |
 
@@ -2326,11 +2326,11 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 必須 | なし | JWT | [ステージリソース > プラグインタイプ]()のJWT参考 |
+| pluginType | Enum | 必須 | なし | JWT | [ステージリソース > プラグインタイプEnumコード]](./enum-code/#_3)のJWT参考 |
 | pluginConfigJson | Object | 必須 | なし | なし | JWTプラグイン設定領域 |
-| pluginConfigJson.encryptAlgorithm | Enum | 必須 | RS256 | RS256 | [JWT > 暗号化アルゴリズム]()参考 |
+| pluginConfigJson.encryptAlgorithm | Enum | 必須 | RS256 | RS256 | [JWT > 暗号化アルゴリズムEnumコード](./enum-code/#jwt)参考 |
 | pluginConfigJson.rs256 | Object | 必須 | なし | なし | RS256設定領域 |
-| pluginConfigJson.rs256.publicKeyType | Enum | 必須 | なし | RSA_PUBLIC_KEY | PEM形式の公開鍵設定[JWT > RS256暗号化アルゴリズム > Public Key Type]()参考 |
+| pluginConfigJson.rs256.publicKeyType | Enum | 必須 | なし | RSA_PUBLIC_KEY | PEM形式の公開鍵設定[JWT > RS256暗号化アルゴリズム > Public Key TypeEnumコード](./enum-code/#jwt-rs256-public-key-type)参考 |
 | pluginConfigJson.rs256.rsaPublicKey | String | 必須 | なし | PEM形式の公開鍵 | PEM形式の公開鍵値を設定します。 改行文字(\n)を含めて入力する必要があります。 |
 | pluginConfigJson.clockSkew | Integer | 任意 | 0 | 0～86400 | exp, nbfクレームの検証有効時間(単位：秒)を指定します。 |
 | pluginConfigJson.claimValidationCondition | Object | 任意 | Default Object | なし | クレーム検証条件領域(暗号化アルゴリズム： HS256のclaimValidationConditionフィールド説明と同じです。) |
@@ -2356,11 +2356,11 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 必須 | なし | JWT | [ステージリソース > プラグインタイプ]()のJWT参考 |
+| pluginType | Enum | 必須 | なし | JWT | [ステージリソース > プラグインタイプEnumコード]](./enum-code/#_3)のJWT参考 |
 | pluginConfigJson | Object | 必須 | なし | なし | JWTプラグイン設定領域 |
-| pluginConfigJson.encryptAlgorithm | Enum | 必須 | RS256 | RS256 | [JWT > 暗号化アルゴリズム]()参考 |
+| pluginConfigJson.encryptAlgorithm | Enum | 必須 | RS256 | RS256 | [JWT > 暗号化アルゴリズムEnumコード](./enum-code/#jwt)参考 |
 | pluginConfigJson.rs256 | Object | 必須 | なし | なし | RS256設定領域 |
-| pluginConfigJson.rs256.publicKeyType | String | 必須 | なし | JWKS_URI | JWKS(JSON Web Key Sets) URI形式で開鍵を設定します。 [JWT > RS256暗号化アルゴリズム > Public Key Type]()参考 |
+| pluginConfigJson.rs256.publicKeyType | String | 必須 | なし | JWKS_URI | JWKS(JSON Web Key Sets) URI形式で開鍵を設定します。 [JWT > RS256暗号化アルゴリズム > Public Key TypeEnumコード](./enum-code/#jwt-rs256-public-key-type)参考 |
 | pluginConfigJson.rs256.rsaPublicKey | String | 必須 | なし | なし | JSON Web Key Set URIを設定します。 |
 | pluginConfigJson.clockSkew | Integer | 任意 | 0 | 0～86400 | exp, nbfクレームの検証有効時間(単位：秒)を指定します。 |
 | pluginConfigJson.claimValidationCondition | Object | 任意 | Default Object | なし | クレーム検証条件領域(暗号化アルゴリズム： HS256のclaimValidationConditionフィールド説明と同じです。) |
@@ -2383,9 +2383,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 必須 | なし | PRE_API | [ステージリソース > プラグインタイプ]()のPRE_API参考 |
+| pluginType | Enum | 必須 | なし | PRE_API | [ステージリソース > プラグインタイプEnumコード]](./enum-code/#_3)のPRE_API参考 |
 | pluginConfigJson | Object | 必須 | なし | なし | 事前呼び出しAPIプラグイン設定領域 |
-| pluginConfigJson.httpMethod | Enum | 必須 | なし | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTPメソッドタイプEnumコード](./enum-code/#???)参考 |
+| pluginConfigJson.httpMethod | Enum | 必須 | なし | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTPメソッドタイプEnumコード](./enum-code/#http)参考 |
 | pluginConfigJson.url | String | 必須 | なし | URL形式 | 事前呼び出しAPIのURLを入力します。 |
 | pluginConfigJson.cacheTtl | Integer | 任意 | 0 | 0～86400 | 事前呼び出しAPIのレスポンスステータスコードのキャッシュ時間を設定します。 <br/>レスポンスステータスコードが200 OKの場合にのみ設定された時間キャッシュされ、キャッシュされている場合には事前呼び出しAPIを呼び出しません。 |
 
@@ -2408,9 +2408,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 必須 | なし | RATE_LIMIT | [ステージリソース > プラグインタイプ]()のRATE_LIMIT参考 |
+| pluginType | Enum | 必須 | なし | RATE_LIMIT | [ステージリソース > プラグインタイプEnumコード]](./enum-code/#_3)のRATE_LIMIT参考 |
 | pluginConfigJson | Object | 必須 | なし | なし | リクエスト数制限プラグイン設定領域 |
-| pluginConfigJson.keyType | Enum | 必須 | なし | DEFAULT, IP, HEADER, PATH_VARIABLE | [リクエスト数制限 > 制限キー]()参考 |
+| pluginConfigJson.keyType | Enum | 必須 | なし | DEFAULT, IP, HEADER, PATH_VARIABLE | [リクエスト数制限 > 制限キーEnumコード](./enum-code/#_4)参考 |
 | pluginConfigJson.extraKeyValue | String | 条件付き必須 | なし | なし | keyTypeがHEADERの場合、ヘッダ名を必ず設定する必要があります。<br/> keyTypeがPATH_VARIABLEの場合、 ${request.path.variable-name}形式のパス変数を必ず設定する必要があります。 |
 | pluginConfigJson.requestPerSec | Integer | 必須 | なし | 1～5000 | 1秒あたりの最大リクエスト可能数を設定します。 |
 
@@ -2432,7 +2432,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 必須 | なし | API_KEY | [ステージリソース > プラグインタイプ]()のAPI_KEY参考 |
+| pluginType | Enum | 必須 | なし | API_KEY | [ステージリソース > プラグインタイプEnumコード]](./enum-code/#_3)のAPI_KEY参考 |
 | pluginConfigJson | Object | 必須 | なし | なし | API Keyプラグイン設定領域 |
 | pluginConfigJson.isActive | Boolean | 必須 | なし | true | API Key検証を行うかどうかを設定します。必ずtrueに設定する必要があります。 |
 
@@ -2443,7 +2443,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 - 現在のステージリソースと設定をAPI Gatewayサービスに配布します。 
 - 変更された設定情報がない場合、ステージ配布リクエストが失敗します。
 - ステージ配布が失敗した場合、既存の成功したステージ配布設定に戻ります。
-- ステージ配布リクエスト後、ステージ配布成否は[最近のステージ配布結果照会]()で確認できます。 
+- ステージ配布リクエスト後、ステージ配布成否は[最近のステージ配布結果照会](./api-guide-v1.0/#_83)で確認できます。 
 
 #### リクエスト
 
@@ -2487,7 +2487,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 
 ### 最近のステージ配布結果照会 
-- [ステージ配布]()の結果を照会できます。
+- [ステージ配布](./api-guide-v1.0/#_80)の結果を照会できます。
 - ステージ配布リクエスト後に配布結果がアップデートされるまで最長1分ほどかかる場合があります。 
 
 
@@ -2577,7 +2577,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |latestStageDeployResult.deployId       |String    | 配布ID |
 |latestStageDeployResult.stageId   |String  | ステージID  |
 |latestStageDeployResult.deployDescription        |String  | 配布説明 |
-|latestStageDeployResult.deployStatus        |Enum  | [ステージ配布 > 配布状態]()参考 |
+|latestStageDeployResult.deployStatus        |Enum  | [ステージ配布 > 配布状態Enumコード](./enum-code/#_5)参考 |
 |latestStageDeployResult.isBase         |String  | 現在のステージ設定のベースになる配布履歴かどうか |
 |latestStageDeployResult.deployedAt          |DateTime  | 配布リクエスト日時 |
 |latestStageDeployResult.rollbackAt   |DateTime  | ステージ復元リクエスト日時 |
@@ -2588,7 +2588,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |latestStageDeployResult.stageResourceList[0].parentPath             |String  |ステージ上位リソースパス(ルート(/)パスのparentPathはnull)|
 |latestStageDeployResult.stageResourceList[0].stageId                |String  |ステージID                                    |
 |latestStageDeployResult.stageResourceList[0].customBackendEndpointUrl      |String  |バックエンドエンドポイント再定義URL                          |
-|latestStageDeployResult.stageResourceList[0].methodType             |Enum    |[HTTPメソッドタイプEnumコード](./enum-code/#???)参考             |
+|latestStageDeployResult.stageResourceList[0].methodType             |Enum    |[HTTPメソッドタイプEnumコード](./enum-code/#http)参考             |
 |latestStageDeployResult.stageResourceList[0].methodName             |String  |メソッド名                                   |
 |latestStageDeployResult.stageResourceList[0].methodDescription      |String  |メソッド説明                                   |
 |latestStageDeployResult.stageResourceList[0].createdAt              |DateTime|ステージリソースの作成日時                            |
@@ -2597,8 +2597,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0]|Object    |ステージリソースのプラグイン領域                     |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |ステージリソースプラグインID                           |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |ステージリソースID                                |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[ステージプラグインタイプ]()参考                     |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](), [ステージプラグインタイプ]()別設定JSON参考         |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[ステージリソース > プラグインタイプEnumコード](./enum-code/#_3)参考                     |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](./api-guide-v1.0/#_25), [ステージプラグインタイプ](./api-guide-v1.0/#_77)別設定JSON参考         |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|ステージリソースプラグインの作成日時                       |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|ステージリソースプラグインの修正日時                       |
 
@@ -2771,7 +2771,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |stageResourceList[0].parentPath             |String  |ステージ上位リソースパス(ルート(/)パスのparentPathはnull)|
 |stageResourceList[0].stageId                |String  |ステージID                                    |
 |stageResourceList[0].customBackendEndpointUrl      |String  |バックエンドエンドポイント再定義URL                          |
-|stageResourceList[0].methodType             |Enum    |[HTTPメソッドタイプEnumコード](./enum-code/#???)参考             |
+|stageResourceList[0].methodType             |Enum    |[HTTPメソッドタイプEnumコード](./enum-code/#http)参考             |
 |stageResourceList[0].methodName             |String  |メソッド名                                   |
 |stageResourceList[0].methodDescription      |String  |メソッドの説明                                   |
 |stageResourceList[0].createdAt              |DateTime|ステージリソースの作成日時                            |
@@ -2780,8 +2780,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |stageResourceList[0].stageResourcePluginList[0]|Object    |ステージリソースのプラグイン領域                     |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |ステージリソースプラグインID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |ステージリソースID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[ステージプラグインタイプ]()参考                     |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](), [ステージプラグインタイプ]()別設定JSON参考       |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[ステージプラグインタイプEnumコード]](./enum-code/#_3)参考                     |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](./api-guide-v1.0/#_25), [ステージプラグインタイプ](./api-guide-v1.0/#_77)別設定JSON参考       |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|ステージリソースプラグインの作成日時                       |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|ステージリソースプラグインの修正日時                       |
 
@@ -3036,7 +3036,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | apiKey | String | 任意 | なし | なし | PrimaryまたはSecondary API Keyフィルタ条件 |
 | apiKeyId | String | 任意 | なし | なし | API Key IDフィルタ条件 |
 | apiKeyName | String | 任意 | なし | なし | API Key名フィルタ条件。 API Key名の開始文字列は一致する必要があります。 |
-| apiKeyStatus | Enum | 任意 | なし | ACTIVE, INACTIVE | API Key状態フィルタ条件。 [API Key状態](./enum-code/#???)参考 |
+| apiKeyStatus | Enum | 任意 | なし | ACTIVE, INACTIVE | API Key状態フィルタ条件。 [API Keyの状態Enumコード](./enum-code/#api-key)参考 |
 
 #### レスポンス
 
@@ -3084,7 +3084,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | apiKeyList[0].apiKeyDescription | String   | API Keyの説明                                      |
 | apiKeyList[0].primaryApiKey     | String   | Primary API Keyの値                               |
 | apiKeyList[0].secondaryApiKey   | String   | Secondary API Keyの値                             |
-| apiKeyList[0].apiKeyStatus      | Enum     | [API KeyのステータスEnumコード](./enum-code/#???)参考 |
+| apiKeyList[0].apiKeyStatus      | Enum     | [API Keyの状態Enumコード](./enum-code/#api-key_2)参考 |
 | apiKeyList[0].createdAt         | DateTime | API Keyの作成日時                                    |
 | apiKeyList[0].updatedAt         | DateTime | API Keyの修正日時                                    |
 
@@ -3112,7 +3112,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
 | apiKeyName        | String | 必須  | なし | 最大50文字         | API Key名                                      |
 | apiKeyDescription | String | 任意  | なし | 最大200文字        | API Keyの説明                                      |
-| apiKeyStatus      | Enum   | 必須  | なし | ACTIVE, INACTIVE | [API Key状態Enumコード](./enum-code/#???)参考 |
+| apiKeyStatus      | Enum   | 必須  | なし | ACTIVE, INACTIVE | [API Keyの状態Enumコード](./enum-code/#api-key)参考 |
 
 #### レスポンス
 
@@ -3148,7 +3148,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | apiKey.apiKeyDescription | String   | API Keyの説明                                      |
 | apiKey.primaryApiKey     | String   | Primary API Key値                               |
 | apiKey.secondaryApiKey   | String   | Secondary API Key値                             |
-| apiKey.apiKeyStatus      | Enum     | [API Key状態Enumコード](./enum-code/#???)参考 |
+| apiKey.apiKeyStatus      | Enum     | [API Keyの状態Enumコード](./enum-code/#api-key)参考 |
 | apiKey.createdAt         | DateTime | API Key作成日時                                    |
 | apiKey.updatedAt         | DateTime | API Key修正日時                                    |
 
@@ -3184,7 +3184,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
 | apiKeyName        | String | 必須  | なし | 最大50文字         | API Key名                                      |
 | apiKeyDescription | String | 任意  | なし | 最大200文字        | API Keyの説明                                      |
-| apiKeyStatus      | Enum   | 必須  | なし | ACTIVE, INACTIVE | [API Key状態Enumコード](./enum-code/#???)参考 |
+| apiKeyStatus      | Enum   | 必須  | なし | ACTIVE, INACTIVE | [API Keyの状態Enumコード](./enum-code/#api-key)参考 |
 
 #### レスポンス
 
@@ -3220,7 +3220,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | apiKey.apiKeyDescription | String   | API Keyの説明                                      |
 | apiKey.primaryApiKey     | String   | Primary API Key値                               |
 | apiKey.secondaryApiKey   | String   | Secondary API Key値                             |
-| apiKey.apiKeyStatus      | Enum     | [API Key状態Enumコード](./enum-code/#???)参考 |
+| apiKey.apiKeyStatus      | Enum     | [API Keyの状態Enumコード](./enum-code/#api-key)参考 |
 | apiKey.createdAt         | DateTime | API Key作成日時                                    |
 | apiKey.updatedAt         | DateTime | API Key修正日時                                    |
 
@@ -3284,7 +3284,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | 名前              | タイプ   | 必須かどうか | デフォルト値 | 有効範囲          | 説明                                              |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
-| apiKeyType      | Enum   | 必須  | なし | PRIMARY、SECONDARY | 変更したいAPI Keyタイプ。 [API KeyタイプEnumコード](./enum-code/#???)参考 |
+| apiKeyType      | Enum   | 必須  | なし | PRIMARY、SECONDARY | 変更したいAPI Keyタイプ。 [API KeyタイプEnumコード](./enum-code/#api-key_1)参考 |
 
 #### レスポンス
 
@@ -3320,7 +3320,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | apiKey.apiKeyDescription | String   | API Keyの説明                                      |
 | apiKey.primaryApiKey     | String   | Primary API Key値                               |
 | apiKey.secondaryApiKey   | String   | Secondary API Key値                             |
-| apiKey.apiKeyStatus      | Enum     | [API Key状態Enumコード](./enum-code/#???)参考 |
+| apiKey.apiKeyStatus      | Enum     | [API Keyの状態Enumコード](./enum-code/#api-key)参考 |
 | apiKey.createdAt         | DateTime | API Key作成日時                                    |
 | apiKey.updatedAt         | DateTime | API Key修正日時                                    |
 
@@ -3352,7 +3352,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | apiKey | String | 任意 | なし | なし | primaryまたはsecondary API Key値 |
 | apiKeyId | String | 任意 | なし | なし | API Key ID |
 | apiKeyName | String | 任意 | なし | なし | API Key名の開始文字列 |
-| apiKeyStatus | Enum | 任意 | なし | ACTIVE、INACTIVE | [API Key状態](./enum-code/#???)参考 |
+| apiKeyStatus | Enum | 任意 | なし | ACTIVE、INACTIVE | [API Keyの状態Enumコード](./enum-code/#api-key)参考 |
 
 #### レスポンス
 
@@ -3470,7 +3470,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | usagePlanList[0].usagePlanName             | String   | 使用量プランの名前                                       |
 | usagePlanList[0].usagePlanDescription      | String   | 使用量プランの説明                                       |
 | usagePlanList[0].rateLimitRequestPerSecond | Integer  | 1秒あたりのリクエスト数制限                                      |
-| usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#???)参考 |
+| usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#_6)参考 |
 | usagePlanList[0].quotaLimit                | Integer  | 割り当て量期間単位別リクエスト割り当て量                              |
 | usagePlanList[0].createdAt                 | DateTime | 使用量プランの作成日時                                     |
 | usagePlanList[0].updatedAt                 | DateTime | 使用量プランの修正日時                                     |
@@ -3527,7 +3527,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | usagePlan.usagePlanName             | String   | 使用量プランの名前                                       |
 | usagePlan.usagePlanDescription      | String   | 使用量プランの説明                                       |
 | usagePlan.rateLimitRequestPerSecond | Integer  | 1秒あたりのリクエスト数制限                                      |
-| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#???)参考 |
+| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#_6)参考 |
 | usagePlan.quotaLimit                | Integer  | 割り当て量期間単位別リクエスト割り当て量                              |
 | usagePlan.createdAt                 | DateTime | 使用量プランの作成日時                                     |
 | usagePlan.updatedAt                 | DateTime | 使用量プランの修正日時                                     |
@@ -3559,7 +3559,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | usagePlanName             | String  | 必須  | なし | 最大50文字     | 使用量プランの名前                                       |
 | usagePlanDescription      | String  | 任意  | なし | 最大200文字    | 使用量プランの説明                                       |
 | rateLimitRequestPerSecond | Integer | 任意  | なし | 1～5000       | 1秒あたりのリクエスト数制限                                      |
-| quotaLimitPeriodUnitCode  | Enum    | 任意  | なし | DAY, MONTH   | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#???)参考 |
+| quotaLimitPeriodUnitCode  | Enum    | 任意  | なし | DAY, MONTH   | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#_6)参考 |
 | quotaLimit                | Integer | 条件付き必須 | なし | 1～2147483647 | quotaLimitPeriodUnitCodeが設定されている場合は必須。割り当て量期間単位別リクエスト割り当て量                              |
 
 #### レスポンス
@@ -3595,7 +3595,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | usagePlan.usagePlanName             | String   | 使用量プランの名前                                       |
 | usagePlan.usagePlanDescription      | String   | 使用量プランの説明                                       |
 | usagePlan.rateLimitRequestPerSecond | Integer  | 1秒あたりのリクエスト数制限                                      |
-| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#???)参考 |
+| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#_6)参考 |
 | usagePlan.quotaLimit                | Integer  | 割り当て量期間単位別リクエスト割り当て量                              |
 | usagePlan.createdAt                 | DateTime | 使用量プランの作成日時                                     |
 | usagePlan.updatedAt                 | DateTime | 使用量プランの修正日時                                     |
@@ -3635,7 +3635,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | usagePlanName             | String  | 必須  | なし | 最大50文字     | 使用量プランの名前                                       |
 | usagePlanName             | String  | 任意  | なし | 最大200文字    | 使用量プランの説明                                       |
 | rateLimitRequestPerSecond | Integer | 任意  | なし | 1～5000       | 1秒あたりのリクエスト数制限                                      |
-| quotaLimitPeriodUnitCode  | Enum    | 任意  | なし | DAY, MONTH   | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#???)参考 |
+| quotaLimitPeriodUnitCode  | Enum    | 任意  | なし | DAY, MONTH   | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#_6)参考 |
 | quotaLimit                | Integer | 条件付き必須 | なし | 1～2147483647 | quotaLimitPeriodUnitCodeが設定されている場合は必須。割り当て量期間単位別リクエスト割り当て量                              |
 
 #### レスポンス
@@ -3671,7 +3671,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | usagePlan.usagePlanName             | String   | 使用量プランの名前                                       |
 | usagePlan.usagePlanDescription      | String   | 使用量プランの説明                                       |
 | usagePlan.rateLimitRequestPerSecond | Integer  | 1秒あたりのリクエスト数制限                                      |
-| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#???)参考 |
+| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#_6)参考 |
 | usagePlan.quotaLimit                | Integer  | 割り当て量期間単位別リクエスト割り当て量                              |
 | usagePlan.createdAt                 | DateTime | 使用量プランの作成日時                                     |
 | usagePlan.updatedAt                 | DateTime | 使用量プランの修正日時                                     |
@@ -3904,7 +3904,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | usagePlanList[0].usagePlanName             | String   | 使用量プランの名前                                       |
 | usagePlanList[0].usagePlanDescription      | String   | 使用量プランの説明                                       |
 | usagePlanList[0].rateLimitRequestPerSecond | Integer  | 1秒あたりのリクエスト数制限                                      |
-| usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#???)参考 |
+| usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#_6)参考 |
 | usagePlanList[0].quotaLimit                | Integer  | 割り当て量期間単位別リクエスト割り当て量                              |
 | usagePlanList[0].createdAt                 | DateTime | 使用量プランの作成日時                                     |
 | usagePlanList[0].updatedAt                 | DateTime | 使用量プランの修正日時                                     |
@@ -3982,7 +3982,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | subscribedStageAndUsagePlanList                              | List    | API Keyが関連付けられたステージと使用量プランリスト領域              |
 | subscribedStageAndUsagePlanList[0]                           | Object    | API Keyが関連付けられたステージと使用量プラン領域              |
 | subscribedStageAndUsagePlanList[0].subscriptionId            | String  | 購読ID                                     |
-| subscribedStageAndUsagePlanList[0].subscriptionStatus        | Enum    | [API Key購読状態](./enum-code/#???)参考            |
+| subscribedStageAndUsagePlanList[0].subscriptionStatus        | Enum    | [API Keyの購読状態Enumコード](./enum-code/#api-key_2)参考            |
 | subscribedStageAndUsagePlanList[0].apiKeyId                  | String  | API Key ID                                        |
 | subscribedStageAndUsagePlanList[0].apigwServiceName          | String  | API Gatewayサービス名                              |
 | subscribedStageAndUsagePlanList[0].stageId                   | String  | ステージID                                           |
@@ -3993,7 +3993,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | subscribedStageAndUsagePlanList[0].usagePlanName             | String  | 使用量プランの名前                                       |
 | subscribedStageAndUsagePlanList[0].usagePlanDescription      | String  | 使用量プランの説明                                       |
 | subscribedStageAndUsagePlanList[0].rateLimitRequestPerSecond | Integer | 1秒あたりのリクエスト数制限                                      |
-| subscribedStageAndUsagePlanList[0].quotaLimitPeriodUnitCode  | Enum    | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#???)参考 |
+| subscribedStageAndUsagePlanList[0].quotaLimitPeriodUnitCode  | Enum    | [使用量プラン > 割り当て量期間単位Enumコード](./enum-code/#_6)参考 |
 | subscribedStageAndUsagePlanList[0].quotaLimit                | Integer | 割り当て量期間単位別リクエスト割り当て量                              |
 
 
@@ -4025,7 +4025,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | apiKey | String | 任意 | なし | なし | PrimaryまたはSecondary API Keyフィルタ条件 |
 | apiKeyId | String | 任意 | なし | なし | API Key IDフィルタ条件 |
 | apiKeyName | String | 任意 | なし | なし | API Key名フィルタ条件。 API Key名の開始文字列は一致する必要があります。  |
-| apiSubscriptionStatus | Enum | 任意 | なし | APPROVAL | [API Key購読状態](./enum-code/#???)参考 |
+| apiSubscriptionStatus | Enum | 任意 | なし | APPROVAL | [API Keyの購読状態Enumコード](./enum-code/#api-key_2)参考 |
 
 #### レスポンス
 
@@ -4068,7 +4068,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | apiSubscriptionList                            | List     | 購読情報リスト領域    |
 | apiSubscriptionList[0]                         | Object   | 購読情報領域    |
 | apiSubscriptionList[0].subscriptionId          | String   | 購読ID                                |
-| apiSubscriptionList[0].subscriptionStatus      | Enum     | [API Key購読状態](./enum-code/#???)参考 |
+| apiSubscriptionList[0].subscriptionStatus      | Enum     | [API Keyの購読状態Enumコード](./enum-code/#api-key_2)参考 |
 | apiSubscriptionList[0].subscriptionDescription | String   | 購読の説明                              |
 | apiSubscriptionList[0].stageId                 | String   | ステージID                              |
 | apiSubscriptionList[0].usagePlanId             | String   | 使用量プランID                            |
@@ -4144,7 +4144,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | apiSubscriptionList                            | List     | 購読情報リスト領域                        |
 | apiSubscriptionList[0]                         | Object   | 購読情報領域                      |
 | apiSubscriptionList[0].subscriptionId          | String   | 購読ID                                |
-| apiSubscriptionList[0].subscriptionStatus      | Enum     | [API Key購読状態](./enum-code/#???)参考 |
+| apiSubscriptionList[0].subscriptionStatus      | Enum     | [API Keyの購読状態Enumコード](./enum-code/#api-key_2)参考 |
 | apiSubscriptionList[0].subscriptionDescription | String   | 購読の説明                              |
 | apiSubscriptionList[0].stageId                 | String   | ステージID                              |
 | apiSubscriptionList[0].usagePlanId             | String   | 使用量プランID                            |
@@ -4340,7 +4340,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |data                                 |List    | リソース別統計データリスト領域                    |
 |data[0]                              |Object    | リソース別統計データ領域                    |
 |data[0].uriPattern                   |String  | リソースパスまたはパスパターン                       |
-|data[0].httpMethodType               |Enum  | [HTTPメソッドタイプEnumコード](./enum-code/#???)参考                           |
+|data[0].httpMethodType               |Enum  | [HTTPメソッドタイプEnumコード](./enum-code/#http)参考                           |
 |data[0].successCount                 |Long    | API成功数(レスポンスHTTPステータスコードが2xx、3xxの場合) |
 |data[0].failCount               |Long    | API失敗数(レスポンスHTTPステータスコードが4xx、5xxの場合) |
 |data[0].status2xxCount               |Long    | レスポンスHTTPステータスコードが2xxのAPI呼び出し数 |

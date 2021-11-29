@@ -505,7 +505,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | resourceList[2].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
 | resourceList[2].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
 | resourceList[2].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고    |
-| resourceList[2].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_24) 참고                   |
+| resourceList[2].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고                   |
 | resourceList[2].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
 | resourceList[2].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
 
@@ -674,7 +674,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 | swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.schema.$ref | String | 필수 | 없음 | Swagger definitions에 선언된 객체 | API Gateway 리소스 응답 > 응답 HTTP 상태 코드 > 응답 본문 > 모델. |
 | swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway | Object | 선택 | 없음 | 없음 | API Gateway 제공 기능 정의 객체 영역. |
 | swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins | Object | 필수 | 없음 | 없음 | API Gateway 사용자 정의 플러그인 객체 영역. |
-| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins.{pluginCode} | Object | 필수 | 없음 | {pluginCode} HTTP, MOCK, CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고. [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_24) 참고. |
+| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins.{pluginCode} | Object | 필수 | 없음 | {pluginCode} HTTP, MOCK, CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고. [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고. |
 | swaggerData.definitions | Object | 선택 | 없음 | 없음 | API Gateway 리소스 요청 파라미터, 응답에서 사용되는 본문 객체 정의 영역. [Definitions Object](https://swagger.io/specification/v2/#definitionsObject) 참고 |
 
 
@@ -1783,7 +1783,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 
 ### 스테이지 리소스 목록 조회 
 * 스테이지에 등록된 리소스 목록을 가져옵니다. 각 리소스에 설정된 스테이지 리소스 플러그인 정보가 포함됩니다.
-* 스테이지 리소스 플러그인에 대한 자세한 내용은 [스테이지 리소스 플러그인](./api-guide-v1.0/#_76)을 참고합니다.
+* 스테이지 리소스 플러그인에 대한 자세한 내용은 [스테이지 리소스 플러그인](./api-guide-v1.0/#_77)을 참고합니다.
 
 
 #### 요청
@@ -1875,7 +1875,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입 Enum 코드](./enum-code/#_1), [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v1.0/#_24), [스테이지 플러그인 타입](./api-guide-v1.0/#_76)별 설정 JSON 참고            |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v1.0/#_25), [스테이지 플러그인 타입](./api-guide-v1.0/#_77)별 설정 JSON 참고            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
@@ -1976,7 +1976,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입 Enum 코드](./enum-code/#_1), [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v1.0/#_24), [스테이지 플러그인 타입](./api-guide-v1.0/#_76)별 설정 JSON 참고            |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v1.0/#_25), [스테이지 플러그인 타입](./api-guide-v1.0/#_77)별 설정 JSON 참고            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
@@ -1985,7 +1985,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 ### 스테이지 리소스 수정
 * 리소스 경로 또는 리소스 메서드에 설정된 백엔드 엔드포인트 URL 재정의와 스테이지 리소스 플러그인을 수정합니다.
 * 스테이지 리소스를 수정하면 등록된 스테이지 리소스 플러그인은 모두 삭제되고, 요청한 리소스 플러그인만 새로 등록됩니다.
-* 스테이지 리소스 플러그인에 대한 자세한 정보는 [스테이지 리소스 플러그인](./api-guide-v1.0/#_76)을 참고합니다.
+* 스테이지 리소스 플러그인에 대한 자세한 정보는 [스테이지 리소스 플러그인](./api-guide-v1.0/#_77)을 참고합니다.
 
 #### 요청
 
@@ -2024,7 +2024,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 | stageResourcePluginList | List | 필수 | 없음 | 없음 | 스테이지 리소스 플러그인 목록 영역 |
 | stageResourcePluginList[0] | Object | 필수 | 없음 | 없음 | 스테이지 리소스의 플러그인 영역 |
 | stageResourcePluginList[0].pluginType  | Enum | 필수 | 없음 | IP_ACL, HMAC, JWT, API_KEY, PRE_API, RATE_LIMIT | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고|
-| stageResourcePluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | 스테이지 리소스 플러그인 별 JSON 형식의 객체<br>[스테이지 플러그인 타입](./api-guide-v1.0/#_76) 참고|
+| stageResourcePluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | 스테이지 리소스 플러그인 별 JSON 형식의 객체<br>[스테이지 플러그인 타입](./api-guide-v1.0/#_77) 참고|
 
 * customBackendEndpointUrl 필드는 루트(/) 리소스 경로에는 설정할 수 없습니다.
 
@@ -2102,7 +2102,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입 Enum 코드](./enum-code/#_1), [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v1.0/#_24), [스테이지 플러그인 타입](./api-guide-v1.0/#_76)별 설정 JSON 참고            |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v1.0/#_25), [스테이지 플러그인 타입](./api-guide-v1.0/#_77)별 설정 JSON 참고            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
@@ -2446,7 +2446,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 - 현재 스테이지 리소스와 설정을 API Gateway 서비스에 배포합니다. 
 - 변경된 설정 정보가 없는 경우, 스테이지 배포 요청이 실패합니다.
 - 스테이지 배포가 실패한 경우, 기존의 성공한 스테이지 배포 설정으로 되돌려집니다.
-- 스테이지 배포 요청 후, 스테이지 배포 성공 여부는 [최근 스테이지 배포 결과 조회](./api-guide-v1.0/#_82)에서 확인할 수 있습니다. 
+- 스테이지 배포 요청 후, 스테이지 배포 성공 여부는 [최근 스테이지 배포 결과 조회](./api-guide-v1.0/#_83)에서 확인할 수 있습니다. 
 
 #### 요청
 
@@ -2490,7 +2490,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 
 
 ### 최근 스테이지 배포 결과 조회 
-- [스테이지 배포](./api-guide-v1.0/#_79)의 결과를 조회할 수 있습니다. 
+- [스테이지 배포](./api-guide-v1.0/#_80)의 결과를 조회할 수 있습니다. 
 - 스테이지 배포 요청 이후 배포 결과가 업데이트되기까지 최대 1분 정도까지 소요될 수 있습니다. 
 
 
@@ -2601,7 +2601,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고                       |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v1.0/#_24), [스테이지 플러그인 타입](./api-guide-v1.0/#_76)별 설정 JSON 참고          |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v1.0/#_25), [스테이지 플러그인 타입](./api-guide-v1.0/#_77)별 설정 JSON 참고          |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
@@ -2784,7 +2784,7 @@ CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고                       |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v1.0/#_24), [스테이지 플러그인 타입](./api-guide-v1.0/#_76)별 설정 JSON 참고         |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v1.0/#_25), [스테이지 플러그인 타입](./api-guide-v1.0/#_77)별 설정 JSON 참고         |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
