@@ -1,6 +1,11 @@
 
 ## Application Service > API Gateway > リリースノート
 
+### 2021. 11. 23.
+#### 機能改善/変更 
+* API Gateway Public APIサポート 
+    * APIを介してAPI Gatewayサービスを利用できます。詳細については[API v1.0ガイド](./api-guide-v1.0/)を参照してください。
+
 ### 2021. 08. 24.
 #### 機能改善/変更 
 * API説明書追加
