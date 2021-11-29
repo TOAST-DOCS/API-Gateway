@@ -51,7 +51,6 @@ APIを使用するにはアプリキー(Appkey)が必要です。
 | header.resultMessage | String  | 結果メッセージ |
 
 [失敗：Response Body]  
-無効なAPIリクエストを行った場合、 errorListフィールドに詳細なエラー原因とフィールド情報がレスポンスされます。  
 
 ```json
 {
@@ -78,6 +77,8 @@ APIを使用するにはアプリキー(Appkey)が必要です。
 | errorList[0].errorProperty | String | エラープロパティ(モデル) |
 | errorList[0].errorField | String  | エラー詳細フィールド |
 | errorList[0].errorMessage | String  | エラーメッセージ |
+
+* 無効なAPIリクエストを行った場合、 errorListフィールドに詳細なエラー原因とフィールド情報がレスポンスされます。
 
 ## API Gatewayサービス
 
@@ -407,7 +408,7 @@ APIを使用するにはアプリキー(Appkey)が必要です。
 }
 ```
 
-## リソースAPI
+## リソース
 
 ### リソース照会
 
@@ -2201,8 +2202,6 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 * 署名を検証するためのトークン暗号化アルゴリズムと暗号化アルゴリズム方式に基づく秘密鍵または公開鍵を設定します。
 * リクエストクレームの値、必須かどうか、検証を行うためのクレーム検証条件を設定します。 
 * 時間差で発生する検証失敗を防止するための検証有効時間を設定します。
-
-
 * **暗号化アルゴリズムHS256** 
 ```json
 {
@@ -2735,7 +2734,6 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 [Response]
 
 ```json
-
 {
   "header": {
     "isSuccessful": true,
@@ -4437,10 +4435,6 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 |フィールド                                 |タイプ    |説明                                       |
 |-------------------------------------|--------|----------------------------------------------|
-|paging                               |Object  | ページング領域                                   |
-|paging.page                          |Integer | 現在ページ                                   |
-|paging.limit                         |Integer | ページあたりの件数                                |
-|paging.totalCount                    |Integer | 総件数                                    |
 |data                                 |Object  | API Key統計データ領域                       |
 |data.{requestApigwEndpoint}          |Object  | API呼び出しエンドポイント別統計領域              |
 |data.{requestApigwEndpoint}.stageName                    |String    | ステージ名          |

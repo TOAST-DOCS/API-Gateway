@@ -47,8 +47,8 @@
 |500103003|Failed to delete stage URL.|스테이지 삭제에 실패했습니다. 잠시 후 시도해 주세요.|
 |400104000|Unable to delete base stage deploy history or the currently deployed stage deploy history.|현재 배포된 이력과 기반 배포 이력은 삭제할 수 없습니다.|
 |400104001|Only possible to rollback stage for the completed deploy status.|스테이지 되돌리기를 할 수 없는 배포 상태의 이력입니다.|
-|400104002|Empty Stage Resource for deploying.|생성된 리소스가 없어 스테이지를 생성할 수 없습니다.|
-|400104003|Empty path on Stage Resource for deploying.|생성된 리소스가 없어 스테이지를 생성할 수 없습니다.|
+|400104002|Empty stage resource for deploying.|생성된 리소스가 없어 스테이지를 생성할 수 없습니다.|
+|400104003|Empty path on stage resource for deploying.|생성된 리소스가 없어 스테이지를 생성할 수 없습니다.|
 |409104000|Unable to rollback stage. No difference with current stage.|이미 되돌리기가 된 배포 이력입니다.|
 |409104001|Failed to deploy because current stage is deploying.|이미 스테이지 배포가 진행 중입니다.|
 |409104002|Failed to deploy because stage is not changed.|이미 최신 스테이지가 배포되었습니다.|

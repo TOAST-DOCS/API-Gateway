@@ -37,6 +37,8 @@
 |400103004|Failed to create or update stage. Invalid backend endpoint URL format.|無効なバックエンドエンドポイントURL形式です。|
 |400103005|Failed to delete stage. The stage have connected usage plan.|ステージが関連付けられている使用量プランがあります。ステージの関連付けを削除した後にステージを削除できます。|
 |400103006|Exceeded the maximum stage count.|ステージの最大作成数を超過しました。|
+|404103000|Could not find stage.|ステージが存在しません。|
+|404103001|Could not find stage resource.|ステージリソースが存在しません。|
 |409103002|Failed to create duplicated stage name.|重複したステージ名は作成できません。|
 |409103003|The latest resource has already been applied.|すでにステージに最新リソースが適用されています。|
 |500103000|Invalid stage resource plugin configuration.|ステージ配布リクエストが失敗しました。しばらくしてから再度お試しください。|
@@ -45,11 +47,8 @@
 |500103003|Failed to delete stage URL.|ステージの削除が失敗しました。しばらくしてからお試しください。|
 |400104000|Unable to delete base stage deploy history or the currently deployed stage deploy history.|現在配布された履歴とベースの配布履歴は削除できません。|
 |400104001|Only possible to rollback stage for the completed deploy status.|ステージを元に戻せない配布状態の履歴です。|
-|400104002|Empty Stage Resource for deploying.|作成されたリソースがないためステージを作成できません。|
-|400104003|Empty path on Stage Resource for deploying.|作成されたリソースがないためステージを作成できません。|
-|400104004|Could not find API Gateway Service. API gateway service ID:|すでに削除されたステージか、ステージ情報が見つからないため、配布リクエストが失敗しました。|
-|400104005|Could not find stage. Stage ID:|すでに削除されたステージか、ステージ情報が見つからないため、配布リクエストが失敗しました。|
-|400104006|Could not find stage resource. Stage ID:|作成されたリソースがないため、ステージを作成できません。|
+|400104002|Empty stage resource for deploying.|作成されたリソースがないためステージを作成できません。|
+|400104003|Empty path on stage resource for deploying.|作成されたリソースがないためステージを作成できません。|
 |409104000|Unable to rollback stage. No difference with current stage.|すでに元に戻された配布履歴です。|
 |409104001|Failed to deploy because current stage is deploying.|すでにステージの配布が進行中です。|
 |409104002|Failed to deploy because stage is not changed.|すでに最新ステージが配布されています。|

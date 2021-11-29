@@ -47,8 +47,8 @@
 |500103003|Failed to delete stage URL.|Failed to delete stage. Please try again later.|
 |400104000|Unable to delete base stage deploy history or the currently deployed stage deploy history.|The currently deployed history and the base deployment history cannot be deleted.|
 |400104001|Only possible to rollback stage for the completed deploy status.|A history of deployment status that cannot be rolled back.|
-|400104002|Empty Stage Resource for deploying.|The stage could not be created because no resources were created.|
-|400104003|Empty path on Stage Resource for deploying.|The stage could not be created because no resources were created.|
+|400104002|Empty stage resource for deploying.|The stage could not be created because no resources were created.|
+|400104003|Empty path on stage resource for deploying.|The stage could not be created because no resources were created.|
 |409104000|Unable to rollback stage. No difference with current stage.|A deployment history that has already been rolled back.|
 |409104001|Failed to deploy because current stage is deploying.|Stage deployment is already in progress.|
 |409104002|Failed to deploy because stage is not changed.|The latest stage has already been deployed.|
