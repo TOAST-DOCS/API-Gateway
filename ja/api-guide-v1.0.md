@@ -247,7 +247,7 @@ APIを使用するにはアプリキー(Appkey)が必要です。
 
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | Enum | 必須 | なし | KR1 | [API GatewayサービスタイプEnumコード](./enum-code/#api-gateway_1)参考 |
+| regionCode | Enum | 必須 | なし | KR1 | [API GatewayリージョンEnumコード](./enum-code/#api-gateway)参考|
 | apigwServiceName | String | 必須 | なし | 最大50文字 | API Gatewayサービス名 |
 | apigwServiceDescription | String | 任意 | なし | 最大200文字 | API Gatewayサービスの説明 |
 
@@ -3400,7 +3400,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | apiKeyList[0].apiKeyDescription | String   | API Keyの説明                                      |
 | apiKeyList[0].primaryApiKey     | String   | Primary API Keyの値                               |
 | apiKeyList[0].secondaryApiKey   | String   | Secondary API Keyの値                             |
-| apiKeyList[0].apiKeyStatus      | Enum     | [API Key状態Enumコード](./enum-code/#API Key状態Enumコード)参考 |
+| apiKeyList[0].apiKeyStatus      | Enum     | [API Keyの状態Enumコード](./enum-code/#enum-code/#api-key)参考 |
 | apiKeyList[0].createdAt         | DateTime | API Keyの作成日時                                    |
 | apiKeyList[0].updatedAt         | DateTime | API Keyの修正日時                                    |
 
