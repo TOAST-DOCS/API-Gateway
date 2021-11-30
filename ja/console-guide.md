@@ -71,6 +71,7 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/)形式
 >   1. ファイル内x-api-nhn-apigateway > pluginsのプラグイン設定文字列をJSONオブジェクトに変換する必要があります。
 >   2. ファイル内リソースメソッド > x-api-nhn-apigateway > pluginsにCORSプラグイン設定文字列が存在する場合は削除する必要があります。リソースメソッドにはCORSプラグインを設定することができず、その上位のリソースパスにCORSプラグインが設定されている場合、リソースのインポート時に自動的に追加されます。
 > ガイドの内容で解決しない場合はサポートへお問い合わせください。
+
 <details>
 <summary>2021-11-23以前のステージエクスポートファイルのインポート失敗例</summary>
 
