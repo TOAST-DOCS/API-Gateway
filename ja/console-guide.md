@@ -64,6 +64,124 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/)形式
 > リソースをインポートすると、既存のリソースは削除され、インポートしたリソースで上書きされます。
 > リソースをインポートすると、該当サービスに作成されていた既存のモデルは全て削除され、インポートしたモデルで上書きします。
 
+> **[参考] 2021-11-23以前ステージエクスポート(Export)ファイルのインポート失敗** 
+> 2021-11-23以前にステージのエクスポートを行ってダウンロードしたファイルでリソースのインポートを行うと、失敗する可能性があります。
+> ステージエクスポートを行って新しく作成されたファイルを利用してリソースのインポートを行うか、次の操作で既存ファイルを変更してください。
+> 変更作業
+>   1. ファイル内x-api-nhn-apigateway > pluginsのプラグイン設定文字列をJSONオブジェクトに変換する必要があります。
+>   2. ファイル内リソースメソッド > x-api-nhn-apigateway > pluginsにCORSプラグイン設定文字列が存在する場合は削除する必要があります。リソースメソッドにはCORSプラグインを設定することができず、その上位のリソースパスにCORSプラグインが設定されている場合、リソースのインポート時に自動的に追加されます。
+> ガイドの内容で解決しない場合はサポートへお問い合わせください。
+
+<details>
+<summary>2021-11-23以前のステージエクスポートファイルのインポート失敗例</summary>
+
+```
+- [例1]インポート失敗：2021-11-23以前のステージエクスポートファイルは、pluginsのプラグイン設定値がJSON形式の文字列で構成されています
+{
+... 
+    "x-nhncloud-apigateway": {
+        "plugins": {
+            "HTTP": "{\"frontendEndpointPath\":\"/{proxy+}\",\"backendEndpointPath\":\"/anything/${request.path.proxy+}\"}",
+        }
+    }
+...
+}
+```
+
+```
+- [例1]インポート成功：pluginsのプラグイン設定値でJSON形式の文字列をJSONオブジェクトに修正したステージエクスポートファイル
+{
+...
+    "x-nhncloud-apigateway": {
+        "plugins": {
+            "HTTP": {
+                "frontendEndpointPath": "/{proxy+}",
+                "backendEndpointPath": "/anything/${request.path.proxy+}"
+            }
+        }
+    }
+...
+}
+```
+
+```
+- [例2]インポート失敗：2021-11-23以前のステージエクスポートファイルは、リソースパスにCORSプラグインが設定されている場合、サブリソースメソッドにCORSプラグイン設定値が含まれています
+{
+...
+        "paths": {
+            "/anything": {
+                "get": {
+                    ...
+                    "x-nhncloud-apigateway": {
+                        "plugins": {
+                            "MOCK": {
+                                "statusCode": 200
+                            },
+                            "CORS": {
+                                "allowedMethods": ["GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "PATCH"],
+                                "allowedHeaders": ["*"],
+                                "allowedOrigins": ["*"],
+                                "exposedHeaders": [],
+                                "maxCredentialsAge": null,
+                                "allowCredentials": false
+                            }                            
+                        }
+                    }
+                },
+                "options": {
+                    "summary": "CORS",
+                    ...
+                },
+                "x-nhncloud-apigateway": {
+                    "plugins": {
+                        "CORS": {
+                            "allowedMethods": ["GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "PATCH"],
+                            "allowedHeaders": ["*"],
+                            "allowedOrigins": ["*"],
+                            "exposedHeaders": [],
+                            "maxCredentialsAge": null,
+                            "allowCredentials": false
+                        }
+                    }
+                }
+            }
+        }
+...
+}
+```
+
+```
+- [例2]インポート成功：リソースメソッドにCORSプラグイン設定値を削除したステージエクスポートファイル
+{
+...
+        "paths": {
+            "/anything": {
+                "get": {
+                    ...
+                },
+                "options": {
+                    "summary": "CORS",
+                    ...
+                },
+                "x-nhncloud-apigateway": {
+                    "plugins": {
+                        "CORS": {
+                            "allowedMethods": ["GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "PATCH"],
+                            "allowedHeaders": ["*"],
+                            "allowedOrigins": ["*"],
+                            "exposedHeaders": [],
+                            "maxCredentialsAge": null,
+                            "allowCredentials": false
+                        }
+                    }
+                }
+            }
+        }
+...
+}
+```
+</details>
+
 ### メソッド作成 
 - 選択されたリソースパスに**HTTPメソッド**を作成します。 
     - サポートHTTPメソッド：HEAD、OPTIONS、GET、POST、PUT、DELETE、PATCH
@@ -96,7 +214,7 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/)形式
     1. HTTPメソッドは修正できません。HTTPメソッドを修正するには削除して再度作成する必要があります。
     2. メソッド名、説明、バックエンドエンドポイント項目は修正できます。 
     3. 修正をするには左側リソースツリーからメソッドを選択します。
-    5. 設定を変更した後、**変更内容保存**ボタンを押します。
+    4. 設定を変更した後、**変更内容保存**ボタンを押します。
 
 > **[参考] CORSプラグインにより登録されたOPTIONSメソッドの修正**
 > CORSプラグインにより登録されたOPTIONSメソッドは修正できません。 
@@ -536,7 +654,7 @@ JWTトークンの署名とクレームを検証します。ユーザーサー�
             - 秘密鍵：トークンを署名するのに使用した秘密鍵を入力します。長さが256以上の秘密鍵を使用することを推奨します。
         - RS256トークンアルゴリズム
             - 公開鍵(PEM)：トークンを検証することができる公開鍵を入力します。PEM形式で入力する必要があります。
-            - JWKS URI：API Gatewayがトークン署名検証と暗号化に必要なJson Web Key Sets JsonオブジェクトをインポートするHTTP JWKS(Json Web Key Sets) URIを入力します。
+            - JWKS URI：API Gatewayがトークン署名検証と暗号化に必要なJSON Web Key Set JsonオブジェクトをインポートするHTTP JWKS URIを入力します。
     - **クレーム検証条件**
         - トークンのペイロード(payload)の登録されたクレーム(registered claim)に対するクレーム検証条件を入力します。
         - 登録されたクレームの詳細については[RFC7519-4.1.Registered Claim Names](https://tools.ietf.org/html/rfc7519#section-4.1)を参照してください。
@@ -557,13 +675,13 @@ JWTトークンの署名とクレームを検証します。ユーザーサー�
 
 > **[参考] JWTトークン認証失敗レスポンス**
 > JWTトークンの認証失敗時、401 Unauthorizedレスポンスが返されます。
-> 詳細については[Gateway エラーコード](./error-code/)文書を参照してください。
+> 詳細については[エラーコード](./error-code/)文書を参照してください。
 >
 > **[参考] JWTトークン作成**
 > API GatewayはJWTトークンの署名とクレーム条件が一致するかだけを検証します。JWTトークンはユーザーのアプリケーションまたは認証サービスプロバイダーを通して作成する必要があります。
 > 開発およびテスト目的のJWTトークンの作成は[JWTトークンのデバッグ](https://jwt.io/)を参照してください。
 >
-> **[参考] JWKS(Json Web Key Sets) URIの説明と注意事項**
+> **[参考] JWKS(JSON Web Key Set) URIの説明と注意事項**
 > JWKSはAPI Gatewayがトークンの署名を検証するために必要なJWK(Json Web Key)暗号化キーのJSONデータです。
 > JWKの詳細な内容と仕様は[RFC7515](https://tools.ietf.org/html/rfc7517)文書を参照してください。
 > 設定されたJWKS URIはAPI Gatewayがアクセスできるように公開されている必要があり、ネットワーク、ファイアウォールなどにより遮断されないようにします。
@@ -586,12 +704,12 @@ API Gatewayを介して入ったリクエストヘッダを含めて事前呼び
 1. **ステージ**タブでステージを選択します。
 2. **設定**タブを選択します。
 3. ステージツリー画面で事前呼び出しAPIを適用するパスまたはメソッドを選択します。
-  - パスで設定した事前呼び出しAPIは、下位に定義されたすべての下位パスとメソッドの呼び出しに対して適用されます。
-  - メソッドで設定した事前呼び出しAPIは、そのメソッドを呼び出す時に適用され、ルートパスで設定された事前呼び出しAPIは適用されません。
+    - パスで設定した事前呼び出しAPIは、下位に定義されたすべての下位パスとメソッドの呼び出しに対して適用されます。
+    - メソッドで設定した事前呼び出しAPIは、そのメソッドを呼び出す時に適用され、ルートパスで設定された事前呼び出しAPIは適用されません。
 4. 事前呼び出しAPIを有効化(on)します。
-  - 事前呼び出しAPIのメソッドタイプとURLを入力します。
-  - キャッシュの有効時間は最大86400秒まで入力できます。入力した数字(秒)の間、事前呼び出しAPI(Pre-call API)のレスポンス結果がキャッシュされます。
-  - キャッシュの有効時間に0を入力した場合、事前呼び出しAPI(Pre-call API)のレスポンス結果がキャッシュされず、リクエストごとに事前呼び出しAPI(Pre-call API)を呼び出します。
+    - 事前呼び出しAPIのメソッドタイプとURLを入力します。
+    - キャッシュの有効時間は最大86400秒まで入力できます。入力した数字(秒)の間、事前呼び出しAPI(Pre-call API)のレスポンス結果がキャッシュされます。
+    - キャッシュの有効時間に0を入力した場合、事前呼び出しAPI(Pre-call API)のレスポンス結果がキャッシュされず、リクエストごとに事前呼び出しAPI(Pre-call API)を呼び出します。
   
 > **[参考]事前呼び出しAPIのレスポンス結果のキャッシュ**
 > 事前呼び出しAPIのレスポンス結果コードが200の場合にのみレスポンス結果がキャッシュされます。
@@ -650,7 +768,7 @@ API GatewayにAPIリクエストする時、指定されたAPI Keyのみリク�
 
 > **[参考] API Key失敗レスポンス**
 > API Key値がリクエストヘッダに含まれていないか、有効ではない、もしくは使用量限度を超過する場合にAPIリクエストが拒否されます。
-> 詳細な内容は[Gateway エラーコード](./error-code/)文書を参照してください。
+> 詳細な内容は[エラーコード](./error-code/)文書を参照してください。
 1. **ステージ**タブでステージを選択します。
 2. **設定**タブを選択します。
 3. ステージツリー画面でAPI Keyを有効にするパスまたはメソッドを選択します。
@@ -659,7 +777,7 @@ API GatewayにAPIリクエストする時、指定されたAPI Keyのみリク�
 5. ステージを配布します。
 6. APIリクエスト時にx-nhn-apikeyヘッダにAPI Key値を追加してリクエストします。
 
-| ヘッダ名前 | ヘッダ値 |
+| ヘッダ名 | ヘッダ値 |
 | --- | --- |
 | x-nhn-apikey | <primary api keyまたはsecondary api key\> |
 
@@ -713,7 +831,7 @@ API GatewayにAPIリクエストする時、指定されたAPI Keyのみリク�
 >    1. ステージを配布状態が配布成功状態になっているかを確認します。
 >    2. リクエストメソッドとステージURLおよびパスが正しいか確認します。
 >    3. バックエンドエンドポイントサービスからバックエンドエンドポイントURLパスに対するリクエストURLが存在するかを確認します。 
-> - その他のエラーコードは[Gateway エラーコード](./error-code/)文書を参照します。 
+> - その他のエラーコードは[エラーコード](./error-code/)文書を参照します。 
 
 
 > **[注意] API呼び出し制約事項**

@@ -1,159 +1,159 @@
-## Application Service > API Gateway > Enum Code
+## Application Service > API Gateway > Enumコード
 
-## Enum Code
-This document describes Enum codes referenced in the API v1.0 guide.
+## Enumコード
+API v1.0ガイド文書で参照されるEnumコード文書です。
 
-### API Gateway Region
-- Indicates the region where the API Gateway server is located.
+### API Gatewayリージョン
+- API Gatewayサーバーが位置するリージョンを意味します。
 
-| Name | Description |
+| 名前 | 説明 |
 | --- | --- |
-| KR1 | Korea (Pangyo) Region |
+| KR1 | 韓国(パンギョ)リージョン |
 
 
-### API Gateway Service Type
-- The service type of API Gateway according to the Shared or Dedicated type.
-- Currently, only Shared API Gateway service type is supported.
+### API Gatewayサービスタイプ
+- パブリック(Shared)または専用(Dedicated)区分に基づくAPI Gatewayのサービスタイプです。 
+- 現在はパブリックAPI Gatewayサービスタイプのみサポートされます。 
 
-| Name | Description |
+| 名前 | 説明 |
 | --- | --- |
-| SHARED | Shared API Gateway service type |
+| SHARED | パブリックAPI Gatewayサービスタイプ |
 
 
-### HTTP Method Type
-- Supported HTTP method types.
+### HTTPメソッドタイプ
+- サポートされるHTTPメソッドタイプです。
 
-| Name | Description |
+| 名前 | 説明 |
 | --- | --- |
-| GET | HTTP GET method |
-| POST | HTTP POST method | 
-| DELETE | HTTP DELETE method | 
-| PUT | HTTP PUT method | 
-| OPTIONS | HTTP OPTIONS method | 
-| HEAD | HTTP HEAD method | 
-| PATCH | HTTP PATCH method | 
+| GET | HTTP GETメソッド |
+| POST | HTTP POSTメソッド | 
+| DELETE | HTTP DELETEメソッド | 
+| PUT | HTTP PUTメソッド | 
+| OPTIONS | HTTP OPTIONSメソッド | 
+| HEAD | HTTP HEADメソッド | 
+| PATCH | HTTP PATCHメソッド | 
 
 
-### Resource Plugin Type
-- A plugin type that can be set for resources.
+### リソースプラグインタイプ
+- リソースに設定可能なプラグインタイプです。
 
-| Name | Description |
+| 名前 | 説明 |
 | --- | --- |
-| HTTP | Forwards a API request received by API Gateway to the defined backend endpoint URL path. |
-| MOCK | Returns a defined response to a request received by API Gateway. | 
-| CORS | Allows XMLHttpRequest API calls within a cross-site method. | 
-| SET_REQUEST_HEADER | Adds or changes the request header.  | 
-| SET_RESPONSE_HEADER | Adds the header to a backend response or changes the header. | 
-| ADD_REQUEST_QUERY_PARAMETER | Adds a query string parameter to the backend endpoint request.   | 
+| HTTP | API Gatewayに受信したリクエストを定義されたバックエンドエンドポイントURLパスへ渡します。 |
+| MOCK | API Gatewayに受信したリクエストに対して定義されたレスポンスを返します。 | 
+| CORS | Cross-Site方式内でXMLHttpRequest APIを呼び出せるようにします。 | 
+| SET_REQUEST_HEADER | リクエストヘッダの追加または変更を行います。  | 
+| SET_RESPONSE_HEADER | バックエンドレスポンスにヘッダを追加または変更します。 | 
+| ADD_REQUEST_QUERY_PARAMETER | バックエンドエンドポイントリクエストにクエリ文字列パラメータを追加します。   | 
 
 
-### Resource Request/Response Parameter Data Type
-- A data type that can be set in resource request/response parameters.
+### リソースリクエスト/レスポンスパラメータデータ型
+- リソースリクエスト/レスポンスパラメータで設定できるデータ型です。
 
-| Name | Description |
+| 名前 | 説明 |
 | --- | --- |
-| STRING | String data type |
-| BOOLEAN | Boolean data type | 
-| INTEGER | Integer data type | 
-| LONG | Long data type | 
-| FLOAT | Float data type | 
-| DOUBLE | Double data type | 
-| FILE | File data type. It can be set only in Request Parameters > Form Data. | 
+| STRING | Stringデータ型 |
+| BOOLEAN | Booleanデータ型 | 
+| INTEGER | Integerデータ型 | 
+| LONG | Longデータ型 | 
+| FLOAT | Floatデータ型 | 
+| DOUBLE | Doubleデータ型 | 
+| FILE | Fileデータ型。リクエストパラメータ > フォームデータでのみ設定可能。 | 
 
 
-### Stage Resource > Plugin Type
-- A plugin type that can be configured on the stage resource path or method.
+### ステージリソース > プラグインタイプ
+- ステージリソースパスまたはメソッドに設定可能なプラグインタイプです。 
 
-| Name | Description |
+| 名前 | 説明 |
 | --- | --- |
-| IP_ACL | IP access control plugin | 
-| HMAC | HMAC request validation plugin |
-| JWT | JWT token validation plugin | 
-| API_KEY | API Key validation plugin | 
-| PRE_API | Pre-call API plugin  | 
-| RATE_LIMIT | Request number limit plugin | 
+| IP_ACL | IPアクセス制限プラグイン | 
+| HMAC | HMACリクエスト検証プラグイン |
+| JWT | JWTトークン検証プラグイン | 
+| API_KEY | API Key検証プラグイン | 
+| PRE_API | 事前呼び出しAPIプラグイン | 
+| RATE_LIMIT | リクエスト数制限プラグイン | 
 
 
-### JWT > Encryption Algorithm
-- The encryption algorithm used to sign the JWT token.
+### JWT > 暗号化アルゴリズム 
+- JWTトークンの署名に使用する暗号化アルゴリズムです。
 
-| Name | Description |
+| 名前 | 説明 |
 | --- | --- |
-| HS256 | A symmetric key algorithm, which uses the HS256 (HMAC with SHA-256) algorithm to sign tokens.  |
-| RS256 | An asymmetric key algorithm, which uses public/private keys to sign tokens using the RSA256 (RSA Signature with SHA-256) algorithm. | 
+| HS256 | 対称鍵アルゴリズムです。HS256(HMAC with SHA-256)アルゴリズムを使用してトークンを署名します。  |
+| RS256 | 非対称鍵アルゴリズムです。公開/秘密鍵を使用してRSA256(RSA Signature with SHA-256)アルゴリズムを使用してトークンを署名します。 | 
 
 
-### JWT > Claim Data Type
-- The data type of the JWT claim.
+### JWT > クレームデータ型 
+- JWTクレームのデータ型です。
 
-| Name | Description |
+| 名前 | 説明 |
 | --- | --- |
-| Array | A data type of array format.  |
-| String | A data type of string format. | 
-| NumericDate | A data type representing the number of seconds from 1970-01-01T00:00:00Z UTC to the specified UTC date/time, ignoring milliseconds. |
+| Array | 配列形式のデータ型です。  |
+| String | 文字列形式のデータ型です。 | 
+| NumericDate | ミリ秒を無視して1970-01-01T00:00:00Z UTCから指定されたUTC日/時間までの秒数を表すデータ型です。 |
 
 
-### JWT > RS256 Encryption Algorithm > Public Key Type
-- RS256 uses a public/private key based encryption algorithm. Set the public key setting method.
+### JWT > RS256暗号化アルゴリズム > Public Key Type 
+- RS256は公開鍵/秘密鍵ベースの暗号化アルゴリズムを使用します。公開鍵設定方式を設定します。
 
-| Name | Description |
+| 名前 | 説明 |
 | --- | --- |
-| RSA_PUBLIC_KEY | This method sets the public key in PEM format. |
-| JWKS_URI | This method sets the JSON Web Key Set URI where public key can be queried.|
+| RSA_PUBLIC_KEY | PEM形式の公開鍵を設定する方式です。 |
+| JWKS_URI | 公開鍵を照会できるJson Web Key Sets URIに設定する方式です。|
 
 
-### Request Number Limit > Limit Key
-- The key to which the request number limit applies.
+### リクエスト数制限 > 制限キー
+- リクエスト数制限が適用されるキーです。
 
-| Name | Description |
+| 名前 | 説明 |
 | --- | --- |
-| DEFAULT | Applies a limit on the number of requests for a resource method. |
-| IP | Applies a limit on the number of requests for a resource method per client IP. |
-| HEADER | Applies a limit on the number of requests for a resource method per value of the specified header name. |
-| PATH_VARIABLE | Applies a limit on the number of requests for a resource method per path variable. |
+| DEFAULT | リソースメソッドのリクエスト数制限を適用します。 |
+| IP | クライアントIPごとにリソースメソッドのリクエスト数制限を適用します。 |
+| HEADER | 指定されたヘッダ名の値ごとにリソースメソッドのリクエスト数制限を適用します。 |
+| PATH_VARIABLE | パス変数ごとにリソースメソッドのリクエスト数制限を適用します。 |
 
 
-### Stage Deployment > Deployment Status
-- The status of the stage deployment job.
+### ステージ配布 > 配布状態
+- ステージ配布作業の状態です。
 
-| Name | Description |
+| 名前 | 説明 |
 | --- | --- |
-| DEPLOYING | Deployment in progress | 
-| COMPLETE | Deployment complete (successful) | 
-| FAILURE | Deployment failed | 
+| DEPLOYING | 配布進行中 | 
+| COMPLETE | 配布完了(成功) | 
+| FAILURE | 配布失敗 | 
 
 
-### Usage Plan > Quota Period Unit
-- The unit of period for which the quota is initialized.
+### 使用量プラン > 割り当て量期間単位
+- 割り当て量が初期化される期間単位です。
 
-| Name | Description |
+| 名前 | 説明 |
 | --- | --- |
-| DAY | Limit call volume per day. Reset daily at 00:00:00 UTC.| 
-| MONTH | Limit call volume on a monthly basis. Reset at 00:00:00 UTC on the 1st of every month. | 
+| DAY | 日単位で呼び出し量を制限。毎日UTC 00:00:00に初期化。| 
+| MONTH | 月単位で呼び出し量を制限。毎月1日UTC 00:00:00に初期化。 | 
 
 
-### API Key Status
-- The status of the API Key.
-- A deactivated API key fails to authenticate the API key, making API calls impossible.
+### API Keyの状態
+- API Keyの状態です。
+- 無効になっているAPI Keyは、API Keyの認証に失敗してAPIを呼び出せません。
 
-| Name | Description |
+| 名前 | 説明 |
 | --- | --- |
-| ACTIVE | Active status | 
-| INACTIVE | Inactive status |
+| ACTIVE | 有効状態 | 
+| INACTIVE | 無効状態 |
 
 
-### API Key Type
-- The types of Primary API Key and Secondary API Key of the issued API Key.
+### API Keyタイプ
+- 発行されたAPI KeyのPrimary API KeyとSencondary API Keyのタイプです。 
 
-| Name | Description |
+| 名前 | 説明 |
 | --- | --- |
 | PRIMARY | Primary API Key | 
 | SECONDARY | Secondary API Key |
 
 
-### API Key Subscription Status
-- The subscription status of the API Key.
+### API Keyの購読状態
+- API Keyの購読状態です。
 
-| Name | Description |
+| 名前 | 説明 |
 | --- | --- |
-| APPROVAL | Approved status | 
+| APPROVAL | 承認状態 | 
