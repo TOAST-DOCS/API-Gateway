@@ -1,5 +1,10 @@
 ## Application Service > API Gateway > 릴리스 노트
 
+### 2022. 01. 25.
+#### 기능 개선/변경
+* API Gateway Public API 응답 필드 추가
+  * 스테이지 리소스별 조회 API와 API Key별 조회 API 응답에 통계 데이터 최신 갱신 일시 필드를 추가하였습니다. 자세한 내용은 [API v1.0 가이드 > 통계 > 스테이지 리소스별 조회](./api-guide-v1.0/#_148), [API v1.0 가이드 > 통계 > API Key별 조회](./api-guide-v1.0/#api-key_12)를 참고해주세요.
+
 ### 2021. 11. 23.
 #### 기능 개선/변경 
 * API Gateway Public API 지원 
