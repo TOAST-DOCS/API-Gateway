@@ -17,10 +17,10 @@
 |400102000|There are no resources to stage.|생성된 리소스의 메서드가 없어 스테이지를 생성할 수 없습니다.|
 |400102005|Invalid x-nhncloud-apigateway plugins.|x-nhncloud-apigateway plugins 필드에 잘못된 값이 있습니다.|
 |400102012|Exceeded the maximum resource method count.|리소스 메서드의 최대 생성 개수를 초과하였습니다.|
-|400102013|There are no resources to create.|생성할 리소스가 없습니다.|
 |400102014|Failed to delete root resource.|루트('/') 리소스는 삭제할 수 없습니다.|
 |400102015|Invalid resource plugin configuration.|리소스 플러그인 설정이 잘못되었습니다.|
 |409102000|Failed to create duplicated resources.|중복된 경로 리소스는 생성할 수 없습니다.|
+|409102001 | Failed to create duplicated resources. Only one path variable can be set for the paths of the same level. | 이미 생성한 경로입니다. 동일 레벨 경로에는 하나의 경로 변수만 설정 가능합니다. |
 |400103000|Path variable cannot be used. Only variables declared for the selected path or above can be set.|잘못된 경로 변수입니다.|
 |400103001|Failed to update stage resource. Stage resource plugin's position is invalid.|요청한 리소스에 설정할 수 없는 스테이지 플러그인입니다.|
 |400103002|Failed to update stage resource. PRE_API's URL is not allowed to use stage URL.|잘못된 사전 호출의 URL 형식입니다.|
