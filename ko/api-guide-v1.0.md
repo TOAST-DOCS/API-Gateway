@@ -509,12 +509,749 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | resourceList[2].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
 | resourceList[2].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
 
+### 리소스 경로와 메서드 생성
+- 여러 개의 리소스 경로와 메서드를 생성하고, 생성과 동시에 플러그인을 설정할 수 있습니다.
+- 리소스 메서드는 선택 입력입니다. 생성된 리소스 경로의 하위에 메서드를 추가하려면 [리소스 메서드 생성]() API를 사용해야합니다.
+- 리소스 메서드에는 HTTP 또는 MOCK 플러그인 중 반드시 하나가 설정되어야 합니다. HTTP와 MOCK 플러그인을 동시에 설정할 수 없습니다.
+- 생성된 리소스 경로는 수정이 불가합니다.
+- pathPluginList 필드에 정의된 리소스 경로 플러그인은 해당 경로의 하위 메서드에 적용되는 플러그인 목록입니다.
+
+#### 요청
+
+[URI]
+
+| 메서드 | URI | 
+| --- | --- | 
+| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
+
+[Path Parameter]
+
+| 이름             | 타입     | 필수 여부 | 기본값 | 유효 범위 | 설명                 |
+| -------------- | ------ | ----- | --- | ----- | ------------------ |
+| apigwServiceId | String | 필수    | 없음  | 없음    | API Gateway 서비스 ID |
+
+
+[Request Body]
+
+```json
+{
+   "resourcePathList":[
+      {
+         "path":"/members/{memberId}",
+         "pathPluginList":[
+            {
+               "pluginConfigJson":{
+                  "allowedMethods":[
+                     "GET",
+                     "POST",
+                     "DELETE",
+                     "PUT",
+                     "OPTIONS",
+                     "HEAD",
+                     "PATCH"
+                  ],
+                  "allowedHeaders":[
+                     "*"
+                  ],
+                  "allowedOrigins":[
+                     "*"
+                  ],
+                  "exposedHeaders":[
+                     
+                  ],
+                  "maxCredentialsAge":null,
+                  "allowCredentials":false
+               },
+               "pluginType":"CORS"
+            }
+         ],
+         "methodList":[
+            {
+               "methodDescription":"Edit a member information",
+               "methodName":"PutMember",
+               "methodPluginList":[
+                  {
+                     "pluginConfigJson":{
+                        "frontendEndpointPath":"/members/{memberId}",
+                        "backendEndpointPath":"/api/v1/members/${request.path.memberId}"
+                     },
+                     "pluginType":"HTTP"
+                  }
+               ],
+               "methodType":"PUT"
+            },
+            {
+               "methodDescription":"Query a member",
+               "methodName":"GetMember",
+               "methodPluginList":[
+                  {
+                     "pluginConfigJson":{
+                        "frontendEndpointPath":"/members/{memberId}",
+                        "backendEndpointPath":"/api/v1/members/${request.path.memberId}"
+                     },
+                     "pluginType":"HTTP"
+                  },
+                  {
+                     "pluginConfigJson":{
+                        "parameters":{
+                           "id":"${request.path.memberId}"
+                        }
+                     },
+                     "pluginType":"ADD_REQUEST_QUERY_PARAMETER"
+                  }
+               ],
+               "methodType":"GET"
+            }
+         ]
+      }
+   ]
+}
+```
+
+| 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
+| --- | --- | --- | --- | --- | --- |
+| resourcePathList | List | 필수 | 없음 | 없음  | 리소스 경로 목록 |
+| resourcePathList[0] | Object | 필수 | 없음 | 없음  | 리소스 경로 영역 |
+| resourcePathList[0].path | Object | 필수 | 없음 | 영문자, 숫자, 경로 변수, 제한된 문자(. + - /)로 구성된 유효한 경로  | 리소스 경로 |
+| resourcePathList[0].pathPluginList | List | 선택 | 없음 | 없음 | 리소스 경로 플러그인 목록 |
+| resourcePathList[0].pathPluginList[0] | Object | 선택 | 없음 | 없음 | 리소스 경로 플러그인 영역 |
+| resourcePathList[0].pathPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER,ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 경로에 설정 가능한 플러그인 타입 |
+| resourcePathList[0].pathPluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고.|
+| resourcePathList[0].methodList | List | 선택 | 없음 | 없음 | 리소스 경로 하위의 메서드 목록 |
+| resourcePathList[0].methodList[0] | Object | 선택 | 없음 | 없음 | 리소스 경로 하위의 메서드 영역 |
+| resourcePathList[0].methodList[0].methodType | Enum | 필수 | 없음 | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
+| resourcePathList[0].methodList[0].methodName | String | 필수 | 없음 | 최대 50자 | 메서드 이름 |
+| resourcePathList[0].methodList[0].methodDescription | String | 선택 | 없음 | 최대 200자 | 리소스 경로 하위의 메서드 영역 |
+| resourcePathList[0].methodList[0].methodPluginList | List | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 목록 |
+| resourcePathList[0].methodList[0].methodPluginList[0] | Object | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 영역, 'HTTP' 또는 'MOCK' 중 하나의 플러그인은 필수 입력 |
+| resourcePathList[0].methodList[0].methodPluginList[0].pluginType | Object | 필수 | 없음 | 없음 | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER,ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 경로에 설정 가능한 플러그인 타입 |
+| resourcePathList[0].methodList[0].methodPluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고.|
+
+#### 응답
+
+[Response]
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "resourceList": [
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members",
+      "methodType": null,
+      "methodName": null,
+      "methodDescription": null,
+      "createdAt": "2021-12-23T23:55:11.297Z",
+      "updatedAt": "2021-12-23T23:55:11.297Z",
+      "resourcePluginList": [],
+      "parentPath": "/"
+    },
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members/{memberId}",
+      "methodType": null,
+      "methodName": null,
+      "methodDescription": null,
+      "createdAt": "2021-12-23T23:55:11.298Z",
+      "updatedAt": "2021-12-23T23:55:11.298Z",
+      "resourcePluginList": [
+        {
+          "resourcePluginId": "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "CORS",
+          "pluginConfigJson": {
+            "allowedMethods": [
+              "GET",
+              "POST",
+              "DELETE",
+              "PUT",
+              "OPTIONS",
+              "HEAD",
+              "PATCH"
+            ],
+            "allowedHeaders": [
+              "*"
+            ],
+            "allowedOrigins": [
+              "*"
+            ],
+            "exposedHeaders": [],
+            "maxCredentialsAge": null,
+            "allowCredentials": false
+          },
+          "createdAt": "2021-12-23T23:55:11.298Z",
+          "updatedAt": "2021-12-23T23:55:11.298Z"
+        }
+      ],
+      "parentPath": "/members"
+    },
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members/{memberId}",
+      "methodType": "PUT",
+      "methodName": "PostMember",
+      "methodDescription": "Edit a member info",
+      "createdAt": "2021-12-23T23:55:11.300Z",
+      "updatedAt": "2021-12-23T23:55:11.300Z",
+      "resourcePluginList": [
+        {
+          "resourcePluginId": "24bef5d0-feaf-4469-9619-a31e9e35a622",
+          "resourceId": "{resourceId}",
+          "pluginType": "HTTP",
+          "pluginConfigJson": {
+            "frontendEndpointPath": "/members/{memberId}",
+            "backendEndpointPath": "/api/v1/members/${request.path.memberId}"
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        },
+        {
+          "resourcePluginId": "321d99cc-cb26-473e-ab76-84249a82b262",
+          "resourceId": "{resourceId}",
+          "pluginType": "CORS",
+          "pluginConfigJson": {
+            "allowedMethods": [
+              "GET",
+              "POST",
+              "DELETE",
+              "PUT",
+              "OPTIONS",
+              "HEAD",
+              "PATCH"
+            ],
+            "allowedHeaders": [
+              "*"
+            ],
+            "allowedOrigins": [
+              "*"
+            ],
+            "exposedHeaders": [],
+            "maxCredentialsAge": null,
+            "allowCredentials": false
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        }
+      ],
+      "parentPath": "/members/{memberId}"
+    },
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members/{memberId}",
+      "methodType": "GET",
+      "methodName": "GetMember",
+      "methodDescription": "Query a member",
+      "createdAt": "2021-12-23T23:55:11.300Z",
+      "updatedAt": "2021-12-23T23:55:11.300Z",
+      "resourcePluginList": [
+        {
+          "resourcePluginId":  "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "HTTP",
+          "pluginConfigJson": {
+            "frontendEndpointPath": "/members/{memberId}",
+            "backendEndpointPath": "/api/v1/members/${request.path.memberId}"
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        },
+        {
+          "resourcePluginId":  "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "ADD_REQUEST_QUERY_PARAMETER",
+          "pluginConfigJson": {
+            "parameters": {
+              "id": "${request.path.memberId}"
+            }
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        },
+        {
+          "resourcePluginId": "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "CORS",
+          "pluginConfigJson": {
+            "allowedMethods": [
+              "GET",
+              "POST",
+              "DELETE",
+              "PUT",
+              "OPTIONS",
+              "HEAD",
+              "PATCH"
+            ],
+            "allowedHeaders": [
+              "*"
+            ],
+            "allowedOrigins": [
+              "*"
+            ],
+            "exposedHeaders": [],
+            "maxCredentialsAge": null,
+            "allowCredentials": false
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        }
+      ],
+      "parentPath": "/members/{memberId}"
+    },
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members/{memberId}",
+      "methodType": "OPTIONS",
+      "methodName": "CORS",
+      "methodDescription": null,
+      "createdAt": "2021-12-23T23:55:11.300Z",
+      "updatedAt": "2021-12-23T23:55:11.300Z",
+      "resourcePluginList": [
+        {
+          "resourcePluginId": "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "CORS",
+          "pluginConfigJson": {
+            "allowedMethods": [
+              "GET",
+              "POST",
+              "DELETE",
+              "PUT",
+              "OPTIONS",
+              "HEAD",
+              "PATCH"
+            ],
+            "allowedHeaders": [
+              "*"
+            ],
+            "allowedOrigins": [
+              "*"
+            ],
+            "exposedHeaders": [],
+            "maxCredentialsAge": null,
+            "allowCredentials": false
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        }
+      ],
+      "parentPath": "/members/{memberId}"
+    }
+  ]
+}
+```
+
+| 필드                                                     | 타입       | 설명                                             |
+| ------------------------------------------------------ | -------- | ---------------------------------------------- |
+| resourceList                                           | List     | 리소스 목록 영역                                      |
+| resourceList[1].resourceId                             | String   | 리소스 ID                                         |
+| resourceList[1].apigwServiceId                         | String   | API Gateway 서비스 ID                             |
+| resourceList[1].path                                   | String   | 리소스 경로                                         |
+| resourceList[1].parentPath                             | String   | 부모 리소스 경로                                         |
+| resourceList[1].createdAt                              | DateTime | 리소스 생성 일시                                       |
+| resourceList[1].updatedAt                              | DateTime | 리소스 수정 일시                                       |
+| resourceList[1].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
+| resourceList[1].methodName                             | String   | 메서드 리소스 이름                                     |
+| resourceList[1].methodDescription                      | String   | 메서드 리소스 설명                                     |
+| resourceList[1].resourcePluginList                     | List     | 리소스 플러그인 목록 영역                                 |
+| resourceList[1].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
+| resourceList[1].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
+| resourceList[1].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고    |
+| resourceList[1].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고                   |
+| resourceList[1].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
+| resourceList[1].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
+
+
+### 리소스 메서드 생성
+- 생성된 리소스 경로의 하위에 리소스 메서드를 생성합니다.
+- 리소스 메서드에는 HTTP 또는 MOCK 플러그인 중 반드시 하나가 설정되어야 합니다. HTTP와 MOCK 플러그인을 동시에 설정할 수 없습니다.
+
+#### 요청
+
+[URI]
+
+| 메서드 | URI | 
+| --- | --- | 
+| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/methods |
+
+[Path Parameter]
+
+| 이름             | 타입     | 필수 여부 | 기본값 | 유효 범위 | 설명                 |
+| -------------- | ------ | ----- | --- | ----- | ------------------ |
+| apigwServiceId | String | 필수    | 없음  | 없음    | API Gateway 서비스 ID |
+| resourceId | String | 필수    | 없음  | 없음    | 리소스 경로 ID |
+
+
+[Request Body]
+
+```json
+{
+  "methodList": [
+    {
+      "methodType": "DELETE",
+      "methodName": "DeleteMember",
+      "methodDescription": "Delete a member",
+      "methodPluginList": [
+        {
+          "pluginType": "HTTP",
+          "pluginConfigJson": {
+            "frontendEndpointPath": "/members/{memberId}",
+            "backendEndpointPath": "/api/v1/members/${request.path.memberId}"
+          },
+        }
+      ]
+    }
+  ]
+}   
+```
+
+| 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
+| --- | --- | --- | --- | --- | --- |
+| resourcePathList[0].methodList | List | 선택 | 없음 | 없음 | 리소스 경로 하위의 메서드 목록 |
+| resourcePathList[0].methodList[0] | Object | 선택 | 없음 | 없음 | 리소스 경로 하위의 메서드 영역 |
+| resourcePathList[0].methodList[0].methodType | Enum | 필수 | 없음 | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
+| resourcePathList[0].methodList[0].methodName | String | 필수 | 없음 | 최대 50자 | 메서드 이름 |
+| resourcePathList[0].methodList[0].methodDescription | String | 선택 | 없음 | 최대 200자 | 리소스 경로 하위의 메서드 영역 |
+| resourcePathList[0].methodList[0].methodPluginList | List | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 목록 |
+| resourcePathList[0].methodList[0].methodPluginList[0] | Object | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 영역, 'HTTP' 또는 'MOCK' 중 하나의 플러그인은 필수 입력 |
+| resourcePathList[0].methodList[0].methodPluginList[0].pluginType | Object | 필수 | 없음 | 없음 | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER,ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 경로에 설정 가능한 플러그인 타입 |
+| resourcePathList[0].methodList[0].methodPluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고.|
+
+#### 응답
+
+[Response]
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "resourceList": [
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members/{memberId}",
+      "parentPath": "/members/{memberId}",
+      "methodType": "GET",
+      "methodName": "GetMember",
+      "methodDescription": "Query a member",
+      "createdAt": "2021-12-23T23:55:11.300Z",
+      "updatedAt": "2021-12-23T23:55:11.300Z",
+      "resourcePluginList": [
+        {
+          "resourcePluginId":  "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "HTTP",
+          "pluginConfigJson": {
+            "frontendEndpointPath": "/members/{memberId}",
+            "backendEndpointPath": "/api/v1/members/${request.path.memberId}"
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        },
+        {
+          "resourcePluginId":  "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "ADD_REQUEST_QUERY_PARAMETER",
+          "pluginConfigJson": {
+            "parameters": {
+              "id": "${request.path.memberId}"
+            }
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        }
+      ]
+    },
+    ...
+  ]
+}
+```
+
+| 필드                                                     | 타입       | 설명                                             |
+| ------------------------------------------------------ | -------- | ---------------------------------------------- |
+| resourceList                                           | List     | 리소스 목록 영역                                      |
+| resourceList[1].resourceId                             | String   | 리소스 ID                                         |
+| resourceList[1].apigwServiceId                         | String   | API Gateway 서비스 ID                             |
+| resourceList[1].path                                   | String   | 리소스 경로                                         |
+| resourceList[1].parentPath                             | String   | 부모 리소스 경로                                         |
+| resourceList[1].createdAt                              | DateTime | 리소스 생성 일시                                       |
+| resourceList[1].updatedAt                              | DateTime | 리소스 수정 일시                                       |
+| resourceList[1].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
+| resourceList[1].methodName                             | String   | 메서드 리소스 이름                                     |
+| resourceList[1].methodDescription                      | String   | 메서드 리소스 설명                                     |
+| resourceList[1].resourcePluginList                     | List     | 리소스 플러그인 목록 영역                                 |
+| resourceList[1].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
+| resourceList[1].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
+| resourceList[1].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고    |
+| resourceList[1].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고                   |
+| resourceList[1].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
+| resourceList[1].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
+
+
+### 리소스 경로 플러그인 수정/삭제
+- 리소스 경로 플러그인을 추가, 수정, 삭제합니다.
+- 리소스 경로에 추가되지 않은 플러그인을 설정하면 플러그인이 추가됩니다.
+- 리소스 경로에 추가된 플러그인을 설정하면 요청한 플러그인 설정으로 변경됩니다.
+- delete 필드를 true로 설정하면, 요청한 플러그인 타입의 플러그인이 삭제됩니다. delete필드가 true이면 pluginConfigJson 필드는 정의하지 않아도됩니다.
+- applyChildPath 필드를 true로 설정하면 리소스 경로 하위의 모든 경로와 메서드에 플러그인이 설정됩니다.
+- applyChildPath와 delete 필드 모두를 true로 설정하면 리소스 경로 하위의 모든 경로와 메서드에 플러그인이 삭제됩니다.
+- CORS 플러그인을 설정하면, 하위 메서드로 OPTIONS 메서드가 자동으로 생성됩니다. 만일 기존에 존재하는 OPTIONS 메서드가 있다면 삭제되고 대체되므로 주의해주세요.
+- 리소스 경로에 설정 가능한 플러그인만 설정할 수 있습니다. 자세한 내용은 [리소스 플러그인]()을 참고합니다.
+
+#### 요청
+
+[URI]
+
+| 메서드 | URI | 
+| --- | --- | 
+| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resource-paths/{resourceId} |
+
+[Path Parameter]
+
+| 이름             | 타입     | 필수 여부 | 기본값 | 유효 범위 | 설명                 |
+| -------------- | ------ | ----- | --- | ----- | ------------------ |
+| apigwServiceId | String | 필수    | 없음  | 없음    | API Gateway 서비스 ID |
+| resourceId | String | 필수    | 없음  | 없음    | 리소스 경로 ID |
+
+[Request Body]
+
+```json
+{
+  "pathPluginList":[
+    {
+      "applyChildPath": true,
+      "delete": true,
+      "pluginConfigJson":{
+        "allowedMethods":[
+            "GET",
+            "POST",
+            "DELETE",
+            "PUT",
+            "OPTIONS",
+            "HEAD",
+            "PATCH"
+        ],
+        "allowedHeaders":[
+            "*"
+        ],
+        "allowedOrigins":[
+            "*"
+        ],
+        "exposedHeaders":[
+            
+        ],
+        "maxCredentialsAge":null,
+        "allowCredentials":false
+      },
+      "pluginType":"CORS"
+    }
+  ]  
+}   
+```
+
+| 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
+| --- | --- | --- | --- | --- | --- |
+| pathPluginList | List | 선택 | 없음 | 없음 | 리소스 경로 플러그인 목록 |
+| pathPluginList[0] | Object | 선택 | 없음 | 없음 | 리소스 경로 플러그인 영역 |
+| pathPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER,ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 경로에 설정 가능한 플러그인 타입 |
+| pathPluginList[0].pluginConfigJson | Object | 조건부필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고, delete 필드가 false인 경우 필수 입력|
+| pathPluginList[0].applyChildPath | Boolean | 선택 | false | true, false | 하위 경로와 메서드에 덮어쓰기 여부 |
+| pathPluginList[0].delete | Boolean | 선택 | false | true, false | 플러그인 삭제 여부 |
+
+#### 응답
+
+[Response]
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "resourceList": [
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members/{memberId}",
+      "parentPath": "/members",
+      "methodType": "DELETE",
+      "methodName": "DeleteMember",
+      "methodDescription": "Delete a member",
+      "createdAt": "2021-12-23T23:55:11.298Z",
+      "updatedAt": "2021-12-23T23:55:11.298Z",
+      "resourcePluginList": [
+        {
+          "resourcePluginId": "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "HTTP",
+          "pluginConfigJson": {
+            "frontendEndpointPath": "/members/{memberId}",
+            "backendEndpointPath": "/api/v1/members/${request.path.memberId}"
+          },
+          "createdAt": "2021-12-23T23:55:11.298Z",
+          "updatedAt": "2021-12-23T23:55:11.298Z"
+        }
+      ]
+    }
+    ...
+  ]
+}
+```
+
+| 필드                                                     | 타입       | 설명                                             |
+| ------------------------------------------------------ | -------- | ---------------------------------------------- |
+| resourceList                                           | List     | 리소스 목록 영역                                      |
+| resourceList[1].resourceId                             | String   | 리소스 ID                                         |
+| resourceList[1].apigwServiceId                         | String   | API Gateway 서비스 ID                             |
+| resourceList[1].path                                   | String   | 리소스 경로                                         |
+| resourceList[1].parentPath                             | String   | 부모 리소스 경로                                         |
+| resourceList[1].createdAt                              | DateTime | 리소스 생성 일시                                       |
+| resourceList[1].updatedAt                              | DateTime | 리소스 수정 일시                                       |
+| resourceList[1].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
+| resourceList[1].methodName                             | String   | 메서드 리소스 이름                                     |
+| resourceList[1].methodDescription                      | String   | 메서드 리소스 설명                                     |
+| resourceList[1].resourcePluginList                     | List     | 리소스 플러그인 목록 영역                                 |
+| resourceList[1].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
+| resourceList[1].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
+| resourceList[1].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고    |
+| resourceList[1].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고                   |
+| resourceList[1].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
+| resourceList[1].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
+
+
+### 리소스 메서드 정보와 플러그인 수정/삭제
+- 리소스 메서드의 이름, 설명을 수정할 수 있습니다.
+- 리소스 메서드 플러그인을 추가, 수정, 삭제합니다.
+- 리소스 메서드에 추가되지 않은 플러그인을 설정하면 플러그인이 추가됩니다.
+- 리소스 메서드에 추가된 플러그인을 설정하면 요청한 플러그인 설정으로 변경됩니다.
+- delete 필드를 true로 설정하면, 요청한 플러그인 타입의 플러그인이 삭제됩니다. delete 필드가 true이면 pluginConfigJson 필드는 정의하지 않아도됩니다.
+- 리소스 메서드에 설정 가능한 플러그인만 설정할 수 있습니다. 자세한 내용은 [리소스 플러그인]()을 참고합니다.
+
+#### 요청
+
+[URI]
+
+| 메서드 | URI | 
+| --- | --- | 
+| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resource-methods/{resourceId} |
+
+[Path Parameter]
+
+| 이름             | 타입     | 필수 여부 | 기본값 | 유효 범위 | 설명                 |
+| -------------- | ------ | ----- | --- | ----- | ------------------ |
+| apigwServiceId | String | 필수    | 없음  | 없음    | API Gateway 서비스 ID |
+| resourceId | String | 필수    | 없음  | 없음    | 리소스 메서드 ID |
+
+[Request Body]
+
+```json
+{
+  "methodName":"PutMember",
+  "methodDescription":"Edit a member information",
+  "methodPluginList":[
+    {
+        "pluginConfigJson":{
+          "frontendEndpointPath":"/members/{memberId}",
+          "backendEndpointPath":"/api/v2/members/${request.path.memberId}"
+        },
+        "pluginType":"HTTP"
+    },
+    {
+      "delete": true,
+      "pluginType": "ADD_REQUEST_QUERY_PARAMETER"
+    }
+  ]
+}
+```
+
+| 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
+| --- | --- | --- | --- | --- | --- |
+| resourcePathList[0].methodList[0].methodName | String | 필수 | 없음 | 최대 50자 | 메서드 이름 |
+| resourcePathList[0].methodList[0].methodDescription | String | 선택 | 없음 | 최대 200자 | 리소스 경로 하위의 메서드 영역 |
+| resourcePathList[0].methodList[0].methodPluginList | List | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 목록 |
+| resourcePathList[0].methodList[0].methodPluginList[0] | Object | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 영역 |
+| resourcePathList[0].methodList[0].methodPluginList[0].pluginType | Object | 필수 | 없음 |  | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER,ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 경로에 설정 가능한 플러그인 타입 |
+| resourcePathList[0].methodList[0].methodPluginList[0].pluginConfigJson | Object | 조건부필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고, delete 필드가 false인 경우 필수 입력|
+| resourcePathList[0].methodList[0].methodPluginList[0].delete | Object | 선택 | false | 없음 | 플러그인 삭제 여부 |
+
+#### 응답
+
+[Response]
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "resourceList": [
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members/{memberId}",
+      "parentPath": "/members/{memberId}",
+      "methodType": "PUT",
+      "methodName": "PostMember",
+      "methodDescription": "Edit a member info",
+      "createdAt": "2021-12-23T23:55:11.300Z",
+      "updatedAt": "2021-12-23T23:55:11.300Z",
+      "resourcePluginList": [
+        {
+          "resourcePluginId": "24bef5d0-feaf-4469-9619-a31e9e35a622",
+          "resourceId": "{resourceId}",
+          "pluginType": "HTTP",
+          "pluginConfigJson": {
+            "frontendEndpointPath": "/members/{memberId}",
+            "backendEndpointPath": "/api/v2/members/${request.path.memberId}"
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        }
+      ]
+    }
+  ]
+}
+```
+
+| 필드                                                     | 타입       | 설명                                             |
+| ------------------------------------------------------ | -------- | ---------------------------------------------- |
+| resourceList                                           | List     | 리소스 목록 영역                                      |
+| resourceList[1].resourceId                             | String   | 리소스 ID                                         |
+| resourceList[1].apigwServiceId                         | String   | API Gateway 서비스 ID                             |
+| resourceList[1].path                                   | String   | 리소스 경로                                         |
+| resourceList[1].parentPath                             | String   | 부모 리소스 경로                                         |
+| resourceList[1].createdAt                              | DateTime | 리소스 생성 일시                                       |
+| resourceList[1].updatedAt                              | DateTime | 리소스 수정 일시                                       |
+| resourceList[1].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
+| resourceList[1].methodName                             | String   | 메서드 리소스 이름                                     |
+| resourceList[1].methodDescription                      | String   | 메서드 리소스 설명                                     |
+| resourceList[1].resourcePluginList                     | List     | 리소스 플러그인 목록 영역                                 |
+| resourceList[1].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
+| resourceList[1].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
+| resourceList[1].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고    |
+| resourceList[1].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고                   |
+| resourceList[1].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
+| resourceList[1].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
+
 
 ### 리소스 삭제
 - 리소스를 삭제합니다.
 - 루트("/") 경로 리소스는 삭제가 불가합니다.
 - CORS 플러그인에 의해 생성된 OPTIONS 메서드는 삭제할 수 없습니다. 
-CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 설정된 리소스에서 플러그인을 제거하면 일괄 삭제됩니다.
+- CORS 플러그인에 의해 생성된 OPTIONS 메서드는 CORS 플러그인이 설정된 리소스에서 플러그인을 제거하면 일괄 삭제됩니다.
 - 경로 리소스를 삭제하면 하위 경로와 메서드 리소스가 모두 삭제됩니다.
 - 삭제된 리소스는 복구가 불가합니다.
 
