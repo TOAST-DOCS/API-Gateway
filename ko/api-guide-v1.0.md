@@ -615,16 +615,16 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | resourcePathList[0].path | Object | 필수 | 없음 | 영문자, 숫자, 경로 변수, 제한된 문자(. + - /)로 구성된 유효한 경로  | 리소스 경로 |
 | resourcePathList[0].pathPluginList | List | 선택 | 없음 | 없음 | 리소스 경로 플러그인 목록 |
 | resourcePathList[0].pathPluginList[0] | Object | 선택 | 없음 | 없음 | 리소스 경로 플러그인 영역 |
-| resourcePathList[0].pathPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER,ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 경로에 설정 가능한 플러그인 타입 |
+| resourcePathList[0].pathPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 경로에 설정 가능한 플러그인 타입 |
 | resourcePathList[0].pathPluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고.|
 | resourcePathList[0].methodList | List | 선택 | 없음 | 없음 | 리소스 경로 하위의 메서드 목록 |
 | resourcePathList[0].methodList[0] | Object | 선택 | 없음 | 없음 | 리소스 경로 하위의 메서드 영역 |
 | resourcePathList[0].methodList[0].methodType | Enum | 필수 | 없음 | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
 | resourcePathList[0].methodList[0].methodName | String | 필수 | 없음 | 최대 50자 | 메서드 이름 |
-| resourcePathList[0].methodList[0].methodDescription | String | 선택 | 없음 | 최대 200자 | 리소스 경로 하위의 메서드 영역 |
+| resourcePathList[0].methodList[0].methodDescription | String | 선택 | 없음 | 최대 200자 | 메서드 설명 |
 | resourcePathList[0].methodList[0].methodPluginList | List | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 목록 |
 | resourcePathList[0].methodList[0].methodPluginList[0] | Object | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 영역, 'HTTP' 또는 'MOCK' 중 하나의 플러그인은 필수 입력 |
-| resourcePathList[0].methodList[0].methodPluginList[0].pluginType | Object | 필수 | 없음 | 없음 | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER,ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 경로에 설정 가능한 플러그인 타입 |
+| resourcePathList[0].methodList[0].methodPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 메서드에 설정 가능한 플러그인 타입 |
 | resourcePathList[0].methodList[0].methodPluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고.|
 
 #### 응답
@@ -905,7 +905,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
           "pluginConfigJson": {
             "frontendEndpointPath": "/members/{memberId}",
             "backendEndpointPath": "/api/v1/members/${request.path.memberId}"
-          },
+          }
         }
       ]
     }
@@ -915,15 +915,15 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| resourcePathList[0].methodList | List | 선택 | 없음 | 없음 | 리소스 경로 하위의 메서드 목록 |
-| resourcePathList[0].methodList[0] | Object | 선택 | 없음 | 없음 | 리소스 경로 하위의 메서드 영역 |
-| resourcePathList[0].methodList[0].methodType | Enum | 필수 | 없음 | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
-| resourcePathList[0].methodList[0].methodName | String | 필수 | 없음 | 최대 50자 | 메서드 이름 |
-| resourcePathList[0].methodList[0].methodDescription | String | 선택 | 없음 | 최대 200자 | 리소스 경로 하위의 메서드 영역 |
-| resourcePathList[0].methodList[0].methodPluginList | List | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 목록 |
-| resourcePathList[0].methodList[0].methodPluginList[0] | Object | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 영역, 'HTTP' 또는 'MOCK' 중 하나의 플러그인은 필수 입력 |
-| resourcePathList[0].methodList[0].methodPluginList[0].pluginType | Object | 필수 | 없음 | 없음 | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER,ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 경로에 설정 가능한 플러그인 타입 |
-| resourcePathList[0].methodList[0].methodPluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고.|
+| methodList | List | 필수 | 없음 | 없음 | 리소스 경로 하위의 메서드 목록 |
+| methodList[0] | Object | 필수 | 없음 | 없음 | 리소스 경로 하위의 메서드 영역 |
+| methodList[0].methodType | Enum | 필수 | 없음 | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
+| methodList[0].methodName | String | 필수 | 없음 | 최대 50자 | 메서드 이름 |
+| methodList[0].methodDescription | String | 선택 | 없음 | 최대 200자 | 메서드 설명 |
+| methodList[0].methodPluginList | List | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 목록 |
+| methodList[0].methodPluginList[0] | Object | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 영역, 'HTTP' 또는 'MOCK' 중 하나의 플러그인은 필수 입력 |
+| methodList[0].methodPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 메서드에 설정 가능한 플러그인 타입 |
+| methodList[0].methodPluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고.|
 
 #### 응답
 
@@ -981,22 +981,22 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | 필드                                                     | 타입       | 설명                                             |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
 | resourceList                                           | List     | 리소스 목록 영역                                      |
-| resourceList[1].resourceId                             | String   | 리소스 ID                                         |
-| resourceList[1].apigwServiceId                         | String   | API Gateway 서비스 ID                             |
-| resourceList[1].path                                   | String   | 리소스 경로                                         |
-| resourceList[1].parentPath                             | String   | 부모 리소스 경로                                         |
-| resourceList[1].createdAt                              | DateTime | 리소스 생성 일시                                       |
-| resourceList[1].updatedAt                              | DateTime | 리소스 수정 일시                                       |
-| resourceList[1].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
-| resourceList[1].methodName                             | String   | 메서드 리소스 이름                                     |
-| resourceList[1].methodDescription                      | String   | 메서드 리소스 설명                                     |
-| resourceList[1].resourcePluginList                     | List     | 리소스 플러그인 목록 영역                                 |
-| resourceList[1].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
-| resourceList[1].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
-| resourceList[1].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고    |
-| resourceList[1].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고                   |
-| resourceList[1].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
-| resourceList[1].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
+| resourceList[0].resourceId                             | String   | 리소스 ID                                         |
+| resourceList[0].apigwServiceId                         | String   | API Gateway 서비스 ID                             |
+| resourceList[0].path                                   | String   | 리소스 경로                                         |
+| resourceList[0].parentPath                             | String   | 부모 리소스 경로                                         |
+| resourceList[0].createdAt                              | DateTime | 리소스 생성 일시                                       |
+| resourceList[0].updatedAt                              | DateTime | 리소스 수정 일시                                       |
+| resourceList[0].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
+| resourceList[0].methodName                             | String   | 메서드 리소스 이름                                     |
+| resourceList[0].methodDescription                      | String   | 메서드 리소스 설명                                     |
+| resourceList[0].resourcePluginList                     | List     | 리소스 플러그인 목록 영역                                 |
+| resourceList[0].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
+| resourceList[0].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
+| resourceList[0].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고    |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고                   |
+| resourceList[0].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
+| resourceList[0].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
 
 
 ### 리소스 경로 플러그인 수정/삭제
@@ -1113,22 +1113,22 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | 필드                                                     | 타입       | 설명                                             |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
 | resourceList                                           | List     | 리소스 목록 영역                                      |
-| resourceList[1].resourceId                             | String   | 리소스 ID                                         |
-| resourceList[1].apigwServiceId                         | String   | API Gateway 서비스 ID                             |
-| resourceList[1].path                                   | String   | 리소스 경로                                         |
-| resourceList[1].parentPath                             | String   | 부모 리소스 경로                                         |
-| resourceList[1].createdAt                              | DateTime | 리소스 생성 일시                                       |
-| resourceList[1].updatedAt                              | DateTime | 리소스 수정 일시                                       |
-| resourceList[1].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
-| resourceList[1].methodName                             | String   | 메서드 리소스 이름                                     |
-| resourceList[1].methodDescription                      | String   | 메서드 리소스 설명                                     |
-| resourceList[1].resourcePluginList                     | List     | 리소스 플러그인 목록 영역                                 |
-| resourceList[1].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
-| resourceList[1].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
-| resourceList[1].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고    |
-| resourceList[1].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고                   |
-| resourceList[1].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
-| resourceList[1].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
+| resourceList[0].resourceId                             | String   | 리소스 ID                                         |
+| resourceList[0].apigwServiceId                         | String   | API Gateway 서비스 ID                             |
+| resourceList[0].path                                   | String   | 리소스 경로                                         |
+| resourceList[0].parentPath                             | String   | 부모 리소스 경로                                         |
+| resourceList[0].createdAt                              | DateTime | 리소스 생성 일시                                       |
+| resourceList[0].updatedAt                              | DateTime | 리소스 수정 일시                                       |
+| resourceList[0].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
+| resourceList[0].methodName                             | String   | 메서드 리소스 이름                                     |
+| resourceList[0].methodDescription                      | String   | 메서드 리소스 설명                                     |
+| resourceList[0].resourcePluginList                     | List     | 리소스 플러그인 목록 영역                                 |
+| resourceList[0].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
+| resourceList[0].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
+| resourceList[0].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고    |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고                   |
+| resourceList[0].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
+| resourceList[0].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
 
 
 ### 리소스 메서드 정보와 플러그인 수정/삭제
@@ -1178,13 +1178,13 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| resourcePathList[0].methodList[0].methodName | String | 필수 | 없음 | 최대 50자 | 메서드 이름 |
-| resourcePathList[0].methodList[0].methodDescription | String | 선택 | 없음 | 최대 200자 | 리소스 경로 하위의 메서드 영역 |
-| resourcePathList[0].methodList[0].methodPluginList | List | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 목록 |
-| resourcePathList[0].methodList[0].methodPluginList[0] | Object | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 영역 |
-| resourcePathList[0].methodList[0].methodPluginList[0].pluginType | Object | 필수 | 없음 |  | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER,ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 경로에 설정 가능한 플러그인 타입 |
-| resourcePathList[0].methodList[0].methodPluginList[0].pluginConfigJson | Object | 조건부필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고, delete 필드가 false인 경우 필수 입력|
-| resourcePathList[0].methodList[0].methodPluginList[0].delete | Object | 선택 | false | 없음 | 플러그인 삭제 여부 |
+| methodName | String | 필수 | 없음 | 최대 50자 | 메서드 이름 |
+| methodDescription | String | 선택 | 없음 | 최대 200자 | 메서드 설명 |
+| methodPluginList | List | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 목록 |
+| methodPluginList[0] | Object | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 영역 |
+| methodPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 메서드에 설정 가능한 플러그인 타입 |
+| methodPluginList[0].pluginConfigJson | Object | 조건부필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고, delete 필드가 false인 경우 필수 입력|
+| methodPluginList[0].delete | Boolean | 선택 | false | 없음 | 플러그인 삭제 여부 |
 
 #### 응답
 
@@ -1229,22 +1229,22 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | 필드                                                     | 타입       | 설명                                             |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
 | resourceList                                           | List     | 리소스 목록 영역                                      |
-| resourceList[1].resourceId                             | String   | 리소스 ID                                         |
-| resourceList[1].apigwServiceId                         | String   | API Gateway 서비스 ID                             |
-| resourceList[1].path                                   | String   | 리소스 경로                                         |
-| resourceList[1].parentPath                             | String   | 부모 리소스 경로                                         |
-| resourceList[1].createdAt                              | DateTime | 리소스 생성 일시                                       |
-| resourceList[1].updatedAt                              | DateTime | 리소스 수정 일시                                       |
-| resourceList[1].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
-| resourceList[1].methodName                             | String   | 메서드 리소스 이름                                     |
-| resourceList[1].methodDescription                      | String   | 메서드 리소스 설명                                     |
-| resourceList[1].resourcePluginList                     | List     | 리소스 플러그인 목록 영역                                 |
-| resourceList[1].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
-| resourceList[1].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
-| resourceList[1].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고    |
-| resourceList[1].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고                   |
-| resourceList[1].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
-| resourceList[1].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
+| resourceList[0].resourceId                             | String   | 리소스 ID                                         |
+| resourceList[0].apigwServiceId                         | String   | API Gateway 서비스 ID                             |
+| resourceList[0].path                                   | String   | 리소스 경로                                         |
+| resourceList[0].parentPath                             | String   | 부모 리소스 경로                                         |
+| resourceList[0].createdAt                              | DateTime | 리소스 생성 일시                                       |
+| resourceList[0].updatedAt                              | DateTime | 리소스 수정 일시                                       |
+| resourceList[0].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
+| resourceList[0].methodName                             | String   | 메서드 리소스 이름                                     |
+| resourceList[0].methodDescription                      | String   | 메서드 리소스 설명                                     |
+| resourceList[0].resourcePluginList                     | List     | 리소스 플러그인 목록 영역                                 |
+| resourceList[0].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
+| resourceList[0].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
+| resourceList[0].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고    |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고                   |
+| resourceList[0].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
+| resourceList[0].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
 
 
 ### 리소스 삭제
