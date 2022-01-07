@@ -5068,7 +5068,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
       "networkOutboundByte": 3032
     }
   ],
-  "metricsLatestUpdateAt": "2021-11-29T08:50:57.000Z"
+  "metricsLatestUpdatedAt": "2021-11-29T08:50:57.000Z"
 }
 ```
 
@@ -5091,7 +5091,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |data[0].statusEtcCount               |Long    | 2xx, 3xx, 4xx, 5xx 외 응답 HTTP 상태코드 API 호출 수 |
 |data[0].avgResponseTimeMs            |Long    | 평균 API 응답 시간(ms) |
 |data[0].networkOutboundByte          |Long    | 아웃바운드 네트워크 바이트 합계 (bytes) |
-|metricsLatestUpdateAt         | DateTime | 통계 데이터 최신 갱신 일시                             |
+|metricsLatestUpdatedAt         | DateTime | 통계 데이터 최신 갱신 일시                             |
 
 
 ### API Key별 조회
@@ -5172,7 +5172,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
       }
     }
   },
-  "metricsLatestUpdateAt": "2021-11-29T08:50:57.000Z",
+  "metricsLatestUpdatedAt": "2021-11-29T08:50:57.000Z",
   "timeUnit": "ONE_DAYS"
 }
 ```
@@ -5189,7 +5189,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0]               |Object    | API 호출 수 통계 영역 |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].dateTime   |Long    | 통계 시간(Unix time 형식) |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].count      |Long    | 통계 시간 동안의 총 API 호출 수 |
-|metricsLatestUpdateAt         | DateTime | 통계 데이터 최신 갱신 일시                             |
+|metricsLatestUpdatedAt         | DateTime | 통계 데이터 최신 갱신 일시                             |
 |timeUnit          |Enum    | [통계 데이터 시간 단위 Enum 코드](./enum-code/#???) ONE_DAYS 참고 |
 
 
