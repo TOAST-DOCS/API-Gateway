@@ -1145,7 +1145,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 | 메서드 | URI | 
 | --- | --- | 
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resource-methods/{resourceId} |
+| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resource-methods/{resourceId} |
 
 [Path Parameter]
 
@@ -1180,7 +1180,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | --- | --- | --- | --- | --- | --- |
 | methodName | String | 필수 | 없음 | 최대 50자 | 메서드 이름 |
 | methodDescription | String | 선택 | 없음 | 최대 200자 | 메서드 설명 |
-| methodPluginList | List | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 목록 |
+| methodPluginList | List | 선택 | 없음 | 없음 | 리소스 메서드 플러그인 목록 |
 | methodPluginList[0] | Object | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 영역 |
 | methodPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 메서드에 설정 가능한 플러그인 타입 |
 | methodPluginList[0].pluginConfigJson | Object | 조건부필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고, delete 필드가 false인 경우 필수 입력|
