@@ -1003,7 +1003,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 - 리소스 경로 플러그인을 추가, 수정, 삭제합니다.
 - 리소스 경로에 추가되지 않은 플러그인을 설정하면 플러그인이 추가됩니다.
 - 리소스 경로에 추가된 플러그인을 설정하면 요청한 플러그인 설정으로 변경됩니다.
-- delete 필드를 true로 설정하면, 요청한 플러그인 타입의 플러그인이 삭제됩니다. delete필드가 true이면 pluginConfigJson 필드는 정의하지 않아도됩니다.
+- delete 필드를 true로 설정하면, 요청한 플러그인 타입의 플러그인이 삭제됩니다. delete 필드가 true이면 pluginConfigJson 필드는 정의하지 않아도 됩니다.
 - applyChildPath 필드를 true로 설정하면 리소스 경로 하위의 모든 경로와 메서드에 플러그인이 설정됩니다.
 - applyChildPath와 delete 필드 모두를 true로 설정하면 리소스 경로 하위의 모든 경로와 메서드에 플러그인이 삭제됩니다.
 - CORS 플러그인을 설정하면, 하위 메서드로 OPTIONS 메서드가 자동으로 생성됩니다. 만일 기존에 존재하는 OPTIONS 메서드가 있다면 삭제되고 대체되므로 주의해주세요.
@@ -1065,7 +1065,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | pathPluginList | List | 선택 | 없음 | 없음 | 리소스 경로 플러그인 목록 |
 | pathPluginList[0] | Object | 선택 | 없음 | 없음 | 리소스 경로 플러그인 영역 |
 | pathPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER,ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 경로에 설정 가능한 플러그인 타입 |
-| pathPluginList[0].pluginConfigJson | Object | 조건부필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고, delete 필드가 false인 경우 필수 입력|
+| pathPluginList[0].pluginConfigJson | Object | 조건부 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고, delete 필드가 false인 경우 필수 입력|
 | pathPluginList[0].applyChildPath | Boolean | 선택 | false | true, false | 하위 경로와 메서드에 덮어쓰기 여부 |
 | pathPluginList[0].delete | Boolean | 선택 | false | true, false | 플러그인 삭제 여부 |
 
@@ -1136,7 +1136,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 - 리소스 메서드 플러그인을 추가, 수정, 삭제합니다.
 - 리소스 메서드에 추가되지 않은 플러그인을 설정하면 플러그인이 추가됩니다.
 - 리소스 메서드에 추가된 플러그인을 설정하면 요청한 플러그인 설정으로 변경됩니다.
-- delete 필드를 true로 설정하면, 요청한 플러그인 타입의 플러그인이 삭제됩니다. delete 필드가 true이면 pluginConfigJson 필드는 정의하지 않아도됩니다.
+- delete 필드를 true로 설정하면, 요청한 플러그인 타입의 플러그인이 삭제됩니다. delete 필드가 true이면 pluginConfigJson 필드는 정의하지 않아도 됩니다.
 - 리소스 메서드에 설정 가능한 플러그인만 설정할 수 있습니다. 자세한 내용은 [리소스 플러그인]()을 참고합니다.
 
 #### 요청
@@ -1183,7 +1183,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | methodPluginList | List | 선택 | 없음 | 없음 | 리소스 메서드 플러그인 목록 |
 | methodPluginList[0] | Object | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 영역 |
 | methodPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 메서드에 설정 가능한 플러그인 타입 |
-| methodPluginList[0].pluginConfigJson | Object | 조건부필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고, delete 필드가 false인 경우 필수 입력|
+| methodPluginList[0].pluginConfigJson | Object | 조건부 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_25) 참고, delete 필드가 false인 경우 필수 입력|
 | methodPluginList[0].delete | Boolean | 선택 | false | 없음 | 플러그인 삭제 여부 |
 
 #### 응답
@@ -4300,7 +4300,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | usagePlanDescription      | String  | 선택    | 없음  | 최대 200자      | 사용량 계획 설명                                         |
 | rateLimitRequestPerSecond | Integer | 선택    | 없음  | 1~5000       | 초당 요청 수 제한                                        |
 | quotaLimitPeriodUnitCode  | Enum    | 선택    | 없음  | DAY, MONTH   | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#_6) 참고 |
-| quotaLimit                | Integer | 조건부필수 | 없음  | 1~2147483647 | quotaLimitPeriodUnitCode가 설정된 경우 필수. 할당량 기간 단위 별 요청 할당량                                |
+| quotaLimit                | Integer | 조건부 필수 | 없음  | 1~2147483647 | quotaLimitPeriodUnitCode가 설정된 경우 필수. 할당량 기간 단위 별 요청 할당량                                |
 
 #### 응답
 
@@ -4376,7 +4376,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | usagePlanName             | String  | 선택    | 없음  | 최대 200자      | 사용량 계획 설명                                         |
 | rateLimitRequestPerSecond | Integer | 선택    | 없음  | 1~5000       | 초당 요청 수 제한                                        |
 | quotaLimitPeriodUnitCode  | Enum    | 선택    | 없음  | DAY, MONTH   | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#_6) 참고 |
-| quotaLimit                | Integer | 조건부필수 | 없음  | 1~2147483647 | quotaLimitPeriodUnitCode가 설정된 경우 필수. 할당량 기간 단위 별 요청 할당량                                |
+| quotaLimit                | Integer | 조건부 필수 | 없음  | 1~2147483647 | quotaLimitPeriodUnitCode가 설정된 경우 필수. 할당량 기간 단위 별 요청 할당량                                |
 
 #### 응답
 
