@@ -42,12 +42,12 @@ Resource manages the resource path and method of the API.
 2. Write the **Resource Path**. The entire path including the written resource path must not exceed 255 characters.
     - –	e.g./products/, /products/{productsId}, /{proxy+}
 3. **Path Variable**: Curly brackets can be used in the Resource path to create a **Path Variable**.
-    - **Path Variable** containing **{variable}** or sub-path can be declared as **{variable+}**.
+    - **Path Variable** containing **{variable}** or child path can be declared as **{variable+}**.
         - **Path Variable** can be utilized in the plugin and backend endpoint settings.
         - **{variable}** declares the value of the path where the path variable is located.
             - e.g./members/{memberId} 
                 - **{memberId}** path variable value of /members/id1 request becomes **id1**.
-        - **{variable+}** includes the sub-path where the path variable is located to declare a variable. A sub resource path cannot be created in the variable containing the sub-path.
+        - **{variable+}** includes the child path where the path variable is located to declare a variable. A sub resource path cannot be created in the variable containing the child path.
             - e.g./{proxy+} 
                 - **{proxy+}** path variable value of **/members/id1** becomes **members/id1**.
 - **Plugin**: Check this box if you want to add a plugin that is added to the selected path to the created method as well.
@@ -105,7 +105,7 @@ You can bring the resource through the file format of Swagger v2.0 [OpenAPI Spec
 ```
 
 ```
-- [Example 2] Import failure: For stage export files before Nov. 23, 2021, if CORS plugin is configured in resource path, CORS plugin setting is included in sub-resource method
+- [Example 2] Import failure: For stage export files before Nov. 23, 2021, if CORS plugin is configured in resource path, CORS plugin setting is included in child resource method
 {
 ...
         "paths": {
@@ -223,7 +223,7 @@ You can bring the resource through the file format of Swagger v2.0 [OpenAPI Spec
 - Select the resource path and methods you want to delete.
     - Clicking the **Delete Selected** button brings up the Confirm Delete window.
     - If you right-click the resource tree on the left, a menu appears. If you click Delete Resource or Delete Method in the menu, a confirmation window appears.
--  To delete, click the **Confirm** button. Once deleted, data cannot be recovered.
+- To delete, click the **Confirm** button. Once deleted, data cannot be recovered.
 
 
 > **[Caution] Resource path deletion**
@@ -262,12 +262,12 @@ Plugin allows you to add additional functions provided by API Gateway.
     - Click the **+ Plugin** button for the backend request pre-task and frontend response pre-task.
         1. Click the plugin to add.
         2. Enter necessary information in the plugin settings and click the **Add** button.
-        3. To batch apply the plugin to the sub-path and method (including the selected path), check the **Overwrite Sub-path and Method** box.
-            - **!Caution**: If the plugin is already registered in the sub-path and method, the settings will be overwritten.
+        3. To batch apply the plugin to the child path and method (including the selected path), check the **Overwrite Child Path and Method** box.
+            - **!Caution**: If the plugin is already registered in the child path and method, the settings will be overwritten.
         4. Click the **Save Changes** button. 
 - **Delete Plugin**
     1. Select the registered plugins for the backend request pre-task and frontend response pre-task.
-    2. To batch delete the plugin from the sub-path and method (including the selected path), check the **Overwrite Sub-path and Method** box.
+    2. To batch delete the plugin from the child path and method (including the selected path), check the **Overwrite Child Path and Method** box.
     3. Click the **Delete** button.
     4. Click the **Save Changes** button. 
 
@@ -311,12 +311,12 @@ Settings are applied to [API document](./console-guide/#api-document_1).
 7. Enter the response header and response body for each response HTTP status code.  
     - Header
         - Name: Enter the header name. 
-        -  Description: Enter the header description.
-        -  Data Type: Enter the data type of the response header.
+        - Description: Enter the header description.
+        - Data Type: Enter the data type of the response header.
     - Response Body 
         - Name: Enter the name of the response body parameter. 
-        -  Description: Enter the description of the response body parameter.
-        -  Model: Select the model of the response body. 
+        - Description: Enter the description of the response body parameter.
+        - Model: Select the model of the response body. 
 8. Enter the content type. 
     - Enter the content type (e.g., application/json) of the documents to respond to the client. 
 9. Click the **Save Changes button**.
@@ -353,7 +353,7 @@ Allows you to call XMLHttpRequest API within the Cross-Site method.
 
 > **[Caution] CORS plugin**
 > - Registering the CORS plugin also registers the OPTIONS method to the method of the selected path.
->	If you checked the Overwrite Sub-path and Method box, it is also registered in the sub-path as well.
+>	If you checked the Overwrite Child Path and Method box, it is also registered in the child path as well.
 >	If the OPTIONS method is already registered, it is replaced with the OPTIONS method automatically generated by CORS.
 > - The OPTIONS method registered through the CORS plugin cannot be selected from the resource tree. Also, it cannot be modified or deleted.
 > - If the CORS plugin gets deleted, the OPTIONS method auto-generated by the CORS plugin is batch deleted. 
@@ -431,7 +431,7 @@ Stage is a phase where resources are deployed.
     - Backend endpoint URL 
         - Writes the backend endpoint URL to which the request received by API Gateway is to be pass. 
         - You must include the scheme (http:// or https://) when writing the URL.
-        - You may enter domain address only or include the sub-path when writing it.
+        - You may enter domain address only or include the child path when writing it.
             - e.g. https://api.nhn.com , https://api.nhn.com/apis
         - If you specify the port directly in the URL, only ports 80, 443, 5000-12000 can be used.
 
@@ -481,8 +481,8 @@ To apply the resources and settings for the stage to the API Gateway Services, t
 4. Enter the description about the stage deployment. (optional)
 5. Click the **Deploy Stage** button.
 6. See the stage deployment status for the deployment status.
-    -  If it is **Successfully Deployed**, the deployment is complete.
-    -  If it is **Failed to Deploy**, then there was an error during deployment . If deployment fails, please try it again. If the issue persists, please contact Customer Center.
+    - If it is **Successfully Deployed**, the deployment is complete.
+    - If it is **Failed to Deploy**, then there was an error during deployment . If deployment fails, please try it again. If the issue persists, please contact Customer Center.
 
 ### Stage Deployment History
 You can verify deployment history after stage deployment, and go back stages by setting up Previous Deployment.
@@ -729,7 +729,7 @@ To Override the backend endpoint URL concerning certain path or method, set up t
 3. Select the path or method to redefine the backend endpoint URL in the Stage Tree screen.
 4. Turn on override of the backend endpoint URL.
     - Writes the backend endpoint URL to which the request received by API Gateway is to be pass.
-    - Can include the sub-path in it.
+    - Can include the child path in it.
         - e.g. https://api.nhn.com , https://api.nhn.com/apis
     - If you specify the port directly in the URL, only ports 80, 443, 5000-12000 can be used.
 
@@ -776,7 +776,7 @@ When making an API request to API Gateway, it is restricted to only the specifie
 1. On the **Stage** tab, select a stage.
 2. Select the **Settings** tab.
 3. Select the path or method to enable API key in the stage tree screen.
-   -  The API key set in the path is applied to all sub-defined sub-paths and method calls.
+   - The API key set in the path is applied to all sub-defined child paths and method calls.
 4. Enable(on) the API key.
 5. Deploy the stage.
 6. When requesting API, it is requested by adding the API key value to the x-nhn-apikey header.
@@ -908,13 +908,13 @@ Check the API statistical indexes by API Gateway Service and API key using the d
         - Longer than 1 hour - less than 1 day: unit of 10 minutes
         - Longer than 1 day - less than 1 week: unit of 1 hour
         - Longer than 1 week: unit of 1 day
--  **Statistical Graph**
+- **Statistical Graph**
     - Number of successful API calls: Number of API calls with the responded HTTP status code of 2XX, 3XX 
     - Number of failed API calls: Number of API calls with the responded HTTP status code of 4XX, 5XX 
     - Average response time (ms): The average time spent from the point where the request entered the API Gateway to the point where the response was given to the API request client
     - Network outbound traffic: The byte size of the data responded with the API request client at the API Gateway
 
-### Resources Statistics 
+### Resource Statistics 
 You can see more detailed statistical indexes categorized by resource path and HTTP method. 
 
 - **HTTP method**: Requested HTTP method

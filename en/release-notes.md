@@ -2,7 +2,7 @@
 
 ### January 25, 2022
 #### Feature Updates 
-* Changed so that, if there is a plugin set in the resource path, the plugin set in the resource path is added when a sub-method is created.
+* Changed so that, if there is a plugin set in the resource path, the plugin set in the resource path is added when a child method is created.
 * Added Public APIs related to resource creation and modification.
   * [Create Resource Paths and Methods API]()
   * [Create Resource Methods API]()
@@ -40,17 +40,17 @@
 ### May 25, 2021
 #### Feature Updates
 * In the stage path, the function of backend endpoint URL redefinition was added
-    * For more details, refer to [the Console Guide> Backend Endpoint URL Override](./console-guide/#backend-endpoint-url-override).
+    * For more details, refer to [Console Guide> Backend Endpoint URL Override](./console-guide/#backend-endpoint-url-override).
 * Added the function of revising the current Stage setup with verification of deployment history and deployment history Stage setup
-    * For more details, refer to [the Console Guide > Stage Deployment History](./console-guide/#stage-deployment-history).
+    * For more details, refer to [Console Guide > Stage Deployment History](./console-guide/#stage-deployment-history).
 * Changed the statistical data generation cycle
-    * For more details, refer to [the Console Guide > Note on Statistical Data](./console-guide/#note-on-statistical-data)'s explanation on  statistical data generation cycle.
+    * For more details, refer to [Console Guide > Note on Statistical Data](./console-guide/#note-on-statistical-data)'s explanation on  statistical data generation cycle.
 * Added Import Resource and Export Stage functions with Swagger file
     * With Swagger file, you can import resource.
     * You can export Stage Resource with Swagger file.
-    * For more details, refer to [the Console Guide > Resource > Import Resource](./console-guide/#import-resource)and [the Console Guide > Export Stage](./console-guide/#export-stage).
+    * For more details, refer to [Console Guide > Resource > Import Resource](./console-guide/#import-resource)and [Console Guide > Export Stage](./console-guide/#export-stage).
 * Supports the JSON Web Key Set URI of JWT plug-in
-    * For more details, refer to [the Console Guide > Authentication > JWT](./console-guide/#authentication-jwt).
+    * For more details, refer to [Console Guide > Authentication > JWT](./console-guide/#authentication-jwt).
 
 ### March 23, 2021
 #### Feature Updates

@@ -1252,7 +1252,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 - The root ("/") path resource cannot be deleted.
 - The OPTIONS method created by the CORS plugin cannot be deleted.
 - The OPTIONS method created by the CORS plugin is deleted collectively when the CORS plugin is removed from the resource for which the plugin is set.
-- Deleting a path resource deletes all sub-paths and method resources.
+- Deleting a path resource deletes all child paths and method resources.
 - Deleted resources cannot be recovered.
 
 #### Request
@@ -2846,7 +2846,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ## Stage Resource Plugin
 * For resources of the stage, features such as access control, authentication, and usage control can be set in the form of plug-ins.
-* When a plugin is set in the upper level, it is applied to all sub-methods collectively, and can be overridden in sub-paths/methods.
+* When a plugin is set in the upper level, it is applied to all child methods collectively, and can be overridden in child paths/methods.
 
 * [Example]: Plugin configuration override
     ```
@@ -2873,7 +2873,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ### IP ACL
 * API Gateway requests can be allowed/denied for the client IDs specified through IP ACL.
-* It can only be set on the root (/) resource path. The settings are applied to all sub-resources.
+* It can only be set on the root (/) resource path. The settings are applied to all child resources.
 
 ```json
 {
@@ -2906,7 +2906,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ### HMAC
 * Settings for validating the tampering of client requests through HMAC signature verification.
-* It can only be set on the root (/) resource path. The settings are applied to all sub-resources.
+* It can only be set on the root (/) resource path. The settings are applied to all child resources.
 * HMAC authentication cannot be set at the same time as JWT authentication.
 * Set the secret key used for signing.
 * Set the validation validity period to prevent validation failures caused by time differences.
@@ -2937,7 +2937,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ### JWT
 * Settings for validating the signature of the JWT token and request claims.
-* It can only be set on the root (/) resource path. The settings are applied to all sub-resources.
+* It can only be set on the root (/) resource path. The settings are applied to all child resources.
 * JWT authentication cannot be set at the same time as HMAC authentication.
 * Set the token encryption algorithm for signature verification and the private or public key according to the encryption algorithm method.
 * Set the claim validation condition to validation the value of the request claim and whether it is required or not.
