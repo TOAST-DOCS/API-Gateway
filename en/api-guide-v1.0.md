@@ -83,8 +83,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ## API Gateway Service
 
-### Query API Gateway Service List
-- Query the list of API Gateway services.
+### List API Gateway Services
+- Retrieves the list of API Gateway services.
 
 #### Request
 
@@ -158,8 +158,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |apigwServiceList[0].updatedAt           |DateTime| API Gateway service modification date and time                                      |
 
 
-### Query Single API Gateway Service
-- Query a single API Gateway service by API Gateway service ID.
+### Get API Gateway Service
+- Retrieves a single API Gateway service with API Gateway service ID.
 
 #### Request
 
@@ -223,7 +223,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Create API Gateway Service
-- Create an API Gateway service.
+- Creates an API Gateway service.
 - You can choose the region where the API Gateway server will be created. Currently, only the Korea (Pangyo) region is supported.
 - When you create an API Gateway service, an API Gateway service ID is automatically issued.
 
@@ -299,7 +299,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Modify API Gateway Service
-- Modify the name and description of an API Gateway service.
+- Modifies the name and description of an API Gateway service.
 
 #### Request
 
@@ -376,7 +376,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |apigwService.updatedAt           |DateTime|Service modification date and time                                      |
 
 ### Delete API Gateway Service
-- Delete API Gateway Service
+- Deletes an API Gateway Service.
 - Deleting the API Gateway service deletes all stages.
 - If the stage of the API Gateway service you want to delete is associated with a usage plan, the service cannot be deleted. To delete the service, disassociate all stages associated with the usage plan and then delete it.
 - Please note that deleted API Gateway services cannot be recovered.
@@ -411,9 +411,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ## Resource
 
-### Query Resource
+### List Resources
 
-- Query a list of resources.
+- Retrieves a list of resources.
 
 #### Request
 
@@ -1248,7 +1248,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Delete Resource
-- Delete a resource.
+- Deletes a resource.
 - The root ("/") path resource cannot be deleted.
 - The OPTIONS method created by the CORS plugin cannot be deleted.
 - The OPTIONS method created by the CORS plugin is deleted collectively when the CORS plugin is removed from the resource for which the plugin is set.
@@ -1285,7 +1285,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 ```
 
 ### Import Resource
-- Import resources from a file in the [Swagger v2.0 OpenAPI Specification](https://swagger.io/specification/v2/) format.
+- Imports resources from a file in the [Swagger v2.0 OpenAPI Specification](https://swagger.io/specification/v2/) format.
 - When resources are imported, all existing resources created in the service are deleted and overwritten with the imported resources.
 - When a resource is imported, all existing models created in the service are deleted and overwritten with the imported model.
 - Note that data of invalid operation in Swagger paths > path > operation will be ignored and not registered.
@@ -1420,7 +1420,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 ## Resource Plugin
 
 ### HTTP
-- Set the backend endpoint path to forward the request to for the resource path where API Gateway will receive the request.
+- Sets the backend endpoint path to forward the request to for the resource path where API Gateway will receive the request.
 - It can only be set in resource methods.
 - It cannot be set at the same time as the MOCK plugin.
 
@@ -1437,7 +1437,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | backendEndpointPath  | String | Required | N/A | Max. 255 characters | Backend endpoint path to forward requests received from API Gateway |
 
 ### MOCK
-- Return a response defined for a received request.
+- Returns a response defined for a received request.
 - It can only be set on resource methods.
 - It cannot be set at the same time as the HTTP plugin.
 ```json
@@ -1458,7 +1458,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | body                  | String | Optional | N/A | N/A | Custom response body                         |
 
 ### CORS
-- Allow XMLHttpRequest API calls within a cross-site method.
+- Allows XMLHttpRequest API calls within a cross-site method.
 - It can only be set on resource paths.
 - The OPTIONS method is automatically created under the path where the CORS plugin is set, and if there is a registered OPTIONS method, it is replaced.
 ```json
@@ -1537,8 +1537,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ## Resource Parameter
 
-### Query Resource Parameter
-- Query a list of resource parameters.
+### List Resource Parameters
+- Retrieves a list of resource parameters.
 
 #### Request
 
@@ -1640,8 +1640,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 
-### Create Resource Parameter
-- Create parameters of a resource method.
+### Create Resource Parameters
+- Creates parameters of a resource method.
 - Existing resource parameters are deleted, and requested resource parameters are created.
 
 #### Request
@@ -1741,8 +1741,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ## Resource Response
 
-### Query Resource Response
-- Query the header, request body item, and content type for each HTTP response status code.
+### Get Resource Response
+- Retrieves the header, request body item, and content type for each HTTP response status code.
 
 #### Request
 
@@ -1811,7 +1811,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | contentTypeList[0]                        | String  | Enter the content type (e.g., application/json) of the documents to send to the server.                                               |
 
 
-### Create Resource Response
+### Create Resource Responses
 - Existing resource responses are deleted, and header, request body items, and content type for each requested HTTP response status code are created.
 
 #### Request
@@ -1889,8 +1889,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ## Model
 
-### Query Model List
-- Query a list of models.
+### List Models
+- Retrieves a list of models.
 
 #### Request
 
@@ -1976,7 +1976,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Create Model
-- Create a model in JSON Schema format.
+- Creates a model in JSON Schema format.
 - Mode names cannot be duplicated.
 
 #### Request
@@ -2076,7 +2076,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Modify Model
-- Modify the description and schema of model
+- Modifies the description and schema of model.
 - Model name cannot be changed.
 
 #### Request
@@ -2175,7 +2175,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Delete Model
-- Delete a model.
+- Deletes a model.
 - If the model is referenced in a request parameter or response of a resource, the model cannot be deleted. To delete a model, please release the reference and then delete the model.
 
 #### Request
@@ -2209,8 +2209,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ## Stage
 
-### Query Stage List
-- Query a list of stages.
+### List Stages
+- Retrieves a list of stages.
 
 #### Request
 
@@ -2288,7 +2288,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Swagger Export
-- Query a Swagger document.
+- Retrieves a Swagger document.
 - Swagger documents are extracted based on the current stage settings, not the settings deployed in API Gateway.
 
 #### Request
@@ -2325,7 +2325,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Create Stage
-- Create a stage.
+- Creates a stage.
 
 #### Request
 
@@ -2484,7 +2484,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Delete Stage
-- Delete a stage.
+- Deletes a stage.
 - If the stage you want to delete is connected to a usage plan, it cannot be deleted. Disconnect the stage from the usage plan and delete it.
 - Deleted stages cannot be recovered.
 
@@ -2518,8 +2518,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 ```
 
 
-### Query Stage Resource List
-* Get a list of resources registered on the stage. The stage resource plugin information set for each resource is included.
+### List Stage Resources
+* Retrieves a list of resources registered on the stage. The stage resource plugin information set for each resource is included.
 * For more information about the stage resource plugin, see [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin).
 
 
@@ -2619,7 +2619,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Import Resources to Stage
-* Import API Gateway Service > Resources to stage.
+* Imports API Gateway Service > Resources to stage.
 * When a resource is imported, stage resources and stage resource plugins are all newly created.
 * Existing resource paths and stage resource plugin settings set in methods are maintained.
 * If no changes are found on the resource, no action is taken.
@@ -2720,7 +2720,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Modify Stage Resource
-* Modify the backend endpoint URL override and stage resource plugin set in the resource path or resource method.
+* Modifies the backend endpoint URL override and stage resource plugin set in the resource path or resource method.
 * When a stage resource is modified, all registered stage resource plugins are deleted, and only the requested resource plugin is newly registered.
 * For more information about the Stage Resource Plugin, see [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin).
 
@@ -3131,7 +3131,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Request Number Limit
-* Limit the number of requests per second.
+* Limits the number of requests per second.
 * It can be set in the root (/) resource path and the resource method.
 * By setting the request limit key, you can set a limit on the number of requests per IP, header, and path variable values.
 
@@ -3157,7 +3157,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ### API Key
 
-* Validate that the API Key is valid when calling the API, and verify whether the usage of the specified usage plan has been exceeded.
+* Validates that the API Key is valid when calling the API, and verify whether the usage of the specified usage plan has been exceeded.
 * It can be set in the root (/) resource path and the resource method.
 
 
@@ -3180,7 +3180,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Deploy Stage
-- Deploy the current stage resources and configurations to the API Gateway service.
+- Deploys the current stage resources and configurations to the API Gateway service.
 - If there is no changed configuration, the stage deployment request will fail.
 - If the stage deployment fails, it is restored to the previous successful stage deployment configuration.
 - After requesting stage deployment, you can check whether stage deployment was successful in [Query Result of Recent Stage Deployment](./api-guide-v1.0/#query-result-of-recent-stage-deployment).
@@ -3343,7 +3343,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
 ### Delete Stage Deployment History
-- Delete stage deployment history.
+- Deletes stage deployment history.
 - You cannot delete the current stage's base deployment history (if isBase is true) and the current API Gateway service's deployment history.
 
 #### Request
@@ -3378,7 +3378,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Query Stage Deployment History
-- Query the history of stage deployment in deployment success status.
+- Retrieves the history of stage deployment in deployment success status.
 
 #### Request
 
@@ -3448,7 +3448,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Rollback Stage
-- Rollback the current stage configuration to the deployed stage configuration history.
+- Rollbacks the current stage configuration to the deployed stage configuration history.
 - Note that all current stage configurations will be deleted when performing the stage rollback.
 - To apply the rolled back stage configurations to the API Gateway service, you must deploy the stage.
 - You cannot perform rollback with the deployment history in deployment failure state.
@@ -3529,7 +3529,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 ## API Document
 
 ### Query API Document
-- Query API document based on the deployed stage configuration.
+- Retrieves API document based on the deployed stage configuration.
 - The API document is returned as a JSON object that follows the [Swagger v2.0](https://swagger.io/specification/v2/) specification.
 - API document cannot be queried for undeployed stages, and a 404 Not Found response is returned.
 
@@ -3755,8 +3755,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ## API Key
 
-### Query API Key List
-- Query the list of API keys.
+### List API Keys
+- Retrieves the list of API keys.
 - If there are multiple request query parameters, a list that satisfies all conditions is returned.
 
 #### Request
@@ -3829,7 +3829,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apiKeyList[0].updatedAt         | DateTime | API Key modification date and time                                      |
 
 ### Create API Key
-- Generate API Key.
+- Generates an API Key.
 
 #### Request
 
@@ -3894,7 +3894,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Modify API Key
-- Modify the name, description, and status of the API key.
+- Modifies the name, description, and status of the API key.
 - If the API Key status is changed to INACTIVE, the API Key is deactivated and API calls are disabled.
 
 #### Request
@@ -3966,7 +3966,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Delete API Key
-- Delete the API key. A deleted API key cannot be recovered.
+- Deletes the API key. A deleted API key cannot be recovered.
 - If you have an API Key connected to a stage in your usage plan, you cannot delete the API Key. To delete it, you need to disconnect the API Key.
 
 #### Request
@@ -4064,8 +4064,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apiKey.createdAt         | DateTime | API Key creation date and time                                      |
 | apiKey.updatedAt         | DateTime | API Key modification date and time                                      |
 
-### Query list of API Keys that can be connected to stage
-- Query the list of API keys that can be connected to the stage.
+### List API Keys that can be connected to stage
+- Retrieves the list of API keys that can be connected to the stage.
 - If there are multiple request query parameters, a list that satisfies all conditions is returned.
 
 #### Request
@@ -4147,8 +4147,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ## Usage Plan
 
-### Query Usage Plan List
-- Query a list of usage plans.
+### List Usage Plans
+- Retrieves a list of usage plans.
 
 #### Request
 
@@ -4217,8 +4217,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 
-### Query Single Usage Plan
-- Query a single usage plan.
+### Get Usage Plan
+- Retrieves a single usage plan.
 
 #### Request
 
@@ -4273,7 +4273,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | usagePlan.updatedAt                 | DateTime | Usage plan modification date and time                                       |
 
 ### Create Usage Plan
-- Create a usage plan.
+- Creates a usage plan.
 
 #### Request
 
@@ -4342,7 +4342,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Modify Usage Plan
-- Modify a usage plan.
+- Modifies a usage plan.
 - If you modify the quota period unit to 'None', the request quota usage of the connected API keys is initialized.
 
 #### Request
@@ -4418,7 +4418,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Delete Usage Plan
-- Delete a usage plan.
+- Deletes a usage plan.
 - You can delete a usage plan after releasing all stages associated with the usage plan.
 
 #### Request
@@ -4450,8 +4450,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 ```
 
 
-### Query Stage List Associated with Usage Plan
-- Query a list of stages associated with the usage plan.
+### List Stages Associated with Usage Plan
+- Retrieves a list of stages associated with the usage plan.
 
 #### Request
 
@@ -4517,7 +4517,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Connect Stage to Usage Plan
-- Connect a stage to the usage plan.
+- Associates a stage with the usage plan.
 
 #### Request
 
@@ -4549,7 +4549,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 ```
 
 ### Disconnect Stage from Usage Plan
-- Disassociate the stage associated with the usage plan.
+- Disassociates the stage associated with the usage plan.
 - If an API Key connected to the stage exists, the stage cannot be disassociated.
 
 #### Request
@@ -4581,8 +4581,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
-### Query List of Usage Plans Associated with a Stage
-- Query the list of usage plans associated with the stage.
+### List Usage Plans Associated with Stage
+- Retrieves the list of usage plans associated with the stage.
 
 #### Request
 
@@ -4651,8 +4651,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ## API Key Subscription
 
-### Query API Key Subscription List
-- Query the list of stage and usage plan connected with API Key.
+### List API Key Subscriptions
+- Retrieves the list of stage and usage plan connected with API Key.
 
 #### Request
 
@@ -4737,8 +4737,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | subscribedStageAndUsagePlanList[0].quotaLimit                | Integer | Request quota per quota period unit                                |
 
 
-### Query List of API Keys Subscribing to a Stage in the Usage Plan
-- Query the list of API Keys connected to the stage of the usage plan.
+### List API Keys Subscribing to a Stage in the Usage Plan
+- Retrieves the list of API Keys connected to the stage of the usage plan.
 - If there are multiple request query parameters, a list that satisfies all conditions is returned.
 
 #### Request
@@ -4819,7 +4819,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Subscribe to API Key (Connect API Key)
-- Connect the requested API Key list to the stage of your usage plan.
+- Connects the requested API Key list to the stage of your usage plan.
 - Only the connected API Key will succeed in API Key authentication, and the usage limit of the usage plan will be applied.
 - API Keys connected to the same stage in different usage plans cannot be connected.
 
@@ -4895,7 +4895,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Unsubscribe from API Key (Disconnect API Key)
-- Disconnect the list of API Keys requested by the stage of the usage plan.
+- Disconnects the requested API Key list from the stage of your usage plan.
 - Disconnected API Key fails API Key authentication, causing API calls to fail.
 
 #### Request
@@ -4992,7 +4992,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 ## Statistics
 
 ### Query by Stage Resource
-- Query statistics data for each resource during the query period.
+- Retrieves statistics data for each resource during the query period.
 
 
 #### Request
@@ -5095,7 +5095,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Query by API Key
-- Query daily statistics by API Key.
+- Retrieves daily statistics by API Key.
 
 
 #### Request
