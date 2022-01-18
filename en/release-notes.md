@@ -4,16 +4,16 @@
 #### Feature Updates 
 * Changed so that, if there is a plugin set in the resource path, the plugin set in the resource path is added when a child method is created.
 * Added Public APIs related to resource creation and modification.
-  * [Create Resource Paths and Methods API]()
-  * [Create Resource Methods API]()
-  * [Modify Plugins in Resource Path API]()
-  * [Modify Resource Method Information and Plugins API]()
+    * [Create Resource Paths and Methods API]()
+    * [Create Resource Methods API]()
+    * [Modify Plugins in Resource Path API]()
+    * [Modify Resource Method Information and Plugins API]()
 * Added statistics API response fields
-  * Added the metricsLatestUpdatedAt field to the response of the statistics API, which indicates the last updated date and time of statistics data.
-  * Added the timeUnit field to the response of the Query by API Key API, which indicates the time unit of statistics data.
-  * For more information, see [API v1.0 Guide > Statistics > Query by Stage Resource](./api-guide-v1.0/#query-by-stage-resource), [API v1.0 Guide > Statistics > Query by API Key](./api-guide-v1.0/#query-by-api-key).
+    * Added the metricsLatestUpdatedAt field to the response of the statistics API, which indicates the last updated date and time of statistics data.
+    * Added the timeUnit field to the response of the Query by API Key API, which indicates the time unit of statistics data.
+    * For more information, see [API v1.0 Guide > Statistics > Query by Stage Resource](./api-guide-v1.0/#query-by-stage-resource), [API v1.0 Guide > Statistics > Query by API Key](./api-guide-v1.0/#query-by-api-key).
 * Added restriction on the range of ports available for pre-call API's endpoints and backend endpoints.
-  * Available port numbers: 80, 443, 5000-12000
+    * Available port numbers: 80, 443, 5000-12000
 
 
 ### November 23, 2021

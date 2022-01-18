@@ -711,7 +711,7 @@ This can be used in a situation where authentication through a separate API call
     - Pre-call API set for the method will be applied when calling the said method, but Pre-call API set for the root path will not be applied.
 4. Activate (On) the Pre-Call API.
     - Enter the method type and URL for Pre-call API.
-      - If you specify the port directly in the URL, only ports 80, 443, 5000-12000 can be used.	
+        - If you specify the port directly in the URL, only ports 80, 443, 5000-12000 can be used.	
     - Cache time limit can be set to 86400 sec at maximum, and the response results are cached for the period specified by the entered number (sec).
     - If the cache time limit it set to 0, response results for Pre-call API will not be cached and Pre-call API will be called for every request.
   
