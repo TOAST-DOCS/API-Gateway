@@ -433,6 +433,7 @@ Stage is a phase where resources are deployed.
         - You must include the scheme (http:// or https://) when writing the URL.
         - You may enter domain address only or include the sub-path when writing it.
             - e.g. https://api.nhn.com , https://api.nhn.com/apis
+        - If you specify the port directly in the URL, only ports 80, 443, 5000-12000 can be used.
 
 
 > **[Note] Stage** 
@@ -687,6 +688,7 @@ Verifies the signature and claim of JWT token. Token values can be used without 
 > For more details and specifications on JWK, please refer to the [RFC7515](https://tools.ietf.org/html/rfc7517) document.
 > The selected JWKS URI must be disclosed so that the API Gateway can access it, and should not be blocked with networks, firewalls, etc.
 > The selected JWKS URI must be operated so that the API Gateway can always access it. 
+> If you specify the port directly in the JWKS URI, only ports 80, 443, 5000-12000 can be used.
 >
 > **[Caution] JWKS Caching**
 > API Gateway caches JWKS URI's response for 5 minutes.
@@ -709,6 +711,7 @@ This can be used in a situation where authentication through a separate API call
     - Pre-call API set for the method will be applied when calling the said method, but Pre-call API set for the root path will not be applied.
 4. Activate (On) the Pre-Call API.
     - Enter the method type and URL for Pre-call API.
+      - If you specify the port directly in the URL, only ports 80, 443, 5000-12000 can be used.	
     - Cache time limit can be set to 86400 sec at maximum, and the response results are cached for the period specified by the entered number (sec).
     - If the cache time limit it set to 0, response results for Pre-call API will not be cached and Pre-call API will be called for every request.
   
@@ -728,6 +731,7 @@ To Override the backend endpoint URL concerning certain path or method, set up t
     - Writes the backend endpoint URL to which the request received by API Gateway is to be pass.
     - Can include the sub-path in it.
         - e.g. https://api.nhn.com , https://api.nhn.com/apis
+    - If you specify the port directly in the URL, only ports 80, 443, 5000-12000 can be used.
 
 ### Request Number Limit
 
