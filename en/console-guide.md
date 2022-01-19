@@ -47,10 +47,10 @@ Resource manages the resource path and method of the API.
         - **{variable}** declares the value of the path where the path variable is located.
             - e.g./members/{memberId} 
                 - **{memberId}** path variable value of /members/id1 request becomes **id1**.
-        - **{variable+}** includes the child path where the path variable is located to declare a variable. A sub resource path cannot be created in the variable containing the child path.
+        - **{variable+}** includes the child path where the path variable is located to declare a variable. A child resource path cannot be created in the variable containing the child path.
             - e.g./{proxy+} 
                 - **{proxy+}** path variable value of **/members/id1** becomes **members/id1**.
-- **Plugin**: Check this box if you want to add a plugin that is added to the selected path to the created method as well.
+- **Plugin**: Select this option if you want to add a plugin that is added to the selected path to the created method as well.
 - To create a resource and register a method at the same time, select HTTP method.
 - If you make a request to API Gateway with an unregistered resource path, 404 Not Found response is returned.
 
@@ -185,7 +185,7 @@ You can bring the resource through the file format of Swagger v2.0 [OpenAPI Spec
 ### Create Method
 - Create **HTTP Method** under the selected resource path. 
     - Supported HTTP methods: HEAD, OPTIONS, GET, POST, PUT, DELETE, PATCH
-- **Method Name**: Canonical name of the method. The name is displayed as a description on the resource tree screen
+- **Method Name**: Canonical name of the method. The name is displayed as a description on the resource tree screen.
 - **Method Description**: It is a description about the method.
 - **Backend endpoint type**
     - HTTP(S): Passes API requests received by API Gateway to the defined backend endpoint URL path.
@@ -201,7 +201,7 @@ You can bring the resource through the file format of Swagger v2.0 [OpenAPI Spec
     - Response body: Enter the response body.
     - Context variables created by the resources can be set for the header. (For more information on context variables, see [Context Variables](./console-guide/#context-variables).)
 
-- **Plugin**: Check this box if you want to add a plugin that is added to the selected path to the created method as well.
+- **Plugin**: Select this option if you want to add a plugin that is added to the selected path to the created method as well.
 - If you request an unregistered HTTP method to API Gateway, 404 Not Found response is returned.
 
 > **[Note] Resource methods creation limit** 
@@ -226,8 +226,8 @@ You can bring the resource through the file format of Swagger v2.0 [OpenAPI Spec
 - To delete, click the **Confirm** button. Once deleted, data cannot be recovered.
 
 
-> **[Caution] Resource path deletion**
-> If you delete a resource path, all of its sub resource paths and methods of the selected resource path are deleted as well.
+> **[Caution] Deletion of resource path**
+> If you delete a resource path, all child resource paths and methods of the selected resource path are deleted.
 
 > **[Note] Deletion of OPTIONS method registered by CORS plugin**
 >  OPTIONS method registered by CORS plugin cannot be deleted.
@@ -252,7 +252,7 @@ Plugin allows you to add additional functions provided by API Gateway.
 
 - **Where to apply plugins**
     - Plugins can be added to the resource path or method.
-    - When you add a plugin to a resource path, the plugin is batch applied to the sub methods in the selected path.
+    - When you add a plugin to a resource path, the plugin is batch applied to the child methods of the selected path.
     - When you add a plugin to a method, the plugin is applied to the selected method only.
 - **Steps for applying plugins**
     - Plugins can be applied during the **Backend Request Pre-Task** and **Frontend Response Pre-Task** steps.
@@ -262,12 +262,12 @@ Plugin allows you to add additional functions provided by API Gateway.
     - Click the **+ Plugin** button for the backend request pre-task and frontend response pre-task.
         1. Click the plugin to add.
         2. Enter necessary information in the plugin settings and click the **Add** button.
-        3. To batch apply the plugin to the child path and method (including the selected path), check the **Overwrite Child Path and Method** box.
+        3. To batch apply the plugin to the child path and method (including the selected path), select **Overwrite Child Path and Method**.
             - **!Caution**: If the plugin is already registered in the child path and method, the settings will be overwritten.
         4. Click the **Save Changes** button. 
 - **Delete Plugin**
     1. Select the registered plugins for the backend request pre-task and frontend response pre-task.
-    2. To batch delete the plugin from the child path and method (including the selected path), check the **Overwrite Child Path and Method** box.
+    2. To batch delete the plugin from the child path and method (including the selected path), select **Overwrite Child Path and Method**.
     3. Click the **Delete** button.
     4. Click the **Save Changes** button. 
 
@@ -326,12 +326,12 @@ The variables defined below can be used when creating methods of resources or se
 
 | Context Variables | Description |
 | -- | -- |
-| ${request.clientIp} | IP of client requesting API |
-| ${request.path.variable-name} | Refer to the value of a single path variable {variable-name} value declared by the resource |
-| ${request.path.variable-name+} | Refer to the value of path variable {variable-name+} value including subpaths declared by the resource |
+| ${request.clientIp} | IP of the client that requested API |
+| ${request.path.variable-name} | Reference the value of a single path variable {variable-name} declared by the resource |
+| ${request.path.variable-name+} | Reference the value of the path variable including child paths {variable-name+} declared by the resource |
 
 > **[Caution] Path Variables**
-> Can only use the path variable declared in the selected path and parent path.
+> You can only use the path variables declared in the selected path and its parent path.
 
 ##  Plugin 
 ### CORS 
@@ -353,7 +353,7 @@ Allows you to call XMLHttpRequest API within the Cross-Site method.
 
 > **[Caution] CORS plugin**
 > - Registering the CORS plugin also registers the OPTIONS method to the method of the selected path.
->	If you checked the Overwrite Child Path and Method box, it is also registered in the child path as well.
+>	If you selected the Overwrite Child Path and Method option, it is also registered in the child path.
 >	If the OPTIONS method is already registered, it is replaced with the OPTIONS method automatically generated by CORS.
 > - The OPTIONS method registered through the CORS plugin cannot be selected from the resource tree. Also, it cannot be modified or deleted.
 > - If the CORS plugin gets deleted, the OPTIONS method auto-generated by the CORS plugin is batch deleted. 
@@ -406,7 +406,7 @@ Example: If the parameter name and value are set to 'name' and 'value', **name=v
 Stage is a phase where resources are deployed. 
 
 - A unique Stage URL is issued per stage. 
-- Stages can be used to categorize services by each service or environment (profile) or used for other purposes as well.
+- Stages can be used to categorize services by each service or environment (profile) or used for other purposes.
 
 
 ### Create Stage
@@ -514,7 +514,7 @@ API Gateway requests can be allowed/denied for the client IDs specified through 
 1. On the **Stage** tab, select a stage.
 2. Select the **Setup** tab. 
 3. Select the Stage root(/) path on the Stage Tree screen. 
-4. **Activate(On)** the IP ACL. 
+4. **Activate (On)** the IP ACL. 
 5. Set up the IP ACL. 
     - **IP Access Control Type**
         - Allow: Only allow access of specific IPs, and deny all the other IPs. (Whitelist method)
@@ -636,7 +636,7 @@ x-nhn-date:2021-02-23T00:00:00+09:00
 > - Headers defined in headers must be included when generating SignToString.
 > - If the defined header is missing from the headers, [header name] and [header value] are not included in the SignToString generation.
 > - SignToString must be generated in the order defined in the headers.
->     - e.g. If headers="header1, header2", the headers must be added in the order of header1, header2 when generating the SignToString as well.
+>     - e.g. If headers="header1, header2", the headers must be added in the order of header1, header2 when generating the SignToString.
 > - The entire header name of the SignToString must be changed to lowercase before generating it. 
 >     - e.g. X-NHN-Header →  x-nhn-header
 > - If there are a number of header values, they must be separated by commas (,) when writing them. 
@@ -665,8 +665,8 @@ Verifies the signature and claim of JWT token. Token values can be used without 
         - **Data Type and Claim Value**:
             - Array: Enter multiple strings separated by commas (,). If the string array contains at least one claim value of the request token, the verification succeeds.
             - String: Enter a single string. If it matches the claim value of the request token, the verification succeeds.
-        - **Required**: Verification fails if claims do not exist in the request token when selected. You cannot check/uncheck a disabled checkbox.
-        - **Value Verification**: If a claim exists in the request token when selected, verification will proceed to check whether the set claim value includes or matches the claim or not. You cannot check/uncheck a disabled checkbox.
+        - **Required**: Verification fails if claims do not exist in the request token when selected. A disabled checkbox cannot be selected or cleared.
+        - **Value Verification**: If a claim exists in the request token when selected, verification will proceed to check whether the set claim value includes or matches the claim or not. A disabled checkbox cannot be selected or cleared.
     - **Verification Time Limit (sec)**: Apply verification time limit to verify exp and nbf claims of the request token. You can enter any number between 0 and 86,400 (sec).
 6. Deploy the stage.
 7. When requesting API Gateway, first add a JWT token to the Authorization Header and then make a request.
@@ -706,16 +706,16 @@ This can be used in a situation where authentication through a separate API call
 
 1. On the **Stage** tab, select a stage.
 2. Select the **Setup** tab. 
-3. In the Stage Tree screen, select path or method to apply to the Pre-Call API.
-    - Pre-call API set for the path will be applied to all subdefined subpaths and submethods.
-    - Pre-call API set for the method will be applied when calling the said method, but Pre-call API set for the root path will not be applied.
-4. Activate (On) the Pre-Call API.
+3. In the Stage Tree screen, select the path or method to apply the Pre-call API.
+    - Pre-call API set in a path is applied to all child paths and method calls defined under the path.
+    - Pre-call API set in a method is applied when calling the method, but Pre-call API set in the root path is not applied.
+4. Activate the Pre-call API.
     - Enter the method type and URL for Pre-call API.
         - If you specify the port directly in the URL, only ports 80, 443, 5000-12000 can be used.	
-    - Cache time limit can be set to 86400 sec at maximum, and the response results are cached for the period specified by the entered number (sec).
+    - Cache time limit can be set to 86400 sec at maximum, and the response results are cached for the period specified by the entered number (seconds).
     - If the cache time limit it set to 0, response results for Pre-call API will not be cached and Pre-call API will be called for every request.
   
-> **[Note] Response Result Caching for Pre-Call API**
+> **[Note] Response Result Caching for Pre-call API**
 > Response results are only cached if Pre-call API’s response result code is 200.
 > If the response result code is not 200, response results will not be cached even if the cache time limit is set.
 
@@ -773,11 +773,12 @@ When making an API request to API Gateway, it is restricted to only the specifie
 > **[Note] API key failure response**
 > The API request is rejected when the API key value is not included in the requested header, of its invalid, or exceeds the usage limit.
 > For more information, see the [Gateway Error Code](./error-code/) document.
+
 1. On the **Stage** tab, select a stage.
 2. Select the **Settings** tab.
 3. Select the path or method to enable API key in the stage tree screen.
-   - The API key set in the path is applied to all sub-defined child paths and method calls.
-4. Enable(on) the API key.
+   - The API key set in a path is applied to all child paths and method calls defined under the path.
+4. Enable the API key.
 5. Deploy the stage.
 6. When requesting API, it is requested by adding the API key value to the x-nhn-apikey header.
 
