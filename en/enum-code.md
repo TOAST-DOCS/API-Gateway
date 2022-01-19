@@ -12,8 +12,8 @@ This document describes Enum codes referenced in the API v1.0 guide.
 
 
 ### API Gateway Service Type
-- The service type of API Gateway according to the Shared or Dedicated type.
-- Currently, only Shared API Gateway service type is supported.
+- The service type of API Gateway according to the Shared or Dedicated type. 
+- Currently, only Shared API Gateway service type is supported. 
 
 | Name | Description |
 | --- | --- |
@@ -37,14 +37,14 @@ This document describes Enum codes referenced in the API v1.0 guide.
 ### Resource Plugin Type
 - A plugin type that can be set for resources.
 
-| Name | Description |
-| --- | --- |
-| HTTP | Forwards a API request received by API Gateway to the defined backend endpoint URL path. |
-| MOCK | Returns a defined response to a request received by API Gateway. | 
-| CORS | Allows XMLHttpRequest API calls within a cross-site method. | 
-| SET_REQUEST_HEADER | Adds or changes the request header.  | 
-| SET_RESPONSE_HEADER | Adds the header to a backend response or changes the header. | 
-| ADD_REQUEST_QUERY_PARAMETER | Adds a query string parameter to the backend endpoint request.   | 
+| Name | Description | Where the plugin can be applied |
+| --- | --- | --- |
+| HTTP | Forwards a API request received by API Gateway to the defined backend endpoint URL path. | Method |
+| MOCK | Returns a defined response to a request received by API Gateway. | Method |
+| CORS | Allows XMLHttpRequest API calls within a cross-site method. | Resource path |
+| SET_REQUEST_HEADER | Adds or changes the request header. | Resource path, method |
+| SET_RESPONSE_HEADER | Adds the header to a backend response or changes the header. | Resource path, method |
+| ADD_REQUEST_QUERY_PARAMETER | Adds a query string parameter to the backend endpoint request. | Resource path, method |
 
 
 ### Resource Request/Response Parameter Data Type
@@ -62,19 +62,19 @@ This document describes Enum codes referenced in the API v1.0 guide.
 
 
 ### Stage Resource > Plugin Type
-- A plugin type that can be configured on the stage resource path or method.
+- A plugin type that can be configured on the stage resource path or method. 
 
-| Name | Description |
-| --- | --- |
-| IP_ACL | IP access control plugin | 
-| HMAC | HMAC request validation plugin |
-| JWT | JWT token validation plugin | 
-| API_KEY | API Key validation plugin | 
-| PRE_API | Pre-call API plugin  | 
-| RATE_LIMIT | Request number limit plugin | 
+| Name | Description | Where the plugin can be applied |
+| --- | --- | --- |
+| IP_ACL | IP access control plugin | Root (/) resource path |
+| HMAC | HMAC request validation plugin | Root (/) resource path |
+| JWT | JWT token validation plugin | Root (/) resource path |
+| API_KEY | API Key validation plugin | Resource path, method |
+| PRE_API | Pre-call API plugin | Resource path, method |
+| RATE_LIMIT | Request number limit plugin | Method |
 
 
-### JWT > Encryption Algorithm
+### JWT > Encryption Algorithm 
 - The encryption algorithm used to sign the JWT token.
 
 | Name | Description |
@@ -83,7 +83,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | RS256 | An asymmetric key algorithm, which uses public/private keys to sign tokens using the RSA256 (RSA Signature with SHA-256) algorithm. | 
 
 
-### JWT > Claim Data Type
+### JWT > Claim Data Type 
 - The data type of the JWT claim.
 
 | Name | Description |
@@ -93,7 +93,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | NumericDate | A data type representing the number of seconds from 1970-01-01T00:00:00Z UTC to the specified UTC date/time, ignoring milliseconds. |
 
 
-### JWT > RS256 Encryption Algorithm > Public Key Type
+### JWT > RS256 Encryption Algorithm > Public Key Type 
 - RS256 uses a public/private key based encryption algorithm. Set the public key setting method.
 
 | Name | Description |
@@ -134,7 +134,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 
 ### API Key Status
 - The status of the API Key.
-- A deactivated API key fails to authenticate the API key, making API calls impossible.
+- A deactivated API key fails to authenticate the API key, making API calls impossible. 
 
 | Name | Description |
 | --- | --- |
@@ -143,7 +143,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 
 
 ### API Key Type
-- The types of Primary API Key and Secondary API Key of the issued API Key.
+- The types of Primary API Key and Secondary API Key of the issued API Key. 
 
 | Name | Description |
 | --- | --- |
@@ -157,3 +157,13 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | Name | Description |
 | --- | --- |
 | APPROVAL | Approved status | 
+
+### Statistics Data Time Unit
+- The unit of time for which statistics data is collected
+
+| Name | Description |
+| --- | --- |
+| ONE_MINUTES | Collects statistics data at 1 minute intervals  | 
+| TEN_MINUTES | Collects statistics data at 10 minute intervals | 
+| ONE_HOURS | Collects statistics data at 1 hour intervals | 
+| ONE_DAYS | Collects statistics data at daily intervals | 

@@ -80,10 +80,11 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 * If an invalid API request is made, detailed error reason and field information is responded in the errorList field.
 
+
 ## API Gateway Service
 
-### Query API Gateway Service List
-- Query the list of API Gateway services.
+### List API Gateway Services
+- Retrieves the list of API Gateway services.
 
 #### Request
 
@@ -157,8 +158,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |apigwServiceList[0].updatedAt           |DateTime| API Gateway service modification date and time                                      |
 
 
-### Query Single API Gateway Service
-- Query a single API Gateway service by API Gateway service ID.
+### Get API Gateway Service
+- Retrieves a single API Gateway service with API Gateway service ID.
 
 #### Request
 
@@ -222,7 +223,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Create API Gateway Service
-- Create an API Gateway service.
+- Creates an API Gateway service.
 - You can choose the region where the API Gateway server will be created. Currently, only the Korea (Pangyo) region is supported.
 - When you create an API Gateway service, an API Gateway service ID is automatically issued.
 
@@ -289,7 +290,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |apigwService.apigwServiceTypeCode|Enum    | See [API Gateway Service Type Enum Code](./enum-code/#api-gateway-service-type) |
 |apigwService.appKey              |String  | AppKey                                        |
 |apigwService.dedicatedId         |String  | ID of the dedicated API Gateway service                        |
-|apigwService.apigwServiceDescription      | String  | Service description                                        |
+|apigwService.apigwServiceDescription         |String  | Service description                                        |
 |apigwService.apigwServiceName    |String  | API Gateway service name                                        |
 |apigwService.regionCode          |Enum    | See [API Gateway Region Enum Code](./enum-code/#api-gateway-region)|
 |apigwService.serverGroupId       |String  | ID of the server group to which the API Gateway service belongs                              |
@@ -298,7 +299,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Modify API Gateway Service
-- Modify the name and description of an API Gateway service.
+- Modifies the name and description of an API Gateway service.
 
 #### Request
 
@@ -375,7 +376,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |apigwService.updatedAt           |DateTime|Service modification date and time                                      |
 
 ### Delete API Gateway Service
-- Delete API Gateway Service
+- Deletes an API Gateway Service.
 - Deleting the API Gateway service deletes all stages.
 - If the stage of the API Gateway service you want to delete is associated with a usage plan, the service cannot be deleted. To delete the service, disassociate all stages associated with the usage plan and then delete it.
 - Please note that deleted API Gateway services cannot be recovered.
@@ -410,16 +411,16 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ## Resource
 
-### Query Resource
+### List Resources
 
-- Query a list of resources.
+- Retrieves a list of resources.
 
 #### Request
 
 [URI]
 
-| Method | URI | 
-| --- | --- | 
+| Method | URI |
+| --- | --- |
 | GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
 
 [Path Parameter]
@@ -508,13 +509,750 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourceList[2].resourcePluginList[0].createdAt        | DateTime | Resource plugin creation date and time                                  |
 | resourceList[2].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
 
+### Create Resource Paths and Methods
+- You can create multiple resource paths and methods, and set the plugin at the time of creation.
+- Resource methods are optional input. To add a method under the created resource path, you need to use the [Create Resource Methods]() API.
+- Resource methods must have either HTTP or MOCK plugin set. HTTP and MOCK plugins cannot be set at the same time.
+- The created resource path cannot be modified.
+- The resource path plugins defined in the pathPluginList field are the list of plugins that are applied to child methods of that path.
+
+#### Request
+
+[URI]
+
+| Method | URI |
+| --- | --- |
+| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
+
+[Path Parameter]
+
+| Name             | Type     | Required | Default value | Valid range | Description                 |
+| -------------- | ------ | ----- | --- | ----- | ------------------ |
+| apigwServiceId | String | Required    | N/A  | N/A    | API Gateway service ID |
+
+
+[Request Body]
+
+```json
+{
+   "resourcePathList":[
+      {
+         "path":"/members/{memberId}",
+         "pathPluginList":[
+            {
+               "pluginConfigJson":{
+                  "allowedMethods":[
+                     "GET",
+                     "POST",
+                     "DELETE",
+                     "PUT",
+                     "OPTIONS",
+                     "HEAD",
+                     "PATCH"
+                  ],
+                  "allowedHeaders":[
+                     "*"
+                  ],
+                  "allowedOrigins":[
+                     "*"
+                  ],
+                  "exposedHeaders":[
+
+                  ],
+                  "maxCredentialsAge":null,
+                  "allowCredentials":false
+               },
+               "pluginType":"CORS"
+            }
+         ],
+         "methodList":[
+            {
+               "methodDescription":"Edit a member information",
+               "methodName":"PutMember",
+               "methodPluginList":[
+                  {
+                     "pluginConfigJson":{
+                        "frontendEndpointPath":"/members/{memberId}",
+                        "backendEndpointPath":"/api/v1/members/${request.path.memberId}"
+                     },
+                     "pluginType":"HTTP"
+                  }
+               ],
+               "methodType":"PUT"
+            },
+            {
+               "methodDescription":"Query a member",
+               "methodName":"GetMember",
+               "methodPluginList":[
+                  {
+                     "pluginConfigJson":{
+                        "frontendEndpointPath":"/members/{memberId}",
+                        "backendEndpointPath":"/api/v1/members/${request.path.memberId}"
+                     },
+                     "pluginType":"HTTP"
+                  },
+                  {
+                     "pluginConfigJson":{
+                        "parameters":{
+                           "id":"${request.path.memberId}"
+                        }
+                     },
+                     "pluginType":"ADD_REQUEST_QUERY_PARAMETER"
+                  }
+               ],
+               "methodType":"GET"
+            }
+         ]
+      }
+   ]
+}
+```
+
+| Name | Type | Required | Default value | Valid range | Description |
+| --- | --- | --- | --- | --- | --- |
+| resourcePathList | List | Required | N/A | N/A  | Resource path list |
+| resourcePathList[0] | Object | Required | N/A | N/A  | Resource path area |
+| resourcePathList[0].path | Object | Required | N/A | A valid path consisting of alphanumeric characters, path variables, and limited characters (. + - /)  | Resource path |
+| resourcePathList[0].pathPluginList | List | Optional | N/A | N/A | Resource path plugin list |
+| resourcePathList[0].pathPluginList[0] | Object | Optional | N/A | N/A | Resource path plugin area |
+| resourcePathList[0].pathPluginList[0].pluginType | Enum | Required | N/A | {pluginCode} CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | The plugin type that can be set in the resource path among [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type) |
+| resourcePathList[0].pathPluginList[0].pluginConfigJson | Object | Required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin)|
+| resourcePathList[0].methodList | List | Optional | N/A | N/A | List of methods under the resource path |
+| resourcePathList[0].methodList[0] | Object | Optional | N/A | N/A | Area for methods under the resource path |
+| resourcePathList[0].methodList[0].methodType | Enum | Required | N/A | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | See [HTTP Method Type Enum Code](./enum-code/#http-method-type) |
+| resourcePathList[0].methodList[0].methodName | String | Required | N/A | Max. 50 characters | Method name |
+| resourcePathList[0].methodList[0].methodDescription | String | Optional | N/A | Max. 200 characters | Method description |
+| resourcePathList[0].methodList[0].methodPluginList | List | Required | N/A | N/A | Resource method plugin list |
+| resourcePathList[0].methodList[0].methodPluginList[0] | Object | Required | N/A | N/A | Resource method plugin area, requires input of one of the 'HTTP' or 'MOCK' plugin |
+| resourcePathList[0].methodList[0].methodPluginList[0].pluginType | Enum | Required | N/A | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | The plugin type that can be set in the resource method among [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type) |
+| resourcePathList[0].methodList[0].methodPluginList[0].pluginConfigJson | Object | Required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin)|
+
+#### Response
+
+[Response]
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "resourceList": [
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members",
+      "methodType": null,
+      "methodName": null,
+      "methodDescription": null,
+      "createdAt": "2021-12-23T23:55:11.297Z",
+      "updatedAt": "2021-12-23T23:55:11.297Z",
+      "resourcePluginList": [],
+      "parentPath": "/"
+    },
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members/{memberId}",
+      "methodType": null,
+      "methodName": null,
+      "methodDescription": null,
+      "createdAt": "2021-12-23T23:55:11.298Z",
+      "updatedAt": "2021-12-23T23:55:11.298Z",
+      "resourcePluginList": [
+        {
+          "resourcePluginId": "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "CORS",
+          "pluginConfigJson": {
+            "allowedMethods": [
+              "GET",
+              "POST",
+              "DELETE",
+              "PUT",
+              "OPTIONS",
+              "HEAD",
+              "PATCH"
+            ],
+            "allowedHeaders": [
+              "*"
+            ],
+            "allowedOrigins": [
+              "*"
+            ],
+            "exposedHeaders": [],
+            "maxCredentialsAge": null,
+            "allowCredentials": false
+          },
+          "createdAt": "2021-12-23T23:55:11.298Z",
+          "updatedAt": "2021-12-23T23:55:11.298Z"
+        }
+      ],
+      "parentPath": "/members"
+    },
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members/{memberId}",
+      "methodType": "PUT",
+      "methodName": "PostMember",
+      "methodDescription": "Edit a member info",
+      "createdAt": "2021-12-23T23:55:11.300Z",
+      "updatedAt": "2021-12-23T23:55:11.300Z",
+      "resourcePluginList": [
+        {
+          "resourcePluginId": "24bef5d0-feaf-4469-9619-a31e9e35a622",
+          "resourceId": "{resourceId}",
+          "pluginType": "HTTP",
+          "pluginConfigJson": {
+            "frontendEndpointPath": "/members/{memberId}",
+            "backendEndpointPath": "/api/v1/members/${request.path.memberId}"
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        },
+        {
+          "resourcePluginId": "321d99cc-cb26-473e-ab76-84249a82b262",
+          "resourceId": "{resourceId}",
+          "pluginType": "CORS",
+          "pluginConfigJson": {
+            "allowedMethods": [
+              "GET",
+              "POST",
+              "DELETE",
+              "PUT",
+              "OPTIONS",
+              "HEAD",
+              "PATCH"
+            ],
+            "allowedHeaders": [
+              "*"
+            ],
+            "allowedOrigins": [
+              "*"
+            ],
+            "exposedHeaders": [],
+            "maxCredentialsAge": null,
+            "allowCredentials": false
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        }
+      ],
+      "parentPath": "/members/{memberId}"
+    },
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members/{memberId}",
+      "methodType": "GET",
+      "methodName": "GetMember",
+      "methodDescription": "Query a member",
+      "createdAt": "2021-12-23T23:55:11.300Z",
+      "updatedAt": "2021-12-23T23:55:11.300Z",
+      "resourcePluginList": [
+        {
+          "resourcePluginId":  "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "HTTP",
+          "pluginConfigJson": {
+            "frontendEndpointPath": "/members/{memberId}",
+            "backendEndpointPath": "/api/v1/members/${request.path.memberId}"
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        },
+        {
+          "resourcePluginId":  "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "ADD_REQUEST_QUERY_PARAMETER",
+          "pluginConfigJson": {
+            "parameters": {
+              "id": "${request.path.memberId}"
+            }
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        },
+        {
+          "resourcePluginId": "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "CORS",
+          "pluginConfigJson": {
+            "allowedMethods": [
+              "GET",
+              "POST",
+              "DELETE",
+              "PUT",
+              "OPTIONS",
+              "HEAD",
+              "PATCH"
+            ],
+            "allowedHeaders": [
+              "*"
+            ],
+            "allowedOrigins": [
+              "*"
+            ],
+            "exposedHeaders": [],
+            "maxCredentialsAge": null,
+            "allowCredentials": false
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        }
+      ],
+      "parentPath": "/members/{memberId}"
+    },
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members/{memberId}",
+      "methodType": "OPTIONS",
+      "methodName": "CORS",
+      "methodDescription": null,
+      "createdAt": "2021-12-23T23:55:11.300Z",
+      "updatedAt": "2021-12-23T23:55:11.300Z",
+      "resourcePluginList": [
+        {
+          "resourcePluginId": "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "CORS",
+          "pluginConfigJson": {
+            "allowedMethods": [
+              "GET",
+              "POST",
+              "DELETE",
+              "PUT",
+              "OPTIONS",
+              "HEAD",
+              "PATCH"
+            ],
+            "allowedHeaders": [
+              "*"
+            ],
+            "allowedOrigins": [
+              "*"
+            ],
+            "exposedHeaders": [],
+            "maxCredentialsAge": null,
+            "allowCredentials": false
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        }
+      ],
+      "parentPath": "/members/{memberId}"
+    }
+  ]
+}
+```
+
+| Field                                                     | Type       | Description                                             |
+| ------------------------------------------------------ | -------- | ---------------------------------------------- |
+| resourceList                                           | List     | Resource list area                                      |
+| resourceList[1].resourceId                             | String   | Resource ID                                         |
+| resourceList[1].apigwServiceId                         | String   | API Gateway service ID                             |
+| resourceList[1].path                                   | String   | Resource path                                         |
+| resourceList[1].parentPath                             | String   | Parent resource path                                         |
+| resourceList[1].createdAt                              | DateTime | Resource creation date and time                                       |
+| resourceList[1].updatedAt                              | DateTime | Resource modification date and time                                       |
+| resourceList[1].methodType                             | Enum     | See [HTTP Method Type Enum Code](./enum-code/#http-method-type) |
+| resourceList[1].methodName                             | String   | Method resource name                                     |
+| resourceList[1].methodDescription                      | String   | Method resource description                                     |
+| resourceList[1].resourcePluginList                     | List     | Resource plugin list area                                 |
+| resourceList[1].resourcePluginList[0].resourcePluginId | String   | Resource plugin ID                                    |
+| resourceList[1].resourcePluginList[0].resourceId       | String   | Resource ID                                         |
+| resourceList[1].resourcePluginList[0].pluginType       | Enum     | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type)    |
+| resourceList[1].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin)                   |
+| resourceList[1].resourcePluginList[0].createdAt        | DateTime | Resource plugin creation date and time                                  |
+| resourceList[1].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
+
+
+### Create Resource Methods
+- Creates resource methods under the created resource path.
+- Resource methods must have either HTTP or MOCK plugin set. HTTP and MOCK plugins cannot be set at the same time.
+
+#### Request
+
+[URI]
+
+| Method | URI |
+| --- | --- |
+| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/methods |
+
+[Path Parameter]
+
+| Name             | Type     | Required | Default value | Valid range | Description                 |
+| -------------- | ------ | ----- | --- | ----- | ------------------ |
+| apigwServiceId | String | Required    | N/A  | N/A    | API Gateway service ID |
+| resourceId | String | Required    | N/A  | N/A    | Resource path ID |
+
+
+[Request Body]
+
+```json
+{
+  "methodList": [
+    {
+      "methodType": "DELETE",
+      "methodName": "DeleteMember",
+      "methodDescription": "Delete a member",
+      "methodPluginList": [
+        {
+          "pluginType": "HTTP",
+          "pluginConfigJson": {
+            "frontendEndpointPath": "/members/{memberId}",
+            "backendEndpointPath": "/api/v1/members/${request.path.memberId}"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+| Name | Type | Required | Default value | Valid range | Description |
+| --- | --- | --- | --- | --- | --- |
+| methodList | List | Required | N/A | N/A | List of methods under the resource path |
+| methodList[0] | Object | Required | N/A | N/A | Area for methods under the resource path |
+| methodList[0].methodType | Enum | Required | N/A | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | See [HTTP Method Type Enum Code](./enum-code/#http-method-type) |
+| methodList[0].methodName | String | Required | N/A | Max. 50 characters | Method name |
+| methodList[0].methodDescription | String | Optional | N/A | Max. 200 characters | Method description |
+| methodList[0].methodPluginList | List | Required | N/A | N/A | Resource method plugin list |
+| methodList[0].methodPluginList[0] | Object | Required | N/A | N/A | Resource method plugin area, requires input of one of the 'HTTP' or 'MOCK' plugin |
+| methodList[0].methodPluginList[0].pluginType | Enum | Required | N/A | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | The plugin type that can be set in the resource method among [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type) |
+| methodList[0].methodPluginList[0].pluginConfigJson | Object | Required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin)|
+
+#### Response
+
+[Response]
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "resourceList": [
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members/{memberId}",
+      "parentPath": "/members/{memberId}",
+      "methodType": "GET",
+      "methodName": "GetMember",
+      "methodDescription": "Query a member",
+      "createdAt": "2021-12-23T23:55:11.300Z",
+      "updatedAt": "2021-12-23T23:55:11.300Z",
+      "resourcePluginList": [
+        {
+          "resourcePluginId":  "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "HTTP",
+          "pluginConfigJson": {
+            "frontendEndpointPath": "/members/{memberId}",
+            "backendEndpointPath": "/api/v1/members/${request.path.memberId}"
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        },
+        {
+          "resourcePluginId":  "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "ADD_REQUEST_QUERY_PARAMETER",
+          "pluginConfigJson": {
+            "parameters": {
+              "id": "${request.path.memberId}"
+            }
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        }
+      ]
+    },
+    ...
+  ]
+}
+```
+
+| Field                                                     | Type       | Description                                             |
+| ------------------------------------------------------ | -------- | ---------------------------------------------- |
+| resourceList                                           | List     | Resource list area                                      |
+| resourceList[0].resourceId                             | String   | Resource ID                                         |
+| resourceList[0].apigwServiceId                         | String   | API Gateway service ID                             |
+| resourceList[0].path                                   | String   | Resource path                                         |
+| resourceList[0].parentPath                             | String   | Parent resource path                                         |
+| resourceList[0].createdAt                              | DateTime | Resource creation date and time                                       |
+| resourceList[0].updatedAt                              | DateTime | Resource modification date and time                                       |
+| resourceList[0].methodType                             | Enum     | See [HTTP Method Type Enum Code](./enum-code/#http-method-type) |
+| resourceList[0].methodName                             | String   | Method resource name                                     |
+| resourceList[0].methodDescription                      | String   | Method resource description                                     |
+| resourceList[0].resourcePluginList                     | List     | Resource plugin list area                                 |
+| resourceList[0].resourcePluginList[0].resourcePluginId | String   | Resource plugin ID                                    |
+| resourceList[0].resourcePluginList[0].resourceId       | String   | Resource ID                                         |
+| resourceList[0].resourcePluginList[0].pluginType       | Enum     | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type)    |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin)                   |
+| resourceList[0].resourcePluginList[0].createdAt        | DateTime | Resource plugin creation date and time                                  |
+| resourceList[0].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
+
+
+### Modify/Delete Resource Path Plugins
+- Adds, modifies, or deletes resource path plugins.
+- If you set a plugin that has not been added to the resource path, the plugin is added.
+- If you set a plugin that has been added to the resource path, it is changed to the requested plugin setting.
+- If the delete field is set to true, the plugin of the requested plugin type is deleted. If the delete field is true, the pluginConfigJson field does not need to be defined.
+- If the applyChildPath field is set to true, the plugin is set on all paths and methods under the resource path.
+- If both applyChildPath and delete fields are set to true, the plugin will be deleted for all paths and methods under the resource path.
+- If the CORS plugin is set, the OPTIONS method is automatically created as a child method. Note that if there is an existing OPTIONS method, it will be deleted and replaced.
+- Only the plugins that can be set in the resource path can be set. For more information, see [Resource Plugins]().
+
+#### Request
+
+[URI]
+
+| Method | URI |
+| --- | --- |
+| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resource-paths/{resourceId} |
+
+[Path Parameter]
+
+| Name             | Type     | Required | Default value | Valid range | Description                 |
+| -------------- | ------ | ----- | --- | ----- | ------------------ |
+| apigwServiceId | String | Required    | N/A  | N/A    | API Gateway service ID |
+| resourceId | String | Required    | N/A  | N/A    | Resource path ID |
+
+[Request Body]
+
+```json
+{
+  "pathPluginList":[
+    {
+      "applyChildPath": true,
+      "delete": true,
+      "pluginConfigJson":{
+        "allowedMethods":[
+            "GET",
+            "POST",
+            "DELETE",
+            "PUT",
+            "OPTIONS",
+            "HEAD",
+            "PATCH"
+        ],
+        "allowedHeaders":[
+            "*"
+        ],
+        "allowedOrigins":[
+            "*"
+        ],
+        "exposedHeaders":[
+
+        ],
+        "maxCredentialsAge":null,
+        "allowCredentials":false
+      },
+      "pluginType":"CORS"
+    }
+  ]
+}
+```
+
+| Name | Type | Required | Default value | Valid range | Description |
+| --- | --- | --- | --- | --- | --- |
+| pathPluginList | List | Optional | N/A | N/A | Resource path plugin list |
+| pathPluginList[0] | Object | Optional | N/A | N/A | Resource path plugin area |
+| pathPluginList[0].pluginType | Enum | Required | N/A | {pluginCode} CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER,ADD_REQUEST_QUERY_PARAMETER | The plugin type that can be set in the resource path among [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type) |
+| pathPluginList[0].pluginConfigJson | Object | Conditionally required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin), required input when the delete field is false.|
+| pathPluginList[0].applyChildPath | Boolean | Optional | false | true, false | Whether to overwrite child paths and methods |
+| pathPluginList[0].delete | Boolean | Optional | false | true, false | Whether to delete the plugin |
+
+#### Response
+
+[Response]
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "resourceList": [
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members/{memberId}",
+      "parentPath": "/members",
+      "methodType": "DELETE",
+      "methodName": "DeleteMember",
+      "methodDescription": "Delete a member",
+      "createdAt": "2021-12-23T23:55:11.298Z",
+      "updatedAt": "2021-12-23T23:55:11.298Z",
+      "resourcePluginList": [
+        {
+          "resourcePluginId": "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "HTTP",
+          "pluginConfigJson": {
+            "frontendEndpointPath": "/members/{memberId}",
+            "backendEndpointPath": "/api/v1/members/${request.path.memberId}"
+          },
+          "createdAt": "2021-12-23T23:55:11.298Z",
+          "updatedAt": "2021-12-23T23:55:11.298Z"
+        }
+      ]
+    }
+    ...
+  ]
+}
+```
+
+| Field                                                     | Type       | Description                                             |
+| ------------------------------------------------------ | -------- | ---------------------------------------------- |
+| resourceList                                           | List     | Resource list area                                      |
+| resourceList[0].resourceId                             | String   | Resource ID                                         |
+| resourceList[0].apigwServiceId                         | String   | API Gateway service ID                             |
+| resourceList[0].path                                   | String   | Resource path                                         |
+| resourceList[0].parentPath                             | String   | Parent resource path                                         |
+| resourceList[0].createdAt                              | DateTime | Resource creation date and time                                       |
+| resourceList[0].updatedAt                              | DateTime | Resource modification date and time                                       |
+| resourceList[0].methodType                             | Enum     | See [HTTP Method Type Enum Code](./enum-code/#http-method-type) |
+| resourceList[0].methodName                             | String   | Method resource name                                     |
+| resourceList[0].methodDescription                      | String   | Method resource description                                     |
+| resourceList[0].resourcePluginList                     | List     | Resource plugin list area                                 |
+| resourceList[0].resourcePluginList[0].resourcePluginId | String   | Resource plugin ID                                    |
+| resourceList[0].resourcePluginList[0].resourceId       | String   | Resource ID                                         |
+| resourceList[0].resourcePluginList[0].pluginType       | Enum     | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type)    |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin)                   |
+| resourceList[0].resourcePluginList[0].createdAt        | DateTime | Resource plugin creation date and time                                  |
+| resourceList[0].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
+
+
+### Modify/Delete Resource Method Information and Plugins
+- You can modify the name and description of the resource method.
+- Adds, modifies, or deletes resource method plugins.
+- If you set a plugin that has not been added to the resource method, the plugin is added.
+- If you set a plugin that has been added to the resource method, it is changed to the requested plugin setting.
+- If the delete field is set to true, the plugin of the requested plugin type is deleted. If the delete field is true, the pluginConfigJson field does not need to be defined.
+- Only the plugins that can be set on resource methods can be set. For more information, see [Resource Plugins]().
+
+#### Request
+
+[URI]
+
+| Method | URI |
+| --- | --- |
+| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resource-methods/{resourceId} |
+
+[Path Parameter]
+
+| Name             | Type     | Required | Default value | Valid range | Description                 |
+| -------------- | ------ | ----- | --- | ----- | ------------------ |
+| apigwServiceId | String | Required    | N/A  | N/A    | API Gateway service ID |
+| resourceId | String | Required    | N/A  | N/A    | Resource method ID |
+
+[Request Body]
+
+```json
+{
+  "methodName":"PutMember",
+  "methodDescription":"Edit a member information",
+  "methodPluginList":[
+    {
+        "pluginConfigJson":{
+          "frontendEndpointPath":"/members/{memberId}",
+          "backendEndpointPath":"/api/v2/members/${request.path.memberId}"
+        },
+        "pluginType":"HTTP"
+    },
+    {
+      "delete": true,
+      "pluginType": "ADD_REQUEST_QUERY_PARAMETER"
+    }
+  ]
+}
+```
+
+| Name | Type | Required | Default value | Valid range | Description |
+| --- | --- | --- | --- | --- | --- |
+| methodName | String | Required | N/A | Max. 50 characters | Method name |
+| methodDescription | String | Optional | N/A | Max. 200 characters | Method description |
+| methodPluginList | List | Optional | N/A | N/A | Resource method plugin list |
+| methodPluginList[0] | Object | Required | N/A | N/A | Resource method plugin area |
+| methodPluginList[0].pluginType | Enum | Required | N/A | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | The plugin type that can be set in the resource method among [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type) |
+| methodPluginList[0].pluginConfigJson | Object | Conditionally required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin), required input when the delete field is false.|
+| methodPluginList[0].delete | Boolean | Optional | false | N/A | Whether to delete the plugin |
+
+#### Response
+
+[Response]
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "resourceList": [
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members/{memberId}",
+      "parentPath": "/members/{memberId}",
+      "methodType": "PUT",
+      "methodName": "PostMember",
+      "methodDescription": "Edit a member info",
+      "createdAt": "2021-12-23T23:55:11.300Z",
+      "updatedAt": "2021-12-23T23:55:11.300Z",
+      "resourcePluginList": [
+        {
+          "resourcePluginId": "24bef5d0-feaf-4469-9619-a31e9e35a622",
+          "resourceId": "{resourceId}",
+          "pluginType": "HTTP",
+          "pluginConfigJson": {
+            "frontendEndpointPath": "/members/{memberId}",
+            "backendEndpointPath": "/api/v2/members/${request.path.memberId}"
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        }
+      ]
+    }
+  ]
+}
+```
+
+| Field                                                     | Type       | Description                                             |
+| ------------------------------------------------------ | -------- | ---------------------------------------------- |
+| resourceList                                           | List     | Resource list area                                      |
+| resourceList[0].resourceId                             | String   | Resource ID                                         |
+| resourceList[0].apigwServiceId                         | String   | API Gateway service ID                             |
+| resourceList[0].path                                   | String   | Resource path                                         |
+| resourceList[0].parentPath                             | String   | Parent resource path                                         |
+| resourceList[0].createdAt                              | DateTime | Resource creation date and time                                       |
+| resourceList[0].updatedAt                              | DateTime | Resource modification date and time                                       |
+| resourceList[0].methodType                             | Enum     | See [HTTP Method Type Enum Code](./enum-code/#http-method-type) |
+| resourceList[0].methodName                             | String   | Method resource name                                     |
+| resourceList[0].methodDescription                      | String   | Method resource description                                     |
+| resourceList[0].resourcePluginList                     | List     | Resource plugin list area                                 |
+| resourceList[0].resourcePluginList[0].resourcePluginId | String   | Resource plugin ID                                    |
+| resourceList[0].resourcePluginList[0].resourceId       | String   | Resource ID                                         |
+| resourceList[0].resourcePluginList[0].pluginType       | Enum     | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type)    |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin)                   |
+| resourceList[0].resourcePluginList[0].createdAt        | DateTime | Resource plugin creation date and time                                  |
+| resourceList[0].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
+
 
 ### Delete Resource
-- Delete a resource.
+- Deletes a resource.
 - The root ("/") path resource cannot be deleted.
 - The OPTIONS method created by the CORS plugin cannot be deleted.
-The OPTIONS method created by the CORS plugin is deleted collectively when the CORS plugin is removed from the resource with the plugin configured.
-- Deleting a path resource deletes all sub-paths and method resources.
+- The OPTIONS method created by the CORS plugin is deleted collectively when the CORS plugin is removed from the resource for which the plugin is set.
+- Deleting a path resource deletes all child paths and method resources.
 - Deleted resources cannot be recovered.
 
 #### Request
@@ -547,7 +1285,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 ```
 
 ### Import Resource
-- Import resources from a file in the [Swagger v2.0 OpenAPI Specification](https://swagger.io/specification/v2/) format.
+- Imports resources from a file in the [Swagger v2.0 OpenAPI Specification](https://swagger.io/specification/v2/) format.
 - When resources are imported, all existing resources created in the service are deleted and overwritten with the imported resources.
 - When a resource is imported, all existing models created in the service are deleted and overwritten with the imported model.
 - Note that data of invalid operation in Swagger paths > path > operation will be ignored and not registered.
@@ -682,7 +1420,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 ## Resource Plugin
 
 ### HTTP
-- Set the backend endpoint path to forward the request to for the resource path where API Gateway will receive the request.
+- Sets the backend endpoint path to forward the request to for the resource path where API Gateway will receive the request.
 - It can only be set in resource methods.
 - It cannot be set at the same time as the MOCK plugin.
 
@@ -699,7 +1437,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | backendEndpointPath  | String | Required | N/A | Max. 255 characters | Backend endpoint path to forward requests received from API Gateway |
 
 ### MOCK
-- Return a response defined for a received request.
+- Returns a response defined for a received request.
 - It can only be set on resource methods.
 - It cannot be set at the same time as the HTTP plugin.
 ```json
@@ -720,7 +1458,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | body                  | String | Optional | N/A | N/A | Custom response body                         |
 
 ### CORS
-- Allow XMLHttpRequest API calls within a cross-site method.
+- Allows XMLHttpRequest API calls within a cross-site method.
 - It can only be set on resource paths.
 - The OPTIONS method is automatically created under the path where the CORS plugin is set, and if there is a registered OPTIONS method, it is replaced.
 ```json
@@ -737,7 +1475,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
 | allowedMethods | List | Required | N/A | N/A | Area for the list of methods to allow access to resources |
-| allowedMethods[0] | Enum | Required | N/A | GET, POST, DELETE, PUT, OPTIONS, HEAD, PATCH | See [HTTP Method Type Enum Code](./enum-code/#http-method-type) |
+| allowedMethods[0] | Enum | Required | N/A | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | See [HTTP Method Type Enum Code](./enum-code/#http-method-type) |
 | allowedHeaders | List | Required | N/A | N/A | Area for the list of HTTP headers that can be used in the request. |
 | allowedHeaders[0] | String | Required | N/A | N/A | HTTP header that can be used in the request (e.g. wildcard format: '\*' or 'X-NHN-HEADER, Content-Type') |
 | allowedOrigins    | List | Required | N/A | N/A | Area for the list of domains of the origin servers that can access the resource. |
@@ -745,7 +1483,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | exposedHeaders    | List | Optional | N/A | N/A | Area for list of headers accessible by browser (client) |
 | exposedHeaders[0] | String | Required | N/A | N/A |Header accessible by browser (client) |
 | maxCredentialsAge | Integer | Optional | N/A | -1~86400 |Response browser cache time for preflight requests (in seconds) |
-| allowCredentials  | Boolean | Required | N/A |true, false | Whether to request with credentials |
+| allowCredentials  | Boolean | Required | N/A |true/false | Whether to request with credentials |
 
 
 
@@ -799,8 +1537,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 ## Resource Parameter
 
-### Query Resource Parameter
-- Query a list of resource parameters.
+### List Resource Parameters
+- Retrieves a list of resource parameters.
 
 #### Request
 
@@ -831,7 +1569,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   "queryStringList": [
     {
       "name": "query1",
-      "description": "This is a query1.",
+      "description": "This is a query1",
       "dataType": "STRING",
       "required": false,
       "isArray": false
@@ -840,7 +1578,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   "headerList": [
     {
       "name": "header1",
-      "description": "This is a header1.",
+      "description": "This is a header1",
       "dataType": "STRING",
       "required": false,
       "isArray": null
@@ -849,14 +1587,14 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   "formDataList": [
     {
       "name": "formDataString",
-      "description": "This is a form data string.",
+      "description": "This is a formData String",
       "dataType": "STRING",
       "required": false,
       "isArray": false
     },
     {
       "name": "formDataFile",
-      "description": "This is a form data file.",
+      "description": "This is a formData File",
       "dataType": "FILE",
       "required": false,
       "isArray": false
@@ -864,7 +1602,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   ],
   "requestBody": {
     "name": "requestBody",
-    "description": "This is a request body.",
+    "description": "This is a requestBody",
     "modelId": "{modelId}"
   },
   "contentTypeList": [
@@ -902,8 +1640,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 
 
-### Create Resource Parameter
-- Create parameters of a resource method.
+### Create Resource Parameters
+- Creates parameters of a resource method.
 - Existing resource parameters are deleted, and requested resource parameters are created.
 
 #### Request
@@ -927,7 +1665,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   "queryStringList": [
     {
       "name": "query1",
-      "description": "This is a query1.",
+      "description": "This is a query1",
       "dataType": "BOOLEAN",
       "required": true,
       "isArray": true
@@ -936,7 +1674,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   "headerList": [
     {
       "name": "header1",
-      "description": "This is a header1.",
+      "description": "This is a header1",
       "dataType": "BOOLEAN",
       "required": true
     }
@@ -944,7 +1682,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   "formDataList": [
     {
       "name": "formDataString",
-      "description": "This is a form data string.",
+      "description": "This is a formDataString",
       "dataType": "BOOLEAN",
       "required": true,
       "isArray": true
@@ -952,7 +1690,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
   ],
   "requestBody": {
     "name": "requestBody",
-    "description": "This is a request body.",
+    "description": "This is a requestBody",
     "modelId": "{modelId}"
   },
   "contentTypeList": [
@@ -1003,8 +1741,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 ## Resource Response
 
-### Query Resource Response
-- Query the header, request body item, and content type for each HTTP response status code.
+### Get Resource Response
+- Retrieves the header, request body item, and content type for each HTTP response status code.
 
 #### Request
 
@@ -1039,13 +1777,13 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
       "headerList": [
         {
           "name": "header1",
-          "description": "This is a response header1.",
+          "description": "This is a response header1",
           "dataType": "STRING"
         }
       ],
       "responseBody": {
         "name": "responseBody",
-        "description": "This is a response body.",
+        "description": "This is a responseBody",
         "modelId": "{modelId}"
       }
     }
@@ -1073,7 +1811,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | contentTypeList[0]                        | String  | Enter the content type (e.g., application/json) of the documents to send to the server.                                               |
 
 
-### Create Resource Response
+### Create Resource Responses
 - Existing resource responses are deleted, and header, request body items, and content type for each requested HTTP response status code are created.
 
 #### Request
@@ -1101,13 +1839,13 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
       "headerList": [
         {
           "name": "header1",
-          "description": "This is a response header1.",
-          "dataType": "STRING",
+          "description": "This is a response header1",
+          "dataType": "STRING"
         }
       ],
       "requestBody": {
         "name": "responseBody",
-        "description": "This is a response body.",
+        "description": "This is a response body",
         "modelId": "{modelId}"
       }
     }
@@ -1130,7 +1868,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | responseList[0].responseBody              | Object  | Optional    | Empty Object | N/A                                            | HTTP response body object area                                     |
 | responseList[0].responseBody.name         | String  | Required    | N/A           | Max. 50 characters                                        | Response body name                                             |
 | responseList[0].responseBody.description  | String  | Optional    | N/A         | Max. 200 characters                                       | Response body description                                             |
-| responseList[0].responseBody.modelId      | String  | Required    | N/A           | N/A                                           | Model ID associated with response body                                     |
+| responseList[0].responseBody.modelId      | String  | Required    | N/A           | N/A                                           | Model ID associated with the response body                                     |
 | contentTypeList                           | List    | Optional    | Empty List   | Max. 10 items                                        | Content type list area                                         |
 | contentTypeList[0]                        | String  | Required    | N/A           | \*/\* format                                        | Enter the content type (e.g., application/json) of the documents to send to the server.                                               |
 
@@ -1151,8 +1889,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 ## Model
 
-### Query Model List
-- Query a list of models.
+### List Models
+- Retrieves a list of models.
 
 #### Request
 
@@ -1238,7 +1976,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 
 ### Create Model
-- Create a model in JSON Schema format.
+- Creates a model in JSON Schema format.
 - Mode names cannot be duplicated.
 
 #### Request
@@ -1338,7 +2076,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 
 ### Modify Model
-- Modify the description and schema of model
+- Modifies the description and schema of model.
 - Model name cannot be changed.
 
 #### Request
@@ -1437,7 +2175,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 
 ### Delete Model
-- Delete a model.
+- Deletes a model.
 - If the model is referenced in a request parameter or response of a resource, the model cannot be deleted. To delete a model, please release the reference and then delete the model.
 
 #### Request
@@ -1471,8 +2209,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 ## Stage
 
-### Query Stage List
-- Query a list of stages.
+### List Stages
+- Retrieves a list of stages.
 
 #### Request
 
@@ -1536,7 +2274,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |paging.limit                         |Integer | Count per page                                  |
 |paging.totalCount                    |Integer | Total count                                        |
 |stageList        |List    | Stage list area |
-|stageList[0].regionCode       |Enum    |See [API Gateway Region Enum Code](./enum-code/#api-gateway-region)                |
+|stageList[0].regionCode       |Enum    |See [API Gateway Region Enum Code](./enum-code/#api-gateway-region)               |
 |stageList[0].apigwServiceId   |String  |API Gateway service ID  |
 |stageList[0].stageId          |String  |Stage ID             |
 |stageList[0].stageName        |String  |Stage name             |
@@ -1550,7 +2288,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 
 ### Swagger Export
-- Query a Swagger document.
+- Retrieves a Swagger document.
 - Swagger documents are extracted based on the current stage settings, not the settings deployed in API Gateway.
 
 #### Request
@@ -1587,7 +2325,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 
 ### Create Stage
-- Create a stage.
+- Creates a stage.
 
 #### Request
 
@@ -1615,7 +2353,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
-| stageName | String | Conditionally required | N/A | Max. 30 characters, English lowercase letters and numbers only | Stage name <br/> Required for non-default stage.  |
+| stageName | String | Conditionally required | N/A | Max. 30 characters, English lowercase letters and numbers only | Stage name<br/>Required for non-default stage.  |
 | stageDescription | String | Optional | N/A | Max. 200 characters  | Stage description |
 | backendEndpointUrl | String | Required | N/A | Max. 150 characters, URL format  | Backend endpoint URL |
 
@@ -1692,7 +2430,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 ```json
 {
   "backendEndpointUrl": "https://v2.backend.com",
-  "stageDescription": "alpha stage v2"
+  "stageDescription": "alpha v2 environment stage"
 }
 ```
 
@@ -1718,7 +2456,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
     "apigwServiceId": "{apigwServiceId}",
     "regionCode": "KR1",
     "stageName": "alpha",
-    "stageDescription": "alpha stage v2",
+    "stageDescription": "alpha v2 environment stage",
     "stageUrl": "kr1-{apigwServiceId}-alpha.api.nhncloudservice.com",
     "stageCustomUrl": null,
     "backendEndpointUrl": "https://v2.backend.com",
@@ -1746,7 +2484,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 
 ### Delete Stage
-- Delete a stage.
+- Deletes a stage.
 - If the stage you want to delete is connected to a usage plan, it cannot be deleted. Disconnect the stage from the usage plan and delete it.
 - Deleted stages cannot be recovered.
 
@@ -1780,8 +2518,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 ```
 
 
-### Query Stage Resource List
-* Get a list of resources registered on the stage. The stage resource plugin information set for each resource is included.
+### List Stage Resources
+* Retrieves a list of resources registered on the stage. The stage resource plugin information set for each resource is included.
 * For more information about the stage resource plugin, see [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin).
 
 
@@ -1881,7 +2619,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 
 ### Import Resources to Stage
-* Import API Gateway Service > Resources to stage.
+* Imports API Gateway Service > Resources to stage.
 * When a resource is imported, stage resources and stage resource plugins are all newly created.
 * Existing resource paths and stage resource plugin settings set in methods are maintained.
 * If no changes are found on the resource, no action is taken.
@@ -1982,7 +2720,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 
 ### Modify Stage Resource
-* Modify the backend endpoint URL override and stage resource plugin set in the resource path or resource method.
+* Modifies the backend endpoint URL override and stage resource plugin set in the resource path or resource method.
 * When a stage resource is modified, all registered stage resource plugins are deleted, and only the requested resource plugin is newly registered.
 * For more information about the Stage Resource Plugin, see [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin).
 
@@ -2023,7 +2761,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |stageResourcePluginList|List | Required | N/A | N/A  |Stage resource's plugin list area                       |
 |stageResourcePluginList[0]|Object | Required | N/A | N/A |Stage resource's plugin area                       |
 |stageResourcePluginList[0].pluginType  | Enum |Required | N/A | IP_ACL, HMAC, JWT, API_KEY, PRE_API, RATE_LIMIT | See [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                        |
-|stageResourcePluginList[0].pluginConfigJson       | Object | Required | N/A | N/A |See configuration JSON by [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)                        |
+| stageResourcePluginList[0].pluginConfigJson | Object | Required | N/A | N/A | JSON-format object for each stage resource plugin<br>See configuration JSON by [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)|
 
 * The customBackendEndpointUrl field cannot be set in the root (/) resource path.
 
@@ -2101,14 +2839,14 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)             |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
 
 ## Stage Resource Plugin
 * For resources of the stage, features such as access control, authentication, and usage control can be set in the form of plug-ins.
-* When a plugin is set in the upper level, it is applied to all sub-methods collectively, and can be overridden in sub-paths/methods.
+* When a plugin is set in the upper level, it is applied to all child methods collectively, and can be overridden in child paths/methods.
 
 * [Example]: Plugin configuration override
     ```
@@ -2133,9 +2871,9 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | Resource method  |Backend endpoint URL override, Pre-call API, Request number limit, API Key |
 
 
-### IP ACL 
+### IP ACL
 * API Gateway requests can be allowed/denied for the client IDs specified through IP ACL.
-* It can only be set on the root (/) resource path. The settings are applied to all sub-resources.
+* It can only be set on the root (/) resource path. The settings are applied to all child resources.
 
 ```json
 {
@@ -2168,7 +2906,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 ### HMAC
 * Settings for validating the tampering of client requests through HMAC signature verification.
-* It can only be set on the root (/) resource path. The settings are applied to all sub-resources.
+* It can only be set on the root (/) resource path. The settings are applied to all child resources.
 * HMAC authentication cannot be set at the same time as JWT authentication.
 * Set the secret key used for signing.
 * Set the validation validity period to prevent validation failures caused by time differences.
@@ -2197,9 +2935,9 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | pluginConfigJson.enforceHeaders[0] | String | Required | N/A | N/A| String of required validation headers |
 
 
-### JWT 
+### JWT
 * Settings for validating the signature of the JWT token and request claims.
-* It can only be set on the root (/) resource path. The settings are applied to all sub-resources.
+* It can only be set on the root (/) resource path. The settings are applied to all child resources.
 * JWT authentication cannot be set at the same time as HMAC authentication.
 * Set the token encryption algorithm for signature verification and the private or public key according to the encryption algorithm method.
 * Set the claim validation condition to validation the value of the request claim and whether it is required or not.
@@ -2389,11 +3127,11 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | pluginConfigJson | Object | Required | N/A | N/A | Pre-call API plugin configuration area |
 | pluginConfigJson.httpMethod | Enum | Required | N/A | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | See [HTTP Method Type Enum Code](./enum-code/#http-method-type)  |
 | pluginConfigJson.url | String | Required | N/A | URL format | Enter the URL of the pre-call API. |
-| pluginConfigJson.cacheTtl | Integer | Optional | 0 | 0~86400 | Set the cache period of the response status code of the pre-call API. <br/> The code is cached for the configured amount of time only if the response status code is 200 OK. If it is cached, the pre-call API is not called. |
+| pluginConfigJson.cacheTtl | Integer | Optional | 0 | 0~86400 | Set the cache period of the response status code of the pre-call API. <br/>The code is cached for the configured amount of time only if the response status code is 200 OK. If it is cached, the pre-call API is not called. |
 
 
 ### Request Number Limit
-* Limit the number of requests per second.
+* Limits the number of requests per second.
 * It can be set in the root (/) resource path and the resource method.
 * By setting the request limit key, you can set a limit on the number of requests per IP, header, and path variable values.
 
@@ -2419,8 +3157,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 ### API Key
 
-* Validate that the API Key is valid when calling the API, and verify whether the usage of the specified usage plan has been exceeded.
-* It can be set in the root (/) resource path and in the resource method.
+* Validates that the API Key is valid when calling the API, and verify whether the usage of the specified usage plan has been exceeded.
+* It can be set in the root (/) resource path and the resource method.
 
 
 ```json
@@ -2442,7 +3180,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 
 ### Deploy Stage
-- Deploy the current stage resources and configurations to the API Gateway service.
+- Deploys the current stage resources and configurations to the API Gateway service.
 - If there is no changed configuration, the stage deployment request will fail.
 - If the stage deployment fails, it is restored to the previous successful stage deployment configuration.
 - After requesting stage deployment, you can check whether stage deployment was successful in [Query Result of Recent Stage Deployment](./api-guide-v1.0/#query-result-of-recent-stage-deployment).
@@ -2605,7 +3343,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
 ### Delete Stage Deployment History
-- Delete stage deployment history.
+- Deletes stage deployment history.
 - You cannot delete the current stage's base deployment history (if isBase is true) and the current API Gateway service's deployment history.
 
 #### Request
@@ -2640,7 +3378,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 
 ### Query Stage Deployment History
-- Query the history of stage deployment in deployment success status.
+- Retrieves the history of stage deployment in deployment success status.
 
 #### Request
 
@@ -2710,7 +3448,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 
 ### Rollback Stage
-- Rollback the current stage configuration to the deployed stage configuration history.
+- Rollbacks the current stage configuration to the deployed stage configuration history.
 - Note that all current stage configurations will be deleted when performing the stage rollback.
 - To apply the rolled back stage configurations to the API Gateway service, you must deploy the stage.
 - You cannot perform rollback with the deployment history in deployment failure state.
@@ -2782,8 +3520,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |stageResourceList[0].stageResourcePluginList[0]|Object    |Stage resource's plugin area                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                       |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)           |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                       |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)         |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -2791,7 +3529,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 ## API Document
 
 ### Query API Document
-- Query API document based on the deployed stage configuration.
+- Retrieves API document based on the deployed stage configuration.
 - The API document is returned as a JSON object that follows the [Swagger v2.0](https://swagger.io/specification/v2/) specification.
 - API document cannot be queried for undeployed stages, and a 404 Not Found response is returned.
 
@@ -2903,10 +3641,10 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
         "security": [
           {
             "x-nhncloud-jwt": [
-              
+
             ],
             "x-nhncloud-apikey": [
-              
+
             ]
           }
         ],
@@ -2939,10 +3677,10 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
         "security": [
           {
             "x-nhncloud-jwt": [
-              
+
             ],
             "x-nhncloud-apikey": [
-              
+
             ]
           }
         ],
@@ -3013,12 +3751,12 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |paths.{path}.{operation}.x-nhncloud-apigateway     | Object  | NHN Cloud API Gateway definition setting area |
 |paths.{path}.{operation}.x-nhncloud-apigateway.plugins     | Object  | This is the custom plugin information area for API Gateway. This includes settings in Resources > Plugins and backend endpoint paths mapped to resources. |
 |securityDefinitions          |Object    | A security definition object. When setting API Key and authentication (HMAC, JWT), custom settings of API Gateway are included. See [Security Definitions Object](https://swagger.io/specification/v2/#securityDefinitionsObject)|
-|definitions | Object | An area for data types used in requests and responses. The model referenced in the request parameter/response is defined. See [Definitions Object](https://swagger.io/specification/v2/#definitionsObject)| 
+|definitions | Object | An area for data types used in requests and responses. The model referenced in the request parameter/response is defined. See [Definitions Object](https://swagger.io/specification/v2/#definitionsObject)|
 
 ## API Key
 
-### Query API Key List
-- Query the list of API keys.
+### List API Keys
+- Retrieves the list of API keys.
 - If there are multiple request query parameters, a list that satisfies all conditions is returned.
 
 #### Request
@@ -3091,7 +3829,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | apiKeyList[0].updatedAt         | DateTime | API Key modification date and time                                      |
 
 ### Create API Key
-- Generate API Key.
+- Generates an API Key.
 
 #### Request
 
@@ -3156,7 +3894,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 
 ### Modify API Key
-- Modify the name, description, and status of the API key.
+- Modifies the name, description, and status of the API key.
 - If the API Key status is changed to INACTIVE, the API Key is deactivated and API calls are disabled.
 
 #### Request
@@ -3228,7 +3966,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 
 ### Delete API Key
-- Delete the API key. A deleted API key cannot be recovered.
+- Deletes the API key. A deleted API key cannot be recovered.
 - If you have an API Key connected to a stage in your usage plan, you cannot delete the API Key. To delete it, you need to disconnect the API Key.
 
 #### Request
@@ -3326,8 +4064,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | apiKey.createdAt         | DateTime | API Key creation date and time                                      |
 | apiKey.updatedAt         | DateTime | API Key modification date and time                                      |
 
-### Query list of API Keys that can be connected to stage
-- Query the list of API keys that can be connected to the stage.
+### List API Keys that can be connected to stage
+- Retrieves the list of API keys that can be connected to the stage.
 - If there are multiple request query parameters, a list that satisfies all conditions is returned.
 
 #### Request
@@ -3409,8 +4147,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 ## Usage Plan
 
-### Query Usage Plan List
-- Query a list of usage plans.
+### List Usage Plans
+- Retrieves a list of usage plans.
 
 #### Request
 
@@ -3479,8 +4217,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 
 
-### Query Single Usage Plan
-- Query a single usage plan.
+### Get Usage Plan
+- Retrieves a single usage plan.
 
 #### Request
 
@@ -3535,7 +4273,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | usagePlan.updatedAt                 | DateTime | Usage plan modification date and time                                       |
 
 ### Create Usage Plan
-- Create a usage plan.
+- Creates a usage plan.
 
 #### Request
 
@@ -3604,7 +4342,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 
 ### Modify Usage Plan
-- Modify a usage plan.
+- Modifies a usage plan.
 - If you modify the quota period unit to 'None', the request quota usage of the connected API keys is initialized.
 
 #### Request
@@ -3680,7 +4418,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 
 ### Delete Usage Plan
-- Delete a usage plan.
+- Deletes a usage plan.
 - You can delete a usage plan after releasing all stages associated with the usage plan.
 
 #### Request
@@ -3712,8 +4450,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 ```
 
 
-### Query Stage List Associated with Usage Plan
-- Query a list of stages associated with the usage plan.
+### List Stages Associated with Usage Plan
+- Retrieves a list of stages associated with the usage plan.
 
 #### Request
 
@@ -3779,7 +4517,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 
 ### Connect Stage to Usage Plan
-- Connect a stage to the usage plan.
+- Associates a stage with the usage plan.
 
 #### Request
 
@@ -3811,7 +4549,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 ```
 
 ### Disconnect Stage from Usage Plan
-- Disassociate the stage associated with the usage plan.
+- Disassociates the stage associated with the usage plan.
 - If an API Key connected to the stage exists, the stage cannot be disassociated.
 
 #### Request
@@ -3843,8 +4581,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 }
 ```
 
-### Query List of Usage Plans Associated with a Stage
-- Query the list of usage plans associated with the stage.
+### List Usage Plans Associated with Stage
+- Retrieves the list of usage plans associated with the stage.
 
 #### Request
 
@@ -3913,8 +4651,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 ## API Key Subscription
 
-### Query API Key Subscription List
-- Query the list of stage and usage plan connected with API Key.
+### List API Key Subscriptions
+- Retrieves the list of stage and usage plan connected with API Key.
 
 #### Request
 
@@ -3999,8 +4737,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | subscribedStageAndUsagePlanList[0].quotaLimit                | Integer | Request quota per quota period unit                                |
 
 
-### Query List of API Keys Subscribing to a Stage in the Usage Plan
-- Query the list of API Keys connected to the stage of the usage plan.
+### List API Keys Subscribing to a Stage in the Usage Plan
+- Retrieves the list of API Keys connected to the stage of the usage plan.
 - If there are multiple request query parameters, a list that satisfies all conditions is returned.
 
 #### Request
@@ -4081,7 +4819,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 
 ### Subscribe to API Key (Connect API Key)
-- Connect the requested API Key list to the stage of your usage plan.
+- Connects the requested API Key list to the stage of your usage plan.
 - Only the connected API Key will succeed in API Key authentication, and the usage limit of the usage plan will be applied.
 - API Keys connected to the same stage in different usage plans cannot be connected.
 
@@ -4157,7 +4895,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 
 
 ### Unsubscribe from API Key (Disconnect API Key)
-- Disconnect the list of API Keys requested by the stage of the usage plan.
+- Disconnects the requested API Key list from the stage of your usage plan.
 - Disconnected API Key fails API Key authentication, causing API calls to fail.
 
 #### Request
@@ -4209,7 +4947,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 - When the usage plan is changed, the usage of the API Key request quota is initialized.
     - If you change to a usage plan with a quota period unit of 'day' or 'month', the usage of the connected API Key request quota is maintained. If you change to a usage plan with a lower request quota limit, your usage may be exceeded.
     - If you change to a usage plan with a quota period unit of 'None', the usage of the connected API Key request quota is initialized.
-  
+
 #### Request
 
 [URI]
@@ -4254,7 +4992,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 ## Statistics
 
 ### Query by Stage Resource
-- Query statistics data for each resource during the query period.
+- Retrieves statistics data for each resource during the query period.
 
 
 #### Request
@@ -4329,7 +5067,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
       "avgResponseTimeMs": 129,
       "networkOutboundByte": 3032
     }
-  ]
+  ],
+  "metricsLatestUpdatedAt": "2021-11-29T08:50:57.000Z"
 }
 ```
 
@@ -4352,10 +5091,11 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |data[0].statusEtcCount               |Long    | Number of API calls with response HTTP status code other than 2xx, 3xx, 4xx, 5xx |
 |data[0].avgResponseTimeMs            |Long    | Average API response time (ms) |
 |data[0].networkOutboundByte          |Long    | Total outbound network bytes (bytes) |
+|metricsLatestUpdatedAt         | DateTime | Statistics data last updated date                             |
 
 
 ### Query by API Key
-- Query daily statistics by API Key.
+- Retrieves daily statistics by API Key.
 
 
 #### Request
@@ -4381,7 +5121,7 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 | endTime | DateTime | Required | N/A | N/A | Statistics query end date and time |
 
 * The search period of the startTime, endTime fields can be up to 3 months.
-* The stageTime and endTime fields are entered in date string format in ISO8601 format.
+* Enter the stageTime, endTime fields in ISO8601 format date string format.
     * UTC notation: yyyy-MM-dd'T'HH:mm:ssZ
     * UTC-based time offset notation: yyyy-MM-dd'T'HH:mm:ss±hh:mm
 
@@ -4431,7 +5171,9 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
         ]
       }
     }
-  }
+  },
+  "metricsLatestUpdatedAt": "2021-11-29T08:50:57.000Z",
+  "timeUnit": "ONE_DAYS"
 }
 ```
 
@@ -4447,5 +5189,8 @@ The OPTIONS method created by the CORS plugin is deleted collectively when the C
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0]               |Object    | API call count statistics area |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].dateTime   |Long    | Statistics time (Unix time format) |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].count      |Long    | Total number of API calls during statistics time |
+|metricsLatestUpdatedAt         | DateTime | Statistics data last updated date                             |
+|timeUnit          |Enum    | [Statistics Data Time Unit Enum Code](./enum-code/#???) See ONE_DAYS |
+
 
 * Daily statistics data is aggregated into time data at 00:00:00 for each day.
