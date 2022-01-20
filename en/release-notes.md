@@ -4,10 +4,10 @@
 #### Feature Updates 
 * Changed so that, if there is a plugin set in the resource path, the plugin set in the resource path is added when a child method is created.
 * Added Public APIs related to resource creation and modification.
-    * [Create Resource Paths and Methods API]()
-    * [Create Resource Methods API]()
-    * [Modify Plugins in Resource Path API]()
-    * [Modify Resource Method Information and Plugins API]()
+    * [Create Resource Paths and Methods API](./api-guide-v1.0/#create-resource-paths-and-methods)
+    * [Create Resource Methods API](./api-guide-v1.0/#create-resource-methods)
+    * [Modify/Delete Resource Path Plugins API](./api-guide-v1.0/#modifydelete-resource-path-plugins)
+    * [Modify/Delete Resource Method Information and Plugins API](./api-guide-v1.0/#modifydelete-resource-method-information-and-plugins)
 * Added statistics API response fields
     * Added the metricsLatestUpdatedAt field to the response of the statistics API, which indicates the last updated date and time of statistics data.
     * Added the timeUnit field to the response of the Query by API Key API, which indicates the time unit of statistics data.

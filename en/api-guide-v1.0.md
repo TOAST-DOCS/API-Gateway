@@ -511,7 +511,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ### Create Resource Paths and Methods
 - You can create multiple resource paths and methods, and set the plugin at the time of creation.
-- Resource methods are optional input. To add a method under the created resource path, you need to use the [Create Resource Methods]() API.
+- Resource methods are optional input. To add a method under the created resource path, you need to use the [Create Resource Methods API](./api-guide-v1.0/#create-resource-methods).
 - Resource methods must have either HTTP or MOCK plugin set. HTTP and MOCK plugins cannot be set at the same time.
 - The created resource path cannot be modified.
 - The resource path plugins defined in the pathPluginList field are the list of plugins that are applied to child methods of that path.
@@ -1007,7 +1007,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 - If the applyChildPath field is set to true, the plugin is set on all paths and methods under the resource path.
 - If both applyChildPath and delete fields are set to true, the plugin will be deleted for all paths and methods under the resource path.
 - If the CORS plugin is set, the OPTIONS method is automatically created as a child method. Note that if there is an existing OPTIONS method, it will be deleted and replaced.
-- Only the plugins that can be set in the resource path can be set. For more information, see [Resource Plugins]().
+- Only the plugins that can be set in the resource path can be set. For more information, see [Resource Plugins](./api-guide-v1.0/#resource-plugin).
 
 #### Request
 
@@ -1137,7 +1137,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 - If you set a plugin that has not been added to the resource method, the plugin is added.
 - If you set a plugin that has been added to the resource method, it is changed to the requested plugin setting.
 - If the delete field is set to true, the plugin of the requested plugin type is deleted. If the delete field is true, the pluginConfigJson field does not need to be defined.
-- Only the plugins that can be set on resource methods can be set. For more information, see [Resource Plugins]().
+- Only the plugins that can be set on resource methods can be set. For more information, see [Resource Plugins](./api-guide-v1.0/#resource-plugin).
 
 #### Request
 
@@ -5190,7 +5190,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].dateTime   |Long    | Statistics time (Unix time format) |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].count      |Long    | Total number of API calls during statistics time |
 |metricsLatestUpdatedAt         | DateTime | Statistics data last updated date                             |
-|timeUnit          |Enum    | [Statistics Data Time Unit Enum Code](./enum-code/#???) See ONE_DAYS |
+|timeUnit          |Enum    | [Statistics Data Time Unit Enum Code](./enum-code/#statistics-data-time-unit) See ONE_DAYS |
 
 
 * Daily statistics data is aggregated into time data at 00:00:00 for each day.
