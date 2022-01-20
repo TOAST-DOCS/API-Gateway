@@ -3334,7 +3334,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0]|Object    |ステージリソースのプラグイン領域                     |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |ステージリソースプラグインID                           |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |ステージリソースID                                |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[ステージリソース > プラグインタイプEnumコード](./enum-code/#_3)参考                     |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[リソースプラグインタイプEnumコード](./enum-code/#_1), [ステージリソース > プラグインタイプEnumコード](./enum-code/#_3)参考                     |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](./api-guide-v1.0/#_37), [ステージプラグインタイプ](./api-guide-v1.0/#_89)別設定JSON参考         |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|ステージリソースプラグインの作成日時                       |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|ステージリソースプラグインの修正日時                       |
@@ -3517,7 +3517,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |stageResourceList[0].stageResourcePluginList[0]|Object    |ステージリソースのプラグイン領域                     |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |ステージリソースプラグインID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |ステージリソースID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[ステージプラグインタイプEnumコード](./enum-code/#_3)参考                         |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[リソースプラグインタイプEnumコード](./enum-code/#_1), [ステージプラグインタイプEnumコード](./enum-code/#_3)参考                     |
 |stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](./api-guide-v1.0/#_37), [ステージプラグインタイプ](./api-guide-v1.0/#_89)別設定JSON参考       |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|ステージリソースプラグインの作成日時                       |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|ステージリソースプラグインの修正日時                       |
