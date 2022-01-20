@@ -5190,7 +5190,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].dateTime   |Long    | 통계 시간(Unix time 형식) |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].count      |Long    | 통계 시간 동안의 총 API 호출 수 |
 |metricsLatestUpdatedAt         | DateTime | 통계 데이터 최신 갱신 일시                             |
-|timeUnit          |Enum    | [통계 데이터 시간 단위 Enum 코드](./enum-code/#???) ONE_DAYS 참고 |
+|timeUnit          |Enum    | [통계 데이터 시간 단위 Enum 코드](./enum-code/#_7) ONE_DAYS 참고 |
 
 
 * 일 단위 통계 데이터는 각 일의 00:00:00의 시간 데이터에 집계됩니다.
