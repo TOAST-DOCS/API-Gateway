@@ -508,6 +508,743 @@ APIを使用するにはアプリキー(Appkey)が必要です。
 | resourceList[2].resourcePluginList[0].createdAt        | DateTime | リソースプラグインの作成日時                                |
 | resourceList[2].resourcePluginList[0].updatedAt        | DateTime | リソースプラグインの修正日時                                |
 
+### リソースパスとメソッド作成
+- 複数のリソースパスとメソッドを作成し、作成と同時にプラグインを設定できます。
+- リソースメソッドは任意入力です。作成されたリソースパスの下にメソッドを追加するには[リソースメソッド作成]() APIを使用する必要があります。
+- リソースメソッドにはHTTPまたはMOCKプラグインのいずれかを必ず設定する必要があります。 HTTPとMOCKプラグインを同時に設定することはできません。
+- 作成されたリソースパスは修正できません。
+- pathPluginListフィールドに定義されているリソースパスプラグインは、そのパスのサブメソッドに適用されるプラグインリストです。
+
+#### リクエスト
+
+[URI]
+
+| メソッド | URI | 
+| --- | --- | 
+| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
+
+[Path Parameter]
+
+| 名前           | タイプ   | 必須かどうか | デフォルト値 | 有効範囲 | 説明               |
+| -------------- | ------ | ----- | --- | ----- | ------------------ |
+| apigwServiceId | String | 必須  | なし | なし   | API GatewayサービスID |
+
+
+[Request Body]
+
+```json
+{
+   "resourcePathList":[
+      {
+         "path":"/members/{memberId}",
+         "pathPluginList":[
+            {
+               "pluginConfigJson":{
+                  "allowedMethods":[
+                     "GET",
+                     "POST",
+                     "DELETE",
+                     "PUT",
+                     "OPTIONS",
+                     "HEAD",
+                     "PATCH"
+                  ],
+                  "allowedHeaders":[
+                     "*"
+                  ],
+                  "allowedOrigins":[
+                     "*"
+                  ],
+                  "exposedHeaders":[
+                     
+                  ],
+                  "maxCredentialsAge":null,
+                  "allowCredentials":false
+               },
+               "pluginType":"CORS"
+            }
+         ],
+         "methodList":[
+            {
+               "methodDescription":"Edit a member information",
+               "methodName":"PutMember",
+               "methodPluginList":[
+                  {
+                     "pluginConfigJson":{
+                        "frontendEndpointPath":"/members/{memberId}",
+                        "backendEndpointPath":"/api/v1/members/${request.path.memberId}"
+                     },
+                     "pluginType":"HTTP"
+                  }
+               ],
+               "methodType":"PUT"
+            },
+            {
+               "methodDescription":"Query a member",
+               "methodName":"GetMember",
+               "methodPluginList":[
+                  {
+                     "pluginConfigJson":{
+                        "frontendEndpointPath":"/members/{memberId}",
+                        "backendEndpointPath":"/api/v1/members/${request.path.memberId}"
+                     },
+                     "pluginType":"HTTP"
+                  },
+                  {
+                     "pluginConfigJson":{
+                        "parameters":{
+                           "id":"${request.path.memberId}"
+                        }
+                     },
+                     "pluginType":"ADD_REQUEST_QUERY_PARAMETER"
+                  }
+               ],
+               "methodType":"GET"
+            }
+         ]
+      }
+   ]
+}
+```
+
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
+| --- | --- | --- | --- | --- | --- |
+| resourcePathList | List | 必須 | なし | なし | リソースパスリスト |
+| resourcePathList[0] | Object | 必須 | なし | なし | リソースパス領域 |
+| resourcePathList[0].path | Object | 必須 | なし | 英字、数字、パス変数、制限文字(. + - /)で構成される有効なパス | リソースパス |
+| resourcePathList[0].pathPluginList | List | 任意 | なし | なし | リソースパスプラグインリスト |
+| resourcePathList[0].pathPluginList[0] | Object | 任意 | なし | なし | リソースパスプラグイン領域 |
+| resourcePathList[0].pathPluginList[0].pluginType | Enum | 必須 | なし | {pluginCode} CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [リソースプラグインタイプEnumコード](./enum-code/#_1)のうちリソースパスに設定可能なプラグインタイプ |
+| resourcePathList[0].pathPluginList[0].pluginConfigJson | Object | 必須 | なし | なし | [リソースプラグインタイプ別のJSON設定値](./api-guide-v1.0/#_25)参考。|
+| resourcePathList[0].methodList | List | 任意 | なし | なし | リソースパス下のメソッドリスト |
+| resourcePathList[0].methodList[0] | Object | 任意 | なし | なし | リソースパス下のメソッド領域 |
+| resourcePathList[0].methodList[0].methodType | Enum | 必須 | なし | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTPメソッドタイプEnumコード](./enum-code/#http)参考 |
+| resourcePathList[0].methodList[0].methodName | String | 必須 | なし | 最大50文字 | メソッド名 |
+| resourcePathList[0].methodList[0].methodDescription | String | 任意 | なし | 最大200文字 | メソッド説明 |
+| resourcePathList[0].methodList[0].methodPluginList | List | 必須 | なし | なし | リソースメソッドプラグインリスト |
+| resourcePathList[0].methodList[0].methodPluginList[0] | Object | 必須 | なし | なし | リソースメソッドプラグイン領域、 'HTTP'または'MOCK'のいずれかのプラグインは必須入力 |
+| resourcePathList[0].methodList[0].methodPluginList[0].pluginType | Enum | 必須 | なし | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [リソースプラグインタイプEnumコード](./enum-code/#_1)のうちリソースメソッドに設定可能なプラグインタイプ |
+| resourcePathList[0].methodList[0].methodPluginList[0].pluginConfigJson | Object | 必須 | なし | なし | [リソースプラグインタイプ別のJSON設定値](./api-guide-v1.0/#_25)参考。|
+
+#### レスポンス
+
+[Response]
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "resourceList": [
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members",
+      "methodType": null,
+      "methodName": null,
+      "methodDescription": null,
+      "createdAt": "2021-12-23T23:55:11.297Z",
+      "updatedAt": "2021-12-23T23:55:11.297Z",
+      "resourcePluginList": [],
+      "parentPath": "/"
+    },
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members/{memberId}",
+      "methodType": null,
+      "methodName": null,
+      "methodDescription": null,
+      "createdAt": "2021-12-23T23:55:11.298Z",
+      "updatedAt": "2021-12-23T23:55:11.298Z",
+      "resourcePluginList": [
+        {
+          "resourcePluginId": "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "CORS",
+          "pluginConfigJson": {
+            "allowedMethods": [
+              "GET",
+              "POST",
+              "DELETE",
+              "PUT",
+              "OPTIONS",
+              "HEAD",
+              "PATCH"
+            ],
+            "allowedHeaders": [
+              "*"
+            ],
+            "allowedOrigins": [
+              "*"
+            ],
+            "exposedHeaders": [],
+            "maxCredentialsAge": null,
+            "allowCredentials": false
+          },
+          "createdAt": "2021-12-23T23:55:11.298Z",
+          "updatedAt": "2021-12-23T23:55:11.298Z"
+        }
+      ],
+      "parentPath": "/members"
+    },
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members/{memberId}",
+      "methodType": "PUT",
+      "methodName": "PostMember",
+      "methodDescription": "Edit a member info",
+      "createdAt": "2021-12-23T23:55:11.300Z",
+      "updatedAt": "2021-12-23T23:55:11.300Z",
+      "resourcePluginList": [
+        {
+          "resourcePluginId": "24bef5d0-feaf-4469-9619-a31e9e35a622",
+          "resourceId": "{resourceId}",
+          "pluginType": "HTTP",
+          "pluginConfigJson": {
+            "frontendEndpointPath": "/members/{memberId}",
+            "backendEndpointPath": "/api/v1/members/${request.path.memberId}"
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        },
+        {
+          "resourcePluginId": "321d99cc-cb26-473e-ab76-84249a82b262",
+          "resourceId": "{resourceId}",
+          "pluginType": "CORS",
+          "pluginConfigJson": {
+            "allowedMethods": [
+              "GET",
+              "POST",
+              "DELETE",
+              "PUT",
+              "OPTIONS",
+              "HEAD",
+              "PATCH"
+            ],
+            "allowedHeaders": [
+              "*"
+            ],
+            "allowedOrigins": [
+              "*"
+            ],
+            "exposedHeaders": [],
+            "maxCredentialsAge": null,
+            "allowCredentials": false
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        }
+      ],
+      "parentPath": "/members/{memberId}"
+    },
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members/{memberId}",
+      "methodType": "GET",
+      "methodName": "GetMember",
+      "methodDescription": "Query a member",
+      "createdAt": "2021-12-23T23:55:11.300Z",
+      "updatedAt": "2021-12-23T23:55:11.300Z",
+      "resourcePluginList": [
+        {
+          "resourcePluginId":  "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "HTTP",
+          "pluginConfigJson": {
+            "frontendEndpointPath": "/members/{memberId}",
+            "backendEndpointPath": "/api/v1/members/${request.path.memberId}"
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        },
+        {
+          "resourcePluginId":  "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "ADD_REQUEST_QUERY_PARAMETER",
+          "pluginConfigJson": {
+            "parameters": {
+              "id": "${request.path.memberId}"
+            }
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        },
+        {
+          "resourcePluginId": "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "CORS",
+          "pluginConfigJson": {
+            "allowedMethods": [
+              "GET",
+              "POST",
+              "DELETE",
+              "PUT",
+              "OPTIONS",
+              "HEAD",
+              "PATCH"
+            ],
+            "allowedHeaders": [
+              "*"
+            ],
+            "allowedOrigins": [
+              "*"
+            ],
+            "exposedHeaders": [],
+            "maxCredentialsAge": null,
+            "allowCredentials": false
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        }
+      ],
+      "parentPath": "/members/{memberId}"
+    },
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members/{memberId}",
+      "methodType": "OPTIONS",
+      "methodName": "CORS",
+      "methodDescription": null,
+      "createdAt": "2021-12-23T23:55:11.300Z",
+      "updatedAt": "2021-12-23T23:55:11.300Z",
+      "resourcePluginList": [
+        {
+          "resourcePluginId": "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "CORS",
+          "pluginConfigJson": {
+            "allowedMethods": [
+              "GET",
+              "POST",
+              "DELETE",
+              "PUT",
+              "OPTIONS",
+              "HEAD",
+              "PATCH"
+            ],
+            "allowedHeaders": [
+              "*"
+            ],
+            "allowedOrigins": [
+              "*"
+            ],
+            "exposedHeaders": [],
+            "maxCredentialsAge": null,
+            "allowCredentials": false
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        }
+      ],
+      "parentPath": "/members/{memberId}"
+    }
+  ]
+}
+```
+
+| フィールド                                                   | タイプ     | 説明                                           |
+| ------------------------------------------------------ | -------- | ---------------------------------------------- |
+| resourceList                                           | List     | リソースリスト領域                                    |
+| resourceList[1].resourceId                             | String   | リソースID                                         |
+| resourceList[1].apigwServiceId                         | String   | API GatewayサービスID                             |
+| resourceList[1].path                                   | String   | リソースパス                                       |
+| resourceList[1].parentPath                             | String   | 親リソースパス                                       |
+| resourceList[1].createdAt                              | DateTime | リソース作成日時                                     |
+| resourceList[1].updatedAt                              | DateTime | リソース修正日時                                     |
+| resourceList[1].methodType                             | Enum     | [HTTPメソッドタイプEnumコード](./enum-code/#http)参考 |
+| resourceList[1].methodName                             | String   | メソッドリソース名                                   |
+| resourceList[1].methodDescription                      | String   | メソッドリソース説明                                   |
+| resourceList[1].resourcePluginList                     | List     | リソースプラグインリスト領域                               |
+| resourceList[1].resourcePluginList[0].resourcePluginId | String   | リソースプラグインID                                    |
+| resourceList[1].resourcePluginList[0].resourceId       | String   | リソースID                                         |
+| resourceList[1].resourcePluginList[0].pluginType       | Enum     | [リソースプラグインタイプEnumコード](./enum-code/#_1)参考  |
+| resourceList[1].resourcePluginList[0].pluginConfigJson | Object   | [リソースプラグインタイプ別のJSON設定値](./api-guide-v1.0/#_25)参考                 |
+| resourceList[1].resourcePluginList[0].createdAt        | DateTime | リソースプラグイン作成日時                                |
+| resourceList[1].resourcePluginList[0].updatedAt        | DateTime | リソースプラグイン修正日時                                |
+
+
+### リソースメソッドの作成
+- 作成されたリソースパスの下にリソースメソッドを作成します。
+- リソースメソッドにはHTTPまたはMOCKプラグインのいずれかを必ず設定する必要があります。 HTTPとMOCKプラグインを同時に設定することはできません。
+
+#### リクエスト
+
+[URI]
+
+| メソッド | URI | 
+| --- | --- | 
+| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/methods |
+
+[Path Parameter]
+
+| 名前           | タイプ   | 必須かどうか | デフォルト値 | 有効範囲 | 説明               |
+| -------------- | ------ | ----- | --- | ----- | ------------------ |
+| apigwServiceId | String | 必須  | なし | なし   | API GatewayサービスID |
+| resourceId | String | 必須  | なし | なし   | リソースパスID |
+
+
+[Request Body]
+
+```json
+{
+  "methodList": [
+    {
+      "methodType": "DELETE",
+      "methodName": "DeleteMember",
+      "methodDescription": "Delete a member",
+      "methodPluginList": [
+        {
+          "pluginType": "HTTP",
+          "pluginConfigJson": {
+            "frontendEndpointPath": "/members/{memberId}",
+            "backendEndpointPath": "/api/v1/members/${request.path.memberId}"
+          }
+        }
+      ]
+    }
+  ]
+}   
+```
+
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
+| --- | --- | --- | --- | --- | --- |
+| methodList | List | 必須 | なし | なし | リソースパス下のメソッドリスト |
+| methodList[0] | Object | 必須 | なし | なし | リソースパス下のメソッド領域 |
+| methodList[0].methodType | Enum | 必須 | なし | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTPメソッドタイプEnumコード](./enum-code/#http)参考 |
+| methodList[0].methodName | String | 必須 | なし | 最大50文字 | メソッド名 |
+| methodList[0].methodDescription | String | 任意 | なし | 最大200文字 | メソッド説明 |
+| methodList[0].methodPluginList | List | 必須 | なし | なし | リソースメソッドプラグインリスト |
+| methodList[0].methodPluginList[0] | Object | 必須 | なし | なし | リソースメソッドプラグイン領域、'HTTP'または'MOCK'のいずれかのプラグインは必須入力 |
+| methodList[0].methodPluginList[0].pluginType | Enum | 必須 | なし | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [リソースプラグインタイプEnumコード](./enum-code/#_1)のうち、リソースメソッドに設定可能なプラグインタイプ |
+| methodList[0].methodPluginList[0].pluginConfigJson | Object | 必須 | なし | なし | [リソースプラグインタイプ別のJSON設定値](./api-guide-v1.0/#_25)参考。|
+
+#### レスポンス
+
+[Response]
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "resourceList": [
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members/{memberId}",
+      "parentPath": "/members/{memberId}",
+      "methodType": "GET",
+      "methodName": "GetMember",
+      "methodDescription": "Query a member",
+      "createdAt": "2021-12-23T23:55:11.300Z",
+      "updatedAt": "2021-12-23T23:55:11.300Z",
+      "resourcePluginList": [
+        {
+          "resourcePluginId":  "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "HTTP",
+          "pluginConfigJson": {
+            "frontendEndpointPath": "/members/{memberId}",
+            "backendEndpointPath": "/api/v1/members/${request.path.memberId}"
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        },
+        {
+          "resourcePluginId":  "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "ADD_REQUEST_QUERY_PARAMETER",
+          "pluginConfigJson": {
+            "parameters": {
+              "id": "${request.path.memberId}"
+            }
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        }
+      ]
+    },
+    ...
+  ]
+}
+```
+
+| フィールド                                                   | タイプ     | 説明                                           |
+| ------------------------------------------------------ | -------- | ---------------------------------------------- |
+| resourceList                                           | List     | リソースリスト領域                                    |
+| resourceList[0].resourceId                             | String   | リソースID                                         |
+| resourceList[0].apigwServiceId                         | String   | API GatewayサービスID                             |
+| resourceList[0].path                                   | String   | リソースパス                                       |
+| resourceList[0].parentPath                             | String   | 親リソースパス                                       |
+| resourceList[0].createdAt                              | DateTime | リソース作成日時                                     |
+| resourceList[0].updatedAt                              | DateTime | リソース修正日時                                     |
+| resourceList[0].methodType                             | Enum     | [HTTPメソッドタイプEnumコード](./enum-code/#http)参考 |
+| resourceList[0].methodName                             | String   | メソッドリソース名                                   |
+| resourceList[0].methodDescription                      | String   | メソッドリソース説明                                   |
+| resourceList[0].resourcePluginList                     | List     | リソースプラグインリスト領域                               |
+| resourceList[0].resourcePluginList[0].resourcePluginId | String   | リソースプラグインID                                    |
+| resourceList[0].resourcePluginList[0].resourceId       | String   | リソースID                                         |
+| resourceList[0].resourcePluginList[0].pluginType       | Enum     | [リソースプラグインタイプEnumコード](./enum-code/#_1)参考  |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [リソースプラグインタイプ別のJSON設定値](./api-guide-v1.0/#_25)参考                 |
+| resourceList[0].resourcePluginList[0].createdAt        | DateTime | リソースプラグイン作成日時                                |
+| resourceList[0].resourcePluginList[0].updatedAt        | DateTime | リソースプラグイン修正日時                                |
+
+
+### リソースパスプラグイン修正/削除
+- リソースパスプラグインを追加、修正、削除します。
+- リソースパスに追加されていないプラグインを設定するとプラグインが追加されます。
+- リソースパスに追加されたプラグインを設定すると、リクエストしたプラグイン設定に変更されます。
+- deleteフィールドをtrueに設定すると、リクエストしたプラグインタイプのプラグインが削除されます。 deleteフィールドがtrueの場合、pluginConfigJsonフィールドは定義する必要はありません。
+- applyChildPathフィールドをtrueに設定すると、リソースパス下のすべてのパスとメソッドにプラグインが設定されます。
+- applyChildPathとdeleteフィールドの両方をtrueに設定すると、リソースパス下のすべてのパスとメソッドからプラグインが削除されます。
+- CORSプラグインを設定すると、サブメソッドとしてOPTIONSメソッドが自動的に作成されます。もし既に存在するOPTIONSメソッドがある場合は削除され、置き換えられるため注意してください。
+- リソースパスに設定可能なプラグインのみ設定できます。詳細については、[リソースプラグイン]()を参照してください。
+
+#### リクエスト
+
+[URI]
+
+| メソッド | URI | 
+| --- | --- | 
+| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resource-paths/{resourceId} |
+
+[Path Parameter]
+
+| 名前           | タイプ   | 必須かどうか | デフォルト値 | 有効範囲 | 説明               |
+| -------------- | ------ | ----- | --- | ----- | ------------------ |
+| apigwServiceId | String | 必須  | なし | なし   | API GatewayサービスID |
+| resourceId | String | 必須  | なし | なし   | リソースパスID |
+
+[Request Body]
+
+```json
+{
+  "pathPluginList":[
+    {
+      "applyChildPath": true,
+      "delete": true,
+      "pluginConfigJson":{
+        "allowedMethods":[
+            "GET",
+            "POST",
+            "DELETE",
+            "PUT",
+            "OPTIONS",
+            "HEAD",
+            "PATCH"
+        ],
+        "allowedHeaders":[
+            "*"
+        ],
+        "allowedOrigins":[
+            "*"
+        ],
+        "exposedHeaders":[
+            
+        ],
+        "maxCredentialsAge":null,
+        "allowCredentials":false
+      },
+      "pluginType":"CORS"
+    }
+  ]  
+}   
+```
+
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
+| --- | --- | --- | --- | --- | --- |
+| pathPluginList | List | 任意 | なし | なし | リソースパスプラグインリスト |
+| pathPluginList[0] | Object | 任意 | なし | なし | リソースパスプラグイン領域 |
+| pathPluginList[0].pluginType | Enum | 必須 | なし | {pluginCode} CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER,ADD_REQUEST_QUERY_PARAMETER | [リソースプラグインタイプEnumコード](./enum-code/#_1)のうち、リソースパスに設定可能なプラグインタイプ |
+| pathPluginList[0].pluginConfigJson | Object | 条件付き必須 | なし | なし | [リソースプラグインタイプ別のJSON設定値](./api-guide-v1.0/#_25)参考、 deleteフィールドがfalseの場合は必須入力|
+| pathPluginList[0].applyChildPath | Boolean | 任意 | false | true, false | サブパスとメソッドに上書きするかどうか |
+| pathPluginList[0].delete | Boolean | 任意 | false | true, false | プラグインを削除するかどうか |
+
+#### レスポンス
+
+[Response]
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "resourceList": [
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members/{memberId}",
+      "parentPath": "/members",
+      "methodType": "DELETE",
+      "methodName": "DeleteMember",
+      "methodDescription": "Delete a member",
+      "createdAt": "2021-12-23T23:55:11.298Z",
+      "updatedAt": "2021-12-23T23:55:11.298Z",
+      "resourcePluginList": [
+        {
+          "resourcePluginId": "{resourcePluginId}",
+          "resourceId": "{resourceId}",
+          "pluginType": "HTTP",
+          "pluginConfigJson": {
+            "frontendEndpointPath": "/members/{memberId}",
+            "backendEndpointPath": "/api/v1/members/${request.path.memberId}"
+          },
+          "createdAt": "2021-12-23T23:55:11.298Z",
+          "updatedAt": "2021-12-23T23:55:11.298Z"
+        }
+      ]
+    }
+    ...
+  ]
+}
+```
+
+| フィールド                                                   | タイプ     | 説明                                           |
+| ------------------------------------------------------ | -------- | ---------------------------------------------- |
+| resourceList                                           | List     | リソースリスト領域                                    |
+| resourceList[0].resourceId                             | String   | リソースID                                         |
+| resourceList[0].apigwServiceId                         | String   | API GatewayサービスID                             |
+| resourceList[0].path                                   | String   | リソースパス                                       |
+| resourceList[0].parentPath                             | String   | 親リソースパス                                       |
+| resourceList[0].createdAt                              | DateTime | リソース作成日時                                     |
+| resourceList[0].updatedAt                              | DateTime | リソース修正日時                                     |
+| resourceList[0].methodType                             | Enum     | [HTTPメソッドタイプEnumコード](./enum-code/#http)参考 |
+| resourceList[0].methodName                             | String   | メソッドリソース名                                   |
+| resourceList[0].methodDescription                      | String   | メソッドリソース説明                                   |
+| resourceList[0].resourcePluginList                     | List     | リソースプラグインリスト領域                               |
+| resourceList[0].resourcePluginList[0].resourcePluginId | String   | リソースプラグインID                                    |
+| resourceList[0].resourcePluginList[0].resourceId       | String   | リソースID                                         |
+| resourceList[0].resourcePluginList[0].pluginType       | Enum     | [リソースプラグインタイプEnumコード](./enum-code/#_1)参考  |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [リソースプラグインタイプ別のJSON設定値](./api-guide-v1.0/#_25)参考                 |
+| resourceList[0].resourcePluginList[0].createdAt        | DateTime | リソースプラグイン作成日時                                |
+| resourceList[0].resourcePluginList[0].updatedAt        | DateTime | リソースプラグイン修正日時                                |
+
+
+### リソースメソッド情報とプラグイン修正/削除
+- リソースメソッドの名前、説明を修正できます。
+- リソースメソッドプラグインを追加、修正、削除します。
+- リソースメソッドに追加されていないプラグインを設定するとプラグインが追加されます。
+- リソースメソッドに追加されたプラグインを設定すると、リクエストしたプラグイン設定に変更されます。
+- deleteフィールドをtrueに設定すると、リクエストしたプラグインタイプのプラグインが削除されます。 deleteフィールドがtrueの場合、pluginConfigJsonフィールドは定義する必要はありません。
+- リソースメソッドに設定可能なプラグインのみ設定できます。詳細については[リソースプラグイン]()を参照してください。
+
+#### リクエスト
+
+[URI]
+
+| メソッド | URI | 
+| --- | --- | 
+| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resource-methods/{resourceId} |
+
+[Path Parameter]
+
+| 名前           | タイプ   | 必須かどうか | デフォルト値 | 有効範囲 | 説明               |
+| -------------- | ------ | ----- | --- | ----- | ------------------ |
+| apigwServiceId | String | 必須  | なし | なし   | API GatewayサービスID |
+| resourceId | String | 必須  | なし | なし   | リソースメソッドID |
+
+[Request Body]
+
+```json
+{
+  "methodName":"PutMember",
+  "methodDescription":"Edit a member information",
+  "methodPluginList":[
+    {
+        "pluginConfigJson":{
+          "frontendEndpointPath":"/members/{memberId}",
+          "backendEndpointPath":"/api/v2/members/${request.path.memberId}"
+        },
+        "pluginType":"HTTP"
+    },
+    {
+      "delete": true,
+      "pluginType": "ADD_REQUEST_QUERY_PARAMETER"
+    }
+  ]
+}
+```
+
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
+| --- | --- | --- | --- | --- | --- |
+| methodName | String | 必須 | なし | 最大50文字 | メソッド名 |
+| methodDescription | String | 任意 | なし | 最大200文字 | メソッド説明 |
+| methodPluginList | List | 任意 | なし | なし | リソースメソッドプラグインリスト |
+| methodPluginList[0] | Object | 必須 | なし | なし | リソースメソッドプラグイン領域 |
+| methodPluginList[0].pluginType | Enum | 必須 | なし | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [リソースプラグインタイプEnumコード](./enum-code/#_1)のうち、リソースメソッドに設定可能なプラグインタイプ |
+| methodPluginList[0].pluginConfigJson | Object | 条件付き必須 | なし | なし | [リソースプラグインタイプ別のJSON設定値](./api-guide-v1.0/#_25)参考、 deleteフィールドがfalseの場合は必須入力|
+| methodPluginList[0].delete | Boolean | 任意 | false | なし | プラグイン削除するかどうか |
+
+#### レスポンス
+
+[Response]
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "resourceList": [
+    {
+      "resourceId": "{resourceId}",
+      "apigwServiceId": "{apigwServiceId}",
+      "path": "/members/{memberId}",
+      "parentPath": "/members/{memberId}",
+      "methodType": "PUT",
+      "methodName": "PostMember",
+      "methodDescription": "Edit a member info",
+      "createdAt": "2021-12-23T23:55:11.300Z",
+      "updatedAt": "2021-12-23T23:55:11.300Z",
+      "resourcePluginList": [
+        {
+          "resourcePluginId": "24bef5d0-feaf-4469-9619-a31e9e35a622",
+          "resourceId": "{resourceId}",
+          "pluginType": "HTTP",
+          "pluginConfigJson": {
+            "frontendEndpointPath": "/members/{memberId}",
+            "backendEndpointPath": "/api/v2/members/${request.path.memberId}"
+          },
+          "createdAt": "2021-12-23T23:55:11.300Z",
+          "updatedAt": "2021-12-23T23:55:11.300Z"
+        }
+      ]
+    }
+  ]
+}
+```
+
+| フィールド                                                   | タイプ     | 説明                                           |
+| ------------------------------------------------------ | -------- | ---------------------------------------------- |
+| resourceList                                           | List     | リソースリスト領域                                    |
+| resourceList[0].resourceId                             | String   | リソースID                                         |
+| resourceList[0].apigwServiceId                         | String   | API GatewayサービスID                             |
+| resourceList[0].path                                   | String   | リソースパス                                       |
+| resourceList[0].parentPath                             | String   | 親リソースパス                                       |
+| resourceList[0].createdAt                              | DateTime | リソース作成日時                                     |
+| resourceList[0].updatedAt                              | DateTime | リソース修正日時                                     |
+| resourceList[0].methodType                             | Enum     | [HTTPメソッドタイプEnumコード](./enum-code/#http)参考 |
+| resourceList[0].methodName                             | String   | メソッドリソース名                                   |
+| resourceList[0].methodDescription                      | String   | メソッドリソース説明                                   |
+| resourceList[0].resourcePluginList                     | List     | リソースプラグインリスト領域                               |
+| resourceList[0].resourcePluginList[0].resourcePluginId | String   | リソースプラグインID                                    |
+| resourceList[0].resourcePluginList[0].resourceId       | String   | リソースID                                         |
+| resourceList[0].resourcePluginList[0].pluginType       | Enum     | [リソースプラグインタイプEnumコード](./enum-code/#_1)参考  |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [リソースプラグインタイプ別のJSON設定値](./api-guide-v1.0/#_25)参考                 |
+| resourceList[0].resourcePluginList[0].createdAt        | DateTime | リソースプラグイン作成日時                                |
+| resourceList[0].resourcePluginList[0].updatedAt        | DateTime | リソースプラグイン修正日時                                |
+
 
 ### リソースの削除
 - リソースを削除します。
