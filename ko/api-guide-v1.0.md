@@ -3337,7 +3337,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0]|Object    |스테이지 리소스의 플러그인 영역                       |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고                       |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입 Enum 코드](./enum-code/#_1), [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고                       |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v1.0/#_37), [스테이지 플러그인 타입](./api-guide-v1.0/#_89)별 설정 JSON 참고          |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
@@ -3520,7 +3520,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |stageResourceList[0].stageResourcePluginList[0]|Object    |스테이지 리소스의 플러그인 영역                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고                       |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입 Enum 코드](./enum-code/#_1), [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고                       |
 |stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v1.0/#_37), [스테이지 플러그인 타입](./api-guide-v1.0/#_89)별 설정 JSON 참고         |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |

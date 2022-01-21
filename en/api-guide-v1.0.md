@@ -3520,7 +3520,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stageResourceList[0].stageResourcePluginList[0]|Object    |Stage resource's plugin area                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                       |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See  [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                       |
 |stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)         |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
