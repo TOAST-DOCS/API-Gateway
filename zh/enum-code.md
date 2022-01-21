@@ -37,14 +37,14 @@ This document describes Enum codes referenced in the API v1.0 guide.
 ### Resource Plugin Type
 - A plugin type that can be set for resources.
 
-| Name | Description |
-| --- | --- |
-| HTTP | Forwards a API request received by API Gateway to the defined backend endpoint URL path. |
-| MOCK | Returns a defined response to a request received by API Gateway. | 
-| CORS | Allows XMLHttpRequest API calls within a cross-site method. | 
-| SET_REQUEST_HEADER | Adds or changes the request header.  | 
-| SET_RESPONSE_HEADER | Adds the header to a backend response or changes the header. | 
-| ADD_REQUEST_QUERY_PARAMETER | Adds a query string parameter to the backend endpoint request.   | 
+| Name | Description | Where the plugin can be applied |
+| --- | --- | --- |
+| HTTP | Forwards a API request received by API Gateway to the defined backend endpoint URL path. | Method |
+| MOCK | Returns a defined response to a request received by API Gateway. | Method |
+| CORS | Allows XMLHttpRequest API calls within a cross-site method. | Resource path |
+| SET_REQUEST_HEADER | Adds or changes the request header. | Resource path, method |
+| SET_RESPONSE_HEADER | Adds the header to a backend response or changes the header. | Resource path, method |
+| ADD_REQUEST_QUERY_PARAMETER | Adds a query string parameter to the backend endpoint request. | Resource path, method |
 
 
 ### Resource Request/Response Parameter Data Type
@@ -64,14 +64,14 @@ This document describes Enum codes referenced in the API v1.0 guide.
 ### Stage Resource > Plugin Type
 - A plugin type that can be configured on the stage resource path or method.
 
-| Name | Description |
-| --- | --- |
-| IP_ACL | IP access control plugin | 
-| HMAC | HMAC request validation plugin |
-| JWT | JWT token validation plugin | 
-| API_KEY | API Key validation plugin | 
-| PRE_API | Pre-call API plugin  | 
-| RATE_LIMIT | Request number limit plugin | 
+| Name | Description | Where the plugin can be applied |
+| --- | --- | --- |
+| IP_ACL | IP access control plugin | Root (/) resource path |
+| HMAC | HMAC request validation plugin | Root (/) resource path |
+| JWT | JWT token validation plugin | Root (/) resource path |
+| API_KEY | API Key validation plugin | Resource path, method |
+| PRE_API | Pre-call API plugin | Resource path, method |
+| RATE_LIMIT | Request number limit plugin | Method |
 
 
 ### JWT > Encryption Algorithm
@@ -157,3 +157,13 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | Name | Description |
 | --- | --- |
 | APPROVAL | Approved status | 
+
+### Statistics Data Time Unit
+- The unit of time for which statistics data is collected
+
+| Name | Description |
+| --- | --- |
+| ONE_MINUTES | Collects statistics data at 1 minute intervals  | 
+| TEN_MINUTES | Collects statistics data at 10 minute intervals | 
+| ONE_HOURS | Collects statistics data at 1 hour intervals | 
+| ONE_DAYS | Collects statistics data at daily intervals | 
