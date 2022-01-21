@@ -5064,7 +5064,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
       "avgResponseTimeMs": 129,
       "networkOutboundByte": 3032
     }
-  ]
+  ],
+  "metricsLatestUpdatedAt": "2021-11-29T08:50:57.000Z"
 }
 ```
 
@@ -5087,6 +5088,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |data[0].statusEtcCount               |Long    | 2xx、3xx、4xx、5xx以外のレスポンスHTTPステータスコードAPI呼び出し数 |
 |data[0].avgResponseTimeMs            |Long    | 平均APIレスポンス時間(ms) |
 |data[0].networkOutboundByte          |Long    | アウトバウンドネットワークバイト合計(bytes) |
+|metricsLatestUpdatedAt         | DateTime | 統計データ の最終更新日時 |
+
 
 
 ### API Key別照会
@@ -5166,7 +5169,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
         ]
       }
     }
-  }
+  },
+  "metricsLatestUpdatedAt": "2021-11-29T08:50:57.000Z",
+  "timeUnit": "ONE_DAYS"
 }
 ```
 
@@ -5182,5 +5187,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0]               |Object    | API呼び出し数統計領域 |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].dateTime   |Long    | 統計時間(Unix time形式) |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].count      |Long    | 統計時間中のAPI呼び出し総数 |
+|metricsLatestUpdatedAt         | DateTime | 統計データ の最終更新日時 |
+|timeUnit          |Enum    | [統計データ時間単位Enumコード](./enum-code/#_7)ONE_DAYS参考 |
 
 * 日単位の統計データは各日の00:00:00の時間データで集計されます。
