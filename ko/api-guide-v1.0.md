@@ -5019,7 +5019,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
 | limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 
-* startTime, endTime 필드의 조회 기간은 최대 3개월까지 조회할 수 있습니다.
+* startTime, endTime 필드의 조회 기간은 최근 90일까지 조회할 수 있습니다.
 * stageTime, endTime 필드는 ISO8601형식의 날짜 문자열 형식으로 입력합니다. 
     * UTC 표기: yyyy-MM-dd'T'HH:mm:ssZ
     * UTC 기준 타임 오프셋 표기: yyyy-MM-dd'T'HH:mm:ss±hh:mm
@@ -5120,7 +5120,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | startTime | DateTime | 필수 | 없음 | 없음 | 통계 조회 시작 일시 |
 | endTime | DateTime | 필수 | 없음 | 없음 | 통계 조회 종료 일시 |
 
-* startTime, endTime 필드의 조회 기간은 최대 3개월까지 조회할 수 있습니다.
+* startTime, endTime 필드의 조회 기간은 최근 90일까지 조회할 수 있습니다.
 * stageTime, endTime 필드는 ISO8601형식의 날짜 문자열 형식으로 입력합니다.
     * UTC 표기: yyyy-MM-dd'T'HH:mm:ssZ
     * UTC 기준 타임 오프셋 표기: yyyy-MM-dd'T'HH:mm:ss±hh:mm
