@@ -1912,6 +1912,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | Optional | 1 | N/A | Page |
 | limit | Integer | Optional | 10 | Max. 1000 | Count per page |
+| modelName | String | Optional | N/A | Max. 50 characters  | Model name filter condition. It must contain a string of the model name. |
 
 #### Response
 
@@ -5019,7 +5020,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | page | Integer | Optional | 1 | N/A | Page |
 | limit | Integer | Optional | 10 | Max. 1000 | Count per page |
 
-* The search period of the startTime, endTime fields can be up to 3 months.
+* The search period set by the startTime and endTime fields must be within the last 90 days.
 * Enter the stageTime, endTime fields in ISO8601 format date string format.
     * UTC notation: yyyy-MM-dd'T'HH:mm:ssZ
     * UTC-based time offset notation: yyyy-MM-dd'T'HH:mm:ss±hh:mm
@@ -5120,7 +5121,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | startTime | DateTime | Required | N/A | N/A | Statistics query start date and time |
 | endTime | DateTime | Required | N/A | N/A | Statistics query end date and time |
 
-* The search period of the startTime, endTime fields can be up to 3 months.
+* The search period set by the startTime and endTime fields must be within the last 90 days.
 * Enter the stageTime, endTime fields in ISO8601 format date string format.
     * UTC notation: yyyy-MM-dd'T'HH:mm:ssZ
     * UTC-based time offset notation: yyyy-MM-dd'T'HH:mm:ss±hh:mm
