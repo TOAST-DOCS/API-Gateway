@@ -1911,6 +1911,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | 任意 | 1 | なし | ページ |
 | limit | Integer | 任意 | 10 | 最大1000 | ページあたりの件数 |
+| modelName | String | 任意 | なし | 最大50文字 | モデル名フィルタ条件。モデル名の文字列を含める必要があります。|
 
 #### レスポンス
 
@@ -5016,7 +5017,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | page | Integer | 任意 | 1 | なし | ページ |
 | limit | Integer | 任意 | 10 | 最大1000 | ページあたりの件数 |
 
-* startTime, endTimeフィールドの照会期間は最大3か月まで照会できます。
+* startTime, endTimeフィールドは過去90日まで照会できます。
 * stageTime, endTimeフィールドはISO8601形式の日文字列形式で入力します。 
     * UTC表記：yyyy-MM-dd'T'HH:mm:ssZ
     * UTC基準タイムオフセット表記：yyyy-MM-dd'T'HH:mm:ss±hh:mm
@@ -5118,7 +5119,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | startTime | DateTime | 必須 | なし | なし | 統計照会開始日時 |
 | endTime | DateTime | 必須 | なし | なし | 統計照会終了日時 |
 
-* startTime, endTimeフィールドの照会期間は最大3か月まで照会できます。
+* startTime, endTimeフィールドは過去90日まで照会できます。
 * stageTime, endTimeフィールドはISO8601形式の日付文字列形式で入力します。
     * UTC表記：yyyy-MM-dd'T'HH:mm:ssZ
     * UTC基準タイムオフセット表記：yyyy-MM-dd'T'HH:mm:ss±hh:mm

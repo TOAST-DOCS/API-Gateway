@@ -925,7 +925,7 @@ Check the API statistical indexes by API Gateway Service and API key using the d
 ### Note on Statistical Data
 
 - **Max. Search Period**
-    - Only data for the past 3 months can be viewed.
+    - Only statistical data for the last 90 days can be viewed.
 - **Statistical Data Generation Cycle**
     - Statistical data of all time-unit(1 min./10 min./1 hr./1 day) is renewed every minute. 
     - The generation of statistical data can be delayed depending on the size of the data.
