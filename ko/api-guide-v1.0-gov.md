@@ -124,7 +124,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
          "apigwServiceAlias":"{apigwServiceAlias}",
          "apigwServiceName":"test api gateway",
          "apigwServiceDescription":"description of test api gateway service",
-         "apigwDomain":"api.nhncloudservice.com",
+         "apigwDomain":"api.gov-nhncloudservice.com",
          "appKey":"{appKey}",
          "regionCode":"KR1",
          "serverGroupId":"{serverGroupId}",
@@ -192,7 +192,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     "apigwServiceAlias": "{apigwServiceAlias}",
     "apigwServiceName": "test api gateway",
     "apigwServiceDescription": "description of test api gateway",
-    "apigwDomain": "api.nhncloudservice.com",
+    "apigwDomain": "api.gov-nhncloudservice.com",
     "appKey": "{appKey}",
     "regionCode": "KR1",
     "serverGroupId": "{serverGroupId}",
@@ -269,7 +269,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     "apigwServiceAlias": "{apigwServiceAlias}",
     "apigwServiceName": "test api gateway",
     "apigwServiceDescription": "description of test api gateway",
-    "apigwDomain": "api.nhncloudservice.com",
+    "apigwDomain": "api.gov-nhncloudservice.com",
     "appKey": "{appKey}",
     "regionCode": "KR1",
     "serverGroupId": "{serverGroupId}",
@@ -347,7 +347,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     "apigwServiceAlias": "{apigwServiceAlias}",
     "apigwServiceName": "test api gateway",
     "apigwServiceDescription": "description of test api gateway",
-    "apigwDomain": "api.nhncloudservice.com",
+    "apigwDomain": "api.gov-nhncloudservice.com",
     "appKey": "{appKey}",
     "regionCode": "KR1",
     "serverGroupId": "{serverGroupId}",
@@ -2257,7 +2257,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
       "regionCode": "KR1",
       "stageName": "alpha",
       "stageDescription": "alpha environment stage",
-      "stageUrl": "kr1-{apigwServiceId}-alpha.api.nhncloudservice.com",
+      "stageUrl": "kr1-{apigwServiceId}-alpha.api.gov-nhncloudservice.com",
       "stageCustomUrl": null,
       "backendEndpointUrl": "https://backend.com",
       "resourceUpdatedAt": "2021-10-20T06:43:26.000Z",
@@ -2361,7 +2361,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 - stageName 필드 값은 유일해야 합니다. 
 - stageName(스테이지 이름) 필드를 null로 설정하면 기본 스테이지로 생성됩니다. 기본 스테이지는 하나만 생성할 수 있습니다. 
 - stageName 필드 값에 따라 스테이지 URL이 변경됩니다.
-    - 스테이지 URL 포맷: {regionCode}-{apigwServiceId}-{stageName}.api.nhncloudservice.com
+    - 스테이지 URL 포맷: {regionCode}-{apigwServiceId}-{stageName}.api.gov-nhncloudservice.com
 
 
 
@@ -2382,7 +2382,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     "regionCode": "KR1",
     "stageName": "alpha",
     "stageDescription": "alpha environment stage",
-    "stageUrl": "kr1-{apigwServiceId}-alpha.api.nhncloudservice.com",
+    "stageUrl": "kr1-{apigwServiceId}-alpha.api.gov-nhncloudservice.com",
     "stageCustomUrl": null,
     "backendEndpointUrl": "https://backend.com",
     "resourceUpdatedAt": "2021-10-22T02:22:11.182Z",
@@ -2458,7 +2458,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     "regionCode": "KR1",
     "stageName": "alpha",
     "stageDescription": "alpha v2 environment stage",
-    "stageUrl": "kr1-{apigwServiceId}-alpha.api.nhncloudservice.com",
+    "stageUrl": "kr1-{apigwServiceId}-alpha.api.gov-nhncloudservice.com",
     "stageCustomUrl": null,
     "backendEndpointUrl": "https://v2.backend.com",
     "resourceUpdatedAt": "2021-10-22T02:22:11.182Z",
@@ -2581,7 +2581,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
           "pluginType": "RATE_LIMIT",
           "pluginConfigJson": {
             "requestPerSec": 10,
-            "defaultKey": "kr1-{apigwServiceId}.alpha-api.nhncloudservice.com/:",
+            "defaultKey": "kr1-{apigwServiceId}.api.gov-nhncloudservice.com/:",
             "keyType": "DEFAULT",
             "extraKeyValue": null
           },
@@ -2682,7 +2682,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
           "pluginType": "RATE_LIMIT",
           "pluginConfigJson": {
             "requestPerSec": 10,
-            "defaultKey": "kr1-{apigwServiceId}.alpha-api.nhncloudservice.com/:",
+            "defaultKey": "kr1-{apigwServiceId}.api.gov-nhncloudservice.com/:",
             "keyType": "DEFAULT",
             "extraKeyValue": null
           },
@@ -2808,7 +2808,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
           "pluginType": "RATE_LIMIT",
           "pluginConfigJson": {
             "requestPerSec": 10,
-            "defaultKey": "kr1-{apigwServiceId}.alpha-api.nhncloudservice.com/:",
+            "defaultKey": "kr1-{apigwServiceId}.api.gov-nhncloudservice.com/:",
             "keyType": "DEFAULT",
             "extraKeyValue": null
           },
@@ -3295,7 +3295,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
             "pluginType": "RATE_LIMIT",
             "pluginConfigJson": {
                 "requestPerSec": 10,
-                "defaultKey": "kr1-{apigwServiceId}.api.nhncloudservice.com/:",
+                "defaultKey": "kr1-{apigwServiceId}.api.gov-nhncloudservice.com/:",
                 "keyType": "DEFAULT",
                 "extraKeyValue": null
             },
@@ -3561,7 +3561,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     "version": "2021-10-26T15:21:22.163+09:00",
     "title": "alpha"
   },
-  "host": "kr1-{apigwServiceId}-alpha.api.nhncloudservice.com",
+  "host": "kr1-{apigwServiceId}-alpha.api.gov-nhncloudservice.com",
   "schemes": [
     "https",
     "http"
@@ -4490,7 +4490,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
       "apigwServiceName": "APIGW Example",
       "stageId": "{stageId}",
       "stageName": "custom",
-      "stageUrl": "kr1-example-custom.api.nhncloudservice.com",
+      "stageUrl": "kr1-example-custom.api.gov-nhncloudservice.com",
       "stageCustomUrl": null,
       "usagePlanId": "{usagePlanId}",
       "usagePlanName": "Basic"
@@ -4701,7 +4701,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
             "apigwServiceName": "test api gateway",
             "stageId": "{stageId}",
             "stageName": null,
-            "stageUrl": "kr1-example.api.nhncloudservice.com",
+            "stageUrl": "kr1-example.api.gov-nhncloudservice.com",
             "stageCustomUrl": null,
             "usagePlanId": "{usagePlanId}",
             "usagePlanName": "Basic",
@@ -5138,9 +5138,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     "resultMessage": "SUCCESS"
   },
   "data": {
-    "kr1-{apigwServiceId}-member.api.nhncloudservice.com": {
+    "kr1-{apigwServiceId}-member.api.gov-nhncloudservice.com": {
       "stageName": "member",
-      "stageUrl": "kr1-{apigwServiceId1}-member.api.nhncloudservice.com",
+      "stageUrl": "kr1-{apigwServiceId1}-member.api.gov-nhncloudservice.com",
       "stageCustomUrl": null,
       "apiKeyMetricsTimeSeries": {
         "callCount": [
@@ -5155,9 +5155,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
         ]
       }
     },
-    "kr1-{apigwServiceId}-billing.api.nhncloudservice.com": {
+    "kr1-{apigwServiceId}-billing.api.gov-nhncloudservice.com": {
       "stageName": "billing",
-      "stageUrl": "kr1-{apigwServiceId}-billing.api.nhncloudservice.com",
+      "stageUrl": "kr1-{apigwServiceId}-billing.api.gov-nhncloudservice.com",
       "stageCustomUrl": null,
       "apiKeyMetricsTimeSeries": {
         "callCount": [
