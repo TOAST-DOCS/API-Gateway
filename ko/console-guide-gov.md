@@ -421,10 +421,10 @@ Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니�
     - **스테이지 URL**: API Gateway로 통합 요청이 가능한 스테이지 URL입니다. 
         - API 요청 클라이언트는 스테이지 URL을 통해 API를 요청할 수 있습니다.
         - 스테이지 URL은 다음과 같은 형식으로 발급됩니다. 
-            - 기본 스테이지: {region}-{api-gateway-service-id}.api.nhncloudservice.com
+            - 기본 스테이지: {region}-{api-gateway-service-id}.api.gov-nhncloudservice.com
                 - {region}: 판교 리전(kr1)
                 - {api-gateway-service-id}: API Gateway 서비스 ID
-            - 일반 스테이지: {region}-{api-gateway-service-id}-{stage-name}.api.nhncloudservice.com
+            - 일반 스테이지: {region}-{api-gateway-service-id}-{stage-name}.api.gov-nhncloudservice.com
                 - {region}: 판교 리전(kr1)
                 - {api-gateway-service-id}: API Gateway 서비스 ID
                 - {stage-name}: 입력된 스테이지 이름
@@ -595,7 +595,7 @@ HMAC 인증을 하려면 API 요청 클라이언트는 다음의 인증 헤더�
 - HTTP 요청 원문
 ```
 GET /members?isEnable=false&type=public HTTP/1.1
-Host: http://kr1-example.api.nhncloudservice.com
+Host: http://kr1-example.api.gov-nhncloudservice.com
 x-nhn-date: 2021-02-23T00:00:00+09:00
 x-nhn-client-id: nhn
 x-nhn-client-ip: 10.0.0.1,10.0.0.2
@@ -606,7 +606,7 @@ x-nhn-client-ip: 10.0.0.1,10.0.0.2
 GET
 /members?isEnable=false&type=public
 2021-02-23T00:00:00+09:00
-host:kr1-example.api.nhncloudservice.com
+host:kr1-example.api.gov-nhncloudservice.com
 x-nhn-client-id: nhn
 x-nhn-client-ip: 10.0.0.1,10.0.0.2
 ```
@@ -824,9 +824,9 @@ API Gateway에 API 요청 시 지정된 API Key만 요청할 수 있도록 제�
 3. 스테이지 URL를 지정된 HTTP 메서드로 API를 호출합니다. 
     - 예시: 
         - 메서드: GET
-        - 스테이지 URL: https://kr1-xxxxx-test.api.nhncloudservice.com/example
+        - 스테이지 URL: https://kr1-xxxxx-test.api.gov-nhncloudservice.com/example
     ```
-    curl --request GET 'https://kr1-xxxxx-test.api.nhncloudservice.com/example'
+    curl --request GET 'https://kr1-xxxxx-test.api.gov-nhncloudservice.com/example'
     ```
 
 > **[주의] 스테이지 배포** 
@@ -857,6 +857,7 @@ API Gateway에 API 요청 시 지정된 API Key만 요청할 수 있도록 제�
 API Gateway에서 배포된 스테이지 URL은 외부(인터넷)에서 접근이 허용됩니다.
 외부로 노출하지 않을 API는 API Gateway의 리소스로 등록하지 않도록 합니다.
 리소스로 등록된 API에서 제한된 클라이언트만 API 요청을 허용하려면 다음의 설정을 참고하여 추가하시기 바랍니다.
+
 * 접근 제어/인증 관련 설정
     * IP ACL: 제한된 클라이언트 IP에 대해 API 요청을 허용하거나 거부합니다.
     * HMAC,JWT: 서명된 토큰의 유효성 검증에 따라 API 요청을 허용하거나 거부합니다. 
