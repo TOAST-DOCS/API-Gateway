@@ -710,9 +710,9 @@ API Gateway의 엑세스 로그를 Log & Crash Search 서비스에 보관할 수
 엑세스 로그는 Log & Crash Search 서비스에서 확인할 수 있습니다. 
 
 1. Log & Crash Search 서비스 콘솔 페이지로 이동합니다. 
-2. Log & Crash Search 서비스에서 logType 필드가 NNH Cloud-API Gateway 인 로그를 조회합니다. 
-    - 조회 쿼리: logType: "NHN Cloud-APIGateway"
-3. API Gateway 엑세스 로그의 저장 필드 아래 내용은 참고합니다.
+2. Log & Crash Search 서비스에서 logType 필드가 "NNH Cloud-API Gateway"인 로그를 조회합니다. 
+    - 조회 쿼리: `logType: "NHN Cloud-APIGateway"`
+3. Log & Crash Search에 저장하는 필드 내용은 다음과 같습니다.
 
 | 필드 | 설명 |
 | --- | --- |
