@@ -712,6 +712,7 @@ API Gateway의 엑세스 로그를 Log & Crash Search 서비스에 보관할 수
 1. Log & Crash Search 서비스 콘솔 페이지로 이동합니다. 
 2. Log & Crash Search 서비스에서 logType 필드가 "NNH Cloud-API Gateway"인 로그를 조회합니다. 
     - 조회 쿼리: `logType: "NHN Cloud-APIGateway"`
+    - 자세한 이용 방법은 [Log & Crash Search 서비스의 콘솔 가이드](/ko/Analytics/Log%20&%20Crash%20Search/ko/console-guide/)를 참고해주세요.
 3. Log & Crash Search에 저장하는 필드 내용은 다음과 같습니다.
 
 | 필드 | 설명 |
@@ -725,7 +726,7 @@ API Gateway의 엑세스 로그를 Log & Crash Search 서비스에 보관할 수
 | body | "{clientIp}" - [{requestTime}] "{requestHttpMethod} {requestPath}" {responseHttpStatusCode}" 형식의 문자열 |
 | host | 요청 호스트: 스테이지 URL의 도메인 |
 | logType | 로그 타입: "NHN Cloud-APIGateway" 고정 값 |
-| logLevel |  로그 레벨: "INFO" 고정 값 |
+| logLevel |  로그 레벨: 응답 상태 코드가 400 미만인 경우 "INFO", 400 이상인 경우 "ERROR" |
 | errorCode | API Gateway에서 오류가 발생한 경우 게이트웨이 오류 코드, 오류 미발생시 빈 값 |
 | errorMessage | API Gateway에서 오류가 발생한 경우 게이트웨이 오류 메시지, 오류 미발생시 빈 값 |
 
@@ -733,7 +734,7 @@ API Gateway의 엑세스 로그를 Log & Crash Search 서비스에 보관할 수
 > **[참고]** Log & Crash Search 이용 요금 안내 
 > 엑세스 로그는 Log & Crash Search 서비스에 저장되며, Log & Crash Search 서비스 이용 요금이 별도 청구됩니다.
 > Log & Crash Search 서비스 소개와 이용 요금은 아래 링크를 참고해주세요.
-> <a class='text-guide' target='_blank' href='https://www.toast.com/kr/service/analytics/log-crash-search'>Log & Crash Search 서비스 가이드 바로가기</a>
+> <a class='text-guide' target='_blank' href='https://www.toast.com/kr/service/analytics/log-crash-search'>Log & Crash Search 서비스 소개 바로가기</a>
 > <a class='text-guide' target='_blank' href='https://www.toast.com/kr/service/analytics/log-crash-search#price'>Log & Crash Search 이용 요금 바로 가기</a>
 > 
 > **[주의]** 엑세스 로그 기능 이용 중 Log & Crash Search 서비스 비활성화시 안내 
