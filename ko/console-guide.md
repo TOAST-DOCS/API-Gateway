@@ -696,6 +696,52 @@ JWT 토큰의 서명과 클레임을 검증합니다. 사용자 서비스에서�
 > API Gateway는 JWKS URI의 응답을 5분간 캐싱합니다.
 > API Gateway의 캐싱으로 인해 JWKS 변경 사항이 API Gateway에 반영되기까지 최대 5분 이상 소요될 수 있습니다.
 
+### 액세스 로그
+API Gateway의 액세스 로그를 Log & Crash Search 서비스에 보관할 수 있는 기능입니다.
+
+1. **스테이지** 탭에서 스테이지를 선택합니다.
+2. **설정** 탭을 선택합니다.
+3. 스테이지 트리 화면에서 스테이지의 루트(/) 경로를 선택합니다. 
+4. 액세스 로그를 **활성화(On)**합니다. 
+5. Log & Crash Search 서비스를 이용 중이지 않은 경우, **Log & Crash Search 서비스 활성화**를 클릭하여 서비스를 활성화합니다. 
+6. **수정** 버튼을 클릭하여 설정을 저장합니다.
+7. **스테이지 배포**를 한 이후부터 액세스 로그가 Log & Crash Search 서비스에 보관됩니다. 
+
+액세스 로그는 Log & Crash Search 서비스에서 확인할 수 있습니다. 
+
+1. Log & Crash Search 서비스 콘솔 페이지로 이동합니다. 
+2. Log & Crash Search 서비스에서 logType 필드가 "NNH Cloud-API Gateway"인 로그를 조회합니다. 
+    - 조회 쿼리: `logType: "NHN Cloud-APIGateway"`
+    - 자세한 이용 방법은 [Log & Crash Search 서비스의 콘솔 가이드](/ko/Analytics/Log%20&%20Crash%20Search/ko/console-guide/)를 참고해주세요.
+3. Log & Crash Search에 저장하는 필드 내용은 다음과 같습니다.
+
+| 필드 | 설명 |
+| --- | --- |
+| longRequestTime | 요청 일시의 타임스탬프 |
+| requestPath | 요청 경로 |
+| resourcePath | 요청이 매핑된 리소스 경로 |
+| requestHttpMethod | 요청 HTTP 메서드 |
+| clientIp | 요청 클라이언트 IP |
+| responseHttpStatus | 응답 HTTP 상태 코드 |
+| body | "{clientIp}" - [{requestTime}] "{requestHttpMethod} {requestPath}" {responseHttpStatusCode}" 형식의 문자열 |
+| host | 요청 호스트: 스테이지 URL의 도메인 |
+| logType | 로그 타입: "NHN Cloud-APIGateway" 고정 값 |
+| logLevel |  로그 레벨: 응답 상태 코드가 400 미만인 경우 "INFO", 400 이상인 경우 "ERROR" |
+| errorCode | API Gateway에서 오류가 발생한 경우 게이트웨이 오류 코드, 오류 미발생 시 빈 값 |
+| errorMessage | API Gateway에서 오류가 발생한 경우 게이트웨이 오류 메시지, 오류 미발생 시 빈 값 |
+
+
+> **[참고]** Log & Crash Search 이용 요금 안내 
+> 액세스 로그는 Log & Crash Search 서비스에 저장되며, Log & Crash Search 서비스 이용 요금이 별도 청구됩니다.
+> Log & Crash Search 서비스 소개와 이용 요금은 아래 링크를 참고해주세요.
+> <a class='text-guide' target='_blank' href='https://www.toast.com/kr/service/analytics/log-crash-search'>Log & Crash Search 서비스 소개 바로 가기</a>
+> <a class='text-guide' target='_blank' href='https://www.toast.com/kr/service/analytics/log-crash-search#price'>Log & Crash Search 이용 요금 바로 가기</a>
+> 
+> **[주의]** 액세스 로그 기능 이용 중 Log & Crash Search 서비스 비활성화 시 유의 사항
+> 액세스 로그 기능 이용 중 Log & Crash Search 서비스를 비활성화하면, 액세스 로그는 더 이상 저장되지 않으며 액세스 로그 기능은 자동으로 비활성화됩니다.
+> 다시 액세스 로그 기능을 이용하려면, Log & Crash Search 서비스를 활성화한 후 액세스 로그 기능을 다시 활성화하시기 바랍니다.
+
+
 
 ### 사전 호출 API(Pre-call API)
 사전 호출 API는 백엔드 엔드포인트를 호출하기 전에 사용자가 지정한 API를 호출하여 호출의 응답 코드에 따라 백엔드 엔드포인트 호출 여부를 결정합니다.
