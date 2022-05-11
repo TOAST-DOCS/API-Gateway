@@ -723,7 +723,7 @@ API Gateway의 액세스 로그를 Log & Crash Search 서비스에 보관할 수
 | requestHttpMethod | 요청 HTTP 메서드 |
 | clientIp | 요청 클라이언트 IP |
 | responseHttpStatus | 응답 HTTP 상태 코드 |
-| body | "{clientIp}" - [{requestTime}] "{requestHttpMethod} {requestPath}" {responseHttpStatusCode}" 형식의 문자열 |
+| body | {clientIp} - [{requestTime}] "{requestHttpMethod} {requestPath}" {responseHttpStatusCode} 형식의 문자열 |
 | host | 요청 호스트: 스테이지 URL의 도메인 |
 | logType | 로그 타입: "NHN Cloud-APIGateway" 고정 값 |
 | logLevel |  로그 레벨: 응답 상태 코드가 400 미만인 경우 "INFO", 400 이상인 경우 "ERROR" |
