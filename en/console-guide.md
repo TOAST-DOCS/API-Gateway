@@ -724,7 +724,7 @@ Access logs can be found in the Log & Crash Search service.
 | requestHttpMethod | Request HTTP method |
 | clientIp | Request client IP |
 | responseHttpStatus | Response HTTP status code |
-| body | String in the format "{clientIp}" - [{requestTime}] "{requestHttpMethod} {requestPath}" {responseHttpStatusCode}" |
+| body | String in the format {clientIp} - [{requestTime}] "{requestHttpMethod} {requestPath}" {responseHttpStatusCode} |
 | host | Request host: Domain of the stage URL |
 | logType | Log type: A fixed value of "NHN Cloud-APIGateway" |
 | logLevel |  Log level: "INFO" for response status code lower than 400, "ERROR" for response status code 400 or higher |
