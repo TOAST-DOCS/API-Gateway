@@ -3,7 +3,7 @@
 ### May 24, 2022
 #### Feature Updates 
 * Added the access log feature
-    * This is a feature that lets you store API Gateway's access logs in the Log & Crash Search service. For more information, refer to [Access Log](./api-guide-v1.0/#access_log).
+    * This is a feature that lets you store API Gateway's access logs in the Log & Crash Search service. For more information, refer to [Access Log](./console-guide/#access-log).
 
 
 ### January 25, 2022

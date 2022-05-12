@@ -3,7 +3,7 @@
 ### 2022. 05. 24.
 #### 기능 개선/변경 
 * 액세스 로그 기능 추가 
-    * API Gateway의 액세스 로그를 Log & Crash Search 서비스에 보관할 수 있는 기능입니다. 자세한 내용은 [액세스 로그](./api-guide-v1.0/#access_log)를 참고해주세요.
+    * API Gateway의 액세스 로그를 Log & Crash Search 서비스에 보관할 수 있는 기능입니다. 자세한 내용은 [액세스 로그](./console-guide/#_24)를 참고해주세요.
 
 
 ### 2022. 01. 25.
