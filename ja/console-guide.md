@@ -693,6 +693,50 @@ JWTトークンの署名とクレームを検証します。ユーザーサー�
 > API Gatewayは、JWKS URIのレスポンスを5分間キャッシュします。
 > API GatewayのキャッシュによりJWKSの変更事項がAPI Gatewayに反映されるまで最大5分以上かかることがあります。
 
+### アクセスログ
+API GatewayのアクセスログをLog & Crash Searchサービスに保管できる機能です。
+
+1. **ステージ**タブでステージを選択します。
+2. **設定**タブを選択します。
+3. ステージツリー画面でステージのルート(/)パスを選択します。
+4. アクセスログを**有効化(On)**します。
+5. Log & Crash Searchサービスを利用していない場合は、**Log & Crash Searchサービス有効化**をクリックしてサービスを有効にします。 
+6. **修正**ボタンをクリックして設定を保存します。
+7. **ステージ配布**を行った後からアクセスログがLog & Crash Searchサービスに保管されます。 
+
+アクセスログはLog & Crash Searchサービスで確認できます。 
+
+1. Log & Crash Searchサービスコンソールページに移動します。 
+2. Log & Crash SearchサービスでlogTypeフィールドが「NNH Cloud-API Gateway」のログを照会します。 
+    - 照会クエリ：`logType: "NHN Cloud-APIGateway"`
+    - 詳細な利用方法は[Log & Crash Searchサービスのコンソールガイド](/ko/Analytics/Log%20&%20Crash%20Search/ko/console-guide/)を参照してください。
+3. Log & Crash Searchに保存するフィールドの内容は次のとおりです。
+
+| フィールド | 説明 |
+| --- | --- |
+| longRequestTime | リクエスト日時のタイムスタンプ |
+| requestPath | リクエストパス |
+| resourcePath | リクエストがマッピングされたリソースパス |
+| requestHttpMethod | リクエストHTTPメソッド |
+| clientIp | リクエストクライアントIP |
+| responseHttpStatus | レスポンスHTTPステータスコード |
+| body | {clientIp} - [{requestTime}] "{requestHttpMethod} {requestPath}" {responseHttpStatusCode}形式の文字列 |
+| host | リクエストホスト：ステージURLのドメイン |
+| logType | ログタイプ：「NHN Cloud-APIGateway」固定値 |
+| logLevel | ログレベル：レスポンスステータスコードが400未満の場合は「INFO」、400以上の場合は「ERROR」 |
+| errorCode | API Gatewayでエラーが発生した場合は、ゲートウェイエラーコード。エラー未発生時は空の値 |
+| errorMessage | API Gatewayでエラーが発生した場合はゲートウェイエラーメッセージ。エラー未発生時は空の値 |
+
+
+> **[参考]** Log & Crash Search利用料金案内 
+> アクセスログはLog & Crash Searchサービスに保存され、Log & Crash Searchサービス利用料金が別途請求されます。
+> Log & Crash Searchサービス紹介と利用料金は以下のリンクを参照してください。
+> <a class='text-guide' target='_blank' href='https://www.toast.com/kr/service/analytics/log-crash-search'>Log & Crash Searchサービス紹介へ</a>
+> <a class='text-guide' target='_blank' href='https://www.toast.com/kr/service/analytics/log-crash-search#price'>Log & Crash Search利用料金へ</a>
+> 
+> **[注意]**アクセスログ機能利用中におけるLog & Crash Searchサービス無効化時の注意事項
+> アクセスログ機能利用中にLog & Crash Searchサービスを無効化すると、アクセスログは保存されなくなり、アクセスログ機能は自動的に無効になります。
+> 再度アクセスログ機能を利用するには、 Log & Crash Searchサービスを有効にした後、アクセスログ機能を再度有効にしてください。
 
 ### 事前呼び出しAPI(Pre-call API)
 事前呼び出しAPIは、バックエンドエンドポイントを呼び出す前にユーザーが指定したAPIを呼び出して、呼び出しのレスポンスコードに応じてバックエンドエンドポイントを呼び出すかどうかを決定します。
