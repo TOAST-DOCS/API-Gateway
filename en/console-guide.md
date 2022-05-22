@@ -274,6 +274,7 @@ Plugin allows you to add additional functions provided by API Gateway.
 > **[Caution] Saving changes after adding plugins**
 > You must click the **Save Changes** button after adding plugins to save the changed settings.
 
+
 ### Request Parameters
 Set request parameters, response types, and content type for each resource method.  
 Settings are applied to [API document](./console-guide/#api-document_1).
@@ -402,12 +403,12 @@ Example: If the parameter name and value are set to 'name' and 'value', **name=v
 > - The requested query string parameter that has the same key as the originally requested query string parameter does not replace the originally requested query string but instead adds the query string parameter. 
 > - The value of the query string parameter is encoded and delivered to the backend endpoint.
 
+
 ## Stage
 Stage is a phase where resources are deployed. 
 
 - A unique Stage URL is issued per stage. 
 - Stages can be used to categorize services by each service or environment (profile) or used for other purposes.
-
 
 ### Create Stage
 
@@ -462,6 +463,7 @@ Stage is a phase where resources are deployed.
 > - Since deleted stage cannot be recovered, make sure it is not being used by the service before deleting it.
 > - If there is a usage plan connected to the stage, the stage cannot be deleted.
 
+
 ### Import Resource
 To change resources and apply the changed resources to the stage, you must import resources on the stage management screen. 
 
@@ -497,6 +499,7 @@ You can verify deployment history after stage deployment, and go back stages by 
 
 > **[Caution] Restore stage to previous deployment history**
 > - If you use Restore Stage, you must deploy stage if you wish to apply it to API Gateway service.
+
 
 ### Export Stage
 1. On the **Stage** tab, select a stage.
@@ -694,6 +697,52 @@ Verifies the signature and claim of JWT token. Token values can be used without 
 > API Gateway caches JWKS URI's response for 5 minutes.
 > Due to caching by API Gateway, it may take a maximum of 5 minutes for modifications in JWKS to be reflected in API Gateway.
 
+### Access Log
+This is a feature that lets you store API Gateway's access logs in the Log & Crash Search service.
+
+1. On the **Stage** tab, select a stage.
+2. Select the **Settings** tab.
+3. In the stage tree view, select the root (/) path of the stage. 
+4. **Enable (On)** the access log feature. 
+5. If you are not using the Log & Crash Search service, click **Enable Log & Crash Search Service** to enable the service. 
+6. Click **Modify** to save your settings.
+7. After running **Deploy Stage**, access logs are stored in the Log & Crash Search service. 
+
+Access logs can be found in the Log & Crash Search service. 
+
+1. Go to the Log & Crash Search service console page. 
+2. Retrieve logs with logType field "NNH Cloud-API Gateway" in the Log & Crash Search service. 
+    - Retrieval query: `logType: "NHN Cloud-APIGateway"`
+    - For details on how to use the console, refer to the [Log & Crash Search service console guide](/Analytics/Log%20&%20Crash%20Search/en/console-guide/).
+3. The content of fields to be stored in Log & Crash Search is as follows.
+
+| Field | Description |
+| --- | --- |
+| longRequestTime | Timestamp of the request date and time |
+| requestPath | Request path |
+| resourcePath | Resource path to which the request is mapped |
+| requestHttpMethod | Request HTTP method |
+| clientIp | Request client IP |
+| responseHttpStatus | Response HTTP status code |
+| body | String in the format {clientIp} - [{requestTime}] "{requestHttpMethod} {requestPath}" {responseHttpStatusCode} |
+| host | Request host: Domain of the stage URL |
+| logType | Log type: A fixed value of "NHN Cloud-APIGateway" |
+| logLevel |  Log level: "INFO" for response status code lower than 400, "ERROR" for response status code 400 or higher |
+| errorCode | Gateway error code if an error occurred in API Gateway, empty value if no error occurred |
+| errorMessage | Gateway error message if an error occurred in API Gateway, empty value if no error occurred |
+
+
+> **[Note]** Log & Crash Search usage fee information
+> Access logs are stored in the Log & Crash Search service, and the Log & Crash Search service usage fee is charged separately.
+> Refer to the links below for the Log & Crash Search service introduction and usage fee.
+> <a class='text-guide' target='_blank' href='https://www.toast.com/kr/service/analytics/log-crash-search'>Go to the Log & Crash Search service introduction</a>
+> <a class='text-guide' target='_blank' href='https://www.toast.com/kr/service/analytics/log-crash-search#price'>Go to the Log & Crash Search usage fee</a>
+> 
+> **[Caution]** Notification on disabling the Log & Crash Search service while using the access log feature
+> If you disable the Log & Crash Search service while using the access log feature, the access logs are no longer stored and the access log feature is automatically disabled.
+> To use the access log feature again, enable the Log & Crash Search service and then enable the access log feature again.
+
+
 
 ### Pre-call API
 Pre-call API determines whether or not to call the backend endpoint depending on the call response code after calling the user-designated API before calling the backend endpoint.
@@ -856,7 +905,6 @@ You can define a model to specify the format of body that you can use in the req
     curl --request GET 'https://kr1-xxxxx-test.api.nhncloudservice.com/example'
     ```
 
-
 > **[Caution] Stage deployment** 
 > To call the API, there must be a deployed stage with the status: Successfully Deployed. 
 
@@ -997,6 +1045,8 @@ Limit the ability to request stage APIs only by API key connected to the stage o
 > When editing the limited requests per second and request quota in the usage plan, it will be reflected in the connected API without a separate process.
 > If you modify the quota period unit to “day” or “month,” the usage of the connected API Key request quota is maintained. If the request quota limit is lowered, the usage may be exceeded.
 > If the quota period unit is modified to “None,” the requested quota usage of the associated API keys is initialized.
+
+
 
 ### Delete Usage Plan
 1. Select the usage plan to delete in the usage plan list.
