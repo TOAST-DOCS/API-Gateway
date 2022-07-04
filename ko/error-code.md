@@ -112,6 +112,20 @@
 }
 ```
 
+## 응답 크기 초과
+- 발생 원인: 응답 크기가 10MB를 초과한 경우 발생합니다.
+- 응답 HTTP 상태: 500 Internal Error
+- 오류 응답 본문 
+```
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 500000001,
+        "resultMessage": "The download size of the response body has been exceeded. the permissible limit is 10mb."
+    }
+}
+```
+
 ## 요청 수 제한
 - 발생 원인: 제한된 요청 수를 초과하는 요청을 거부할 때 오류 응답이 반환됩니다.
 - 응답 HTTP 상태: 429 Too Many Requests
