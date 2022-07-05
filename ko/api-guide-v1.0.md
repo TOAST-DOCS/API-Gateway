@@ -6,9 +6,10 @@ NHN Cloud API Gateway에서 제공하는 Public API v1.0을 설명합니다.
 
 ### 도메인
 
-| 이름              | 리전 | 도메인                                            |
-| ---------------|-----|------------------------------------------------|
-| API 도메인 | 한국(판교) 리전 <br/> 한국(평촌) 리전 | https://kr1-apigateway.api.nhncloudservice.com <br/> https://kr2-apigateway.api.nhncloudservice.com|
+| 이름      | 리전 | 도메인                                            |
+|---------|-----|------------------------------------------------|
+| API 도메인 | 한국(판교) 리전 | https://kr1-apigateway.api.nhncloudservice.com |
+| API 도메인 | 한국(평촌) 리전 | https://kr2-apigateway.api.nhncloudservice.com |
 
 ### 사전 준비
 
