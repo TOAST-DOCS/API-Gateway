@@ -29,7 +29,7 @@
 |400103001|Failed to update stage resource. Stage resource plugin's position is invalid.|요청한 리소스에 설정할 수 없는 스테이지 플러그인입니다.|
 |400103002|Failed to update stage resource. PRE_API's URL is not allowed to use stage URL.|잘못된 사전 호출의 URL 형식입니다.|
 |400103003|Failed to update stage resource. Custom endpoint URL is not allowed at this stage resource path.|백엔드 엔드포인트 URL 재정의를 설정할 수 없는 리소스입니다.|
-|400103004|Failed to create or update stage. Invalid backend endpoint URL format.|잘못된 백엔드 엔드포인트 URL 형식입니다.|
+|400103004|Invalid backend endpoint URL format.|잘못된 백엔드 엔드포인트 URL 형식입니다.|
 |400103005|Failed to delete stage. The stage have connected usage plan.|스테이지가 연결된 사용량 계획이 있습니다. 스테이지 연결 해제 후 스테이지를 삭제할 수 있습니다.|
 |400103006|Exceeded the maximum stage count.|스테이지 최대 생성 개수를 초과하였습니다.|
 |400103007|Invalid context variables.|잘못된 컨텍스트 변수가 존재합니다.|
@@ -41,6 +41,7 @@
 |500103001|Failed to create stage. Please try again.|스테이지 생성에 실패했습니다. 잠시 후 다시 시도해 주세요.|
 |500103002|Could not find any server group.|스테이지 생성에 실패했습니다. 잠시 후 다시 시도해 주세요.|
 |500103003|Failed to delete stage URL.|스테이지 삭제에 실패했습니다. 잠시 후 시도해 주세요.|
+|500103004|Failed to connect alias domain to stage. Please try again.|도메인 별칭을 스테이지에 연결하지 못했습니다. 잠시 후 시도해 주세요.|
 |400104000|Unable to delete base stage deploy history or the currently deployed stage deploy history.|현재 배포된 이력과 기반 배포 이력은 삭제할 수 없습니다.|
 |400104001|Only possible to rollback stage for the completed deploy status.|스테이지 되돌리기를 할 수 없는 배포 상태의 이력입니다.|
 |400104002|Empty stage resource for deploying.|생성된 리소스가 없어 스테이지를 생성할 수 없습니다.|
