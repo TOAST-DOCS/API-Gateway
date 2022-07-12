@@ -19,7 +19,7 @@
     * Added the timeUnit field to the response of the Query by API Key API, which indicates the time unit of statistics data.
     * For more information, see [API v1.0 Guide > Statistics > Query by Stage Resource](./api-guide-v1.0/#query-by-stage-resource), [API v1.0 Guide > Statistics > Query by API Key](./api-guide-v1.0/#query-by-api-key).
 * Added restriction on the range of ports available for pre-call API's endpoints and backend endpoints.
-    * Available port numbers: 80, 443, 5000-12000
+    * Available port numbers: 80, 443, 10000-12000
 
 
 ### November 23, 2021
