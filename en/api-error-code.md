@@ -29,7 +29,7 @@
 |400103001|Failed to update stage resource. Stage resource plugin's position is invalid.|A stage plugin that cannot be set on the requested resource.|
 |400103002|Failed to update stage resource. PRE_API's URL is not allowed to use stage URL.|Invalid pre-call URL format.|
 |400103003|Failed to update stage resource. Custom endpoint URL is not allowed at this stage resource path.|Backend endpoint URL override cannot be set on this resource.|
-|400103004|Failed to create or update stage. Invalid backend endpoint URL format.|Invalid backend endpoint URL format.|
+|400103004|Invalid backend endpoint URL format.|Invalid backend endpoint URL format.|
 |400103005|Failed to delete stage. The stage have connected usage plan.|The stage has a connected usage plan. You can delete a stage after disconnecting the stage.|
 |400103006|Exceeded the maximum stage count.|The maximum number of stage creation has been exceeded.|
 |400103007|Invalid context variables.|Invalid context variables.|
