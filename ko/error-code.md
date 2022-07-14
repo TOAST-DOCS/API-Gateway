@@ -114,8 +114,8 @@
 
 ## 응답 크기 초과
 - 발생 원인: 응답 크기가 10MB를 초과한 경우 발생합니다. 
-- 응답 크기 초과시 API Gateway서버는 클라이언트와의 연결을 끊습니다.
-- 액세스 로그에는 다음과 같이 로깅됩니다.
+- 응답 크기 초과 시 API Gateway 서버는 클라이언트와의 연결을 끊습니다.
+- 액세스 로그에는 다음과 같이 기록됩니다.
     - 응답 HTTP 상태: 500 
     - 오류 코드: 500000001
     - 오류 메시지: The download size of the response body has been exceeded. the permissible limit is 10mb.

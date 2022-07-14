@@ -2281,7 +2281,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |stageList[0].stageId          |String  |스테이지 ID             |
 |stageList[0].stageName        |String  |스테이지 이름             |
 |stageList[0].stageUrl         |String  |스테이지 URL            |
-|stageList[0].stageCustomUrl   |String  |스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList 으로 대체) |
+|stageList[0].stageCustomUrl   |String  |스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList으로 대체) |
 |stageList[0].stageAliasDomainList   |List  |스테이지 도메인 별칭 목록 영역   |
 |stageList[0].stageAliasDomainList[0].aliasDomain   |String  |도메인 별칭   |
 |stageList[0].stageAliasDomainList[0].createdAt   |DateTime  |도메인 별칭 연결 일시    |
@@ -2405,7 +2405,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |stage.stageId          |String  |스테이지 ID             |
 |stage.stageName        |String  |스테이지 이름             |
 |stage.stageUrl         |String  |스테이지 URL            |
-|stage.stageCustomUrl   |String  |스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList 으로 대체) |
+|stage.stageCustomUrl   |String  |스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList으로 대체) |
 |stage.stageAliasDomainList   |List  |스테이지 도메인 별칭 목록 영역   |
 |stage.stageAliasDomainList[0].aliasDomain   |String  |도메인 별칭   |
 |stage.stageAliasDomainList[0].createdAt   |DateTime  |도메인 별칭 연결 일시    |
@@ -2485,7 +2485,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |stage.stageId          |String  |스테이지 ID             |
 |stage.stageName        |String  |스테이지 이름             |
 |stage.stageUrl         |String  |스테이지 URL            |
-|stage.stageCustomUrl   |String  |스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList 으로 대체)  |
+|stage.stageCustomUrl   |String  |스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList으로 대체)  |
 |stage.stageAliasDomainList   |List  |스테이지 도메인 별칭 목록 영역   |
 |stage.stageAliasDomainList[0].aliasDomain   |String  |도메인 별칭   |
 |stage.stageAliasDomainList[0].createdAt   |DateTime  |도메인 별칭 연결 일시    |
@@ -4525,7 +4525,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | usagePlanStageList[0].stageId        | String  | 스테이지 ID                |
 | usagePlanStageList[0].stageName      | String  | 스테이지 이름                |
 | usagePlanStageList[0].stageUrl       | String  | 스테이지 URL               |
-| usagePlanStageList[0].stageCustomUrl | String  | 스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList 으로 대체) |
+| usagePlanStageList[0].stageCustomUrl | String  | 스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList으로 대체) |
 | usagePlanStageList[0].stageAliasDomainList   |List  |스테이지 도메인 별칭 목록 영역   |
 | usagePlanStageList[0].stageAliasDomainList[0].aliasDomain   |String  |도메인 별칭   |
 | usagePlanStageList[0].stageAliasDomainList[0].createdAt   |DateTime  |도메인 별칭 연결 일시    |
@@ -4746,7 +4746,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | subscribedStageAndUsagePlanList[0].stageId                   | String  | 스테이지 ID                                           |
 | subscribedStageAndUsagePlanList[0].stageName                 | String  | 스테이지 이름                                           |
 | subscribedStageAndUsagePlanList[0].stageUrl                  | String  | 스테이지 URL                                          |
-| subscribedStageAndUsagePlanList[0].stageCustomUrl            | String  | 스테이지 사용자 정의 URL  (Deprecated: stageAliasDomainList 으로 대체) |
+| subscribedStageAndUsagePlanList[0].stageCustomUrl            | String  | 스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList으로 대체) |
 | subscribedStageAndUsagePlanList[0].stageAliasDomainList   |List  |스테이지 도메인 별칭 목록 영역   |
 | subscribedStageAndUsagePlanList[0].stageAliasDomainList[0].aliasDomain   |String  |도메인 별칭   |
 | subscribedStageAndUsagePlanList[0].stageAliasDomainList[0].createdAt   |DateTime  |도메인 별칭 연결 일시    |
@@ -5205,7 +5205,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |data.{requestApigwEndpoint}          |Object  | API 호출 엔드포인트별 통계 영역                |
 |data.{requestApigwEndpoint}.stageName                    |String    | 스테이지 이름            |
 |data.{requestApigwEndpoint}.stageUrl                     |String    | 스테이지 URL |
-|data.{requestApigwEndpoint}.stageCustomUrl               |String    | 스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList 으로 대체)|
+|data.{requestApigwEndpoint}.stageCustomUrl               |String    | 스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList으로 대체)|
 |data.{requestApigwEndpoint}.stageAliasDomainList   |List  |스테이지 도메인 별칭 목록 영역   |
 |data.{requestApigwEndpoint}.stageAliasDomainList[0].aliasDomain   |String  |도메인 별칭   |
 |data.{requestApigwEndpoint}.stageAliasDomainList[0].createdAt   |DateTime  |도메인 별칭 연결 일시    |
