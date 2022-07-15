@@ -110,8 +110,17 @@
 }
 ```
 
-## Request Number Limit
-- Cause: Returns an error response when a request exceeding the request number limit is rejected.
+## Response Size Exceeded
+- Cause: Occurs when the response size exceeds 10MB. 
+- When the response size exceeds 10MB, the API Gateway server disconnects the client.
+- The following items are recorded in the access log.
+    - Response HTTP Status: 500 
+    - Error code: 500000001
+    - Error message: The download size of the response body has been exceeded. the permissible limit is 10mb.
+
+
+## Request Rate Limit
+- Cause: Returns an error response when a request exceeding the request rate limit is rejected.
 - Response HTTP Status: 429 Too Many Requests
 - Error Response Body  
 ``` 
