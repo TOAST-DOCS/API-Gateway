@@ -118,8 +118,8 @@
     - Error code: 500000001
     - Error message: The download size of the response body has been exceeded. the permissible limit is 10mb.
 
-## Request Rate Limit
-- Cause: Returns an error response when a request exceeding the request rate limit is rejected.
+## Request Number Limit
+- Cause: Returns an error response when a request exceeding the request number limit is rejected.
 - Response HTTP Status: 429 Too Many Requests
 - Error Response Body  
 ``` 
