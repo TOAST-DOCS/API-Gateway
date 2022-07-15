@@ -4498,6 +4498,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   },
   "usagePlanStageList": [
     {
+      "regionCode": "KR1",
       "apigwServiceId": "{apigwServiceId}",
       "apigwServiceName": "APIGW Example",
       "stageId": "{stageId}",
@@ -4520,6 +4521,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | paging.totalCount                     | Integer | 전체 건 수                 |
 | usagePlanStageList                    | List    | 사용량 계획과 연결된 스테이지 목록 영역 |
 | usagePlanStageList[0]                | Object  | 사용량 계획과 연결된 스테이지 영역    |
+| usagePlanStageList[0].regionCode | Enum    | [API Gateway 리전 Enum 코드](./enum-code/#api-gateway) 참고 |
 | usagePlanStageList[0].apigwServiceId | String  | API Gateway 서비스 ID     |
 | usagePlanStageList[0].apigwServiceName      | String  | API Gateway 서비스 이름     |
 | usagePlanStageList[0].stageId        | String  | 스테이지 ID                |

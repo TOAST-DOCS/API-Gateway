@@ -4485,6 +4485,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
   },
   "usagePlanStageList": [
     {
+      "regionCode": "KR1",
       "apigwServiceId": "{apigwServiceId}",
       "apigwServiceName": "APIGW Example",
       "stageId": "{stageId}",
@@ -4506,6 +4507,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | paging.totalCount                     | Integer | Total count                 |
 | usagePlanStageList                    | List    | Stage list area associated with the usage plan |
 | usagePlanStageList[0]                | Object  | Stage area associated with the usage plan    |
+| usagePlanStageList[0].regionCode | Enum | [API Gateway Region Enum Code](./enum-code/#api-gateway-region) |
 | usagePlanStageList[0].apigwServiceId | String  | API Gateway service ID     |
 | usagePlanStageList[0].apigwServiceName      | String  | API Gateway service name     |
 | usagePlanStageList[0].stageId        | String  | Stage ID                |
