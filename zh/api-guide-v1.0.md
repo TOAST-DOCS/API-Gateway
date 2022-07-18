@@ -6,9 +6,10 @@ This guide describes Public API v1.0 provided by NHN Cloud API Gateway.
 
 ### Domain
 
-| Name              | Domain                                   |
-| --------------- | ------------------------------------- |
-| API domain | https://kr1-apigateway.api.nhncloudservice.com |
+| Name     | Region | Domain                                           |
+|---------|-----|------------------------------------------------|
+| API domain | Korea (Pangyo) | https://kr1-apigateway.api.nhncloudservice.com |
+| API domain | Korea (Pyeongchon) | https://kr2-apigateway.api.nhncloudservice.com |
 
 ### Prerequisites
 
@@ -35,11 +36,11 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ```json
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "Success"
-  }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "Success"
+    }
 }
 ```
 
@@ -1912,6 +1913,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | Optional | 1 | N/A | Page |
 | limit | Integer | Optional | 10 | Max. 1000 | Count per page |
+| modelName | String | Optional | N/A | Max. 50 characters  | Model name filter condition. It must contain a string of the model name. |
 
 #### Response
 
@@ -2258,6 +2260,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
       "stageDescription": "alpha environment stage",
       "stageUrl": "kr1-{apigwServiceId}-alpha.api.nhncloudservice.com",
       "stageCustomUrl": null,
+      "stageAliasDomainList": [],
       "backendEndpointUrl": "https://backend.com",
       "resourceUpdatedAt": "2021-10-20T06:43:26.000Z",
       "createdAt": "2021-10-20T06:43:26.000Z",
@@ -2279,7 +2282,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stageList[0].stageId          |String  |Stage ID             |
 |stageList[0].stageName        |String  |Stage name             |
 |stageList[0].stageUrl         |String  |Stage URL            |
-|stageList[0].stageCustomUrl   |String  |Stage custom URL   |
+|stageList[0].stageCustomUrl   |String  |Stage custom URL (Deprecated: replaced with stageAliasDomainList)  |
+|stageList[0].stageAliasDomainList   |List  |Area for the list of stage domain aliases   |
+|stageList[0].stageAliasDomainList[0].aliasDomain   |String  |Domain alias   |
+|stageList[0].stageAliasDomainList[0].createdAt   |DateTime  |Domain alias connection date and time   |
 |stageList[0].stageDescription |String  |Stage description             |
 |stageList[0].backendEndpointUrl|String  |Backend endpoint URL       |
 |stageList[0].resourceUpdatedAt|DateTime|Date and time of importing resource to the stage recently |
@@ -2383,6 +2389,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
     "stageDescription": "alpha environment stage",
     "stageUrl": "kr1-{apigwServiceId}-alpha.api.nhncloudservice.com",
     "stageCustomUrl": null,
+    "stageAliasDomainList": [],
     "backendEndpointUrl": "https://backend.com",
     "resourceUpdatedAt": "2021-10-22T02:22:11.182Z",
     "createdAt": "2021-10-22T02:22:11.182Z",
@@ -2399,7 +2406,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stage.stageId          |String  |Stage ID             |
 |stage.stageName        |String  |Stage name             |
 |stage.stageUrl         |String  |Stage URL            |
-|stage.stageCustomUrl   |String  |Stage custom URL   |
+|stage.stageCustomUrl   |String  |Stage custom URL (Deprecated: replaced with stageAliasDomainList)  |
+|stage.stageAliasDomainList   |List  |Area for the list of stage domain aliases   |
+|stage.stageAliasDomainList[0].aliasDomain   |String  |Domain alias   |
+|stage.stageAliasDomainList[0].createdAt   |DateTime  |Domain alias connection date and time    |
 |stage.stageDescription |String  |Stage description             |
 |stage.backendEndpointUrl      |String  |Backend endpoint URL       |
 |stage.resourceUpdatedAt|DateTime|Date and time of importing resource to the stage recently |
@@ -2459,6 +2469,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
     "stageDescription": "alpha v2 environment stage",
     "stageUrl": "kr1-{apigwServiceId}-alpha.api.nhncloudservice.com",
     "stageCustomUrl": null,
+    "stageAliasDomainList": [],
     "backendEndpointUrl": "https://v2.backend.com",
     "resourceUpdatedAt": "2021-10-22T02:22:11.182Z",
     "createdAt": "2021-10-22T02:22:11.182Z",
@@ -2475,7 +2486,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stage.stageId          |String  |Stage ID             |
 |stage.stageName        |String  |Stage name             |
 |stage.stageUrl         |String  |Stage URL            |
-|stage.stageCustomUrl   |String  |Stage custom URL   |
+|stage.stageCustomUrl   |String  |Stage custom URL (Deprecated: replaced with stageAliasDomainList)  |
+|stage.stageAliasDomainList   |List  |Area for the list of stage domain aliases   |
+|stage.stageAliasDomainList[0].aliasDomain   |String  |Domain alias   |
+|stage.stageAliasDomainList[0].createdAt   |DateTime  |Domain alias connection date and time    |
 |stage.stageDescription |String  |Stage description             |
 |stage.backendEndpointUrl      |String  |Backend endpoint URL       |
 |stage.resourceUpdatedAt|DateTime|Date and time of importing resource to the stage recently |
@@ -4491,6 +4505,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
       "stageName": "custom",
       "stageUrl": "kr1-example-custom.api.nhncloudservice.com",
       "stageCustomUrl": null,
+      "stageAliasDomainList": [],
       "usagePlanId": "{usagePlanId}",
       "usagePlanName": "Basic"
     }
@@ -4511,7 +4526,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | usagePlanStageList[0].stageId        | String  | Stage ID                |
 | usagePlanStageList[0].stageName      | String  | Stage name                |
 | usagePlanStageList[0].stageUrl       | String  | Stage URL               |
-| usagePlanStageList[0].stageCustomUrl | String  | Stage custom URL        |
+| usagePlanStageList[0].stageCustomUrl | String  | Stage custom URL (Deprecated: replaced with stageAliasDomainList) |
+| usagePlanStageList[0].stageAliasDomainList   | List  | Area for the list of stage domain aliases   |
+| usagePlanStageList[0].stageAliasDomainList[0].aliasDomain   | String  | Domain alias   |
+| usagePlanStageList[0].stageAliasDomainList[0].createdAt   | DateTime  | Domain alias connection date and time    |
 | usagePlanStageList[0].usagePlanId    | String  | Usage plan ID              |
 | usagePlanStageList[0].usagePlanName  | String  | Usage plan name              |
 
@@ -4702,6 +4720,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
             "stageName": null,
             "stageUrl": "kr1-example.api.nhncloudservice.com",
             "stageCustomUrl": null,
+            "stageAliasDomainList": [],
             "usagePlanId": "{usagePlanId}",
             "usagePlanName": "Basic",
             "usagePlanDescription": "It's for Basic User",
@@ -4728,7 +4747,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | subscribedStageAndUsagePlanList[0].stageId                   | String  | Stage ID                                           |
 | subscribedStageAndUsagePlanList[0].stageName                 | String  | Stage name                                           |
 | subscribedStageAndUsagePlanList[0].stageUrl                  | String  | Stage URL                                          |
-| subscribedStageAndUsagePlanList[0].stageCustomUrl            | String  | Stage custom URL                                   |
+| subscribedStageAndUsagePlanList[0].stageCustomUrl            | String  | Stage (Deprecated: replaced with stageAliasDomainList) |
+| subscribedStageAndUsagePlanList[0].stageAliasDomainList   | List  | Area for the list of stage domain aliases   |
+| subscribedStageAndUsagePlanList[0].stageAliasDomainList[0].aliasDomain   | String  | Domain alias   |
+| subscribedStageAndUsagePlanList[0].stageAliasDomainList[0].createdAt   | DateTime  | Domain alias connection date and time    |
 | subscribedStageAndUsagePlanList[0].usagePlanId               | String  | Usage plan ID                                         |
 | subscribedStageAndUsagePlanList[0].usagePlanName             | String  | Usage plan name                                         |
 | subscribedStageAndUsagePlanList[0].usagePlanDescription      | String  | Usage plan description                                         |
@@ -5019,7 +5041,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | page | Integer | Optional | 1 | N/A | Page |
 | limit | Integer | Optional | 10 | Max. 1000 | Count per page |
 
-* The search period of the startTime, endTime fields can be up to 3 months.
+* The search period set by the startTime and endTime fields must be within the last 90 days.
 * Enter the stageTime, endTime fields in ISO8601 format date string format.
     * UTC notation: yyyy-MM-dd'T'HH:mm:ssZ
     * UTC-based time offset notation: yyyy-MM-dd'T'HH:mm:ss±hh:mm
@@ -5120,7 +5142,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | startTime | DateTime | Required | N/A | N/A | Statistics query start date and time |
 | endTime | DateTime | Required | N/A | N/A | Statistics query end date and time |
 
-* The search period of the startTime, endTime fields can be up to 3 months.
+* The search period set by the startTime and endTime fields must be within the last 90 days.
 * Enter the stageTime, endTime fields in ISO8601 format date string format.
     * UTC notation: yyyy-MM-dd'T'HH:mm:ssZ
     * UTC-based time offset notation: yyyy-MM-dd'T'HH:mm:ss±hh:mm
@@ -5141,6 +5163,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
       "stageName": "member",
       "stageUrl": "kr1-{apigwServiceId1}-member.api.nhncloudservice.com",
       "stageCustomUrl": null,
+      "stageAliasDomainList": [],
       "apiKeyMetricsTimeSeries": {
         "callCount": [
           {
@@ -5183,7 +5206,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |data.{requestApigwEndpoint}          |Object  | Area for statistics by API call endpoint                |
 |data.{requestApigwEndpoint}.stageName                    |String    | Stage name            |
 |data.{requestApigwEndpoint}.stageUrl                     |String    | Stage URL |
-|data.{requestApigwEndpoint}.stageCustomUrl               |String    | Stage custom URL |
+|data.{requestApigwEndpoint}.stageCustomUrl               |String    | Stage custom URL (Deprecated: replaced with stageAliasDomainList)|
+|data.{requestApigwEndpoint}.stageAliasDomainList   |List  | Area for the list of stage domain aliases   |
+|data.{requestApigwEndpoint}.stageAliasDomainList[0].aliasDomain   |String  | Domain alias   |
+|data.{requestApigwEndpoint}.stageAliasDomainList[0].createdAt   |DateTime  | Domain alias connection date and time    |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries      |Object    | Area for API Key statistics by aggregation time unit|
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount               |List    | API call count statistics list area |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0]               |Object    | API call count statistics area |
