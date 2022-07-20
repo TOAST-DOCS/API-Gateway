@@ -4496,6 +4496,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   },
   "usagePlanStageList": [
     {
+      "regionCode": "KR1",
       "apigwServiceId": "{apigwServiceId}",
       "apigwServiceName": "APIGW Example",
       "stageId": "{stageId}",
@@ -4518,6 +4519,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | paging.totalCount                     | Integer | 総件数                |
 | usagePlanStageList                    | List    | 使用量プランに関連付けられたステージリスト領域 |
 | usagePlanStageList[0]                | Object  | 使用量プランに関連付けられたステージ領域  |
+| usagePlanStageList[0].regionCode | Enum | [API GatewayリージョンEnumコード](./enum-code/#api-gateway)参考 |
 | usagePlanStageList[0].apigwServiceId | String  | API GatewayサービスID     |
 | usagePlanStageList[0].apigwServiceName      | String  | API Gatewayサービス名   |
 | usagePlanStageList[0].stageId        | String  | ステージID                |
