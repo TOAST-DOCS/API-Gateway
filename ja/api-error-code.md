@@ -29,7 +29,7 @@
 |400103001|Failed to update stage resource. Stage resource plugin's position is invalid.|リクエストしたリソースで設定できないステージプラグインです。|
 |400103002|Failed to update stage resource. PRE_API's URL is not allowed to use stage URL.|無効な事前呼び出しのURL形式です。|
 |400103003|Failed to update stage resource. Custom endpoint URL is not allowed at this stage resource path.|バックエンドエンドポイントURLの再定義を設定できないリソースです。|
-|400103004|Failed to create or update stage. Invalid backend endpoint URL format.|無効なバックエンドエンドポイントURL形式です。|
+|400103004|Invalid backend endpoint URL format.|無効なバックエンドエンドポイントURL形式です。|
 |400103005|Failed to delete stage. The stage have connected usage plan.|ステージが関連付けられている使用量プランがあります。ステージの関連付けを削除した後にステージを削除できます。|
 |400103006|Exceeded the maximum stage count.|ステージの最大作成数を超過しました。|
 |400103007|Invalid context variables.|無効なコンテキスト変数が存在します。|
@@ -41,6 +41,7 @@
 |500103001|Failed to create stage. Please try again.|ステージの作成が失敗しました。しばらくしてから再度お試しください。|
 |500103002|Could not find any server group.|ステージの作成に失敗しました。しばらくしてから再度お試しください。|
 |500103003|Failed to delete stage URL.|ステージの削除が失敗しました。しばらくしてからお試しください。|
+|500103004|Failed to connect alias domain to stage. Please try again.|ドメインエイリアスをステージに接続できませんでした。しばらくしてから試行してください。|
 |400104000|Unable to delete base stage deploy history or the currently deployed stage deploy history.|現在配布された履歴とベースの配布履歴は削除できません。|
 |400104001|Only possible to rollback stage for the completed deploy status.|ステージを元に戻せない配布状態の履歴です。|
 |400104002|Empty stage resource for deploying.|作成されたリソースがないためステージを作成できません。|

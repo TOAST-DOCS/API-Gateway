@@ -29,7 +29,7 @@
 |400103001|Failed to update stage resource. Stage resource plugin's position is invalid.|A stage plugin that cannot be set on the requested resource.|
 |400103002|Failed to update stage resource. PRE_API's URL is not allowed to use stage URL.|Invalid pre-call URL format.|
 |400103003|Failed to update stage resource. Custom endpoint URL is not allowed at this stage resource path.|Backend endpoint URL override cannot be set on this resource.|
-|400103004|Failed to create or update stage. Invalid backend endpoint URL format.|Invalid backend endpoint URL format.|
+|400103004|Invalid backend endpoint URL format.|Invalid backend endpoint URL format.|
 |400103005|Failed to delete stage. The stage have connected usage plan.|The stage has a connected usage plan. You can delete a stage after disconnecting the stage.|
 |400103006|Exceeded the maximum stage count.|The maximum number of stage creation has been exceeded.|
 |400103007|Invalid context variables.|Invalid context variables.|
@@ -41,6 +41,7 @@
 |500103001|Failed to create stage. Please try again.|Failed to create stage. Please try again in a few minutes.|
 |500103002|Could not find any server group.|Failed to create stage. Please try again in a few minutes.|
 |500103003|Failed to delete stage URL.|Failed to delete stage. Please try again later.|
+|500103004|Failed to connect alias domain to stage. Please try again.|Failed to connect the domain alias to the stage. Please try again in a few minutes.|
 |400104000|Unable to delete base stage deploy history or the currently deployed stage deploy history.|The currently deployed history and the base deployment history cannot be deleted.|
 |400104001|Only possible to rollback stage for the completed deploy status.|A history of deployment status that cannot be rolled back.|
 |400104002|Empty Stage resource for deploying.|The stage could not be created because no resources were created.|

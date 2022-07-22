@@ -1,5 +1,12 @@
 ## Application Service > API Gateway > Release Note
 
+### July 26, 2022
+#### Feature Updates
+* New region opened in Korea (Pyeongchon)
+* Changed the range of ports available for backend endpoints.
+    * Previous: 80, 443, 5000~12000
+    * Current: 80, 443, 10000~12000
+
 ### May 24, 2022
 #### Feature Updates 
 * Added the access log feature
