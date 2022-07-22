@@ -9,6 +9,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | Name | Description |
 | --- | --- |
 | KR1 | Korea (Pangyo) Region |
+| KR2 | Korea (Pyeongchon) Region |
 
 
 ### API Gateway Service Type

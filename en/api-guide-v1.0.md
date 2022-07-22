@@ -99,7 +99,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | Enum | Required | N/A | KR1 | See [API Gateway Region Enum Code](./enum-code/#api-gateway-region) |
+| regionCode | Enum | Required | N/A | KR1, KR2 | See [API Gateway Region Enum Code](./enum-code/#api-gateway-region) |
 | page | Integer | Optional | 1 | N/A | Page |
 | limit | Integer | Optional | 10 | Max. 1000 | Count per page |
 
@@ -249,7 +249,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | Enum | Required | N/A | KR1 | See [API Gateway Region Enum Code](./enum-code/#api-gateway-region) |
+| regionCode | Enum | Required | N/A | KR1, KR2 | See [API Gateway Region Enum Code](./enum-code/#api-gateway-region) |
 | apigwServiceName | String | Required | N/A | Max. 50 characters  | API Gateway service name |
 | apigwServiceDescription | String | Optional | N/A | Max. 200 characters  | API Gateway service alias |
 
