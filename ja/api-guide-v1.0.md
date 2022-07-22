@@ -98,7 +98,7 @@ APIを使用するにはアプリキー(Appkey)が必要です。
 
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | String | 必須 | なし | KR1 | [API GatewayリージョンEnumコード](./enum-code/#api-gateway)参考 |
+| regionCode | String | 必須 | なし | KR1, KR2 | [API GatewayリージョンEnumコード](./enum-code/#api-gateway)参考 |
 | page | Integer | 任意 | 1 | なし | ページ |
 | limit | Integer | 任意 | 10 | 最大1000 | ページあたりの件数 |
 
@@ -248,7 +248,7 @@ APIを使用するにはアプリキー(Appkey)が必要です。
 
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | Enum | 必須 | なし | KR1 | [API GatewayリージョンEnumコード](./enum-code/#api-gateway)参考|
+| regionCode | Enum | 必須 | なし | KR1, KR2 | [API GatewayリージョンEnumコード](./enum-code/#api-gateway)参考|
 | apigwServiceName | String | 必須 | なし | 最大50文字 | API Gatewayサービス名 |
 | apigwServiceDescription | String | 任意 | なし | 最大200文字 | API Gatewayサービスの説明 |
 
