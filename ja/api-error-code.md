@@ -38,10 +38,10 @@
 |409103002|Failed to create duplicated stage name.|重複したステージ名は作成できません。|
 |409103003|The latest resource has already been applied.|すでにステージに最新リソースが適用されています。|
 |500103000|Invalid stage resource plugin configuration.|ステージ配布リクエストが失敗しました。しばらくしてから再度お試しください。|
-|500103001|Failed to create stage. Please try again.|ステージの作成が失敗しました。しばらくしてから再度お試しください。|
+|500103001|Failed to create stage. Please try again in a few minutes.|ステージの作成が失敗しました。しばらくしてから再度お試しください。|
 |500103002|Could not find any server group.|ステージの作成に失敗しました。しばらくしてから再度お試しください。|
 |500103003|Failed to delete stage URL.|ステージの削除が失敗しました。しばらくしてからお試しください。|
-|500103004|Failed to connect alias domain to stage. Please try again.|ドメインエイリアスをステージに接続できませんでした。しばらくしてから試行してください。|
+|500103004|Failed to connect alias domain to stage. Please try again in a few minutes.|ドメインエイリアスをステージに接続できませんでした。しばらくしてから試行してください。|
 |400104000|Unable to delete base stage deploy history or the currently deployed stage deploy history.|現在配布された履歴とベースの配布履歴は削除できません。|
 |400104001|Only possible to rollback stage for the completed deploy status.|ステージを元に戻せない配布状態の履歴です。|
 |400104002|Empty stage resource for deploying.|作成されたリソースがないためステージを作成できません。|
@@ -54,7 +54,7 @@
 |500104004|Failed to convert stage resource list to string.|ステージの配布リクエストが失敗しました。しばらくしてから再度お試しください。|
 |500104006|Failed to convert stage deploy JSON to stage resource list.|ステージ配布リクエストが失敗しました。しばらくしてから再度お試しください。|
 |500104007|Failed to rollback stage.|ステージ配布リクエストが失敗しました。しばらくしてから再度お試しください。|
-|500104008|Temporally failed to request stage deployment. Please try again later.|ステージ配布リクエストが失敗しました。しばらくしてから再度お試しください。|
+|500104008|Temporally failed to request stage deployment. Please try again in a few minutes.|ステージ配布リクエストが失敗しました。しばらくしてから再度お試しください。|
 |400105000|Failed to delete API key. The API key is in use.|関連付けられているAPI Keyは削除できません。関連付けを削除してから削除してください。|
 |404105000|Could not find API key.|API Key情報が見つかりません。|
 |500105000|Failed to regenerate API key.|API Keyを再発行できませんでした。|
