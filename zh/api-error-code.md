@@ -38,10 +38,10 @@
 |409103002|Failed to create duplicated stage name.|Duplicate stage names cannot be created.|
 |409103003|The latest resource has already been applied.|The latest resources have already been applied to the stage.|
 |500103000|Invalid stage resource plugin configuration.|The stage deployment request failed. Please try again in a few minutes.|
-|500103001|Failed to create stage. Please try again.|Failed to create stage. Please try again in a few minutes.|
+|500103001|Failed to create stage. Please try again in a few minutes.|Failed to create stage. Please try again in a few minutes.|
 |500103002|Could not find any server group.|Failed to create stage. Please try again in a few minutes.|
-|500103003|Failed to delete stage URL.|Failed to delete stage. Please try again later.|
-|500103004|Failed to connect alias domain to stage. Please try again.|Failed to connect the domain alias to the stage. Please try again in a few minutes.|
+|500103003|Failed to delete stage URL.|Failed to delete stage. Please try again in a few minutes.|
+|500103004|Failed to connect alias domain to stage. Please try again in a few minutes.|Failed to connect the domain alias to the stage. Please try again in a few minutes.|
 |400104000|Unable to delete base stage deploy history or the currently deployed stage deploy history.|The currently deployed history and the base deployment history cannot be deleted.|
 |400104001|Only possible to rollback stage for the completed deploy status.|A history of deployment status that cannot be rolled back.|
 |400104002|Empty Stage resource for deploying.|The stage could not be created because no resources were created.|
@@ -54,7 +54,7 @@
 |500104004|Failed to convert stage resource list to string.|The stage deployment request failed. Please try again in a few minutes.|
 |500104006|Failed to convert stage deploy JSON to stage resource list.|The stage deployment request failed. Please try again in a few minutes.|
 |500104007|Failed to rollback stage.|The stage deployment request failed. Please try again in a few minutes.|
-|500104008|Temporally failed to request stage deployment. Please try again later.|The stage deployment request failed. Please try again in a few minutes.|
+|500104008|Temporally failed to request stage deployment. Please try again in a few minutes.|The stage deployment request failed. Please try again in a few minutes.|
 |400105000|Failed to delete API key. The API key is in use.|The connected API key cannot be deleted. Please disconnect and then delete.|
 |404105000|Could not find API key.|Could not find API Key information.|
 |500105000|Failed to regenerate API key.|Failed to reissue API Key.|
