@@ -38,10 +38,10 @@
 |409103002|Failed to create duplicated stage name.|중복된 스테이지 이름은 생성할 수 없습니다.|
 |409103003|The latest resource has already been applied.|이미 스테이지에 최신 리소스가 적용되었습니다.|
 |500103000|Invalid stage resource plugin configuration.|스테이지 배포 요청에 실패했습니다. 잠시 후 다시 시도해 주세요.|
-|500103001|Failed to create stage. Please try again.|스테이지 생성에 실패했습니다. 잠시 후 다시 시도해 주세요.|
+|500103001|Failed to create stage. Please try again in a few minutes.|스테이지 생성에 실패했습니다. 잠시 후 다시 시도해 주세요.|
 |500103002|Could not find any server group.|스테이지 생성에 실패했습니다. 잠시 후 다시 시도해 주세요.|
 |500103003|Failed to delete stage URL.|스테이지 삭제에 실패했습니다. 잠시 후 시도해 주세요.|
-|500103004|Failed to connect alias domain to stage. Please try again.|도메인 별칭을 스테이지에 연결하지 못했습니다. 잠시 후 시도해 주세요.|
+|500103004|Failed to connect alias domain to stage. Please try again in a few minutes.|도메인 별칭을 스테이지에 연결하지 못했습니다. 잠시 후 시도해 주세요.|
 |400104000|Unable to delete base stage deploy history or the currently deployed stage deploy history.|현재 배포된 이력과 기반 배포 이력은 삭제할 수 없습니다.|
 |400104001|Only possible to rollback stage for the completed deploy status.|스테이지 되돌리기를 할 수 없는 배포 상태의 이력입니다.|
 |400104002|Empty stage resource for deploying.|생성된 리소스가 없어 스테이지를 생성할 수 없습니다.|
@@ -54,7 +54,7 @@
 |500104004|Failed to convert stage resource list to string.|스테이지 배포 요청에 실패했습니다. 잠시 후 다시 시도해 주세요.|
 |500104006|Failed to convert stage deploy JSON to stage resource list.|스테이지 배포 요청에 실패했습니다. 잠시 후 다시 시도해 주세요.|
 |500104007|Failed to rollback stage.|스테이지 배포 요청에 실패했습니다. 잠시 후 다시 시도해 주세요.|
-|500104008|Temporally failed to request stage deployment. Please try again later.|스테이지 배포 요청에 실패했습니다. 잠시 후 다시 시도해 주세요.|
+|500104008|Temporally failed to request stage deployment. Please try again in a few minutes.|스테이지 배포 요청에 실패했습니다. 잠시 후 다시 시도해 주세요.|
 |400105000|Failed to delete API key. The API key is in use.|연결된 API Key는 삭제할 수 없습니다. 연결을 해제한 후 삭제해 주세요.|
 |404105000|Could not find API key.|API Key 정보를 찾을 수 없습니다.|
 |500105000|Failed to regenerate API key.|API Key를 재발급하지 못했습니다.|
