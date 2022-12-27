@@ -713,7 +713,7 @@ Access logs can be found in the Log & Crash Search service.
 1. Go to the Log & Crash Search service console page. 
 2. Retrieve logs with logType field "NNH Cloud-API Gateway" in the Log & Crash Search service. 
     - Retrieval query: `logType: "NHN Cloud-APIGateway"`
-    - For details on how to use the console, refer to the [Log & Crash Search service console guide](/Analytics/Log%20&%20Crash%20Search/en/console-guide/).
+    - For details on how to use the console, refer to the [Log & Crash Search service console guide](/Data%20&%20Analytics/Log%20&%20Crash%20Search/en/console-guide/).
 3. The content of fields to be stored in Log & Crash Search is as follows.
 
 | Field | Description |
