@@ -709,7 +709,7 @@ API GatewayのアクセスログをLog & Crash Searchサービスに保管でき
 1. Log & Crash Searchサービスコンソールページに移動します。 
 2. Log & Crash SearchサービスでlogTypeフィールドが「NNH Cloud-API Gateway」のログを照会します。 
     - 照会クエリ：`logType: "NHN Cloud-APIGateway"`
-    - 詳細な利用方法は[Log & Crash Searchサービスのコンソールガイド](/Analytics/Log%20&%20Crash%20Search/ja/console-guide/)を参照してください。
+    - 詳細な利用方法は[Log & Crash Searchサービスのコンソールガイド](/Data%20&%20Analytics/Log%20&%20Crash%20Search/ja/console-guide/)を参照してください。
 3. Log & Crash Searchに保存するフィールドの内容は次のとおりです。
 
 | フィールド | 説明 |
