@@ -731,8 +731,8 @@ API GatewayのアクセスログをLog & Crash Searchサービスに保管でき
 > **[参考]** Log & Crash Search利用料金案内 
 > アクセスログはLog & Crash Searchサービスに保存され、Log & Crash Searchサービス利用料金が別途請求されます。
 > Log & Crash Searchサービス紹介と利用料金は以下のリンクを参照してください。
-> <a class='text-guide' target='_blank' href='https://www.toast.com/kr/service/analytics/log-crash-search'>Log & Crash Searchサービス紹介へ</a>
-> <a class='text-guide' target='_blank' href='https://www.toast.com/kr/service/analytics/log-crash-search#price'>Log & Crash Search利用料金へ</a>
+> <a class='text-guide' target='_blank' href='https://www.nhncloud.com/kr/service/analytics/log-crash-search'>Log & Crash Searchサービス紹介へ</a>
+> <a class='text-guide' target='_blank' href='https://www.nhncloud.com/kr/service/analytics/log-crash-search#price'>Log & Crash Search利用料金へ</a>
 > 
 > **[注意]**アクセスログ機能利用中におけるLog & Crash Searchサービス無効化時の注意事項
 > アクセスログ機能利用中にLog & Crash Searchサービスを無効化すると、アクセスログは保存されなくなり、アクセスログ機能は自動的に無効になります。
@@ -918,7 +918,7 @@ API説明書を掲示するための手順を案内します。
 > **[注意]掲示されたAPI説明書でAPI呼び出しテスト時のCORS設定**
 > - 掲示されたAPI説明書ドメインアドレスと呼び出すAPIのドメインアドレスが異なるため、API説明書内で呼び出しをテストしたい場合はCORS設定が必要な場合があります。
 > - 例：
-> Access-Control-Allow-Origin: https://docs-apigw.cloud.toast.com
+> Access-Control-Allow-Origin: https://docs-apigw.nhncloud.com
 > Access-Control-Allow-Method: GET, POST, DELETE, PUT, PATCH, HEAD, OPTIONS
 > Access-Control-Allow-Headers: Authorization, x-nhn-apikey, x-nhn-date
 
