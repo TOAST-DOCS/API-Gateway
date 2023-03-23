@@ -735,8 +735,8 @@ Access logs can be found in the Log & Crash Search service.
 > **[Note]** Log & Crash Search usage fee information
 > Access logs are stored in the Log & Crash Search service, and the Log & Crash Search service usage fee is charged separately.
 > Refer to the links below for the Log & Crash Search service introduction and usage fee.
-> <a class='text-guide' target='_blank' href='https://www.toast.com/kr/service/analytics/log-crash-search'>Go to the Log & Crash Search service introduction</a>
-> <a class='text-guide' target='_blank' href='https://www.toast.com/kr/service/analytics/log-crash-search#price'>Go to the Log & Crash Search usage fee</a>
+> <a class='text-guide' target='_blank' href='https://www.nhncloud.com/kr/service/analytics/log-crash-search'>Go to the Log & Crash Search service introduction</a>
+> <a class='text-guide' target='_blank' href='https://www.nhncloud.com/kr/service/analytics/log-crash-search#price'>Go to the Log & Crash Search usage fee</a>
 > 
 > **[Caution]** Notification on disabling the Log & Crash Search service while using the access log feature
 > If you disable the Log & Crash Search service while using the access log feature, the access logs are no longer stored and the access log feature is automatically disabled.
@@ -952,7 +952,7 @@ Here is the process of publishing API documentation.
 > **[Caution] CORS setting when testing API calls from a published API document**
 > - Since the domain address of the published API document and the domain address of the calling API are different, CORS setting might be necessary to test your calls within the API document.
 - Example:
-  Access-Control-Allow-Origin: https://docs-apigw.cloud.toast.com
+  Access-Control-Allow-Origin: https://docs-apigw.nhncloud.com
   Access-Control-Allow-Method: GET, POST, DELETE, PUT, PATCH, HEAD, OPTIONS
   Access-Control-Allow-Headers: Authorization, x-nhn-apikey, x-nhn-date
 >

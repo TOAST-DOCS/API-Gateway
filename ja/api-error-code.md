@@ -23,6 +23,7 @@
 |400102017|The HTTP plugin's frontendEndpointPath must be the same value as the path.|HTTPプラグインのfrontendEndpointPathはパスと同じ値でなければいけません。 |
 |400102018|The resource is not a resource path.|リソースパスではありません。 |
 |400102019|The resource is not a resource method.|リソースメソッドではありません。 |
+|404102000|Could not find resource.|リソースが見つかりません。 |
 |409102000|Failed to create duplicated resources.|重複したパスリソースは作成できません。|
 |409102001 | Failed to create duplicated resources. Only one path variable can be set for the paths of the same level. | すでに作成したパスです。同じレベルのパスには1つのパス変数のみ設定できます。 |
 |400103000|Path variable cannot be used. Only variables declared for the selected path or above can be set.|無効なパス変数です。|
@@ -46,6 +47,7 @@
 |400104001|Only possible to rollback stage for the completed deploy status.|ステージを元に戻せない配布状態の履歴です。|
 |400104002|Empty stage resource for deploying.|作成されたリソースがないためステージを作成できません。|
 |400104003|Empty path on stage resource for deploying.|作成されたリソースがないためステージを作成できません。|
+|404104000|Could not find stage deployment.|ステージ配布が見つかりません。|
 |409104000|Unable to rollback stage. No difference with current stage.|すでに元に戻された配布履歴です。|
 |409104001|Failed to deploy because current stage is deploying.|すでにステージの配布が進行中です。|
 |409104002|Failed to deploy because stage is not changed.|すでに最新ステージが配布されています。|
@@ -65,6 +67,7 @@
 |400106001|Failed to delete usage plan. The usage plan has a connected stage.|関連付けられているたステージがあり、使用量プランを削除できませんでした。すべてのステージの関連付けを削除してから削除してください。|
 |400106002|The stage has a connected API key. Please try after disconnecting.|ステージに関連付けられているAPI Keyがあります。API Keyの関連付けを削除するとステージを接続解除できます。|
 |404106000|Could not find connected API Key.|関連付けられているAPI Keyが見つかりません。|
+|404106001|Could not find usage plan.|使用量プランが見つかりません。|
 |409106000|Among the requested API keys, there is an API key already connected to the stage.|接続しようとしているAPI Keyの中にステージに関連付けられているAPI Keyがあります。|
 |409106001|The stage is already connected to this usage plan.|すでに使用量プランに関連付けられているステージです。|
 |500106000|Failed to connect API key to usage plan stage.|一部のAPI Keyに接続できませんでした。|
