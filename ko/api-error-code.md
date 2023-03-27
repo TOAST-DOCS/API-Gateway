@@ -23,6 +23,7 @@
 |400102017|The HTTP plugin's frontendEndpointPath must be the same value as the path.|HTTP 플러그인의 frontendEndpointPath는 경로와 동일한 값이어야 합니다. |
 |400102018|The resource is not a resource path.|리소스 경로가 아닙니다. |
 |400102019|The resource is not a resource method.|리소스 메서드가 아닙니다. |
+|404102000|Could not find resource.|리소스를 찾을 수 없습니다. |
 |409102000|Failed to create duplicated resources.|중복된 경로 리소스는 생성할 수 없습니다.|
 |409102001 | Failed to create duplicated resources. Only one path variable can be set for the paths of the same level. | 이미 생성한 경로입니다. 동일 레벨 경로에는 하나의 경로 변수만 설정 가능합니다. |
 |400103000|Path variable cannot be used. Only variables declared for the selected path or above can be set.|잘못된 경로 변수입니다.|
@@ -46,6 +47,7 @@
 |400104001|Only possible to rollback stage for the completed deploy status.|스테이지 되돌리기를 할 수 없는 배포 상태의 이력입니다.|
 |400104002|Empty stage resource for deploying.|생성된 리소스가 없어 스테이지를 생성할 수 없습니다.|
 |400104003|Empty path on stage resource for deploying.|생성된 리소스가 없어 스테이지를 생성할 수 없습니다.|
+|404104000|Could not find stage deployment.|스테이지 배포를 찾을 수 없습니다.|
 |409104000|Unable to rollback stage. No difference with current stage.|이미 되돌리기가 된 배포 이력입니다.|
 |409104001|Failed to deploy because current stage is deploying.|이미 스테이지 배포가 진행 중입니다.|
 |409104002|Failed to deploy because stage is not changed.|이미 최신 스테이지가 배포되었습니다.|
@@ -65,6 +67,7 @@
 |400106001|Failed to delete usage plan. The usage plan has a connected stage.|연결된 스테이지가 있어 사용량 계획을 삭제하지 못했습니다. 모든 스테이지를 연결 해제한 후 삭제해 주세요.|
 |400106002|The stage has a connected API key. Please try after disconnecting.|스테이지에 연결된 API Key가 있습니다. API Key 연결 해제 후 스테이지를 연결 해제할 수 있습니다.|
 |404106000|Could not find connected API Key.|연결된 API Key를 찾을 수 없습니다.|
+|404106001|Could not find usage plan.|사용량 계획을 찾을 수 없습니다.|
 |409106000|Among the requested API keys, there is an API key already connected to the stage.|연결하려는 API Key 중 스테이지에 이미 연결된 API Key가 있습니다.|
 |409106001|The stage is already connected to this usage plan.|이미 사용량 계획에 연결된 스테이지입니다.|
 |500106000|Failed to connect API key to usage plan stage.|일부 API Key를 연결하지 못했습니다.|

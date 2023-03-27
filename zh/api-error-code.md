@@ -23,6 +23,7 @@
 |400102017|The HTTP plugin's frontendEndpointPath must be the same value as the path.|The HTTP plugin's frontendEndpointPath must be the same value as the path. |
 |400102018|The resource is not a resource path.|Not a resource path. |
 |400102019|The resource is not a resource method.|Not a resource method. |
+|404102000|Could not find resource.|Could not find resource. |
 |409102000|Failed to create duplicated resources.|Duplicate path resources cannot be created.|
 |409102001 | Failed to create duplicated resources. Only one path variable can be set for the paths of the same level. | The path has been already created. Only one path variable can be set for the paths of the same level. |
 |400103000|Path variable cannot be used. Only variables declared for the selected path or above can be set.|Invalid path variable.|
@@ -46,6 +47,7 @@
 |400104001|Only possible to rollback stage for the completed deploy status.|A history of deployment status that cannot be rolled back.|
 |400104002|Empty Stage resource for deploying.|The stage could not be created because no resources were created.|
 |400104003|Empty path on Stage resource for deploying.|The stage could not be created because no resources were created.|
+|404104000|Could not find stage deployment.|Could not find stage deployment.|
 |409104000|Unable to rollback stage. No difference with current stage.|A deployment history that has already been rolled back.|
 |409104001|Failed to deploy because current stage is deploying.|Stage deployment is already in progress.|
 |409104002|Failed to deploy because stage is not changed.|The latest stage has already been deployed.|
@@ -65,6 +67,7 @@
 |400106001|Failed to delete usage plan. The usage plan has a connected stage.|Failed to delete usage plan because there is a connected stage. Please disconnect all stages and then delete it.|
 |400106002|The stage has a connected API key. Please try after disconnecting.|The stage has a connected API key. You can disconnect a stage after disconnecting the API Key.|
 |404106000|Could not find connected API Key.|Could not find a connected API Key.|
+|404106001|Could not find usage plan.|Could not find usage plan.|
 |409106000|Among the requested API keys, there is an API key already connected to the stage.|Among the API Keys you are trying to connect, there is already an API Key connected to the stage.|
 |409106001|The stage is already connected to this usage plan.|The stage is already connected to the usage plan.|
 |500106000|Failed to connect API key to usage plan stage.|Failed to connect some API Keys.|
