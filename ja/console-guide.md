@@ -918,7 +918,7 @@ API説明書を掲示するための手順を案内します。
 > **[注意]掲示されたAPI説明書でAPI呼び出しテスト時のCORS設定**
 > - 掲示されたAPI説明書ドメインアドレスと呼び出すAPIのドメインアドレスが異なるため、API説明書内で呼び出しをテストしたい場合はCORS設定が必要な場合があります。
 > - 例：
-> Access-Control-Allow-Origin: https://docs-apigw.nhncloud.com
+> Access-Control-Allow-Origin: https://kr1-docs-apigw.api.nhncloudservice.com
 > Access-Control-Allow-Method: GET, POST, DELETE, PUT, PATCH, HEAD, OPTIONS
 > Access-Control-Allow-Headers: Authorization, x-nhn-apikey, x-nhn-date
 
