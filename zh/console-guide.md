@@ -952,7 +952,7 @@ Here is the process of publishing API documentation.
 > **[Caution] CORS setting when testing API calls from a published API document**
 > - Since the domain address of the published API document and the domain address of the calling API are different, CORS setting might be necessary to test your calls within the API document.
 - Example:
-  Access-Control-Allow-Origin: https://docs-apigw.nhncloud.com
+  Access-Control-Allow-Origin: https://kr1-docs-apigw.api.nhncloudservice.com
   Access-Control-Allow-Method: GET, POST, DELETE, PUT, PATCH, HEAD, OPTIONS
   Access-Control-Allow-Headers: Authorization, x-nhn-apikey, x-nhn-date
 >
