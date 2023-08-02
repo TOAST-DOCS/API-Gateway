@@ -1245,7 +1245,7 @@ API 요청 시 API Key 값으로 사용되는 Primary API Key, Secondary API Key
     - **사용량 계획**: 연결되어 있는 사용량 계획 정보입니다.
 
 ## 사용자 지정 도메인
-기본 스테이지 도메인은 {region}-{serviceId}-{stageName}.api.nhncloudservice.com 형식으로 임의로 발급됩니다.  
+기본 스테이지 도메인은 {Region}-{ServiceId}-{StageName}.api.nhncloudservice.com 형식으로 임의로 발급됩니다.  
 사용자 지정 도메인으로 임의로 발급된 도메인 대신 사용자가 도메인의 Prefix를 지정하여 {CustomDomainPrefix}.capi.nhncloudservice.com 형식의 도메인을 생성할 수 있습니다. 
 
 
@@ -1253,7 +1253,7 @@ API 요청 시 API Key 값으로 사용되는 Primary API Key, Secondary API Key
 
 1. **사용자 지정 도메인** 메뉴로 이동합니다.
 2. **사용자 지정 도메인 생성** 버튼을 클릭합니다.
-3. 사용자 지정 도메인: 사용자 지정 도메인에 생성할 도메인의 Prefix를 입력합니다. 
+3. 사용자 지정 도메인: 사용자 지정 도메인에 생성할 도메인의 Prefix를 입력합니다. 입력한 값은 {CustomDomainPrefix}.capi.nhncloudservice.com 도메인에서 {CustomDomainPrefix} 부분에 지정됩니다.
 4. GSLB 도메인: API Gateway 리전 이중화 구성을 하려면 GSLB 도메인을 입력합니다. API Gateway 리전 이중화 가이드에 대한 자세한 내용은 [API Gateway 리전 이중화 가이드](./console-guide/#_??)를 참고합니다. 
 5. **생성** 버튼을 클릭하면, {CustomDomainPrefix}.capi.nhncloudservice.com 형식의 사용자 지정 도메인 생성됩니다. 
 
@@ -1297,7 +1297,7 @@ API Gateway가 위치한 리전에 장애가 발생하면, 해당 리전의 API 
 1. 평촌 리전에 API Gateway 서비스를 생성합니다.
 2. 평촌 리전의 API Gateway 서비스에 운영 중인 판교 리전 스테이지와 동일한 리소스를 등록합니다.  
 쉽게 리소스를 이전하려면 [스테이지 > 리소스 가져오기](./console-guide/#_20)를 통해 스테이지에 등록된 리소스를 Swagger파일로 다운로드 받은 후, [리소스 > 리소스 가져오기](./console-guide/#_3)를 통해 다운로드 받은 Swagger 파일로 리소스를 등록할 수 있습니다. 
-3. 평촌 리전의 스테이지를 생성하고 스테이지를 배포합니다. 
+3. 평촌 리전의 스테이지를 생성하고, 필요한 스테이지 설정이 있다면 수정 후 스테이지를 배포합니다. 
 
 
 ### 2. GSLB 생성 
@@ -1307,7 +1307,7 @@ GSLB 설정에 대한 자세한 내용은 [DNS Plus 콘솔 사용 가이드](htt
 1. DNS Plus 서비스로 이동합니다.
 2. GSLB를 생성합니다. 
 3. 헬스 체크를 생성합니다. 
-    * 헬스 체크 경로는 판교, 평촌 리전의 API Gateaway에 헬스 체크에 이용 할 리소스 메서드를 구성하여 헬스 체크 리소스 경로로 등록합니다.
+    * 헬스 체크 경로는 판교, 평촌 리전의 API Gateway에 헬스 체크에 이용 할 리소스 메서드를 구성하여 헬스 체크 리소스 경로로 등록합니다.
     * 헬스 체크에 실패된 Pool은 서비스에서 제외됩니다.
 4. Pool을 생성합니다. 
     * Pool 생성의 헬스 체크는 위에서 생성한 헬스 체크를 선택합니다. 
