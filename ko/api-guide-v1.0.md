@@ -3858,7 +3858,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 {
   "apiKeyName": "User1 API Key",
   "apiKeyDescription": "For User1",
-  "apiKeyStatus": "ACTIVE"
+  "apiKeyStatus": "ACTIVE",
+  "primaryApiKey": null,
+  "secondaryApiKey": null
 }
 ```
 
@@ -3867,6 +3869,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | apiKeyName        | String | 필수    | 없음  | 최대 50자           | API Key 이름                                        |
 | apiKeyDescription | String | 선택    | 없음  | 최대 200자          | API Key 설명                                        |
 | apiKeyStatus      | Enum   | 필수    | 없음  | ACTIVE, INACTIVE | [API Key 상태 Enum 코드](./enum-code/#api-key) 참고 |
+| primaryApiKey     | String   | 선택    | 없음  | 최소 10자, 최대 40자, 영문자, 숫자 | Primary Api Key 값, null이면 자동 발급 |
+| secondaryApiKey   | String   | 선택    | 없음  | 최소 10자, 최대 40자, 영문자, 숫자 | Secondary Api Key 값, null이면 자동 발급 |
 
 #### 응답
 
@@ -4032,13 +4036,16 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 [Request Body]
 ```json
 {
-  "apiKeyType": "PRIMARY"
+  "apiKeyType": "PRIMARY",
+  "primaryApiKey": null
 }
 ```
 
 | 이름                | 타입     | 필수 여부 | 기본값 | 유효 범위            | 설명                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
 | apiKeyType      | Enum   | 필수    | 없음  | PRIMARY, SECONDARY | 변경하려는 API Key 타입. [API Key 타입 Enum 코드](./enum-code/#api-key_1) 참고 |
+| primaryApiKey     | String   | 선택    | 없음  | 최소 10자, 최대 40자, 영문자, 숫자 | Primary Api Key 값, null이면 자동 발급 |
+| secondaryApiKey   | String   | 선택    | 없음  | 최소 10자, 최대 40자, 영문자, 숫자 | Secondary Api Key 값, null이면 자동 발급 |
 
 #### 응답
 
