@@ -864,6 +864,35 @@ You can define a model to specify the format of body that you can use in the req
 3. When the delete confirmation window appears, click the **Confirm** button. Deleted data cannot be restored.
 
 
+
+## Model
+You can define a model to specify the format of body that you can use in the request parameters and the response.
+
+### Create Model
+1. Click **Resource** in the service settings column from the list of API Gateway services.
+2. In the **Model** tab, click the **Create model** button.
+3. Enter the model information and click **Create**.
+    - **Model name**:
+        - The name of the model. It cannot be the same as the name of the existing model.
+        - Only numbers and English letters can be entered, up to 50 characters.
+    - **Model description**: It is the description of the model. (optional)
+    - **Model schema**:
+        - Define the structure that the model can have.
+        - Use [JSON Schema](https://json-schema.org/) draft-04 for the model schema definition.
+
+### Edit Model
+1. Select the model to edit from the list of models.
+2. Click the **Edit** button.
+3. Edit the model information. Items that can be edited are model description and model schema.
+4. After changing the settings, click the **Edit** button.
+
+### Delete Model
+1. Select the model to delete from the list of models.
+2. Click the **Delete** button.
+   - The model cannot be deleted while being used in the request parameters or response.
+3. When the delete confirmation window appears, click the **Confirm** button. Deleted data cannot be restored.
+
+
 ## Check API Call
 
 1. With the Setup tab within the Stage tab, select the Stage Tree method.

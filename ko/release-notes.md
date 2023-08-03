@@ -52,7 +52,6 @@
 * API Gateway Public API 지원 
     * API를 통해 API Gateway 서비스를 이용할 수 있습니다. 자세한 내용은 [API v1.0 가이드](./api-guide-v1.0/)를 참고해주세요.
 
-
 ### 2021. 08. 24.
 #### 기능 개선/변경 
 * API 설명서 추가

@@ -34,7 +34,6 @@
 * API Gateway Public API support
     * You can use the API Gateway service through the API. For more information, refer to the [API v1.0 Guide](./api-guide-v1.0/).
 
-
 ### August 24, 2021
 #### Feature Updates 
 * Added API document
