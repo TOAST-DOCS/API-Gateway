@@ -1182,11 +1182,11 @@ API Key가 요청 가능한 스테이지들을 정의하기 위해 사용량 계
     - **API Key 상태**: API Key의 활성화 상태를 선택합니다.
         - ACTIVE: API Key가 활성화되어 사용할 수 있는 상태입니다.
         - INACTIVE: API Key가 비활성화되어 사용할 수 없는 상태입니다.
-    - **사용자 지정 Primary API Key**: 입력한 값으로 Primary Key를 생성합니다. 입력하지 않으면 임의 문자열로 자동 생성됩니다.
-    - **사용자 지정 Secondary API Key**: 입력한 값으로 Secondary Key를 생성합니다. 입력하지 않으면 임의 문자열로 자동 생성됩니다. 
+    - **Primary API Key**: 사용자 정의를 선택한 경우 직접 Primary Key 값을 입력하여 생성합니다. 선택하지 않은 경우 임의 문자열로 자동 생성됩니다.
+    - **Secondary API Key**: 사용자 정의를 선택한 경우 직접 Secondary Key 값을 입력하여 생성합니다. 선택하지 않은 경우 임의 문자열로 자동 생성됩니다.
     
-> **[주의]** 사용자 지정 Primary/Secondary API Key
-> 사용자 지정 Primary/Secondary API Key는 최소 10자 이상의 영문자와 숫자로 구성된 문자열로 생성합니다. 
+> **[주의]** 사용자 정의 Primary/Secondary API Key
+> 사용자 정의 Primary/Secondary API Key는 최소 10자 이상의 영문자와 숫자로 구성된 문자열로 생성합니다. 
 > API Gateway 전체 서비스에서 고유해야합니다. 
 > 외부에 노출되지 않도록 주의해야하며 복잡하게 구성하는 것을 권장합니다.
 
@@ -1235,6 +1235,7 @@ API 요청 시 API Key 값으로 사용되는 Primary API Key, Secondary API Key
 2. 하단의 **API Key** 탭을 선택합니다.
 3. Primary API Key, Secondary API Key 항목 옆 **재발급** 버튼을 클릭하면 확인 창이 표시됩니다.
 4. 확인 창이 나타나면 **확인** 버튼을 클릭합니다.
+    - 사용자 정의를 선택한 경우 직접 API Key 값을 입력하여 재발급합니다. 선택하지 않은 경우 임의 문자열로 자동 재발급됩니다.
     - 재발급할 경우 이전 API Key 값은 더 이상 유효하지 않게 됩니다.
 
 ### API Key와 연결된 스테이지
