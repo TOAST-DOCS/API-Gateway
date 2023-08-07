@@ -4037,15 +4037,14 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 ```json
 {
   "apiKeyType": "PRIMARY",
-  "primaryApiKey": null
+  "apiKeyValue": null
 }
 ```
 
 | 이름                | 타입     | 필수 여부 | 기본값 | 유효 범위            | 설명                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
 | apiKeyType      | Enum   | 필수    | 없음  | PRIMARY, SECONDARY | 변경하려는 API Key 타입. [API Key 타입 Enum 코드](./enum-code/#api-key_1) 참고 |
-| primaryApiKey     | String   | 선택    | 없음  | 최소 10자, 최대 40자, 영문자, 숫자 | Primary Api Key 값, null이면 자동 발급 |
-| secondaryApiKey   | String   | 선택    | 없음  | 최소 10자, 최대 40자, 영문자, 숫자 | Secondary Api Key 값, null이면 자동 발급 |
+| apiKeyValue     | String   | 선택    | 없음  | 최소 10자, 최대 40자, 영문자, 숫자 | Api Key 값, null이면 자동 발급 |
 
 #### 응답
 
