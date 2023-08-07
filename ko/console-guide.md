@@ -1258,6 +1258,11 @@ API 요청 시 API Key 값으로 사용되는 Primary API Key, Secondary API Key
 4. GSLB 도메인: API Gateway 리전 이중화 구성을 하려면 GSLB 도메인을 입력합니다. API Gateway 리전 이중화 가이드에 대한 자세한 내용은 [API Gateway 리전 이중화 가이드](./console-guide/#_??)를 참고합니다. 
 5. **생성** 버튼을 클릭하면, {CustomDomainPrefix}.capi.nhncloudservice.com 형식의 사용자 지정 도메인 생성됩니다. 
 
+> **[주의]** 사용자 지정 도메인
+> 사용자 지정 도메인은 최소 2자, 최대 50자의 영소문자, 숫자, -로 구성된 문자열로 생성합니다. 
+> API Gateway 전체 서비스에서 고유해야합니다. 
+
+
 ### 사용자 지정 도메인 삭제 
 
 1. **사용자 지정 도메인** 메뉴로 이동합니다.
