@@ -2258,8 +2258,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
       "stageName": "alpha",
       "stageDescription": "alpha environment stage",
       "stageUrl": "kr1-{apigwServiceId}-alpha.api.gov-nhncloudservice.com",
-      "stageCustomUrl": null,
-      "stageAliasDomainList": [],
+      "stageCustomDomainList": [],
       "backendEndpointUrl": "https://backend.com",
       "resourceUpdatedAt": "2021-10-20T06:43:26.000Z",
       "createdAt": "2021-10-20T06:43:26.000Z",
@@ -2282,7 +2281,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |stageList[0].stageName        |String  |스테이지 이름             |
 |stageList[0].stageUrl         |String  |스테이지 URL            |
 |stageList[0].stageCustomDomainList   |List  |스테이지 사용자 지정 도메인 목록 영역   |
-|stageList[0].stageCustomDomainList[0].aliasDomain   |String  |사용자 지정 도메인   |
+|stageList[0].stageCustomDomainList[0].customDomain   |String  |사용자 지정 도메인   |
 |stageList[0].stageCustomDomainList[0].createdAt   |DateTime  |사용자 지정 도메인 연결 일시    |
 |stageList[0].stageDescription |String  |스테이지 설명             |
 |stageList[0].backendEndpointUrl|String  |백엔드 엔드포인트 URL       |
@@ -2404,7 +2403,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |stage.stageName        |String  |스테이지 이름             |
 |stage.stageUrl         |String  |스테이지 URL            |
 |stageCustomDomainList   |List  |스테이지 사용자 지정 도메인 목록 영역   |
-|stageCustomDomainList[0].aliasDomain   |String  |사용자 지정 도메인   |
+|stageCustomDomainList[0].customDomain   |String  |사용자 지정 도메인   |
 |stageCustomDomainList[0].createdAt   |DateTime  |사용자 지정 도메인 연결 일시    |
 |stage.stageDescription |String  |스테이지 설명             |
 |stage.backendEndpointUrl      |String  |백엔드 엔드포인트 URL       |
@@ -2482,7 +2481,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |stage.stageName        |String  |스테이지 이름             |
 |stage.stageUrl         |String  |스테이지 URL            |
 |stage.stageCustomDomainList   |List  |스테이지 사용자 지정 도메인 목록 영역   |
-|stage.stageCustomDomainList[0].aliasDomain   |String  |사용자 지정 도메인   |
+|stage.stageCustomDomainList[0].customDomain   |String  |사용자 지정 도메인   |
 |stage.stageCustomDomainList[0].createdAt   |DateTime  |사용자 지정 도메인 연결 일시    |
 |stage.stageDescription |String  |스테이지 설명             |
 |stage.backendEndpointUrl      |String  |백엔드 엔드포인트 URL       |
@@ -4522,7 +4521,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | usagePlanStageList[0].stageName      | String  | 스테이지 이름                |
 | usagePlanStageList[0].stageUrl       | String  | 스테이지 URL               |
 | usagePlanStageList[0].stageCustomDomainList   |List  |스테이지 사용자 지정 도메인 목록 영역   |
-| usagePlanStageList[0].stageCustomDomainList[0].aliasDomain   |String  |사용자 지정 도메인   |
+| usagePlanStageList[0].stageCustomDomainList[0].customDomain   |String  |사용자 지정 도메인   |
 | usagePlanStageList[0].stageCustomDomainList[0].createdAt   |DateTime  |사용자 지정 도메인 연결 일시    |
 | usagePlanStageList[0].usagePlanId    | String  | 사용량 계획 ID              |
 | usagePlanStageList[0].usagePlanName  | String  | 사용량 계획 이름              |
@@ -4741,7 +4740,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | subscribedStageAndUsagePlanList[0].stageName                 | String  | 스테이지 이름                                           |
 | subscribedStageAndUsagePlanList[0].stageUrl                  | String  | 스테이지 URL                                          |
 | subscribedStageAndUsagePlanList[0].stageCustomDomainList   |List  |스테이지 사용자 지정 도메인 목록 영역   |
-| subscribedStageAndUsagePlanList[0].stageCustomDomainList[0].aliasDomain   |String  |사용자 지정 도메인   |
+| subscribedStageAndUsagePlanList[0].stageCustomDomainList[0].customDomain   |String  |사용자 지정 도메인   |
 | subscribedStageAndUsagePlanList[0].stageCustomDomainList[0].createdAt   |DateTime  |사용자 지정 도메인 연결 일시    |
 | subscribedStageAndUsagePlanList[0].usagePlanId               | String  | 사용량 계획 ID                                         |
 | subscribedStageAndUsagePlanList[0].usagePlanName             | String  | 사용량 계획 이름                                         |
@@ -5198,7 +5197,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |data.{requestApigwEndpoint}.stageName                    |String    | 스테이지 이름            |
 |data.{requestApigwEndpoint}.stageUrl                     |String    | 스테이지 URL |
 |data.{requestApigwEndpoint}.stageCustomDomainList   |List  |스테이지 사용자 지정 도메인 목록 영역   |
-|data.{requestApigwEndpoint}.stageCustomDomainList[0].aliasDomain   |String  |사용자 지정 도메인   |
+|data.{requestApigwEndpoint}.stageCustomDomainList[0].customDomain   |String  |사용자 지정 도메인   |
 |data.{requestApigwEndpoint}.stageCustomDomainList[0].createdAt   |DateTime  |사용자 지정 도메인 연결 일시    |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries      |Object    | 집계 시간 단위별 API Key 통계 영역|
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount               |List    | API 호출 수 통계 목록 영역 |
