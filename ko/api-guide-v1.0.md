@@ -2259,8 +2259,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
       "stageName": "alpha",
       "stageDescription": "alpha environment stage",
       "stageUrl": "kr1-{apigwServiceId}-alpha.api.nhncloudservice.com",
-      "stageCustomUrl": null,
-      "stageAliasDomainList": [],
+      "stageCustomDomainList": [],
       "backendEndpointUrl": "https://backend.com",
       "resourceUpdatedAt": "2021-10-20T06:43:26.000Z",
       "createdAt": "2021-10-20T06:43:26.000Z",
@@ -2282,10 +2281,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |stageList[0].stageId          |String  |스테이지 ID             |
 |stageList[0].stageName        |String  |스테이지 이름             |
 |stageList[0].stageUrl         |String  |스테이지 URL            |
-|stageList[0].stageCustomUrl   |String  |스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList으로 대체)  |
-|stageList[0].stageAliasDomainList   |List  |스테이지 도메인 별칭 목록 영역   |
-|stageList[0].stageAliasDomainList[0].aliasDomain   |String  |도메인 별칭   |
-|stageList[0].stageAliasDomainList[0].createdAt   |DateTime  |도메인 별칭 연결 일시    |
+|stageList[0].stageCustomDomainList   |List  |스테이지 사용자 지정 도메인 목록 영역   |
+|stageList[0].stageCustomDomainList[0].customDomain   |String  |사용자 지정 도메인   |
+|stageList[0].stageCustomDomainList[0].createdAt   |DateTime  |사용자 지정 도메인 연결 일시    |
 |stageList[0].stageDescription |String  |스테이지 설명             |
 |stageList[0].backendEndpointUrl|String  |백엔드 엔드포인트 URL       |
 |stageList[0].resourceUpdatedAt|DateTime|최근 스테이지에 리소스를 가져온 일시 |
@@ -2388,8 +2386,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     "stageName": "alpha",
     "stageDescription": "alpha environment stage",
     "stageUrl": "kr1-{apigwServiceId}-alpha.api.nhncloudservice.com",
-    "stageCustomUrl": null,
-    "stageAliasDomainList": [],
+    "stageCustomDomainList": [],
     "backendEndpointUrl": "https://backend.com",
     "resourceUpdatedAt": "2021-10-22T02:22:11.182Z",
     "createdAt": "2021-10-22T02:22:11.182Z",
@@ -2406,10 +2403,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |stage.stageId          |String  |스테이지 ID             |
 |stage.stageName        |String  |스테이지 이름             |
 |stage.stageUrl         |String  |스테이지 URL            |
-|stage.stageCustomUrl   |String  |스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList으로 대체)  |
-|stage.stageAliasDomainList   |List  |스테이지 도메인 별칭 목록 영역   |
-|stage.stageAliasDomainList[0].aliasDomain   |String  |도메인 별칭   |
-|stage.stageAliasDomainList[0].createdAt   |DateTime  |도메인 별칭 연결 일시    |
+|stage.stageCustomDomainList   |List  |스테이지 사용자 지정 도메인 목록 영역   |
+|stage.stageCustomDomainList[0].customDomain   |String  |사용자 지정 도메인   |
+|stage.stageCustomDomainList[0].createdAt   |DateTime  |사용자 지정 도메인 연결 일시    |
 |stage.stageDescription |String  |스테이지 설명             |
 |stage.backendEndpointUrl      |String  |백엔드 엔드포인트 URL       |
 |stage.resourceUpdatedAt|DateTime|최근 스테이지에 리소스를 가져온 일시 |
@@ -2468,8 +2464,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     "stageName": "alpha",
     "stageDescription": "alpha v2 environment stage",
     "stageUrl": "kr1-{apigwServiceId}-alpha.api.nhncloudservice.com",
-    "stageCustomUrl": null,
-    "stageAliasDomainList": [],
+    "stageCustomDomainList": [],
     "backendEndpointUrl": "https://v2.backend.com",
     "resourceUpdatedAt": "2021-10-22T02:22:11.182Z",
     "createdAt": "2021-10-22T02:22:11.182Z",
@@ -2486,10 +2481,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |stage.stageId          |String  |스테이지 ID             |
 |stage.stageName        |String  |스테이지 이름             |
 |stage.stageUrl         |String  |스테이지 URL            |
-|stage.stageCustomUrl   |String  |스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList으로 대체)  |
-|stage.stageAliasDomainList   |List  |스테이지 도메인 별칭 목록 영역   |
-|stage.stageAliasDomainList[0].aliasDomain   |String  |도메인 별칭   |
-|stage.stageAliasDomainList[0].createdAt   |DateTime  |도메인 별칭 연결 일시    |
+|stage.stageCustomDomainList   |List  |스테이지 사용자 지정 도메인 목록 영역   |
+|stage.stageCustomDomainList[0].customDomain   |String  |사용자 지정 도메인   |
+|stage.stageCustomDomainList[0].createdAt   |DateTime  |사용자 지정 도메인 연결 일시    |
 |stage.stageDescription |String  |스테이지 설명             |
 |stage.backendEndpointUrl      |String  |백엔드 엔드포인트 URL       |
 |stage.resourceUpdatedAt|DateTime|최근 스테이지에 리소스를 가져온 일시 |
@@ -4511,8 +4505,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
       "stageId": "{stageId}",
       "stageName": "custom",
       "stageUrl": "kr1-example-custom.api.nhncloudservice.com",
-      "stageCustomUrl": null,
-      "stageAliasDomainList": [],
+      "stageCustomDomainList": [],
       "usagePlanId": "{usagePlanId}",
       "usagePlanName": "Basic"
     }
@@ -4534,10 +4527,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | usagePlanStageList[0].stageId        | String  | 스테이지 ID                |
 | usagePlanStageList[0].stageName      | String  | 스테이지 이름                |
 | usagePlanStageList[0].stageUrl       | String  | 스테이지 URL               |
-| usagePlanStageList[0].stageCustomUrl | String  | 스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList으로 대체) |
-| usagePlanStageList[0].stageAliasDomainList   |List  |스테이지 도메인 별칭 목록 영역   |
-| usagePlanStageList[0].stageAliasDomainList[0].aliasDomain   |String  |도메인 별칭   |
-| usagePlanStageList[0].stageAliasDomainList[0].createdAt   |DateTime  |도메인 별칭 연결 일시    |
+| usagePlanStageList[0].stageCustomDomainList   |List  |스테이지 사용자 지정 도메인 목록 영역   |
+| usagePlanStageList[0].stageCustomDomainList[0].customDomain   |String  |사용자 지정 도메인   |
+| usagePlanStageList[0].stageCustomDomainList[0].createdAt   |DateTime  |사용자 지정 도메인 연결 일시    |
 | usagePlanStageList[0].usagePlanId    | String  | 사용량 계획 ID              |
 | usagePlanStageList[0].usagePlanName  | String  | 사용량 계획 이름              |
 
@@ -4727,8 +4719,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
             "stageId": "{stageId}",
             "stageName": null,
             "stageUrl": "kr1-example.api.nhncloudservice.com",
-            "stageCustomUrl": null,
-            "stageAliasDomainList": [],
+            "stageCustomDomainList": [],
             "usagePlanId": "{usagePlanId}",
             "usagePlanName": "Basic",
             "usagePlanDescription": "It's for Basic User",
@@ -4755,10 +4746,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | subscribedStageAndUsagePlanList[0].stageId                   | String  | 스테이지 ID                                           |
 | subscribedStageAndUsagePlanList[0].stageName                 | String  | 스테이지 이름                                           |
 | subscribedStageAndUsagePlanList[0].stageUrl                  | String  | 스테이지 URL                                          |
-| subscribedStageAndUsagePlanList[0].stageCustomUrl            | String  | 스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList으로 대체) |
-| subscribedStageAndUsagePlanList[0].stageAliasDomainList   |List  |스테이지 도메인 별칭 목록 영역   |
-| subscribedStageAndUsagePlanList[0].stageAliasDomainList[0].aliasDomain   |String  |도메인 별칭   |
-| subscribedStageAndUsagePlanList[0].stageAliasDomainList[0].createdAt   |DateTime  |도메인 별칭 연결 일시    |
+| subscribedStageAndUsagePlanList[0].stageCustomDomainList   |List  |스테이지 사용자 지정 도메인 목록 영역   |
+| subscribedStageAndUsagePlanList[0].stageCustomDomainList[0].customDomain   |String  |사용자 지정 도메인   |
+| subscribedStageAndUsagePlanList[0].stageCustomDomainList[0].createdAt   |DateTime  |사용자 지정 도메인 연결 일시    |
 | subscribedStageAndUsagePlanList[0].usagePlanId               | String  | 사용량 계획 ID                                         |
 | subscribedStageAndUsagePlanList[0].usagePlanName             | String  | 사용량 계획 이름                                         |
 | subscribedStageAndUsagePlanList[0].usagePlanDescription      | String  | 사용량 계획 설명                                         |
@@ -5170,8 +5160,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     "kr1-{apigwServiceId}-member.api.nhncloudservice.com": {
       "stageName": "member",
       "stageUrl": "kr1-{apigwServiceId1}-member.api.nhncloudservice.com",
-      "stageCustomUrl": null,
-      "stageAliasDomainList": [],
+      "stageCustomDomainList": [],
       "apiKeyMetricsTimeSeries": {
         "callCount": [
           {
@@ -5188,7 +5177,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     "kr1-{apigwServiceId}-billing.api.nhncloudservice.com": {
       "stageName": "billing",
       "stageUrl": "kr1-{apigwServiceId}-billing.api.nhncloudservice.com",
-      "stageCustomUrl": null,
+      "stageCustomDomainList": [],
       "apiKeyMetricsTimeSeries": {
         "callCount": [
           {
@@ -5214,10 +5203,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |data.{requestApigwEndpoint}          |Object  | API 호출 엔드포인트별 통계 영역                |
 |data.{requestApigwEndpoint}.stageName                    |String    | 스테이지 이름            |
 |data.{requestApigwEndpoint}.stageUrl                     |String    | 스테이지 URL |
-|data.{requestApigwEndpoint}.stageCustomUrl               |String    | 스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList으로 대체)|
-|data.{requestApigwEndpoint}.stageAliasDomainList   |List  |스테이지 도메인 별칭 목록 영역   |
-|data.{requestApigwEndpoint}.stageAliasDomainList[0].aliasDomain   |String  |도메인 별칭   |
-|data.{requestApigwEndpoint}.stageAliasDomainList[0].createdAt   |DateTime  |도메인 별칭 연결 일시    |
+|data.{requestApigwEndpoint}.stageCustomDomainList   |List  |스테이지 사용자 지정 도메인 목록 영역   |
+|data.{requestApigwEndpoint}.stageCustomDomainList[0].customDomain   |String  |사용자 지정 도메인   |
+|data.{requestApigwEndpoint}.stageCustomDomainList[0].createdAt   |DateTime  |사용자 지정 도메인 연결 일시    |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries      |Object    | 집계 시간 단위별 API Key 통계 영역|
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount               |List    | API 호출 수 통계 목록 영역 |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0]               |Object    | API 호출 수 통계 영역 |

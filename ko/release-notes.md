@@ -8,6 +8,7 @@
 * 사용자 지정 도메인 기능 추가
     * 스테이지 도메인의 Prefix를 사용자가 지정한 값으로 설정하여 도메인을 지정할 수 있는 기능입니다.
     * 자세한 내용은 [콘솔 사용 가이드 > 사용자 지정 도메인](./console-guide/#_??)을 참고해주세요.
+    * API 응답에 사용자 지정 도메인 관련 필드명이 stageAliasDomainList에서 stageCustomDomainList로 변경되었습니다.
 * API Key 가져오기/내보내기 기능 추가 
     * CSV 파일을 통해 API Key를 가져오거나 등록된 API Key를 내보낼 수 있습니다.
     * 자세한 내용은 [콘솔 사용 가이드 > API Key 가져오기](./console-guide/#_??)와 [콘솔 사용 가이드 > API Key 내보내기](./console-guide/#_??)를 참고해주세요.
