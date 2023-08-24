@@ -5102,15 +5102,15 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |data[0]                              |Object    | 리소스별 통계 데이터 영역                      |
 |data[0].uriPattern                   |String  | 리소스 경로 또는 경로 패턴                         |
 |data[0].httpMethodType               |Enum  | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고                             |
-|data[0].successCount                 |Long    | API 성공 수 (응답 HTTP 상태 코드가 2xx, 3xx인 경우) |
-|data[0].failCount               |Long    | API 실패 수 (응답 HTTP 상태 코드가 4xx, 5xx인 경우) |
-|data[0].status2xxCount               |Long    | 응답 HTTP 상태코드가 2xx인 API 호출 수 |
-|data[0].status3xxCount               |Long    | 응답 HTTP 상태코드가 3xx인 API 호출 수 |
-|data[0].status4xxCount               |Long    | 응답 HTTP 상태코드가 4xx인 API 호출 수 |
-|data[0].status5xxCount               |Long    | 응답 HTTP 상태코드가 5xx인 API 호출 수 |
-|data[0].statusEtcCount               |Long    | 2xx, 3xx, 4xx, 5xx 외 응답 HTTP 상태코드 API 호출 수 |
+|data[0].successCount                 |Long    | API 성공 수(응답 HTTP 상태 코드가 2xx, 3xx인 경우) |
+|data[0].failCount               |Long    | API 실패 수(응답 HTTP 상태 코드가 4xx, 5xx인 경우) |
+|data[0].status2xxCount               |Long    | 응답 HTTP 상태 코드가 2xx인 API 호출 수 |
+|data[0].status3xxCount               |Long    | 응답 HTTP 상태 코드가 3xx인 API 호출 수 |
+|data[0].status4xxCount               |Long    | 응답 HTTP 상태 코드가 4xx인 API 호출 수 |
+|data[0].status5xxCount               |Long    | 응답 HTTP 상태 코드가 5xx인 API 호출 수 |
+|data[0].statusEtcCount               |Long    | 2xx, 3xx, 4xx, 5xx 외 응답 HTTP 상태 코드 API 호출 수 |
 |data[0].avgResponseTimeMs            |Long    | 평균 API 응답 시간(ms) |
-|data[0].networkOutboundByte          |Long    | 아웃바운드 네트워크 바이트 합계 (bytes) |
+|data[0].networkOutboundByte          |Long    | 아웃바운드 네트워크 바이트 합계(bytes) |
 |metricsLatestUpdatedAt         | DateTime | 통계 데이터 최신 갱신 일시                             |
 
 
@@ -5293,13 +5293,13 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |data[0].rank | Integer  | 순위 번호 |
 |data[0].apigwServiceId | String | API Gateway 서비스 ID |
 |data[0].apigwServiceName | String | API Gateway 서비스 이름 |
-|data[0].successCount | Long | API 성공 수 (응답 HTTP 상태 코드가 2xx, 3xx인 경우) |
-|data[0].failCount | Long | API 실패 수 (응답 HTTP 상태 코드가 4xx, 5xx인 경우) |
-|data[0].status2xxCount | Long | 응답 HTTP 상태코드가 2xx인 API 호출 수 |
-|data[0].status3xxCount | Long | 응답 HTTP 상태코드가 3xx인 API 호출 수 |
-|data[0].status4xxCount | Long | 응답 HTTP 상태코드가 4xx인 API 호출 수 |
-|data[0].status5xxCount | Long | 응답 HTTP 상태코드가 5xx인 API 호출 수 |
-|data[0].statusEtcCount | Long | 2xx, 3xx, 4xx, 5xx 외 응답 HTTP 상태코드 API 호출 수 |
+|data[0].successCount | Long | API 성공 수(응답 HTTP 상태 코드가 2xx, 3xx인 경우) |
+|data[0].failCount | Long | API 실패 수(응답 HTTP 상태 코드가 4xx, 5xx인 경우) |
+|data[0].status2xxCount | Long | 응답 HTTP 상태 코드가 2xx인 API 호출 수 |
+|data[0].status3xxCount | Long | 응답 HTTP 상태 코드가 3xx인 API 호출 수 |
+|data[0].status4xxCount | Long | 응답 HTTP 상태 코드가 4xx인 API 호출 수 |
+|data[0].status5xxCount | Long | 응답 HTTP 상태 코드가 5xx인 API 호출 수 |
+|data[0].statusEtcCount | Long | 2xx, 3xx, 4xx, 5xx 외 응답 HTTP 상태 코드 API 호출 수 |
 |data[0].avgResponseTimeMs | Long | 평균 API 응답 시간(ms) |
-|data[0].networkOutboundByte | Long | 아웃바운드 네트워크 바이트 합계 (bytes) |
+|data[0].networkOutboundByte | Long | 아웃바운드 네트워크 바이트 합계(bytes) |
 |metricsLatestUpdatedAt | DateTime | 통계 데이터 최신 갱신 일시 |
