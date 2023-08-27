@@ -2259,8 +2259,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
       "stageName": "alpha",
       "stageDescription": "alpha environment stage",
       "stageUrl": "kr1-{apigwServiceId}-alpha.api.nhncloudservice.com",
-      "stageCustomUrl": null,
-      "stageAliasDomainList": [],
+      "stageCustomDomainList": [],
       "backendEndpointUrl": "https://backend.com",
       "resourceUpdatedAt": "2021-10-20T06:43:26.000Z",
       "createdAt": "2021-10-20T06:43:26.000Z",
@@ -2282,10 +2281,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |stageList[0].stageId          |String  |스테이지 ID             |
 |stageList[0].stageName        |String  |스테이지 이름             |
 |stageList[0].stageUrl         |String  |스테이지 URL            |
-|stageList[0].stageCustomUrl   |String  |스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList으로 대체)  |
-|stageList[0].stageAliasDomainList   |List  |스테이지 도메인 별칭 목록 영역   |
-|stageList[0].stageAliasDomainList[0].aliasDomain   |String  |도메인 별칭   |
-|stageList[0].stageAliasDomainList[0].createdAt   |DateTime  |도메인 별칭 연결 일시    |
+|stageList[0].stageCustomDomainList   |List  |스테이지 사용자 지정 도메인 목록 영역   |
+|stageList[0].stageCustomDomainList[0].customDomain   |String  |사용자 지정 도메인   |
+|stageList[0].stageCustomDomainList[0].createdAt   |DateTime  |사용자 지정 도메인 연결 일시    |
 |stageList[0].stageDescription |String  |스테이지 설명             |
 |stageList[0].backendEndpointUrl|String  |백엔드 엔드포인트 URL       |
 |stageList[0].resourceUpdatedAt|DateTime|최근 스테이지에 리소스를 가져온 일시 |
@@ -2388,8 +2386,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     "stageName": "alpha",
     "stageDescription": "alpha environment stage",
     "stageUrl": "kr1-{apigwServiceId}-alpha.api.nhncloudservice.com",
-    "stageCustomUrl": null,
-    "stageAliasDomainList": [],
+    "stageCustomDomainList": [],
     "backendEndpointUrl": "https://backend.com",
     "resourceUpdatedAt": "2021-10-22T02:22:11.182Z",
     "createdAt": "2021-10-22T02:22:11.182Z",
@@ -2406,10 +2403,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |stage.stageId          |String  |스테이지 ID             |
 |stage.stageName        |String  |스테이지 이름             |
 |stage.stageUrl         |String  |스테이지 URL            |
-|stage.stageCustomUrl   |String  |스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList으로 대체)  |
-|stage.stageAliasDomainList   |List  |스테이지 도메인 별칭 목록 영역   |
-|stage.stageAliasDomainList[0].aliasDomain   |String  |도메인 별칭   |
-|stage.stageAliasDomainList[0].createdAt   |DateTime  |도메인 별칭 연결 일시    |
+|stage.stageCustomDomainList   |List  |스테이지 사용자 지정 도메인 목록 영역   |
+|stage.stageCustomDomainList[0].customDomain   |String  |사용자 지정 도메인   |
+|stage.stageCustomDomainList[0].createdAt   |DateTime  |사용자 지정 도메인 연결 일시    |
 |stage.stageDescription |String  |스테이지 설명             |
 |stage.backendEndpointUrl      |String  |백엔드 엔드포인트 URL       |
 |stage.resourceUpdatedAt|DateTime|최근 스테이지에 리소스를 가져온 일시 |
@@ -2468,8 +2464,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     "stageName": "alpha",
     "stageDescription": "alpha v2 environment stage",
     "stageUrl": "kr1-{apigwServiceId}-alpha.api.nhncloudservice.com",
-    "stageCustomUrl": null,
-    "stageAliasDomainList": [],
+    "stageCustomDomainList": [],
     "backendEndpointUrl": "https://v2.backend.com",
     "resourceUpdatedAt": "2021-10-22T02:22:11.182Z",
     "createdAt": "2021-10-22T02:22:11.182Z",
@@ -2486,10 +2481,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |stage.stageId          |String  |스테이지 ID             |
 |stage.stageName        |String  |스테이지 이름             |
 |stage.stageUrl         |String  |스테이지 URL            |
-|stage.stageCustomUrl   |String  |스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList으로 대체)  |
-|stage.stageAliasDomainList   |List  |스테이지 도메인 별칭 목록 영역   |
-|stage.stageAliasDomainList[0].aliasDomain   |String  |도메인 별칭   |
-|stage.stageAliasDomainList[0].createdAt   |DateTime  |도메인 별칭 연결 일시    |
+|stage.stageCustomDomainList   |List  |스테이지 사용자 지정 도메인 목록 영역   |
+|stage.stageCustomDomainList[0].customDomain   |String  |사용자 지정 도메인   |
+|stage.stageCustomDomainList[0].createdAt   |DateTime  |사용자 지정 도메인 연결 일시    |
 |stage.stageDescription |String  |스테이지 설명             |
 |stage.backendEndpointUrl      |String  |백엔드 엔드포인트 URL       |
 |stage.resourceUpdatedAt|DateTime|최근 스테이지에 리소스를 가져온 일시 |
@@ -3858,7 +3852,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 {
   "apiKeyName": "User1 API Key",
   "apiKeyDescription": "For User1",
-  "apiKeyStatus": "ACTIVE"
+  "apiKeyStatus": "ACTIVE",
+  "primaryApiKey": null,
+  "secondaryApiKey": null
 }
 ```
 
@@ -3867,6 +3863,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | apiKeyName        | String | 필수    | 없음  | 최대 50자           | API Key 이름                                        |
 | apiKeyDescription | String | 선택    | 없음  | 최대 200자          | API Key 설명                                        |
 | apiKeyStatus      | Enum   | 필수    | 없음  | ACTIVE, INACTIVE | [API Key 상태 Enum 코드](./enum-code/#api-key) 참고 |
+| primaryApiKey     | String   | 선택    | 없음  | 최소 10자, 최대 40자, 영문자, 숫자 | Primary Api Key 값, null이면 자동 발급 |
+| secondaryApiKey   | String   | 선택    | 없음  | 최소 10자, 최대 40자, 영문자, 숫자 | Secondary Api Key 값, null이면 자동 발급 |
 
 #### 응답
 
@@ -4032,13 +4030,15 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 [Request Body]
 ```json
 {
-  "apiKeyType": "PRIMARY"
+  "apiKeyType": "PRIMARY",
+  "apiKeyValue": null
 }
 ```
 
 | 이름                | 타입     | 필수 여부 | 기본값 | 유효 범위            | 설명                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
 | apiKeyType      | Enum   | 필수    | 없음  | PRIMARY, SECONDARY | 변경하려는 API Key 타입. [API Key 타입 Enum 코드](./enum-code/#api-key_1) 참고 |
+| apiKeyValue     | String   | 선택    | 없음  | 최소 10자, 최대 40자, 영문자, 숫자 | Api Key 값, null이면 자동 발급 |
 
 #### 응답
 
@@ -4505,8 +4505,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
       "stageId": "{stageId}",
       "stageName": "custom",
       "stageUrl": "kr1-example-custom.api.nhncloudservice.com",
-      "stageCustomUrl": null,
-      "stageAliasDomainList": [],
+      "stageCustomDomainList": [],
       "usagePlanId": "{usagePlanId}",
       "usagePlanName": "Basic"
     }
@@ -4528,10 +4527,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | usagePlanStageList[0].stageId        | String  | 스테이지 ID                |
 | usagePlanStageList[0].stageName      | String  | 스테이지 이름                |
 | usagePlanStageList[0].stageUrl       | String  | 스테이지 URL               |
-| usagePlanStageList[0].stageCustomUrl | String  | 스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList으로 대체) |
-| usagePlanStageList[0].stageAliasDomainList   |List  |스테이지 도메인 별칭 목록 영역   |
-| usagePlanStageList[0].stageAliasDomainList[0].aliasDomain   |String  |도메인 별칭   |
-| usagePlanStageList[0].stageAliasDomainList[0].createdAt   |DateTime  |도메인 별칭 연결 일시    |
+| usagePlanStageList[0].stageCustomDomainList   |List  |스테이지 사용자 지정 도메인 목록 영역   |
+| usagePlanStageList[0].stageCustomDomainList[0].customDomain   |String  |사용자 지정 도메인   |
+| usagePlanStageList[0].stageCustomDomainList[0].createdAt   |DateTime  |사용자 지정 도메인 연결 일시    |
 | usagePlanStageList[0].usagePlanId    | String  | 사용량 계획 ID              |
 | usagePlanStageList[0].usagePlanName  | String  | 사용량 계획 이름              |
 
@@ -4721,8 +4719,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
             "stageId": "{stageId}",
             "stageName": null,
             "stageUrl": "kr1-example.api.nhncloudservice.com",
-            "stageCustomUrl": null,
-            "stageAliasDomainList": [],
+            "stageCustomDomainList": [],
             "usagePlanId": "{usagePlanId}",
             "usagePlanName": "Basic",
             "usagePlanDescription": "It's for Basic User",
@@ -4749,10 +4746,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | subscribedStageAndUsagePlanList[0].stageId                   | String  | 스테이지 ID                                           |
 | subscribedStageAndUsagePlanList[0].stageName                 | String  | 스테이지 이름                                           |
 | subscribedStageAndUsagePlanList[0].stageUrl                  | String  | 스테이지 URL                                          |
-| subscribedStageAndUsagePlanList[0].stageCustomUrl            | String  | 스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList으로 대체) |
-| subscribedStageAndUsagePlanList[0].stageAliasDomainList   |List  |스테이지 도메인 별칭 목록 영역   |
-| subscribedStageAndUsagePlanList[0].stageAliasDomainList[0].aliasDomain   |String  |도메인 별칭   |
-| subscribedStageAndUsagePlanList[0].stageAliasDomainList[0].createdAt   |DateTime  |도메인 별칭 연결 일시    |
+| subscribedStageAndUsagePlanList[0].stageCustomDomainList   |List  |스테이지 사용자 지정 도메인 목록 영역   |
+| subscribedStageAndUsagePlanList[0].stageCustomDomainList[0].customDomain   |String  |사용자 지정 도메인   |
+| subscribedStageAndUsagePlanList[0].stageCustomDomainList[0].createdAt   |DateTime  |사용자 지정 도메인 연결 일시    |
 | subscribedStageAndUsagePlanList[0].usagePlanId               | String  | 사용량 계획 ID                                         |
 | subscribedStageAndUsagePlanList[0].usagePlanName             | String  | 사용량 계획 이름                                         |
 | subscribedStageAndUsagePlanList[0].usagePlanDescription      | String  | 사용량 계획 설명                                         |
@@ -5106,15 +5102,15 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |data[0]                              |Object    | 리소스별 통계 데이터 영역                      |
 |data[0].uriPattern                   |String  | 리소스 경로 또는 경로 패턴                         |
 |data[0].httpMethodType               |Enum  | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고                             |
-|data[0].successCount                 |Long    | API 성공 수 (응답 HTTP 상태 코드가 2xx, 3xx인 경우) |
-|data[0].failCount               |Long    | API 실패 수 (응답 HTTP 상태 코드가 4xx, 5xx인 경우) |
-|data[0].status2xxCount               |Long    | 응답 HTTP 상태코드가 2xx인 API 호출 수 |
-|data[0].status3xxCount               |Long    | 응답 HTTP 상태코드가 3xx인 API 호출 수 |
-|data[0].status4xxCount               |Long    | 응답 HTTP 상태코드가 4xx인 API 호출 수 |
-|data[0].status5xxCount               |Long    | 응답 HTTP 상태코드가 5xx인 API 호출 수 |
-|data[0].statusEtcCount               |Long    | 2xx, 3xx, 4xx, 5xx 외 응답 HTTP 상태코드 API 호출 수 |
+|data[0].successCount                 |Long    | API 성공 수(응답 HTTP 상태 코드가 2xx, 3xx인 경우) |
+|data[0].failCount               |Long    | API 실패 수(응답 HTTP 상태 코드가 4xx, 5xx인 경우) |
+|data[0].status2xxCount               |Long    | 응답 HTTP 상태 코드가 2xx인 API 호출 수 |
+|data[0].status3xxCount               |Long    | 응답 HTTP 상태 코드가 3xx인 API 호출 수 |
+|data[0].status4xxCount               |Long    | 응답 HTTP 상태 코드가 4xx인 API 호출 수 |
+|data[0].status5xxCount               |Long    | 응답 HTTP 상태 코드가 5xx인 API 호출 수 |
+|data[0].statusEtcCount               |Long    | 2xx, 3xx, 4xx, 5xx 외 응답 HTTP 상태 코드 API 호출 수 |
 |data[0].avgResponseTimeMs            |Long    | 평균 API 응답 시간(ms) |
-|data[0].networkOutboundByte          |Long    | 아웃바운드 네트워크 바이트 합계 (bytes) |
+|data[0].networkOutboundByte          |Long    | 아웃바운드 네트워크 바이트 합계(bytes) |
 |metricsLatestUpdatedAt         | DateTime | 통계 데이터 최신 갱신 일시                             |
 
 
@@ -5164,8 +5160,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     "kr1-{apigwServiceId}-member.api.nhncloudservice.com": {
       "stageName": "member",
       "stageUrl": "kr1-{apigwServiceId1}-member.api.nhncloudservice.com",
-      "stageCustomUrl": null,
-      "stageAliasDomainList": [],
+      "stageCustomDomainList": [],
       "apiKeyMetricsTimeSeries": {
         "callCount": [
           {
@@ -5182,7 +5177,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     "kr1-{apigwServiceId}-billing.api.nhncloudservice.com": {
       "stageName": "billing",
       "stageUrl": "kr1-{apigwServiceId}-billing.api.nhncloudservice.com",
-      "stageCustomUrl": null,
+      "stageCustomDomainList": [],
       "apiKeyMetricsTimeSeries": {
         "callCount": [
           {
@@ -5208,10 +5203,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |data.{requestApigwEndpoint}          |Object  | API 호출 엔드포인트별 통계 영역                |
 |data.{requestApigwEndpoint}.stageName                    |String    | 스테이지 이름            |
 |data.{requestApigwEndpoint}.stageUrl                     |String    | 스테이지 URL |
-|data.{requestApigwEndpoint}.stageCustomUrl               |String    | 스테이지 사용자 정의 URL (Deprecated: stageAliasDomainList으로 대체)|
-|data.{requestApigwEndpoint}.stageAliasDomainList   |List  |스테이지 도메인 별칭 목록 영역   |
-|data.{requestApigwEndpoint}.stageAliasDomainList[0].aliasDomain   |String  |도메인 별칭   |
-|data.{requestApigwEndpoint}.stageAliasDomainList[0].createdAt   |DateTime  |도메인 별칭 연결 일시    |
+|data.{requestApigwEndpoint}.stageCustomDomainList   |List  |스테이지 사용자 지정 도메인 목록 영역   |
+|data.{requestApigwEndpoint}.stageCustomDomainList[0].customDomain   |String  |사용자 지정 도메인   |
+|data.{requestApigwEndpoint}.stageCustomDomainList[0].createdAt   |DateTime  |사용자 지정 도메인 연결 일시    |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries      |Object    | 집계 시간 단위별 API Key 통계 영역|
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount               |List    | API 호출 수 통계 목록 영역 |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0]               |Object    | API 호출 수 통계 영역 |
@@ -5222,3 +5216,90 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 
 * 일 단위 통계 데이터는 각 일의 00:00:00의 시간 데이터에 집계됩니다.
+
+
+### Top 10 서비스 조회
+- 전체 API 호출 수, 실패 API 호출 수, 평균 응답 시간을 기준으로 상위 10개의 API Gateway 서비스 목록과 누적 통계를 조회할 수 있습니다.
+
+
+#### 요청
+
+[URI]
+
+| 메서드  | URI |
+| --- | --- |
+| GET | /v1.0/appkeys/{appKey}/metrics/top-services |
+
+
+[QueryString Parameter]
+
+| 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
+| --- | --- | --- | --- | --- | --- |
+| lastDays | Integer | 선택 | 7 | 1~30 | 조회 기간의 일 수(당일 포함)  |
+| order | Enum | 선택 | CALL_COUNT | CALL_COUNT,FAIL_CALL_COUNT,AVG_RESPONSE_TIME | [통계 > Top10 서비스 정렬 기준](./enum-code/#_8)|
+
+
+#### 응답
+
+[Response]
+
+```json
+{
+        "header": {
+            "isSuccessful": true,
+            "resultCode": 0,
+            "resultMessage": "SUCCESS"
+        },
+        "data": [
+            {
+                "rank": 1,
+                "apigwServiceId": "{apigwServiceId1}",
+                "apigwServiceName": "apigwservice-1",
+                "status2xxCount": 100,
+                "status3xxCount": 0,
+                "status4xxCount": 0,
+                "status5xxCount": 0,
+                "statusEtcCount": 0,
+                "callCount": 100,
+                "failCallCount": 0,
+                "successCallCount": 100,
+                "avgResponseTimeMs": 6,
+                "networkOutboundByte": 31202
+            },
+            {
+                "rank": 2,
+                "apigwServiceId": "apigwServiceId2",
+                "apigwServiceName": "apigwservice-2",
+                "status2xxCount": 50,
+                "status3xxCount": 0,
+                "status4xxCount": 0,
+                "status5xxCount": 0,
+                "statusEtcCount": 0,
+                "callCount": 50,
+                "failCallCount": 0,
+                "successCallCount": 50,
+                "avgResponseTimeMs": 8,
+                "networkOutboundByte": 19220
+            }
+            ... 
+        ],
+        "metricsLatestUpdatedAt": "2023-07-19T02:21:08.000Z"
+    }
+```
+
+| 필드 | 타입 | 설명 |
+| --- | --- | --- |
+|data | Object | Top 10 서비스 통계 데이터 영역 |
+|data[0].rank | Integer  | 순위 번호 |
+|data[0].apigwServiceId | String | API Gateway 서비스 ID |
+|data[0].apigwServiceName | String | API Gateway 서비스 이름 |
+|data[0].successCount | Long | API 성공 수(응답 HTTP 상태 코드가 2xx, 3xx인 경우) |
+|data[0].failCount | Long | API 실패 수(응답 HTTP 상태 코드가 4xx, 5xx인 경우) |
+|data[0].status2xxCount | Long | 응답 HTTP 상태 코드가 2xx인 API 호출 수 |
+|data[0].status3xxCount | Long | 응답 HTTP 상태 코드가 3xx인 API 호출 수 |
+|data[0].status4xxCount | Long | 응답 HTTP 상태 코드가 4xx인 API 호출 수 |
+|data[0].status5xxCount | Long | 응답 HTTP 상태 코드가 5xx인 API 호출 수 |
+|data[0].statusEtcCount | Long | 2xx, 3xx, 4xx, 5xx 외 응답 HTTP 상태 코드 API 호출 수 |
+|data[0].avgResponseTimeMs | Long | 평균 API 응답 시간(ms) |
+|data[0].networkOutboundByte | Long | 아웃바운드 네트워크 바이트 합계(bytes) |
+|metricsLatestUpdatedAt | DateTime | 통계 데이터 최신 갱신 일시 |

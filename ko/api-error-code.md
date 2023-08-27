@@ -42,7 +42,7 @@
 |500103001|Failed to create stage. Please try again in a few minutes.|스테이지 생성에 실패했습니다. 잠시 후 다시 시도해 주세요.|
 |500103002|Could not find any server group.|스테이지 생성에 실패했습니다. 잠시 후 다시 시도해 주세요.|
 |500103003|Failed to delete stage URL.|스테이지 삭제에 실패했습니다. 잠시 후 시도해 주세요.|
-|500103004|Failed to connect alias domain to stage. Please try again in a few minutes.|도메인 별칭을 스테이지에 연결하지 못했습니다. 잠시 후 시도해 주세요.|
+|500103004|Failed to connect alias domain to stage. Please try again in a few minutes.|사용자 지정 도메인을 스테이지에 연결하지 못했습니다. 잠시 후 시도해 주세요.|
 |400104000|Unable to delete base stage deploy history or the currently deployed stage deploy history.|현재 배포된 이력과 기반 배포 이력은 삭제할 수 없습니다.|
 |400104001|Only possible to rollback stage for the completed deploy status.|스테이지 되돌리기를 할 수 없는 배포 상태의 이력입니다.|
 |400104002|Empty stage resource for deploying.|생성된 리소스가 없어 스테이지를 생성할 수 없습니다.|
