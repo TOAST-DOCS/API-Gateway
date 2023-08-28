@@ -42,7 +42,7 @@
 |500103001|Failed to create stage. Please try again in a few minutes.|Failed to create stage. Please try again in a few minutes.|
 |500103002|Could not find any server group.|Failed to create stage. Please try again in a few minutes.|
 |500103003|Failed to delete stage URL.|Failed to delete stage. Please try again in a few minutes.|
-|500103004|Failed to connect alias domain to stage. Please try again in a few minutes.|Failed to connect the domain alias to the stage. Please try again in a few minutes.|
+|500103004|Failed to connect alias domain to stage. Please try again in a few minutes.|Failed to connect the custom domain to the stage. Please try again in a few minutes.|
 |400104000|Unable to delete base stage deploy history or the currently deployed stage deploy history.|The currently deployed history and the base deployment history cannot be deleted.|
 |400104001|Only possible to rollback stage for the completed deploy status.|A history of deployment status that cannot be rolled back.|
 |400104002|Empty Stage resource for deploying.|The stage could not be created because no resources were created.|

@@ -6,7 +6,7 @@ This guide describes Public API v1.0 provided by NHN Cloud API Gateway.
 
 ### Domain
 
-| Name     | Region | Domain                                           |
+| Name      | Region | Domain                                            |
 |---------|-----|------------------------------------------------|
 | API domain | Korea (Pangyo) | https://kr1-apigateway.api.nhncloudservice.com |
 | API domain | Korea (Pyeongchon) | https://kr2-apigateway.api.nhncloudservice.com |
@@ -21,7 +21,7 @@ You can find your Appkey in the **URL & Appkey** menu at the top right of the co
 #### Path Parameter
 
 All APIs must specify the appkey as a path parameter.
-* Example: /v1.0/appkeys/**{appKey}**/**
+* Example) /v1.0/appkeys/**{appKey}**/**
 
 | Name     | Description                    |
 | ------ | --------------------- |
@@ -84,7 +84,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ## API Gateway Service
 
-### List API Gateway Services
+### List API Gateway Services 
 - Retrieves the list of API Gateway services.
 
 #### Request
@@ -159,7 +159,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |apigwServiceList[0].updatedAt           |DateTime| API Gateway service modification date and time                                      |
 
 
-### Get API Gateway Service
+### Get API Gateway Service 
 - Retrieves a single API Gateway service with API Gateway service ID.
 
 #### Request
@@ -249,7 +249,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | Enum | Required | N/A | KR1, KR2 | See [API Gateway Region Enum Code](./enum-code/#api-gateway-region) |
+| regionCode | Enum | Required | N/A | KR1, KR2 | See [API Gateway Region Enum Code](./enum-code/#api-gateway-region)|
 | apigwServiceName | String | Required | N/A | Max. 50 characters  | API Gateway service name |
 | apigwServiceDescription | String | Optional | N/A | Max. 200 characters  | API Gateway service alias |
 
@@ -377,8 +377,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |apigwService.updatedAt           |DateTime|Service modification date and time                                      |
 
 ### Delete API Gateway Service
-- Deletes an API Gateway Service.
-- Deleting the API Gateway service deletes all stages.
+- Deletes an API Gateway Service.  
+- Deleting the API Gateway service deletes all stages.  
 - If the stage of the API Gateway service you want to delete is associated with a usage plan, the service cannot be deleted. To delete the service, disassociate all stages associated with the usage plan and then delete it.
 - Please note that deleted API Gateway services cannot be recovered.
 
@@ -420,8 +420,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [URI]
 
-| Method | URI |
-| --- | --- |
+| Method | URI | 
+| --- | --- | 
 | GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
 
 [Path Parameter]
@@ -521,8 +521,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [URI]
 
-| Method | URI |
-| --- | --- |
+| Method | URI | 
+| --- | --- | 
 | POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
 
 [Path Parameter]
@@ -879,8 +879,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [URI]
 
-| Method | URI |
-| --- | --- |
+| Method | URI | 
+| --- | --- | 
 | POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/methods |
 
 [Path Parameter]
@@ -911,7 +911,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
       ]
     }
   ]
-}
+}   
 ```
 
 | Name | Type | Required | Default value | Valid range | Description |
@@ -1014,8 +1014,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [URI]
 
-| Method | URI |
-| --- | --- |
+| Method | URI | 
+| --- | --- | 
 | PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resource-paths/{resourceId} |
 
 [Path Parameter]
@@ -1058,7 +1058,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
       "pluginType":"CORS"
     }
   ]
-}
+}   
 ```
 
 | Name | Type | Required | Default value | Valid range | Description |
@@ -1144,8 +1144,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [URI]
 
-| Method | URI |
-| --- | --- |
+| Method | URI | 
+| --- | --- | 
 | PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resource-methods/{resourceId} |
 
 [Path Parameter]
@@ -1251,7 +1251,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 ### Delete Resource
 - Deletes a resource.
 - The root ("/") path resource cannot be deleted.
-- The OPTIONS method created by the CORS plugin cannot be deleted.
+- The OPTIONS method created by the CORS plugin cannot be deleted. 
 - The OPTIONS method created by the CORS plugin is deleted collectively when the CORS plugin is removed from the resource for which the plugin is set.
 - Deleting a path resource deletes all child paths and method resources.
 - Deleted resources cannot be recovered.
@@ -1393,14 +1393,14 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | swaggerData.paths.{path}.{operation}.summary | String | Optional | {operation} Uppercase | Max. 50 characters | API Gateway method name. |
 | swaggerData.paths.{path}.{operation}.description | String | Optional | {operation} Uppercase | Max. 200 characters | API Gateway method description. |
 | swaggerData.paths.{path}.{operation}.consumes | Array | Optional | Empty Array | N/A | API Gateway resource request parameters > Content Type List area. |
-| swaggerData.paths.{path}.{operation}.consumes[0] | String  | Optional | N/A | \*/\* format | API Gateway Resource Request Parameters > Content Type. |
+| swaggerData.paths.{path}.{operation}.consumes[0] | String  | Optional | N/A | \*/* format | API Gateway Resource Request Parameters > Content Type. |
 | swaggerData.paths.{path}.{operation}.parameters | Array | Optional | N/A | N/A | API Gateway resource request parameters > Query String, Header, Form Data, Request Body area. See [Parameter Object](https://swagger.io/specification/v2/#parameter-object) |
 | swaggerData.paths.{path}.{operation}.parameters[0].name | String | Required | N/A | Max. 50 characters | API Gateway resource request parameters > Query String, Header, Form Data, Request Body name. |
 | swaggerData.paths.{path}.{operation}.parameters[0].in | String | Required | N/A | query, header, formData, body | API Gateway resource request parameters > Separate Query String, Header, Form Data, and Request location. |
 | swaggerData.paths.{path}.{operation}.parameters[0].description | String | Optional | N/A | Max. 200 characters | API Gateway resource request parameters > Query String, Header, Form Data, Request Body description. |
 | swaggerData.paths.{path}.{operation}.parameters[0].required | Boolean | Required | N/A | true, false | API Gateway resource request parameters > Query String, Header, Form Data, Request Body required |
 | swaggerData.paths.{path}.{operation}.produces | Array | Optional | Empty Array | N/A | API Gateway resource response > Content Type List area. |
-| swaggerData.paths.{path}.{operation}.produces[0] | String | Optional | N/A | \*/\* format | API Gateway Resource Response > Content Type. |
+| swaggerData.paths.{path}.{operation}.produces[0] | String | Optional | N/A | \*/* format | API Gateway Resource Response > Content Type. |
 | swaggerData.paths.{path}.{operation}.responses | Object | Optional | N/A | N/A | API Gateway resource response > Object area with response HTTP status code information. See [Responses Object](https://swagger.io/specification/v2/#response-object) |
 | swaggerData.paths.{path}.{operation}.responses.{httpStatusCode} | Object | Optional | N/A | {httpStatusCode} 100~599 | API Gateway resource response > Response HTTP status code object area. |
 | swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.description | String | Optional | N/A |Max. 200 characters | API Gateway resource response > Response HTTP status code > Description. |
@@ -1489,7 +1489,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### SET_REQUEST_HEADER
-- Add or change the request header.
+- Add or change the request header. 
 - It can be set in the resource path and method.
 ```json
 {
@@ -1505,7 +1505,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | headers[{HeaderName}] | String | Required | N/A | N/A | The name and value of the request header to be added/changed by the object property key/value. |
 
 ### SET_RESPONSE_HEADER
-- The response header change plugin adds or changes a header to backend responses.
+- The response header change plugin adds or changes a header to backend responses. 
 - It can be set in the resource path and method.
 ```json
 {
@@ -1538,13 +1538,13 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ## Resource Parameter
 
-### List Resource Parameters
+### List Resource Parameters 
 - Retrieves a list of resource parameters.
 
 #### Request
 
 [URI]
-
+ 
 | Method  | URI |
 | --- | --- |
 | GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/parameters |
@@ -1643,7 +1643,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ### Create Resource Parameters
 - Creates parameters of a resource method.
-- Existing resource parameters are deleted, and requested resource parameters are created.
+- Existing resource parameters are deleted, and requested resource parameters are created. 
 
 #### Request
 
@@ -1724,7 +1724,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | requestBody.description        | String  | Optional    | N/A           | Max. 200 characters                                             | Request body description                                             |
 | requestBody.modelId            | String  | Required    | N/A           | N/A                                                  | Model ID associated with the request body                                    |
 | contentTypeList                | List    | Optional    | Empty List    | Max. 10 items                                              | Content type list area                                         |
-| contentTypeList[0]             | String  | Required    | N/A           | \*/\* format                                             | Enter the content type (e.g., application/json) of the documents to send to the server.                                               |
+| contentTypeList[0]             | String  | Required    | N/A           | \*/* format                                             | Enter the content type (e.g., application/json) of the documents to send to the server.                                               |
 
 #### Response
 
@@ -1742,7 +1742,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ## Resource Response
 
-### Get Resource Response
+### Get Resource Response 
 - Retrieves the header, request body item, and content type for each HTTP response status code.
 
 #### Request
@@ -1871,7 +1871,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | responseList[0].responseBody.description  | String  | Optional    | N/A         | Max. 200 characters                                       | Response body description                                             |
 | responseList[0].responseBody.modelId      | String  | Required    | N/A           | N/A                                           | Model ID associated with the response body                                     |
 | contentTypeList                           | List    | Optional    | Empty List   | Max. 10 items                                        | Content type list area                                         |
-| contentTypeList[0]                        | String  | Required    | N/A           | \*/\* format                                        | Enter the content type (e.g., application/json) of the documents to send to the server.                                               |
+| contentTypeList[0]                        | String  | Required    | N/A           | \*/* format                                        | Enter the content type (e.g., application/json) of the documents to send to the server.                                               |
 
 
 #### Response
@@ -1890,7 +1890,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ## Model
 
-### List Models
+### List Models 
 - Retrieves a list of models.
 
 #### Request
@@ -1913,7 +1913,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | --- | --- | --- | --- | --- | --- |
 | page | Integer | Optional | 1 | N/A | Page |
 | limit | Integer | Optional | 10 | Max. 1000 | Count per page |
-| modelName | String | Optional | N/A | Max. 50 characters  | Model name filter condition. It must contain a string of the model name. |
+| modelName | String | Optional | N/A | Max. 50 characters  | Model name filter condition. It must contain a string of the model name.|
 
 #### Response
 
@@ -2077,9 +2077,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |model.updatedAt       |DateTime|Model modification date and time            |
 
 
-### Modify Model
-- Modifies the description and schema of model.
-- Model name cannot be changed.
+### Modify Model 
+- Modifies the description and schema of model. 
+- Model name cannot be changed. 
 
 #### Request
 
@@ -2211,7 +2211,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ## Stage
 
-### List Stages
+### List Stages 
 - Retrieves a list of stages.
 
 #### Request
@@ -2276,14 +2276,14 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |paging.limit                         |Integer | Count per page                                  |
 |paging.totalCount                    |Integer | Total count                                        |
 |stageList        |List    | Stage list area |
-|stageList[0].regionCode       |Enum    |See [API Gateway Region Enum Code](./enum-code/#api-gateway-region)               |
+|stageList[0].regionCode       |Enum    |See [API Gateway Region Enum Code](./enum-code/#api-gateway-region)                |
 |stageList[0].apigwServiceId   |String  |API Gateway service ID  |
 |stageList[0].stageId          |String  |Stage ID             |
 |stageList[0].stageName        |String  |Stage name             |
 |stageList[0].stageUrl         |String  |Stage URL            |
-|stageList[0].stageCustomDomainList   |List  |Area for the list of stage domain aliases   |
-|stageList[0].stageCustomDomainList[0].customDomain   |String  |Domain alias   |
-|stageList[0].stageCustomDomainList[0].createdAt   |DateTime  |Domain alias connection date and time   |
+|stageList[0].stageCustomDomainList   |List  |Area for the list of stage custom domain   |
+|stageList[0].stageCustomDomainList[0].customDomain   |String  |Custom domain   |
+|stageList[0].stageCustomDomainList[0].createdAt   |DateTime  |When custom domain is connected    |
 |stageList[0].stageDescription |String  |Stage description             |
 |stageList[0].backendEndpointUrl|String  |Backend endpoint URL       |
 |stageList[0].resourceUpdatedAt|DateTime|Date and time of importing resource to the stage recently |
@@ -2292,7 +2292,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Swagger Export
-- Retrieves a Swagger document.
+- Retrieves a Swagger document. 
 - Swagger documents are extracted based on the current stage settings, not the settings deployed in API Gateway.
 
 #### Request
@@ -2329,7 +2329,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Create Stage
-- Creates a stage.
+- Creates a stage. 
 
 #### Request
 
@@ -2361,8 +2361,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | stageDescription | String | Optional | N/A | Max. 200 characters  | Stage description |
 | backendEndpointUrl | String | Required | N/A | Max. 150 characters, URL format  | Backend endpoint URL |
 
-- The stageName field value must be unique.
-- Setting the stageName field to null creates a default stage. Only one default stage can be created.
+- The stageName field value must be unique. 
+- Setting the stageName field to null creates a default stage. Only one default stage can be created. 
 - The stage URL changes according to the stageName field value.
     - Stage URL format: {regionCode}-{apigwServiceId}-{stageName}.api.nhncloudservice.com
 
@@ -2403,16 +2403,16 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stage.stageId          |String  |Stage ID             |
 |stage.stageName        |String  |Stage name             |
 |stage.stageUrl         |String  |Stage URL            |
-|stage.stageCustomDomainList   |List  |Area for the list of stage domain aliases   |
-|stage.stageCustomDomainList[0].customDomain   |String  |Domain alias   |
-|stage.stageCustomDomainList[0].createdAt   |DateTime  |Domain alias connection date and time    |
+|stage.stageCustomDomainList   |List  |Area for the list of stage custom domain   |
+|stage.stageCustomDomainList[0].customDomain   |String  |Custom domain   |
+|stage.stageCustomDomainList[0].createdAt   |DateTime  |When custom domain is connected    |
 |stage.stageDescription |String  |Stage description             |
 |stage.backendEndpointUrl      |String  |Backend endpoint URL       |
 |stage.resourceUpdatedAt|DateTime|Date and time of importing resource to the stage recently |
 |stage.createdAt        |DateTime|Stage creation date and time           |
 |stage.updatedAt        |DateTime|Stage modification date and time           |
 
-### Modify Stage
+### Modify Stage 
 - You can modify the backend endpoint URL and description of the stage.
 - Stage name cannot be changed.
 
@@ -2481,9 +2481,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stage.stageId          |String  |Stage ID             |
 |stage.stageName        |String  |Stage name             |
 |stage.stageUrl         |String  |Stage URL            |
-|stage.stageCustomDomainList   |List  |Area for the list of stage domain aliases   |
-|stage.stageCustomDomainList[0].customDomain   |String  |Domain alias   |
-|stage.stageCustomDomainList[0].createdAt   |DateTime  |Domain alias connection date and time    |
+|stage.stageCustomDomainList   |List  |Area for the list of stage custom domain   |
+|stage.stageCustomDomainList[0].customDomain   |String  |Custom domain   |
+|stage.stageCustomDomainList[0].createdAt   |DateTime  |When custom domain is connected    |
 |stage.stageDescription |String  |Stage description             |
 |stage.backendEndpointUrl      |String  |Backend endpoint URL       |
 |stage.resourceUpdatedAt|DateTime|Date and time of importing resource to the stage recently |
@@ -2526,7 +2526,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 ```
 
 
-### List Stage Resources
+### List Stage Resources 
 * Retrieves a list of resources registered on the stage. The stage resource plugin information set for each resource is included.
 * For more information about the stage resource plugin, see [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin).
 
@@ -2627,9 +2627,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Import Resources to Stage
-* Imports API Gateway Service > Resources to stage.
-* When a resource is imported, stage resources and stage resource plugins are all newly created.
-* Existing resource paths and stage resource plugin settings set in methods are maintained.
+* Imports API Gateway Service > Resources to stage. 
+* When a resource is imported, stage resources and stage resource plugins are all newly created. 
+* Existing resource paths and stage resource plugin settings set in methods are maintained. 
 * If no changes are found on the resource, no action is taken.
 
 #### Request
@@ -2721,7 +2721,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)               |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -2766,9 +2766,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
 | customBackendEndpointUrl | String | Optional | N/A | Max. 150 characters, URL format | Backend endpoint override URL |
-|stageResourcePluginList|List | Required | N/A | N/A  |Stage resource's plugin list area                       |
-|stageResourcePluginList[0]|Object | Required | N/A | N/A |Stage resource's plugin area                       |
-|stageResourcePluginList[0].pluginType  | Enum |Required | N/A | IP_ACL, HMAC, JWT, API_KEY, PRE_API, RATE_LIMIT | See [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                        |
+| stageResourcePluginList | List | Required | N/A | N/A | Stage resource's plugin list area |
+| stageResourcePluginList[0] | Object | Required | N/A | N/A | Stage resource's plugin area |
+| stageResourcePluginList[0].pluginType  | Enum | Required | N/A | IP_ACL, HMAC, JWT, API_KEY, PRE_API, RATE_LIMIT | See [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)|
 | stageResourcePluginList[0].pluginConfigJson | Object | Required | N/A | N/A | JSON-format object for each stage resource plugin<br>See configuration JSON by [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)|
 
 * The customBackendEndpointUrl field cannot be set in the root (/) resource path.
@@ -2853,20 +2853,20 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ## Stage Resource Plugin
-* For resources of the stage, features such as access control, authentication, and usage control can be set in the form of plug-ins.
-* When a plugin is set in the upper level, it is applied to all child methods collectively, and can be overridden in child paths/methods.
+* For resources of the stage, features such as access control, authentication, and usage control can be set in the form of plug-ins. 
+* When a plugin is set in the upper level, it is applied to all child methods collectively, and can be overridden in child paths/methods. 
 
 * [Example]: Plugin configuration override
     ```
     /
-      /members
-        - GET
-        - POST
-    ```
-    * Configuration
+  /members
+    - GET
+    - POST
+        ```
+    * Configuration 
         1. Limit the request number limit on the root (/) resource path to 100 per second
         2. Limit the request number limit on the POST resource method to 10 per second (override)
-    * Operation result
+    * Operation result 
         - For GET /members, limit of 100 per second on the request limit set on root (/) is applied.
         - For POST /members, the 100 requests per second limit set on root (/) is ignored, and the 10 per second limit is applied.
 
@@ -2879,7 +2879,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | Resource method  |Backend endpoint URL override, Pre-call API, Request number limit, API Key |
 
 
-### IP ACL
+### IP ACL 
 * API Gateway requests can be allowed/denied for the client IDs specified through IP ACL.
 * It can only be set on the root (/) resource path. The settings are applied to all child resources.
 
@@ -2913,9 +2913,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### HMAC
-* Settings for validating the tampering of client requests through HMAC signature verification.
+* Settings for validating the tampering of client requests through HMAC signature verification. 
 * It can only be set on the root (/) resource path. The settings are applied to all child resources.
-* HMAC authentication cannot be set at the same time as JWT authentication.
+* HMAC authentication cannot be set at the same time as JWT authentication. 
 * Set the secret key used for signing.
 * Set the validation validity period to prevent validation failures caused by time differences.
 * Set a list of headers that must be included in the request.
@@ -2943,14 +2943,14 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | pluginConfigJson.enforceHeaders[0] | String | Required | N/A | N/A| String of required validation headers |
 
 
-### JWT
+### JWT 
 * Settings for validating the signature of the JWT token and request claims.
 * It can only be set on the root (/) resource path. The settings are applied to all child resources.
 * JWT authentication cannot be set at the same time as HMAC authentication.
 * Set the token encryption algorithm for signature verification and the private or public key according to the encryption algorithm method.
-* Set the claim validation condition to validation the value of the request claim and whether it is required or not.
+* Set the claim validation condition to validation the value of the request claim and whether it is required or not. 
 * Set the validation validity period to prevent validation failures caused by time differences.
-* **Encryption Algorithm HS256**
+* **Encryption Algorithm HS256** 
 ```json
 {
   "pluginType": "JWT",
@@ -3020,40 +3020,40 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | pluginConfigJson.claimValidationCondition.iss | Object | Optional | Default Object | N/A | The iss claim validation condition area. If not requested, it will be stored as the default value for each field. |
 | pluginConfigJson.claimValidationCondition.iss.value | Array | Required | Empty Array | N/A |  Set the value of the claim to allow among the values of the iss request claim as a string array. |
 | pluginConfigJson.claimValidationCondition.iss.value[0] | String | Optional | N/A | N/A |  Set the string to allow among the values of the iss request claim. |
-| pluginConfigJson.claimValidationCondition.iss.dataType | Enum | Optional | Array | Array | Set the data type of the iss claim. Only Array is valid. See <br/> [JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type) |
+| pluginConfigJson.claimValidationCondition.iss.dataType | Enum | Optional | Array | Array | Set the data type of the iss claim. Only Array is valid. See <br/>[JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type) |
 | pluginConfigJson.claimValidationCondition.iss.required | Boolean | Required | false | true, false | Set whether the iss request claim value is required to be validated. |
 | pluginConfigJson.claimValidationCondition.iss.validate | Boolean | Required | false | true, false | Set whether to validate the iss request claim value. |
 | pluginConfigJson.claimValidationCondition.aud | Object | Optional | Default Object | N/A | The aud claim validation condition area. If not requested, it will be stored as the default value for each field.  |
 | pluginConfigJson.claimValidationCondition.aud.value | Array | Required | Empty Array | N/A |  Set the value of the claim to allow among the values of the aud request claim as a string array. |
 | pluginConfigJson.claimValidationCondition.aud.value[0] | String | Optional | N/A | N/A |  Set the string to allow among the values of the aud request claim. |
-| pluginConfigJson.claimValidationCondition.aud.dataType | Enum | Optional | Array | Array | Set the data type of the aud claim. Only Array is valid. <br/>See [JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type) |
+| pluginConfigJson.claimValidationCondition.aud.dataType | Enum | Optional | Array | Array | Set the data type of the aud claim. Only Array is valid. <br/>[JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type) |
 | pluginConfigJson.claimValidationCondition.aud.required | Boolean | Required | false | true, false | Set whether the aud request claim value is required to be validated. |
 | pluginConfigJson.claimValidationCondition.aud.validate | Boolean | Required | true | true | Set whether to validate the aud request claim value. Only true is valid. |
 | pluginConfigJson.claimValidationCondition.sub | Object | Optional | Default Object | N/A | The sub claim validation condition area. If not requested, it will be stored as the default value for each field. |
 | pluginConfigJson.claimValidationCondition.sub.value | String | Required | Empty String | N/A |  Set the value of the claim to allow among the values of the sub request claim as a string value. |
-| pluginConfigJson.claimValidationCondition.sub.dataType | Enum | Optional | String | String | Set the data type of the sub claim. Only Array is valid. <br/>See [JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type)|
+| pluginConfigJson.claimValidationCondition.sub.dataType | Enum | Optional | String | String | Set the data type of the sub claim. Only Array is valid.<br/>[JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type)|
 | pluginConfigJson.claimValidationCondition.sub.required | Boolean | Required | false | true, false | Set whether the sub request claim value is required to be validated. <br/> If the validate field value is true, required must be set to true.  |
 | pluginConfigJson.claimValidationCondition.sub.validate | Boolean | Required | false | true, false | Set whether to validate the sub request claim value. |
 | pluginConfigJson.claimValidationCondition.jti | Object | Optional | Default Object | N/A | The jti claim validation condition area. If not requested, it will be stored as the default value for each field. |
 | pluginConfigJson.claimValidationCondition.jti.value | String | Required | Empty String | N/A | The jti claim does not require setting the validation values to allow, so set it to an empty string. |
-| pluginConfigJson.claimValidationCondition.jti.dataType | Enum | Optional | String | String | Set the data type of the jti claim. <br/>See [JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type)|
+| pluginConfigJson.claimValidationCondition.jti.dataType | Enum | Optional | String | String | Set the data type of the jti claim. <br/>[JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type)|
 | pluginConfigJson.claimValidationCondition.jti.required | Boolean | Required | false | true, false | Set whether the jti request claim value is required to be validated. |
 | pluginConfigJson.claimValidationCondition.jti.validate | Boolean | Required | false | false | Set whether to validate the jti request claim value. Only false is valid.|
 | pluginConfigJson.claimValidationCondition.exp | Object | Optional | Default Object | N/A | The exp claim validation condition area. If not requested, it will be stored as the default value for each field. |
-| pluginConfigJson.claimValidationCondition.exp.dataType | Enum | Optional | NumericDate | NumericDate | Set the data type of the exp claim. Only NumericDate is valid. See <br/> [JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type) |
+| pluginConfigJson.claimValidationCondition.exp.dataType | Enum | Optional | NumericDate | NumericDate | Set the data type of the exp claim. Only NumericDate is valid. See <br/>[JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type) |
 | pluginConfigJson.claimValidationCondition.exp.required | Boolean | Required | false | true, false | Set whether the exp request claim value is required to be validated. |
 | pluginConfigJson.claimValidationCondition.exp.validate | Boolean | Optional | true | true | Set whether to validate the exp request claim value. Only true is valid. |
 | pluginConfigJson.claimValidationCondition.iat | Object | Optional | Default Object | N/A | The iat claim validation condition area. If not requested, it will be stored as the default value for each field. |
-| pluginConfigJson.claimValidationCondition.iat.dataType | Enum | Optional | NumericDate | NumericDate | Set the data type of the iat claim. Only NumericDate is valid. See <br/> [JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type) |
+| pluginConfigJson.claimValidationCondition.iat.dataType | Enum | Optional | NumericDate | NumericDate | Set the data type of the iat claim. Only NumericDate is valid. See <br/>[JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type) |
 | pluginConfigJson.claimValidationCondition.iat.required | Boolean | Required | false | true, false | Set whether the iat request claim value is required to be validated. |
 | pluginConfigJson.claimValidationCondition.iat.validate | Boolean | Optional | true | true | Set whether to validate the iat request claim value. Only true is valid. |
 | pluginConfigJson.claimValidationCondition.nbf | Object | Optional | Default Object | N/A | The nbf claim validation condition area. If not requested, it will be stored as the default value for each field. |
-| pluginConfigJson.claimValidationCondition.nbf.dataType | Enum | Optional | NumericDate | NumericDate | Set the data type of the nbf claim. Only NumericDate is valid. See <br/> [JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type)|
+| pluginConfigJson.claimValidationCondition.nbf.dataType | Enum | Optional | NumericDate | NumericDate | Set the data type of the nbf claim. Only NumericDate is valid. See <br/>[JWT > Claim Data Type Enum Code](./enum-code/#jwt-claim-data-type)|
 | pluginConfigJson.claimValidationCondition.nbf.required | Boolean | Required | false | true, false | Set whether the nbf request claim value is required to be validated. |
 | pluginConfigJson.claimValidationCondition.nbf.validate | Boolean | Optional | true | true | Sets whether to validate the nbf request claim value. Only true is valid. |
 
 
-* **Encryption algorithm RS256: (PEM format public key setting method)**
+* **Encryption algorithm RS256: (PEM format public key setting method)** 
 
 ```json
 {
@@ -3079,12 +3079,12 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | pluginConfigJson.encryptAlgorithm | Enum | Required | RS256 | RS256 | See [JWT > Encryption Algorithm Enum Code](./enum-code/#jwt-encryption-algorithm)  |
 | pluginConfigJson.rs256 | Object | Required | N/A | N/A | RS256 configuration area |
 | pluginConfigJson.rs256.publicKeyType | Enum | Required | N/A | RSA_PUBLIC_KEY | Set the public key in PEM format. See [JWT > RS256 Encryption Algorithm > Public Key Type Enum Code](./enum-code/#jwt-rs256-encryption-algorithm-public-key-type) |
-| pluginConfigJson.rs256.rsaPublicKey | String | Required | N/A | Public key in PEM format | Set the public key value in PEM format. It must be entered including the newline character (\n). |
+| pluginConfigJson.rs256.rsaPublicKey | String | Required | N/A | Public key in PEM format | Set the public key value in PEM format. It must be entered including the newline character (\\n). |
 | pluginConfigJson.clockSkew | Integer | Optional | 0 | 0~86400 | Specify the validation validity period (in seconds) of the exp, nbf claim. |
 | pluginConfigJson.claimValidationCondition | Object | Optional | Default Object | N/A | Claim validation condition field (encryption algorithm: same as claimValidationCondition field description of HS256) |
 
 
-* **Encryption algorithm RS256: (JSON Web Key Set URI public key setting method)**
+* **Encryption algorithm RS256: (JSON Web Key Set URI public key setting method)** 
 
 ```json
 {
@@ -3106,7 +3106,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | --- | --- | --- | --- | --- | --- |
 | pluginType | Enum | Required | N/A | JWT | See JWT in [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type) |
 | pluginConfigJson | Object | Required | N/A  | N/A | JWT plugin configuration area |
-| pluginConfigJson.encryptAlgorithm | Enum | Required | RS256 | RS256 | See [JWT > Encryption Algorithm Enum Code](./enum-code/#jwt-encryption-algorithm)  |
+| pluginConfigJson.encryptAlgorithm | Enum | Required | RS256 | RS256 |See [JWT > Encryption Algorithm Enum Code](./enum-code/#jwt-encryption-algorithm)  |
 | pluginConfigJson.rs256 | Object | Required | N/A | N/A | RS256 configuration area |
 | pluginConfigJson.rs256.publicKeyType | String | Required | N/A | JWKS_URI | Set the public key in JSON Web Key Set (JWKS) URI format. See [JWT > RS256 Encryption Algorithm > Public Key Type Enum Code](./enum-code/#jwt-rs256-encryption-algorithm-public-key-type) |
 | pluginConfigJson.rs256.rsaPublicKey | String | Required | N/A | N/A | Set the JSON Web Key Set URI. |
@@ -3114,9 +3114,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | pluginConfigJson.claimValidationCondition | Object | Optional | Default Object | N/A | Claim validation condition field (encryption algorithm: same as claimValidationCondition field description of HS256) |
 
 
-### Pre-call API
+### Pre-call API 
 * The pre-call API calls the user-specified API before calling the backend endpoint to ensure that the backend endpoint is called only if the call's response code is 200 OK.
-* It can be set on any resource path and method.
+* It can be set on any resource path and method. 
 
 ```json
 {
@@ -3138,9 +3138,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | pluginConfigJson.cacheTtl | Integer | Optional | 0 | 0~86400 | Set the cache period of the response status code of the pre-call API. <br/>The code is cached for the configured amount of time only if the response status code is 200 OK. If it is cached, the pre-call API is not called. |
 
 
-### Request Number Limit
-* Limits the number of requests per second.
-* It can be set in the root (/) resource path and the resource method.
+### Request Number Limit 
+* Limits the number of requests per second. 
+* It can be set in the root (/) resource path and the resource method. 
 * By setting the request limit key, you can set a limit on the number of requests per IP, header, and path variable values.
 
 ```json
@@ -3159,14 +3159,14 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | pluginType | Enum | Required | N/A | RATE_LIMIT | See RATE_LIMIT in [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type) |
 | pluginConfigJson | Object | Required | N/A | N/A | Request number limit plugin configuration area |
 | pluginConfigJson.keyType | Enum | Required | N/A | DEFAULT, IP, HEADER, PATH_VARIABLE | See [Request Number Limit > Limit Key Enum Code](./enum-code/#request-number-limit-limit-key)  |
-| pluginConfigJson.extraKeyValue | String | Conditionally required | N/A | N/A | If keyType is HEADER, the header name must be set. <br/> If the keyType is PATH_VARIABLE, you must set a path variable of the format ${request.path.variable-name}. |
+| pluginConfigJson.extraKeyValue | String | Conditionally required | N/A | N/A | If keyType is HEADER, the header name must be set.<br/> If the keyType is PATH_VARIABLE, you must set a path variable of the format ${request.path.variable-name}. |
 | pluginConfigJson.requestPerSec | Integer | Required | N/A | 1~5000 | Set the maximum number of requests per second. |
 
 
 ### API Key
 
-* Validates that the API Key is valid when calling the API, and verify whether the usage of the specified usage plan has been exceeded.
-* It can be set in the root (/) resource path and the resource method.
+* Validates that the API Key is valid when calling the API, and verify whether the usage of the specified usage plan has been exceeded. 
+* It can be set in the root (/) resource path and the resource method. 
 
 
 ```json
@@ -3188,10 +3188,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Deploy Stage
-- Deploys the current stage resources and configurations to the API Gateway service.
+- Deploys the current stage resources and configurations to the API Gateway service. 
 - If there is no changed configuration, the stage deployment request will fail.
 - If the stage deployment fails, it is restored to the previous successful stage deployment configuration.
-- After requesting stage deployment, you can check whether stage deployment was successful in [Query Result of Recent Stage Deployment](./api-guide-v1.0/#query-result-of-recent-stage-deployment).
+- After requesting stage deployment, you can check whether stage deployment was successful in [Query Result of Recent Stage Deployment](./api-guide-v1.0/#query-result-of-recent-stage-deployment). 
 
 #### Request
 
@@ -3234,9 +3234,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 ```
 
 
-### Query Result of Recent Stage Deployment
-- You can query the result of [Deploy Stage](./api-guide-v1.0/#deploy-stage_1).
-- After a stage deployment request, it can take up to a minute for the deployment results to be updated.
+### Query Result of Recent Stage Deployment 
+- You can query the result of [Deploy Stage](./api-guide-v1.0/#deploy-stage_1). 
+- After a stage deployment request, it can take up to a minute for the deployment results to be updated. 
 
 
 #### Request
@@ -3345,8 +3345,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0]|Object    |Stage resource's plugin area                       |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type) |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)           |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                       |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)          |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -3385,8 +3385,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 ```
 
 
-### Query Stage Deployment History
-- Retrieves the history of stage deployment in deployment success status.
+### Query Stage Deployment History 
+- Retrieves the history of stage deployment in deployment success status. 
 
 #### Request
 
@@ -3456,8 +3456,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Rollback Stage
-- Rollbacks the current stage configuration to the deployed stage configuration history.
-- Note that all current stage configurations will be deleted when performing the stage rollback.
+- Rollbacks the current stage configuration to the deployed stage configuration history.  
+- Note that all current stage configurations will be deleted when performing the stage rollback.  
 - To apply the rolled back stage configurations to the API Gateway service, you must deploy the stage.
 - You cannot perform rollback with the deployment history in deployment failure state.
 
@@ -3528,7 +3528,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stageResourceList[0].stageResourcePluginList[0]|Object    |Stage resource's plugin area                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See  [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                       |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                       |
 |stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)         |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
@@ -3537,7 +3537,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 ## API Document
 
 ### Query API Document
-- Retrieves API document based on the deployed stage configuration.
+- Retrieves API document based on the deployed stage configuration. 
 - The API document is returned as a JSON object that follows the [Swagger v2.0](https://swagger.io/specification/v2/) specification.
 - API document cannot be queried for undeployed stages, and a 404 Not Found response is returned.
 
@@ -3759,11 +3759,11 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |paths.{path}.{operation}.x-nhncloud-apigateway     | Object  | NHN Cloud API Gateway definition setting area |
 |paths.{path}.{operation}.x-nhncloud-apigateway.plugins     | Object  | This is the custom plugin information area for API Gateway. This includes settings in Resources > Plugins and backend endpoint paths mapped to resources. |
 |securityDefinitions          |Object    | A security definition object. When setting API Key and authentication (HMAC, JWT), custom settings of API Gateway are included. See [Security Definitions Object](https://swagger.io/specification/v2/#securityDefinitionsObject)|
-|definitions | Object | An area for data types used in requests and responses. The model referenced in the request parameter/response is defined. See [Definitions Object](https://swagger.io/specification/v2/#definitionsObject)|
+|definitions | Object | An area for data types used in requests and responses. The model referenced in the request parameter/response is defined. See [Definitions Object](https://swagger.io/specification/v2/#definitionsObject)| 
 
 ## API Key
 
-### List API Keys
+### List API Keys 
 - Retrieves the list of API keys.
 - If there are multiple request query parameters, a list that satisfies all conditions is returned.
 
@@ -3837,7 +3837,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apiKeyList[0].updatedAt         | DateTime | API Key modification date and time                                      |
 
 ### Create API Key
-- Generates an API Key.
+- Generates an API Key. 
 
 #### Request
 
@@ -3852,7 +3852,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 {
   "apiKeyName": "User1 API Key",
   "apiKeyDescription": "For User1",
-  "apiKeyStatus": "ACTIVE"
+  "apiKeyStatus": "ACTIVE",
+  "primaryApiKey": null,
+  "secondaryApiKey": null
 }
 ```
 
@@ -3861,6 +3863,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apiKeyName        | String | Required    | N/A  | Max. 50 characters           | API Key name                                        |
 | apiKeyDescription | String | Optional    | N/A  | Max. 200 characters          | API Key description                                        |
 | apiKeyStatus      | Enum   | Required    | N/A  | ACTIVE, INACTIVE | See [API Key Status Enum Code](./enum-code/#api-key-status) |
+| primaryApiKey     | String   | Optional    | N/A  | Min. 10 characters, Max. 40 characters, English letters, and numbers | Primary API key value, automatically issued when null |
+| secondaryApiKey   | String   | Optional    | N/A  | Min. 10 characters, Max. 40 characters, English letters, and numbers | Secondary API key value, automatically issued when null |
 
 #### Response
 
@@ -4026,13 +4030,15 @@ The service responds with **200 OK** to all API requests. For detailed response 
 [Request Body]
 ```json
 {
-  "apiKeyType": "PRIMARY"
+  "apiKeyType": "PRIMARY",
+  "apiKeyValue": null
 }
 ```
 
 | Name                | Type     | Required | Default value | Valid range            | Description                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
 | apiKeyType      | Enum   | Required    | N/A  | PRIMARY, SECONDARY | The API Key type you want to change. See [API Key Type Enum Code](./enum-code/#api-key-type) |
+| apiKeyValue     | String   | Optional    | N/A  | Min. 10 characters, Max. 40 characters, English letters, and numbers | API key value, automatically issued when null |
 
 #### Response
 
@@ -4155,7 +4161,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ## Usage Plan
 
-### List Usage Plans
+### List Usage Plans 
 - Retrieves a list of usage plans.
 
 #### Request
@@ -4350,7 +4356,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Modify Usage Plan
-- Modifies a usage plan.
+- Modifies a usage plan. 
 - If you modify the quota period unit to 'None', the request quota usage of the connected API keys is initialized.
 
 #### Request
@@ -4515,15 +4521,15 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | paging.totalCount                     | Integer | Total count                 |
 | usagePlanStageList                    | List    | Stage list area associated with the usage plan |
 | usagePlanStageList[0]                | Object  | Stage area associated with the usage plan    |
-| usagePlanStageList[0].regionCode | Enum | [API Gateway Region Enum Code](./enum-code/#api-gateway-region) |
+| usagePlanStageList[0].regionCode | Enum    | See [API Gateway Region Enum Code](./enum-code/#api-gateway-region) |
 | usagePlanStageList[0].apigwServiceId | String  | API Gateway service ID     |
 | usagePlanStageList[0].apigwServiceName      | String  | API Gateway service name     |
 | usagePlanStageList[0].stageId        | String  | Stage ID                |
 | usagePlanStageList[0].stageName      | String  | Stage name                |
 | usagePlanStageList[0].stageUrl       | String  | Stage URL               |
-| usagePlanStageList[0].stageCustomDomainList   | List  | Area for the list of stage domain aliases   |
-| usagePlanStageList[0].stageCustomDomainList[0].customDomain   | String  | Domain alias   |
-| usagePlanStageList[0].stageCustomDomainList[0].createdAt   | DateTime  | Domain alias connection date and time    |
+| usagePlanStageList[0].stageCustomDomainList   |List  |Area for the list of stage custom domain   |
+| usagePlanStageList[0].stageCustomDomainList[0].customDomain   |String  |Custom domain   |
+| usagePlanStageList[0].stageCustomDomainList[0].createdAt   |DateTime  |When custom domain is connected    |
 | usagePlanStageList[0].usagePlanId    | String  | Usage plan ID              |
 | usagePlanStageList[0].usagePlanName  | String  | Usage plan name              |
 
@@ -4740,9 +4746,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | subscribedStageAndUsagePlanList[0].stageId                   | String  | Stage ID                                           |
 | subscribedStageAndUsagePlanList[0].stageName                 | String  | Stage name                                           |
 | subscribedStageAndUsagePlanList[0].stageUrl                  | String  | Stage URL                                          |
-| subscribedStageAndUsagePlanList[0].stageCustomDomainList   | List  | Area for the list of stage domain aliases   |
-| subscribedStageAndUsagePlanList[0].stageCustomDomainList[0].customDomain   | String  | Domain alias   |
-| subscribedStageAndUsagePlanList[0].stageCustomDomainList[0].createdAt   | DateTime  | Domain alias connection date and time    |
+| subscribedStageAndUsagePlanList[0].stageCustomDomainList   |List  |Area for the list of stage custom domain   |
+| subscribedStageAndUsagePlanList[0].stageCustomDomainList[0].customDomain   |String  |Custom domain   |
+| subscribedStageAndUsagePlanList[0].stageCustomDomainList[0].createdAt   |DateTime  |When custom domain is connected    |
 | subscribedStageAndUsagePlanList[0].usagePlanId               | String  | Usage plan ID                                         |
 | subscribedStageAndUsagePlanList[0].usagePlanName             | String  | Usage plan name                                         |
 | subscribedStageAndUsagePlanList[0].usagePlanDescription      | String  | Usage plan description                                         |
@@ -4910,7 +4916,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ### Unsubscribe from API Key (Disconnect API Key)
 - Disconnects the requested API Key list from the stage of your usage plan.
-- Disconnected API Key fails API Key authentication, causing API calls to fail.
+- Disconnected API Key fails API Key authentication, causing API calls to fail. 
 
 #### Request
 
@@ -4959,9 +4965,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 ### Change Usage Plan of API Key
 - You can only change to a different usage plan associated with the selected stage.
 - When the usage plan is changed, the usage of the API Key request quota is initialized.
-    - If you change to a usage plan with a quota period unit of 'day' or 'month', the usage of the connected API Key request quota is maintained. If you change to a usage plan with a lower request quota limit, your usage may be exceeded.
+    - If you change to a usage plan with a quota period unit of 'day' or 'month', the usage of the connected API Key request quota is maintained. If you change to a usage plan with a lower request quota limit, your usage may be exceeded. 
     - If you change to a usage plan with a quota period unit of 'None', the usage of the connected API Key request quota is initialized.
-
+  
 #### Request
 
 [URI]
@@ -5034,7 +5040,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | limit | Integer | Optional | 10 | Max. 1000 | Count per page |
 
 * The search period set by the startTime and endTime fields must be within the last 90 days.
-* Enter the stageTime, endTime fields in ISO8601 format date string format.
+* Enter the stageTime, endTime fields in ISO8601 format date string format. 
     * UTC notation: yyyy-MM-dd'T'HH:mm:ssZ
     * UTC-based time offset notation: yyyy-MM-dd'T'HH:mm:ss±hh:mm
 
@@ -5197,9 +5203,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |data.{requestApigwEndpoint}          |Object  | Area for statistics by API call endpoint                |
 |data.{requestApigwEndpoint}.stageName                    |String    | Stage name            |
 |data.{requestApigwEndpoint}.stageUrl                     |String    | Stage URL |
-|data.{requestApigwEndpoint}.stageCustomDomainList   |List  | Area for the list of stage domain aliases   |
-|data.{requestApigwEndpoint}.stageCustomDomainList[0].customDomain   |String  | Domain alias   |
-|data.{requestApigwEndpoint}.stageCustomDomainList[0].createdAt   |DateTime  | Domain alias connection date and time    |
+|data.{requestApigwEndpoint}.stageCustomDomainList   |List  |Area for the list of stage custom domain   |
+|data.{requestApigwEndpoint}.stageCustomDomainList[0].customDomain   |String  |Custom domain   |
+|data.{requestApigwEndpoint}.stageCustomDomainList[0].createdAt   |DateTime  |When custom domain is connected    |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries      |Object    | Area for API Key statistics by aggregation time unit|
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount               |List    | API call count statistics list area |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0]               |Object    | API call count statistics area |
@@ -5210,3 +5216,90 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 * Daily statistics data is aggregated into time data at 00:00:00 for each day.
+
+
+### Query Top 10 Services
+- You can view a list of the top 10 API Gateway services and their cumulative statistics based on the number of total API calls, number of failed API calls, and average response time.
+
+
+#### Request
+
+[URI]
+
+| Method  | URI |
+| --- | --- |
+| GET | /v1.0/appkeys/{appKey}/metrics/top-services |
+
+
+[QueryString Parameter]
+
+| Name | Type | Required | Default value | Valid range | Description |
+| --- | --- | --- | --- | --- | --- |
+| lastDays | Integer | Optional | 7 | 1~30 | Days in query period (current day included)  |
+| order | Enum | Optional | CALL_COUNT | CALL_COUNT,FAIL_CALL_COUNT,AVG_RESPONSE_TIME | [Statistics > Sort Top10 Services by](./enum-code/#statistics-sort-top-10-services-by)|
+
+
+#### Response
+
+[Response]
+
+```json
+{
+        "header": {
+            "isSuccessful": true,
+            "resultCode": 0,
+            "resultMessage": "SUCCESS"
+        },
+        "data": [
+            {
+                "rank": 1,
+                "apigwServiceId": "{apigwServiceId1}",
+                "apigwServiceName": "apigwservice-1",
+                "status2xxCount": 100,
+                "status3xxCount": 0,
+                "status4xxCount": 0,
+                "status5xxCount": 0,
+                "statusEtcCount": 0,
+                "callCount": 100,
+                "failCallCount": 0,
+                "successCallCount": 100,
+                "avgResponseTimeMs": 6,
+                "networkOutboundByte": 31202
+            },
+            {
+                "rank": 2,
+                "apigwServiceId": "apigwServiceId2",
+                "apigwServiceName": "apigwservice-2",
+                "status2xxCount": 50,
+                "status3xxCount": 0,
+                "status4xxCount": 0,
+                "status5xxCount": 0,
+                "statusEtcCount": 0,
+                "callCount": 50,
+                "failCallCount": 0,
+                "successCallCount": 50,
+                "avgResponseTimeMs": 8,
+                "networkOutboundByte": 19220
+            }
+            ... 
+        ],
+        "metricsLatestUpdatedAt": "2023-07-19T02:21:08.000Z"
+    }
+```
+
+| Field | Type | Description |
+| --- | --- | --- |
+|data | Object | Top 10 service statistics data area |
+|data[0].rank | Integer  | Rank number |
+|data[0].apigwServiceId | String | API Gateway service ID |
+|data[0].apigwServiceName | String | API Gateway service name |
+|data[0].successCount | Long | Number of API call successes (response HTTP status code is 2xx, 3xx) |
+|data[0].failCount | Long | Number of API call failures (response HTTP status code is 4xx, 5xx) |
+|data[0].status2xxCount | Long | Number of API calls with response HTTP status code 2xx |
+|data[0].status3xxCount | Long | Number of API calls with response HTTP status code 3xx |
+|data[0].status4xxCount | Long | Number of API calls with response HTTP status code 4xx |
+|data[0].status5xxCount | Long | Number of API calls with response HTTP status code 5xx |
+|data[0].statusEtcCount | Long | Number of API calls with response HTTP status code other than 2xx, 3xx, 4xx, 5xx |
+|data[0].avgResponseTimeMs | Long | Average API response time (ms) |
+|data[0].networkOutboundByte | Long | Total outbound network bytes (bytes) |
+|metricsLatestUpdatedAt | DateTime | Statistics data last updated date |

@@ -13,8 +13,8 @@ This document describes Enum codes referenced in the API v1.0 guide.
 
 
 ### API Gateway Service Type
-- The service type of API Gateway according to the Shared or Dedicated type.
-- Currently, only Shared API Gateway service type is supported.
+- The service type of API Gateway according to the Shared or Dedicated type. 
+- Currently, only Shared API Gateway service type is supported. 
 
 | Name | Description |
 | --- | --- |
@@ -63,7 +63,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 
 
 ### Stage Resource > Plugin Type
-- A plugin type that can be configured on the stage resource path or method.
+- A plugin type that can be configured on the stage resource path or method. 
 
 | Name | Description | Where the plugin can be applied |
 | --- | --- | --- |
@@ -75,7 +75,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | RATE_LIMIT | Request number limit plugin | Method |
 
 
-### JWT > Encryption Algorithm
+### JWT > Encryption Algorithm 
 - The encryption algorithm used to sign the JWT token.
 
 | Name | Description |
@@ -84,7 +84,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | RS256 | An asymmetric key algorithm, which uses public/private keys to sign tokens using the RSA256 (RSA Signature with SHA-256) algorithm. | 
 
 
-### JWT > Claim Data Type
+### JWT > Claim Data Type 
 - The data type of the JWT claim.
 
 | Name | Description |
@@ -94,7 +94,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | NumericDate | A data type representing the number of seconds from 1970-01-01T00:00:00Z UTC to the specified UTC date/time, ignoring milliseconds. |
 
 
-### JWT > RS256 Encryption Algorithm > Public Key Type
+### JWT > RS256 Encryption Algorithm > Public Key Type 
 - RS256 uses a public/private key based encryption algorithm. Set the public key setting method.
 
 | Name | Description |
@@ -135,7 +135,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 
 ### API Key Status
 - The status of the API Key.
-- A deactivated API key fails to authenticate the API key, making API calls impossible.
+- A deactivated API key fails to authenticate the API key, making API calls impossible. 
 
 | Name | Description |
 | --- | --- |
@@ -144,7 +144,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 
 
 ### API Key Type
-- The types of Primary API Key and Secondary API Key of the issued API Key.
+- The types of Primary API Key and Secondary API Key of the issued API Key. 
 
 | Name | Description |
 | --- | --- |
@@ -168,3 +168,11 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | TEN_MINUTES | Collects statistics data at 10 minute intervals | 
 | ONE_HOURS | Collects statistics data at 1 hour intervals | 
 | ONE_DAYS | Collects statistics data at daily intervals | 
+
+
+### Statistics > Sort Top 10 Services By 
+| Name | Description |
+| --- | --- |
+| CALL_COUNT | Sort by total API calls in descending order | 
+| FAIL_CALL_COUNT | Sort by number of failed API calls in descending order | 
+| AVG_RESPONSE_TIME | Sort by average response time in descending order | 

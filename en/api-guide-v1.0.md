@@ -5236,7 +5236,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
 | lastDays | Integer | Optional | 7 | 1~30 | Days in query period (current day included)  |
-| order | Enum | Optional | CALL_COUNT | CALL_COUNT,FAIL_CALL_COUNT,AVG_RESPONSE_TIME | [](./enum-code/#top10)Statistics > Sort Top10 Services by[](./enum-code/#top10)|
+| order | Enum | Optional | CALL_COUNT | CALL_COUNT,FAIL_CALL_COUNT,AVG_RESPONSE_TIME | [Statistics > Sort Top10 Services by](./enum-code/#statistics-sort-top-10-services-by)|
 
 
 #### Response

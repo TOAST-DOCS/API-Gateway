@@ -1271,7 +1271,7 @@ API Gatewayが位置するリージョンに障害が発生すると、当該リ
 > Swaggerファイルでリソースをインポートする時、ステージに設定されたプラグインはインポートされません。必要なプラグインはステージ設定で別途追加してください。
 ### 2. GSLB作成 
 このガイドではNHN Cloud DNS PlusサービスのGSLBを利用します。
-GSLB設定の詳細は、[DNS Plusコンソール使用ガイド](https://docs.nhncloud.com/ko/Network/DNS%20Plus/ko/console-guide/)を参照してください。
+GSLB設定の詳細は、[DNS Plusコンソール使用ガイド](https://docs.nhncloud.com/ja/Network/DNS%20Plus/ja/console-guide/)を参照してください。
 1. DNS Plusサービスに移動します。
 2. GSLBを作成します。 
 3. ヘルスチェックを作成します。 

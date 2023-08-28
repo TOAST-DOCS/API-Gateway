@@ -4,20 +4,20 @@
 #### Feature Updates 
 * Added the request restriction policy 
     * This is a feature that lets you set IP ACL and request number limit for each request path variable or request header value.
-    * For more information, see [Console Guide > Request Restriction Policy](./console-guide/#_31).
+    * For more information, see [Console Guide > Request Restriction Policy](./console-guide/#request-restriction-policy).
 * Added the custom domain feature
     * This is a feature that lets you specify a domain by setting the prefix of the stage domain to a value specified by the user.
-    * For more information, see [Console Guide > Custom Domain](./console-guide/#_50).
+    * For more information, see [Console Guide > Custom Domain](./console-guide/#custom-domain).
     * Custom domain-related field names in API responses have been changed from stageAliasDomainList to stageCustomDomainList.
 * Added the API Key import/export feature 
     * You can import an API Key or export a registered API Key via a CSV file.
-    * For more information, see [Console Guide > Import API Key](./console-guide/#api-key_8) and [Console Guide > Export API Key](./console-guide/#api-key_7).
+    * For more information, see [Console Guide > Import API Key](./console-guide/#import-api-key) and [Console Guide > Export API Key](./console-guide/#export-api-key).
 * Create an API Key with a custom Primary/Secondary API Key 
     * You can create API key with a custom Primary/Sencodary API key.
-    * For more information, see [Console Guide > Create API Key](./console-guide/#api-key_6).
+    * For more information, see [Console Guide > Create API Key](./console-guide/#create-api-key).
 * Added Top 10 Service Query Statistics API 
     * You can view a list of the top 10 API Gateway services and their cumulative statistics based on the number of total API calls, number of failed API calls, and average response time.
-    * For more information, see [API v1.0 Guide > Top 10 Service Query](./api-guide-v1.0/#top-10).
+    * For more information, see [API v1.0 Guide > Top 10 Service Query](./api-guide-v1.0/#query-top-10-services).
 
 ### July 26, 2022
 #### Feature Updates

@@ -811,6 +811,16 @@ Requests received by the API gateway every second can be adjusted using the requ
 > **[Caution] Accuracy of Requests Per Second**
 > - The requests per seconds set and the actual number of requests could slightly differ depending on the time delivered to API Gateway, request processing time, and other factors.  
 
+### Request Restriction Policy 
+Applies registered request restriction policy to stage resource paths or methods. For more information, see [Request Restriction Policy](./console-guide/#request-restriction-policy).
+
+1. Select a stage on **Stage** tab.
+2. Select **Settings** tab.
+3. On Stage Tree screen, select a path or method you want to apply request restriction policy.
+4. **Enables (On)** request restriction policy.
+5. Select a request restriction policy to apply and click on **Modify** button to save it.
+6. Click on the **Deploy Stage** button. When the stage deployment is complete, the set request restriction policy works.
+
 ### API Key
 
 When making an API request to API Gateway, it is restricted to only the specified API key to be requested.
@@ -892,18 +902,7 @@ You can define a model to specify the format of body that you can use in the req
    - The model cannot be deleted while being used in the request parameters or response.
 3. When the delete confirmation window appears, click the **Confirm** button. Deleted data cannot be restored.
 
-### Request Restriction Policy 
-
-Applies registered request restriction policy to stage resource paths or methods. For more information, see [Request Restriction Policy](/.console-guide/#_request_policy).
-
-1. Select a stage on **Stage** tab.
-2. Select **Settings** tab.
-3. On Stage Tree screen, select a path or method you want to apply request restriction policy.
-4. **Enables (On)** request restriction policy.
-5. Select a request restriction policy to apply and click on **Modify** button to save it.
-6. Click on the **Deploy Stage** button. When the stage deployment is complete, the set request restriction policy works.
-
-## request restriction Policy 
+## Request Restriction Policy 
 request restriction policy is a feature that allows you to set IP ACLs and request count limits based on a request's path variable or request header value.
 
 ### Create request restriction policy 
@@ -956,17 +955,17 @@ Create key value of request restriction policy Depending on the restriction key 
 1. Select the request restriction policy to which you want to add the request restriction key value. 
 2. On the bottom tab, click on the **Create Request Restriction Key Value** button. 
 3.  Enter the information of request restriction key value. 
-- **Request Restriction Key Value**: Enter a request restriction key value. Allows you to set IP ACLs and request count limits for each request restriction key value. 
-- **Requests Per Second**: Enter the request restriction value per second for the request restriction key value. 
-    - If not entered, it is limited to the default number of requests per second value set in the request restriction policy. 
-- **IP Access Control Type**:- Allow: Allows you to access only to the specified IP and denies all remaining IPs. (Whitelist method) 
-    - Reject: Allows access only to the specified IP and allows all remaining IPs. (Blacklist method) 
-- **IP Access Destination**: 
-    - You can easily register an IP list by selecting either single entry or bulk entry method. 
-    - IP access destinations can be entered as a single IP or CIDR for IPv4. 
-        - Single IP example: 10.0.0.1 
-        - CIDR example: 10.0.0.1/24 
-    - IP ACL access control does not work unless you enter any IP access destinations.
+    - **Request Restriction Key Value**: Enter a request restriction key value. Allows you to set IP ACLs and request count limits for each request restriction key value. 
+    - **Requests Per Second**: Enter the request restriction value per second for the request restriction key value. 
+        - If not entered, it is limited to the default number of requests per second value set in the request restriction policy. 
+    - **IP Access Control Type**:- Allow: Allows you to access only to the specified IP and denies all remaining IPs. (Whitelist method) 
+        - Reject: Allows access only to the specified IP and allows all remaining IPs. (Blacklist method) 
+    - **IP Access Destination**: 
+        - You can easily register an IP list by selecting either single entry or bulk entry method. 
+        - IP access destinations can be entered as a single IP or CIDR for IPv4. 
+            - Single IP example: 10.0.0.1 
+            - CIDR example: 10.0.0.1/24 
+        - IP ACL access control does not work unless you enter any IP access destinations.
 
 ### Modify request restriction key value 
 Modify the request restriction per second, IP access control type, and IP access destination. Cannot modify request restriction key value 
@@ -988,8 +987,7 @@ Modify the request restriction per second, IP access control type, and IP access
     - Example: 
         - Method: GET
         - Stage URL: https://kr1-xxxxx-test.api.nhncloudservice.com/example
-    ```
-    curl --request GET 'https://kr1-xxxxx-test.api.nhncloudservice.com/example'
+        - `curl --request GET 'https://kr1-xxxxx-test.api.nhncloudservice.com/example'`
     ```
 
 > **[Caution] Stage deployment** 
@@ -1273,7 +1271,7 @@ Instead of domains randomly issued as custom domains, users can create domains i
 1. Go to **Custom Domain**
 2. Click **Create Custom Domain**.
 3. Custom domain: Enter the prefix of domain that you want to create in custom domain. The entered value is specified in {CustomDomainPrefix} part of {CustomDomainPrefix}.capi.nhncloudservice.com domain.
-4. GSLB Domain: Enter the GSLB domain to configure API Gateway region redundancy. For more information about API Gateway Region Redundancy Guide, see [API Gateway Region Redundancy Guide](./console-guide/#_??). 
+4. GSLB Domain: Enter the GSLB domain to configure API Gateway region redundancy. For more information about API Gateway Region Redundancy Guide, see [API Gateway Region Redundancy Guide](./console-guide/#api-gateway-region-redundancy). 
 5. Click **Create** button to create a custom domain in {CustomDomainPrefix}.capi.nhncloudservice.com format. 
 
 > **[Note]**Custom domain 
@@ -1311,17 +1309,17 @@ If the region where the API Gateway is located fails, the API Gateway for that r
 To operate API Gateway service without the impact of a specific region failure, you can avoid it by configuring the API Gateway for multiple regions with redundancy.  
 The following is a scenario in which API Gateway is newly configured in the existing Pangyo Region and the API Gateway is configured in Pyeongchon Region to redundancy the Region. 
 
-### 1\\. Service and Create stage in Pyeongchon Region 
+### 1. Service and Create stage in Pyeongchon Region 
 1. Create API Gateway service in Pyeongchon region.
 2. Registers the same resources as the Pangyo Region Stage in operation with the API Gateway service in Pyeongchon Region.  
-In order to transfer easily, download the resources registered on the stage through [Stage > Import Resource ](./console-guide/#_20) as Swagger file, then you can register a resource with the downloaded Swagger file through [Resource > Import Resource](./console-guide/#_3). 
+In order to transfer easily, download the resources registered on the stage through [Stage > Import Resource](./console-guide/#import-resource_1) as Swagger file, then you can register a resource with the downloaded Swagger file through [Resource > Import Resource](./console-guide/#import-resource). 
 3. Create a stage for Pyeongchon region and if there is a stage setting required, modify and deploy the stage. 
 
 > [Note] Resources > Stage plug-in settings when importing resources. 
 > When importing resources with Swagger file, do not import the plug-ins set on stage. Please add the necessary plug-ins separately in stage setting.
 
 ### 2. Create GSLB 
-This guide uses the GSLB of NHN Cloud DNS Plus service. For more information on setting up GSLB, refer to [DNS Plus Console Usage Guide](https://docs.nhncloud.com/ko/Network/DNS%20Plus/ko/console-guide/).
+This guide uses the GSLB of NHN Cloud DNS Plus service. For more information on setting up GSLB, refer to [DNS Plus Console Usage Guide](https://docs.nhncloud.com/en/Network/DNS%20Plus/en/console-guide/).
 
 1. Go to DNS Plus service
 2. Create GSLB 
@@ -1339,5 +1337,5 @@ This guide uses the GSLB of NHN Cloud DNS Plus service. For more information on 
 2. When creating a custom domain, enter the GSLB domain that you created in GSLB domain  
 
 ### 4. Connect custom domain to stages in each region
-1. Connect the custom domains you created to each API Gateway stage in Pangyo and Pyeongchon Region. For more information, refer to [ Guide to connect Custom Domain with stage ](./console-guide/#_??).
+1. Connect the custom domains you created to each API Gateway stage in Pangyo and Pyeongchon Region. For more information, refer to [Guide to connect Custom Domain with stage](./console-guide/#connect-stage-of-custom-domain).
 2. Check whether or not the API is successfully called to the custom domain and that traffic is distributed according to GSLB configuration. 

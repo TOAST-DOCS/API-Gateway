@@ -11,25 +11,25 @@
 ## Key Features
 
 1. Flexible API design
-   - APIs can be *designed* in API Gateway without changing the backend endpoint service.
-   - APIs can be registered in a tree structure for easy *management* of API path and method.
-   - Path Variables can be declared and you can utilize them in the path connection and plugin settings of the backend endpoint service.
+    - APIs can be *designed* in API Gateway without changing the backend endpoint service.
+    - APIs can be registered in a tree structure for easy *management* of API path and method.
+    - Path Variables can be declared and you can utilize them in the path connection and plugin settings of the backend endpoint service.
 2. Plugin
-   - Plugin lets you add features without changing or deploying the backend endpoint service.
-   - You can add plugins flexibly for each API path or for HTTP method.
+    - Plugin lets you add features without changing or deploying the backend endpoint service.
+    - You can add plugins flexibly for each API path or for HTTP method.
 3. Stage
-   - API can be deployed per stage.
-   - Backend endpoint services can be set for each stage.
-   - Stage lets you configure the API endpoint domain per service and profile, and you can also use them for a number of different purposes.
-      - e.g. Dividing stages per service
-      - Stage for payment service: kr1-api-billing.apigw.nhncloudservice.com
-      - Stage for member service: kr1-api-member.apigw.nhncloudservice.com
-      - e.g. Dividing stages per environment
-      - Alpha environment stage: kr1-api-alpha.apigw.nhncloudservice.com
-      - Service environment stage: kr1-api.apigw.nhncloudservice.com
-
+    - API can be deployed per stage.
+    - Backend endpoint services can be set for each stage.
+    - Stage lets you configure the API endpoint domain per service and profile, and you can also use them for a number of different purposes.
+        - e.g. Dividing stages per service
+        - Stage for payment service: kr1-api-billing.apigw.nhncloudservice.com
+        - Stage for member service: kr1-api-member.apigw.nhncloudservice.com
+        - e.g. Dividing stages per environment
+        - Alpha environment stage: kr1-api-alpha.apigw.nhncloudservice.com
+        - Service environment stage: kr1-api.apigw.nhncloudservice.com
+        
 4. Dashboard (stats)
-   - Provides statistical indexes including API calls, responses per HTTP status code group (2xx, 3xx, 4xx, 5xx..), and average response time (ms).
+    - Provides statistical indexes including API calls, responses per HTTP status code group (2xx, 3xx, 4xx, 5xx..), and average response time (ms).
 
 
 ## How API Gateway Works
@@ -39,10 +39,10 @@
 2. Apply the plugin to the request.
 3. Pass the request to the backend endpoint.
 4. Pass it to API Gateway of the backend endpoint.
-5. Apply the plugin to the response of the backend endpoint.
+5. Apply the plugin to the response of the backend endpoint. 
 6. Pass the response to the gateway client.
 
-## Service Terms
+## Service Terms 
 
 | Term | Description |
 | --- | --- |

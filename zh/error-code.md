@@ -1,9 +1,9 @@
 ## Application Service > API Gateway > Error Code
 
-## Ban Request
-- Cause: If backend endpoint service does not respond or its response is delayed for more than 60 seconds to protect the API Gateway service and backend endpoint service, the API Gateway service will temporarily deny the backend endpoint service request.
-- Response HTTP status: 503 Service Unavailable
-- Error response body
+## Ban Request 
+- Cause: If backend endpoint service does not respond or its response is delayed for more than 60 seconds to protect the API Gateway service and backend endpoint service, the API Gateway service will temporarily deny the backend endpoint service request. 
+- Response HTTP status: 503 Service Unavailable 
+- Error response body 
 ``` 
 {
     "header": {
@@ -20,8 +20,8 @@
 
 ## HMAC
 - Cause: The following response appears when there is no request information required for HMAC authentication or when authentication fails.
-- Response HTTP status: 401 Unauthorized
-- Error response body
+- Response HTTP status: 401 Unauthorized 
+- Error response body 
 ``` 
 {
     "header": {
@@ -48,7 +48,7 @@
 ## JWT
 - Cause: The following response is returned when there is no request information required for JWT authentication or when authentication fails.
 - Response HTTP Status: 401 Unauthorized
-- Error Response Body
+- Error Response Body  
 ``` 
 {
     "header": {
@@ -85,7 +85,7 @@
 
 - Cause: Returns an error response when denying requests from unauthorized IPs.
 - Response HTTP Status: 403 Forbidden
-- Error response body
+- Error response body 
 ``` 
 {
     "header": {
@@ -99,7 +99,7 @@
 ## Request Size Exceeded
 - Cause: Occurs when the request size exceeds 10MB.
 - Response HTTP Status: 413 Request Entity Too Large
-- Error response body
+- Error response body 
 ```
 {
     "header": {
@@ -121,7 +121,7 @@
 ## Request Number Limit
 - Cause: Returns an error response when a request exceeding the request number limit is rejected.
 - Response HTTP Status: 429 Too Many Requests
-- Error Response Body
+- Error Response Body  
 ``` 
 {
     "header": {
@@ -146,11 +146,11 @@
 }
 ```
 
-## Invalid URI error
-- Cause: If the URI configuration of the backend endpoint is incorrect, an error response is returned.
-  - It might occur when the value of the path or query string, which is a part of the URI, is incorrect or the value cannot be encoded.
+## Invalid URI error  
+- Cause: If the URI configuration of the backend endpoint is incorrect, an error response is returned.  
+    - It might occur when the value of the path or query string, which is a part of the URI, is incorrect or the value cannot be encoded.
 - Response HTTP Status: 400 Bad Request
-- Error Response Body
+- Error Response Body 
 ``` 
 {
     "header": {
@@ -164,7 +164,7 @@
 ## Could Not Find The Path Or Method
 - Cause: Occurs when a request is made with an API path and method not registered in API Resource.
 - Response HTTP Status: 404 Not Found
-- Error response body
+- Error response body 
 ```
 {
     "header": {
@@ -175,10 +175,10 @@
 }
 ```
 
-## Backend Endpoint Service Connection Error
+## Backend Endpoint Service Connection Error 
 - Cause: Occurs when backend endpoint does not respond or refuses to respond.
-- Response HTTP Status: 503 Service Unavailable
-- Error response body
+- Response HTTP Status: 503 Service Unavailable 
+- Error response body 
 ```
 {
   "header" : {
@@ -189,8 +189,8 @@
 }
 ```
 - Cause: Occurs when backend endpoint does not respond or refuses to respond.
-- Response HTTP Status: 502 Bad Gateway
-- Error response body
+- Response HTTP Status: 502 Bad Gateway 
+- Error response body 
 ``` 
 {
     "header": {
@@ -201,7 +201,7 @@
 }
 ```
 
-## API Key
+## API Key 
 - Cause: The following response is sent when the API key information of the request is missing or incorrect.
 - Response HTTP Status: 403 Forbidden
 - Error Response Body
