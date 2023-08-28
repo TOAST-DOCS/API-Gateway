@@ -5207,3 +5207,89 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |timeUnit          |Enum    | [統計データ時間単位Enumコード](./enum-code/#_7)ONE_DAYS参考 |
 
 * 日単位の統計データは各日の00:00:00の時間データで集計されます。
+
+### Top 10サービス照会
+- 全体API呼び出し数、失敗API呼び出し数、平均レスポンス時間を基準に上位10個のAPI Gatewayサービスリストと累積統計を照会できます。
+
+
+#### リクエスト
+
+[URI]
+
+| メソッド | URI |
+| --- | --- |
+| GET | /v1.0/appkeys/{appKey}/metrics/top-services |
+
+
+[QueryString Parameter]
+
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
+| --- | --- | --- | --- | --- | --- |
+| lastDays | Integer | 任意 | 7 | 1～30 | 照会期間の日数(当日を含む)  |
+| order | Enum | 任意 | CALL_COUNT | CALL_COUNT,FAIL_CALL_COUNT,AVG_RESPONSE_TIME | [統計 > Top10サービスソート基準](./enum-code/#_8)|
+
+
+#### レスポンス
+
+[Response]
+
+```json
+{
+        "header": {
+            "isSuccessful": true,
+            "resultCode": 0,
+            "resultMessage": "SUCCESS"
+        },
+        "data": [
+            {
+                "rank": 1,
+                "apigwServiceId": "{apigwServiceId1}",
+                "apigwServiceName": "apigwservice-1",
+                "status2xxCount": 100,
+                "status3xxCount": 0,
+                "status4xxCount": 0,
+                "status5xxCount": 0,
+                "statusEtcCount": 0,
+                "callCount": 100,
+                "failCallCount": 0,
+                "successCallCount": 100,
+                "avgResponseTimeMs": 6,
+                "networkOutboundByte": 31202
+            },
+            {
+                "rank": 2,
+                "apigwServiceId": "apigwServiceId2",
+                "apigwServiceName": "apigwservice-2",
+                "status2xxCount": 50,
+                "status3xxCount": 0,
+                "status4xxCount": 0,
+                "status5xxCount": 0,
+                "statusEtcCount": 0,
+                "callCount": 50,
+                "failCallCount": 0,
+                "successCallCount": 50,
+                "avgResponseTimeMs": 8,
+                "networkOutboundByte": 19220
+            }
+            ... 
+        ],
+        "metricsLatestUpdatedAt": "2023-07-19T02:21:08.000Z"
+    }
+```
+
+| フィールド | タイプ | 説明 |
+| --- | --- | --- |
+|data | Object | Top 10サービス統計データ領域 |
+|data[0].rank | Integer  | 順位番号 |
+|data[0].apigwServiceId | String | API GatewayサービスID |
+|data[0].apigwServiceName | String | API Gatewayサービス名 |
+|data[0].successCount | Long | API成功数(レスポンスHTTPステータスコードが2xx, 3xxの場合) |
+|data[0].failCount | Long | API失敗数(レスポンスHTTPステータスコードが4xx、5xxの場合) |
+|data[0].status2xxCount | Long | レスポンスHTTPステータスコードが2xxのAPI呼び出し数 |
+|data[0].status3xxCount | Long | レスポンスHTTPステータスコードが3xxのAPI呼び出し数 |
+|data[0].status4xxCount | Long | レスポンスHTTPステータスコードが4xxのAPI呼び出し数 |
+|data[0].status5xxCount | Long | レスポンスHTTPステータスコードが5xxのAPI呼び出し数 |
+|data[0].statusEtcCount | Long | 2xx、3xx、4xx、5xx以外のレスポンスHTTPステータスコードAPI呼び出し数 |
+|data[0].avgResponseTimeMs | Long | 平均APIレスポンス時間(ms) |
+|data[0].networkOutboundByte | Long | アウトバウンドネットワークバイトの合計(bytes) |
+|metricsLatestUpdatedAt | DateTime | 統計データの最新更新日時 |
