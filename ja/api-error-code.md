@@ -42,7 +42,7 @@
 |500103001|Failed to create stage. Please try again in a few minutes.|ステージの作成が失敗しました。しばらくしてから再度お試しください。|
 |500103002|Could not find any server group.|ステージの作成に失敗しました。しばらくしてから再度お試しください。|
 |500103003|Failed to delete stage URL.|ステージの削除が失敗しました。しばらくしてからお試しください。|
-|500103004|Failed to connect alias domain to stage. Please try again in a few minutes.|ドメインエイリアスをステージに接続できませんでした。しばらくしてから試行してください。|
+|500103004|Failed to connect alias domain to stage. Please try again in a few minutes.|ユーザー指定ドメインをステージに接続できませんでした。しばらくしてから試行してください。|
 |400104000|Unable to delete base stage deploy history or the currently deployed stage deploy history.|現在配布された履歴とベースの配布履歴は削除できません。|
 |400104001|Only possible to rollback stage for the completed deploy status.|ステージを元に戻せない配布状態の履歴です。|
 |400104002|Empty stage resource for deploying.|作成されたリソースがないためステージを作成できません。|
