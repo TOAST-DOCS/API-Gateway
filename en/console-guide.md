@@ -892,6 +892,93 @@ You can define a model to specify the format of body that you can use in the req
    - The model cannot be deleted while being used in the request parameters or response.
 3. When the delete confirmation window appears, click the **Confirm** button. Deleted data cannot be restored.
 
+### Request Restriction Policy 
+
+Applies registered request restriction policy to stage resource paths or methods. For more information, see [Request Restriction Policy](/.console-guide/#_request_policy).
+
+1. Select a stage on **Stage** tab.
+2. Select **Settings** tab.
+3. On Stage Tree screen, select a path or method you want to apply request restriction policy.
+4. **Enables (On)** request restriction policy.
+5. Select a request restriction policy to apply and click on **Modify** button to save it.
+6. Click on the **Deploy Stage** button. When the stage deployment is complete, the set request restriction policy works.
+
+## request restriction Policy 
+request restriction policy is a feature that allows you to set IP ACLs and request count limits based on a request's path variable or request header value.
+
+### Create request restriction policy 
+1. In the list of API Gateway services, click **Resource** in Service Settings column.
+2. On **Request Restriction Policy** tab, click on **Create Request Restriction Policy**.
+3. Enter request restriction policy information. 
+    - **Request Restriction Policy Name**: Enter the name of request restriction policy 
+    - **Request Restriction Key Type**: Select the location of the request restriction key value to which the request restriction policy applies.
+        - Path variable: Select a path variable to set the request restriction policy according to the value of the path variable in the requested path.
+        - Request header: Select a request header to set a request restriction policy according to the value of specific request header.
+    - **Request Restriction Key**: Enter the request restriction key according to the request restriction key type.
+        - When request restriction key type is a path variable: Enter the name for the path variable. For example, when you set the request restriction policy for the path variable {memberId} in resource path {memberId}, type memberId.
+        - When request restriction key type is a request header: Enter the header name where the restriction key value is located. 
+    - **Requests per second by default**: When a request restriction policy is not set for the request restriction key value, set the request per second restriction to be applied by default  
+        - If you do not enter it, you do not apply the request count restriction for the key values of unregistered request restriction.
+        - You can set it from 1 to 5000. 
+    - **Response Remaining Token Count**: When the request restriction is set, the number of remaining tokens that can be requested is passed to the 'X-NHN-RateLimit-Remaining' response header.
+
+> **[Note] Limit the number of request restriction policies created**
+> Request restriction policies can be created up to **10** per API Gateway service.
+
+
+### Apply request restriction policy to Stage Resources 
+1. Select a stage on **Stage** tab.
+2. Select **Settings** tab.
+3. On Stage Tree screen, select a path or method you want to apply request restriction policy.
+4. **Enables (On)** request restriction policy.
+5. Select request restriction policy to apply and click on **Modify** button.
+6. Click on the **Deploy Stage** button. When the stage deployment is complete, the set request restriction policy works.
+
+### Modify request restriction policy 
+Allows you to modify the name of the request restriction policy, the default number of request restrictions per second, and the number of remaining tokens. 
+The request restriction key type and request restriction key cannot be modified. 
+
+1. From the list of request restriction, select the request restriction policy that you want to modify. 
+2. Click on **Modify Request Restriction Policy**.
+3. Modify the request restriction policy information and click on **Modify** button.
+
+### Delete request restriction policy
+1. From the list of request restriction, select the request restriction policy that you want to modify. 
+2. Click on **Delete Request Restriction Policy**.
+3. Click on **Confirm** button when the confirmation window appears. Deleted data cannot be recovered.
+
+> **[Note] request restriction policy cannot be deleted** 
+> When the request restriction policy to delete is set on the stage or is included in the deployed stage, it cannot be deleted. 
+> To delete, delete the request restriction policy set on the stage, deploy the stage and then delete it.
+
+### Create request restriction key value
+Create key value of request restriction policy Depending on the restriction key value, you can set different IP ACLs and request count limits. 
+1. Select the request restriction policy to which you want to add the request restriction key value. 
+2. On the bottom tab, click on the **Create Request Restriction Key Value** button. 
+3.  Enter the information of request restriction key value. 
+- **Request Restriction Key Value**: Enter a request restriction key value. Allows you to set IP ACLs and request count limits for each request restriction key value. 
+- **Requests Per Second**: Enter the request restriction value per second for the request restriction key value. 
+    - If not entered, it is limited to the default number of requests per second value set in the request restriction policy. 
+- **IP Access Control Type**:- Allow: Allows you to access only to the specified IP and denies all remaining IPs. (Whitelist method) 
+    - Reject: Allows access only to the specified IP and allows all remaining IPs. (Blacklist method) 
+- **IP Access Destination**: 
+    - You can easily register an IP list by selecting either single entry or bulk entry method. 
+    - IP access destinations can be entered as a single IP or CIDR for IPv4. 
+        - Single IP example: 10.0.0.1 
+        - CIDR example: 10.0.0.1/24 
+    - IP ACL access control does not work unless you enter any IP access destinations.
+
+### Modify request restriction key value 
+Modify the request restriction per second, IP access control type, and IP access destination. Cannot modify request restriction key value 
+
+1. On the bottom tab of request restriction policy, select a **request restriction key value** row to modify. 
+2. Click **Modify Request Restriction Key Value** button.
+3. Modify request restriction key value and click **Modify** button.
+
+### Delete request restriction key value  
+1. From the request restriction key value list, select the request restriction key value to delete. 
+2. Click on **Delete Request Restriction Key Value** button
+3. Click on **Confirm** button when the confirmation window appears. Deleted data cannot be recovered.
 
 ## Check API Call
 
@@ -1117,6 +1204,31 @@ Connect the API key to call the API of a stage connected to the usage plan.
     - **Status of API Key**: Select the status of API key.
         - ACTIVE: API key is active and can be used.
         - INACTIVE: API key is inactive and cannot be used.
+        - **Primary API Key**: When selected user customization, it is generated by directly entering the Primary Key value. When not selected, it is automatically generated as an arbitrary string.
+        - **Secondary API Key**: When selected user customization, it is generated by directly entering the Secondary Key value. When not selected, it is automatically generated as an arbitrary string.
+> **[Caution]** Custom Primary/Secondary API Key 
+> For custom Primary/Secondary API Key, it is generated with a string of at least 10 alphanumeric characters and numbers. 
+> Must be unique across API Gateway services. 
+> It is recommended to make the keys complicated and not to be exposed.
+
+### Export API Key 
+Export a registered API Key in CSV format file. 
+
+1. On the API Key list page, click on **Export** button. 
+2. Download CSV file.
+
+> [Note] Only API Keys that are queried in API Key list are exported to a file.
+
+### Import API Key
+Import API keys with CSV format file.
+
+1. On API Key list page, click **Import** button and then click on **Select File** button to select CSV file to import. 
+2. A list of API keys registered based on CSV files is displayed on the screen. 
+    - If the imported data includes some parts to be modified, the data cannot be imported. 
+3.  Click on **Import** button. 
+
+> **[Note]** Import failed when API Key is duplicated  
+> All API keys Importing fails if duplicate Primary API Key and Secondary API Key exists. Please modify the duplicate API key and import it again. 
 
 ### Edit API Key
 1. Select the API key to edit in the API key list.
@@ -1142,7 +1254,9 @@ When requesting API, primary API key and secondary API key that are used as API 
 2. Go to the **API Key** tab at the bottom.
 3. Click the **Regenerate** button next to the primary API key and secondary API key list and the confirmation window will be displayed.
 4. Click the **OK** button when the confirmation window appears.
+    - If you selected Custom, enter your own API Key value to reissue. If not selected, it will be automatically reissued as a random string.
     - The existing API key value is no longer valid when regenerated.
+    
 
 ### Stage Connected to API Key
 1. Select the API key in the API key list.
@@ -1150,3 +1264,80 @@ When requesting API, primary API key and secondary API key that are used as API 
 3. The list of connected stage can be checked.
     - **Stage URL**: The stage URL is connected.
     - **Usage Plan**: The usage plan information is connected.
+
+## Custom domain
+Default stage domain is randomly issued in {Region}-{ServiceId}-{StageName}.api.nhncloudservice.com format.  
+Instead of domains randomly issued as custom domains, users can create domains in {CustomDomainPrefix}.capi.nhncloudservice.com format by specifying the domain's prefix. 
+
+### Create custom domain 
+1. Go to **Custom Domain**
+2. Click **Create Custom Domain**.
+3. Custom domain: Enter the prefix of domain that you want to create in custom domain. The entered value is specified in {CustomDomainPrefix} part of {CustomDomainPrefix}.capi.nhncloudservice.com domain.
+4. GSLB Domain: Enter the GSLB domain to configure API Gateway region redundancy. For more information about API Gateway Region Redundancy Guide, see [API Gateway Region Redundancy Guide](./console-guide/#_??). 
+5. Click **Create** button to create a custom domain in {CustomDomainPrefix}.capi.nhncloudservice.com format. 
+
+> **[Note]**Custom domain 
+> Custom domain is to be created with strings of at least 2 characters, up to 50 alphanumeric characters, numbers and - characters. 
+> Must be unique across API Gateway services. 
+
+### Delete custom domain 
+
+1. Go to **Custom Domain**
+2. Select custom domain to delete 
+2. Click on **Delete Custom Domain** button.
+3. If clicking on the **Delete** button, confirmation window for deletion is to be displayed. 
+4. Click on **Confirm** button when the confirmation window appears. Deleted data cannot be recovered.
+
+> **[Note]** Unable to delete custom domain 
+> Custom domains connected to stage cannot be deleted. 
+> Please disconnect custom domain in stage and then delete. 
+
+### Connect stage of custom domain
+1. Go to stage to connect with custom domain
+2. Go to stage tab>custom domain tab 
+3. Click on **Connect with Stage** button in the custom domain you want to connect to. 
+
+### Disconnect stage from a custom domain
+1. Go to the stage where you want to disconnect the custom domain.
+2. Go to stage tab>custom domain tab 
+3. Click on **Disconnect from Stage** button in the custom domain that you want to disconnect. 
+
+> **[Note]** When disconnecting a stage, API cannot be called to a custom domain. 
+> When you disconnect a stage of custom domain, the stage API can no longer be called to the custom domain. 
+> Please make sure that there are no clients calling the API using the custom domain and then disconnect. 
+
+## API Gateway region redundancy 
+If the region where the API Gateway is located fails, the API Gateway for that region may not operate normally.  
+To operate API Gateway service without the impact of a specific region failure, you can avoid it by configuring the API Gateway for multiple regions with redundancy.  
+The following is a scenario in which API Gateway is newly configured in the existing Pangyo Region and the API Gateway is configured in Pyeongchon Region to redundancy the Region. 
+
+### 1\\. Service and Create stage in Pyeongchon Region 
+1. Create API Gateway service in Pyeongchon region.
+2. Registers the same resources as the Pangyo Region Stage in operation with the API Gateway service in Pyeongchon Region.  
+In order to transfer easily, download the resources registered on the stage through [Stage > Import Resource ](./console-guide/#_20) as Swagger file, then you can register a resource with the downloaded Swagger file through [Resource > Import Resource](./console-guide/#_3). 
+3. Create a stage for Pyeongchon region and if there is a stage setting required, modify and deploy the stage. 
+
+> [Note] Resources > Stage plug-in settings when importing resources. 
+> When importing resources with Swagger file, do not import the plug-ins set on stage. Please add the necessary plug-ins separately in stage setting.
+
+### 2. Create GSLB 
+This guide uses the GSLB of NHN Cloud DNS Plus service. For more information on setting up GSLB, refer to [DNS Plus Console Usage Guide](https://docs.nhncloud.com/ko/Network/DNS%20Plus/ko/console-guide/).
+
+1. Go to DNS Plus service
+2. Create GSLB 
+3. Create health check. 
+    * For Health check path, registered health check resource path by configuring resource method to use for health check in API Gateway in Pangyo and Pyeongchon regions.
+    * A pool that failed health check is excluded from service.
+4. Create Pool 
+    * For health check in Create Pool, select the health check that you created above. 
+    * For endpoint address, enter API Gateway stage domain for Pangyo and Pyeongchon regions. 
+    * For weights and states, set according to redundancy structure (Active, Active-StandBy) that you want to configure. 
+5. Check whether or not the status of the pool connected with the GSLB is ACTIVE. 
+
+### 3.  Create custom domain 
+1. Create a custom domain to be used in Pangyo and Pyeongchon Region when calling Stage API. You have to create a custom domain for each region, and have to create it with the same custom domain. 
+2. When creating a custom domain, enter the GSLB domain that you created in GSLB domain  
+
+### 4. Connect custom domain to stages in each region
+1. Connect the custom domains you created to each API Gateway stage in Pangyo and Pyeongchon Region. For more information, refer to [ Guide to connect Custom Domain with stage ](./console-guide/#_??).
+2. Check whether or not the API is successfully called to the custom domain and that traffic is distributed according to GSLB configuration. 
