@@ -168,3 +168,11 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | TEN_MINUTES | Collects statistics data at 10 minute intervals | 
 | ONE_HOURS | Collects statistics data at 1 hour intervals | 
 | ONE_DAYS | Collects statistics data at daily intervals | 
+
+
+### Statistics > Sort Top 10 Services By 
+| Name | Description |
+| --- | --- |
+| CALL_COUNT | Sort by total API calls in descending order | 
+| FAIL_CALL_COUNT | Sort by number of failed API calls in descending order | 
+| AVG_RESPONSE_TIME | Sort by average response time in descending order | 
