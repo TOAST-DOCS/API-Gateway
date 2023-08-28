@@ -5226,7 +5226,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
 | lastDays | Integer | 任意 | 7 | 1～30 | 照会期間の日数(当日を含む)  |
-| order | Enum | 任意 | CALL_COUNT | CALL_COUNT,FAIL_CALL_COUNT,AVG_RESPONSE_TIME | [統計 > Top10サービスソート基準](./enum-code/#_8)|
+| order | Enum | 任意 | CALL_COUNT | CALL_COUNT,FAIL_CALL_COUNT,AVG_RESPONSE_TIME | [統計 > Top10サービスソート基準](./enum-code/#top10)|
 
 
 #### レスポンス
