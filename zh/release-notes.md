@@ -4,7 +4,7 @@
 #### Feature Updates 
 * Added the request restriction policy 
     * This is a feature that lets you set IP ACL and request number limit for each request path variable or request header value.
-    * For more information, see [Console Guide > Request Restriction Policy](./console-guide/#request-restriction-policy).
+    * For more information, see [Console Guide > Request Restriction Policy](./console-guide/#request-restriction-policy_1).
 * Added the custom domain feature
     * This is a feature that lets you specify a domain by setting the prefix of the stage domain to a value specified by the user.
     * For more information, see [Console Guide > Custom Domain](./console-guide/#custom-domain).

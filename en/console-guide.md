@@ -812,7 +812,7 @@ Requests received by the API gateway every second can be adjusted using the requ
 > - The requests per seconds set and the actual number of requests could slightly differ depending on the time delivered to API Gateway, request processing time, and other factors.  
 
 ### Request Restriction Policy 
-Applies registered request restriction policy to stage resource paths or methods. For more information, see [Request Restriction Policy](./console-guide/#request-restriction-policy).
+Applies registered request restriction policy to stage resource paths or methods. For more information, see [Request Restriction Policy](./console-guide/#request-restriction-policy_1).
 
 1. Select a stage on **Stage** tab.
 2. Select **Settings** tab.
