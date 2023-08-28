@@ -5236,7 +5236,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | lastDays | Integer | 선택 | 7 | 1~30 | 조회 기간의 일 수(당일 포함)  |
-| order | Enum | 선택 | CALL_COUNT | CALL_COUNT,FAIL_CALL_COUNT,AVG_RESPONSE_TIME | [통계 > Top10 서비스 정렬 기준](./enum-code/#_8)|
+| order | Enum | 선택 | CALL_COUNT | CALL_COUNT,FAIL_CALL_COUNT,AVG_RESPONSE_TIME | [통계 > Top10 서비스 정렬 기준](./enum-code/#top10)|
 
 
 #### 응답
