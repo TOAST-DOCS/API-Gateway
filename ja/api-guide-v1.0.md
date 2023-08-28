@@ -2279,10 +2279,10 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |stageList[0].apigwServiceId   |String  |API GatewayサービスID  |
 |stageList[0].stageId          |String  |ステージID             |
 |stageList[0].stageName        |String  |ステージ名           |
-|stageList[0].stageUrl         |String  |ステージURL            |
-|stageList[0].stageCustomDomainList   |List  |ステージドメインエイリアスリスト領域 |
-|stageList[0].stageCustomDomainList[0].customDomain   |String  |ドメインエイリアス |
-|stageList[0].stageCustomDomainList[0].createdAt   |DateTime  |ドメインエイリアス接続日時  |
+|stageList[0].stageCustomDomainList   |List  |ステージユーザー指定ドメインリスト領域 |
+|stageList[0].stageCustomDomainList[0].customDomain   |String  |ユーザー指定ドメイン |
+|stageList[0].stageCustomDomainList[0].createdAt   |DateTime  |ユーザー指定ドメイン接続日時  |
+|stageList[0].stageAliasDomainList[0].createdAt   |DateTime  |ドメインエイリアス接続日時  |
 |stageList[0].stageDescription |String  |ステージの説明           |
 |stageList[0].backendEndpointUrl|String  |バックエンドエンドポイントURL       |
 |stageList[0].resourceUpdatedAt|DateTime|最近ステージにリソースをインポートした日時 |
@@ -2402,9 +2402,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |stage.stageId          |String  |ステージID             |
 |stage.stageName        |String  |ステージ名           |
 |stage.stageUrl         |String  |ステージURL            |
-|stage.stageCustomDomainList   |List  |ステージドメインエイリアスリスト領域 |
-|stage.stageCustomDomainList[0].customDomain   |String  |ドメインエイリアス |
-|stage.stageCustomDomainList[0].createdAt   |DateTime  |ドメインエイリアス接続日時  |
+|stageCustomDomainList   |List  |ステージユーザー指定ドメインリスト領域 |
+|stageCustomDomainList[0].customDomain   |String  |ユーザー指定ドメイン |
+|stageCustomDomainList[0].createdAt   |DateTime  |ユーザー指定ドメイン接続日時  |
 |stage.stageDescription |String  |ステージの説明           |
 |stage.backendEndpointUrl      |String  |バックエンドエンドポイントURL       |
 |stage.resourceUpdatedAt|DateTime|最近ステージにリソースをインポートした日時 |
@@ -2480,9 +2480,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |stage.stageId          |String  |ステージID             |
 |stage.stageName        |String  |ステージ名           |
 |stage.stageUrl         |String  |ステージURL            |
-|stage.stageCustomDomainList   |List  |ステージドメインエイリアスリスト領域 |
-|stage.stageCustomDomainList[0].customDomain   |String  |ドメインエイリアス |
-|stage.stageCustomDomainList[0].createdAt   |DateTime  |ドメインエイリアス接続日時  |
+|stage.stageCustomDomainList   |List  |ステージユーザー指定ドメインリスト領域 |
+|stage.stageCustomDomainList[0].customDomain   |String  |ユーザー指定ドメイン |
+|stage.stageCustomDomainList[0].createdAt   |DateTime  |ユーザー指定ドメイン接続日時  |
 |stage.stageDescription |String  |ステージの説明           |
 |stage.backendEndpointUrl      |String  |バックエンドエンドポイントURL       |
 |stage.resourceUpdatedAt|DateTime|最近ステージにリソースをインポートした日時 |
@@ -4518,9 +4518,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | usagePlanStageList[0].stageId        | String  | ステージID                |
 | usagePlanStageList[0].stageName      | String  | ステージ名              |
 | usagePlanStageList[0].stageUrl       | String  | ステージURL               |
-| usagePlanStageList[0].stageCustomDomainList   |List  |ステージドメインエイリアスリスト領域 |
-| usagePlanStageList[0].stageCustomDomainList[0].customDomain   |String  |ドメインエイリアス |
-| usagePlanStageList[0].stageCustomDomainList[0].createdAt   |DateTime  |ドメインエイリアス接続日時  |
+| usagePlanStageList[0].stageCustomDomainList   |List  |ステージユーザー指定ドメインリスト領域 |
+| usagePlanStageList[0].stageCustomDomainList[0].customDomain   |String  |ユーザー指定ドメイン |
+| usagePlanStageList[0].stageCustomDomainList[0].createdAt   |DateTime  |ユーザー指定ドメイン接続日時  |
 | usagePlanStageList[0].usagePlanId    | String  | 使用量プランID              |
 | usagePlanStageList[0].usagePlanName  | String  | 使用量プランの名前            |
 
@@ -4737,9 +4737,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | subscribedStageAndUsagePlanList[0].stageId                   | String  | ステージID                                           |
 | subscribedStageAndUsagePlanList[0].stageName                 | String  | ステージ名                                         |
 | subscribedStageAndUsagePlanList[0].stageUrl                  | String  | ステージURL                                          |
-| subscribedStageAndUsagePlanList[0].stageCustomDomainList   |List  |ステージドメインエイリアスリスト領域 |
-| subscribedStageAndUsagePlanList[0].stageCustomDomainList[0].customDomain   |String  |ドメインエイリアス |
-| subscribedStageAndUsagePlanList[0].stageCustomDomainList[0].createdAt   |DateTime  |ドメインエイリアス接続日時  |
+| subscribedStageAndUsagePlanList[0].stageCustomDomainList   |List  |ステージユーザー指定ドメインリスト領域 |
+| subscribedStageAndUsagePlanList[0].stageCustomDomainList[0].customDomain   |String  |ユーザー指定ドメイン |
+| subscribedStageAndUsagePlanList[0].stageCustomDomainList[0].createdAt   |DateTime  |ユーザー指定ドメイン接続日時  |
 | subscribedStageAndUsagePlanList[0].usagePlanId               | String  | 使用量プランID                                         |
 | subscribedStageAndUsagePlanList[0].usagePlanName             | String  | 使用量プランの名前                                       |
 | subscribedStageAndUsagePlanList[0].usagePlanDescription      | String  | 使用量プランの説明                                       |
@@ -5195,9 +5195,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |data.{requestApigwEndpoint}          |Object  | API呼び出しエンドポイント別統計領域              |
 |data.{requestApigwEndpoint}.stageName                    |String    | ステージ名          |
 |data.{requestApigwEndpoint}.stageUrl                     |String    | ステージURL |
-|data.{requestApigwEndpoint}.stageCustomDomainList   |List  |ステージドメインエイリアスリスト領域 |
-|data.{requestApigwEndpoint}.stageCustomDomainList[0].customDomain   |String  |ドメインエイリアス |
-|data.{requestApigwEndpoint}.stageCustomDomainList[0].createdAt   |DateTime  |ドメインエイリアス接続日時  |
+|data.{requestApigwEndpoint}.stageCustomDomainList   |List  |ステージユーザー指定ドメインリスト領域 |
+|data.{requestApigwEndpoint}.stageCustomDomainList[0].customDomain   |String  |ユーザー指定ドメイン |
+|data.{requestApigwEndpoint}.stageCustomDomainList[0].createdAt   |DateTime  |ユーザー指定ドメイン接続日時  |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries      |Object    | 集計時間単位別API Key統計領域|
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount               |List    | API呼び出し数統計リスト領域 |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0]               |Object    | API呼び出し数統計領域 |
