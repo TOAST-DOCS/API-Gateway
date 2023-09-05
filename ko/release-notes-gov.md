@@ -1,23 +1,29 @@
 ## Application Service > API Gateway > 릴리스 노트
 
+### 2023. 09. 05.
+#### 기능 개선/변경 
+* 한국(평촌) 리전 오픈
+
+
 ### 2023. 08. 29.
 #### 기능 개선/변경 
 * 요청 제한 정책 기능 추가 
     * 요청 제한 정책은 요청의 경로 변수 또는 요청 헤더의 값별로 IP ACL과 요청 수 제한을 설정할 수 있는 기능입니다.
-    * 자세한 내용은 [콘솔 사용 가이드 > 요청 제한 정책](./console-guide/#_??)을 참고하세요.
+    * 자세한 내용은 [콘솔 사용 가이드 > 요청 제한 정책](./console-guide-gov/#_31)을 참고하세요.
 * 사용자 지정 도메인 기능 추가
     * 스테이지 도메인의 Prefix를 사용자가 지정한 값으로 설정하여 도메인을 지정할 수 있는 기능입니다.
-    * 자세한 내용은 [콘솔 사용 가이드 > 사용자 지정 도메인](./console-guide/#_??)을 참고하세요.
+    * 자세한 내용은 [콘솔 사용 가이드 > 사용자 지정 도메인](./console-guide-gov/#_50)을 참고하세요.
     * API 응답에 사용자 지정 도메인 관련 필드명이 stageAliasDomainList에서 stageCustomDomainList로 변경되었습니다.
 * API Key 가져오기/내보내기 기능 추가 
     * CSV 파일을 통해 API Key를 가져오거나 등록된 API Key를 내보낼 수 있습니다.
-    * 자세한 내용은 [콘솔 사용 가이드 > API Key 가져오기](./console-guide/#_??)와 [콘솔 사용 가이드 > API Key 내보내기](./console-guide/#_??)를 참고하세요.
+    * 자세한 내용은 [콘솔 사용 가이드 > API Key 가져오기](./console-guide-gov/#api-key_8)와 [콘솔 사용 가이드 > API Key 내보내기](./console-guide-gov/#api-key_7)를 참고하세요.
 * 사용자 지정 Primary/Secondary API Key로 API Key 생성 
     * 사용자가 지정한 Primary/Sencodary API Key로 API Key를 생성할 수 있습니다.
-    * 자세한 내용은 [콘솔 사용 가이드 > API Key 생성](./console-guide/#_??)을 참고하세요.
+    * 자세한 내용은 [콘솔 사용 가이드 > API Key 생성](./console-guide-gov/#api-key_6)을 참고하세요.
 * Top 10 서비스 조회 통계 API 추가 
     * 전체 API 호출 수, 실패 API 호출 수, 평균 응답 시간을 기준으로 상위 10개의 API Gateway 서비스 목록과 누적 통계를 조회할 수 있습니다.
-    * 자세한 내용은 [API v1.0 가이드 > Top 10 서비스 조회](./api-guide-v1.0/#_??)를 참고하세요.
+    * 자세한 내용은 [API v1.0 가이드 > Top 10 서비스 조회](./api-guide-v1.0-gov/#top-10)를 참고하세요.
+
 
 ### 2022. 08. 02.
 #### 기능 개선/변경 
