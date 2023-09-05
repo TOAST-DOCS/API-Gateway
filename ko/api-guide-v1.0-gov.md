@@ -9,6 +9,7 @@ NHN Cloud API Gateway에서 제공하는 Public API v1.0을 설명합니다.
 | 이름      | 리전 | 도메인                                            |
 |---------|-----|------------------------------------------------|
 | API 도메인 | 한국(판교) 리전 | https://kr1-apigateway.api.gov-nhncloudservice.com |
+| API 도메인 | 한국(평촌) 리전 | https://kr2-apigateway.api.gov-nhncloudservice.com |
 
 ### 사전 준비
 
@@ -5209,3 +5210,90 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 
 * 일 단위 통계 데이터는 각 일의 00:00:00의 시간 데이터에 집계됩니다.
+
+
+### Top 10 서비스 조회
+- 전체 API 호출 수, 실패 API 호출 수, 평균 응답 시간을 기준으로 상위 10개의 API Gateway 서비스 목록과 누적 통계를 조회할 수 있습니다.
+
+
+#### 요청
+
+[URI]
+
+| 메서드  | URI |
+| --- | --- |
+| GET | /v1.0/appkeys/{appKey}/metrics/top-services |
+
+
+[QueryString Parameter]
+
+| 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
+| --- | --- | --- | --- | --- | --- |
+| lastDays | Integer | 선택 | 7 | 1~30 | 조회 기간의 일 수(당일 포함)  |
+| order | Enum | 선택 | CALL_COUNT | CALL_COUNT,FAIL_CALL_COUNT,AVG_RESPONSE_TIME | [통계 > Top10 서비스 정렬 기준](./enum-code-gov/#top10)|
+
+
+#### 응답
+
+[Response]
+
+```json
+{
+        "header": {
+            "isSuccessful": true,
+            "resultCode": 0,
+            "resultMessage": "SUCCESS"
+        },
+        "data": [
+            {
+                "rank": 1,
+                "apigwServiceId": "{apigwServiceId1}",
+                "apigwServiceName": "apigwservice-1",
+                "status2xxCount": 100,
+                "status3xxCount": 0,
+                "status4xxCount": 0,
+                "status5xxCount": 0,
+                "statusEtcCount": 0,
+                "callCount": 100,
+                "failCallCount": 0,
+                "successCallCount": 100,
+                "avgResponseTimeMs": 6,
+                "networkOutboundByte": 31202
+            },
+            {
+                "rank": 2,
+                "apigwServiceId": "apigwServiceId2",
+                "apigwServiceName": "apigwservice-2",
+                "status2xxCount": 50,
+                "status3xxCount": 0,
+                "status4xxCount": 0,
+                "status5xxCount": 0,
+                "statusEtcCount": 0,
+                "callCount": 50,
+                "failCallCount": 0,
+                "successCallCount": 50,
+                "avgResponseTimeMs": 8,
+                "networkOutboundByte": 19220
+            }
+            ... 
+        ],
+        "metricsLatestUpdatedAt": "2023-07-19T02:21:08.000Z"
+    }
+```
+
+| 필드 | 타입 | 설명 |
+| --- | --- | --- |
+|data | Object | Top 10 서비스 통계 데이터 영역 |
+|data[0].rank | Integer  | 순위 번호 |
+|data[0].apigwServiceId | String | API Gateway 서비스 ID |
+|data[0].apigwServiceName | String | API Gateway 서비스 이름 |
+|data[0].successCount | Long | API 성공 수(응답 HTTP 상태 코드가 2xx, 3xx인 경우) |
+|data[0].failCount | Long | API 실패 수(응답 HTTP 상태 코드가 4xx, 5xx인 경우) |
+|data[0].status2xxCount | Long | 응답 HTTP 상태 코드가 2xx인 API 호출 수 |
+|data[0].status3xxCount | Long | 응답 HTTP 상태 코드가 3xx인 API 호출 수 |
+|data[0].status4xxCount | Long | 응답 HTTP 상태 코드가 4xx인 API 호출 수 |
+|data[0].status5xxCount | Long | 응답 HTTP 상태 코드가 5xx인 API 호출 수 |
+|data[0].statusEtcCount | Long | 2xx, 3xx, 4xx, 5xx 외 응답 HTTP 상태 코드 API 호출 수 |
+|data[0].avgResponseTimeMs | Long | 평균 API 응답 시간(ms) |
+|data[0].networkOutboundByte | Long | 아웃바운드 네트워크 바이트 합계(bytes) |
+|metricsLatestUpdatedAt | DateTime | 통계 데이터 최신 갱신 일시 |
