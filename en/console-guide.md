@@ -516,7 +516,7 @@ API Gateway requests can be allowed/denied for the client IDs specified through 
 
 1. On the **Stage** tab, select a stage.
 2. Select the **Setup** tab. 
-3. Select the Stage root(/) path on the Stage Tree screen. 
+3. Select the Stage a path or method on the Stage Tree screen. 
 4. **Activate (On)** the IP ACL. 
 5. Set up the IP ACL. 
     - **IP Access Control Type**
