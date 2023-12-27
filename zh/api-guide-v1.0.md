@@ -2881,7 +2881,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ### IP ACL 
 * API Gateway requests can be allowed/denied for the client IDs specified through IP ACL.
-* It can only be set on the root (/) resource path. The settings are applied to all child resources.
+* It can be set on any resource path and method. The settings are applied to all child resources.
 
 ```json
 {
