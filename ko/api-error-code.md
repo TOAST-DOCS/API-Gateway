@@ -59,8 +59,8 @@
 |500104008|Temporally failed to request stage deployment. Please try again in a few minutes.|스테이지 배포 요청에 실패했습니다. 잠시 후 다시 시도해 주세요.|
 |400105000|Failed to delete API key. The API key is in use.|연결된 API Key는 삭제할 수 없습니다. 연결을 해제한 후 삭제해 주세요.|
 |404105000|Could not find API key.|API Key 정보를 찾을 수 없습니다.|
-|500105000|Failed to regenerate API key.|API Key를 재발급하지 못했습니다.|
-|500105001|Failed to create API key by duplicated API key.|API Key를 생성하지 못했습니다.|
+|409105000|Failed to regenerate API key.|API Key를 재발급하지 못했습니다.|
+|409105001|Failed to create API key by duplicated API key.|API Key를 생성하지 못했습니다.|
 |500105002|Failed to delete some API key data. Please check exception cause.|API Key 연결을 해제하지 못했습니다.|
 |500105003|Failed to delete API key.|API Key를 삭제하지 못했습니다.|
 |400106000|Failed to change usage plan of API key. There is no stage connected to the usage plan you want to change or it is the same as the usage plan before the change.|변경하려는 사용량 계획에 API Key가 연결 가능한 스테이지가 없습니다.|

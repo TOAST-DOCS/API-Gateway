@@ -59,8 +59,8 @@
 |500104008|Temporally failed to request stage deployment. Please try again in a few minutes.|ステージ配布リクエストが失敗しました。しばらくしてから再度お試しください。|
 |400105000|Failed to delete API key. The API key is in use.|関連付けられているAPI Keyは削除できません。関連付けを削除してから削除してください。|
 |404105000|Could not find API key.|API Key情報が見つかりません。|
-|500105000|Failed to regenerate API key.|API Keyを再発行できませんでした。|
-|500105001|Failed to create API key by duplicated API key.|API Keyを作成できませんでした。|
+|409105000|Failed to regenerate API key.|API Keyを再発行できませんでした。|
+|409105001|Failed to create API key by duplicated API key.|API Keyを作成できませんでした。|
 |500105002|Failed to delete some API key data. Please check exception cause.|API Keyの関連付けを削除できませんでした。|
 |500105003|Failed to delete API key.|API Keyを削除できませんでした。|
 |400106000|Failed to change usage plan of API key. There is no stage connected to the usage plan you want to change or it is the same as the usage plan before the change.|変更しようとしている使用量プランにAPI Keyを関連付けることができるステージがありません。|

@@ -59,8 +59,8 @@
 |500104008|Temporally failed to request stage deployment. Please try again in a few minutes.|The stage deployment request failed. Please try again in a few minutes.|
 |400105000|Failed to delete API key. The API key is in use.|The connected API key cannot be deleted. Please disconnect and then delete.|
 |404105000|Could not find API key.|Could not find API Key information.|
-|500105000|Failed to regenerate API key.|Failed to reissue API Key.|
-|500105001|Failed to create API key by duplicated API key.|Failed to create API Key.|
+|409105000|Failed to regenerate API key.|Failed to reissue API Key.|
+|409105001|Failed to create API key by duplicated API key.|Failed to create API Key.|
 |500105002|Failed to delete some API key data. Please check exception cause.|Failed to disconnect API Key.|
 |500105003|Failed to delete API key.|Failed to delete API Key.|
 |400106000|Failed to change usage plan of API key. There is no stage connected to the usage plan you want to change or it is the same as the usage plan before the change.|The usage plan you are trying to change does not have a stage to which an API Key can be connected.|
