@@ -329,26 +329,28 @@ HTTP 응답 상태 코드별 헤더와 요청 본문 항목과 콘텐츠 타입�
 | ${request.clientIp} | 요청 클라이언트의 IP |
 | ${request.path.variable-name} | 리소스에서 선언한 단일 경로 변수 {variable-name} 값 |
 | ${request.path.variable-name+} | 리소스에서 선언한 하위 경로를 포함한 경로 변수 {variable-name+} 값 |
-| ${request.host}	| 요청 Host 헤더 (예: kr1-example.api.nhncloudservice.com) |	
-| ${request.uri}	| 요청 URI (예: https://kr1-example.api.nhncloudservice.com/users/userId1) | 
-| ${request.uriPath} |	요청 경로 (예: /users/userId1) | 
-| ${request.uriPattern}	| 요청이 매핑된 URI 패턴 (예: /users/{userId}) | 
-| ${request.scheme} | 요청 스킴 (http/https) | 
-| ${request.httpMethod} | 요청 HTTP 메서드 (GET, POST ...) |
+| ${request.host}	| 요청 Host 헤더(예: kr1-example.api.nhncloudservice.com) |	
+| ${request.uri}	| 요청 URI(예: https://kr1-example.api.nhncloudservice.com/users/userId1) | 
+| ${request.uriPath} |	요청 경로(예: /users/userId1) | 
+| ${request.uriPattern}	| 요청이 매핑된 URI 패턴(예: /users/{userId}) | 
+| ${request.scheme} | 요청 스킴(http/https) | 
+| ${request.httpMethod} | 요청 HTTP 메서드(GET, POST ...) |
 | ${request.timestamp}	| 요청 시간(Timestamp) | 
 | ${request.queryString.QUERY_STRING_NAME} |요청 쿼리 파라미터 |
 | ${request.header.HEADER_NAME} | 요청 헤더	|
 | ${response.httpStatus} | 응답 HTTP 상태 코드 |
 
-> **[주의] 경로 변수**
+> **[주의] 경로 변수** <br/>
 > 선택된 경로와 상위 경로에 선언된 경로 변수만 사용할 수 있습니다.
 
-> **[참고] 컨텍스트 변수의 사용**
-> ${CONTEXT_VARIABLE} 또는 $!{CONTEXT_VARIABLE} 형식으로 사용이 가능하며, CONTEXT_VARIABLE에는 정의된 컨텍스트 변수만 사용할 수 있습니다
-> ${CONTEXT_VARIABLE}로 사용하면, 컨텍스트 변수의 값이 없을 경우 ${CONTEXT_VARIABLE} 문자열이 대체되지 않습니다.
-> $!{CONTEXT_VARIABLE} 처럼 $!로 사용하면 컨텍스트 변수의 값이 없을 경우 빈 문자열로 대체됩니다. 
 
-> **[참고] queryString, header의 복수 값을 갖는 경우에 백엔드 엔드포인트로의 전달** 
+> **[참고] 컨텍스트 변수의 사용** <br/>
+> ${CONTEXT_VARIABLE} 또는 $!{CONTEXT_VARIABLE} 형식으로 사용이 가능하며, CONTEXT_VARIABLE에는 정의된 컨텍스트 변수만 사용할 수 있습니다.
+> ${CONTEXT_VARIABLE}로 사용하면, 컨텍스트 변수의 값이 없을 경우 ${CONTEXT_VARIABLE} 문자열이 대체되지 않습니다.
+> $!{CONTEXT_VARIABLE}처럼 $!로 사용하면 컨텍스트 변수의 값이 없을 경우 빈 문자열로 대체됩니다.
+
+
+> **[참고] queryString, header의 복수 값을 갖는 경우에 백엔드 엔드포인트로의 전달** <br/> 
 > 동일한 이름을 갖는 쿼리 파라미터와 헤더에 대해 복수 개의 값이 존재하는 경우 콤마(,)로 값으로 통합됩니다.
 > 예시: /users?id=user1&id=user2 → /users/id=user1,user2
 
