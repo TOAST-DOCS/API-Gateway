@@ -222,3 +222,19 @@
 | 4031010          | Request api key is empty.    | x-nhn-apikeyリクエストヘッダがありません。|
 | 4031011          | Request api key is inactive.    | リクエストされたAPI Keyが無効になっている状態です。 |
 | 4031012          | Request api key is invalid.      | リクエストされたAPI Key値が有効ではありません。|
+
+
+### コンテキスト変数設定エラー 
+- 発生原因: API Gatewayの設定で間違ったコンテキスト変数を参照したり、文法で使用した場合にGatewayで発生するエラーです。修正するにはコンテキスト変数の設定を正しく修正した後,、テージを展開する必要があります。
+- レスポンスHTTP状態: 500 Internal Error
+- エラーレスポンス本文
+- エラーレスポンス本文
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 500000002,
+        "resultMessage": "Parsing failed due to an incorrect template format in the Context Variable. Please check API Gateway settings"
+    }
+}
+```
