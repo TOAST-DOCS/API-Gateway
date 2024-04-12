@@ -328,11 +328,32 @@ The variables defined below can be used when creating methods of resources or se
 | Context Variables | Description |
 | -- | -- |
 | ${request.clientIp} | IP of the client that requested API |
-| ${request.path.variable-name} | Reference the value of a single path variable {variable-name} declared by the resource |
-| ${request.path.variable-name+} | Reference the value of the path variable including child paths {variable-name+} declared by the resource |
+| ${request.path.variable-name} | Value of a single path variable {variable-name} declared by the resource |
+| ${request.path.variable-name+} | Value of the path variable including child paths {variable-name+} declared by the resource |
+| ${request.host}	| Request Host header (Example: kr1-example.api.nhncloudservice.com) |	
+| ${request.uri}	| Request URI (Example: https://kr1-example.api.nhncloudservice.com/users/userId1) | 
+| ${request.uriPath} |	Request path (Example: /users/userId1) | 
+| ${request.uriPattern}	| URL pattern to which request is mapped (Example: /users/{userId}) | 
+| ${request.scheme} | Request scheme (http/https) | 
+| ${request.httpMethod} | Request HTTP method (GET, POST ...) |
+| ${request.timestamp}	| Request time (Timestamp) | 
+| ${request.queryString.QUERY_STRING_NAME} |Request query parameter |
+| ${request.header.HEADER_NAME} | Request header |
+| ${response.httpStatus} | Response HTTP status code |
 
 > **[Caution] Path Variables**
 > You can only use the path variables declared in the selected path and its parent path.
+
+> **[Note] Use Context Variable** <br/>
+> Available in the form $\{CONTEXT\_VARIABLE\} or $\!\{CONTEXT\_VARIABLE\}, for CONTEXT_VARIABLE, only defined context variables can be used.
+> If used as $\{CONTEXT\_VARIABLE\}, the string $\{CONTEXT\_VARIABLE\} will not be replaced if the context variable has no value.
+> When used as $\!, as in $\!\{CONTEXT\_VARIABLE\}, it will be replaced with an empty string if the context variable has no value.
+
+ 
+> **[Note] Multiple values in queryString and header are passed to backend endpoints** <br/> 
+> If multiple values exist for a query parameter and header with the same name, they are combined into a value with a comma (,).
+> Example: /users?id=user1&id=user2 → /users/id=user1,user2
+
 
 ##  Plugin 
 ### CORS 

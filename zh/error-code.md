@@ -220,3 +220,19 @@
 | 4031010          | Request api key is empty.    | x-nhn-apikey request header does not exist.|
 | 4031011          | Request api key is inactive.    | Requested API key is inactive. |
 | 4031012          | Request api key is invalid.      | Requested API key is invalid. |
+
+
+
+## Error in Setting Context Variables
+- An error that occurs in Gateway when an invalid context variable is referenced or syntactically used in the API Gateway settings. To fix, you need to modify the context variable settings correctly and then deploy the stage. 
+- Response HTTP Status: 500 Internal Error
+- Error response body
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 500000002,
+        "resultMessage": "Parsing failed due to an incorrect template format in the Context Variable. Please check API Gateway settings"
+    }
+}
+```

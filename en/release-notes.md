@@ -5,7 +5,7 @@
 
 * Expanded context variables
     * Added various context variables related to request and reponse. You can use the added context variables in setting resources and stages.
-    * For more information, see [Console Guide > Context Variable](./console-guide/#_11).
+    * For more information, see [Console Guide > Context Variable](./console-guide/#context-variables).
     
 
 ### August 29, 2023

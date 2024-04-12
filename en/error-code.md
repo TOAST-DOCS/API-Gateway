@@ -223,10 +223,9 @@
 
 
 
-### Error in Setting Context Variables
+## Error in Setting Context Variables
 - An error that occurs in Gateway when an invalid context variable is referenced or syntactically used in the API Gateway settings. To fix, you need to modify the context variable settings correctly and then deploy the stage. 
 - Response HTTP Status: 500 Internal Error
-- Error response body
 - Error response body
 ``` 
 {

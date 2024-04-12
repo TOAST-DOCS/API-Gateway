@@ -345,9 +345,9 @@ The variables defined below can be used when creating methods of resources or se
 > You can only use the path variables declared in the selected path and its parent path.
 
 > **[Note] Use Context Variable** <br/>
-> Available in the form \$\{CONTEXT\_VARIABLE\} or \$\!\{CONTEXT\_VARIABLE\}, for CONTEXT_VARIABLE, only defined context variables can be used.
-> If used as \$\{CONTEXT\_VARIABLE\}, the string \$\{CONTEXT\_VARIABLE\} will not be replaced if the context variable has no value.
-> When used as \$\!, as in \$\!\{CONTEXT\_VARIABLE\}, it will be replaced with an empty string if the context variable has no value.
+> Available in the form $\{CONTEXT\_VARIABLE\} or $\!\{CONTEXT\_VARIABLE\}, for CONTEXT_VARIABLE, only defined context variables can be used.
+> If used as $\{CONTEXT\_VARIABLE\}, the string $\{CONTEXT\_VARIABLE\} will not be replaced if the context variable has no value.
+> When used as $\!, as in $\!\{CONTEXT\_VARIABLE\}, it will be replaced with an empty string if the context variable has no value.
 
  
 > **[Note] Multiple values in queryString and header are passed to backend endpoints** <br/> 

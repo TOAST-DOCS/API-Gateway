@@ -1,5 +1,13 @@
 ## Application Service > API Gateway > Release Note
 
+### April 23, 2024
+#### Feature Updates 
+
+* Expanded context variables
+    * Added various context variables related to request and reponse. You can use the added context variables in setting resources and stages.
+    * For more information, see [Console Guide > Context Variable](./console-guide/#context-variables).
+    
+
 ### August 29, 2023
 #### Feature Updates 
 * Added the request restriction policy 

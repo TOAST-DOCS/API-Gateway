@@ -345,9 +345,9 @@ HTTP 응답 상태 코드별 헤더와 요청 본문 항목과 콘텐츠 타입�
 
 
 > **[참고] 컨텍스트 변수의 사용** <br/>
-> \$\{CONTEXT\_VARIABLE\} 또는 \$\!\{CONTEXT\_VARIABLE\} 형식으로 사용이 가능하며, CONTEXT_VARIABLE에는 정의된 컨텍스트 변수만 사용할 수 있습니다.
-> \$\{CONTEXT\_VARIABLE\}로 사용하면, 컨텍스트 변수의 값이 없을 경우 \$\{CONTEXT\_VARIABLE\} 문자열이 대체되지 않습니다.
-> \$\!\{CONTEXT\_VARIABLE\}처럼 \$\!로 사용하면 컨텍스트 변수의 값이 없을 경우 빈 문자열로 대체됩니다.
+> $\{CONTEXT\_VARIABLE\} 또는 $\!\{CONTEXT\_VARIABLE\} 형식으로 사용이 가능하며, CONTEXT_VARIABLE에는 정의된 컨텍스트 변수만 사용할 수 있습니다.
+> $\{CONTEXT\_VARIABLE\}로 사용하면, 컨텍스트 변수의 값이 없을 경우 $\{CONTEXT\_VARIABLE\} 문자열이 대체되지 않습니다.
+> $\!\{CONTEXT\_VARIABLE\}처럼 $\!로 사용하면 컨텍스트 변수의 값이 없을 경우 빈 문자열로 대체됩니다.
 
 
 > **[참고] queryString, header의 복수 값을 갖는 경우에 백엔드 엔드포인트로의 전달** <br/> 
