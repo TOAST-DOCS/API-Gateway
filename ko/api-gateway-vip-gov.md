@@ -12,7 +12,7 @@ API Gateway VIP 정보
 | --- | --- |
 | 211.180.235.85<br>101.79.69.201 | 80,443 |
 
-API Gateway VIP 정보를 참고하여 다음의 방화벽(네트워크 ACL) 설정을 해주세요. 
+API Gateway VIP 정보를 참고하여 다음의 방화벽(Network ACL)을 설정하세요.
 * 출발지: API Gateway를 통해 제공되는 API를 호출하는 클라이언트 IP
 * 도착지: API Gateway VIP 목록 전체 
 * 포트: 80,443
