@@ -2,7 +2,7 @@
 
 ### API Gateway 클라이언트 방화벽 정책 설정 
 
-클라이언트가 API Gateway를 통해 제공되는 API 호출 시 방화벽(Network ACL)을 사용한다면, 정상적인 통신을 위해 API Gateway VIP에 대한 방화벽 정책 설정이 필요합니다.
+클라이언트가 API Gateway를 통해 제공되는 API를 호출할 때 방화벽(Network ACL)을 사용한다면 정상적인 통신을 위해 API Gateway VIP에 대한 방화벽 정책을 설정해야 합니다.
 API Gateway VIP에 대해 방화벽 정책 설정이 누락될 경우 도메인 질의 결과에 따라 API 호출에 실패할 수 있습니다. 
 클라이언트가 방화벽을 별도로 관리하지 않는 경우 별다른 처리 없이 사용 가능합니다.
 
