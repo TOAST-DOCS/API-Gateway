@@ -9,7 +9,7 @@ API Gateway is available without any processing if clients do not separately man
 #### API Gateway VIP Information
 
 | VIP | Port | 
-| --- --- --- --- | 
+| --- | --- | 
 | 180.210.64.24<br>180.210.65.24<br>180.210.64.224<br>180.210.65.224<br>117.52.123.41<br>114.110.141.140 | 80,443 |
 
 Refer to the API Gateway VIP information to set up the following firewall (Network ACL).
