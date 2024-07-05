@@ -1522,6 +1522,23 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | headers | List | 필수 | 없음 | 없음 | 삭제할 요청 헤더 목록 영역 |
 | headers[0] | String | 필수 | 없음 | 없음 | 삭제할 요청 헤더 이름 |
 
+### REMOVE_REQUEST_HEADER
+- 요청 헤더를 삭제합니다.  
+- 리소스 경로, 메서드에 설정할 수 있습니다.
+```json
+{
+  "headers": [ 
+    "Remove-Header-Name1", 
+    "Remove-Header-Name2"
+  ]
+
+}
+```
+
+| 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
+| --- | --- | --- | --- | --- | --- |
+| headers | List | 필수 | 없음 | 없음 | 삭제할 요청 헤더 목록 영역 |
+| headers[0] | String | 필수 | 없음 | 없음 | 삭제할 요청 헤더 이름 |
 
 
 ### SET_RESPONSE_HEADER
@@ -1558,6 +1575,23 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | headers | List | 필수 | 없음 | 없음 | 삭제할 응답 헤더 목록 영역 |
 | headers[0] | String | 필수 | 없음 | 없음 | 삭제할 응답 헤더 이름 |
 
+### REMOVE_RESPONSE_HEADER
+- 응답 헤더를 삭제합니다.  
+- 리소스 경로, 메서드에 설정할 수 있습니다.
+```json
+{
+  "headers": [ 
+    "Remove-Header-Name1", 
+    "Remove-Header-Name2"
+  ]
+
+}
+```
+
+| 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
+| --- | --- | --- | --- | --- | --- |
+| headers | List | 필수 | 없음 | 없음 | 삭제할 응답 헤더 목록 영역 |
+| headers[0] | String | 필수 | 없음 | 없음 | 삭제할 응답 헤더 이름 |
 
 ### ADD_REQUEST_QUERY_PARAMETER
 - 백엔드 엔드포인트 요청에 쿼리 문자열 파라미터를 추가합니다.

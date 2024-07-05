@@ -46,7 +46,7 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | SET_REQUEST_HEADER | 요청 헤더를 추가하거나 변경합니다. | 리소스 경로, 메서드 |
 | REMOVE_REQUEST_HEADER | 요청 헤더를 삭제합니다. | 리소스 경로, 메서드 |
 | SET_RESPONSE_HEADER | 백엔드 응답에 헤더를 추가하거나 변경합니다. | 리소스 경로, 메서드 |
-| REMOVE_RESPONSE_HEADER | 백엔드 응답에 헤더를 삭제합니다. | 리소스 경로, 메서드 |
+| REMOVE_RESPONSE_HEADER | 백엔드 응답에서 헤더를 삭제합니다. | 리소스 경로, 메서드 |
 | ADD_REQUEST_QUERY_PARAMETER | 백엔드 엔드포인트 요청에 쿼리 문자열 파라미터를 추가합니다. | 리소스 경로, 메서드 |
 
 
