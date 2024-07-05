@@ -13,6 +13,7 @@ API Gateway VIP에 대해 방화벽 정책 설정이 누락될 경우 도메인 
 | 211.180.235.85<br>101.79.69.201 | 80,443 |
 
 API Gateway VIP 정보를 참고하여 다음의 방화벽(Network ACL)을 설정하세요.
+
 * 출발지: API Gateway를 통해 제공되는 API를 호출하는 클라이언트 IP
 * 도착지: API Gateway VIP 목록 전체 
 * 포트: 80,443
