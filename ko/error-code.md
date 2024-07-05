@@ -239,3 +239,32 @@
 }
 ```
 
+## 잘못된 클라이언트 요청 
+
+### 클라이언트 IP 헤더(X-Forwarded-For)
+- 발생 원인: 클라이언트가 전달한 X-Forwarded-For 요청 헤더 값의 형식이 잘못되어 클라이언트 IP를 확인할 수 없을 때 오류가 발생합니다. 
+- 응답 HTTP 상태: 400 Bad Request
+- 오류 응답 본문
+``` 
+{
+   "header": {
+      "isSuccessful": false,
+      "resultCode": 4000006,
+      "resultMessage": "Client IP is invalid. Check the X-Forwarded-For request header value."
+   }
+}
+```
+
+### 요청 유효성 검증 실패 
+- 발생 원인: 요청 유효성 검사기에서 유효성 검증에 실패하였을 때 응답 오류가 반환됩니다.
+- 응답 HTTP 상태: 400 Bad Request
+- 오류 응답 본문
+``` 
+{
+   "header": {
+      "isSuccessful": false,
+      "resultCode": 4000007,
+      "resultMessage": "Bad Request ({errorDetailMessage})"
+   }
+}
+```
