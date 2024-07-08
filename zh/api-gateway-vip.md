@@ -10,13 +10,13 @@ API Gateway is available without any processing if clients do not separately man
 
 | VIP | Port | 
 | --- | --- | 
-| 180.210.64.24<br>180.210.65.24<br>180.210.64.224<br>180.210.65.224<br>117.52.123.41 | 80,443 |
+| 180.210.64.24<br>180.210.65.24<br>180.210.64.224<br>180.210.65.224<br>117.52.123.41 | 80, 443 |
 
 Refer to the API Gateway VIP information to set up the following firewall (Network ACL).
 
 * Departure: Client IP calling APIs provided through API Gateway 
 * Destination: Full List of API Gateway VIPs
-* Port: 80,443 
+* Port: 80, 443 
 * Communication policy: Allow 
 
 > **[Note]** Changing the API Gateway VIP 
