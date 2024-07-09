@@ -44,7 +44,9 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | MOCK | Returns a defined response to a request received by API Gateway. | Method |
 | CORS | Allows XMLHttpRequest API calls within a cross-site method. | Resource path |
 | SET_REQUEST_HEADER | Adds or changes the request header. | Resource path, method |
+| REMOVE_REQUEST_HEADER | Deletes the request header. | Resource path, method |
 | SET_RESPONSE_HEADER | Adds the header to a backend response or changes the header. | Resource path, method |
+| REMOVE_RESPONSE_HEADER | Deletes the header from a backend response. | Resource path, method |
 | ADD_REQUEST_QUERY_PARAMETER | Adds a query string parameter to the backend endpoint request. | Resource path, method |
 
 
@@ -71,6 +73,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | HMAC | HMAC request validation plugin | Root (/) resource path |
 | JWT | JWT token validation plugin | Root (/) resource path |
 | API_KEY | API Key validation plugin | Resource path, method |
+| REQUEST_VALIDATOR | Request validator plugin | Resource path, method |
 | PRE_API | Pre-call API plugin | Resource path, method |
 | RATE_LIMIT | Request number limit plugin | Method |
 
