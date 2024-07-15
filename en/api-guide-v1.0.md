@@ -1504,6 +1504,25 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | headers | Map | Required | N/A | N/A | Area for request header object to add or change |
 | headers[{HeaderName}] | String | Required | N/A | N/A | The name and value of the request header to be added/changed by the object property key/value. |
 
+### REMOVE_REQUEST_HEADER
+- Deletes the request header.  
+- It can be set in the resource path and method.
+```json
+{
+  "headers": [ 
+    "Remove-Header-Name1", 
+    "Remove-Header-Name2"
+  ]
+  
+}
+```
+
+| Name | Type | Required | Default value | Valid range | Description |
+| --- | --- | --- | --- | --- | --- |
+| headers | List | Required | None | N/A | List of request headers to delete area |
+| headers[0] | Token ID | Required | None | N/A | Request header name to delete |
+
+
 ### SET_RESPONSE_HEADER
 - The response header change plugin adds or changes a header to backend responses. 
 - It can be set in the resource path and method.
@@ -1519,6 +1538,26 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | --- | --- | --- | --- | --- | --- |
 | headers | Map | Required | N/A | N/A | Area for request header object to add or change |
 | headers[{HeaderName}] | String | Required | N/A | N/A | The name and value of the response header to be added/changed by the object property key/value |
+
+
+### REMOVE_RESPONSE_HEADER
+- Delete the response headers.  
+- It can be set in the resource path and method.
+```json
+{
+  "headers": [ 
+    "Remove-Header-Name1", 
+    "Remove-Header-Name2"
+  ]
+  
+}
+```
+
+| Name | Type | Required | Default value | Valid range | Description |
+| --- | --- | --- | --- | --- | --- |
+| headers | List | Required | None | N/A | Response header list area to delete |
+| headers\[0] | Token ID | Required | None | N/A | Response header name to delete |
+
 
 ### ADD_REQUEST_QUERY_PARAMETER
 - Add a query string parameter to the backend endpoint request.
@@ -3183,6 +3222,29 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | pluginType | Enum | Required | N/A | API_KEY | See API_KEY in [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type) |
 | pluginConfigJson | Object | Required | N/A | N/A | API Key plugin configuration area |
 | pluginConfigJson.isActive | Boolean | Required | N/A | true | Set whether to verify the API key. Must be set to true. |
+
+
+### Request Validator
+
+* Validates the client's request according to the settings defined in the request parameters.
+* It can be set on any resource path and method. The settings are applied to all child resources.
+
+
+```json
+{
+  "pluginType": "REQUEST_VALIDATOR",
+  "pluginConfigJson": {
+    "isActive": true
+  }
+}
+```
+
+| Name | Type | Required | Default value | Valid range | Description |
+| --- | --- | --- | --- | --- | --- |
+| pluginType | Enum | Required | N/A | REQUEST_VALIDATOR | Note REQUEST_VALIDATOR in the [Stage Resource > Plugin Type Enum Code](./enum-code/#_3) |
+| pluginConfigJson | Object | Required | None | N/A | Request Validator plugin settings area |
+| pluginConfigJson.isActive | Boolean | Required | N/A | true | Enable or disable the request validator. Must be set to true. |
+
 
 ## Deploy Stage
 

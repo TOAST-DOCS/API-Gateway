@@ -396,6 +396,18 @@ Adds or changes the request header.
 > - Any headers available in the original request are replaced with the header value set by the change request header plugin.
 > - Any headers available in the original request cannot be deleted.
 
+### Delete Request Header 
+Deletes the specified header from the headers of the client request and makes a request to the backend.
+
+- **The location where the plugins can be applied to**: Resource path, method
+- **Steps for applying plugins**: Backend requests pre-task
+- **Setting up request header deletion** 
+    - Click **+** to add a list of headers.
+    - Add the name of the header you want to delete.
+
+> **[Note] Setting up changing and deleting request headers**
+> If you have both the change request header and delete request header plugins set up at the same time, the Delete Request Header will be applied after the Change Request Header is applied. 
+
 ### Change Response Header 
 Change response header plugin adds the header to the backend response or changes the header. 
 
@@ -409,6 +421,19 @@ Change response header plugin adds the header to the backend response or changes
 > **[Note] Adding and changing the response header**
 > - Any headers missing from the backend endpoint response are added.
 > - Any headers available in the response of the backend endpoint response are replaced with the header value set by the change request header plugin.
+
+
+### Delete Response Header 
+Responds to the client after deleting the specified headers from the backend response headers.
+
+- **The location where the plugins can be applied to**: Resource paths, methods
+- **Steps for applying plugins**: Frontend response pre-task
+- **Response header deletion settings** 
+    - Click **+** to add a list of headers.
+    - Add the name of the header you want to delete.
+
+> **[Note] Setting up changing and deleting response headers**
+> If you have both the Change Response Headers and Delete Response Headers plugins set up at the same time, Delete Response Headers is applied after you apply Change Response Headers. 
 
 ### Add Request Query String Parameter
 Adds a request query string parameter to backend endpoint.  
@@ -866,35 +891,43 @@ When making an API request to API Gateway, it is restricted to only the specifie
 | --- | --- |
 | x-nhn-apikey | <primary api key or secondary api key\> |
 
+### Validate Requests 
+Validates the client request according to the request parameter settings set in the API Gateway resource.
+If validation fails, it returns an error response and does not forward the request to the backend endpoint.
 
-## Model
-You can define a model to specify the format of body that you can use in the request parameters and the response.
+1. Select Resource > Resource Method. 
+2. In Request parameters, set the information about the request parameters to validate. See below for the types of parameters that are supported for validation and how they are validated.
+    * Query String 
+        - Validates whether it is required. Data type and whether it is an array are not validated.
+        - Query string names are validated for case sensitivity.
 
-### Create Model
-1. Click **Resource** in the service settings column from the list of API Gateway services.
-2. In the **Model** tab, click the **Create model** button.
-3. Enter the model information and click **Create**.
-    - **Model name**:
-        - The name of the model. It cannot be the same as the name of the existing model.
-        - Only numbers and English letters can be entered, up to 50 characters.
-    - **Model description**: It is the description of the model. (optional)
-    - **Model schema**:
-        - Define the structure that the model can have.
-        - Use [JSON Schema](https://json-schema.org/) draft-04 for the model schema definition.
+    * Header 
+        - Validates only whether it is required. Data types are not validated.
+        - Header names are validated case-insensitive.
 
-### Edit Model
-1. Select the model to edit from the list of models.
-2. Click the **Edit** button.
-3. Edit the model information. Items that can be edited are model description and model schema.
-4. After changing the settings, click the **Edit** button.
+    * Form data 
+        - Validates form data only if the Content-Type in the request header is `application/x-www-form-urlencoded`. 
+        - Validates only whether it is required. Data type and whether it is an array are not validated.
 
-### Delete Model
-1. Select the model to delete from the list of models.
-2. Click the **Delete** button.
-   - The model cannot be deleted while being used in the request parameters or response.
-3. When the delete confirmation window appears, click the **Confirm** button. Deleted data cannot be restored.
+    * Request Body 
+        - Validates the request body only if the request Content-Type is `application/json`.
+        - Validates the Request Body based on the [Json Schema](https://json-schema.org/)(Draft4) of the specified model.
 
+    * Content type 
+        - Validates the form data or request body if it is set. If the request is made with a type other than the specified Content-Type, validation will fail.
+        - If there is no Content-Type specified or it is set to `*/*`, the content type is not validated.
 
+3.  Click **Apply stage resource** to apply to the stage.
+4. Select **Stage** tab.
+5. On the Stage Tree screen, select the route or method for which you want to enable the request validator.
+    - The request validation you set on a route is enforced for all subdefined child routes and method calls.
+6. Enable (on) the request validator.
+7. Deploy the stage.
+8. The client's request is denied or allowed at the API Gateway level based on the set request parameters. 
+
+> **[Caution]** Setting form data and request body
+> You can't set form data and request body at the same time.
+> You cannot support application/x-www-form-urlencoded and application/json as Content-Type on the same resource at the same time, so you must separate resources based on content type.
 
 ## Model
 You can define a model to specify the format of body that you can use in the request parameters and the response.
@@ -967,7 +1000,7 @@ The request restriction key type and request restriction key cannot be modified.
 2. Click on **Delete Request Restriction Policy**.
 3. Click on **Confirm** button when the confirmation window appears. Deleted data cannot be recovered.
 
-> **[Note] request restriction policy cannot be deleted** 
+> **[Note] Request restriction policy cannot be deleted** 
 > When the request restriction policy to delete is set on the stage or is included in the deployed stage, it cannot be deleted. 
 > To delete, delete the request restriction policy set on the stage, deploy the stage and then delete it.
 

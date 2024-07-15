@@ -1503,6 +1503,24 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | headers | Map | 必須 | なし | なし | 追加/変更するリクエストヘッダオブジェクト領域 |
 | headers[{HeaderName}] | String | 必須 | なし | なし | オブジェクトプロパティキー/値を追加/変更するリクエストヘッダの名前と値 |
 
+### REMOVE_REQUEST_HEADER
+- リクエストヘッダを削除します。  
+- リソースパス、メソッドに設定できます。
+```json
+{
+  "headers": [ 
+    "Remove-Header-Name1", 
+    "Remove-Header-Name2"
+  ]
+  
+}
+```
+
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
+| --- | --- | --- | --- | --- | --- |
+| headers | List | 必須 | なし | なし | 削除するリクエストヘッダリスト領域 |
+| headers[0] | String | 必須 | なし | なし | 削除するリクエストヘッダ名 |
+
 ### SET_RESPONSE_HEADER
 - レスポンスヘッダ変更プラグインはバックエンドレスポンスにヘッダを追加または変更します。 
 - リソースパス、メソッドに設定できます。
@@ -1518,6 +1536,25 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | --- | --- | --- | --- | --- | --- |
 | headers | Map | 必須 | なし | なし | 追加/変更するレスポンスヘッダオブジェクト領域 |
 | headers[{HeaderName}] | String | 必須 | なし | なし | オブジェクトプロパティキー/値を追加/変更するレスポンスヘッダの名前と値 |
+
+### REMOVE_RESPONSE_HEADER
+- レスポンスヘッダを削除します。  
+- リソースパス、メソッドに設定できます。
+```json
+{
+  "headers": [ 
+    "Remove-Header-Name1", 
+    "Remove-Header-Name2"
+  ]
+  
+}
+```
+
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
+| --- | --- | --- | --- | --- | --- |
+| headers | List | 必須 | なし | なし | 削除するレスポンスヘッダリスト領域 |
+| headers[0] | String | 必須 | なし | なし | 削除するレスポンスヘッダ名 |
+
 
 ### ADD_REQUEST_QUERY_PARAMETER
 - バックエンドエンドポイントリクエストにクエリ文字列パラメータを追加します。
@@ -3180,6 +3217,28 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | pluginType | Enum | 必須 | なし | API_KEY | [ステージリソース > プラグインタイプEnumコード](./enum-code/#_3)のAPI_KEY参考 |
 | pluginConfigJson | Object | 必須 | なし | なし | API Keyプラグイン設定領域 |
 | pluginConfigJson.isActive | Boolean | 必須 | なし | true | API Key検証を行うかどうかを設定します。必ずtrueに設定する必要があります。 |
+
+
+### リクエストバリデーター
+
+* リクエストパラメータで定義された設定に従ってクライアントのリクエストを検証します。
+* 全てのリソースパス、メソッドに設定できます。設定内容は下位の全てのリソースに適用されます。
+
+
+```json
+{
+  "pluginType": "REQUEST_VALIDATOR",
+  "pluginConfigJson": {
+    "isActive": true
+  }
+}
+```
+
+| 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
+| --- | --- | --- | --- | --- | --- |
+| pluginType | Enum | 必須 | なし | REQUEST_VALIDATOR | [ステージリソース > プラグインタイプEnumコード](./enum-code/#_3)のうちREQUEST_VALIDATORを参照 |
+| pluginConfigJson | Object | 必須 | なし | なし | リクエストバリデータープラグイン設定領域 |
+| pluginConfigJson.isActive | Boolean | 必須 | なし | true | リクエストバリデーターを使用するかどうかを設定します。必ずtrueに設定する必要があります。 |
 
 ## ステージ配布
 

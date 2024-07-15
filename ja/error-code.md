@@ -1,4 +1,3 @@
-
 ## Application Service > API Gateway > エラーコード
 
 ## リクエスト遮断 
@@ -235,5 +234,35 @@
         "resultCode": 500000002,
         "resultMessage": "Parsing failed due to an incorrect template format in the Context Variable. Please check API Gateway settings"
     }
+}
+```
+
+## 誤ったクライアントリクエスト 
+
+### クライアントIPヘッダ(X-Forwarded-For)
+- 発生原因：クライアントが渡したX-Forwarded-Forリクエストヘッダ値の形式が正しくないため、クライアントIPを確認できない場合にエラーが発生します。 
+- レスポンスHTTP状態: 400 Bad Request
+- エラーレスポンス本文
+``` 
+{
+   "header": {
+      "isSuccessful": false,
+      "resultCode": 4000006,
+      "resultMessage": "Client IP is invalid. Check the X-Forwarded-For request header value."
+   }
+}
+```
+
+### リクエスト有効性検証失敗 
+- 発生原因：リクエストバリデーターで有効性検証に失敗した場合、レスポンスエラーが返されます。
+- レスポンスHTTP状態：400 Bad Request
+- エラーレスポンス本文
+``` 
+{
+   "header": {
+      "isSuccessful": false,
+      "resultCode": 4000007,
+      "resultMessage": "Bad Request ({errorDetailMessage})"
+   }
 }
 ```

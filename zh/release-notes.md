@@ -1,5 +1,12 @@
 ## Application Service > API Gateway > Release Note
 
+
+### July 23, 2024
+#### Feature Updates 
+* Added request validator plugin 
+    * A request validator is a feature that validates requests from clients based on settings defined in the resource's request parameters. For more information, see [Console Guide > Request Validator](./console-guide/#_11).
+* Fixed an issue where API calls fail when the context variable name contained a hyphen (-).
+
 ### April 23, 2024
 #### Feature Updates 
 
