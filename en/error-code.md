@@ -236,3 +236,34 @@
     }
 }
 ```
+
+
+## Invalid Client Request 
+
+### Client IP Header (X-Forwarded-For)
+- Cause: Occurs when the client IP cannot be resolved because the X-Forwarded-For request header value passed by the client is incorrectly formatted. 
+- Response HTTP Status: 400 Bad Request
+- Error response body
+``` 
+{
+   "header": {
+      "isSuccessful": false,
+      "resultCode": 4000006,
+      "resultMessage": "Client IP is invalid. Check the X-Forwarded-For request header value."
+   }
+}
+```
+
+### Failure in Request Validation 
+- Cause: A response error is returned when validation fails in the request validator.
+- Response HTTP Status: 400 Bad Request
+- Error reponse body
+``` 
+{
+   "header": {
+      "isSuccessful": false,
+      "resultCode": 4000007,
+      "resultMessage": "Bad Request ({errorDetailMessage})"
+   }
+}
+```
