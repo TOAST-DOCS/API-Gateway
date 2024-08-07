@@ -185,8 +185,8 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | ----------- | -------- | --- |
 | UpstreamServiceUnavailable | 503 | 백엔드 엔드포인트 서비스가 응답을 하지 않거나 응답 지연(60초 이상)이 지속적으로 발생하는 경우의 응답입니다. |
 | Unauthorized | 401 | 인증에 필요한 요청 정보가 없거나 인증에 실패하는 경우 발생하는 응답입니다. |
-| JWKSError | 500 | JWT의 JWKS 가 잘못된 설정된 경우 발생하는 응답입니다. |
-| PreAPIFailed | 502 | 사전 호출 API 요청 실패 시 발생하는 응답입니다. |
+| JwksError | 500 | JWT의 JWKS 가 잘못된 설정된 경우 발생하는 응답입니다. |
+| PreApiFailed | 502 | 사전 호출 API 요청 실패 시 발생하는 응답입니다. |
 | Forbidden | 403 | 접근이 허가되지 않은 요청을 거부할 때 발생하는 응답입니다. |
 | RequestEntityTooLarge | 413 | 요청 크기가 10MB를 초과한 경우 발생하는 응답입니다. |
 | ResponseEntityTooLarge | 500 | 응답 크기가 10MB를 초과한 경우 발생하는 응답입니다. |
