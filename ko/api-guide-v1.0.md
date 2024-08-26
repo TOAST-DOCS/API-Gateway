@@ -3642,10 +3642,10 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | gatewayResponseList                      | List     | 게이트웨이 응답 목록 영역 |
 | gatewayResponseList[0]                   | Object   |  게이트웨이 응답 영역 |
 | gatewayResponseList[0].gatewayResponseId  | String   | 게이트웨이 응답 ID |
-| gatewayResponseList[0].gatewayResponseType | Enum   | [게이트웨이 응답 유형 Enum 코드](./enum-code/#_7) 참고 |
+| gatewayResponseList[0].gatewayResponseType | Enum   | [게이트웨이 응답 유형 Enum 코드](./enum-code/#_8) 참고 |
 | gatewayResponseList[0].httpStatusCode        | Integer   | 게이트웨이 응답 HTTP 상태 코드 |
 | gatewayResponseList[0].headers | Map   | 게이트웨이 응답 헤더 객체 영역 |
-| gatewayResponseList[0].headers[{HeaderName}] | Object   | 게이트웨이 응답 헤더의 Map Entry(Key: 게이트웨이 응답 헤더의 이름, Value: 헤더 값) |
+| gatewayResponseList[0].headers[{HeaderName}] | Object   | 게이트웨이 응답 헤더의 Map Entry(Key: 헤더 이름, Value: 헤더 값) |
 | gatewayResponseList[0].body     | Map   | 게이트웨이 응답 본문 객체 영역 |
 | gatewayResponseList[0].body[{ContentType}] | Object   | 게이트웨이 응답 본문의 Map Entry(Key: ContentType, Value: 응답 본문) |
 | gatewayResponseList[0].createdAt         | DateTime | 게이트웨이 응답 생성 일시                                      |
@@ -3681,10 +3681,10 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 | 이름                | 타입     | 필수 여부 | 기본값 | 유효 범위            | 설명                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
-| gatewayResponseType        | Enum | 필수    | 없음  | [게이트웨이 응답 유형 Enum 코드](./enum-code/#_7) |  |
+| gatewayResponseType        | Enum | 필수    | 없음  | [게이트웨이 응답 유형 Enum 코드](./enum-code/#_8) |  |
 | httpStatusCode | Integer | 필수    | 없음  | 100~599 | 게이트웨이 응답 HTTP 상태 코드 |
 | headers      | Map   | 선택    | 없음  | 없음 | 사용자 정의 응답 헤더 객체 영역 |
-| headers[{HeaderName}] | Object   | 필수    | 없음  | 없음 | 게이트웨이 응답 헤더의 Map Entry(Key: 게이트웨이 응답 헤더의 이름, Value: 헤더 값) |
+| headers[{HeaderName}] | Object   | 필수    | 없음  | 없음 | 게이트웨이 응답 헤더의 Map Entry(Key: 헤더 이름, Value: 헤더 값) |
 | body      | Map   | 선택    | 없음  | 없음 | 게이트웨이 응답 본문 객체 영역 |
 | body[{ContentType}] | Object   | 필수    | 없음  | 없음 | 게이트웨이 응답 본문의 Map Entry(Key: ContentType, Value: 응답 본문) |
 #### 응답
@@ -3715,7 +3715,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | ------------------------------- | -------- | ------------------------------------------------- |
 | gatewayResponse                   | Object   |  게이트웨이 응답 영역 |
 | gatewayResponse.gatewayResponseId  | String   | 게이트웨이 응답 ID |
-| gatewayResponse.gatewayResponseType | Enum   | [게이트웨이 응답 유형 Enum 코드](./enum-code/#_7) 참고 |
+| gatewayResponse.gatewayResponseType | Enum   | [게이트웨이 응답 유형 Enum 코드](./enum-code/#_8) 참고 |
 | gatewayResponse.httpStatusCode        | Integer   | 게이트웨이 응답 HTTP 상태 코드 |
 | gatewayResponse.headers | Map   | 게이트웨이 응답 헤더 객체 영역 |
 | gatewayResponse.headers[{HeaderName}] | Object   | 게이트웨이 응답 헤더의 Map Entry(Key: 헤더 이름, Value: 헤더 값) |
