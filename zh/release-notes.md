@@ -4,7 +4,7 @@
 ### July 23, 2024
 #### Feature Updates 
 * Added request validator plugin 
-    * A request validator is a feature that validates requests from clients based on settings defined in the resource's request parameters. For more information, see [Console Guide > Request Validator](./console-guide/#_11).
+    * A request validator is a feature that validates requests from clients based on settings defined in the resource's request parameters. For more information, see [Console Guide > Request Validator](./console-guide/#validate-requests).
 * Fixed an issue where API calls fail when the context variable name contained a hyphen (-).
 * Added the feature to delete request and response headers
 

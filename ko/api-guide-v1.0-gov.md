@@ -249,7 +249,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | Enum | 필수 | 없음 | KR1 | [API Gateway 리전 Enum 코드](./enum-code-gov/#api-gateway) 참고|
+| regionCode | Enum | 필수 | 없음 | KR1,KR2 | [API Gateway 리전 Enum 코드](./enum-code-gov/#api-gateway) 참고|
 | apigwServiceName | String | 필수 | 없음 | 최대 50자  | API Gateway 서비스 이름 |
 | apigwServiceDescription | String | 선택 | 없음 | 최대 200자  | API Gateway 서비스 설명 |
 
@@ -1455,7 +1455,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | --- | --- | --- | --- | --- | --- |
 | statusCode | String | 필수 | 없음 | 100~599 | 사용자 정의 응답 HTTP 상태 코드                 |
 | headers | Map | 선택 | 없음 | 없음 |사용자 정의 응답 헤더 객체 영역                  |
-| headers[{HeaderName}] | String | 필수 | 없음 | 없음 | 객체 프로퍼티 키/값이 사용자 정의 응답 헤더의 이름과 값 |
+| headers[{HeaderName}] | Object | 필수 | 없음 | 없음 | 사용자 정의 응답 헤더의 Map Entry(Key: 헤더 이름, Value: 헤더 값) |
 | body                  | String | 선택 | 없음 | 없음 | 사용자 정의 응답 본문                         |
 
 ### CORS
@@ -1502,7 +1502,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | headers | Map | 필수 | 없음 | 없음 | 추가/변경할 요청 헤더 객체 영역 |
-| headers[{HeaderName}] | String | 필수 | 없음 | 없음 | 객체 프로퍼티 키/값이 추가/변경할 요청 헤더의 이름과 값 |
+| headers[{HeaderName}] | Object | 필수 | 없음 | 없음 | 추가 및 변경할 요청 헤더의 Map Entry(Key: 헤더 이름, Value: 헤더 값) |
 
 ### REMOVE_REQUEST_HEADER
 - 요청 헤더를 삭제합니다.  
@@ -1554,7 +1554,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | headers | Map | 필수 | 없음 | 없음 | 추가/변경할 응답 헤더 객체 영역 |
-| headers[{HeaderName}] | String | 필수 | 없음 | 없음 | 객체 프로퍼티 키/값이 추가/변경할 응답 헤더의 이름과 값 |
+| headers[{HeaderName}] | Object | 필수 | 없음 | 없음 | 추가 및 변경할 응답 헤더의 Map Entry(Key: 헤더 이름, Value: 헤더 값) |
 
 ### ADD_REQUEST_QUERY_PARAMETER
 - 백엔드 엔드포인트 요청에 쿼리 문자열 파라미터를 추가합니다.
@@ -1570,7 +1570,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | parameters | Map| 필수 | 없음 | 없음 | 추가할 요청 쿼리 문자열 파라미터들 객체 영역 |
-| parameters[{QueryName}] | String | 필수 | 없음 | 없음 | 객체 프로퍼티 키/값이 추가할 요청 쿼리 문자열 파라미터의 이름과 값 |
+| parameters[{QueryName}] | Object | 필수 | 없음 | 없음 | 추가할 요청 쿼리 문자열 파라미터의 Map Entry(Key: 쿼리 이름, Value: 쿼리 값) |
 
 ## 리소스 파라미터
 
@@ -3590,6 +3590,173 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 |stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v1.0-gov/#_37), [스테이지 플러그인 타입](./api-guide-v1.0-gov/#_89)별 설정 JSON 참고         |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
+
+
+
+## 게이트웨이 응답
+
+### 게이트웨이 응답 목록 조회
+- 사용자가 재정의한 게이트웨이 응답 목록을 조회합니다.
+
+#### 요청
+
+[URI]
+
+| 메서드  | URI |
+| --- | --- |
+| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses |
+
+[Path Parameter]
+
+| 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
+| --- | --- | --- | --- | --- | --- |
+| apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
+
+#### 응답
+
+[Response]
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "gatewayResponseList": [
+    {
+      "gatewayResponseId": "{gatewayResponseId}",
+      "gatewayResponseType": "Unauthorized",
+      "httpStatusCode": 401,
+      "headers": { "test1": "test1" },
+      "body": { "application/json": "{\"result\":\"fail\"}" },
+      "createdAt": "2024-07-04T09:24:15.000Z",
+      "updatedAt": "2024-07-04T09:24:15.000Z"
+    }
+  ]
+}
+```
+
+| 필드                              | 타입       | 설명                                                |
+| ------------------------------- | -------- | ------------------------------------------------- |
+| gatewayResponseList                      | List     | 게이트웨이 응답 목록 영역 |
+| gatewayResponseList[0]                   | Object   |  게이트웨이 응답 영역 |
+| gatewayResponseList[0].gatewayResponseId  | String   | 게이트웨이 응답 ID |
+| gatewayResponseList[0].gatewayResponseType | Enum   | [게이트웨이 응답 유형 Enum 코드](./enum-code-gov/#_8) 참고 |
+| gatewayResponseList[0].httpStatusCode        | Integer   | 게이트웨이 응답 HTTP 상태 코드 |
+| gatewayResponseList[0].headers | Map   | 게이트웨이 응답 헤더 객체 영역 |
+| gatewayResponseList[0].headers[{HeaderName}] | Object   | 게이트웨이 응답 헤더의 Map Entry(Key: 헤더 이름, Value: 헤더 값) |
+| gatewayResponseList[0].body     | Map   | 게이트웨이 응답 본문 객체 영역 |
+| gatewayResponseList[0].body[{ContentType}]     | Object   | 게이트웨이 응답 본문의 Map Entry(Key: Content-Type, Value: 응답 본문)|
+| gatewayResponseList[0].createdAt         | DateTime | 게이트웨이 응답 생성 일시                                      |
+| gatewayResponseList[0].updatedAt         | DateTime | 게이트웨이 응답 수정 일시                                      |
+
+
+### 게이트웨이 응답 재정의
+- 게이트웨이 응답을 사용자가 재정의합니다.
+
+#### 요청
+
+[URI]
+
+| 메서드  | URI |
+| --- | --- |
+| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses |
+
+[Path Parameter]
+
+| 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
+| --- | --- | --- | --- | --- | --- |
+| apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
+
+[Request Body]
+```json
+{
+    "gatewayResponseType": "NotFound",
+    "httpStatusCode": 404,
+    "headers": { "test1": "test1" },
+    "body": { "application/json": "{\"result\":\"fail\"}" }
+}
+```
+
+| 이름                | 타입     | 필수 여부 | 기본값 | 유효 범위            | 설명                                                |
+| ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
+| gatewayResponseType        | Enum | 필수    | 없음  | [게이트웨이 응답 유형 Enum 코드](./enum-code/#_8) |  |
+| httpStatusCode | Integer | 필수    | 없음  | 100~599 | 게이트웨이 응답 HTTP 상태 코드 |
+| headers      | Map   | 선택    | 없음  | 없음 | 사용자 정의 응답 헤더 객체 영역 |
+| headers[{HeaderName}] | Object   | 필수    | 없음  | 없음 | 게이트웨이 응답 헤더의 Map Entry(Key: 헤더 이름, Value: 헤더 값) |
+| body      | Map   | 선택    | 없음  | 없음 | 게이트웨이 응답 본문 객체 영역 |
+| body[{ContentType}] | Object   | 필수    | 없음  | 없음 | 게이트웨이 응답 본문의 Map Entry(Key: Content-Type, Value: 응답 본문) |
+
+#### 응답
+
+[Response]
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "gatewayResponse": {
+        "gatewayResponseId": "{gatewayResponseId}",
+        "gatewayResponseType": "NotFound",
+        "httpStatusCode": 404,
+        "headers": { "test1": "test1" },
+        "body": { "application/json": "{\"result\":\"fail\"}" },
+        "createdAt": "2024-07-05T00:24:37.000Z",
+        "updatedAt": "2024-07-05T00:24:37.000Z"
+    }
+}
+```
+
+
+| 필드                              | 타입       | 설명                                                |
+| ------------------------------- | -------- | ------------------------------------------------- |
+| gatewayResponse                   | Object   |  게이트웨이 응답 영역 |
+| gatewayResponse.gatewayResponseId  | String   | 게이트웨이 응답 ID |
+| gatewayResponse.gatewayResponseType | Enum   | [게이트웨이 응답 유형 Enum 코드](./enum-code-gov/#_8) 참고 |
+| gatewayResponse.httpStatusCode        | Integer   | 게이트웨이 응답 HTTP 상태 코드 |
+| gatewayResponse.headers | Map   | 게이트웨이 응답 헤더 객체 영역 |
+| gatewayResponse.headers[{HeaderName}] | Object   | 게이트웨이 응답 헤더의 Map Entry(Key: 헤더 이름, Value: 헤더 값) |
+| gatewayResponse.body     | Map   | 게이트웨이 응답 본문 객체 영역 |
+| gatewayResponse.body[{ContentType}]     | Object   | 게이트웨이 응답 본문의 Map Entry(Key: Content-Type, Value: 응답 본문)|
+| gatewayResponse.createdAt         | DateTime | 게이트웨이 응답 생성 일시                                      |
+| gatewayResponse.updatedAt         | DateTime | 게이트웨이 응답 수정 일시                                      |
+
+
+### 게이트웨이 응답 초기화
+- 게이트웨이 응답을 기본 응답으로 초기화합니다.
+
+#### 요청
+
+[URI]
+
+| 메서드  | URI |
+| --- | --- |
+| DELETE | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses/{gatewayResponseId} |
+
+[Path Parameter]
+
+| 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
+| --- | --- | --- | --- | --- | --- |
+| apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
+| gatewayResponseId | String | 필수 | 없음 | 없음 | 게이트웨이 응답 ID |
+
+#### 응답
+
+[Response]
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  }
+}
+```
 
 
 ## API 설명서
