@@ -1455,7 +1455,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | --- | --- | --- | --- | --- | --- |
 | statusCode | String | Required | N/A | 100-599 | Custom response HTTP status code                 |
 | headers | Map | Optional | N/A | N/A |Custom response header object area                  |
-| headers[{HeaderName}] | String | Required | N/A | N/A | The object property key/value is the name and value of the custom response header. |
+| headers[{HeaderName}] | Object | Required | N/A | N/A | Map Entry for custom response headers (Key: header name, Value: header value) |
 | body                  | String | Optional | N/A | N/A | Custom response body                         |
 
 ### CORS
@@ -1502,7 +1502,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
 | headers | Map | Required | N/A | N/A | Area for request header object to add or change |
-| headers[{HeaderName}] | String | Required | N/A | N/A | The name and value of the request header to be added/changed by the object property key/value. |
+| headers[{HeaderName}] | Object | Required | N/A | N/A | Map Entry of request headers to add and change (Key: header name, Value: header value) |
 
 ### REMOVE_REQUEST_HEADER
 - Deletes the request header.  
@@ -1537,7 +1537,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
 | headers | Map | Required | N/A | N/A | Area for request header object to add or change |
-| headers[{HeaderName}] | String | Required | N/A | N/A | The name and value of the response header to be added/changed by the object property key/value |
+| headers[{HeaderName}] | Object | Required | N/A | N/A | Map Entry of request headers to add and change (Key: header name, Value: header value) |
 
 
 ### REMOVE_RESPONSE_HEADER
@@ -1573,7 +1573,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
 | parameters | Map| Required | N/A | N/A | Area for objects of request query string parameters to add |
-| parameters[{QueryName}] | String | Required | N/A | N/A | The object property key/value is the name and value of the request query string parameters to be added |
+| parameters[{QueryName}] | Object | Required | N/A | N/A  | Map Entry of the query parameter string to add (Key: parameter name, Value: parameter value) |
 
 ## Resource Parameter
 
@@ -3595,6 +3595,170 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
+
+## Gateway Response
+
+### Get a list of gateway responses
+- Retrieves the list of gateway responses redefined by the user.
+
+#### Request
+
+[URI]
+
+| Method  | URI |
+| --- | --- |
+| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses |
+
+[Path Parameter]
+
+| Name | Type | Required | Default value | Valid range | Description |
+| --- | --- | --- | --- | --- | --- |
+| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
+
+#### Response
+
+[Response]
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "gatewayResponseList": [
+    {
+      "gatewayResponseId": "{gatewayResponseId}",
+      "gatewayResponseType": "Unauthorized",
+      "httpStatusCode": 401,
+      "headers": { "test1": "test1" },
+      "body": { "application/json": "{\"result\":\"fail\"}" },
+      "createdAt": "2024-07-04T09:24:15.000Z",
+      "updatedAt": "2024-07-04T09:24:15.000Z"
+    }
+  ]
+}
+```
+
+| Field                              | Type       | Description                                                |
+| ------------------------------- | -------- | ------------------------------------------------- |
+| gatewayResponseList                      | List     | Gateway response list area |
+| gatewayResponseList[0]                   | Object   |  Gateway response area |
+| gatewayResponseList[0].gatewayResponseId  | String   | Gateway response ID |
+| gatewayResponseList[0].gatewayResponseType | Enum   | See [](./enum-code/#_8)Gateway Response Type Enum Code[](./enum-code/#_8) |
+| gatewayResponseList[0].httpStatusCode        | Integer   | Gateway response HTTP status codes |
+| gatewayResponseList[0].headers | Map   | Gateway response header object area |
+| gatewayResponseList[0].headers[{HeaderName}] | Object   | Map Entry of Gateway response headers (Key: header name, Value: header value) |
+| gatewayResponseList[0].body     | Map   | Gateway response body object area |
+| gatewayResponseList[0].body[{ContentType}] | Object   | Map entry in the gateway response body (Key: ContentType, Value: Response body) |
+| gatewayResponseList[0].createdAt         | DateTime | When the gateway response is created                                      |
+| gatewayResponseList[0].updatedAt         | DateTime | When the gateway response is updated                                      |
+
+
+### Redefine gateway response
+- Gateway responses are redefined by the user.
+
+#### Request
+
+[URI]
+
+| Method  | URI |
+| --- | --- |
+| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses |
+
+[Path Parameter]
+
+| Name | Type | Required | Default value | Valid range | Description |
+| --- | --- | --- | --- | --- | --- |
+| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
+
+[Request Body]
+```json
+{
+    "gatewayResponseType": "NotFound",
+    "httpStatusCode": 404,
+    "headers": { "test1": "test1" },
+    "body": { "application/json": "{\"result\":\"fail\"}" }
+}
+```
+
+| Name                | Type     | Required | Default value | Valid range            | Description                                                |
+| ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
+| gatewayResponseType        | Enum | Required    | N/A  | [Gateway Response Type Enum Code](./enum-code/#_8) |  |
+| httpStatusCode | Integer | Required    | N/A  | 100-599 | Gateway response HTTP status codes |
+| headers      | Map   | Optional    | N/A  | N/A | Custom response header object area |
+| headers[{HeaderName}] | Object   | Required    | N/A  | N/A | Map Entry of Gateway response headers (Key: header name, Value: header value) |
+| body      | Map   | Optional    | N/A  | N/A | Gateway response body object area |
+| body[{ContentType}] | Object   | Required    | N/A  | N/A | Map entry in the gateway response body (Key: ContentType, Value: Response body) |
+#### Response
+
+[Response]
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "gatewayResponse": {
+        "gatewayResponseId": "{gatewayResponseId}",
+        "gatewayResponseType": "NotFound",
+        "httpStatusCode": 404,
+        "headers": { "test1": "test1" },
+        "body": { "application/json": "{\"result\":\"fail\"}" },
+        "createdAt": "2024-07-05T00:24:37.000Z",
+        "updatedAt": "2024-07-05T00:24:37.000Z"
+    }
+}
+```
+
+
+| Field                              | Type       | Description                                                |
+| ------------------------------- | -------- | ------------------------------------------------- |
+| gatewayResponse                   | Object   |  Gateway response area |
+| gatewayResponse.gatewayResponseId  | String   | Gateway response ID |
+| gatewayResponse.gatewayResponseType | Enum   | See [](./enum-code/#_8)Gateway Response Type Enum Code[](./enum-code/#_8) |
+| gatewayResponse.httpStatusCode        | Integer   | Gateway response HTTP status codes |
+| gatewayResponse.headers | Map   | Gateway response header object area |
+| gatewayResponse.headers[{HeaderName}] | Object   | Map Entry of Gateway response headers (Key: header name, Value: header value) |
+| gatewayResponse.body     | Map   | Gateway response body object area |
+| gatewayResponse.body[{ContentType}]     | Object   | Map entry in the gateway response body (Key: ContentType, Value: Response body) |
+| gatewayResponse.createdAt         | DateTime | When the gateway response is created                                      |
+| gatewayResponse.updatedAt         | DateTime | When the gateway response is updated                                      |
+
+
+### Reset gateway response
+- Resets the gateway response to the default response.
+
+#### Request
+
+[URI]
+
+| Method  | URI |
+| --- | --- |
+| DELETE | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses/{gatewayResponseId} |
+
+[Path Parameter]
+
+| Name | Type | Required | Default value | Valid range | Description |
+| --- | --- | --- | --- | --- | --- |
+| apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
+|  | String | Required | N/A | N/A | Gateway response ID |
+
+#### Response
+
+[Response]
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  }
+}
+```
 
 ## API Document
 
