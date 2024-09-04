@@ -179,3 +179,21 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | CALL_COUNT | Sort by total API calls in descending order | 
 | FAIL_CALL_COUNT | Sort by number of failed API calls in descending order | 
 | AVG_RESPONSE_TIME | Sort by average response time in descending order | 
+
+
+### Gateway response type
+| Gateway response type | Default status codes | Description |
+| ----------- | -------- | --- |
+| UpstreamServiceUnavailable | 503 | Response that occurs when the backend endpoint service is unresponsive or experiencing a persistent response delay (60 seconds or more). |
+| Unauthorized | 401 | Response that occurs when the requested information required for authentication is missing or if authentication fails. |
+| JwksError | 500 | Response that occurs if the JWT's JWKS is set incorrectly. |
+| PreApiFailed | 502 | Response that occurs when the pre-call API does not respond to a request from API Gateway. If the response status code of the pre-call API is not 200, the response from the pre-call API is passed to the client as it is. |
+| Forbidden | 403 | Response that occurs when you deny a request that you are not authorized to access. |
+| RateLimited | 429 | Response that occurs when rejecting a request that exceeds a limited number of requests. |
+| UsageQuotaExceeded | 429 | Response that occurs when denying a request that exceeds a limited request quota. |
+| InvalidUri | 400 | Response occurs when the URI configuration on the backend endpoint is incorrect. |
+| NotFound | 404 | Response that occurs when making a request with an unregistered path and method. |
+| BadGateway | 502 | Response that occurs when the backend endpoint is unresponsive or refuses to respond. |
+| InvalidContextVariable | 500 | Response that occurs due to an incorrect context variable setting |
+| BadRequest | 400 | Response that occurs due to an invalid client request. |
+| InternalServerError | 500 | Response that occurs when an unexpected error occurred. |
