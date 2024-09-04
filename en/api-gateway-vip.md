@@ -19,6 +19,6 @@ Refer to the API Gateway VIP information to set up the following firewall (Netwo
 * Port: 80, 443 
 * Communication policy: Allow 
 
-> **[Note]** Changing the API Gateway VIP 
+> **[Note] Changing the API Gateway VIP** <br>
 > * The API Gateway VIP list is subject to change after prior notice. 
 > * You must read the announcement when you make the change and then set the firewall policy for the changed VIP.

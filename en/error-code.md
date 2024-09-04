@@ -14,7 +14,7 @@
 }
 ```
 
-> **[Note] Ban requests**
+> **[Note] Ban requests** <br>
 > - If your request is banned, a ban request error code is returned, and the ban is disabled after a certain period of time.
 > - In the event that your request is banned if you link a backend endpoint service with abnormal operating condition or response (timeout) is delayed for more than 60 seconds, it is recommended to not link any APIs.
 
