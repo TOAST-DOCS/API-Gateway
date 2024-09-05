@@ -1060,7 +1060,7 @@ API Gatewayリソースに設定されたリクエストパラメータ設定に
 3. 確認ウィンドウで**確認**ボタンをクリックします。削除されたデータは復旧できません。
 
 ### ゲートウェイレスポンスタイプ
-- ゲートウェイレスポンスタイプは[ゲートウェイレスポンスタイプEnumコード](./enum-code/#_7)文書を参考します。 
+- ゲートウェイレスポンスタイプは[ゲートウェイレスポンスタイプEnumコード](./enum-code/#_8)文書を参考します。 
 - ゲートウェイレスポンスタイプに基づく基本本文形式は[Gatewayエラーコード](./error-code/)文書を参照してください。 
 
 
@@ -1424,7 +1424,7 @@ API Gatewayサービスゲートウェイを連動する方法は、次のガイ
 
 
 1. API Gatewayサービス用のサービスゲートウェイを作成します。
-    * サービスゲートウェイを作成する方法はService Gateway > [コンソール使用ガイド](https://docs.nhncloud.com/ko/Network/Service%20Gateway/ko/console-guide/)を参照してください。
+    * サービスゲートウェイを作成する方法はService Gateway > [コンソール使用ガイド](https://docs.nhncloud.com/ja/Network/Service%20Gateway/ja/console-guide/)を参照してください。
 2. /etc/hostsファイルにサービスゲートウェイIPとアクセスしたいステージのドメインアドレスを追加します。 
     * 例: 192.168.1.42 kr1-gateway-example.api.nhncloudservice.com 
 

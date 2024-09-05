@@ -1048,8 +1048,8 @@ Allows users to redefine the error response settings defined by the gateway.
     - **Response body template**: Enter the content type and corresponding response body.
         - Content type: Enter the type of content the user is requesting, that is, the value of the Accept header in the request.
         - Response body: Enter the body of the gateway response to return in response to the value of the Accept header in the request.
-    - You can set context variables in the header value and response body (see [Context Variables](./console-guide/#_11) for available context variables).
-    
+    - You can set [context variables](./console-guide/#context-variables) in the header value and response body.
+
 > **[Note] Apply gateway responses** <br>
 Changed gateway responses are applied after a stage deployment in the shape they were in at the time of deployment. 
 
@@ -1059,7 +1059,7 @@ Changed gateway responses are applied after a stage deployment in the shape they
 3. Click **Confirm** on the confirmation window. The deleted data cannot be recovered.
 
 ### Gateway response type
-- For gateway response types, see [Gateway Response Type Enum Codes](./enum-code/#_8). 
+- For gateway response types, see [Gateway Response Type Enum Codes](./enum-code/#gateway-response-type). 
 - See [Gateway Error Codes](./error-code/) for default body shapes based on the type of gateway response. 
 
 
@@ -1072,8 +1072,7 @@ Changed gateway responses are applied after a stage deployment in the shape they
         - Method: GET
         - Stage URL: https://kr1-xxxxx-test.api.nhncloudservice.com/example
         - `curl --request GET 'https://kr1-xxxxx-test.api.nhncloudservice.com/example'`
-    ```
-
+    
 > **[Caution] Stage deployment** <br>
 > To call the API, there must be a deployed stage with the status: Successfully Deployed. 
 
@@ -1431,7 +1430,7 @@ Please refer to the following guide to learn how to integrate API Gateway Servic
 
 
 1. Create a service gateway for the API Gateway service.
-    * To create a service gateway, see the [Service Gateway > Console User Guide](https://docs.nhncloud.com/ko/Network/Service%20Gateway/ko/console-guide/).
+    * To create a service gateway, see the [Service Gateway > Console User Guide](https://docs.nhncloud.com/en/Network/Service%20Gateway/en/console-guide/).
 2. In the /etc/hosts file, add the service gateway IP and the domain address of the stage you want to access. 
     * Example: 192.168.1.42 kr1-gateway-example.api.nhncloudservice.com 
 
