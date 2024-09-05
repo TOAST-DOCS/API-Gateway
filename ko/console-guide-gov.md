@@ -760,7 +760,7 @@ API Gateway의 액세스 로그를 Log & Crash Search 서비스에 보관할 수
 1. Log & Crash Search 서비스 콘솔 페이지로 이동합니다. 
 2. Log & Crash Search 서비스에서 logType 필드가 "NNH Cloud-API Gateway"인 로그를 조회합니다. 
     - 조회 쿼리: `logType: "NHN Cloud-APIGateway"`
-    - 자세한 이용 방법은 [Log & Crash Search 서비스의 콘솔 가이드](/Data%20&%20Analytics/Log%20&%20Crash%20Search/ko/console-guide-gov/)를 참고하세요.
+    - 자세한 이용 방법은 [Log & Crash Search 서비스의 콘솔 가이드](/Data%20&%20Analytics/Log%20&%20Crash%20Search/ko/gov-console-guide/)를 참고하세요.
 3. Log & Crash Search에 저장하는 필드 내용은 다음과 같습니다.
 
 | 필드 | 설명 |
@@ -861,7 +861,7 @@ API Gateway로 수신된 요청을 백엔드 엔드포인트로 전달할 때 �
 ### 요청 제한 정책 
 
 등록된 요청 제한 정책을 스테이지 리소스 경로 또는 메서드에 적용합니다.
-자세한 내용은 [요청 제한 정책](/.console-guide-gov/#_34)을 참고하세요.
+자세한 내용은 [요청 제한 정책](./console-guide-gov/#_34)을 참고하세요.
 
 1. **스테이지** 탭에서 스테이지를 선택합니다.
 2. **설정** 탭을 선택합니다.
@@ -1055,7 +1055,7 @@ API Gateway 리소스에 설정된 요청 파라미터 설정에 따라 클라�
     - **응답 본문 템플릿**: 콘텐츠 타입과 그에 대응되는 응답 본문을 입력합니다.
         - 콘텐츠 타입: 사용자가 요청하는 콘텐츠 타입 즉, 요청의 Accept 헤더 값을 입력합니다.
         - 응답 본문: 요청의 Accept 헤더 값에 대응하여 반환할 게이트웨이 응답 본문을 입력합니다.
-    - 헤더 값과 응답 본문에는 컨텍스트 변수를 설정할 수 있습니다(사용 가능한 컨텍스트 변수는 [컨텍스트 변수](./console-guide/#_11)를 참고하세요.).
+    - 헤더 값과 응답 본문에는 [컨텍스트 변수](./console-guide-gov/#_11)를 설정할 수 있습니다.
     
 > **[참고] 게이트웨이 응답 적용** <br>
 > 변경된 게이트웨이 응답은 스테이지 배포 이후에 배포 시점의 형상으로 적용됩니다. 
@@ -1066,7 +1066,7 @@ API Gateway 리소스에 설정된 요청 파라미터 설정에 따라 클라�
 3. 확인 창에서 **확인** 버튼을 클릭합니다. 삭제된 데이터는 복구할 수 없습니다.
 
 ### 게이트웨이 응답 유형
-- 게이트웨이 응답 유형은 [게이트웨이 응답 유형 Enum 코드](./enum-code/#_8) 문서를 참고합니다. 
+- 게이트웨이 응답 유형은 [게이트웨이 응답 유형 Enum 코드](./enum-code-gov/#_8) 문서를 참고합니다. 
 - 게이트웨이 응답 유형에 따른 기본 본문 형태는 [Gateway 오류 코드](./error-code/) 문서를 참고합니다. 
 
 
@@ -1466,7 +1466,7 @@ API Gateway가 위치한 리전에 장애가 발생하면 해당 리전의 API G
 
 ### 2. GSLB 생성 
 이 가이드는 NHN Cloud DNS Plus 서비스의 GSLB를 이용합니다.
-GSLB 설정에 대한 자세한 내용은 [DNS Plus 콘솔 사용 가이드](https://docs.nhncloud.com/ko/Network/DNS%20Plus/ko/console-guide-gov/)를 참고하세요.
+GSLB 설정에 대한 자세한 내용은 [DNS Plus 콘솔 사용 가이드](/Network/DNS%20Plus/ko/console-guide/)를 참고하세요.
 
 1. DNS Plus 서비스로 이동합니다.
 2. GSLB를 생성합니다. 
@@ -1496,7 +1496,7 @@ API Gateway 서비스 게이트웨이를 연동하는 방법은 다음 가이드
 
 
 1. API Gateway 서비스용 서비스 게이트웨이를 생성합니다.
-    * 서비스 게이트웨이를 생성하는 방법은 Service Gateway > [콘솔 사용 가이드](https://docs.nhncloud.com/ko/Network/Service%20Gateway/ko/console-guide/)를 참고하세요.
+    * 서비스 게이트웨이를 생성하는 방법은 Service Gateway > [콘솔 사용 가이드](/Network/Service%20Gateway/ko/console-guide-gov/)를 참고하세요.
 2. /etc/hosts 파일에 서비스 게이트웨이 IP와 접근하고자 하는 스테이지의 도메인 주소를 추가합니다. 
     * 예시: 192.168.1.42 kr1-gateway-example.api.gov-nhncloudservice.com 
 
