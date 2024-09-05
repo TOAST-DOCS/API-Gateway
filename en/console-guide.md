@@ -1040,7 +1040,7 @@ Modify the request restriction per second, IP access control type, and IP access
 Allows users to redefine the error response settings defined by the gateway. 
 
 ### Redefine gateway response
-1. Click **Resource in the service settings column from the list of API Gateway services.
+1. Click **Resource** in the service settings column from the list of API Gateway services.
 2. On the **Gateway Response** tab, click the type of gateway response you want to set up.
 3. Enter the response information. 
     - **Response HTTP status code**: Enter the response HTTP status code (required).
