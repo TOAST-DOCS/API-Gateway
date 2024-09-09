@@ -1402,7 +1402,7 @@ In order to transfer easily, download the resources registered on the stage thro
 > When importing resources with Swagger file, do not import the plug-ins set on stage. Please add the necessary plug-ins separately in stage setting.
 
 ### 2. Create GSLB 
-This guide uses the GSLB of NHN Cloud DNS Plus service. For more information on setting up GSLB, refer to [DNS Plus Console Usage Guide](https://docs.nhncloud.com/en/Network/DNS%20Plus/en/console-guide/).
+This guide uses the GSLB of NHN Cloud DNS Plus service. For more information on setting up GSLB, refer to [DNS Plus Console Usage Guide](/Network/DNS%20Plus/en/console-guide/).
 
 1. Go to DNS Plus service
 2. Create GSLB 
@@ -1430,7 +1430,7 @@ Please refer to the following guide to learn how to integrate API Gateway Servic
 
 
 1. Create a service gateway for the API Gateway service.
-    * To create a service gateway, see the [Service Gateway > Console User Guide](https://docs.nhncloud.com/en/Network/Service%20Gateway/en/console-guide/).
+    * To create a service gateway, see the [Service Gateway > Console User Guide](/Network/Service%20Gateway/en/console-guide/).
 2. In the /etc/hosts file, add the service gateway IP and the domain address of the stage you want to access. 
     * Example: 192.168.1.42 kr1-gateway-example.api.nhncloudservice.com 
 

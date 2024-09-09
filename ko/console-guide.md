@@ -1423,7 +1423,7 @@ API Gateway가 위치한 리전에 장애가 발생하면 해당 리전의 API G
 
 ### 2. GSLB 생성 
 이 가이드는 NHN Cloud DNS Plus 서비스의 GSLB를 이용합니다.
-GSLB 설정에 대한 자세한 내용은 [DNS Plus 콘솔 사용 가이드](https://docs.nhncloud.com/ko/Network/DNS%20Plus/ko/console-guide/)를 참고하세요.
+GSLB 설정에 대한 자세한 내용은 [DNS Plus 콘솔 사용 가이드](/Network/DNS%20Plus/ko/console-guide/)를 참고하세요.
 
 1. DNS Plus 서비스로 이동합니다.
 2. GSLB를 생성합니다. 
@@ -1453,7 +1453,7 @@ API Gateway 서비스 게이트웨이를 연동하는 방법은 다음 가이드
 
 
 1. API Gateway 서비스용 서비스 게이트웨이를 생성합니다.
-    * 서비스 게이트웨이를 생성하는 방법은 Service Gateway > [콘솔 사용 가이드](https://docs.nhncloud.com/ko/Network/Service%20Gateway/ko/console-guide/)를 참고하세요.
+    * 서비스 게이트웨이를 생성하는 방법은 Service Gateway > [콘솔 사용 가이드](/Network/Service%20Gateway/ko/console-guide/)를 참고하세요.
 2. /etc/hosts 파일에 서비스 게이트웨이 IP와 접근하고자 하는 스테이지의 도메인 주소를 추가합니다. 
     * 예시: 192.168.1.42 kr1-gateway-example.api.nhncloudservice.com 
 
