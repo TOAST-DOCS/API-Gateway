@@ -11,7 +11,7 @@ You can enter API Gateway service information and click Create button to create 
 * **Service Description**: The service description.
 * **Service ID**: A random ID issued to each service. 
 
-> **[NOTE] API Gateway services creation limit**
+> **[NOTE] API Gateway services creation limit** <br>
 > **Up to 10** API Gateway Services can be created per project.
 
 ### View API Gateway Service
@@ -23,9 +23,9 @@ You can enter API Gateway service information and click Create button to create 
 ### Delete API Gateway Service
 * The list of registered API Gateway services is displayed.
 * Select the service from the list, and click the **Delete** button.
-* When the confirmation window appears, click the **OK** button. Deleted data cannot be restored.
+* Click **Confirm** on the confirmation window, deleted data cannot be restored.
 
-> **[Caution] When API Gateway service cannot be deleted**
+> **[Caution] When API Gateway service cannot be deleted** <br>
 > API Gateway service cannot be deleted if there is a usage plan connected to the stage of the API Gateway service.
 
 ## Resource
@@ -60,11 +60,11 @@ You can bring the resource through the file format of Swagger v2.0 [OpenAPI Spec
 2. Click the Swagger **Select File** button and choose the file, or directly enter the Swagger content.
 3. Click the **Apply** button.
 
-> **[Caution] When a resource is imported, the existing resources and models are overwritten**
+> **[Caution] When a resource is imported, the existing resources and models are overwritten** <br>
 > When a resource is imported, all existing resources are deleted and overwritten with the imported resource.
 > When a resource is imported, all existing models created in the service are deleted and overwritten with the imported model.
 
-> **[Note] Failing to import stage files exported before Nov. 23, 2021** 
+> **[Note] Failing to import stage files exported before Nov. 23, 2021** <br> 
 > If you import resources with files downloaded via stage export before Nov. 23, 2021, the operation may fail.
 > Use the resource import using the newly created file through stage export, or change the existing file with the following:
 > Modification
@@ -193,18 +193,18 @@ You can bring the resource through the file format of Swagger v2.0 [OpenAPI Spec
 - **Backend endpoint type: HTTP(S)**
     - Backend endpoint URL path: Sets the API URL of the backend endpoint service where the received API request should be forwarded to.
         - Must begin with the root (/).
-        - Context variables created by the resources can be set for the path. (For more information on context variables, see [Context Variables](./console-guide/#context-variables).)
+        - [Context Variables](./console-guide/#context-variables) created by the resources can be set for the path.
 - **Backend endpoint type: custom response**
     - Set the custom response.
     - Response status code: Enter the response HTTP status code. (required)
     - Header: Enter the name and value of the response header.
     - Response body: Enter the response body.
-    - Context variables created by the resources can be set for the header. (For more information on context variables, see [Context Variables](./console-guide/#context-variables).)
+    - [Context Variables](./console-guide/#context-variables) created by the resources can be set for the header.
 
 - **Plugin**: Select this option if you want to add a plugin that is added to the selected path to the created method as well.
 - If you request an unregistered HTTP method to API Gateway, 404 Not Found response is returned.
 
-> **[Note] Resource methods creation limit** 
+> **[Note] Resource methods creation limit** <br>
 > **Up to 100** methods including all resource paths can be created.
 
 ###  Modify Resources And Methods
@@ -216,20 +216,20 @@ You can bring the resource through the file format of Swagger v2.0 [OpenAPI Spec
     3. To modify, select the method from the resource tree on the left.
     4. Change the settings and click the **Save Changes** button.
 
-> **[Note] Modification of OPTIONS method registered by CORS plugin**
+> **[Note] Modification of OPTIONS method registered by CORS plugin** <br>
 > OPTIONS method registered by CORS plugin cannot be modified.
 
 ### Delete Resources And Methods 
 - Select the resource path and methods you want to delete.
     - Clicking the **Delete Selected** button brings up the Confirm Delete window.
     - If you right-click the resource tree on the left, a menu appears. If you click Delete Resource or Delete Method in the menu, a confirmation window appears.
-- To delete, click the **Confirm** button. Once deleted, data cannot be recovered.
+-  Click **Confirm** on the confirmation window. Once deleted, data cannot be recovered.
 
 
-> **[Caution] Deletion of resource path**
+> **[Caution] Deletion of resource path** <br>
 > If you delete a resource path, all child resource paths and methods of the selected resource path are deleted.
 
-> **[Note] Deletion of OPTIONS method registered by CORS plugin**
+> **[Note] Deletion of OPTIONS method registered by CORS plugin** <br>
 >  OPTIONS method registered by CORS plugin cannot be deleted.
 
 
@@ -241,7 +241,7 @@ To change resources and apply the changed resources to the stage, you must **App
 3. Click the **Apply** button.
 
 
-> **[Caution] Applying stage resource**
+> **[Caution] Applying stage resource** <br>
 > - To apply a stage resource, one or more stages must exist.
 > - Once a resource is applied to a stage, the resource cannot be restored to the previous state.
 > - If the latest resource is already applied to the stage, stage resource cannot be applied.
@@ -271,7 +271,7 @@ Plugin allows you to add additional functions provided by API Gateway.
     3. Click the **Delete** button.
     4. Click the **Save Changes** button. 
 
-> **[Caution] Saving changes after adding plugins**
+> **[Caution] Saving changes after adding plugins** <br>
 > You must click the **Save Changes** button after adding plugins to save the changed settings.
 
 
@@ -340,8 +340,10 @@ The variables defined below can be used when creating methods of resources or se
 | ${request.queryString.QUERY_STRING_NAME} |Request query parameter |
 | ${request.header.HEADER_NAME} | Request header |
 | ${response.httpStatus} | Response HTTP status code |
+| ${error.resultCode} | Error code |
+| ${error.resultMessage} | Error message |
 
-> **[Caution] Path Variables**
+> **[Caution] Path Variables** <br>
 > You can only use the path variables declared in the selected path and its parent path.
 
 > **[Note] Use Context Variable** <br/>
@@ -373,7 +375,7 @@ Allows you to call XMLHttpRequest API within the Cross-Site method.
     - **Access-Control-Expose-Headers**: Set the header accessible by the browser (client). To set multiple headers, separate them by ','.
     - To find out more about CORS rules, see https://www.w3.org/TR/cors/.
 
-> **[Caution] CORS plugin**
+> **[Caution] CORS plugin** <br>
 > - Registering the CORS plugin also registers the OPTIONS method to the method of the selected path.
 >	If you selected the Overwrite Child Path and Method option, it is also registered in the child path.
 >	If the OPTIONS method is already registered, it is replaced with the OPTIONS method automatically generated by CORS.
@@ -388,10 +390,10 @@ Adds or changes the request header.
 - **Change Request Header Settings**
     - You can click the **\+** button to add a header list.
     - Enter the header name and value.
-    - Context variables declared by the resources can be set for the header value. (For more information on context variables, see [Context Variables](./console-guide/#context-variables).) 
+    - [Context Variables](./console-guide/#context-variables) declared by the resources can be set for the header value.
       
       
-> **[Note] Adding and changing the request header**
+> **[Note] Adding and changing the request header** <br>
 > - Any headers missing from the original request are added.
 > - Any headers available in the original request are replaced with the header value set by the change request header plugin.
 > - Any headers available in the original request cannot be deleted.
@@ -405,7 +407,7 @@ Deletes the specified header from the headers of the client request and makes a 
     - Click **+** to add a list of headers.
     - Add the name of the header you want to delete.
 
-> **[Note] Setting up changing and deleting request headers**
+> **[Note] Setting up changing and deleting request headers** <br>
 > If you have both the change request header and delete request header plugins set up at the same time, the Delete Request Header will be applied after the Change Request Header is applied. 
 
 ### Change Response Header 
@@ -415,10 +417,10 @@ Change response header plugin adds the header to the backend response or changes
 - **Steps for applying plugins**: Frontend response pre-task
 - You can click the **\+** button to add a header list.
 - Enter the header name and value. 
-- Context variables declared by the resources can be set for the header value. (For more information on context variables, see [Context Variables](./console-guide/#context-variables).)
+- [Context Variables](./console-guide/#context-variables) declared by the resources can be set for the header value.
 
 
-> **[Note] Adding and changing the response header**
+> **[Note] Adding and changing the response header** <br>
 > - Any headers missing from the backend endpoint response are added.
 > - Any headers available in the response of the backend endpoint response are replaced with the header value set by the change request header plugin.
 
@@ -432,7 +434,7 @@ Responds to the client after deleting the specified headers from the backend res
     - Click **+** to add a list of headers.
     - Add the name of the header you want to delete.
 
-> **[Note] Setting up changing and deleting response headers**
+> **[Note] Setting up changing and deleting response headers** <br>
 > If you have both the Change Response Headers and Delete Response Headers plugins set up at the same time, Delete Response Headers is applied after you apply Change Response Headers. 
 
 ### Add Request Query String Parameter
@@ -443,9 +445,9 @@ Example: If the parameter name and value are set to 'name' and 'value', **name=v
 - **Steps for applying plugins**: Backend request pre-task
 - **\+** button allows you to add a parameter list.
 - Enter the parameter name and value. 
-- Context variables declared by the resources can be set for the parameter value. (For more information on context variables, see [Context Variables](./console-guide/#context-variables).)
+- [Context Variables](./console-guide/#context-variables) declared by the resources can be set for the parameter value.
 
-> **[Note] Request Query String Parameter**
+> **[Note] Request Query String Parameter** <br>
 > - The requested query string parameter that has the same key as the originally requested query string parameter does not replace the originally requested query string but instead adds the query string parameter. 
 > - The value of the query string parameter is encoded and delivered to the backend endpoint.
 
@@ -469,10 +471,10 @@ Stage is a phase where resources are deployed.
         - API request client can request APIs through the Stage URL.
         - Stage URLs are issued in the following format: 
             - Default stage: {region}-{api-gateway-service-id}.api.nhncloudservice.com
-                - {region}:  Pangyo region(kr1)
+                - {region}: Korea (Pangyo) region (kr1)
                 - {api-gateway-service-id}: API Gateway Service ID
             - Normal stage: {region}-{api-gateway-service-id}-{stage-name}.api.nhncloudservice.com
-                - {region}:  Pangyo region(kr1)
+                - {region}: Korea (Pangyo) region (kr1)
                 - {api-gateway-service-id}: API Gateway Service ID
                 - {stage-name}: Entered stage name
     - Backend endpoint URL 
@@ -483,7 +485,7 @@ Stage is a phase where resources are deployed.
         - If you specify the port directly in the URL, only ports 80, 443, 10000-12000 can be used.
 
 
-> **[Note] Stage** 
+> **[Note] Stage** <br>
 > - To create a stage, one or more resources methods must have been registered.
 > - **Up to 10** stages can be created per stage. 
 > - When passing requests received by API Gateway to backend endpoint, they are passed to the backend endpoint URL defined in the stage by default.
@@ -495,7 +497,7 @@ Stage is a phase where resources are deployed.
 3. Modify stage information. The stage description and backend endpoint URL can be modified.
 4. After changing the settings, click the **Modify** button.
 
-> **[Caution] Deployment of stage** 
+> **[Caution] Deployment of stage** <br>
 > To apply the modified backend *endpoint* URL to the API Gateway, the stage needs to be deployed.
 
 
@@ -504,7 +506,7 @@ Stage is a phase where resources are deployed.
 2. Click the **Delete Stage** button.
 3. Click **Confirm** in the Confirm delete window. This action cannot be canceled. 
 
-> **[Caution] Deletion of stage**
+> **[Caution] Deletion of stage** <br>
 > - If you delete a stage being used by the service, its request no longer enters the API Gateway. 
 > - Since deleted stage cannot be recovered, make sure it is not being used by the service before deleting it.
 > - If there is a usage plan connected to the stage, the stage cannot be deleted.
@@ -515,7 +517,7 @@ To change resources and apply the changed resources to the stage, you must impor
 
 1. To apply the changed resources to the stage, click the **Import Resource** button.
 
-> **[Caution] Importing resources**
+> **[Caution] Importing resources** <br>
 > - Once resources are applied to the stage, they cannot be restored to the previous state.
 > - If there is no change to the resources, the Import Resource button is disabled.
 
@@ -543,7 +545,7 @@ You can verify deployment history after stage deployment, and go back stages by 
     - **Restore Stage**: A stage setup of the relevant deployment history. The present Stage Setup is modified.
     - **Delete**: Unnecessary deployment history is deleted.
 
-> **[Caution] Restore stage to previous deployment history**
+> **[Caution] Restore stage to previous deployment history** <br>
 > - If you use Restore Stage, you must deploy stage if you wish to apply it to API Gateway service.
 
 
@@ -575,7 +577,7 @@ API Gateway requests can be allowed/denied for the client IDs specified through 
             - CIDR example: 10.0.0.1/24
 
 
-> **[Note] IP ACLs registration count limit and client IP check**
+> **[Note] IP ACLs registration count limit and client IP check** <br>
 > - For IP ACL, **up to 100** IP access targets can be entered.
 > - If the source IP of the client has been changed by network address translation (NAT), please note that the IP ACLs will be checked based on the changed IP.
 
@@ -592,15 +594,15 @@ HMAC authentication prevents requests received by the API Gateway being tampered
     - Required validation header list: Write the header list which must be included in the API request validation. When entering a number of lists, separate them by commas (,).
     
 
-> **[Note] HMAC authentication failure response**
+> **[Note] HMAC authentication failure response** <br>
 > If HMAC authentication fails, 401 Unauthorized response is returned.
 >
-> **[Caution] Request expiration**
+> **[Caution] Request expiration** <br>
 > - If set to 0, it does not check the request expiration. It this case, it can be vulnerable to reply attacks. 
 > - If the expiration is too short, the expiration can be elapsed before the API Gateway validates the request, which could lead to the request being denied. It is recommended to set the time to 10 seconds or longer than the expected request expiration.
 > - You must check if the NTP (Network Time Protocol, NTP) of the API client is valid because requests can be denied due to non-synced time information.
 >
-> **[Note] Required validation header**
+> **[Note] Required validation header** <br>
 > If you have set the required validation header, it validates if the required validation header is included in the request and if it is the value containing the header in the signature while validating the API request.
 > During the setup, make sure the required validation header is included when creating a request and signature.
 
@@ -613,7 +615,7 @@ To perform HMAC authentication, the API request client must include the followin
 | Authorization | hmac algorithm="<encrypt_algorithm\>", headers="<validation_headers\>", signature="<base64_digest\>" |
 | x-nhn-date |  ISO8601 time format|
 
-> **[Note] x-nhn-date's ISO8601 format** 
+> **[Note] x-nhn-date's ISO8601 format** <br>
 > - UTC format: yyyy-MM-dd'T'HH:mm:ssZ
 > - UTC-based time offset forma: yyyy-MM-dd'T'HH:mm:ss±hh:mm
 
@@ -680,7 +682,7 @@ x-nhn-date:2021-02-23T00:00:00+09:00
 ```
 
 
-> **[Caution] Cautions when generating SignToString**
+> **[Caution] Cautions when generating SignToString** <br>
 > - SignToString Each field is separated by new-line characters(\n).
 > - Headers defined in headers must be included when generating SignToString.
 > - If the defined header is missing from the headers, [header name] and [header value] are not included in the SignToString generation.
@@ -724,22 +726,22 @@ Verifies the signature and claim of JWT token. Token values can be used without 
 | --- | --- |
 | Authorization | Bearer "<jwt-token\>" |
 
-> **[Note] JWT Token Authentication Failure Response**
+> **[Note] JWT Token Authentication Failure Response** <br>
 > If the authentication of JWT token fails, 401 Unauthorized response is returned.
 > For more information, see the [Gateway Error Code](./error-code/) document.
 >
-> **[Note] Creating JWT Token**
+> **[Note] Creating JWT Token** <br>
 > API Gateway only verifies whether the JWT token signature and claims match or not. A JWT Token must be created via user applications or authentication service providers.
 > To learn how to create a JWT token for the purpose of development and testing, see [JWT Token Debugger](https://jwt.io/).
 >
-> **[Note] JWKS (JSON Web Key Set) URI description and precautions**
+> **[Note] JWKS (JSON Web Key Set) URI description and precautions** <br>
 > JWKS is the JSON data for the JWK (JSON Web Key) encryption key that the API Gateway needs to verify token signatures.
 > For more details and specifications on JWK, please refer to the [RFC7515](https://tools.ietf.org/html/rfc7517) document.
 > The selected JWKS URI must be disclosed so that the API Gateway can access it, and should not be blocked with networks, firewalls, etc.
 > The selected JWKS URI must be operated so that the API Gateway can always access it. 
 > If you specify the port directly in the JWKS URI, only ports 80, 443, 10000-12000 can be used.
 >
-> **[Caution] JWKS Caching**
+> **[Caution] JWKS Caching** <br>
 > API Gateway caches JWKS URI's response for 5 minutes.
 > Due to caching by API Gateway, it may take a maximum of 5 minutes for modifications in JWKS to be reflected in API Gateway.
 
@@ -778,13 +780,13 @@ Access logs can be found in the Log & Crash Search service.
 | errorMessage | Gateway error message if an error occurred in API Gateway, empty value if no error occurred |
 
 
-> **[Note]** Log & Crash Search usage fee information
+> **[Note] Log & Crash Search usage fee information** <br>
 > Access logs are stored in the Log & Crash Search service, and the Log & Crash Search service usage fee is charged separately.
 > Refer to the links below for the Log & Crash Search service introduction and usage fee.
 > <a class='text-guide' target='_blank' href='https://www.nhncloud.com/kr/service/analytics/log-crash-search'>Go to the Log & Crash Search service introduction</a>
 > <a class='text-guide' target='_blank' href='https://www.nhncloud.com/kr/service/analytics/log-crash-search#price'>Go to the Log & Crash Search usage fee</a>
 > 
-> **[Caution]** Notification on disabling the Log & Crash Search service while using the access log feature
+> **[Caution] Notification on disabling the Log & Crash Search service while using the access log feature** <br>
 > If you disable the Log & Crash Search service while using the access log feature, the access logs are no longer stored and the access log feature is automatically disabled.
 > To use the access log feature again, enable the Log & Crash Search service and then enable the access log feature again.
 
@@ -810,7 +812,7 @@ This can be used in a situation where authentication through a separate API call
     - Cache time limit can be set to 86400 sec at maximum, and the response results are cached for the period specified by the entered number (seconds).
     - If the cache time limit it set to 0, response results for Pre-call API will not be cached and Pre-call API will be called for every request.
   
-> **[Note] Response Result Caching for Pre-call API**
+> **[Note] Response Result Caching for Pre-call API** <br>
 > Response results are only cached if Pre-call API’s response result code is 200.
 > If the response result code is not 200, response results will not be cached even if the cache time limit is set.
 
@@ -847,14 +849,14 @@ Requests received by the API gateway every second can be adjusted using the requ
         - Header: Limits requests for each default request limit key and set header name value. 
 
 >
-> **[Note] Request Number Limit Response**
+> **[Note] Request Number Limit Response** <br>
 > If requests per second is exceeded, the response of 429 Too Many Requests is returned.
 >       
-> **[Caution] Request Limit Key**
+> **[Caution] Request Limit Key** <br>
 > When using the request limit key, the request must contain the specified key. For example, if header is selected for the request limit key and the X-NHN-CLOUD value is entered, the request header must contain X-NHN-CLOUD.      
 > If the request limit key cannot be found from the request, the request number limit is not applied.
 >
-> **[Caution] Accuracy of Requests Per Second**
+> **[Caution] Accuracy of Requests Per Second** <br>
 > - The requests per seconds set and the actual number of requests could slightly differ depending on the time delivered to API Gateway, request processing time, and other factors.  
 
 ### Request Restriction Policy 
@@ -864,8 +866,8 @@ Applies registered request restriction policy to stage resource paths or methods
 2. Select **Settings** tab.
 3. On Stage Tree screen, select a path or method you want to apply request restriction policy.
 4. **Enables (On)** request restriction policy.
-5. Select a request restriction policy to apply and click on **Modify** button to save it.
-6. Click on the **Deploy Stage** button. When the stage deployment is complete, the set request restriction policy works.
+5. Select a request restriction policy to apply and click the **Modify** button to save it.
+6. Click the **Deploy Stage** button. When the stage deployment is complete, the set request restriction policy works.
 
 ### API Key
 
@@ -875,7 +877,7 @@ When making an API request to API Gateway, it is restricted to only the specifie
 - Only the API key connected to the stage of the usage plan can request the API of the stage. (For details, refer to [Usage Plan > Connect Stage to Usage Plan](./console-guide/#connect-stage-to-usage-plan).)
 - Examines the request limit of the usage plan the API key is connected to. (For details on how to set the request limit of a usage plan, refer to [Usage Plan > Create Usage Plan](./console-guide/#create-usage-plan).)
 
-> **[Note] API key failure response**
+> **[Note] API key failure response** <br>
 > The API request is rejected when the API key value is not included in the requested header, of its invalid, or exceeds the usage limit.
 > For more information, see the [Gateway Error Code](./error-code/) document.
 
@@ -925,7 +927,7 @@ If validation fails, it returns an error response and does not forward the reque
 7. Deploy the stage.
 8. The client's request is denied or allowed at the API Gateway level based on the set request parameters. 
 
-> **[Caution]** Setting form data and request body
+> **[Caution] Setting form data and request body** <br>
 > You can't set form data and request body at the same time.
 > You cannot support application/x-www-form-urlencoded and application/json as Content-Type on the same resource at the same time, so you must separate resources based on content type.
 
@@ -954,14 +956,14 @@ You can define a model to specify the format of body that you can use in the req
 1. Select the model to delete from the list of models.
 2. Click the **Delete** button.
    - The model cannot be deleted while being used in the request parameters or response.
-3. When the delete confirmation window appears, click the **Confirm** button. Deleted data cannot be restored.
+3. Click **Confirm** on the confirmation window. Deleted data cannot be restored.
 
 ## Request Restriction Policy 
 request restriction policy is a feature that allows you to set IP ACLs and request count limits based on a request's path variable or request header value.
 
 ### Create request restriction policy 
 1. In the list of API Gateway services, click **Resource** in Service Settings column.
-2. On **Request Restriction Policy** tab, click on **Create Request Restriction Policy**.
+2. On **Request Restriction Policy** tab, click **Create Request Restriction Policy**.
 3. Enter request restriction policy information. 
     - **Request Restriction Policy Name**: Enter the name of request restriction policy 
     - **Request Restriction Key Type**: Select the location of the request restriction key value to which the request restriction policy applies.
@@ -975,7 +977,7 @@ request restriction policy is a feature that allows you to set IP ACLs and reque
         - You can set it from 1 to 5000. 
     - **Response Remaining Token Count**: When the request restriction is set, the number of remaining tokens that can be requested is passed to the 'X-NHN-RateLimit-Remaining' response header.
 
-> **[Note] Limit the number of request restriction policies created**
+> **[Note] Limit the number of request restriction policies created** <br>
 > Request restriction policies can be created up to **10** per API Gateway service.
 
 
@@ -984,30 +986,30 @@ request restriction policy is a feature that allows you to set IP ACLs and reque
 2. Select **Settings** tab.
 3. On Stage Tree screen, select a path or method you want to apply request restriction policy.
 4. **Enables (On)** request restriction policy.
-5. Select request restriction policy to apply and click on **Modify** button.
-6. Click on the **Deploy Stage** button. When the stage deployment is complete, the set request restriction policy works.
+5. Select request restriction policy to apply and click the **Modify** button.
+6. Click the **Deploy Stage** button. When the stage deployment is complete, the set request restriction policy works.
 
 ### Modify request restriction policy 
 Allows you to modify the name of the request restriction policy, the default number of request restrictions per second, and the number of remaining tokens. 
 The request restriction key type and request restriction key cannot be modified. 
 
 1. From the list of request restriction, select the request restriction policy that you want to modify. 
-2. Click on **Modify Request Restriction Policy**.
-3. Modify the request restriction policy information and click on **Modify** button.
+2. Click **Modify Request Restriction Policy**.
+3. Modify the request restriction policy information and click the **Modify** button.
 
 ### Delete request restriction policy
 1. From the list of request restriction, select the request restriction policy that you want to modify. 
-2. Click on **Delete Request Restriction Policy**.
-3. Click on **Confirm** button when the confirmation window appears. Deleted data cannot be recovered.
+2. Click **Delete Request Restriction Policy**.
+3. Click **Confirm** on the confirmation window. Deleted data cannot be recovered.
 
-> **[Note] Request restriction policy cannot be deleted** 
+> **[Note] Request restriction policy cannot be deleted** <br>
 > When the request restriction policy to delete is set on the stage or is included in the deployed stage, it cannot be deleted. 
 > To delete, delete the request restriction policy set on the stage, deploy the stage and then delete it.
 
 ### Create request restriction key value
 Create key value of request restriction policy Depending on the restriction key value, you can set different IP ACLs and request count limits. 
 1. Select the request restriction policy to which you want to add the request restriction key value. 
-2. On the bottom tab, click on the **Create Request Restriction Key Value** button. 
+2. On the bottom tab, click the **Create Request Restriction Key Value** button. 
 3.  Enter the information of request restriction key value. 
     - **Request Restriction Key Value**: Enter a request restriction key value. Allows you to set IP ACLs and request count limits for each request restriction key value. 
     - **Requests Per Second**: Enter the request restriction value per second for the request restriction key value. 
@@ -1030,8 +1032,36 @@ Modify the request restriction per second, IP access control type, and IP access
 
 ### Delete request restriction key value  
 1. From the request restriction key value list, select the request restriction key value to delete. 
-2. Click on **Delete Request Restriction Key Value** button
-3. Click on **Confirm** button when the confirmation window appears. Deleted data cannot be recovered.
+2. Click the **Delete Request Restriction Key Value** button
+3. Click the **Confirm** button on the confirmation window. Deleted data cannot be recovered.
+
+
+## Gateway response
+Allows users to redefine the error response settings defined by the gateway. 
+
+### Redefine gateway response
+1. Click **Resource** in the service settings column from the list of API Gateway services.
+2. On the **Gateway Response** tab, click the type of gateway response you want to set up.
+3. Enter the response information. 
+    - **Response HTTP status code**: Enter the response HTTP status code (required).
+    - **Response header**: Enter a name and value for the response header.
+    - **Response body template**: Enter the content type and corresponding response body.
+        - Content type: Enter the type of content the user is requesting, that is, the value of the Accept header in the request.
+        - Response body: Enter the body of the gateway response to return in response to the value of the Accept header in the request.
+    - You can set [context variables](./console-guide/#context-variables) in the header value and response body.
+
+> **[Note] Apply gateway responses** <br>
+Changed gateway responses are applied after a stage deployment in the shape they were in at the time of deployment. 
+
+### Reset gateway response
+1. In the Gateway responses list, select the type of error you want to reset.
+2. Click **Reset Defaults**.
+3. Click **Confirm** on the confirmation window. The deleted data cannot be recovered.
+
+### Gateway response type
+- For gateway response types, see [Gateway Response Type Enum Codes](./enum-code/#gateway-response-type). 
+- See [Gateway Error Codes](./error-code/) for default body shapes based on the type of gateway response. 
+
 
 ## Check API Call
 
@@ -1042,12 +1072,11 @@ Modify the request restriction per second, IP access control type, and IP access
         - Method: GET
         - Stage URL: https://kr1-xxxxx-test.api.nhncloudservice.com/example
         - `curl --request GET 'https://kr1-xxxxx-test.api.nhncloudservice.com/example'`
-    ```
-
-> **[Caution] Stage deployment** 
+    
+> **[Caution] Stage deployment** <br>
 > To call the API, there must be a deployed stage with the status: Successfully Deployed. 
 
-> **[Note] If the API is not called properly**
+> **[Note] If the API is not called properly** <br>
 > - If 404 NotFound HTTP status code is returned: 
 >    1. See if the stage deployment status is Deployed.
 >    2. See if the request method and stage URL/path are correct.
@@ -1055,13 +1084,13 @@ Modify the request restriction per second, IP access control type, and IP access
 > - As for other error codes, see [Gateway Error Code](./error-code/) documentation. 
 
 
-> **[Caution] API Call constraints**
+> **[Caution] API Call constraints** <br>
 > - In the Gateway client, the request size with the API Gateway is restricted to **max. 10MB.** This value cannot be adjusted.
 > - In the API Gateway, the response size of the Gateway client is **max. 10MB.** This value cannot be adjusted. 
 > - Response timeout for the request is **max. 60 seconds.** If there is a response delay in the backend endpoint service, a timeout may occur.
 
 
-> **[Caution] API Gateway request ban policy**
+> **[Caution] API Gateway request ban policy** <br>
 > - If the endpoint service does not respond or continues to cause delayed response (over 60 sec) as a way of protecting the API Gateway Services and backend endpoint service, the request relating to the backend endpoint service is temporarily denied.
 > - It is not banned by the internal errors (4xx, 5xx, etc.) of the backend endpoint service.
 > - It is not recommended to link the backend endpoint service if it is not properly operable or if the delayed response (timeout) persists for over 60 seconds.
@@ -1084,11 +1113,11 @@ Here is the process of publishing API documentation.
         - **Private**: Only users who are accessible to console can access the API document.
 7. The API document is available at the URL that appears in the **Publish link**.  
 
-> **[Note] Stage deployment and API document publishing**
+> **[Note] Stage deployment and API document publishing** <br>
 > - An API document is published after the initial stage deployment, with the initial publishing type set to Private.
 > - The API document is updated to the configuration deployed when a stage deployment is performed.
 >
-> **[Caution] CORS setting when testing API calls from a published API document**
+> **[Caution] CORS setting when testing API calls from a published API document** <br>
 > - Since the domain address of the published API document and the domain address of the calling API are different, CORS setting might be necessary to test your calls within the API document.
 - Example:
   Access-Control-Allow-Origin: https://kr1-docs-apigw.api.nhncloudservice.com
@@ -1171,7 +1200,7 @@ Limit the ability to request stage APIs only by API key connected to the stage o
     - **Quota Period Unit**: Enter the maximum number of requests per day/month. (Optional)
     - **Request Quota**: Set the quota period unit to enter the maximum number of requests during the specified quota period.
 
-> **[Note] Reset request quota limits**
+> **[Note] Reset request quota limits** <br>
 > The request quota resets on the 1st of each month(monthly) and every day (daily) at UTC 00:00:00.
 
 ### Edit Usage Plan
@@ -1180,7 +1209,7 @@ Limit the ability to request stage APIs only by API key connected to the stage o
 3. Edit the usage plan information
 4. After changing the settings, click the **Edit** button.
 
-> **[Caution] Edit usage plan request control settings**
+> **[Caution] Edit usage plan request control settings** <br>
 > When editing the limited requests per second and request quota in the usage plan, it will be reflected in the connected API without a separate process.
 > If you modify the quota period unit to “day” or “month,” the usage of the connected API Key request quota is maintained. If the request quota limit is lowered, the usage may be exceeded.
 > If the quota period unit is modified to “None,” the requested quota usage of the associated API keys is initialized.
@@ -1190,9 +1219,9 @@ Limit the ability to request stage APIs only by API key connected to the stage o
 ### Delete Usage Plan
 1. Select the usage plan to delete in the usage plan list.
 2. Click the **Delete** button and the Confirm Delete window will be displayed.
-3. When the confirmation window appears, click the **OK** button. Deleted data cannot be restored.
+3. Click the **OK** button on the confirmation window. Deleted data cannot be restored.
 
-> **[Note] Usage plan cannot be deleted when connected to a stage**
+> **[Note] Usage plan cannot be deleted when connected to a stage** <br>
 > Usage plan can be deleted after disconnecting all stages that are connected to the usage plan.
 
 ### Connect Stage to Usage Plan
@@ -1202,7 +1231,7 @@ Connect a stage to the usage plan to define which stages the API key can request
 2. Click the **Connect Stage** button.
 3. Click the **OK** button after selecting the API Gateway service and stage.
 
-> **[Note] Already connected stage**
+> **[Note] Already connected stage** <br>
 > The already connected stage is not included in the selection list.
 
 ### Disable Stage Connected to the Usage Plan
@@ -1211,7 +1240,7 @@ Connect a stage to the usage plan to define which stages the API key can request
 3. Click the **Disconnect Stage** button.
 4. Click the **OK** button when the confirmation window appears.
 
-> **[Note] If there is an API key connected, stage cannot be disabled**
+> **[Note] If there is an API key connected, stage cannot be disabled** <br>
 > In order to disable the stage connected to the usage plan, all API keys connected to the stage must be disabled.
 
 ### Connect API Key
@@ -1222,13 +1251,13 @@ Connect the API key to call the API of a stage connected to the usage plan.
 3. Click the **Connect API Key** button at the bottom
 4. After selecting the API key to be added, click the **OK** button.
 
-> **[Note]** API keys connected to the same stage of different usage plans do not appear in the selection list and cannot be connected.
+> **[Note] API keys connected to the same stage of different usage plans do not appear in the selection list and cannot be connected.** <br>
 
 ### Disconnect API Key
 1. Click the **Name** link in the Usage Plan Name column in the usage plan list.
 2. From the Connected Stage list, select the stage to disconnect the API Key.
 3. After selecting the API key to disconnect from the bottom list, click the **Disconnect API Key** button.
-4. Click the **OK** button when the confirmation window appears.
+4. Click the **OK** button on the confirmation window.
 
 ### Change the Usage Plan of API Key
 1. Click the **Name** link in the Usage Plan Name column in the usage plan list.
@@ -1236,10 +1265,10 @@ Connect the API key to call the API of a stage connected to the usage plan.
 3. After selecting the API key with the usage plan to be changed from the bottom list, click the **Change Usage Plan** button.
 4. Click the **OK** button after selecting the usage plan to be changed.
    
-> **[Note]** The selected stage can only be changed to a different usage plan than it is connected to.
+> **[Note] The selected stage can only be changed to a different usage plan than it is connected to.** <br>
 
 
-> **[Caution]** Initialize usage of API Key request quota when changing the usage plan
+> **[Caution] Initialize usage of API Key request quota when changing the usage plan** <br>
 > If the quota period unit is changed to a “daily” or “monthly” usage plan, the requested quota usage of the associated API Key remains. The usage may be exceeded if changed to the usage plan with a low request quota limit.
 > If changing to the usage plan with a quota period unit of “None,” the requested quota usage of the associated API keys is initialized.
 
@@ -1258,7 +1287,7 @@ Connect the API key to call the API of a stage connected to the usage plan.
         - INACTIVE: API key is inactive and cannot be used.
         - **Primary API Key**: When selected user customization, it is generated by directly entering the Primary Key value. When not selected, it is automatically generated as an arbitrary string.
         - **Secondary API Key**: When selected user customization, it is generated by directly entering the Secondary Key value. When not selected, it is automatically generated as an arbitrary string.
-> **[Caution]** Custom Primary/Secondary API Key 
+> **[Caution] Custom Primary/Secondary API Key** <br>
 > For custom Primary/Secondary API Key, it is generated with a string of at least 10 alphanumeric characters and numbers. 
 > Must be unique across API Gateway services. 
 > It is recommended to make the keys complicated and not to be exposed.
@@ -1266,7 +1295,7 @@ Connect the API key to call the API of a stage connected to the usage plan.
 ### Export API Key 
 Export a registered API Key in CSV format file. 
 
-1. On the API Key list page, click on **Export** button. 
+1. On the API Key list page, click the **Export** button. 
 2. Download CSV file.
 
 > [Note] Only API Keys that are queried in API Key list are exported to a file.
@@ -1274,12 +1303,12 @@ Export a registered API Key in CSV format file.
 ### Import API Key
 Import API keys with CSV format file.
 
-1. On API Key list page, click **Import** button and then click on **Select File** button to select CSV file to import. 
+1. On API Key list page, click **Import** button and then click the **Select File** button to select CSV file to import. 
 2. A list of API keys registered based on CSV files is displayed on the screen. 
     - If the imported data includes some parts to be modified, the data cannot be imported. 
-3.  Click on **Import** button. 
+3.  Click the **Import** button. 
 
-> **[Note]** Import failed when API Key is duplicated  
+> **[Note] Import failed when API Key is duplicated** <br>
 > All API keys Importing fails if duplicate Primary API Key and Secondary API Key exists. Please modify the duplicate API key and import it again. 
 
 ### Edit API Key
@@ -1288,15 +1317,15 @@ Import API keys with CSV format file.
 3. Edit the API key. Items that can be edited are Name of API Key, Description of API Key, and Status of API Key.
 4. After changing the settings, click the **Edit** button.
 
-> **[Caution] Edit status of API key**
+> **[Caution] Edit status of API key** <br>
 > If the status of API key is changed to INACTIVE, the API key cannot be used.
 
 ### Delete API Key
 1. Select the API key to be deleted from the API key list.
 2. Click the **Delete** button and the Confirm Delete window will be displayed.
-3. When the confirmation window appears, click the **OK** button. Deleted data cannot be restored.
+3. Click the **OK** button on the confirmation window. Deleted data cannot be restored.
 
-> **[Note] If there are connected usage plan and stage, it cannot be deleted**
+> **[Note] If there are connected usage plan and stage, it cannot be deleted** <br>
 > The API key cannot be deleted if there are connected usage plan and stage.
 
 ### Regenerate API Key
@@ -1328,7 +1357,7 @@ Instead of domains randomly issued as custom domains, users can create domains i
 4. GSLB Domain: Enter the GSLB domain to configure API Gateway region redundancy. For more information about API Gateway Region Redundancy Guide, see [API Gateway Region Redundancy Guide](./console-guide/#api-gateway-region-redundancy). 
 5. Click **Create** button to create a custom domain in {CustomDomainPrefix}.capi.nhncloudservice.com format. 
 
-> **[Note]**Custom domain 
+> **[Note] Custom domain** <br>
 > Custom domain is to be created with strings of at least 2 characters, up to 50 alphanumeric characters, numbers and - characters. 
 > Must be unique across API Gateway services. 
 
@@ -1336,60 +1365,75 @@ Instead of domains randomly issued as custom domains, users can create domains i
 
 1. Go to **Custom Domain**
 2. Select custom domain to delete 
-2. Click on **Delete Custom Domain** button.
+2. Click the **Delete Custom Domain** button.
 3. If clicking on the **Delete** button, confirmation window for deletion is to be displayed. 
-4. Click on **Confirm** button when the confirmation window appears. Deleted data cannot be recovered.
+4. Click the **Confirm** button on the confirmation window. Deleted data cannot be recovered.
 
-> **[Note]** Unable to delete custom domain 
+> **[Note] Unable to delete custom domain** <br>
 > Custom domains connected to stage cannot be deleted. 
 > Please disconnect custom domain in stage and then delete. 
 
 ### Connect stage of custom domain
 1. Go to stage to connect with custom domain
 2. Go to stage tab>custom domain tab 
-3. Click on **Connect with Stage** button in the custom domain you want to connect to. 
+3. Click the **Connect with Stage** button in the custom domain you want to connect to. 
 
 ### Disconnect stage from a custom domain
 1. Go to the stage where you want to disconnect the custom domain.
 2. Go to stage tab>custom domain tab 
-3. Click on **Disconnect from Stage** button in the custom domain that you want to disconnect. 
+3. Click the **Disconnect from Stage** button in the custom domain that you want to disconnect. 
 
-> **[Note]** When disconnecting a stage, API cannot be called to a custom domain. 
+> **[Note] When disconnecting a stage, API cannot be called to a custom domain.** <br>
 > When you disconnect a stage of custom domain, the stage API can no longer be called to the custom domain. 
 > Please make sure that there are no clients calling the API using the custom domain and then disconnect. 
 
 ## API Gateway region redundancy 
 If the region where the API Gateway is located fails, the API Gateway for that region may not operate normally.  
 To operate API Gateway service without the impact of a specific region failure, you can avoid it by configuring the API Gateway for multiple regions with redundancy.  
-The following is a scenario in which API Gateway is newly configured in the existing Pangyo Region and the API Gateway is configured in Pyeongchon Region to redundancy the Region. 
+The following is a scenario in which API Gateway is newly configured in the existing Korea (Pangyo) Region and the API Gateway is configured in Korea (Pyeongchon) Region to redundancy the Region. 
 
-### 1. Service and Create stage in Pyeongchon Region 
-1. Create API Gateway service in Pyeongchon region.
-2. Registers the same resources as the Pangyo Region Stage in operation with the API Gateway service in Pyeongchon Region.  
+### 1. Service and Create stage in Korea (Pyeongchon) Region 
+1. Create API Gateway service in Korea (Pangyo) Region.
+2. Registers the same resources as the Korea (Pangyo) Region Stage in operation with the API Gateway service in Korea (Pyeongchon) Region.  
 In order to transfer easily, download the resources registered on the stage through [Stage > Import Resource](./console-guide/#import-resource_1) as Swagger file, then you can register a resource with the downloaded Swagger file through [Resource > Import Resource](./console-guide/#import-resource). 
-3. Create a stage for Pyeongchon region and if there is a stage setting required, modify and deploy the stage. 
+3. Create a stage for Korea (Pyeongchon) Region and if there is a stage setting required, modify and deploy the stage. 
 
 > [Note] Resources > Stage plug-in settings when importing resources. 
 > When importing resources with Swagger file, do not import the plug-ins set on stage. Please add the necessary plug-ins separately in stage setting.
 
 ### 2. Create GSLB 
-This guide uses the GSLB of NHN Cloud DNS Plus service. For more information on setting up GSLB, refer to [DNS Plus Console Usage Guide](https://docs.nhncloud.com/en/Network/DNS%20Plus/en/console-guide/).
+This guide uses the GSLB of NHN Cloud DNS Plus service. For more information on setting up GSLB, refer to [DNS Plus Console Usage Guide](/Network/DNS%20Plus/en/console-guide/).
 
 1. Go to DNS Plus service
 2. Create GSLB 
 3. Create health check. 
-    * For Health check path, registered health check resource path by configuring resource method to use for health check in API Gateway in Pangyo and Pyeongchon regions.
+    * For Health check path, registered health check resource path by configuring resource method to use for health check in API Gateway in Korea (Pangyo) and Korea (Pyeongchon) Regions.
     * A pool that failed health check is excluded from service.
 4. Create Pool 
     * For health check in Create Pool, select the health check that you created above. 
-    * For endpoint address, enter API Gateway stage domain for Pangyo and Pyeongchon regions. 
+    * For endpoint address, enter API Gateway stage domain for Korea (Pangyo) and Korea (Pyeongchon) Regions. 
     * For weights and states, set according to redundancy structure (Active, Active-StandBy) that you want to configure. 
 5. Check whether or not the status of the pool connected with the GSLB is ACTIVE. 
 
 ### 3.  Create custom domain 
-1. Create a custom domain to be used in Pangyo and Pyeongchon Region when calling Stage API. You have to create a custom domain for each region, and have to create it with the same custom domain. 
+1. Create a custom domain to be used in Korea (Pangyo) and Korea (Pyeongchon) Region when calling Stage API. You have to create a custom domain for each region, and have to create it with the same custom domain. 
 2. When creating a custom domain, enter the GSLB domain that you created in GSLB domain  
 
 ### 4. Connect custom domain to stages in each region
-1. Connect the custom domains you created to each API Gateway stage in Pangyo and Pyeongchon Region. For more information, refer to [Guide to connect Custom Domain with stage](./console-guide/#connect-stage-of-custom-domain).
+1. Connect the custom domains you created to each API Gateway stage in Korea (Pangyo) and Korea (Pyeongchon) Region. For more information, refer to [Guide to connect Custom Domain with stage](./console-guide/#connect-stage-of-custom-domain).
 2. Check whether or not the API is successfully called to the custom domain and that traffic is distributed according to GSLB configuration. 
+
+
+## API Gateway Service Gateway Integration 
+Service gateways allow clients and API Gateway to communicate with each other inside NHN Cloud, instead of going through the external internet.
+Please refer to the following guide to learn how to integrate API Gateway Service Gateway.
+
+
+1. Create a service gateway for the API Gateway service.
+    * To create a service gateway, see the [Service Gateway > Console User Guide](/Network/Service%20Gateway/en/console-guide/).
+2. In the /etc/hosts file, add the service gateway IP and the domain address of the stage you want to access. 
+    * Example: 192.168.1.42 kr1-gateway-example.api.nhncloudservice.com 
+
+> **[Note] Modify the /etc/hosts file** <br>
+> If you don't modify the /etc/hosts file, you won't be able to make API calls to the stage URL.
+You can register and use multiple API Gateway stage domains with a single service gateway IP.

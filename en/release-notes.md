@@ -1,5 +1,13 @@
 ## Application Service > API Gateway > Release Note
 
+### August 27, 2024
+#### Feature Updates 
+* Added the gateway response feature
+    * You can redefine the error response settings defined by the gateway. 
+    * For more information, see [Console guide > Gateway response](./console-guide/#gateway-response).
+* Added Service Gateway integration 
+    * Service Gateway allows clients within NHN Cloud's internal network to communicate with API Gateway without going through the Internet.
+* In the gateway <-> backend endpoint leg, if the backend endpoint only supports less than TLS 1.2, communication is no longer supported.
 
 ### July 23, 2024
 #### Feature Updates 
