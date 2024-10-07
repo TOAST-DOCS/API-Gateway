@@ -278,7 +278,7 @@
     "header": {
         "isSuccessful": false,
         "resultCode": 5040001,
-        "resultMessage": "Gateway Timeout"
+        "resultMessage": "Gateway Timeout ({errorDetailMessage})"
     }
 }
 ```
