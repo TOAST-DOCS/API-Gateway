@@ -248,7 +248,7 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | Enum | 필수 | 없음 | KR1,KR2 | [API Gateway 리전 Enum 코드](./enum-code-gov/#api-gateway) 참고|
+| regionCode | Enum | 필수 | 없음 | KR1 | [API Gateway 리전 Enum 코드](./enum-code-gov/#api-gateway) 참고|
 | apigwServiceName | String | 필수 | 없음 | 최대 50자  | API Gateway 서비스 이름 |
 | apigwServiceDescription | String | 선택 | 없음 | 최대 200자  | API Gateway 서비스 설명 |
 
