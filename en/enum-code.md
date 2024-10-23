@@ -185,6 +185,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | Gateway response type | Default status codes | Description |
 | ----------- | -------- | --- |
 | UpstreamServiceUnavailable | 503 | Response that occurs when the backend endpoint service is unresponsive or experiencing a persistent response delay (60 seconds or more). |
+| GatewayTimeout | 504 | Response that occurs when the gateway's maximum response time (60 seconds) is exceeded. |
 | Unauthorized | 401 | Response that occurs when the requested information required for authentication is missing or if authentication fails. |
 | JwksError | 500 | Response that occurs if the JWT's JWKS is set incorrectly. |
 | PreApiFailed | 502 | Response that occurs when the pre-call API does not respond to a request from API Gateway. If the response status code of the pre-call API is not 200, the response from the pre-call API is passed to the client as it is. |
