@@ -268,3 +268,17 @@
    }
 }
 ```
+
+## 게이트웨이 최대 응답 시간 초과
+- 발생 원인: 게이트웨이의 최대 응답 시간(60초) 안에 백엔드 엔드포인트로부터 요청을 마치기 위해 필요한 응답을 받지 못할 경우 오류가 발생합니다.
+- 응답 HTTP 상태: 504 Gateway Timeout
+- 오류 응답 본문 
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 5040001,
+        "resultMessage": "Gateway Timeout (Upstream ReadTimeout. limit: 60000ms)"
+    }
+}
+```

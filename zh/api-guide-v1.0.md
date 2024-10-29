@@ -3645,7 +3645,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | gatewayResponseList                      | List     | Gateway response list area |
 | gatewayResponseList[0]                   | Object   |  Gateway response area |
 | gatewayResponseList[0].gatewayResponseId  | String   | Gateway response ID |
-| gatewayResponseList[0].gatewayResponseType | Enum   | See [](./enum-code/#_8)Gateway Response Type Enum Code[](./enum-code/#_8) |
+| gatewayResponseList[0].gatewayResponseType | Enum   | See [Gateway Response Type Enum Code](./enum-code/#gateway-response-type) |
 | gatewayResponseList[0].httpStatusCode        | Integer   | Gateway response HTTP status codes |
 | gatewayResponseList[0].headers | Map   | Gateway response header object area |
 | gatewayResponseList[0].headers[{HeaderName}] | Object   | Map Entry of Gateway response headers (Key: header name, Value: header value) |
@@ -3684,7 +3684,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Name                | Type     | Required | Default value | Valid range            | Description                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
-| gatewayResponseType        | Enum | Required    | N/A  | [Gateway Response Type Enum Code](./enum-code/#_8) |  |
+| gatewayResponseType        | Enum | Required    | N/A  | See [Gateway Response Type Enum Code](./enum-code/#gateway-response-type) |  |
 | httpStatusCode | Integer | Required    | N/A  | 100-599 | Gateway response HTTP status codes |
 | headers      | Map   | Optional    | N/A  | N/A | Custom response header object area |
 | headers[{HeaderName}] | Object   | Required    | N/A  | N/A | Map Entry of Gateway response headers (Key: header name, Value: header value) |
@@ -3718,7 +3718,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | ------------------------------- | -------- | ------------------------------------------------- |
 | gatewayResponse                   | Object   |  Gateway response area |
 | gatewayResponse.gatewayResponseId  | String   | Gateway response ID |
-| gatewayResponse.gatewayResponseType | Enum   | See [](./enum-code/#_8)Gateway Response Type Enum Code[](./enum-code/#_8) |
+| gatewayResponse.gatewayResponseType | Enum   | See [Gateway Response Type Enum Code](./enum-code/#gateway-response-type) |
 | gatewayResponse.httpStatusCode        | Integer   | Gateway response HTTP status codes |
 | gatewayResponse.headers | Map   | Gateway response header object area |
 | gatewayResponse.headers[{HeaderName}] | Object   | Map Entry of Gateway response headers (Key: header name, Value: header value) |
