@@ -214,7 +214,7 @@ You can bring the resource through the file format of Swagger v2.0 [OpenAPI Spec
     1. HTTP method cannot be modified. To modify an HTTP method, it must be deleted and created again.
     2. Method name, description, and backend endpoint items can be modified. 
     3. To modify, select the method from the resource tree on the left.
-    4. Change the settings and click the **Save Changes** button.
+    4. Change the settings and click the **Save** button.
 
 > **[Note] Modification of OPTIONS method registered by CORS plugin** <br>
 > OPTIONS method registered by CORS plugin cannot be modified.
@@ -223,7 +223,7 @@ You can bring the resource through the file format of Swagger v2.0 [OpenAPI Spec
 - Select the resource path and methods you want to delete.
     - Clicking the **Delete Selected** button brings up the Confirm Delete window.
     - If you right-click the resource tree on the left, a menu appears. If you click Delete Resource or Delete Method in the menu, a confirmation window appears.
--  Click **Confirm** on the confirmation window. Once deleted, data cannot be recovered.
+-  Click **Delete** on the confirmation window. Once deleted, data cannot be recovered.
 
 
 > **[Caution] Deletion of resource path** <br>
@@ -259,17 +259,15 @@ Plugin allows you to add additional functions provided by API Gateway.
         - **Backend Request Pre-Task**: Applies plugins before passing the API request received by API Gateway to the backend.
         - **Frontend Response Pre-Task**: Applies plugins before the response passed from the backend is forwarded to the frontend.
 - **Add Plugin**
-    - Click the **+ Plugin** button for the backend request pre-task and frontend response pre-task.
-        1. Click the plugin to add.
-        2. Enter necessary information in the plugin settings and click the **Add** button.
-        3. To batch apply the plugin to the child path and method (including the selected path), select **Overwrite Child Path and Method**.
-            - **!Caution**: If the plugin is already registered in the child path and method, the settings will be overwritten.
-        4. Click the **Save Changes** button. 
+    1. Enable the plugin to add.
+    2. After entering the setting of the plugin to add, click **Save** button.
+    3. To apply plugins to subpaths and methods, including the selected path, check **Overwrite Subpaths and Methods**.
+        - **!Caution**: Please note that if the plugin you're adding to a subpath or method already exists, its settings will be overwritten.
+    4. Click the **Save** button. 
 - **Delete Plugin**
-    1. Select the registered plugins for the backend request pre-task and frontend response pre-task.
-    2. To batch delete the plugin from the child path and method (including the selected path), select **Overwrite Child Path and Method**.
-    3. Click the **Delete** button.
-    4. Click the **Save Changes** button. 
+	1. To delete the plugin from all subpaths and methods, including the selected path, check **Overwrite Subpaths and Methods**.
+    2. Disable the plugin to delete.
+    3. Click the **Save** button. 
 
 > **[Caution] Saving changes after adding plugins** <br>
 > You must click the **Save Changes** button after adding plugins to save the changed settings.
@@ -277,7 +275,7 @@ Plugin allows you to add additional functions provided by API Gateway.
 
 ### Request Parameters
 Set request parameters, response types, and content type for each resource method.  
-Settings are applied to [API document](./console-guide/#api-document_1).
+Settings are applied to [API documentation](./console-guide/#api-document_1).
 
 1. Select the resource method.
 2. Click the **Request parameter** tab.
@@ -296,20 +294,17 @@ Settings are applied to [API document](./console-guide/#api-document_1).
         - Model: Select the [Model](./console-guide/#model) of the request body.
     - Content Type
         - Enter the content type (e.g., application/json) of the documents to send to the server.
-4. Click the **Save Changes button**.
+4. Click the **Save Changes** button.
 
 ### Response
 Set header, request body, and content type for each HTTP response status code.
-Settings are applied to [API document](./console-guide/#api-document_1).
+Settings are applied to [API documentation](./console-guide/#api-document_1).
 
 1. Select the resource method.
 2. Click the **Response** tab.
 3. Click the **Add button** of the response HTTP status code to display the additional input screen.
 4. Enter the response HTTP status code and description to add.
-
-5. Click the **Create button**. 
-6. Select the row for the added response HTTP status code.
-7. Enter the response header and response body for each response HTTP status code.  
+5. Select the row for the added response HTTP status code. Enter the response header and response body for each response HTTP status code.  
     - Header
         - Name: Enter the header name. 
         - Description: Enter the header description.
@@ -504,7 +499,7 @@ Stage is a phase where resources are deployed.
 ### Delete Stage
 1. Select the stage to delete.
 2. Click the **Delete Stage** button.
-3. Click **Confirm** in the Confirm delete window. This action cannot be canceled. 
+3. Click **Delete** in the Confirm delete window. This action cannot be canceled. 
 
 > **[Caution] Deletion of stage** <br>
 > - If you delete a stage being used by the service, its request no longer enters the API Gateway. 
@@ -555,9 +550,9 @@ You can verify deployment history after stage deployment, and go back stages by 
 3. Click the **Export the Stage** button to save the selected stage’s resource in a Swagger file.
 
 
-### API Document
-You can check the configuration deployed through **stage deployment** with the API document.
-Refer to [API document](./console-guide/#api-document_1) for details.
+### API Documentation
+You can check the configuration deployed through **stage deployment** with the API documentation.
+Refer to [API documentation](./console-guide/#api-document_1) for details.
 
 ###  IP ACL
 API Gateway requests can be allowed/denied for the client IDs specified through IP ACL.
@@ -565,7 +560,7 @@ API Gateway requests can be allowed/denied for the client IDs specified through 
 1. On the **Stage** tab, select a stage.
 2. Select the **Setup** tab. 
 3. Select the Stage a path or method on the Stage Tree screen. 
-4. **Activate (On)** the IP ACL. 
+4. Select **Activate** from IP ACL. 
 5. Set up the IP ACL. 
     - **IP Access Control Type**
         - Allow: Only allow access of specific IPs, and deny all the other IPs. (Whitelist method)
@@ -587,7 +582,7 @@ HMAC authentication prevents requests received by the API Gateway being tampered
 1. On the **Stage** tab, select a stage.
 2. Select the **Setup** tab.
 3. Select the Stage root(/) path on the Stage Tree screen. 
-4. In the authentication, select **HMAC**.
+4. Change the authentication to **Setup** and select **HMAC**.
 5. Enter the HMAC setup. 
     - Secret key: It is a secret key for encrypting SignToString. Make sure the key is not exposed to others. 
     - Request expiration (sec): Denies the request that exceeds the bidirectional time (before and after the past/future point of the request time) of the set expiration. If the request expiration is set to 0, the API Gateway does not check the expiration time.
@@ -700,7 +695,7 @@ Verifies the signature and claim of JWT token. Token values can be used without 
 1. On the **Stage** tab, select a stage.
 2. Select the **Setup** tab. 
 3. Select the Stage root(/) path on the Stage Tree screen. 
-4. In the authentication, select **JWT**.
+4. Change the authentication to **Setup** and select **JWT**.
 5. Enter the JWT setup. 
     - **Token Encryption Algorithm**: Select the encryption algorithm used to sign the token. Encryption algorithm supports HS256 and RS256.
         - HS256 Token Algorithm
@@ -751,8 +746,8 @@ This is a feature that lets you store API Gateway's access logs in the Log & Cra
 1. On the **Stage** tab, select a stage.
 2. Select the **Settings** tab.
 3. In the stage tree view, select the root (/) path of the stage. 
-4. **Enable (On)** the access log feature. 
-5. If you are not using the Log & Crash Search service, click **Enable Log & Crash Search Service** to enable the service. 
+4. Select **Setup** from the access log and enable it (on). 
+5. If you are not using the Log & Crash Search service, enable the Log & Crash Search service. 
 6. Click **Modify** to save your settings.
 7. After running **Deploy Stage**, access logs are stored in the Log & Crash Search service. 
 
@@ -806,7 +801,7 @@ This can be used in a situation where authentication through a separate API call
 3. In the Stage Tree screen, select the path or method to apply the Pre-call API.
     - Pre-call API set in a path is applied to all child paths and method calls defined under the path.
     - Pre-call API set in a method is applied when calling the method, but Pre-call API set in the root path is not applied.
-4. Activate the Pre-call API.
+4. Select **Setup** from the Pre-call API.
     - Enter the method type and URL for Pre-call API.
         - If you specify the port directly in the URL, only ports 80, 443, 10000-12000 can be used.	
     - Cache time limit can be set to 86400 sec at maximum, and the response results are cached for the period specified by the entered number (seconds).
@@ -839,7 +834,7 @@ Requests received by the API gateway every second can be adjusted using the requ
 3. On the Stage Tree screen, select the root (/) path or method of the stage.
     - If set for the root path, request number limit will be applied to the stage.
     - If set for the method, request number limit will be applied to each method. Request number limit set for the parent path will be ignored. 
-4. Turn the request number limit **On**. 
+4. Select **Setup** from the request number limit. 
 5. Set the request number limit. 
     - Requests per Second: Enter the maximum number of requests that can be called in seconds.
     - Request Limit Key: The default request limit key is stage when set for the root, and method when set for the method. A request limit key can be added to the default request limit key.
@@ -885,7 +880,7 @@ When making an API request to API Gateway, it is restricted to only the specifie
 2. Select the **Settings** tab.
 3. Select the path or method to enable API key in the stage tree screen.
    - The API key set in a path is applied to all child paths and method calls defined under the path.
-4. Enable the API key.
+4. Select **Setup** from the API key and enable it (on).
 5. Deploy the stage.
 6. When requesting API, it is requested by adding the API key value to the x-nhn-apikey header.
 
@@ -923,7 +918,7 @@ If validation fails, it returns an error response and does not forward the reque
 4. Select **Stage** tab.
 5. On the Stage Tree screen, select the route or method for which you want to enable the request validator.
     - The request validation you set on a route is enforced for all subdefined child routes and method calls.
-6. Enable (on) the request validator.
+6. Select **Setup** from the request validator and enable it (on).
 7. Deploy the stage.
 8. The client's request is denied or allowed at the API Gateway level based on the set request parameters. 
 
@@ -948,13 +943,13 @@ You can define a model to specify the format of body that you can use in the req
 
 ### Edit Model
 1. Select the model to edit from the list of models.
-2. Click the **Edit** button.
+2. Click the pencil icon of **Manage** column.
 3. Edit the model information. Items that can be edited are model description and model schema.
 4. After changing the settings, click the **Edit** button.
 
 ### Delete Model
 1. Select the model to delete from the list of models.
-2. Click the **Delete** button.
+2. Click the bin icon of **Manage** column.
    - The model cannot be deleted while being used in the request parameters or response.
 3. Click **Confirm** on the confirmation window. Deleted data cannot be restored.
 
@@ -985,7 +980,7 @@ request restriction policy is a feature that allows you to set IP ACLs and reque
 1. Select a stage on **Stage** tab.
 2. Select **Settings** tab.
 3. On Stage Tree screen, select a path or method you want to apply request restriction policy.
-4. **Enables (On)** request restriction policy.
+4. Select **Setup* from the request restriction policy.
 5. Select request restriction policy to apply and click the **Modify** button.
 6. Click the **Deploy Stage** button. When the stage deployment is complete, the set request restriction policy works.
 
@@ -993,7 +988,7 @@ request restriction policy is a feature that allows you to set IP ACLs and reque
 Allows you to modify the name of the request restriction policy, the default number of request restrictions per second, and the number of remaining tokens. 
 The request restriction key type and request restriction key cannot be modified. 
 
-1. From the list of request restriction, select the request restriction policy that you want to modify. 
+1. From the list of request restriction policy, select the request restriction policy that you want to modify. 
 2. Click **Modify Request Restriction Policy**.
 3. Modify the request restriction policy information and click the **Modify** button.
 
@@ -1033,7 +1028,7 @@ Modify the request restriction per second, IP access control type, and IP access
 ### Delete request restriction key value  
 1. From the request restriction key value list, select the request restriction key value to delete. 
 2. Click the **Delete Request Restriction Key Value** button
-3. Click the **Confirm** button on the confirmation window. Deleted data cannot be recovered.
+3. Click the **Delete** button on the confirmation window. Deleted data cannot be recovered.
 
 
 ## Gateway response
@@ -1096,29 +1091,29 @@ Changed gateway responses are applied after a stage deployment in the shape they
 > - It is not recommended to link the backend endpoint service if it is not properly operable or if the delayed response (timeout) persists for over 60 seconds.
 
 
-## API Document
-You can use the API document to manage the specification of the API registered in API Gateway as a web page document.
+## API Documentation
+You can use the API documentation to manage the specification of the API registered in API Gateway as a web page document.
 
-### Publish API document
+### Publish API documentation
 Here is the process of publishing API documentation.
 
 1. Click **Model** tab from the resource setting page to request and register the model of the body.
 2. Select the resource method from the resource setting page and enter the request parameters and response.
 3. Click **Apply stage resource** to apply the changed resource details to the stage.
 4. Click **Deploy stage** button of the stage setting page. 
-5. Click **API document tab** of the stage setting page.
-6. Select the publish type of the API document.
-    - **Publish type**: You can set access restrictions for the API document.
-        - **Public**: Access to the API document is allowed without access restrictions.
-        - **Private**: Only users who are accessible to console can access the API document.
-7. The API document is available at the URL that appears in the **Publish link**.  
+5. Click **API documentation tab** of the stage setting page.
+6. Select the publish type of the API documentation.
+    - **Publish type**: You can set access restrictions for the API documentation.
+        - **Public**: Access to the API documentation is allowed without access restrictions.
+        - **Private**: Only users who are accessible to console can access the API documentation.
+7. The API documentation is available at the URL that appears in the **Publish link**.  
 
-> **[Note] Stage deployment and API document publishing** <br>
-> - An API document is published after the initial stage deployment, with the initial publishing type set to Private.
-> - The API document is updated to the configuration deployed when a stage deployment is performed.
+> **[Note] Stage deployment and API documentation publishing** <br>
+> - An API documentation is published after the initial stage deployment, with the initial publishing type set to Private.
+> - The API documentation is updated to the configuration deployed when a stage deployment is performed.
 >
-> **[Caution] CORS setting when testing API calls from a published API document** <br>
-> - Since the domain address of the published API document and the domain address of the calling API are different, CORS setting might be necessary to test your calls within the API document.
+> **[Caution] CORS setting when testing API calls from a published API documentation** <br>
+> - Since the domain address of the published API documentation and the domain address of the calling API are different, CORS setting might be necessary to test your calls within the API documentation.
 - Example:
   Access-Control-Allow-Origin: https://kr1-docs-apigw.api.nhncloudservice.com
   Access-Control-Allow-Method: GET, POST, DELETE, PUT, PATCH, HEAD, OPTIONS
@@ -1218,8 +1213,7 @@ Limit the ability to request stage APIs only by API key connected to the stage o
 
 ### Delete Usage Plan
 1. Select the usage plan to delete in the usage plan list.
-2. Click the **Delete** button and the Confirm Delete window will be displayed.
-3. Click the **OK** button on the confirmation window. Deleted data cannot be restored.
+2. Click the **Delete** button on the confirmation window. Deleted data cannot be restored.
 
 > **[Note] Usage plan cannot be deleted when connected to a stage** <br>
 > Usage plan can be deleted after disconnecting all stages that are connected to the usage plan.
@@ -1322,8 +1316,7 @@ Import API keys with CSV format file.
 
 ### Delete API Key
 1. Select the API key to be deleted from the API key list.
-2. Click the **Delete** button and the Confirm Delete window will be displayed.
-3. Click the **OK** button on the confirmation window. Deleted data cannot be restored.
+2. Click the **Delete** button on the confirmation window. Deleted data cannot be restored.
 
 > **[Note] If there are connected usage plan and stage, it cannot be deleted** <br>
 > The API key cannot be deleted if there are connected usage plan and stage.
@@ -1366,8 +1359,7 @@ Instead of domains randomly issued as custom domains, users can create domains i
 1. Go to **Custom Domain**
 2. Select custom domain to delete 
 2. Click the **Delete Custom Domain** button.
-3. If clicking on the **Delete** button, confirmation window for deletion is to be displayed. 
-4. Click the **Confirm** button on the confirmation window. Deleted data cannot be recovered.
+3. Click the **Delete** button on the confirmation window. Deleted data cannot be recovered.
 
 > **[Note] Unable to delete custom domain** <br>
 > Custom domains connected to stage cannot be deleted. 
