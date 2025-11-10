@@ -1,5 +1,10 @@
 ## Application Service > API Gateway > Release Note
 
+### November 11, 2025
+#### Feature Updates
+* Improved user console UI/UX
+   * Improved user interface to increase usability.
+
 ### August 27, 2024
 #### Feature Updates 
 * Added the gateway response feature
