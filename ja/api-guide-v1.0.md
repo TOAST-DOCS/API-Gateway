@@ -13,8 +13,11 @@ NHN Cloud API Gatewayで提供するPublic API v1.0を説明します。
 
 ### 事前準備
 
-APIを使用するにはアプリキー(Appkey)が必要です。
-アプリキーはコンソール右上の**URL & Appkey** メニューで確認できます。
+API Gateway APIを使用するにはAppkeyまたはプロジェクト統合Appkeyが必要です。
+
+Appkeyは、NHN Cloudの各サービスごとに発行される固有の認証キーであり、プロジェクト統合Appkeyは、NHN Cloudの1つのプロジェクト内の複数のサービスに対して共通で使用できる認証キーです。
+
+Appkeyの確認及び使用に関する詳細は、[Appkey](docs.nhncloud.com/ja/nhncloud/ja/public-api/appkey)を参照してください。プロジェクト統合Appkeyの作成及び使用に関する詳細は、[プロジェクト統合Appkey](docs.nhncloud.com/ja/nhncloud/ja/public-api/project-integrated-appkey)を参照してください。
 
 ### リクエスト共通情報
 
