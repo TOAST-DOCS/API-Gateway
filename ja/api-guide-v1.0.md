@@ -17,7 +17,7 @@ API Gateway APIを使用するにはAppkeyまたはプロジェクト統合Appke
 
 Appkeyは、NHN Cloudの各サービスごとに発行される固有の認証キーであり、プロジェクト統合Appkeyは、NHN Cloudの1つのプロジェクト内の複数のサービスに対して共通で使用できる認証キーです。
 
-Appkeyの確認及び使用に関する詳細は、[Appkey](docs.nhncloud.com/ja/nhncloud/ja/public-api/appkey)を参照してください。プロジェクト統合Appkeyの作成及び使用に関する詳細は、[プロジェクト統合Appkey](docs.nhncloud.com/ja/nhncloud/ja/public-api/project-integrated-appkey)を参照してください。
+Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhncloud.com/ja/nhncloud/ja/public-api/appkey)を参照してください。プロジェクト統合Appkeyの作成及び使用に関する詳細は、[プロジェクト統合Appkey](https://docs.nhncloud.com/ja/nhncloud/ja/public-api/project-integrated-appkey)を参照してください。
 
 ### リクエスト共通情報
 
