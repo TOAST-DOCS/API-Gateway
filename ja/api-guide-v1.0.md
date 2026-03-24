@@ -10,6 +10,7 @@ NHN Cloud API Gatewayで提供するPublic API v1.0を説明します。
 |---------|-----|------------------------------------------------|
 | APIドメイン | 韓国(パンギョ)リージョン | https://kr1-apigateway.api.nhncloudservice.com |
 | APIドメイン | 韓国(ピョンチョン)リージョン | https://kr2-apigateway.api.nhncloudservice.com |
+| APIドメイン | 韓国(光州)リージョン | https://kr3-apigateway.api.nhncloudservice.com |
 
 ### 事前準備
 
