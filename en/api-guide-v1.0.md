@@ -10,6 +10,7 @@ This guide describes Public API v1.0 provided by NHN Cloud API Gateway.
 |---------|-----|------------------------------------------------|
 | API domain | Korea (Pangyo) | https://kr1-apigateway.api.nhncloudservice.com |
 | API domain | Korea (Pyeongchon) | https://kr2-apigateway.api.nhncloudservice.com |
+| API domain | Korea (Gwangju) | https://kr3-apigateway.api.nhncloudservice.com |
 
 ### Prerequisites
 
