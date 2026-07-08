@@ -4,21 +4,23 @@ This guide describes Public API v1.0 provided by NHN Cloud API Gateway.
 
 ## API Common Information
 
-### Domain
+### API Endpoint
 
-| Name      | Region | Domain                                            |
-|---------|-----|------------------------------------------------|
-| API domain | Korea (Pangyo) | https://kr1-apigateway.api.nhncloudservice.com |
-| API domain | Korea (Pyeongchon) | https://kr2-apigateway.api.nhncloudservice.com |
-| API domain | Korea (Gwangju) | https://kr3-apigateway.api.nhncloudservice.com |
+The endpoints by region for calling the API are as follows.
 
-### Prerequisites
+| Region | Endpoint |
+| --- | --- |
+| Korea (Pangyo) | https://kr1-apigateway.api.nhncloudservice.com |
+| Korea (Pyeongchon) | https://kr2-apigateway.api.nhncloudservice.com |
+| Korea (Gwangju) | https://kr3-apigateway.api.nhncloudservice.com |
+
+### Authentication and Authorization
 
 An AppKey or a Project Integrated Appkey is required to use the API Gateway API. 
 
 An AppKey is a unique authentication key issued for each individual NHN Cloud service, while a Project Integrated Appkey is a common authentication key that can be shared across multiple services within a single NHN Cloud project. 
 
-For more information on checking and using Appkeys, please refer to the [Appkey](https://docs.nhncloud.com/en/nhncloud/en/public-api/appkey). For more information on creating and using Project Integrated Appkeys, please refer to the [Project Integrated Appkey](https://docs.nhncloud.com/en/nhncloud/en/public-api/project-integrated-appkey).
+For more information on checking and using Appkeys, please refer to the [Appkey](/en/nhncloud/en/public-api/appkey). For more information on creating and using Project Integrated Appkeys, please refer to the [Project Integrated Appkey](/en/nhncloud/en/public-api/project-integrated-appkey).
 
 ### Request Common Information
 
@@ -33,10 +35,10 @@ All APIs must specify the appkey as a path parameter.
 
 ### Response Common Information
 
-#### Header
 The service responds with **200 OK** to all API requests. For detailed response results, refer to the header of the response body as in the following example.
 
-[Success: Response Body]
+<details>
+  <summary><strong>Success Response</strong></summary>
 
 ```json
 {
@@ -55,7 +57,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | header.resultCode    | Integer | Result code  |
 | header.resultMessage | String  | Result message |
 
-[Failure: Response Body]
+</details>
+
+<details>
+  <summary><strong>Failure Response</strong></summary>
 
 ```json
 {
@@ -82,6 +87,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | errorList[0].errorProperty | String | Error property (model) |
 | errorList[0].errorField | String  | Error details field |
 | errorList[0].errorMessage | String  | Error Message |
+
+</details>
 
 * If an invalid API request is made, detailed error reason and field information is responded in the errorList field.
 
@@ -110,6 +117,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -141,6 +151,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
    ]
 }
 ```
+
+</details>
 
 |Field                                   |Type      |Description                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -185,6 +197,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
   "header": {
@@ -208,6 +223,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   }
 }
 ```
+
+</details>
 
 |Field                                   |Type      |Description                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -243,6 +260,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Request Body]
 
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "regionCode": "KR1",
@@ -250,6 +270,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   "apigwServiceDescription": "service description"
 }
 ```
+
+</details>
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
@@ -261,6 +283,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -285,6 +310,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   }
 }
 ```
+
+</details>
 
 |Field                                   |Type      |Description                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -323,12 +350,17 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Request Body]
 
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "apigwServiceName": "update service name",
   "apigwServiceDescription": "test of api gateway service"
 }
 ```
+
+</details>
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
@@ -339,6 +371,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -363,6 +398,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   }
 }
 ```
+
+</details>
 
 |Field                                   |Type      |Description                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -404,6 +441,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
     "header" : {
@@ -413,6 +453,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
     }
 }
 ```
+
+</details>
 
 ## Resource
 
@@ -437,6 +479,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -495,6 +540,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
+</details>
+
 | Field                                                     | Type       | Description                                             |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
 | resourceList                                           | List     | Resource list area                                      |
@@ -537,6 +584,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 [Request Body]
+
+<details>
+  <summary><strong>Request Example</strong></summary>
 
 ```json
 {
@@ -613,6 +663,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
+</details>
+
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
 | resourcePathList | List | Required | N/A | N/A  | Resource path list |
@@ -635,6 +687,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -854,6 +909,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
+</details>
+
 | Field                                                     | Type       | Description                                             |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
 | resourceList                                           | List     | Resource list area                                      |
@@ -897,6 +954,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Request Body]
 
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "methodList": [
@@ -918,6 +978,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }   
 ```
 
+</details>
+
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
 | methodList | List | Required | N/A | N/A | List of methods under the resource path |
@@ -933,6 +995,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -983,6 +1048,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
+</details>
+
 | Field                                                     | Type       | Description                                             |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
 | resourceList                                           | List     | Resource list area                                      |
@@ -1031,6 +1098,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Request Body]
 
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "pathPluginList":[
@@ -1065,6 +1135,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }   
 ```
 
+</details>
+
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
 | pathPluginList | List | Optional | N/A | N/A | Resource path plugin list |
@@ -1077,6 +1149,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -1114,6 +1189,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 | Field                                                     | Type       | Description                                             |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
@@ -1161,6 +1238,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Request Body]
 
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "methodName":"PutMember",
@@ -1181,6 +1261,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
+</details>
+
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
 | methodName | String | Required | N/A | Max. 50 characters | Method name |
@@ -1194,6 +1276,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -1230,6 +1315,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 | Field                                                     | Type       | Description                                             |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
@@ -1310,6 +1397,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "swaggerData": {
@@ -1384,6 +1475,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   }
 }
 ```
+
+</details>
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
@@ -1603,6 +1696,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
   "header": {
@@ -1655,6 +1751,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
+</details>
+
 | Field                             | Type      | Description                                                   |
 | ------------------------------ | ------- | ---------------------------------------------------- |
 | queryStringList                | List    | Query string list area                                         |
@@ -1704,6 +1802,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourceId     | String | Required    | N/A  | N/A    | API Gateway resource ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "queryStringList": [
@@ -1742,6 +1844,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
@@ -1807,6 +1911,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
   "header": {
@@ -1837,6 +1944,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 | Field                                        | Type      | Description                                                   |
 | ----------------------------------------- | ------- | ---------------------------------------------------- |
@@ -1874,6 +1983,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourceId     | String | Required    | N/A  | N/A    | API Gateway resource ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "responseList": [
@@ -1899,6 +2012,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 | Name                                        | Type      | Required | Default value          | Valid range                                         | Description                                                   |
 | ----------------------------------------- | ------- | ----- | ------------ | --------------------------------------------- | ---------------------------------------------------- |
@@ -1962,6 +2077,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
   "header": {
@@ -2003,6 +2121,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
+</details>
+
 |Field                                   |Type      |Description                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |paging                               |Object  | Paging area                                        |
@@ -2041,6 +2161,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Request Body]
 
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "modelName": "UserModel",
@@ -2064,6 +2187,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
+</details>
+
 | Name               | Type     | Required | Default value | Valid range   | Description                                                           |
 | ---------------- | ------ | ----- | --- | ------- | ------------------------------------------------------------ |
 | modelName        | String | Required    | N/A  | Max. 50 characters  | Model name                                                        |
@@ -2073,6 +2198,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -2108,6 +2236,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
+</details>
+
 |Field                                   |Type      |Description                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |model                     |Object    | Model area                         |
@@ -2141,6 +2271,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Request Body]
 
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "modelDescription": "This is user model.",
@@ -2163,6 +2296,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
+</details>
+
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
 | modelDescription | String | Optional    | N/A  | Max. 200 characters | Model description                                                        |
@@ -2172,6 +2307,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -2206,6 +2344,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   }
 }
 ```
+
+</details>
 
 |Field                                   |Type      |Description                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2242,6 +2382,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
     "header" : {
@@ -2251,6 +2394,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
     }
 }
 ```
+
+</details>
 
 ## Stage
 
@@ -2282,6 +2427,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
   "header": {
@@ -2311,6 +2459,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 |Field                                   |Type      |Description                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2390,6 +2540,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 [Request Body]
+
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "stageName": "alpha",
@@ -2397,6 +2551,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   "backendEndpointUrl": "https://backend.com"
 }
 ```
+
+</details>
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
@@ -2414,6 +2570,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -2437,6 +2596,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   }
 }
 ```
+
+</details>
 
 |Field                                   |Type      |Description                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2476,12 +2637,18 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 [Request Body]
+
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "backendEndpointUrl": "https://v2.backend.com",
   "stageDescription": "alpha v2 environment stage"
 }
 ```
+
+</details>
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
@@ -2492,6 +2659,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -2515,6 +2685,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   }
 }
 ```
+
+</details>
 
 |Field                                   |Type      |Description                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2593,6 +2765,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
   "header": {
@@ -2643,6 +2819,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 |Field                                   |Type      |Description                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2694,6 +2872,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
   "header": {
@@ -2744,6 +2926,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 |Field                                   |Type      |Description                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2794,6 +2978,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Request Body]
 
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "customBackendEndpointUrl": "http://custom.backendpoint.com",
@@ -2805,6 +2992,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
@@ -2820,6 +3009,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
   "header": {
@@ -2870,6 +3063,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 |Field                                   |Type      |Description                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -3275,11 +3470,17 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | stageId | String | Required | N/A | N/A | Stage ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "deployDescription": "deploy description"
 }
 ```
+
+</details>
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
 | deployDescription | String | Optional | N/A | Max. 200 characters | Deployment description |
@@ -3288,6 +3489,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -3298,6 +3502,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
     }
 }
 ```
+
+</details>
 
 
 ### Query Result of Recent Stage Deployment 
@@ -3324,6 +3530,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -3385,6 +3594,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
+</details>
+
 |Field                                   |Type      |Description                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |latestStageDeployResult              |Object  | Stage deployment result area                                        |
@@ -3440,6 +3651,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
     "header" : {
@@ -3449,6 +3663,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
     }
 }
 ```
+
+</details>
 
 
 ### Query Stage Deployment History 
@@ -3480,6 +3696,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
   "header": {
@@ -3504,6 +3723,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 |Field                                   |Type      |Description                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -3547,6 +3768,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
   "header": {
@@ -3575,6 +3799,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 |Field                                   |Type      |Description                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -3623,6 +3849,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
   "header": {
@@ -3643,6 +3872,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 | Field                              | Type       | Description                                                |
 | ------------------------------- | -------- | ------------------------------------------------- |
@@ -3677,6 +3908,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
     "gatewayResponseType": "NotFound",
@@ -3685,6 +3920,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
     "body": { "application/json": "{\"result\":\"fail\"}" }
 }
 ```
+
+</details>
 
 | Name                | Type     | Required | Default value | Valid range            | Description                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
@@ -3697,6 +3934,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -3716,6 +3956,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
     }
 }
 ```
+
+</details>
 
 
 | Field                              | Type       | Description                                                |
@@ -3754,6 +3996,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
   "header": {
@@ -3763,6 +4008,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   }
 }
 ```
+
+</details>
 
 ## API Document
 
@@ -3790,6 +4037,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -3966,6 +4216,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
+</details>
+
 |Field                                   |Type      |Description                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |swagger                     |String    | Swagger specification version. See [Swagger Object](https://swagger.io/specification/v2/#swagger-object)|
@@ -4020,6 +4272,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
   "header": {
@@ -4047,6 +4302,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 | Field                              | Type       | Description                                                |
 | ------------------------------- | -------- | ------------------------------------------------- |
@@ -4078,6 +4335,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | POST |  /v1.0/appkeys/{appKey}/apikeys |
 
 [Request Body]
+
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "apiKeyName": "User1 API Key",
@@ -4087,6 +4348,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   "secondaryApiKey": null
 }
 ```
+
+</details>
 
 | Name                | Type     | Required | Default value | Valid range            | Description                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
@@ -4099,6 +4362,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -4120,6 +4386,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   }
 }
 ```
+
+</details>
 
 | Field                       | Type       | Description                                                |
 | ------------------------ | -------- | ------------------------------------------------- |
@@ -4154,6 +4422,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apiKeyId | String | Required | N/A | N/A | API Key ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "apiKeyName": "User1 API Key",
@@ -4161,6 +4433,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   "apiKeyStatus": "ACTIVE"
 }
 ```
+
+</details>
 
 | Name                | Type     | Required | Default value | Valid range            | Description                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
@@ -4171,6 +4445,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -4192,6 +4469,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   }
 }
 ```
+
+</details>
 
 | Field                       | Type       | Description                                                |
 | ------------------------ | -------- | ------------------------------------------------- |
@@ -4229,6 +4508,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
   "header": {
@@ -4238,6 +4520,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   }
 }
 ```
+
+</details>
 
 ### Reissue API Key
 - Primary API Key and Secondary API Key used as API Key values can be reissued respectively.
@@ -4258,12 +4542,18 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apiKeyId | String | Required | N/A | N/A | API Key ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "apiKeyType": "PRIMARY",
   "apiKeyValue": null
 }
 ```
+
+</details>
 
 | Name                | Type     | Required | Default value | Valid range            | Description                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
@@ -4273,6 +4563,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -4294,6 +4587,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   }
 }
 ```
+
+</details>
 
 | Field                       | Type       | Description                                                |
 | ------------------------ | -------- | ------------------------------------------------- |
@@ -4342,6 +4637,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
   "header": {
@@ -4369,6 +4667,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 | Field                              | Type       | Description                                                |
 | ------------------------------- | -------- | ------------------------------------------------- |
@@ -4413,6 +4713,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
   "header": {
@@ -4440,6 +4743,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 | Field                                         | Type       | Description                                                |
 | ------------------------------------------ | -------- | ------------------------------------------------- |
@@ -4482,6 +4787,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
     "header": {
@@ -4502,6 +4810,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
     }
 }
 ```
+
+</details>
 
 | Field                                  | Type       | Description                                                |
 | ----------------------------------- | -------- | ------------------------------------------------- |
@@ -4528,6 +4838,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | POST |  /v1.0/appkeys/{appKey}/usage-plans |
 
 [Request Body]
+
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "usagePlanName": "string",
@@ -4537,6 +4851,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   "quotaLimit": 100
 }
 ```
+
+</details>
 
 | Name                        | Type      | Required | Default value | Valid range        | Description                                                |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
@@ -4549,6 +4865,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -4570,6 +4889,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   }
 }
 ```
+
+</details>
 
 | Field                                  | Type       | Description                                                |
 | ----------------------------------- | -------- | ------------------------------------------------- |
@@ -4604,6 +4925,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | usagePlanId | String | Required | N/A | N/A | Usage plan ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "usagePlanName": "Basic",
@@ -4613,6 +4938,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   "quotaLimit": 100
 }
 ```
+
+</details>
 
 | Name                        | Type      | Required | Default value | Valid range        | Description                                                |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
@@ -4625,6 +4952,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -4646,6 +4976,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   }
 }
 ```
+
+</details>
 
 | Field                                  | Type       | Description                                                |
 | ----------------------------------- | -------- | ------------------------------------------------- |
@@ -4683,6 +5015,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
     "header" : {
@@ -4692,6 +5027,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
     }
 }
 ```
+
+</details>
 
 
 ### List Stages Associated with Usage Plan
@@ -4714,6 +5051,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -4742,6 +5082,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 | Field                                    | Type      | Description                     |
 | ------------------------------------- | ------- | ---------------------- |
@@ -4786,6 +5128,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
   "header": {
@@ -4795,6 +5140,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   }
 }
 ```
+
+</details>
 
 ### Disconnect Stage from Usage Plan
 - Disassociates the stage associated with the usage plan.
@@ -4819,6 +5166,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
   "header": {
@@ -4828,6 +5178,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   }
 }
 ```
+
+</details>
 
 ### List Usage Plans Associated with Stage
 - Retrieves the list of usage plans associated with the stage.
@@ -4850,6 +5202,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -4878,6 +5233,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 | Field                                         | Type       | Description                                                |
 | ------------------------------------------ | -------- | ------------------------------------------------- |
@@ -4928,6 +5285,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
     "header": {
@@ -4960,6 +5320,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
     ]
 }
 ```
+
+</details>
 
 | Field                                                           | Type      | Description                                                |
 | ------------------------------------------------------------ | ------- | ------------------------------------------------- |
@@ -5021,6 +5383,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
   "header": {
@@ -5048,6 +5413,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 | Field                                             | Type       | Description                                   |
 | ---------------------------------------------- | -------- | ------------------------------------ |
@@ -5089,6 +5456,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | stageId | String | Required | N/A | N/A | Stage ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "apiKeyIdList": [
@@ -5096,6 +5467,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 | Name                        | Type      | Required | Default value | Valid range        | Description                                                |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
@@ -5105,6 +5478,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -5128,6 +5504,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 | Field                                             | Type       | Description                                   |
 | ---------------------------------------------- | -------- | ------------------------------------ |
@@ -5164,6 +5542,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | stageId | String | Required | N/A | N/A | Stage ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "apiSubscriptionIdList": [
@@ -5171,6 +5553,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+
+</details>
 
 | Name                        | Type      | Required | Default value | Valid range        | Description                                                |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
@@ -5181,6 +5565,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
     "header": {
@@ -5190,6 +5577,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
     }
 }
 ```
+
+</details>
 
 
 ### Change Usage Plan of API Key
@@ -5215,11 +5604,17 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | subscriptionId | String | Required | N/A | N/A | Subscription ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>Request Example</strong></summary>
+
 ```json
 {
   "changeUsagePlanId": "{usagePlanId}"
 }
 ```
+
+</details>
 
 | Name                        | Type      | Required | Default value | Valid range        | Description                                                |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
@@ -5228,6 +5623,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
 
 ```json
 {
@@ -5238,6 +5636,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   }
 }
 ```
+
+</details>
 
 ## Statistics
 
@@ -5278,6 +5678,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 #### Response
 
 [Response]
+
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
   "header": {
@@ -5321,6 +5725,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
   "metricsLatestUpdatedAt": "2021-11-29T08:50:57.000Z"
 }
 ```
+
+</details>
 
 |Field                                   |Type      |Description                                         |
 |-------------------------------------|--------|----------------------------------------------|
@@ -5379,6 +5785,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
   "header": {
@@ -5427,6 +5836,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
+</details>
+
 |Field                                   |Type      |Description                                         |
 |-------------------------------------|--------|----------------------------------------------|
 |data                                 |Object  | API Key statistics data area                         |
@@ -5473,6 +5884,9 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 [Response]
 
+<details>
+  <summary><strong>Response Example</strong></summary>
+
 ```json
 {
         "header": {
@@ -5516,6 +5930,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
         "metricsLatestUpdatedAt": "2023-07-19T02:21:08.000Z"
     }
 ```
+
+</details>
 
 | Field | Type | Description |
 | --- | --- | --- |
