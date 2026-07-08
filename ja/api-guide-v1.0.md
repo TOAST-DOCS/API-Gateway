@@ -4,21 +4,23 @@ NHN Cloud API Gatewayで提供するPublic API v1.0を説明します。
 
 ## API共通情報
 
-### ドメイン
+### APIエンドポイント
 
-| 名前     | リージョン | ドメイン                                           |
-|---------|-----|------------------------------------------------|
-| APIドメイン | 韓国(パンギョ)リージョン | https://kr1-apigateway.api.nhncloudservice.com |
-| APIドメイン | 韓国(ピョンチョン)リージョン | https://kr2-apigateway.api.nhncloudservice.com |
-| APIドメイン | 韓国(光州)リージョン | https://kr3-apigateway.api.nhncloudservice.com |
+APIを呼び出すためのリージョン別エンドポイントは次のとおりです。
 
-### 事前準備
+| リージョン | エンドポイント |
+| --- | --- |
+| 韓国(パンギョ)リージョン | https://kr1-apigateway.api.nhncloudservice.com |
+| 韓国(ピョンチョン)リージョン | https://kr2-apigateway.api.nhncloudservice.com |
+| 韓国(光州)リージョン | https://kr3-apigateway.api.nhncloudservice.com |
+
+### 認証と権限
 
 API Gateway APIを使用するにはAppkeyまたはプロジェクト統合Appkeyが必要です。
 
 Appkeyは、NHN Cloudの各サービスごとに発行される固有の認証キーであり、プロジェクト統合Appkeyは、NHN Cloudの1つのプロジェクト内の複数のサービスに対して共通で使用できる認証キーです。
 
-Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhncloud.com/ja/nhncloud/ja/public-api/appkey)を参照してください。プロジェクト統合Appkeyの作成及び使用に関する詳細は、[プロジェクト統合Appkey](https://docs.nhncloud.com/ja/nhncloud/ja/public-api/project-integrated-appkey)を参照してください。
+Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-api/appkey)を参照してください。プロジェクト統合Appkeyの作成及び使用に関する詳細は、[プロジェクト統合Appkey](/nhncloud/ja/public-api/project-integrated-appkey)を参照してください。
 
 ### リクエスト共通情報
 
@@ -33,10 +35,10 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 
 ### レスポンス共通情報
 
-#### ヘッダ
 すべてのAPIリクエストに対して**200 OK**でレスポンスします。詳細なレスポンス結果は、次の例のようにレスポンス本文のヘッダを参照します。
 
-[成功: Response Body]
+<details>
+  <summary><strong>成功レスポンス</strong></summary>
 
 ```json
 {
@@ -55,7 +57,10 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 | header.resultCode    | Integer | 結果コード |
 | header.resultMessage | String  | 結果メッセージ |
 
-[失敗：Response Body]  
+</details>
+
+<details>
+  <summary><strong>失敗レスポンス</strong></summary>
 
 ```json
 {
@@ -83,6 +88,8 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 | errorList[0].errorField | String  | エラー詳細フィールド |
 | errorList[0].errorMessage | String  | エラーメッセージ |
 
+</details>
+
 * 無効なAPIリクエストを行った場合、 errorListフィールドに詳細なエラー原因とフィールド情報がレスポンスされます。
 
 ## API Gatewayサービス
@@ -109,6 +116,9 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -140,6 +150,8 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
    ]
 }
 ```
+
+</details>
 
 |フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
@@ -184,6 +196,9 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
   "header": {
@@ -207,6 +222,8 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
   }
 }
 ```
+
+</details>
 
 |フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
@@ -242,6 +259,9 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 
 [Request Body]
 
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "regionCode": "KR1",
@@ -249,6 +269,8 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
   "apigwServiceDescription": "service description"
 }
 ```
+
+</details>
 
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
@@ -260,6 +282,9 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -284,6 +309,8 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
   }
 }
 ```
+
+</details>
 
 |フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
@@ -322,12 +349,17 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 
 [Request Body]
 
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "apigwServiceName": "update service name",
   "apigwServiceDescription": "test of api gateway service"
 }
 ```
+
+</details>
 
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
@@ -338,6 +370,9 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -362,6 +397,8 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
   }
 }
 ```
+
+</details>
 
 |フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
@@ -403,6 +440,9 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
     "header" : {
@@ -412,6 +452,8 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
     }
 }
 ```
+
+</details>
 
 ## リソース
 
@@ -436,6 +478,9 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -494,6 +539,8 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 }
 ```
 
+</details>
+
 | フィールド                                                   | タイプ     | 説明                                           |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
 | resourceList                                           | List     | リソースリスト領域                                    |
@@ -536,6 +583,9 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 
 
 [Request Body]
+
+<details>
+  <summary><strong>リクエスト例</strong></summary>
 
 ```json
 {
@@ -612,6 +662,8 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 }
 ```
 
+</details>
+
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
 | resourcePathList | List | 必須 | なし | なし | リソースパスリスト |
@@ -634,6 +686,9 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -853,6 +908,8 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 }
 ```
 
+</details>
+
 | フィールド                                                   | タイプ     | 説明                                           |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
 | resourceList                                           | List     | リソースリスト領域                                    |
@@ -896,6 +953,9 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 
 [Request Body]
 
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "methodList": [
@@ -917,6 +977,8 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 }   
 ```
 
+</details>
+
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
 | methodList | List | 必須 | なし | なし | リソースパス下のメソッドリスト |
@@ -932,6 +994,9 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -982,6 +1047,8 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 }
 ```
 
+</details>
+
 | フィールド                                                   | タイプ     | 説明                                           |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
 | resourceList                                           | List     | リソースリスト領域                                    |
@@ -1030,6 +1097,9 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 
 [Request Body]
 
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "pathPluginList":[
@@ -1064,6 +1134,8 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 }   
 ```
 
+</details>
+
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
 | pathPluginList | List | 任意 | なし | なし | リソースパスプラグインリスト |
@@ -1076,6 +1148,9 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -1113,6 +1188,8 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
   ]
 }
 ```
+
+</details>
 
 | フィールド                                                   | タイプ     | 説明                                           |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
@@ -1160,6 +1237,9 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 
 [Request Body]
 
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "methodName":"PutMember",
@@ -1180,6 +1260,8 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 }
 ```
 
+</details>
+
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
 | methodName | String | 必須 | なし | 最大50文字 | メソッド名 |
@@ -1193,6 +1275,9 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -1229,6 +1314,8 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](https://docs.nhnclou
   ]
 }
 ```
+
+</details>
 
 | フィールド                                                   | タイプ     | 説明                                           |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
@@ -1309,6 +1396,10 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
 
 [Request Body]
+
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "swaggerData": {
@@ -1383,6 +1474,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   }
 }
 ```
+
+</details>
 
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
@@ -1599,6 +1692,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
   "header": {
@@ -1651,6 +1747,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 }
 ```
 
+</details>
+
 | フィールド                           | タイプ    | 説明                                                 |
 | ------------------------------ | ------- | ---------------------------------------------------- |
 | queryStringList                | List    | クエリ文字列リスト領域                                       |
@@ -1700,6 +1798,10 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | resourceId     | String | 必須  | なし | なし   | API GatewayリソースID |
 
 [Request Body]
+
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "queryStringList": [
@@ -1738,6 +1840,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   ]
 }
 ```
+
+</details>
 
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
@@ -1803,6 +1907,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
   "header": {
@@ -1833,6 +1940,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   ]
 }
 ```
+
+</details>
 
 | フィールド                                      | タイプ    | 説明                                                 |
 | ----------------------------------------- | ------- | ---------------------------------------------------- |
@@ -1870,6 +1979,10 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | resourceId     | String | 必須  | なし | なし   | API GatewayリソースID |
 
 [Request Body]
+
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "responseList": [
@@ -1895,6 +2008,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   ]
 }
 ```
+
+</details>
 
 | 名前                                      | タイプ    | 必須かどうか | デフォルト値        | 有効範囲                                       | 説明                                                 |
 | ----------------------------------------- | ------- | ----- | ------------ | --------------------------------------------- | ---------------------------------------------------- |
@@ -1958,6 +2073,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
   "header": {
@@ -1999,6 +2117,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 }
 ```
 
+</details>
+
 |フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
 |paging                               |Object  | ページング領域                                      |
@@ -2037,6 +2157,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Request Body]
 
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "modelName": "UserModel",
@@ -2060,6 +2183,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 }
 ```
 
+</details>
+
 | 名前             | タイプ   | 必須かどうか | デフォルト値 | 有効範囲 | 説明                                                         |
 | ---------------- | ------ | ----- | --- | ------- | ------------------------------------------------------------ |
 | modelName        | String | 必須  | なし | 最大50文字 | モデル名                                                      |
@@ -2069,6 +2194,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -2104,6 +2232,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 }
 ```
 
+</details>
+
 |フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
 |model                     |Object    | モデル領域                       |
@@ -2137,6 +2267,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Request Body]
 
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "modelDescription": "This is user model.",
@@ -2159,6 +2292,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 }
 ```
 
+</details>
+
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
 | modelDescription | String | 任意  | なし | 最大200文字 | モデル説明                                                      |
@@ -2168,6 +2303,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -2202,6 +2340,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   }
 }
 ```
+
+</details>
 
 |フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2238,6 +2378,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
     "header" : {
@@ -2247,6 +2390,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
     }
 }
 ```
+
+</details>
 
 ## ステージ
 
@@ -2278,6 +2423,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
   "header": {
@@ -2307,6 +2455,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   ]
 }
 ```
+
+</details>
 
 |フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2386,6 +2536,10 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 
 [Request Body]
+
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "stageName": "alpha",
@@ -2393,6 +2547,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   "backendEndpointUrl": "https://backend.com"
 }
 ```
+
+</details>
 
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
@@ -2410,6 +2566,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -2433,6 +2592,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   }
 }
 ```
+
+</details>
 
 |フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2472,12 +2633,18 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 
 [Request Body]
+
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "backendEndpointUrl": "https://v2.backend.com",
   "stageDescription": "alphaステージv2"
 }
 ```
+
+</details>
 
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
@@ -2488,6 +2655,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -2511,6 +2681,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   }
 }
 ```
+
+</details>
 
 |フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2589,6 +2761,10 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
   "header": {
@@ -2639,6 +2815,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   ]
 }
 ```
+
+</details>
 
 |フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2690,6 +2868,10 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
   "header": {
@@ -2740,6 +2922,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   ]
 }
 ```
+
+</details>
 
 |フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2790,6 +2974,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Request Body]
 
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "customBackendEndpointUrl": "http://custom.backendpoint.com",
@@ -2801,6 +2988,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   ]
 }
 ```
+
+</details>
 
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
@@ -2814,6 +3003,10 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
   "header": {
@@ -2864,6 +3057,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   ]
 }
 ```
+
+</details>
 
 |フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
@@ -3268,11 +3463,17 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | stageId | String | 必須 | なし | なし | ステージID |
 
 [Request Body]
+
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "deployDescription": "deploy description"
 }
 ```
+
+</details>
 | 名前 | タイプ | 必須かどうか | デフォルト値 | 有効範囲 | 説明 |
 | --- | --- | --- | --- | --- | --- |
 | deployDescription | String | 任意 | なし | 最大200文字 | 配布説明 |
@@ -3281,6 +3482,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -3291,6 +3495,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
     }
 }
 ```
+
+</details>
 
 
 ### 最近のステージ配布結果照会 
@@ -3317,6 +3523,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -3378,6 +3587,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 }
 ```
 
+</details>
+
 |フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
 |latestStageDeployResult              |Object  | ステージ配布結果領域                                      |
@@ -3433,6 +3644,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
     "header" : {
@@ -3442,6 +3656,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
     }
 }
 ```
+
+</details>
 
 
 ### ステージ配布履歴の照会 
@@ -3473,6 +3689,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
   "header": {
@@ -3497,6 +3716,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   ]
 }
 ```
+
+</details>
 
 |フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
@@ -3540,6 +3761,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
   "header": {
@@ -3568,6 +3792,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   ]
 }
 ```
+
+</details>
 
 |フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
@@ -3616,6 +3842,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
   "header": {
@@ -3636,6 +3865,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   ]
 }
 ```
+
+</details>
 
 | フィールド                            | タイプ     | 説明                                              |
 | ------------------------------- | -------- | ------------------------------------------------- |
@@ -3670,6 +3901,10 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | apigwServiceId | String | 必須 | なし | なし | API GatewayサービスID |
 
 [Request Body]
+
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
     "gatewayResponseType": "NotFound",
@@ -3678,6 +3913,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
     "body": { "application/json": "{\"result\":\"fail\"}" }
 }
 ```
+
+</details>
 
 | 名前              | タイプ   | 必須かどうか | デフォルト値 | 有効範囲          | 説明                                              |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
@@ -3690,6 +3927,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -3709,6 +3949,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
     }
 }
 ```
+
+</details>
 
 
 | フィールド                            | タイプ     | 説明                                              |
@@ -3747,6 +3989,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
   "header": {
@@ -3756,6 +4001,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   }
 }
 ```
+
+</details>
 
 
 ## API説明書
@@ -3784,6 +4031,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -3960,6 +4210,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 }
 ```
 
+</details>
+
 |フィールド                                 |タイプ    |説明                                          |
 |-------------------------------------|--------|----------------------------------------------|
 |swagger                     |String    | Swagger仕様のバージョン。 [Swagger Object](https://swagger.io/specification/v2/#swagger-object)参考|
@@ -4014,6 +4266,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
   "header": {
@@ -4041,6 +4296,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   ]
 }
 ```
+
+</details>
 
 | フィールド                            | タイプ     | 説明                                              |
 | ------------------------------- | -------- | ------------------------------------------------- |
@@ -4072,6 +4329,10 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | POST |  /v1.0/appkeys/{appKey}/apikeys |
 
 [Request Body]
+
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "apiKeyName": "User1 API Key",
@@ -4079,6 +4340,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   "apiKeyStatus": "ACTIVE"
 }
 ```
+
+</details>
 
 | 名前              | タイプ   | 必須かどうか | デフォルト値 | 有効範囲          | 説明                                              |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
@@ -4089,6 +4352,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -4110,6 +4376,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   }
 }
 ```
+
+</details>
 
 | フィールド                     | タイプ     | 説明                                              |
 | ------------------------ | -------- | ------------------------------------------------- |
@@ -4144,6 +4412,10 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | apiKeyId | String | 必須 | なし | なし | API Key ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "apiKeyName": "User1 API Key",
@@ -4151,6 +4423,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   "apiKeyStatus": "ACTIVE"
 }
 ```
+
+</details>
 
 | 名前              | タイプ   | 必須かどうか | デフォルト値 | 有効範囲          | 説明                                              |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
@@ -4161,6 +4435,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -4182,6 +4459,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   }
 }
 ```
+
+</details>
 
 | フィールド                     | タイプ     | 説明                                              |
 | ------------------------ | -------- | ------------------------------------------------- |
@@ -4219,6 +4498,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
   "header": {
@@ -4228,6 +4510,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   }
 }
 ```
+
+</details>
 
 ### API Keyの再発行
 - API Key値として使用されるPrimary API Key、Secondary API Keyはそれぞれ再発行できます。
@@ -4248,11 +4532,17 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | apiKeyId | String | 必須 | なし | なし | API Key ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "apiKeyType": "PRIMARY"
 }
 ```
+
+</details>
 
 | 名前              | タイプ   | 必須かどうか | デフォルト値 | 有効範囲          | 説明                                              |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
@@ -4261,6 +4551,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -4282,6 +4575,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   }
 }
 ```
+
+</details>
 
 | フィールド                     | タイプ     | 説明                                              |
 | ------------------------ | -------- | ------------------------------------------------- |
@@ -4330,6 +4625,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
   "header": {
@@ -4357,6 +4655,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   ]
 }
 ```
+
+</details>
 
 | フィールド                            | タイプ     | 説明                                              |
 | ------------------------------- | -------- | ------------------------------------------------- |
@@ -4401,6 +4701,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
   "header": {
@@ -4428,6 +4731,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   ]
 }
 ```
+
+</details>
 
 | フィールド                                       | タイプ     | 説明                                              |
 | ------------------------------------------ | -------- | ------------------------------------------------- |
@@ -4470,6 +4775,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
     "header": {
@@ -4490,6 +4798,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
     }
 }
 ```
+
+</details>
 
 | フィールド                                | タイプ     | 説明                                              |
 | ----------------------------------- | -------- | ------------------------------------------------- |
@@ -4516,6 +4826,10 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | POST |  /v1.0/appkeys/{appKey}/usage-plans |
 
 [Request Body]
+
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "usagePlanName": "string",
@@ -4525,6 +4839,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   "quotaLimit": 100
 }
 ```
+
+</details>
 
 | 名前                      | タイプ    | 必須かどうか | デフォルト値 | 有効範囲      | 説明                                              |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
@@ -4537,6 +4853,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -4558,6 +4877,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   }
 }
 ```
+
+</details>
 
 | フィールド                                | タイプ     | 説明                                              |
 | ----------------------------------- | -------- | ------------------------------------------------- |
@@ -4592,6 +4913,10 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | usagePlanId | String | 必須 | なし | なし | 使用量プランID |
 
 [Request Body]
+
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "usagePlanName": "Basic",
@@ -4601,6 +4926,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   "quotaLimit": 100
 }
 ```
+
+</details>
 
 | 名前                      | タイプ    | 必須かどうか | デフォルト値 | 有効範囲      | 説明                                              |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
@@ -4613,6 +4940,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -4634,6 +4964,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   }
 }
 ```
+
+</details>
 
 | フィールド                                | タイプ     | 説明                                              |
 | ----------------------------------- | -------- | ------------------------------------------------- |
@@ -4671,6 +5003,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
     "header" : {
@@ -4680,6 +5015,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
     }
 }
 ```
+
+</details>
 
 
 ### 使用量プランに関連付けられたステージリストの照会
@@ -4702,6 +5039,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -4730,6 +5070,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   ]
 }
 ```
+
+</details>
 
 | フィールド                                  | タイプ    | 説明                   |
 | ------------------------------------- | ------- | ---------------------- |
@@ -4774,6 +5116,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
   "header": {
@@ -4783,6 +5128,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   }
 }
 ```
+
+</details>
 
 ### 使用量プランに関連付けられたステージの解除
 - 使用量プランに関連付けられたステージを解除します。
@@ -4807,6 +5154,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
   "header": {
@@ -4816,6 +5166,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   }
 }
 ```
+
+</details>
 
 ### ステージが関連付けられた使用量プランリスト照会
 - ステージが関連付けられた使用量プランリストを照会します。
@@ -4838,6 +5190,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -4866,6 +5221,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   ]
 }
 ```
+
+</details>
 
 | フィールド                                       | タイプ     | 説明                                              |
 | ------------------------------------------ | -------- | ------------------------------------------------- |
@@ -4916,6 +5273,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
     "header": {
@@ -4948,6 +5308,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
     ]
 }
 ```
+
+</details>
 
 | フィールド                                                         | タイプ    | 説明                                              |
 | ------------------------------------------------------------ | ------- | ------------------------------------------------- |
@@ -5009,6 +5371,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
   "header": {
@@ -5036,6 +5401,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   ]
 }
 ```
+
+</details>
 
 | フィールド                                           | タイプ     | 説明                                 |
 | ---------------------------------------------- | -------- | ------------------------------------ |
@@ -5077,6 +5444,10 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | stageId | String | 必須 | なし | なし | ステージID |
 
 [Request Body]
+
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "apiKeyIdList": [
@@ -5084,6 +5455,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   ]
 }
 ```
+
+</details>
 
 | 名前                      | タイプ    | 必須かどうか | デフォルト値 | 有効範囲      | 説明                                              |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
@@ -5093,6 +5466,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -5116,6 +5492,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   ]
 }
 ```
+
+</details>
 
 | フィールド                                           | タイプ     | 説明                                 |
 | ---------------------------------------------- | -------- | ------------------------------------ |
@@ -5152,6 +5530,10 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | stageId | String | 必須 | なし | なし | ステージID |
 
 [Request Body]
+
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "apiSubscriptionIdList": [
@@ -5159,6 +5541,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   ]
 }
 ```
+
+</details>
 
 | 名前                      | タイプ    | 必須かどうか | デフォルト値 | 有効範囲      | 説明                                              |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
@@ -5169,6 +5553,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
     "header": {
@@ -5178,6 +5565,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
     }
 }
 ```
+
+</details>
 
 
 ### API Keyの使用量プラン変更
@@ -5203,11 +5592,17 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | subscriptionId | String | 必須 | なし | なし | 購読ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>リクエスト例</strong></summary>
+
 ```json
 {
   "changeUsagePlanId": "{usagePlanId}"
 }
 ```
+
+</details>
 
 | 名前                      | タイプ    | 必須かどうか | デフォルト値 | 有効範囲      | 説明                                              |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
@@ -5216,6 +5611,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
 
 ```json
 {
@@ -5226,6 +5624,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   }
 }
 ```
+
+</details>
 
 ## 統計
 
@@ -5266,6 +5666,10 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 #### レスポンス
 
 [Response]
+
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
   "header": {
@@ -5309,6 +5713,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
   "metricsLatestUpdatedAt": "2021-11-29T08:50:57.000Z"
 }
 ```
+
+</details>
 
 |フィールド                                 |タイプ    |説明                                       |
 |-------------------------------------|--------|----------------------------------------------|
@@ -5368,6 +5774,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
   "header": {
@@ -5416,6 +5825,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 }
 ```
 
+</details>
+
 |フィールド                                 |タイプ    |説明                                       |
 |-------------------------------------|--------|----------------------------------------------|
 |data                                 |Object  | API Key統計データ領域                       |
@@ -5460,6 +5871,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 [Response]
 
+<details>
+  <summary><strong>レスポンス例</strong></summary>
+
 ```json
 {
         "header": {
@@ -5503,6 +5917,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
         "metricsLatestUpdatedAt": "2023-07-19T02:21:08.000Z"
     }
 ```
+
+</details>
 
 | フィールド | タイプ | 説明 |
 | --- | --- | --- |
