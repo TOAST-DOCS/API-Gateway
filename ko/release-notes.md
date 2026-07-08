@@ -1,5 +1,10 @@
 ## Application Service > API Gateway > 릴리스 노트
 
+### 2026. 07. 28.
+#### 기능 추가
+*  API v2.0 추가
+    * User Access Key 토큰을 지원합니다.
+
 ### 2024. 08. 27.
 #### 기능 개선/변경 
 * 게이트웨이 응답 기능 추가

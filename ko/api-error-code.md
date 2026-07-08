@@ -9,7 +9,8 @@
 |400100002|Invalid header name.|잘못된 형식의 헤더 이름입니다.|
 |401100000|Invalid appKey.|잘못된 앱키입니다.|
 |401100001|Invalid uuid.|사용자 정보가 유효하지 않습니다.|
-|403100000|Not allowed user.|권한이 없습니다.|
+|401100003|Token is not valid.|토큰이 유효하지 않습니다.|
+|403100000|Permission denied.|권한이 없습니다.|
 |409100000|Could not complete the request due to a duplicate request.|중복 요청으로 인해 요청을 완료할 수 없습니다.|
 |500100000|DB query failed.|일시적인 오류입니다. 오류가 지속되면 고객 센터로 문의해주시기 바랍니다.|
 |400101000|Exceeded the maximum service count.|서비스 최대 생성 개수를 초과하였습니다.|
