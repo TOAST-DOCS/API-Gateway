@@ -266,3 +266,17 @@
    }
 }
 ```
+
+## ゲートウェイ最大レスポンスタイムアウト
+- 発生原因: ゲートウェイの最大応答時間(60秒)内にバックエンドエンドポイントからリクエストを完了するために必要なレスポンスを受信できない場合、エラーが発生します。
+- レスポンスHTTP状態: 504 Gateway Timeout
+- エラーレスポンス本文 
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 5040001,
+        "resultMessage": "Gateway Timeout (Upstream ReadTimeout. limit: 60000ms)"
+    }
+}
+```

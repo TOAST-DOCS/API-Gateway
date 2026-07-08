@@ -267,3 +267,17 @@
    }
 }
 ```
+
+## Gateway maximum response timeout
+- Cause: A response error occurs when the response required to complete the request from the backend endpoint is not returned within the gateway maximum response.
+- Response HTTP Stats: 504 Gateway Timeout
+- Error reponse body
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 5040001,
+        "resultMessage": "Gateway Timeout (Upstream ReadTimeout. limit: 60000ms)"
+    }
+}
+```
