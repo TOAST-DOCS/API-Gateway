@@ -118,6 +118,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
    "header":{
@@ -148,6 +151,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
    ]
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -192,6 +197,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -215,6 +223,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   }
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -250,6 +260,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Request Body]
 
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "regionCode": "KR1",
@@ -257,6 +270,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   "apigwServiceDescription": "service description"
 }
 ```
+
+</details>
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
@@ -268,6 +283,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -292,6 +310,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   }
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -330,12 +350,17 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Request Body]
 
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "apigwServiceName": "update service name",
   "apigwServiceDescription": "test of api gateway service"
 }
 ```
+
+</details>
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
@@ -346,6 +371,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -370,6 +398,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   }
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -411,6 +441,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
     "header" : {
@@ -420,6 +453,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
     }
 }
 ```
+
+</details>
 
 ## 리소스
 
@@ -444,6 +479,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -502,6 +540,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 }
 ```
 
+</details>
+
 | 필드                                                     | 타입       | 설명                                             |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
 | resourceList                                           | List     | 리소스 목록 영역                                      |
@@ -544,6 +584,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
 
 ```json
 {
@@ -620,6 +663,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 }
 ```
 
+</details>
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | resourcePathList | List | 필수 | 없음 | 없음  | 리소스 경로 목록 |
@@ -642,6 +687,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -861,6 +909,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 }
 ```
 
+</details>
+
 | 필드                                                     | 타입       | 설명                                             |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
 | resourceList                                           | List     | 리소스 목록 영역                                      |
@@ -904,6 +954,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Request Body]
 
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "methodList": [
@@ -925,6 +978,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 }   
 ```
 
+</details>
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | methodList | List | 필수 | 없음 | 없음 | 리소스 경로 하위의 메서드 목록 |
@@ -940,6 +995,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -990,6 +1048,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 }
 ```
 
+</details>
+
 | 필드                                                     | 타입       | 설명                                             |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
 | resourceList                                           | List     | 리소스 목록 영역                                      |
@@ -1038,6 +1098,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Request Body]
 
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "pathPluginList":[
@@ -1072,6 +1135,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 }   
 ```
 
+</details>
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | pathPluginList | List | 선택 | 없음 | 없음 | 리소스 경로 플러그인 목록 |
@@ -1084,6 +1149,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -1121,6 +1189,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 | 필드                                                     | 타입       | 설명                                             |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
@@ -1168,6 +1238,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Request Body]
 
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "methodName":"PutMember",
@@ -1188,6 +1261,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 }
 ```
 
+</details>
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | methodName | String | 필수 | 없음 | 최대 50자 | 메서드 이름 |
@@ -1201,6 +1276,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -1237,6 +1315,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 | 필드                                                     | 타입       | 설명                                             |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
@@ -1317,6 +1397,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "swaggerData": {
@@ -1391,6 +1475,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   }
 }
 ```
+
+</details>
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
@@ -1608,6 +1694,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -1660,6 +1749,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 }
 ```
 
+</details>
+
 | 필드                             | 타입      | 설명                                                   |
 | ------------------------------ | ------- | ---------------------------------------------------- |
 | queryStringList                | List    | 쿼리 문자열 목록 영역                                         |
@@ -1709,6 +1800,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 | resourceId     | String | 필수    | 없음  | 없음    | API Gateway 리소스 ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "queryStringList": [
@@ -1747,6 +1842,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
@@ -1812,6 +1909,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -1842,6 +1942,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 | 필드                                        | 타입      | 설명                                                   |
 | ----------------------------------------- | ------- | ---------------------------------------------------- |
@@ -1879,6 +1981,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 | resourceId     | String | 필수    | 없음  | 없음    | API Gateway 리소스 ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "responseList": [
@@ -1904,6 +2010,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 | 이름                                        | 타입      | 필수 여부 | 기본값          | 유효 범위                                         | 설명                                                   |
 | ----------------------------------------- | ------- | ----- | ------------ | --------------------------------------------- | ---------------------------------------------------- |
@@ -1967,6 +2075,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -2008,6 +2119,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 }
 ```
 
+</details>
+
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |paging                               |Object  | 페이징 영역                                        |
@@ -2046,6 +2159,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Request Body]
 
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "modelName": "UserModel",
@@ -2069,6 +2185,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 }
 ```
 
+</details>
+
 | 이름               | 타입     | 필수 여부 | 기본값 | 유효 범위   | 설명                                                           |
 | ---------------- | ------ | ----- | --- | ------- | ------------------------------------------------------------ |
 | modelName        | String | 필수    | 없음  | 최대 50자  | 모델 이름                                                        |
@@ -2078,6 +2196,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -2113,6 +2234,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 }
 ```
 
+</details>
+
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |model                     |Object    | 모델 영역                         |
@@ -2146,6 +2269,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Request Body]
 
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "modelDescription": "This is user model.",
@@ -2168,6 +2294,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 }
 ```
 
+</details>
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | modelDescription | String | 선택    | 없음  | 최대 200자 | 모델 설명                                                        |
@@ -2177,6 +2305,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -2211,6 +2342,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   }
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2247,6 +2380,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
     "header" : {
@@ -2256,6 +2392,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
     }
 }
 ```
+
+</details>
 
 ## 스테이지
 
@@ -2287,6 +2425,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -2316,6 +2457,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2395,6 +2538,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "stageName": "alpha",
@@ -2402,6 +2549,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   "backendEndpointUrl": "https://backend.com"
 }
 ```
+
+</details>
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
@@ -2419,6 +2568,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -2442,6 +2594,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   }
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2481,12 +2635,18 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "backendEndpointUrl": "https://v2.backend.com",
   "stageDescription": "alpha v2 environment stage"
 }
 ```
+
+</details>
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
@@ -2497,6 +2657,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -2520,6 +2683,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   }
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2598,6 +2763,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -2648,6 +2817,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2699,6 +2870,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -2749,6 +2924,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2799,6 +2976,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Request Body]
 
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "customBackendEndpointUrl": "http://custom.backendpoint.com",
@@ -2810,6 +2990,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
@@ -2825,6 +3007,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -2875,6 +3061,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -3279,11 +3467,17 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 | stageId | String | 필수 | 없음 | 없음 | 스테이지 ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "deployDescription": "deploy description"
 }
 ```
+
+</details>
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | deployDescription | String | 선택 | 없음 | 최대 200자 | 배포 설명 |
@@ -3292,6 +3486,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -3302,6 +3499,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
     }
 }
 ```
+
+</details>
 
 
 ### 최근 스테이지 배포 결과 조회 
@@ -3328,6 +3527,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -3389,6 +3591,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 }
 ```
 
+</details>
+
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |latestStageDeployResult              |Object  | 스테이지 배포 결과 영역                                        |
@@ -3444,6 +3648,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
     "header" : {
@@ -3453,6 +3660,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
     }
 }
 ```
+
+</details>
 
 
 ### 스테이지 배포 이력 조회 
@@ -3484,6 +3693,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -3508,6 +3720,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -3551,6 +3765,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -3579,6 +3796,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -3627,6 +3846,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -3647,6 +3869,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 | 필드                              | 타입       | 설명                                                |
 | ------------------------------- | -------- | ------------------------------------------------- |
@@ -3681,6 +3905,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
     "gatewayResponseType": "NotFound",
@@ -3689,6 +3917,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
     "body": { "application/json": "{\"result\":\"fail\"}" }
 }
 ```
+
+</details>
 
 | 이름                | 타입     | 필수 여부 | 기본값 | 유효 범위            | 설명                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
@@ -3701,6 +3931,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -3720,6 +3953,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
     }
 }
 ```
+
+</details>
 
 
 | 필드                              | 타입       | 설명                                                |
@@ -3758,6 +3993,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -3767,6 +4005,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   }
 }
 ```
+
+</details>
 
 
 ## API 설명서
@@ -3795,6 +4035,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -3971,6 +4214,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 }
 ```
 
+</details>
+
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |swagger                     |String    | Swagger 사양의 버전. [Swagger Object](https://swagger.io/specification/v2/#swagger-object) 참고|
@@ -4025,6 +4270,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -4052,6 +4300,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 | 필드                              | 타입       | 설명                                                |
 | ------------------------------- | -------- | ------------------------------------------------- |
@@ -4083,6 +4333,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 | POST |  /v1.0/appkeys/{appKey}/apikeys |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "apiKeyName": "User1 API Key",
@@ -4092,6 +4346,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   "secondaryApiKey": null
 }
 ```
+
+</details>
 
 | 이름                | 타입     | 필수 여부 | 기본값 | 유효 범위            | 설명                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
@@ -4104,6 +4360,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -4125,6 +4384,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   }
 }
 ```
+
+</details>
 
 | 필드                       | 타입       | 설명                                                |
 | ------------------------ | -------- | ------------------------------------------------- |
@@ -4159,6 +4420,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 | apiKeyId | String | 필수 | 없음 | 없음 | API Key ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "apiKeyName": "User1 API Key",
@@ -4166,6 +4431,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   "apiKeyStatus": "ACTIVE"
 }
 ```
+
+</details>
 
 | 이름                | 타입     | 필수 여부 | 기본값 | 유효 범위            | 설명                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
@@ -4176,6 +4443,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -4197,6 +4467,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   }
 }
 ```
+
+</details>
 
 | 필드                       | 타입       | 설명                                                |
 | ------------------------ | -------- | ------------------------------------------------- |
@@ -4234,6 +4506,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -4243,6 +4518,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   }
 }
 ```
+
+</details>
 
 ### API Key 재발급
 - API Key 값으로 사용되는 Primary API Key, Secondary API Key는 각각 재발급할 수 있습니다.
@@ -4263,12 +4540,18 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 | apiKeyId | String | 필수 | 없음 | 없음 | API Key ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "apiKeyType": "PRIMARY",
   "apiKeyValue": null
 }
 ```
+
+</details>
 
 | 이름                | 타입     | 필수 여부 | 기본값 | 유효 범위            | 설명                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
@@ -4278,6 +4561,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -4299,6 +4585,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   }
 }
 ```
+
+</details>
 
 | 필드                       | 타입       | 설명                                                |
 | ------------------------ | -------- | ------------------------------------------------- |
@@ -4347,6 +4635,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -4374,6 +4665,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 | 필드                              | 타입       | 설명                                                |
 | ------------------------------- | -------- | ------------------------------------------------- |
@@ -4418,6 +4711,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -4445,6 +4741,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 | 필드                                         | 타입       | 설명                                                |
 | ------------------------------------------ | -------- | ------------------------------------------------- |
@@ -4487,6 +4785,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
     "header": {
@@ -4507,6 +4808,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
     }
 }
 ```
+
+</details>
 
 | 필드                                  | 타입       | 설명                                                |
 | ----------------------------------- | -------- | ------------------------------------------------- |
@@ -4533,6 +4836,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 | POST |  /v1.0/appkeys/{appKey}/usage-plans |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "usagePlanName": "string",
@@ -4542,6 +4849,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   "quotaLimit": 100
 }
 ```
+
+</details>
 
 | 이름                        | 타입      | 필수 여부 | 기본값 | 유효 범위        | 설명                                                |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
@@ -4554,6 +4863,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -4575,6 +4887,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   }
 }
 ```
+
+</details>
 
 | 필드                                  | 타입       | 설명                                                |
 | ----------------------------------- | -------- | ------------------------------------------------- |
@@ -4609,6 +4923,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 | usagePlanId | String | 필수 | 없음 | 없음 | 사용량 계획 ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "usagePlanName": "Basic",
@@ -4618,6 +4936,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   "quotaLimit": 100
 }
 ```
+
+</details>
 
 | 이름                        | 타입      | 필수 여부 | 기본값 | 유효 범위        | 설명                                                |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
@@ -4630,6 +4950,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -4651,6 +4974,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   }
 }
 ```
+
+</details>
 
 | 필드                                  | 타입       | 설명                                                |
 | ----------------------------------- | -------- | ------------------------------------------------- |
@@ -4688,6 +5013,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
     "header" : {
@@ -4697,6 +5025,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
     }
 }
 ```
+
+</details>
 
 
 ### 사용량 계획에 연결된 스테이지 목록 조회
@@ -4719,6 +5049,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -4747,6 +5080,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 | 필드                                    | 타입      | 설명                     |
 | ------------------------------------- | ------- | ---------------------- |
@@ -4791,6 +5126,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -4800,6 +5138,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   }
 }
 ```
+
+</details>
 
 ### 사용량 계획에 연결된 스테이지 해제
 - 사용량 계획에 연결된 스테이지를 연결 해제합니다.
@@ -4824,6 +5164,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -4833,6 +5176,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   }
 }
 ```
+
+</details>
 
 ### 스테이지가 연결된 사용량 계획 목록 조회
 - 스테이지가 연결된 사용량 계획 목록을 조회합니다.
@@ -4855,6 +5200,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -4883,6 +5231,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 | 필드                                         | 타입       | 설명                                                |
 | ------------------------------------------ | -------- | ------------------------------------------------- |
@@ -4933,6 +5283,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
     "header": {
@@ -4965,6 +5318,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
     ]
 }
 ```
+
+</details>
 
 | 필드                                                           | 타입      | 설명                                                |
 | ------------------------------------------------------------ | ------- | ------------------------------------------------- |
@@ -5026,6 +5381,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -5053,6 +5411,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 | 필드                                             | 타입       | 설명                                   |
 | ---------------------------------------------- | -------- | ------------------------------------ |
@@ -5094,6 +5454,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 | stageId | String | 필수 | 없음 | 없음 | 스테이지 ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "apiKeyIdList": [
@@ -5101,6 +5465,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 | 이름                        | 타입      | 필수 여부 | 기본값 | 유효 범위        | 설명                                                |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
@@ -5110,6 +5476,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -5133,6 +5502,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 | 필드                                             | 타입       | 설명                                   |
 | ---------------------------------------------- | -------- | ------------------------------------ |
@@ -5169,6 +5540,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 | stageId | String | 필수 | 없음 | 없음 | 스테이지 ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "apiSubscriptionIdList": [
@@ -5176,6 +5551,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   ]
 }
 ```
+
+</details>
 
 | 이름                        | 타입      | 필수 여부 | 기본값 | 유효 범위        | 설명                                                |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
@@ -5186,6 +5563,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
     "header": {
@@ -5195,6 +5575,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
     }
 }
 ```
+
+</details>
 
 
 ### API Key의 사용량 계획 변경
@@ -5220,11 +5602,17 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 | subscriptionId | String | 필수 | 없음 | 없음 | 구독 ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "changeUsagePlanId": "{usagePlanId}"
 }
 ```
+
+</details>
 
 | 이름                        | 타입      | 필수 여부 | 기본값 | 유효 범위        | 설명                                                |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
@@ -5233,6 +5621,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -5243,6 +5634,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   }
 }
 ```
+
+</details>
 
 ## 통계
 
@@ -5283,6 +5676,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -5326,6 +5723,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
   "metricsLatestUpdatedAt": "2021-11-29T08:50:57.000Z"
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                         |
 |-------------------------------------|--------|----------------------------------------------|
@@ -5384,6 +5783,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -5432,6 +5834,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 }
 ```
 
+</details>
+
 |필드                                   |타입      |설명                                         |
 |-------------------------------------|--------|----------------------------------------------|
 |data                                 |Object  | API Key 통계 데이터 영역                         |
@@ -5478,6 +5882,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
         "header": {
@@ -5521,6 +5928,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/
         "metricsLatestUpdatedAt": "2023-07-19T02:21:08.000Z"
     }
 ```
+
+</details>
 
 | 필드 | 타입 | 설명 |
 | --- | --- | --- |
