@@ -4,21 +4,23 @@ NHN Cloud API Gateway에서 제공하는 Public API v1.0을 설명합니다.
 
 ## API 공통 정보
 
-### 도메인
+### API 엔드포인트
 
-| 이름      | 리전 | 도메인                                            |
-|---------|-----|------------------------------------------------|
-| API 도메인 | 한국(판교) 리전 | https://kr1-apigateway.api.nhncloudservice.com |
-| API 도메인 | 한국(평촌) 리전 | https://kr2-apigateway.api.nhncloudservice.com |
-| API 도메인 | 한국(광주) 리전 | https://kr3-apigateway.api.nhncloudservice.com |
+API를 호출하기 위한 리전별 엔드포인트는 다음과 같습니다.
 
-### 사전 준비
+| 리전 | 엔드포인트 |
+| --- | --- |
+| 한국(판교) 리전 | https://kr1-apigateway.api.nhncloudservice.com |
+| 한국(평촌) 리전 | https://kr2-apigateway.api.nhncloudservice.com |
+| 한국(광주) 리전 | https://kr3-apigateway.api.nhncloudservice.com |
+
+### 인증 및 권한
 
 API Gateway API를 사용하려면 Appkey 또는 프로젝트 통합 Appkey가 필요합니다.
 
 Appkey는 NHN Cloud의 각 서비스별로 발급되는 고유 인증 키이며, 프로젝트 통합 Appkey는 NHN Cloud에서 하나의 프로젝트 내 여러 서비스에 대해 공통으로 사용할 수 있는 인증 키입니다.
 
-Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](https://docs.nhncloud.com/ko/nhncloud/ko/public-api/appkey)를 참고하세요. 프로젝트 통합 Appkey 생성 및 사용에 대한 자세한 내용은 [프로젝트 통합 Appkey](https://docs.nhncloud.com/ko/nhncloud/ko/public-api/project-integrated-appkey)를 참고하세요.
+Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/ko/nhncloud/ko/public-api/appkey)를 참고하세요. 프로젝트 통합 Appkey 생성 및 사용에 대한 자세한 내용은 [프로젝트 통합 Appkey](/ko/nhncloud/ko/public-api/project-integrated-appkey)를 참고하세요.
 
 ### 요청 공통 정보
 
@@ -33,10 +35,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](https://docs.nhn
 
 ### 응답 공통 정보
 
-#### 헤더
-모든 API 요청에 대해서 **200 OK**로 응답합니다. 자세한 응답 결과는 다음의 예와 같이 응답 본문의 헤더를 참고합니다.
+모든 API 요청에 대해서 **200 OK**로 응답합니다. 자세한 응답 결과는 응답 본문의 헤더를 참고합니다.
 
-[성공: Response Body]
+<details>
+  <summary><strong>성공 응답</strong></summary>
 
 ```json
 {
@@ -55,7 +57,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](https://docs.nhn
 | header.resultCode    | Integer | 결과 코드  |
 | header.resultMessage | String  | 결과 메시지 |
 
-[실패: Response Body]
+</details>
+
+<details>
+  <summary><strong>실패 응답</strong></summary>
 
 ```json
 {
@@ -82,6 +87,8 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](https://docs.nhn
 | errorList[0].errorProperty | String | 오류 프로퍼티(모델) |
 | errorList[0].errorField | String  | 오류 상세 필드 |
 | errorList[0].errorMessage | String  | 오류 메시지 |
+
+</details>
 
 * 잘못된 API 요청을 한 경우, errorList 필드에 자세한 오류 원인과 필드 정보가 응답됩니다.
 
