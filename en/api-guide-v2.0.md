@@ -1,6 +1,6 @@
-## Application Service > API Gateway > API v1.0 Guide
+## Application Service > API Gateway > API v2.0 Guide
 
-This guide describes Public API v1.0 provided by NHN Cloud API Gateway.
+This guide describes Public API v2.0 provided by NHN Cloud API Gateway.
 
 ## API Common Information
 
@@ -16,18 +16,14 @@ The endpoints by region for calling the API are as follows.
 
 ### Authentication and Authorization
 
-An AppKey or a Project Integrated Appkey is required to use the API Gateway API. 
-
-An AppKey is a unique authentication key issued for each individual NHN Cloud service, while a Project Integrated Appkey is a common authentication key that can be shared across multiple services within a single NHN Cloud project. 
-
-For more information on checking and using Appkeys, please refer to the [Appkey](/nhncloud/en/public-api/appkey). For more information on creating and using Project Integrated Appkeys, please refer to the [Project Integrated Appkey](/nhncloud/en/public-api/project-integrated-appkey).
+API Gateway uses User Access Key tokens for authentication and authorization when making API calls. The User Access Key token is a temporary, Bearer-type access token issued from a User Access Key. For more information on issuing and using User Access Key tokens, please refer to the [User Access Key Token](/nhncloud/en/public-api/user-access-key-token).
 
 ### Request Common Information
 
 #### Path Parameter
 
 All APIs must specify the appkey as a path parameter.
-* Example) /v1.0/appkeys/**{appKey}**/**
+* Example) /v2.0/appkeys/**{appKey}**/**
 
 | Name     | Description                    |
 | ------ | --------------------- |
@@ -104,7 +100,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services |
+| GET | /v2.0/appkeys/{appKey}/services |
 
 [QueryString Parameter]
 
@@ -184,7 +180,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId} |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId} |
 
 [Path Parameter]
 
@@ -256,7 +252,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/services |
+| POST | /v2.0/appkeys/{appKey}/services |
 
 [Request Body]
 
@@ -339,7 +335,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI                                  |
 | ---- | ------------------------------------ |
-| PUT  | /v1.0/appkeys/{appKey}/services/{apigwServiceId} |
+| PUT  | /v2.0/appkeys/{appKey}/services/{apigwServiceId} |
 
 [Path Parameter]
 
@@ -429,7 +425,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method    | URI                                 |
 | ------ | ------------------------------------ |
-| DELETE | /v1.0/appkeys/{appKey}/services/{apigwServiceId} |
+| DELETE | /v2.0/appkeys/{appKey}/services/{apigwServiceId} |
 
 [Path Parameter]
 
@@ -468,7 +464,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method | URI | 
 | --- | --- | 
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
 
 [Path Parameter]
 
@@ -557,13 +553,13 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourceList[2].resourcePluginList[0].resourcePluginId | String   | Resource plugin ID                                    |
 | resourceList[2].resourcePluginList[0].resourceId       | String   | Resource ID                                         |
 | resourceList[2].resourcePluginList[0].pluginType       | Enum     | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type)    |
-| resourceList[2].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin)                   |
+| resourceList[2].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin)                   |
 | resourceList[2].resourcePluginList[0].createdAt        | DateTime | Resource plugin creation date and time                                  |
 | resourceList[2].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
 
 ### Create Resource Paths and Methods
 - You can create multiple resource paths and methods, and set the plugin at the time of creation.
-- Resource methods are optional input. To add a method under the created resource path, you need to use the [Create Resource Methods API](./api-guide-v1.0/#create-resource-methods).
+- Resource methods are optional input. To add a method under the created resource path, you need to use the [Create Resource Methods API](./api-guide-v2.0/#create-resource-methods).
 - Resource methods must have either HTTP or MOCK plugin set. HTTP and MOCK plugins cannot be set at the same time.
 - The created resource path cannot be modified.
 - The resource path plugins defined in the pathPluginList field are the list of plugins that are applied to child methods of that path.
@@ -574,7 +570,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method | URI | 
 | --- | --- | 
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
 
 [Path Parameter]
 
@@ -673,7 +669,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourcePathList[0].pathPluginList | List | Optional | N/A | N/A | Resource path plugin list |
 | resourcePathList[0].pathPluginList[0] | Object | Optional | N/A | N/A | Resource path plugin area |
 | resourcePathList[0].pathPluginList[0].pluginType | Enum | Required | N/A | {pluginCode} CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | The plugin type that can be set in the resource path among [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type) |
-| resourcePathList[0].pathPluginList[0].pluginConfigJson | Object | Required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin)|
+| resourcePathList[0].pathPluginList[0].pluginConfigJson | Object | Required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin)|
 | resourcePathList[0].methodList | List | Optional | N/A | N/A | List of methods under the resource path |
 | resourcePathList[0].methodList[0] | Object | Optional | N/A | N/A | Area for methods under the resource path |
 | resourcePathList[0].methodList[0].methodType | Enum | Required | N/A | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | See [HTTP Method Type Enum Code](./enum-code/#http-method-type) |
@@ -682,7 +678,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourcePathList[0].methodList[0].methodPluginList | List | Required | N/A | N/A | Resource method plugin list |
 | resourcePathList[0].methodList[0].methodPluginList[0] | Object | Required | N/A | N/A | Resource method plugin area, requires input of one of the 'HTTP' or 'MOCK' plugin |
 | resourcePathList[0].methodList[0].methodPluginList[0].pluginType | Enum | Required | N/A | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | The plugin type that can be set in the resource method among [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type) |
-| resourcePathList[0].methodList[0].methodPluginList[0].pluginConfigJson | Object | Required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin)|
+| resourcePathList[0].methodList[0].methodPluginList[0].pluginConfigJson | Object | Required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin)|
 
 #### Response
 
@@ -927,7 +923,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourceList[1].resourcePluginList[0].resourcePluginId | String   | Resource plugin ID                                    |
 | resourceList[1].resourcePluginList[0].resourceId       | String   | Resource ID                                         |
 | resourceList[1].resourcePluginList[0].pluginType       | Enum     | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type)    |
-| resourceList[1].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin)                   |
+| resourceList[1].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin)                   |
 | resourceList[1].resourcePluginList[0].createdAt        | DateTime | Resource plugin creation date and time                                  |
 | resourceList[1].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
 
@@ -942,7 +938,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method | URI | 
 | --- | --- | 
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/methods |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/methods |
 
 [Path Parameter]
 
@@ -990,7 +986,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | methodList[0].methodPluginList | List | Required | N/A | N/A | Resource method plugin list |
 | methodList[0].methodPluginList[0] | Object | Required | N/A | N/A | Resource method plugin area, requires input of one of the 'HTTP' or 'MOCK' plugin |
 | methodList[0].methodPluginList[0].pluginType | Enum | Required | N/A | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | The plugin type that can be set in the resource method among [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type) |
-| methodList[0].methodPluginList[0].pluginConfigJson | Object | Required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin)|
+| methodList[0].methodPluginList[0].pluginConfigJson | Object | Required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin)|
 
 #### Response
 
@@ -1066,7 +1062,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourceList[0].resourcePluginList[0].resourcePluginId | String   | Resource plugin ID                                    |
 | resourceList[0].resourcePluginList[0].resourceId       | String   | Resource ID                                         |
 | resourceList[0].resourcePluginList[0].pluginType       | Enum     | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type)    |
-| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin)                   |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin)                   |
 | resourceList[0].resourcePluginList[0].createdAt        | DateTime | Resource plugin creation date and time                                  |
 | resourceList[0].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
 
@@ -1079,7 +1075,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 - If the applyChildPath field is set to true, the plugin is set on all paths and methods under the resource path.
 - If both applyChildPath and delete fields are set to true, the plugin will be deleted for all paths and methods under the resource path.
 - If the CORS plugin is set, the OPTIONS method is automatically created as a child method. Note that if there is an existing OPTIONS method, it will be deleted and replaced.
-- Only the plugins that can be set in the resource path can be set. For more information, see [Resource Plugins](./api-guide-v1.0/#resource-plugin).
+- Only the plugins that can be set in the resource path can be set. For more information, see [Resource Plugins](./api-guide-v2.0/#resource-plugin).
 
 #### Request
 
@@ -1087,7 +1083,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method | URI | 
 | --- | --- | 
-| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resource-paths/{resourceId} |
+| PUT | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resource-paths/{resourceId} |
 
 [Path Parameter]
 
@@ -1142,7 +1138,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | pathPluginList | List | Optional | N/A | N/A | Resource path plugin list |
 | pathPluginList[0] | Object | Optional | N/A | N/A | Resource path plugin area |
 | pathPluginList[0].pluginType | Enum | Required | N/A | {pluginCode} CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER,ADD_REQUEST_QUERY_PARAMETER | The plugin type that can be set in the resource path among [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type) |
-| pathPluginList[0].pluginConfigJson | Object | Conditionally required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin), required input when the delete field is false.|
+| pathPluginList[0].pluginConfigJson | Object | Conditionally required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin), required input when the delete field is false.|
 | pathPluginList[0].applyChildPath | Boolean | Optional | false | true, false | Whether to overwrite child paths and methods |
 | pathPluginList[0].delete | Boolean | Optional | false | true, false | Whether to delete the plugin |
 
@@ -1208,7 +1204,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourceList[0].resourcePluginList[0].resourcePluginId | String   | Resource plugin ID                                    |
 | resourceList[0].resourcePluginList[0].resourceId       | String   | Resource ID                                         |
 | resourceList[0].resourcePluginList[0].pluginType       | Enum     | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type)    |
-| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin)                   |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin)                   |
 | resourceList[0].resourcePluginList[0].createdAt        | DateTime | Resource plugin creation date and time                                  |
 | resourceList[0].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
 
@@ -1219,7 +1215,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 - If you set a plugin that has not been added to the resource method, the plugin is added.
 - If you set a plugin that has been added to the resource method, it is changed to the requested plugin setting.
 - If the delete field is set to true, the plugin of the requested plugin type is deleted. If the delete field is true, the pluginConfigJson field does not need to be defined.
-- Only the plugins that can be set on resource methods can be set. For more information, see [Resource Plugins](./api-guide-v1.0/#resource-plugin).
+- Only the plugins that can be set on resource methods can be set. For more information, see [Resource Plugins](./api-guide-v2.0/#resource-plugin).
 
 #### Request
 
@@ -1227,7 +1223,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method | URI | 
 | --- | --- | 
-| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resource-methods/{resourceId} |
+| PUT | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resource-methods/{resourceId} |
 
 [Path Parameter]
 
@@ -1270,7 +1266,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | methodPluginList | List | Optional | N/A | N/A | Resource method plugin list |
 | methodPluginList[0] | Object | Required | N/A | N/A | Resource method plugin area |
 | methodPluginList[0].pluginType | Enum | Required | N/A | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | The plugin type that can be set in the resource method among [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type) |
-| methodPluginList[0].pluginConfigJson | Object | Conditionally required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin), required input when the delete field is false.|
+| methodPluginList[0].pluginConfigJson | Object | Conditionally required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin), required input when the delete field is false.|
 | methodPluginList[0].delete | Boolean | Optional | false | N/A | Whether to delete the plugin |
 
 #### Response
@@ -1334,7 +1330,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourceList[0].resourcePluginList[0].resourcePluginId | String   | Resource plugin ID                                    |
 | resourceList[0].resourcePluginList[0].resourceId       | String   | Resource ID                                         |
 | resourceList[0].resourcePluginList[0].pluginType       | Enum     | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type)    |
-| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin)                   |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin)                   |
 | resourceList[0].resourcePluginList[0].createdAt        | DateTime | Resource plugin creation date and time                                  |
 | resourceList[0].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
 
@@ -1353,7 +1349,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI                                  |
 | ---- | ------------------------------------ |
-| DELETE  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId} |
+| DELETE  | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId} |
 
 [Path Parameter]
 
@@ -1388,7 +1384,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI                                  |
 | ---- | ------------------------------------ |
-| POST  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/import |
+| POST  | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources/import |
 
 [Path Parameter]
 
@@ -1509,7 +1505,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.schema.$ref | String | Required | N/A | Objects declared in Swagger definitions | API Gateway resource response > Response HTTP status code > Response Body > Model. |
 | swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway | Object | Optional | N/A | N/A | API Gateway-provided feature definition object area. |
 | swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins | Object | Required | N/A | N/A | API Gateway custom plugin object area. |
-| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins.{pluginCode} | Object | Required | N/A | {pluginCode} HTTP, MOCK, CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type). See [JSON setting value by resource plugin type](./api-guide-v1.0/#resource-plugin). |
+| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins.{pluginCode} | Object | Required | N/A | {pluginCode} HTTP, MOCK, CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type). See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin). |
 | swaggerData.definitions | Object | Optional | N/A | N/A | API Gateway resource request parameters, body object definition area used in response. See [Definitions Object](https://swagger.io/specification/v2/#definitionsObject) |
 
 
@@ -1683,7 +1679,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
  
 | Method  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/parameters |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/parameters |
 
 [Path Parameter]
 
@@ -1792,7 +1788,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/parameters |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/parameters |
 
 [Path Parameter]
 
@@ -1898,7 +1894,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/responses |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/responses |
 
 [Path Parameter]
 
@@ -1973,7 +1969,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/responses |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/responses |
 
 [Path Parameter]
 
@@ -2057,7 +2053,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/models |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/models |
 
 [Path Parameter]
 
@@ -2150,7 +2146,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/models |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/models |
 
 [Path Parameter]
 
@@ -2260,7 +2256,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/models/{modelId} |
+| PUT | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/models/{modelId} |
 
 [Path Parameter]
 
@@ -2369,7 +2365,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI                                  |
 | ---- | ------------------------------------ |
-| DELETE  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/models/{modelId} |
+| DELETE  | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/models/{modelId} |
 
 [Path Parameter]
 
@@ -2408,7 +2404,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages |
 
 [Path Parameter]
 
@@ -2494,7 +2490,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/swagger |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/swagger |
 
 [Path Parameter]
 
@@ -2530,7 +2526,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages |
 
 [Path Parameter]
 
@@ -2626,7 +2622,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId} |
+| PUT | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId} |
 
 [Path Parameter]
 
@@ -2717,7 +2713,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI                                  |
 | ---- | ------------------------------------ |
-| DELETE  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId} |
+| DELETE  | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId} |
 
 [Path Parameter]
 
@@ -2743,7 +2739,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 ### List Stage Resources 
 * Retrieves a list of resources registered on the stage. The stage resource plugin information set for each resource is included.
-* For more information about the stage resource plugin, see [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin).
+* For more information about the stage resource plugin, see [Stage Resource Plugin](./api-guide-v2.0/#stage-resource-plugin).
 
 
 #### Request
@@ -2752,7 +2748,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI                                  |
 | ---- | ------------------------------------ |
-| GET  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/resources |
+| GET  | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/resources |
 
 [Path Parameter]
 
@@ -2841,7 +2837,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)            |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v2.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v2.0/#stage-resource-plugin)            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -2859,7 +2855,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/resources |
+| PUT | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/resources |
 
 [Path Parameter]
 
@@ -2948,7 +2944,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)            |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v2.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v2.0/#stage-resource-plugin)            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -2957,7 +2953,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 ### Modify Stage Resource
 * Modifies the backend endpoint URL override and stage resource plugin set in the resource path or resource method.
 * When a stage resource is modified, all registered stage resource plugins are deleted, and only the requested resource plugin is newly registered.
-* For more information about the Stage Resource Plugin, see [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin).
+* For more information about the Stage Resource Plugin, see [Stage Resource Plugin](./api-guide-v2.0/#stage-resource-plugin).
 
 #### Request
 
@@ -2965,7 +2961,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/resources/{stageResourceId} |
+| PUT | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/resources/{stageResourceId} |
 
 [Path Parameter]
 
@@ -3001,7 +2997,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | stageResourcePluginList | List | Required | N/A | N/A | Stage resource's plugin list area |
 | stageResourcePluginList[0] | Object | Required | N/A | N/A | Stage resource's plugin area |
 | stageResourcePluginList[0].pluginType  | Enum | Required | N/A | IP_ACL, HMAC, JWT, API_KEY, PRE_API, RATE_LIMIT | See [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)|
-| stageResourcePluginList[0].pluginConfigJson | Object | Required | N/A | N/A | JSON-format object for each stage resource plugin<br>See configuration JSON by [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)|
+| stageResourcePluginList[0].pluginConfigJson | Object | Required | N/A | N/A | JSON-format object for each stage resource plugin<br>See configuration JSON by [Stage Resource Plugin](./api-guide-v2.0/#stage-resource-plugin)|
 
 * The customBackendEndpointUrl field cannot be set in the root (/) resource path.
 
@@ -3085,7 +3081,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)            |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v2.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v2.0/#stage-resource-plugin)            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -3452,7 +3448,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 - Deploys the current stage resources and configurations to the API Gateway service. 
 - If there is no changed configuration, the stage deployment request will fail.
 - If the stage deployment fails, it is restored to the previous successful stage deployment configuration.
-- After requesting stage deployment, you can check whether stage deployment was successful in [Query Result of Recent Stage Deployment](./api-guide-v1.0/#query-result-of-recent-stage-deployment). 
+- After requesting stage deployment, you can check whether stage deployment was successful in [Query Result of Recent Stage Deployment](./api-guide-v2.0/#query-result-of-recent-stage-deployment). 
 
 #### Request
 
@@ -3460,7 +3456,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method    | URI                                 |
 | ------ | ------------------------------------ |
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys |
 
 [Path Parameter]
 
@@ -3507,7 +3503,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 ### Query Result of Recent Stage Deployment 
-- You can query the result of [Deploy Stage](./api-guide-v1.0/#deploy-stage_1). 
+- You can query the result of [Deploy Stage](./api-guide-v2.0/#deploy-stage_1). 
 - After a stage deployment request, it can take up to a minute for the deployment results to be updated. 
 
 
@@ -3517,7 +3513,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/latest |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/latest |
 
 [Path Parameter]
 
@@ -3623,7 +3619,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                       |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)          |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v2.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v2.0/#stage-resource-plugin)          |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -3637,7 +3633,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method    | URI                                 |
 | ------ | ------------------------------------ |
-| DELETE | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/{deployId} |
+| DELETE | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/{deployId} |
 
 [Path Parameter]
 
@@ -3676,7 +3672,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys |
 
 [Path Parameter]
 
@@ -3754,7 +3750,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method    | URI                                 |
 | ------ | ------------------------------------ |
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/{deployId}/rollback |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/{deployId}/rollback |
 
 [Path Parameter]
 
@@ -3821,7 +3817,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                       |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v1.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v1.0/#stage-resource-plugin)         |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v2.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v2.0/#stage-resource-plugin)         |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -3837,7 +3833,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses |
 
 [Path Parameter]
 
@@ -3899,7 +3895,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses |
+| PUT | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses |
 
 [Path Parameter]
 
@@ -3983,7 +3979,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| DELETE | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses/{gatewayResponseId} |
+| DELETE | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses/{gatewayResponseId} |
 
 [Path Parameter]
 
@@ -4025,7 +4021,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method    | URI                                 |
 | ------ | ------------------------------------ |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/documents/swagger |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/documents/swagger |
 
 [Path Parameter]
 
@@ -4255,7 +4251,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/apikeys |
+| GET | /v2.0/appkeys/{appKey}/apikeys |
 
 [QueryString Parameter]
 
@@ -4332,7 +4328,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| POST |  /v1.0/appkeys/{appKey}/apikeys |
+| POST |  /v2.0/appkeys/{appKey}/apikeys |
 
 [Request Body]
 
@@ -4413,7 +4409,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| PUT |  /v1.0/appkeys/{appKey}/apikeys/{apiKeyId} |
+| PUT |  /v2.0/appkeys/{appKey}/apikeys/{apiKeyId} |
 
 [Path Parameter]
 
@@ -4496,7 +4492,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| DELETE |  /v1.0/appkeys/{appKey}/apikeys/{apiKeyId} |
+| DELETE |  /v2.0/appkeys/{appKey}/apikeys/{apiKeyId} |
 
 [Path Parameter]
 
@@ -4533,7 +4529,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/apikeys/{apiKeyId}/regenerate |
+| POST | /v2.0/appkeys/{appKey}/apikeys/{apiKeyId}/regenerate |
 
 [Path Parameter]
 
@@ -4613,7 +4609,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/stages/{stageId}/apikeys/connectable |
+| GET | /v2.0/appkeys/{appKey}/stages/{stageId}/apikeys/connectable |
 
 [Path Parameter]
 
@@ -4700,7 +4696,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/usage-plans |
+| GET | /v2.0/appkeys/{appKey}/usage-plans |
 
 [QueryString Parameter]
 
@@ -4775,7 +4771,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
+| GET | /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
 
 [Path Parameter]
 
@@ -4835,7 +4831,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| POST |  /v1.0/appkeys/{appKey}/usage-plans |
+| POST |  /v2.0/appkeys/{appKey}/usage-plans |
 
 [Request Body]
 
@@ -4916,7 +4912,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| PUT |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
+| PUT |  /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
 
 [Path Parameter]
 
@@ -5003,7 +4999,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| DELETE |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
+| DELETE |  /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
 
 [Path Parameter]
 
@@ -5040,7 +5036,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| GET |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages |
+| GET |  /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages |
 
 [Path Parameter]
 
@@ -5115,7 +5111,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| POST |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId} |
+| POST |  /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId} |
 
 [Path Parameter]
 
@@ -5153,7 +5149,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| DELETE |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId} |
+| DELETE |  /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId} |
 
 [Path Parameter]
 
@@ -5190,7 +5186,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| GET |  /v1.0/appkeys/{appKey}/usage-plans/stages/{stageId} |
+| GET |  /v2.0/appkeys/{appKey}/usage-plans/stages/{stageId} |
 
 [QueryString Parameter]
 
@@ -5265,7 +5261,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/apikeys/{apiKeyId}/subscriptions |
+| GET | /v2.0/appkeys/{appKey}/apikeys/{apiKeyId}/subscriptions |
 
 [Path Parameter]
 
@@ -5359,7 +5355,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
+| GET | /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
 
 [Path Parameter]
 
@@ -5446,7 +5442,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
+| POST | /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
 
 [Path Parameter]
 
@@ -5532,7 +5528,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| DELETE | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
+| DELETE | /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
 
 [Path Parameter]
 
@@ -5593,7 +5589,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions/{subscriptionId}/change-usage-plan |
+| POST | /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions/{subscriptionId}/change-usage-plan |
 
 [Path Parameter]
 
@@ -5651,7 +5647,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/metrics |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/metrics |
 
 [Path Parameter]
 
@@ -5760,7 +5756,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/apikeys/{apiKeyId}/metrics |
+| GET | /v2.0/appkeys/{appKey}/apikeys/{apiKeyId}/metrics |
 
 [Path Parameter]
 
@@ -5869,7 +5865,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Method  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/metrics/top-services |
+| GET | /v2.0/appkeys/{appKey}/metrics/top-services |
 
 
 [QueryString Parameter]

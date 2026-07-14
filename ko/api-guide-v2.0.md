@@ -1,6 +1,6 @@
-## Application Service > API Gateway > API v1.0 가이드
+## Application Service > API Gateway > API v2.0 가이드
 
-NHN Cloud API Gateway에서 제공하는 Public API v1.0을 설명합니다.
+NHN Cloud API Gateway에서 제공하는 Public API v2.0을 설명합니다.
 
 ## API 공통 정보
 
@@ -16,18 +16,14 @@ API를 호출하기 위한 리전별 엔드포인트는 다음과 같습니다.
 
 ### 인증 및 권한
 
-API Gateway API를 사용하려면 Appkey 또는 프로젝트 통합 Appkey가 필요합니다.
-
-Appkey는 NHN Cloud의 각 서비스별로 발급되는 고유 인증 키이며, 프로젝트 통합 Appkey는 NHN Cloud에서 하나의 프로젝트 내 여러 서비스에 대해 공통으로 사용할 수 있는 인증 키입니다.
-
-Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/public-api/appkey)를 참고하세요. 프로젝트 통합 Appkey 생성 및 사용에 대한 자세한 내용은 [프로젝트 통합 Appkey](/nhncloud/ko/public-api/project-integrated-appkey)를 참고하세요.
+API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토큰을 사용합니다. User Access Key 토큰은 User Access Key를 기반으로 발급되는 Bearer 타입의 일시적 액세스 토큰입니다. User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Access Key 토큰](/nhncloud/ko/public-api/user-access-key-token)을 참고하세요.
 
 ### 요청 공통 정보
 
 #### Path Parameter
 
 모든 API는 앱 키를 Path Parameter로 지정해야 합니다.
-* 예) /v1.0/appkeys/**{appKey}**/**
+* 예) /v2.0/appkeys/**{appKey}**/**
 
 | 이름     | 설명                    |
 | ------ | --------------------- |
@@ -104,7 +100,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services |
+| GET | /v2.0/appkeys/{appKey}/services |
 
 [QueryString Parameter]
 
@@ -184,7 +180,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId} |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId} |
 
 [Path Parameter]
 
@@ -256,7 +252,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/services |
+| POST | /v2.0/appkeys/{appKey}/services |
 
 [Request Body]
 
@@ -339,7 +335,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI                                  |
 | ---- | ------------------------------------ |
-| PUT  | /v1.0/appkeys/{appKey}/services/{apigwServiceId} |
+| PUT  | /v2.0/appkeys/{appKey}/services/{apigwServiceId} |
 
 [Path Parameter]
 
@@ -429,7 +425,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드    | URI                                 |
 | ------ | ------------------------------------ |
-| DELETE | /v1.0/appkeys/{appKey}/services/{apigwServiceId} |
+| DELETE | /v2.0/appkeys/{appKey}/services/{apigwServiceId} |
 
 [Path Parameter]
 
@@ -468,7 +464,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드 | URI | 
 | --- | --- | 
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
 
 [Path Parameter]
 
@@ -557,13 +553,13 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | resourceList[2].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
 | resourceList[2].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
 | resourceList[2].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고    |
-| resourceList[2].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_37) 참고                   |
+| resourceList[2].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고                   |
 | resourceList[2].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
 | resourceList[2].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
 
 ### 리소스 경로와 메서드 생성
 - 여러 개의 리소스 경로와 메서드를 생성하고, 생성과 동시에 플러그인을 설정할 수 있습니다.
-- 리소스 메서드는 선택 입력입니다. 생성된 리소스 경로의 하위에 메서드를 추가하려면 [리소스 메서드 생성](./api-guide-v1.0/#_23) API를 사용해야합니다.
+- 리소스 메서드는 선택 입력입니다. 생성된 리소스 경로의 하위에 메서드를 추가하려면 [리소스 메서드 생성](./api-guide-v2.0/#_23) API를 사용해야합니다.
 - 리소스 메서드에는 HTTP 또는 MOCK 플러그인 중 반드시 하나가 설정되어야 합니다. HTTP와 MOCK 플러그인을 동시에 설정할 수 없습니다.
 - 생성된 리소스 경로는 수정이 불가합니다.
 - pathPluginList 필드에 정의된 리소스 경로 플러그인은 해당 경로의 하위 메서드에 적용되는 플러그인 목록입니다.
@@ -574,7 +570,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드 | URI | 
 | --- | --- | 
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
 
 [Path Parameter]
 
@@ -673,7 +669,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | resourcePathList[0].pathPluginList | List | 선택 | 없음 | 없음 | 리소스 경로 플러그인 목록 |
 | resourcePathList[0].pathPluginList[0] | Object | 선택 | 없음 | 없음 | 리소스 경로 플러그인 영역 |
 | resourcePathList[0].pathPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 경로에 설정 가능한 플러그인 타입 |
-| resourcePathList[0].pathPluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_37) 참고.|
+| resourcePathList[0].pathPluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고.|
 | resourcePathList[0].methodList | List | 선택 | 없음 | 없음 | 리소스 경로 하위의 메서드 목록 |
 | resourcePathList[0].methodList[0] | Object | 선택 | 없음 | 없음 | 리소스 경로 하위의 메서드 영역 |
 | resourcePathList[0].methodList[0].methodType | Enum | 필수 | 없음 | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
@@ -682,7 +678,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | resourcePathList[0].methodList[0].methodPluginList | List | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 목록 |
 | resourcePathList[0].methodList[0].methodPluginList[0] | Object | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 영역, 'HTTP' 또는 'MOCK' 중 하나의 플러그인은 필수 입력 |
 | resourcePathList[0].methodList[0].methodPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 메서드에 설정 가능한 플러그인 타입 |
-| resourcePathList[0].methodList[0].methodPluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_37) 참고.|
+| resourcePathList[0].methodList[0].methodPluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고.|
 
 #### 응답
 
@@ -927,7 +923,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | resourceList[1].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
 | resourceList[1].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
 | resourceList[1].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고    |
-| resourceList[1].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_37) 참고                   |
+| resourceList[1].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고                   |
 | resourceList[1].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
 | resourceList[1].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
 
@@ -942,7 +938,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드 | URI | 
 | --- | --- | 
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/methods |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/methods |
 
 [Path Parameter]
 
@@ -990,7 +986,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | methodList[0].methodPluginList | List | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 목록 |
 | methodList[0].methodPluginList[0] | Object | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 영역, 'HTTP' 또는 'MOCK' 중 하나의 플러그인은 필수 입력 |
 | methodList[0].methodPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 메서드에 설정 가능한 플러그인 타입 |
-| methodList[0].methodPluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_37) 참고.|
+| methodList[0].methodPluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고.|
 
 #### 응답
 
@@ -1066,7 +1062,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | resourceList[0].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
 | resourceList[0].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
 | resourceList[0].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고    |
-| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_37) 참고                   |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고                   |
 | resourceList[0].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
 | resourceList[0].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
 
@@ -1079,7 +1075,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 - applyChildPath 필드를 true로 설정하면 리소스 경로 하위의 모든 경로와 메서드에 플러그인이 설정됩니다.
 - applyChildPath와 delete 필드 모두를 true로 설정하면 리소스 경로 하위의 모든 경로와 메서드에 플러그인이 삭제됩니다.
 - CORS 플러그인을 설정하면, 하위 메서드로 OPTIONS 메서드가 자동으로 생성됩니다. 만일 기존에 존재하는 OPTIONS 메서드가 있다면 삭제되고 대체되므로 주의해주세요.
-- 리소스 경로에 설정 가능한 플러그인만 설정할 수 있습니다. 자세한 내용은 [리소스 플러그인](./api-guide-v1.0/#_37)을 참고합니다.
+- 리소스 경로에 설정 가능한 플러그인만 설정할 수 있습니다. 자세한 내용은 [리소스 플러그인](./api-guide-v2.0/#_37)을 참고합니다.
 
 #### 요청
 
@@ -1087,7 +1083,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드 | URI | 
 | --- | --- | 
-| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resource-paths/{resourceId} |
+| PUT | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resource-paths/{resourceId} |
 
 [Path Parameter]
 
@@ -1142,7 +1138,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | pathPluginList | List | 선택 | 없음 | 없음 | 리소스 경로 플러그인 목록 |
 | pathPluginList[0] | Object | 선택 | 없음 | 없음 | 리소스 경로 플러그인 영역 |
 | pathPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER,ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 경로에 설정 가능한 플러그인 타입 |
-| pathPluginList[0].pluginConfigJson | Object | 조건부 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_37) 참고, delete 필드가 false인 경우 필수 입력|
+| pathPluginList[0].pluginConfigJson | Object | 조건부 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고, delete 필드가 false인 경우 필수 입력|
 | pathPluginList[0].applyChildPath | Boolean | 선택 | false | true, false | 하위 경로와 메서드에 덮어쓰기 여부 |
 | pathPluginList[0].delete | Boolean | 선택 | false | true, false | 플러그인 삭제 여부 |
 
@@ -1208,7 +1204,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | resourceList[0].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
 | resourceList[0].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
 | resourceList[0].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고    |
-| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_37) 참고                   |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고                   |
 | resourceList[0].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
 | resourceList[0].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
 
@@ -1219,7 +1215,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 - 리소스 메서드에 추가되지 않은 플러그인을 설정하면 플러그인이 추가됩니다.
 - 리소스 메서드에 추가된 플러그인을 설정하면 요청한 플러그인 설정으로 변경됩니다.
 - delete 필드를 true로 설정하면, 요청한 플러그인 타입의 플러그인이 삭제됩니다. delete 필드가 true이면 pluginConfigJson 필드는 정의하지 않아도 됩니다.
-- 리소스 메서드에 설정 가능한 플러그인만 설정할 수 있습니다. 자세한 내용은 [리소스 플러그인](./api-guide-v1.0/#_37)을 참고합니다.
+- 리소스 메서드에 설정 가능한 플러그인만 설정할 수 있습니다. 자세한 내용은 [리소스 플러그인](./api-guide-v2.0/#_37)을 참고합니다.
 
 #### 요청
 
@@ -1227,7 +1223,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드 | URI | 
 | --- | --- | 
-| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resource-methods/{resourceId} |
+| PUT | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resource-methods/{resourceId} |
 
 [Path Parameter]
 
@@ -1270,7 +1266,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | methodPluginList | List | 선택 | 없음 | 없음 | 리소스 메서드 플러그인 목록 |
 | methodPluginList[0] | Object | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 영역 |
 | methodPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 메서드에 설정 가능한 플러그인 타입 |
-| methodPluginList[0].pluginConfigJson | Object | 조건부 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_37) 참고, delete 필드가 false인 경우 필수 입력|
+| methodPluginList[0].pluginConfigJson | Object | 조건부 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고, delete 필드가 false인 경우 필수 입력|
 | methodPluginList[0].delete | Boolean | 선택 | false | 없음 | 플러그인 삭제 여부 |
 
 #### 응답
@@ -1334,7 +1330,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | resourceList[0].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
 | resourceList[0].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
 | resourceList[0].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고    |
-| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_37) 참고                   |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고                   |
 | resourceList[0].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
 | resourceList[0].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
 
@@ -1353,7 +1349,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI                                  |
 | ---- | ------------------------------------ |
-| DELETE  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId} |
+| DELETE  | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId} |
 
 [Path Parameter]
 
@@ -1388,7 +1384,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI                                  |
 | ---- | ------------------------------------ |
-| POST  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/import |
+| POST  | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources/import |
 
 [Path Parameter]
 
@@ -1509,7 +1505,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.schema.$ref | String | 필수 | 없음 | Swagger definitions에 선언된 객체 | API Gateway 리소스 응답 > 응답 HTTP 상태 코드 > 응답 본문 > 모델. |
 | swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway | Object | 선택 | 없음 | 없음 | API Gateway 제공 기능 정의 객체 영역. |
 | swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins | Object | 필수 | 없음 | 없음 | API Gateway 사용자 정의 플러그인 객체 영역. |
-| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins.{pluginCode} | Object | 필수 | 없음 | {pluginCode} HTTP, MOCK, CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고. [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_37) 참고. |
+| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins.{pluginCode} | Object | 필수 | 없음 | {pluginCode} HTTP, MOCK, CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고. [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고. |
 | swaggerData.definitions | Object | 선택 | 없음 | 없음 | API Gateway 리소스 요청 파라미터, 응답에서 사용되는 본문 객체 정의 영역. [Definitions Object](https://swagger.io/specification/v2/#definitionsObject) 참고 |
 
 
@@ -1681,7 +1677,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
  
 | 메서드  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/parameters |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/parameters |
 
 [Path Parameter]
 
@@ -1790,7 +1786,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/parameters |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/parameters |
 
 [Path Parameter]
 
@@ -1896,7 +1892,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/responses |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/responses |
 
 [Path Parameter]
 
@@ -1971,7 +1967,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/responses |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/responses |
 
 [Path Parameter]
 
@@ -2055,7 +2051,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/models |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/models |
 
 [Path Parameter]
 
@@ -2148,7 +2144,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/models |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/models |
 
 [Path Parameter]
 
@@ -2258,7 +2254,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/models/{modelId} |
+| PUT | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/models/{modelId} |
 
 [Path Parameter]
 
@@ -2367,7 +2363,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI                                  |
 | ---- | ------------------------------------ |
-| DELETE  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/models/{modelId} |
+| DELETE  | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/models/{modelId} |
 
 [Path Parameter]
 
@@ -2406,7 +2402,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages |
 
 [Path Parameter]
 
@@ -2492,7 +2488,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/swagger |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/swagger |
 
 [Path Parameter]
 
@@ -2528,7 +2524,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages |
 
 [Path Parameter]
 
@@ -2624,7 +2620,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId} |
+| PUT | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId} |
 
 [Path Parameter]
 
@@ -2715,7 +2711,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI                                  |
 | ---- | ------------------------------------ |
-| DELETE  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId} |
+| DELETE  | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId} |
 
 [Path Parameter]
 
@@ -2741,7 +2737,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 ### 스테이지 리소스 목록 조회 
 * 스테이지에 등록된 리소스 목록을 가져옵니다. 각 리소스에 설정된 스테이지 리소스 플러그인 정보가 포함됩니다.
-* 스테이지 리소스 플러그인에 대한 자세한 내용은 [스테이지 리소스 플러그인](./api-guide-v1.0/#_89)을 참고합니다.
+* 스테이지 리소스 플러그인에 대한 자세한 내용은 [스테이지 리소스 플러그인](./api-guide-v2.0/#_89)을 참고합니다.
 
 
 #### 요청
@@ -2750,7 +2746,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI                                  |
 | ---- | ------------------------------------ |
-| GET  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/resources |
+| GET  | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/resources |
 
 [Path Parameter]
 
@@ -2839,7 +2835,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입 Enum 코드](./enum-code/#_1), [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v1.0/#_37), [스테이지 플러그인 타입](./api-guide-v1.0/#_89)별 설정 JSON 참고            |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v2.0/#_37), [스테이지 플러그인 타입](./api-guide-v2.0/#_89)별 설정 JSON 참고            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
@@ -2857,7 +2853,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/resources |
+| PUT | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/resources |
 
 [Path Parameter]
 
@@ -2946,7 +2942,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입 Enum 코드](./enum-code/#_1), [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v1.0/#_37), [스테이지 플러그인 타입](./api-guide-v1.0/#_89)별 설정 JSON 참고            |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v2.0/#_37), [스테이지 플러그인 타입](./api-guide-v2.0/#_89)별 설정 JSON 참고            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
@@ -2955,7 +2951,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 ### 스테이지 리소스 수정
 * 리소스 경로 또는 리소스 메서드에 설정된 백엔드 엔드포인트 URL 재정의와 스테이지 리소스 플러그인을 수정합니다.
 * 스테이지 리소스를 수정하면 등록된 스테이지 리소스 플러그인은 모두 삭제되고, 요청한 리소스 플러그인만 새로 등록됩니다.
-* 스테이지 리소스 플러그인에 대한 자세한 정보는 [스테이지 리소스 플러그인](./api-guide-v1.0/#_89)을 참고합니다.
+* 스테이지 리소스 플러그인에 대한 자세한 정보는 [스테이지 리소스 플러그인](./api-guide-v2.0/#_89)을 참고합니다.
 
 #### 요청
 
@@ -2963,7 +2959,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/resources/{stageResourceId} |
+| PUT | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/resources/{stageResourceId} |
 
 [Path Parameter]
 
@@ -2999,7 +2995,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | stageResourcePluginList | List | 필수 | 없음 | 없음 | 스테이지 리소스 플러그인 목록 영역 |
 | stageResourcePluginList[0] | Object | 필수 | 없음 | 없음 | 스테이지 리소스의 플러그인 영역 |
 | stageResourcePluginList[0].pluginType  | Enum | 필수 | 없음 | IP_ACL, HMAC, JWT, API_KEY, PRE_API, RATE_LIMIT | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고|
-| stageResourcePluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | 스테이지 리소스 플러그인 별 JSON 형식의 객체<br>[스테이지 플러그인 타입](./api-guide-v1.0/#_89) 참고|
+| stageResourcePluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | 스테이지 리소스 플러그인 별 JSON 형식의 객체<br>[스테이지 플러그인 타입](./api-guide-v2.0/#_89) 참고|
 
 * customBackendEndpointUrl 필드는 루트(/) 리소스 경로에는 설정할 수 없습니다.
 
@@ -3083,7 +3079,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입 Enum 코드](./enum-code/#_1), [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v1.0/#_37), [스테이지 플러그인 타입](./api-guide-v1.0/#_89)별 설정 JSON 참고            |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v2.0/#_37), [스테이지 플러그인 타입](./api-guide-v2.0/#_89)별 설정 JSON 참고            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
@@ -3449,7 +3445,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 - 현재 스테이지 리소스와 설정을 API Gateway 서비스에 배포합니다. 
 - 변경된 설정 정보가 없는 경우, 스테이지 배포 요청이 실패합니다.
 - 스테이지 배포가 실패한 경우, 기존의 성공한 스테이지 배포 설정으로 되돌려집니다.
-- 스테이지 배포 요청 후, 스테이지 배포 성공 여부는 [최근 스테이지 배포 결과 조회](./api-guide-v1.0/#_95)에서 확인할 수 있습니다. 
+- 스테이지 배포 요청 후, 스테이지 배포 성공 여부는 [최근 스테이지 배포 결과 조회](./api-guide-v2.0/#_95)에서 확인할 수 있습니다. 
 
 #### 요청
 
@@ -3457,7 +3453,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드    | URI                                 |
 | ------ | ------------------------------------ |
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys |
 
 [Path Parameter]
 
@@ -3504,7 +3500,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 
 ### 최근 스테이지 배포 결과 조회 
-- [스테이지 배포](./api-guide-v1.0/#_92)의 결과를 조회할 수 있습니다. 
+- [스테이지 배포](./api-guide-v2.0/#_92)의 결과를 조회할 수 있습니다. 
 - 스테이지 배포 요청 이후 배포 결과가 업데이트되기까지 최대 1분 정도까지 소요될 수 있습니다. 
 
 
@@ -3514,7 +3510,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/latest |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/latest |
 
 [Path Parameter]
 
@@ -3620,7 +3616,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입 Enum 코드](./enum-code/#_1), [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고                       |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v1.0/#_37), [스테이지 플러그인 타입](./api-guide-v1.0/#_89)별 설정 JSON 참고          |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v2.0/#_37), [스테이지 플러그인 타입](./api-guide-v2.0/#_89)별 설정 JSON 참고          |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
@@ -3634,7 +3630,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드    | URI                                 |
 | ------ | ------------------------------------ |
-| DELETE | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/{deployId} |
+| DELETE | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/{deployId} |
 
 [Path Parameter]
 
@@ -3673,7 +3669,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys |
 
 [Path Parameter]
 
@@ -3751,7 +3747,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드    | URI                                 |
 | ------ | ------------------------------------ |
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/{deployId}/rollback |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/{deployId}/rollback |
 
 [Path Parameter]
 
@@ -3818,7 +3814,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입 Enum 코드](./enum-code/#_1), [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고                       |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v1.0/#_37), [스테이지 플러그인 타입](./api-guide-v1.0/#_89)별 설정 JSON 참고         |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v2.0/#_37), [스테이지 플러그인 타입](./api-guide-v2.0/#_89)별 설정 JSON 참고         |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
@@ -3834,7 +3830,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses |
 
 [Path Parameter]
 
@@ -3896,7 +3892,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses |
+| PUT | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses |
 
 [Path Parameter]
 
@@ -3980,7 +3976,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| DELETE | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses/{gatewayResponseId} |
+| DELETE | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses/{gatewayResponseId} |
 
 [Path Parameter]
 
@@ -4023,7 +4019,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드    | URI                                 |
 | ------ | ------------------------------------ |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/documents/swagger |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/documents/swagger |
 
 [Path Parameter]
 
@@ -4253,7 +4249,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/apikeys |
+| GET | /v2.0/appkeys/{appKey}/apikeys |
 
 [QueryString Parameter]
 
@@ -4330,7 +4326,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| POST |  /v1.0/appkeys/{appKey}/apikeys |
+| POST |  /v2.0/appkeys/{appKey}/apikeys |
 
 [Request Body]
 
@@ -4411,7 +4407,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| PUT |  /v1.0/appkeys/{appKey}/apikeys/{apiKeyId} |
+| PUT |  /v2.0/appkeys/{appKey}/apikeys/{apiKeyId} |
 
 [Path Parameter]
 
@@ -4494,7 +4490,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| DELETE |  /v1.0/appkeys/{appKey}/apikeys/{apiKeyId} |
+| DELETE |  /v2.0/appkeys/{appKey}/apikeys/{apiKeyId} |
 
 [Path Parameter]
 
@@ -4531,7 +4527,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/apikeys/{apiKeyId}/regenerate |
+| POST | /v2.0/appkeys/{appKey}/apikeys/{apiKeyId}/regenerate |
 
 [Path Parameter]
 
@@ -4611,7 +4607,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/stages/{stageId}/apikeys/connectable |
+| GET | /v2.0/appkeys/{appKey}/stages/{stageId}/apikeys/connectable |
 
 [Path Parameter]
 
@@ -4698,7 +4694,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/usage-plans |
+| GET | /v2.0/appkeys/{appKey}/usage-plans |
 
 [QueryString Parameter]
 
@@ -4773,7 +4769,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
+| GET | /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
 
 [Path Parameter]
 
@@ -4833,7 +4829,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| POST |  /v1.0/appkeys/{appKey}/usage-plans |
+| POST |  /v2.0/appkeys/{appKey}/usage-plans |
 
 [Request Body]
 
@@ -4914,7 +4910,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| PUT |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
+| PUT |  /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
 
 [Path Parameter]
 
@@ -5001,7 +4997,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| DELETE |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
+| DELETE |  /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
 
 [Path Parameter]
 
@@ -5038,7 +5034,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| GET |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages |
+| GET |  /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages |
 
 [Path Parameter]
 
@@ -5113,7 +5109,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| POST |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId} |
+| POST |  /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId} |
 
 [Path Parameter]
 
@@ -5151,7 +5147,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| DELETE |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId} |
+| DELETE |  /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId} |
 
 [Path Parameter]
 
@@ -5188,7 +5184,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| GET |  /v1.0/appkeys/{appKey}/usage-plans/stages/{stageId} |
+| GET |  /v2.0/appkeys/{appKey}/usage-plans/stages/{stageId} |
 
 [QueryString Parameter]
 
@@ -5263,7 +5259,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/apikeys/{apiKeyId}/subscriptions |
+| GET | /v2.0/appkeys/{appKey}/apikeys/{apiKeyId}/subscriptions |
 
 [Path Parameter]
 
@@ -5357,7 +5353,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
+| GET | /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
 
 [Path Parameter]
 
@@ -5444,7 +5440,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
+| POST | /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
 
 [Path Parameter]
 
@@ -5530,7 +5526,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| DELETE | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
+| DELETE | /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
 
 [Path Parameter]
 
@@ -5591,7 +5587,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions/{subscriptionId}/change-usage-plan |
+| POST | /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions/{subscriptionId}/change-usage-plan |
 
 [Path Parameter]
 
@@ -5649,7 +5645,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/metrics |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/metrics |
 
 [Path Parameter]
 
@@ -5758,7 +5754,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/apikeys/{apiKeyId}/metrics |
+| GET | /v2.0/appkeys/{appKey}/apikeys/{apiKeyId}/metrics |
 
 [Path Parameter]
 
@@ -5867,7 +5863,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 | 메서드  | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/metrics/top-services |
+| GET | /v2.0/appkeys/{appKey}/metrics/top-services |
 
 
 [QueryString Parameter]

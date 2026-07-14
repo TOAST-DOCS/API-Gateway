@@ -1,6 +1,6 @@
-## Application Service > API Gateway > API v1.0ガイド
+## Application Service > API Gateway > API v2.0ガイド
 
-NHN Cloud API Gatewayで提供するPublic API v1.0を説明します。
+NHN Cloud API Gatewayで提供するPublic API v2.0を説明します。
 
 ## API共通情報
 
@@ -16,18 +16,14 @@ APIを呼び出すためのリージョン別エンドポイントは次のと�
 
 ### 認証と権限
 
-API Gateway APIを使用するにはAppkeyまたはプロジェクト統合Appkeyが必要です。
-
-Appkeyは、NHN Cloudの各サービスごとに発行される固有の認証キーであり、プロジェクト統合Appkeyは、NHN Cloudの1つのプロジェクト内の複数のサービスに対して共通で使用できる認証キーです。
-
-Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-api/appkey)を参照してください。プロジェクト統合Appkeyの作成及び使用に関する詳細は、[プロジェクト統合Appkey](/nhncloud/ja/public-api/project-integrated-appkey)を参照してください。
+API Gatewayは、API呼び出し時の認証/認可のためにUser Access Keyトークンを使用します。User Access Keyトークンは、User Access Keyに基づいて発行されるBearerタイプの一時的なアクセストークンです。User Access Keyトークンの発行及び使用に関する詳細は、[User Access Keyトークン](/nhncloud/ja/public-api/user-access-key-token)を参照してください。
 
 ### リクエスト共通情報
 
 #### Path Parameter
 
 すべてのAPIはアプリキーをPath Parameterで指定する必要があります。
-* 例) /v1.0/appkeys/**{appKey}**/**
+* 例) /v2.0/appkeys/**{appKey}**/**
 
 | 名前   | 説明                  |
 | ------ | --------------------- |
@@ -103,7 +99,7 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 
 | メソッド | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services |
+| GET | /v2.0/appkeys/{appKey}/services |
 
 [QueryString Parameter]
 
@@ -183,7 +179,7 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 
 | メソッド | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId} |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId} |
 
 [Path Parameter]
 
@@ -255,7 +251,7 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 
 | メソッド | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/services |
+| POST | /v2.0/appkeys/{appKey}/services |
 
 [Request Body]
 
@@ -338,7 +334,7 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 
 | メソッド | URI                                  |
 | ---- | ------------------------------------ |
-| PUT  | /v1.0/appkeys/{appKey}/services/{apigwServiceId} |
+| PUT  | /v2.0/appkeys/{appKey}/services/{apigwServiceId} |
 
 [Path Parameter]
 
@@ -428,7 +424,7 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 
 | メソッド  | URI                                 |
 | ------ | ------------------------------------ |
-| DELETE | /v1.0/appkeys/{appKey}/services/{apigwServiceId} |
+| DELETE | /v2.0/appkeys/{appKey}/services/{apigwServiceId} |
 
 [Path Parameter]
 
@@ -467,7 +463,7 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 
 | メソッド | URI | 
 | --- | --- | 
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
 
 [Path Parameter]
 
@@ -556,13 +552,13 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 | resourceList[2].resourcePluginList[0].resourcePluginId | String   | リソースプラグインID                                    |
 | resourceList[2].resourcePluginList[0].resourceId       | String   | リソースID                                         |
 | resourceList[2].resourcePluginList[0].pluginType       | Enum     | [リソースプラグインタイプEnumコード](./enum-code/#_1)参考  |
-| resourceList[2].resourcePluginList[0].pluginConfigJson | Object   | [リソースプラグインタイプ](./api-guide-v1.0/#_37)別のJSON設定値参考                 |
+| resourceList[2].resourcePluginList[0].pluginConfigJson | Object   | [リソースプラグインタイプ](./api-guide-v2.0/#_37)別のJSON設定値参考                 |
 | resourceList[2].resourcePluginList[0].createdAt        | DateTime | リソースプラグインの作成日時                                |
 | resourceList[2].resourcePluginList[0].updatedAt        | DateTime | リソースプラグインの修正日時                                |
 
 ### リソースパスとメソッド作成
 - 複数のリソースパスとメソッドを作成し、作成と同時にプラグインを設定できます。
-- リソースメソッドは任意入力です。作成されたリソースパスの下にメソッドを追加するには[リソースメソッド作成](./api-guide-v1.0/#_23) APIを使用する必要があります。
+- リソースメソッドは任意入力です。作成されたリソースパスの下にメソッドを追加するには[リソースメソッド作成](./api-guide-v2.0/#_23) APIを使用する必要があります。
 - リソースメソッドにはHTTPまたはMOCKプラグインのいずれかを必ず設定する必要があります。 HTTPとMOCKプラグインを同時に設定することはできません。
 - 作成されたリソースパスは修正できません。
 - pathPluginListフィールドに定義されているリソースパスプラグインは、そのパスのサブメソッドに適用されるプラグインリストです。
@@ -573,7 +569,7 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 
 | メソッド | URI | 
 | --- | --- | 
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources |
 
 [Path Parameter]
 
@@ -672,7 +668,7 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 | resourcePathList[0].pathPluginList | List | 任意 | なし | なし | リソースパスプラグインリスト |
 | resourcePathList[0].pathPluginList[0] | Object | 任意 | なし | なし | リソースパスプラグイン領域 |
 | resourcePathList[0].pathPluginList[0].pluginType | Enum | 必須 | なし | {pluginCode} CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [リソースプラグインタイプEnumコード](./enum-code/#_1)のうちリソースパスに設定可能なプラグインタイプ |
-| resourcePathList[0].pathPluginList[0].pluginConfigJson | Object | 必須 | なし | なし | [リソースプラグインタイプ別のJSON設定値](./api-guide-v1.0/#_37)参考。|
+| resourcePathList[0].pathPluginList[0].pluginConfigJson | Object | 必須 | なし | なし | [リソースプラグインタイプ別のJSON設定値](./api-guide-v2.0/#_37)参考。|
 | resourcePathList[0].methodList | List | 任意 | なし | なし | リソースパス下のメソッドリスト |
 | resourcePathList[0].methodList[0] | Object | 任意 | なし | なし | リソースパス下のメソッド領域 |
 | resourcePathList[0].methodList[0].methodType | Enum | 必須 | なし | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTPメソッドタイプEnumコード](./enum-code/#http)参考 |
@@ -681,7 +677,7 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 | resourcePathList[0].methodList[0].methodPluginList | List | 必須 | なし | なし | リソースメソッドプラグインリスト |
 | resourcePathList[0].methodList[0].methodPluginList[0] | Object | 必須 | なし | なし | リソースメソッドプラグイン領域、 'HTTP'または'MOCK'のいずれかのプラグインは必須入力 |
 | resourcePathList[0].methodList[0].methodPluginList[0].pluginType | Enum | 必須 | なし | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [リソースプラグインタイプEnumコード](./enum-code/#_1)のうちリソースメソッドに設定可能なプラグインタイプ |
-| resourcePathList[0].methodList[0].methodPluginList[0].pluginConfigJson | Object | 必須 | なし | なし | [リソースプラグインタイプ別のJSON設定値](./api-guide-v1.0/#_37)参考。|
+| resourcePathList[0].methodList[0].methodPluginList[0].pluginConfigJson | Object | 必須 | なし | なし | [リソースプラグインタイプ別のJSON設定値](./api-guide-v2.0/#_37)参考。|
 
 #### レスポンス
 
@@ -926,7 +922,7 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 | resourceList[1].resourcePluginList[0].resourcePluginId | String   | リソースプラグインID                                    |
 | resourceList[1].resourcePluginList[0].resourceId       | String   | リソースID                                         |
 | resourceList[1].resourcePluginList[0].pluginType       | Enum     | [リソースプラグインタイプEnumコード](./enum-code/#_1)参考  |
-| resourceList[1].resourcePluginList[0].pluginConfigJson | Object   | [リソースプラグインタイプ別のJSON設定値](./api-guide-v1.0/#_37)参考                 |
+| resourceList[1].resourcePluginList[0].pluginConfigJson | Object   | [リソースプラグインタイプ別のJSON設定値](./api-guide-v2.0/#_37)参考                 |
 | resourceList[1].resourcePluginList[0].createdAt        | DateTime | リソースプラグイン作成日時                                |
 | resourceList[1].resourcePluginList[0].updatedAt        | DateTime | リソースプラグイン修正日時                                |
 
@@ -941,7 +937,7 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 
 | メソッド | URI | 
 | --- | --- | 
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/methods |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/methods |
 
 [Path Parameter]
 
@@ -989,7 +985,7 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 | methodList[0].methodPluginList | List | 必須 | なし | なし | リソースメソッドプラグインリスト |
 | methodList[0].methodPluginList[0] | Object | 必須 | なし | なし | リソースメソッドプラグイン領域、'HTTP'または'MOCK'のいずれかのプラグインは必須入力 |
 | methodList[0].methodPluginList[0].pluginType | Enum | 必須 | なし | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [リソースプラグインタイプEnumコード](./enum-code/#_1)のうち、リソースメソッドに設定可能なプラグインタイプ |
-| methodList[0].methodPluginList[0].pluginConfigJson | Object | 必須 | なし | なし | [リソースプラグインタイプ別のJSON設定値](./api-guide-v1.0/#_37)参考。|
+| methodList[0].methodPluginList[0].pluginConfigJson | Object | 必須 | なし | なし | [リソースプラグインタイプ別のJSON設定値](./api-guide-v2.0/#_37)参考。|
 
 #### レスポンス
 
@@ -1065,7 +1061,7 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 | resourceList[0].resourcePluginList[0].resourcePluginId | String   | リソースプラグインID                                    |
 | resourceList[0].resourcePluginList[0].resourceId       | String   | リソースID                                         |
 | resourceList[0].resourcePluginList[0].pluginType       | Enum     | [リソースプラグインタイプEnumコード](./enum-code/#_1)参考  |
-| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [リソースプラグインタイプ別のJSON設定値](./api-guide-v1.0/#_37)参考                 |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [リソースプラグインタイプ別のJSON設定値](./api-guide-v2.0/#_37)参考                 |
 | resourceList[0].resourcePluginList[0].createdAt        | DateTime | リソースプラグイン作成日時                                |
 | resourceList[0].resourcePluginList[0].updatedAt        | DateTime | リソースプラグイン修正日時                                |
 
@@ -1078,7 +1074,7 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 - applyChildPathフィールドをtrueに設定すると、リソースパス下のすべてのパスとメソッドにプラグインが設定されます。
 - applyChildPathとdeleteフィールドの両方をtrueに設定すると、リソースパス下のすべてのパスとメソッドからプラグインが削除されます。
 - CORSプラグインを設定すると、サブメソッドとしてOPTIONSメソッドが自動的に作成されます。もし既に存在するOPTIONSメソッドがある場合は削除され、置き換えられるため注意してください。
-- リソースパスに設定可能なプラグインのみ設定できます。詳細については、[リソースプラグイン](./api-guide-v1.0/#_37)を参照してください。
+- リソースパスに設定可能なプラグインのみ設定できます。詳細については、[リソースプラグイン](./api-guide-v2.0/#_37)を参照してください。
 
 #### リクエスト
 
@@ -1086,7 +1082,7 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 
 | メソッド | URI | 
 | --- | --- | 
-| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resource-paths/{resourceId} |
+| PUT | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resource-paths/{resourceId} |
 
 [Path Parameter]
 
@@ -1141,7 +1137,7 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 | pathPluginList | List | 任意 | なし | なし | リソースパスプラグインリスト |
 | pathPluginList[0] | Object | 任意 | なし | なし | リソースパスプラグイン領域 |
 | pathPluginList[0].pluginType | Enum | 必須 | なし | {pluginCode} CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER,ADD_REQUEST_QUERY_PARAMETER | [リソースプラグインタイプEnumコード](./enum-code/#_1)のうち、リソースパスに設定可能なプラグインタイプ |
-| pathPluginList[0].pluginConfigJson | Object | 条件付き必須 | なし | なし | [リソースプラグインタイプ別のJSON設定値](./api-guide-v1.0/#_37)参考、 deleteフィールドがfalseの場合は必須入力|
+| pathPluginList[0].pluginConfigJson | Object | 条件付き必須 | なし | なし | [リソースプラグインタイプ別のJSON設定値](./api-guide-v2.0/#_37)参考、 deleteフィールドがfalseの場合は必須入力|
 | pathPluginList[0].applyChildPath | Boolean | 任意 | false | true, false | サブパスとメソッドに上書きするかどうか |
 | pathPluginList[0].delete | Boolean | 任意 | false | true, false | プラグインを削除するかどうか |
 
@@ -1207,7 +1203,7 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 | resourceList[0].resourcePluginList[0].resourcePluginId | String   | リソースプラグインID                                    |
 | resourceList[0].resourcePluginList[0].resourceId       | String   | リソースID                                         |
 | resourceList[0].resourcePluginList[0].pluginType       | Enum     | [リソースプラグインタイプEnumコード](./enum-code/#_1)参考  |
-| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [リソースプラグインタイプ別のJSON設定値](./api-guide-v1.0/#_37)参考                 |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [リソースプラグインタイプ別のJSON設定値](./api-guide-v2.0/#_37)参考                 |
 | resourceList[0].resourcePluginList[0].createdAt        | DateTime | リソースプラグイン作成日時                                |
 | resourceList[0].resourcePluginList[0].updatedAt        | DateTime | リソースプラグイン修正日時                                |
 
@@ -1218,7 +1214,7 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 - リソースメソッドに追加されていないプラグインを設定するとプラグインが追加されます。
 - リソースメソッドに追加されたプラグインを設定すると、リクエストしたプラグイン設定に変更されます。
 - deleteフィールドをtrueに設定すると、リクエストしたプラグインタイプのプラグインが削除されます。 deleteフィールドがtrueの場合、pluginConfigJsonフィールドは定義する必要はありません。
-- リソースメソッドに設定可能なプラグインのみ設定できます。詳細については[リソースプラグイン](./api-guide-v1.0/#_37)を参照してください。
+- リソースメソッドに設定可能なプラグインのみ設定できます。詳細については[リソースプラグイン](./api-guide-v2.0/#_37)を参照してください。
 
 #### リクエスト
 
@@ -1226,7 +1222,7 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 
 | メソッド | URI | 
 | --- | --- | 
-| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resource-methods/{resourceId} |
+| PUT | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resource-methods/{resourceId} |
 
 [Path Parameter]
 
@@ -1269,7 +1265,7 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 | methodPluginList | List | 任意 | なし | なし | リソースメソッドプラグインリスト |
 | methodPluginList[0] | Object | 必須 | なし | なし | リソースメソッドプラグイン領域 |
 | methodPluginList[0].pluginType | Enum | 必須 | なし | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [リソースプラグインタイプEnumコード](./enum-code/#_1)のうち、リソースメソッドに設定可能なプラグインタイプ |
-| methodPluginList[0].pluginConfigJson | Object | 条件付き必須 | なし | なし | [リソースプラグインタイプ別のJSON設定値](./api-guide-v1.0/#_37)参考、 deleteフィールドがfalseの場合は必須入力|
+| methodPluginList[0].pluginConfigJson | Object | 条件付き必須 | なし | なし | [リソースプラグインタイプ別のJSON設定値](./api-guide-v2.0/#_37)参考、 deleteフィールドがfalseの場合は必須入力|
 | methodPluginList[0].delete | Boolean | 任意 | false | なし | プラグイン削除するかどうか |
 
 #### レスポンス
@@ -1333,7 +1329,7 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 | resourceList[0].resourcePluginList[0].resourcePluginId | String   | リソースプラグインID                                    |
 | resourceList[0].resourcePluginList[0].resourceId       | String   | リソースID                                         |
 | resourceList[0].resourcePluginList[0].pluginType       | Enum     | [リソースプラグインタイプEnumコード](./enum-code/#_1)参考  |
-| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [リソースプラグインタイプ別のJSON設定値](./api-guide-v1.0/#_37)参考                 |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [リソースプラグインタイプ別のJSON設定値](./api-guide-v2.0/#_37)参考                 |
 | resourceList[0].resourcePluginList[0].createdAt        | DateTime | リソースプラグイン作成日時                                |
 | resourceList[0].resourcePluginList[0].updatedAt        | DateTime | リソースプラグイン修正日時                                |
 
@@ -1352,7 +1348,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI                                  |
 | ---- | ------------------------------------ |
-| DELETE  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId} |
+| DELETE  | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId} |
 
 [Path Parameter]
 
@@ -1387,7 +1383,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI                                  |
 | ---- | ------------------------------------ |
-| POST  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/import |
+| POST  | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources/import |
 
 [Path Parameter]
 
@@ -1508,7 +1504,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.schema.$ref | String | 必須 | なし | Swagger definitionsに宣言されたオブジェクト | API Gatewayリソースレスポンス > レスポンスHTTPステータスコード > レスポンス本文 > モデル。 |
 | swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway | Object | 任意 | なし | なし | API Gateway提供機能定義オブジェクト領域。 |
 | swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins | Object | 必須 | なし | なし | API Gatewayユーザー定義プラグインオブジェクト領域。 |
-| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins.{pluginCode} | Object | 必須 | なし | {pluginCode} HTTP, MOCK, CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [リソースプラグインタイプEnumコード](./enum-code/#_1)参考。 [リソースプラグインタイプ](./api-guide-v1.0/#_37)別JSON設定値参考。 |
+| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins.{pluginCode} | Object | 必須 | なし | {pluginCode} HTTP, MOCK, CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [リソースプラグインタイプEnumコード](./enum-code/#_1)参考。 [リソースプラグインタイプ](./api-guide-v2.0/#_37)別JSON設定値参考。 |
 | swaggerData.definitions | Object | 任意 | なし | なし | API Gatewayリソースリクエストパラメータ、レスポンスで使用される本文オブジェクト定義領域。 [Definitions Object](https://swagger.io/specification/v2/#definitionsObject)参考 |
 
 
@@ -1679,7 +1675,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/parameters |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/parameters |
 
 [Path Parameter]
 
@@ -1788,7 +1784,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/parameters |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/parameters |
 
 [Path Parameter]
 
@@ -1894,7 +1890,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/responses |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/responses |
 
 [Path Parameter]
 
@@ -1969,7 +1965,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/responses |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/resources/{resourceId}/responses |
 
 [Path Parameter]
 
@@ -2053,7 +2049,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/models |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/models |
 
 [Path Parameter]
 
@@ -2146,7 +2142,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/models |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/models |
 
 [Path Parameter]
 
@@ -2256,7 +2252,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/models/{modelId} |
+| PUT | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/models/{modelId} |
 
 [Path Parameter]
 
@@ -2365,7 +2361,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI                                  |
 | ---- | ------------------------------------ |
-| DELETE  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/models/{modelId} |
+| DELETE  | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/models/{modelId} |
 
 [Path Parameter]
 
@@ -2404,7 +2400,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages |
 
 [Path Parameter]
 
@@ -2490,7 +2486,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/swagger |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/swagger |
 
 [Path Parameter]
 
@@ -2526,7 +2522,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages |
 
 [Path Parameter]
 
@@ -2622,7 +2618,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId} |
+| PUT | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId} |
 
 [Path Parameter]
 
@@ -2713,7 +2709,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI                                  |
 | ---- | ------------------------------------ |
-| DELETE  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId} |
+| DELETE  | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId} |
 
 [Path Parameter]
 
@@ -2739,7 +2735,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 ### ステージリソースリストの照会 
 * ステージに登録されたリソースリストを取得します。各リソースに設定されたステージリソースプラグイン情報が含まれます。
-* ステージリソースプラグインの詳細については[ステージリソースプラグイン](./api-guide-v1.0/#_89)を参照します。
+* ステージリソースプラグインの詳細については[ステージリソースプラグイン](./api-guide-v2.0/#_89)を参照します。
 
 
 #### リクエスト
@@ -2748,7 +2744,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI                                  |
 | ---- | ------------------------------------ |
-| GET  | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/resources |
+| GET  | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/resources |
 
 [Path Parameter]
 
@@ -2837,7 +2833,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |ステージリソースプラグインID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |ステージリソースID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[リソースプラグインタイプEnumコード](./enum-code/#_1), [ステージリソース > プラグインタイプEnumコード](./enum-code/#_3)参考                      |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](./api-guide-v1.0/#_37), [ステージプラグインタイプ](./api-guide-v1.0/#_89)別設定JSON参考          |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](./api-guide-v2.0/#_37), [ステージプラグインタイプ](./api-guide-v2.0/#_89)別設定JSON参考          |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|ステージリソースプラグインの作成日時                       |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|ステージリソースプラグインの修正日時                       |
 
@@ -2855,7 +2851,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/resources |
+| PUT | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/resources |
 
 [Path Parameter]
 
@@ -2944,7 +2940,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |ステージリソースプラグインID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |ステージリソースID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[リソースプラグインタイプEnumコード](./enum-code/#_1), [ステージリソース > プラグインタイプEnumコード](./enum-code/#_3)参考                      |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](./api-guide-v1.0/#_37), [ステージプラグインタイプ](./api-guide-v1.0/#_89)別設定JSON参考|
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](./api-guide-v2.0/#_37), [ステージプラグインタイプ](./api-guide-v2.0/#_89)別設定JSON参考|
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|ステージリソースプラグインの作成日時                       |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|ステージリソースプラグインの修正日時                       |
 
@@ -2953,7 +2949,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 ### ステージリソースの修正
 * リソースパスまたはリソースメソッドに設定されたバックエンドエンドポイントURLを再定義し、ステージリソースプラグインを修正します。
 * ステージリソースを修正すると、登録されたステージリソースプラグインは全て削除され、リクエストしたリソースプラグインのみ新しく登録されます。
-* ステージリソースプラグインの詳細については[ステージリソースプラグイン](./api-guide-v1.0/#_89)を参照してください。
+* ステージリソースプラグインの詳細については[ステージリソースプラグイン](./api-guide-v2.0/#_89)を参照してください。
 
 #### リクエスト
 
@@ -2961,7 +2957,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/resources/{stageResourceId} |
+| PUT | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/resources/{stageResourceId} |
 
 [Path Parameter]
 
@@ -2995,7 +2991,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | --- | --- | --- | --- | --- | --- |
 | customBackendEndpointUrl | String | 任意 | なし | 最大150文字、 URL形式 | バックエンドエンドポイント再定義URL |
 | stageResourcePluginList | List | 必須 | なし | なし | ステージリソースプラグインリスト領域 |
-| stageResourcePluginList[0] | Object | 必須 | なし | なし | ステージリソースプラグイン別JSON形式のオブジェクト<br>[ステージリソースプラグイン](./api-guide-v1.0/#_89)参考|
+| stageResourcePluginList[0] | Object | 必須 | なし | なし | ステージリソースプラグイン別JSON形式のオブジェクト<br>[ステージリソースプラグイン](./api-guide-v2.0/#_89)参考|
 
 * customBackendEndpointUrlフィールドはルート(/)リソースパスには設定できません。
 
@@ -3079,7 +3075,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |ステージリソースプラグインID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |ステージリソースID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[リソースプラグインタイプEnumコード](./enum-code/#_1), [ステージリソース > プラグインタイプEnumコード](./enum-code/#_3)参考                      |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](./api-guide-v1.0/#_37), [ステージプラグインタイプ](./api-guide-v1.0/#_89)別設定JSON参考          |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](./api-guide-v2.0/#_37), [ステージプラグインタイプ](./api-guide-v2.0/#_89)別設定JSON参考          |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|ステージリソースプラグインの作成日時                       |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|ステージリソースプラグインの修正日時                       |
 
@@ -3445,7 +3441,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 - 現在のステージリソースと設定をAPI Gatewayサービスに配布します。 
 - 変更された設定情報がない場合、ステージ配布リクエストが失敗します。
 - ステージ配布が失敗した場合、既存の成功したステージ配布設定に戻ります。
-- ステージ配布リクエスト後、ステージ配布成否は[最近のステージ配布結果照会](./api-guide-v1.0/#_95)で確認できます。 
+- ステージ配布リクエスト後、ステージ配布成否は[最近のステージ配布結果照会](./api-guide-v2.0/#_95)で確認できます。 
 
 #### リクエスト
 
@@ -3453,7 +3449,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド  | URI                                 |
 | ------ | ------------------------------------ |
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys |
 
 [Path Parameter]
 
@@ -3500,7 +3496,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 
 ### 最近のステージ配布結果照会 
-- [ステージ配布](./api-guide-v1.0/#_92)の結果を照会できます。
+- [ステージ配布](./api-guide-v2.0/#_92)の結果を照会できます。
 - ステージ配布リクエスト後に配布結果がアップデートされるまで最長1分ほどかかる場合があります。 
 
 
@@ -3510,7 +3506,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/latest |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/latest |
 
 [Path Parameter]
 
@@ -3616,7 +3612,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |ステージリソースプラグインID                           |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |ステージリソースID                                |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[リソースプラグインタイプEnumコード](./enum-code/#_1), [ステージリソース > プラグインタイプEnumコード](./enum-code/#_3)参考                     |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](./api-guide-v1.0/#_37), [ステージプラグインタイプ](./api-guide-v1.0/#_89)別設定JSON参考         |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](./api-guide-v2.0/#_37), [ステージプラグインタイプ](./api-guide-v2.0/#_89)別設定JSON参考         |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|ステージリソースプラグインの作成日時                       |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|ステージリソースプラグインの修正日時                       |
 
@@ -3630,7 +3626,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド  | URI                                 |
 | ------ | ------------------------------------ |
-| DELETE | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/{deployId} |
+| DELETE | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/{deployId} |
 
 [Path Parameter]
 
@@ -3669,7 +3665,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys |
 
 [Path Parameter]
 
@@ -3747,7 +3743,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド  | URI                                 |
 | ------ | ------------------------------------ |
-| POST | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/{deployId}/rollback |
+| POST | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/deploys/{deployId}/rollback |
 
 [Path Parameter]
 
@@ -3814,7 +3810,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |ステージリソースプラグインID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |ステージリソースID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[リソースプラグインタイプEnumコード](./enum-code/#_1), [ステージプラグインタイプEnumコード](./enum-code/#_3)参考                     |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](./api-guide-v1.0/#_37), [ステージプラグインタイプ](./api-guide-v1.0/#_89)別設定JSON参考       |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[リソースプラグインタイプ](./api-guide-v2.0/#_37), [ステージプラグインタイプ](./api-guide-v2.0/#_89)別設定JSON参考       |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|ステージリソースプラグインの作成日時                       |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|ステージリソースプラグインの修正日時                       |
 
@@ -3830,7 +3826,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses |
 
 [Path Parameter]
 
@@ -3892,7 +3888,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| PUT | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses |
+| PUT | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses |
 
 [Path Parameter]
 
@@ -3976,7 +3972,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| DELETE | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses/{gatewayResponseId} |
+| DELETE | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/gateway-responses/{gatewayResponseId} |
 
 [Path Parameter]
 
@@ -4019,7 +4015,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド  | URI                                 |
 | ------ | ------------------------------------ |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/documents/swagger |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/documents/swagger |
 
 [Path Parameter]
 
@@ -4249,7 +4245,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/apikeys |
+| GET | /v2.0/appkeys/{appKey}/apikeys |
 
 [QueryString Parameter]
 
@@ -4326,7 +4322,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| POST |  /v1.0/appkeys/{appKey}/apikeys |
+| POST |  /v2.0/appkeys/{appKey}/apikeys |
 
 [Request Body]
 
@@ -4403,7 +4399,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| PUT |  /v1.0/appkeys/{appKey}/apikeys/{apiKeyId} |
+| PUT |  /v2.0/appkeys/{appKey}/apikeys/{apiKeyId} |
 
 [Path Parameter]
 
@@ -4486,7 +4482,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| DELETE |  /v1.0/appkeys/{appKey}/apikeys/{apiKeyId} |
+| DELETE |  /v2.0/appkeys/{appKey}/apikeys/{apiKeyId} |
 
 [Path Parameter]
 
@@ -4523,7 +4519,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/apikeys/{apiKeyId}/regenerate |
+| POST | /v2.0/appkeys/{appKey}/apikeys/{apiKeyId}/regenerate |
 
 [Path Parameter]
 
@@ -4601,7 +4597,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/stages/{stageId}/apikeys/connectable |
+| GET | /v2.0/appkeys/{appKey}/stages/{stageId}/apikeys/connectable |
 
 [Path Parameter]
 
@@ -4688,7 +4684,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/usage-plans |
+| GET | /v2.0/appkeys/{appKey}/usage-plans |
 
 [QueryString Parameter]
 
@@ -4763,7 +4759,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
+| GET | /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
 
 [Path Parameter]
 
@@ -4823,7 +4819,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| POST |  /v1.0/appkeys/{appKey}/usage-plans |
+| POST |  /v2.0/appkeys/{appKey}/usage-plans |
 
 [Request Body]
 
@@ -4904,7 +4900,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| PUT |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
+| PUT |  /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
 
 [Path Parameter]
 
@@ -4991,7 +4987,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| DELETE |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
+| DELETE |  /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId} |
 
 [Path Parameter]
 
@@ -5028,7 +5024,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| GET |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages |
+| GET |  /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages |
 
 [Path Parameter]
 
@@ -5103,7 +5099,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| POST |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId} |
+| POST |  /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId} |
 
 [Path Parameter]
 
@@ -5141,7 +5137,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| DELETE |  /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId} |
+| DELETE |  /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId} |
 
 [Path Parameter]
 
@@ -5178,7 +5174,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| GET |  /v1.0/appkeys/{appKey}/usage-plans/stages/{stageId} |
+| GET |  /v2.0/appkeys/{appKey}/usage-plans/stages/{stageId} |
 
 [QueryString Parameter]
 
@@ -5253,7 +5249,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/apikeys/{apiKeyId}/subscriptions |
+| GET | /v2.0/appkeys/{appKey}/apikeys/{apiKeyId}/subscriptions |
 
 [Path Parameter]
 
@@ -5347,7 +5343,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
+| GET | /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
 
 [Path Parameter]
 
@@ -5434,7 +5430,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
+| POST | /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
 
 [Path Parameter]
 
@@ -5520,7 +5516,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| DELETE | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
+| DELETE | /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions |
 
 [Path Parameter]
 
@@ -5581,7 +5577,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| POST | /v1.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions/{subscriptionId}/change-usage-plan |
+| POST | /v2.0/appkeys/{appKey}/usage-plans/{usagePlanId}/stages/{stageId}/subscriptions/{subscriptionId}/change-usage-plan |
 
 [Path Parameter]
 
@@ -5639,7 +5635,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/metrics |
+| GET | /v2.0/appkeys/{appKey}/services/{apigwServiceId}/stages/{stageId}/metrics |
 
 [Path Parameter]
 
@@ -5749,7 +5745,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/apikeys/{apiKeyId}/metrics |
+| GET | /v2.0/appkeys/{appKey}/apikeys/{apiKeyId}/metrics |
 
 [Path Parameter]
 
@@ -5856,7 +5852,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 
 | メソッド | URI |
 | --- | --- |
-| GET | /v1.0/appkeys/{appKey}/metrics/top-services |
+| GET | /v2.0/appkeys/{appKey}/metrics/top-services |
 
 
 [QueryString Parameter]
