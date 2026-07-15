@@ -9,6 +9,7 @@
 |400100002|Invalid header name.|無効な形式のヘッダ名です。|
 |401100000|Invalid appKey.|無効なアプリケーションキーです。|
 |401100001|Invalid uuid.|ユーザー情報が有効ではありません。|
+|401100003|Token is not valid.|トークンが無効です。|
 |403100000|Permission denied.|権限がありません。|
 |409100000|Could not complete the request due to a duplicate request.|重複リクエストによりリクエストを完了できません。|
 |500100000|DB query failed.|一時的なエラーです。エラーが続く場合はサポートへお問い合わせください。|
