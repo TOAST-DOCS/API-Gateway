@@ -4,16 +4,21 @@ NHN Cloud API Gateway에서 제공하는 Public API v1.0을 설명합니다.
 
 ## API 공통 정보
 
-### 도메인
+### API 엔드포인트
 
-| 이름      | 리전 | 도메인                                            |
-|---------|-----|------------------------------------------------|
-| API 도메인 | 한국(판교) 리전 | https://kr1-apigateway.api.gov-nhncloudservice.com |
+API를 호출하기 위한 리전별 엔드포인트는 다음과 같습니다.
 
-### 사전 준비
+| 리전 | 엔드포인트 |
+| --- | --- |
+| 한국(판교) 리전 | https://kr1-apigateway.api.gov-nhncloudservice.com |
 
-API를 사용하려면 앱 키(Appkey)가 필요합니다.
-앱 키는 콘솔 오른쪽 위의 **URL & Appkey** 메뉴에서 확인할 수 있습니다.
+### 인증 및 권한
+
+API Gateway API를 사용하려면 Appkey 또는 프로젝트 통합 Appkey가 필요합니다.
+
+Appkey는 NHN Cloud의 각 서비스별로 발급되는 고유 인증 키이며, 프로젝트 통합 Appkey는 NHN Cloud에서 하나의 프로젝트 내 여러 서비스에 대해 공통으로 사용할 수 있는 인증 키입니다.
+
+Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/public-api/appkey-gov)를 참고하세요. 프로젝트 통합 Appkey 생성 및 사용에 대한 자세한 내용은 [프로젝트 통합 Appkey](/nhncloud/ko/public-api/project-integrated-appkey-gov)를 참고하세요.
 
 ### 요청 공통 정보
 
@@ -28,10 +33,10 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 ### 응답 공통 정보
 
-#### 헤더
-모든 API 요청에 대해서 **200 OK**로 응답합니다. 자세한 응답 결과는 다음의 예와 같이 응답 본문의 헤더를 참고합니다.
+모든 API 요청에 대해서 **200 OK**로 응답합니다. 자세한 응답 결과는 응답 본문의 헤더를 참고합니다.
 
-[성공: Response Body]
+<details>
+  <summary><strong>성공 응답</strong></summary>
 
 ```json
 {
@@ -50,7 +55,10 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | header.resultCode    | Integer | 결과 코드  |
 | header.resultMessage | String  | 결과 메시지 |
 
-[실패: Response Body]
+</details>
+
+<details>
+  <summary><strong>실패 응답</strong></summary>
 
 ```json
 {
@@ -77,6 +85,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | errorList[0].errorProperty | String | 오류 프로퍼티(모델) |
 | errorList[0].errorField | String  | 오류 상세 필드 |
 | errorList[0].errorMessage | String  | 오류 메시지 |
+
+</details>
 
 * 잘못된 API 요청을 한 경우, errorList 필드에 자세한 오류 원인과 필드 정보가 응답됩니다.
 
@@ -105,6 +115,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -136,6 +149,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
    ]
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -180,6 +195,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -203,6 +221,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   }
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -238,6 +258,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Request Body]
 
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "regionCode": "KR1",
@@ -245,6 +268,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   "apigwServiceDescription": "service description"
 }
 ```
+
+</details>
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
@@ -256,6 +281,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -280,6 +308,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   }
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -318,12 +348,17 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Request Body]
 
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "apigwServiceName": "update service name",
   "apigwServiceDescription": "test of api gateway service"
 }
 ```
+
+</details>
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
@@ -334,6 +369,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -358,6 +396,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   }
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -399,6 +439,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
     "header" : {
@@ -408,6 +451,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     }
 }
 ```
+
+</details>
 
 ## 리소스
 
@@ -432,6 +477,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -490,6 +538,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 }
 ```
 
+</details>
+
 | 필드                                                     | 타입       | 설명                                             |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
 | resourceList                                           | List     | 리소스 목록 영역                                      |
@@ -532,6 +582,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
 
 ```json
 {
@@ -608,6 +661,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 }
 ```
 
+</details>
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | resourcePathList | List | 필수 | 없음 | 없음  | 리소스 경로 목록 |
@@ -630,6 +685,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -849,6 +907,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 }
 ```
 
+</details>
+
 | 필드                                                     | 타입       | 설명                                             |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
 | resourceList                                           | List     | 리소스 목록 영역                                      |
@@ -892,6 +952,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Request Body]
 
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "methodList": [
@@ -913,6 +976,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 }   
 ```
 
+</details>
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | methodList | List | 필수 | 없음 | 없음 | 리소스 경로 하위의 메서드 목록 |
@@ -928,6 +993,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -978,6 +1046,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 }
 ```
 
+</details>
+
 | 필드                                                     | 타입       | 설명                                             |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
 | resourceList                                           | List     | 리소스 목록 영역                                      |
@@ -1026,6 +1096,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Request Body]
 
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "pathPluginList":[
@@ -1060,6 +1133,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 }   
 ```
 
+</details>
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | pathPluginList | List | 선택 | 없음 | 없음 | 리소스 경로 플러그인 목록 |
@@ -1072,6 +1147,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -1109,6 +1187,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 | 필드                                                     | 타입       | 설명                                             |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
@@ -1156,6 +1236,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Request Body]
 
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "methodName":"PutMember",
@@ -1176,6 +1259,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 }
 ```
 
+</details>
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | methodName | String | 필수 | 없음 | 최대 50자 | 메서드 이름 |
@@ -1189,6 +1274,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -1225,6 +1313,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 | 필드                                                     | 타입       | 설명                                             |
 | ------------------------------------------------------ | -------- | ---------------------------------------------- |
@@ -1305,6 +1395,10 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "swaggerData": {
@@ -1379,6 +1473,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   }
 }
 ```
+
+</details>
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
@@ -1595,6 +1691,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -1647,6 +1746,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 }
 ```
 
+</details>
+
 | 필드                             | 타입      | 설명                                                   |
 | ------------------------------ | ------- | ---------------------------------------------------- |
 | queryStringList                | List    | 쿼리 문자열 목록 영역                                         |
@@ -1696,6 +1797,10 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | resourceId     | String | 필수    | 없음  | 없음    | API Gateway 리소스 ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "queryStringList": [
@@ -1734,6 +1839,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
@@ -1799,6 +1906,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -1829,6 +1939,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 | 필드                                        | 타입      | 설명                                                   |
 | ----------------------------------------- | ------- | ---------------------------------------------------- |
@@ -1866,6 +1978,10 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | resourceId     | String | 필수    | 없음  | 없음    | API Gateway 리소스 ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "responseList": [
@@ -1891,6 +2007,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 | 이름                                        | 타입      | 필수 여부 | 기본값          | 유효 범위                                         | 설명                                                   |
 | ----------------------------------------- | ------- | ----- | ------------ | --------------------------------------------- | ---------------------------------------------------- |
@@ -1954,6 +2072,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -1995,6 +2116,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 }
 ```
 
+</details>
+
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |paging                               |Object  | 페이징 영역                                        |
@@ -2033,6 +2156,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Request Body]
 
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "modelName": "UserModel",
@@ -2056,6 +2182,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 }
 ```
 
+</details>
+
 | 이름               | 타입     | 필수 여부 | 기본값 | 유효 범위   | 설명                                                           |
 | ---------------- | ------ | ----- | --- | ------- | ------------------------------------------------------------ |
 | modelName        | String | 필수    | 없음  | 최대 50자  | 모델 이름                                                        |
@@ -2065,6 +2193,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -2100,6 +2231,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 }
 ```
 
+</details>
+
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |model                     |Object    | 모델 영역                         |
@@ -2133,6 +2266,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Request Body]
 
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "modelDescription": "This is user model.",
@@ -2155,6 +2291,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 }
 ```
 
+</details>
+
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | modelDescription | String | 선택    | 없음  | 최대 200자 | 모델 설명                                                        |
@@ -2164,6 +2302,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -2198,6 +2339,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   }
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2234,6 +2377,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
     "header" : {
@@ -2243,6 +2389,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     }
 }
 ```
+
+</details>
 
 ## 스테이지
 
@@ -2274,6 +2422,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -2303,6 +2454,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2382,6 +2535,10 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "stageName": "alpha",
@@ -2389,6 +2546,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   "backendEndpointUrl": "https://backend.com"
 }
 ```
+
+</details>
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
@@ -2406,6 +2565,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -2429,6 +2591,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   }
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2468,12 +2632,18 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "backendEndpointUrl": "https://v2.backend.com",
   "stageDescription": "alpha v2 environment stage"
 }
 ```
+
+</details>
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
@@ -2484,6 +2654,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -2507,6 +2680,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   }
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2585,6 +2760,10 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -2635,6 +2814,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2686,6 +2867,10 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -2736,6 +2921,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -2786,6 +2973,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Request Body]
 
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "customBackendEndpointUrl": "http://custom.backendpoint.com",
@@ -2797,6 +2987,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
@@ -2812,6 +3004,10 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -2862,6 +3058,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -3266,11 +3464,17 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | stageId | String | 필수 | 없음 | 없음 | 스테이지 ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "deployDescription": "deploy description"
 }
 ```
+
+</details>
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | deployDescription | String | 선택 | 없음 | 최대 200자 | 배포 설명 |
@@ -3279,6 +3483,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -3289,6 +3496,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     }
 }
 ```
+
+</details>
 
 
 ### 최근 스테이지 배포 결과 조회 
@@ -3315,6 +3524,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -3376,6 +3588,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 }
 ```
 
+</details>
+
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |latestStageDeployResult              |Object  | 스테이지 배포 결과 영역                                        |
@@ -3431,6 +3645,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
     "header" : {
@@ -3440,6 +3657,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     }
 }
 ```
+
+</details>
 
 
 ### 스테이지 배포 이력 조회 
@@ -3471,6 +3690,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -3495,6 +3717,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -3538,6 +3762,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -3566,6 +3793,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
@@ -3615,6 +3844,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -3635,6 +3867,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 | 필드                              | 타입       | 설명                                                |
 | ------------------------------- | -------- | ------------------------------------------------- |
@@ -3669,6 +3903,10 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
     "gatewayResponseType": "NotFound",
@@ -3677,6 +3915,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     "body": { "application/json": "{\"result\":\"fail\"}" }
 }
 ```
+
+</details>
 
 | 이름                | 타입     | 필수 여부 | 기본값 | 유효 범위            | 설명                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
@@ -3690,6 +3930,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -3709,6 +3952,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     }
 }
 ```
+
+</details>
 
 
 | 필드                              | 타입       | 설명                                                |
@@ -3747,6 +3992,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -3756,6 +4004,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   }
 }
 ```
+
+</details>
 
 
 ## API 설명서
@@ -3784,6 +4034,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -3960,6 +4213,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 }
 ```
 
+</details>
+
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |swagger                     |String    | Swagger 사양의 버전. [Swagger Object](https://swagger.io/specification/v2/#swagger-object) 참고|
@@ -4014,6 +4269,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -4041,6 +4299,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 | 필드                              | 타입       | 설명                                                |
 | ------------------------------- | -------- | ------------------------------------------------- |
@@ -4072,6 +4332,10 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | POST |  /v1.0/appkeys/{appKey}/apikeys |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "apiKeyName": "User1 API Key",
@@ -4079,6 +4343,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   "apiKeyStatus": "ACTIVE"
 }
 ```
+
+</details>
 
 | 이름                | 타입     | 필수 여부 | 기본값 | 유효 범위            | 설명                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
@@ -4089,6 +4355,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -4110,6 +4379,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   }
 }
 ```
+
+</details>
 
 | 필드                       | 타입       | 설명                                                |
 | ------------------------ | -------- | ------------------------------------------------- |
@@ -4144,6 +4415,10 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | apiKeyId | String | 필수 | 없음 | 없음 | API Key ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "apiKeyName": "User1 API Key",
@@ -4151,6 +4426,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   "apiKeyStatus": "ACTIVE"
 }
 ```
+
+</details>
 
 | 이름                | 타입     | 필수 여부 | 기본값 | 유효 범위            | 설명                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
@@ -4161,6 +4438,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -4182,6 +4462,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   }
 }
 ```
+
+</details>
 
 | 필드                       | 타입       | 설명                                                |
 | ------------------------ | -------- | ------------------------------------------------- |
@@ -4219,6 +4501,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -4228,6 +4513,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   }
 }
 ```
+
+</details>
 
 ### API Key 재발급
 - API Key 값으로 사용되는 Primary API Key, Secondary API Key는 각각 재발급할 수 있습니다.
@@ -4248,11 +4535,17 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | apiKeyId | String | 필수 | 없음 | 없음 | API Key ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "apiKeyType": "PRIMARY"
 }
 ```
+
+</details>
 
 | 이름                | 타입     | 필수 여부 | 기본값 | 유효 범위            | 설명                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
@@ -4261,6 +4554,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -4282,6 +4578,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   }
 }
 ```
+
+</details>
 
 | 필드                       | 타입       | 설명                                                |
 | ------------------------ | -------- | ------------------------------------------------- |
@@ -4330,6 +4628,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -4357,6 +4658,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 | 필드                              | 타입       | 설명                                                |
 | ------------------------------- | -------- | ------------------------------------------------- |
@@ -4401,6 +4704,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -4428,6 +4734,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 | 필드                                         | 타입       | 설명                                                |
 | ------------------------------------------ | -------- | ------------------------------------------------- |
@@ -4470,6 +4778,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
     "header": {
@@ -4490,6 +4801,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     }
 }
 ```
+
+</details>
 
 | 필드                                  | 타입       | 설명                                                |
 | ----------------------------------- | -------- | ------------------------------------------------- |
@@ -4516,6 +4829,10 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | POST |  /v1.0/appkeys/{appKey}/usage-plans |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "usagePlanName": "string",
@@ -4525,6 +4842,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   "quotaLimit": 100
 }
 ```
+
+</details>
 
 | 이름                        | 타입      | 필수 여부 | 기본값 | 유효 범위        | 설명                                                |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
@@ -4537,6 +4856,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -4558,6 +4880,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   }
 }
 ```
+
+</details>
 
 | 필드                                  | 타입       | 설명                                                |
 | ----------------------------------- | -------- | ------------------------------------------------- |
@@ -4592,6 +4916,10 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | usagePlanId | String | 필수 | 없음 | 없음 | 사용량 계획 ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "usagePlanName": "Basic",
@@ -4601,6 +4929,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   "quotaLimit": 100
 }
 ```
+
+</details>
 
 | 이름                        | 타입      | 필수 여부 | 기본값 | 유효 범위        | 설명                                                |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
@@ -4613,6 +4943,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -4634,6 +4967,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   }
 }
 ```
+
+</details>
 
 | 필드                                  | 타입       | 설명                                                |
 | ----------------------------------- | -------- | ------------------------------------------------- |
@@ -4671,6 +5006,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
     "header" : {
@@ -4680,6 +5018,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     }
 }
 ```
+
+</details>
 
 
 ### 사용량 계획에 연결된 스테이지 목록 조회
@@ -4702,6 +5042,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -4730,6 +5073,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 | 필드                                    | 타입      | 설명                     |
 | ------------------------------------- | ------- | ---------------------- |
@@ -4774,6 +5119,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -4783,6 +5131,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   }
 }
 ```
+
+</details>
 
 ### 사용량 계획에 연결된 스테이지 해제
 - 사용량 계획에 연결된 스테이지를 연결 해제합니다.
@@ -4807,6 +5157,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -4816,6 +5169,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   }
 }
 ```
+
+</details>
 
 ### 스테이지가 연결된 사용량 계획 목록 조회
 - 스테이지가 연결된 사용량 계획 목록을 조회합니다.
@@ -4838,6 +5193,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -4866,6 +5224,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 | 필드                                         | 타입       | 설명                                                |
 | ------------------------------------------ | -------- | ------------------------------------------------- |
@@ -4916,6 +5276,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
     "header": {
@@ -4948,6 +5311,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     ]
 }
 ```
+
+</details>
 
 | 필드                                                           | 타입      | 설명                                                |
 | ------------------------------------------------------------ | ------- | ------------------------------------------------- |
@@ -5009,6 +5374,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -5036,6 +5404,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 | 필드                                             | 타입       | 설명                                   |
 | ---------------------------------------------- | -------- | ------------------------------------ |
@@ -5077,6 +5447,10 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | stageId | String | 필수 | 없음 | 없음 | 스테이지 ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "apiKeyIdList": [
@@ -5084,6 +5458,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 | 이름                        | 타입      | 필수 여부 | 기본값 | 유효 범위        | 설명                                                |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
@@ -5093,6 +5469,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -5116,6 +5495,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 | 필드                                             | 타입       | 설명                                   |
 | ---------------------------------------------- | -------- | ------------------------------------ |
@@ -5152,6 +5533,10 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | stageId | String | 필수 | 없음 | 없음 | 스테이지 ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "apiSubscriptionIdList": [
@@ -5159,6 +5544,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   ]
 }
 ```
+
+</details>
 
 | 이름                        | 타입      | 필수 여부 | 기본값 | 유효 범위        | 설명                                                |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
@@ -5169,6 +5556,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
     "header": {
@@ -5178,6 +5568,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
     }
 }
 ```
+
+</details>
 
 
 ### API Key의 사용량 계획 변경
@@ -5203,11 +5595,17 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 | subscriptionId | String | 필수 | 없음 | 없음 | 구독 ID |
 
 [Request Body]
+
+<details>
+  <summary><strong>요청 예시</strong></summary>
+
 ```json
 {
   "changeUsagePlanId": "{usagePlanId}"
 }
 ```
+
+</details>
 
 | 이름                        | 타입      | 필수 여부 | 기본값 | 유효 범위        | 설명                                                |
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
@@ -5216,6 +5614,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
 
 ```json
 {
@@ -5226,6 +5627,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   }
 }
 ```
+
+</details>
 
 ## 통계
 
@@ -5266,6 +5669,10 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 #### 응답
 
 [Response]
+
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -5309,6 +5716,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
   "metricsLatestUpdatedAt": "2021-11-29T08:50:57.000Z"
 }
 ```
+
+</details>
 
 |필드                                   |타입      |설명                                         |
 |-------------------------------------|--------|----------------------------------------------|
@@ -5367,6 +5776,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
   "header": {
@@ -5415,6 +5827,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 }
 ```
 
+</details>
+
 |필드                                   |타입      |설명                                         |
 |-------------------------------------|--------|----------------------------------------------|
 |data                                 |Object  | API Key 통계 데이터 영역                         |
@@ -5461,6 +5875,9 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
 
 [Response]
 
+<details>
+  <summary><strong>응답 예시</strong></summary>
+
 ```json
 {
         "header": {
@@ -5504,6 +5921,8 @@ API를 사용하려면 앱 키(Appkey)가 필요합니다.
         "metricsLatestUpdatedAt": "2023-07-19T02:21:08.000Z"
     }
 ```
+
+</details>
 
 | 필드 | 타입 | 설명 |
 | --- | --- | --- |
