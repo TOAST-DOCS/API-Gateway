@@ -9,6 +9,7 @@
 |400100002|Invalid header name.|Invalid header name format.|
 |401100000|Invalid appKey.|Invalid appKey.|
 |401100001|Invalid uuid.|User information is invalid.|
+|401100003|Token is not valid.|Token is invalid.|
 |403100000|Permission denied.|The user does not have permission.|
 |409100000|Could not complete the request due to a duplicate request.|The request could not be completed due to a duplicate request.|
 |500100000|DB query failed.|A temporary error occurred. If the error persists, please contact customer service.|
