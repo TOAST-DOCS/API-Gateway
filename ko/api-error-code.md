@@ -1,4 +1,7 @@
-## Application Service > API Gateway > API 오류 코드
+<!-- pre-align:aligned sig=96a6b92616a7 -->
+
+<a id="application-service-api-gateway-api-error-code"></a>
+## Application Service > API Gateway > API 오류 코드 { #application-service-api-gateway-api-error-code }
 
 |오류 코드|오류 메시지|설명|
 |---|---|---|

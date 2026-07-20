@@ -1,9 +1,14 @@
-## Application Service > API Gateway > Enumコード
+<!-- pre-align:aligned sig=4c627ec8f307 -->
 
-## Enumコード
+<a id="application-service-api-gateway-enum-code"></a>
+## Application Service > API Gateway > Enumコード { #application-service-api-gateway-enum-code }
+
+<a id="enum-code"></a>
+## Enumコード { #enum-code }
 API v1.0ガイド文書で参照されるEnumコード文書です。
 
-### API Gatewayリージョン
+<a id="api-gateway-region"></a>
+### API Gatewayリージョン { #api-gateway-region }
 - API Gatewayサーバーが位置するリージョンを意味します。
 
 | 名前 | 説明 |
@@ -12,7 +17,8 @@ API v1.0ガイド文書で参照されるEnumコード文書です。
 | KR2 | 韓国(ピョンチョン)リージョン |
 
 
-### API Gatewayサービスタイプ
+<a id="api-gateway-service-type"></a>
+### API Gatewayサービスタイプ { #api-gateway-service-type }
 - パブリック(Shared)または専用(Dedicated)区分に基づくAPI Gatewayのサービスタイプです。 
 - 現在はパブリックAPI Gatewayサービスタイプのみサポートされます。 
 
@@ -21,7 +27,8 @@ API v1.0ガイド文書で参照されるEnumコード文書です。
 | SHARED | パブリックAPI Gatewayサービスタイプ |
 
 
-### HTTPメソッドタイプ
+<a id="http-method-type"></a>
+### HTTPメソッドタイプ { #http-method-type }
 - サポートされるHTTPメソッドタイプです。
 
 | 名前 | 説明 |
@@ -35,7 +42,8 @@ API v1.0ガイド文書で参照されるEnumコード文書です。
 | PATCH | HTTP PATCHメソッド | 
 
 
-### リソースプラグインタイプ
+<a id="resource-plugin-type"></a>
+### リソースプラグインタイプ { #resource-plugin-type }
 - リソースに設定可能なプラグインタイプです。
 
 | 名前 | 説明 | プラグイン適用可能な場所 |
@@ -50,7 +58,8 @@ API v1.0ガイド文書で参照されるEnumコード文書です。
 | ADD_REQUEST_QUERY_PARAMETER | バックエンドエンドポイントリクエストにクエリ文字列パラメータを追加します。 | リソースパス、メソッド |
 
 
-### リソースリクエスト/レスポンスパラメータデータ型
+<a id="resource-requestresponse-parameter-data-type"></a>
+### リソースリクエスト/レスポンスパラメータデータ型 { #resource-requestresponse-parameter-data-type }
 - リソースリクエスト/レスポンスパラメータで設定できるデータ型です。
 
 | 名前 | 説明 |
@@ -64,7 +73,8 @@ API v1.0ガイド文書で参照されるEnumコード文書です。
 | FILE | Fileデータ型。リクエストパラメータ > フォームデータでのみ設定可能。 | 
 
 
-### ステージリソース > プラグインタイプ
+<a id="stage-resource-plugin-type"></a>
+### ステージリソース > プラグインタイプ { #stage-resource-plugin-type }
 - ステージリソースパスまたはメソッドに設定可能なプラグインタイプです。 
 
 | 名前 | 説明 | プラグイン適用可能な場所 |
@@ -78,7 +88,8 @@ API v1.0ガイド文書で参照されるEnumコード文書です。
 | RATE_LIMIT | リクエスト数制限プラグイン | メソッド |
 
 
-### JWT > 暗号化アルゴリズム 
+<a id="jwt-encryption-algorithm"></a>
+### JWT > 暗号化アルゴリズム { #jwt-encryption-algorithm }
 - JWTトークンの署名に使用する暗号化アルゴリズムです。
 
 | 名前 | 説明 |
@@ -87,7 +98,8 @@ API v1.0ガイド文書で参照されるEnumコード文書です。
 | RS256 | 非対称鍵アルゴリズムです。公開/秘密鍵を使用してRSA256(RSA Signature with SHA-256)アルゴリズムを使用してトークンを署名します。 | 
 
 
-### JWT > クレームデータ型 
+<a id="jwt-claim-data-type"></a>
+### JWT > クレームデータ型 { #jwt-claim-data-type }
 - JWTクレームのデータ型です。
 
 | 名前 | 説明 |
@@ -97,7 +109,8 @@ API v1.0ガイド文書で参照されるEnumコード文書です。
 | NumericDate | ミリ秒を無視して1970-01-01T00:00:00Z UTCから指定されたUTC日/時間までの秒数を表すデータ型です。 |
 
 
-### JWT > RS256暗号化アルゴリズム > Public Key Type 
+<a id="jwt-rs256-encryption-algorithm-public-key-type"></a>
+### JWT > RS256暗号化アルゴリズム > Public Key Type { #jwt-rs256-encryption-algorithm-public-key-type }
 - RS256は公開鍵/秘密鍵ベースの暗号化アルゴリズムを使用します。公開鍵設定方式を設定します。
 
 | 名前 | 説明 |
@@ -106,7 +119,8 @@ API v1.0ガイド文書で参照されるEnumコード文書です。
 | JWKS_URI | 公開鍵を照会できるJson Web Key Sets URIに設定する方式です。|
 
 
-### リクエスト数制限 > 制限キー
+<a id="request-number-limit-limit-key"></a>
+### リクエスト数制限 > 制限キー { #request-number-limit-limit-key }
 - リクエスト数制限が適用されるキーです。
 
 | 名前 | 説明 |
@@ -117,7 +131,8 @@ API v1.0ガイド文書で参照されるEnumコード文書です。
 | PATH_VARIABLE | パス変数ごとにリソースメソッドのリクエスト数制限を適用します。 |
 
 
-### ステージ配布 > 配布状態
+<a id="stage-deployment-deployment-status"></a>
+### ステージ配布 > 配布状態 { #stage-deployment-deployment-status }
 - ステージ配布作業の状態です。
 
 | 名前 | 説明 |
@@ -127,7 +142,8 @@ API v1.0ガイド文書で参照されるEnumコード文書です。
 | FAILURE | 配布失敗 | 
 
 
-### 使用量プラン > 割り当て量期間単位
+<a id="usage-plan-quota-period-unit"></a>
+### 使用量プラン > 割り当て量期間単位 { #usage-plan-quota-period-unit }
 - 割り当て量が初期化される期間単位です。
 
 | 名前 | 説明 |
@@ -136,7 +152,8 @@ API v1.0ガイド文書で参照されるEnumコード文書です。
 | MONTH | 月単位で呼び出し量を制限。毎月1日UTC 00:00:00に初期化。 | 
 
 
-### API Keyの状態
+<a id="api-key-status"></a>
+### API Keyの状態 { #api-key-status }
 - API Keyの状態です。
 - 無効になっているAPI Keyは、API Keyの認証に失敗してAPIを呼び出せません。
 
@@ -146,7 +163,8 @@ API v1.0ガイド文書で参照されるEnumコード文書です。
 | INACTIVE | 無効状態 |
 
 
-### API Keyタイプ
+<a id="api-key-type"></a>
+### API Keyタイプ { #api-key-type }
 - 発行されたAPI KeyのPrimary API KeyとSencondary API Keyのタイプです。 
 
 | 名前 | 説明 |
@@ -155,14 +173,16 @@ API v1.0ガイド文書で参照されるEnumコード文書です。
 | SECONDARY | Secondary API Key |
 
 
-### API Keyの購読状態
+<a id="api-key-subscription-status"></a>
+### API Keyの購読状態 { #api-key-subscription-status }
 - API Keyの購読状態です。
 
 | 名前 | 説明 |
 | --- | --- |
 | APPROVAL | 承認状態 | 
 
-### 統計データ時間単位
+<a id="statistics-data-time-unit"></a>
+### 統計データ時間単位 { #statistics-data-time-unit }
 - 統計データが収集される時間単位
 
 | 名前 | 説明 |
@@ -173,7 +193,8 @@ API v1.0ガイド文書で参照されるEnumコード文書です。
 | ONE_DAYS | 1日間隔で統計データ収集 | 
 
 
-### 統計 > Top10サービスソート基準 
+<a id="statistics-sort-top-10-services-by"></a>
+### 統計 > Top10サービスソート基準 { #statistics-sort-top-10-services-by }
 | 名前 | 説明 |
 | --- | --- |
 | CALL_COUNT | 全体API呼び出し数基準降順ソート | 
@@ -181,7 +202,8 @@ API v1.0ガイド文書で参照されるEnumコード文書です。
 | AVG_RESPONSE_TIME | 平均レスポンス時間基準降順ソート | 
 
 
-### ゲートウェイレスポンスタイプ
+<a id="gateway-response-type"></a>
+### ゲートウェイレスポンスタイプ { #gateway-response-type }
 | ゲートウェイレスポンスタイプ | 基本ステータスコード | 説明 |
 | ----------- | -------- | --- |
 | UpstreamServiceUnavailable | 503 | バックエンドエンドポイントサービスが応答しない、または応答遅延(60秒以上)が継続的に発生する場合のレスポンスです。 |

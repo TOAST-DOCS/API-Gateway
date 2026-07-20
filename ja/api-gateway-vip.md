@@ -1,11 +1,16 @@
-## Application Service > API Gateway > API Gatewayクライアントファイアウォールポリシー設定 
+<!-- pre-align:aligned sig=d0ef1fa0366c -->
 
-### API Gatewayクライアントファイアウォールポリシー設定 
+<a id="application-service-api-gateway-firewall-policy-settings-for-api-gateway-clients"></a>
+## Application Service > API Gateway > API Gatewayクライアントファイアウォールポリシー設定 { #application-service-api-gateway-firewall-policy-settings-for-api-gateway-clients }
+
+<a id="firewall-policy-settings-for-api-gateway-clients"></a>
+### API Gatewayクライアントファイアウォールポリシー設定 { #firewall-policy-settings-for-api-gateway-clients }
 
 クライアントがAPI Gatewayを通じて提供されるAPIを呼び出す時、ファイアウォール(Network ACL)を使用する場合、正常な通信のためにAPI Gateway VIPに対するファイアウォールポリシーを設定する必要があります。
 API Gateway VIPに対するファイアウォールポリシー設定がない場合、ドメインの問い合わせ結果によってAPI呼び出しに失敗する可能性があります。
 クライアントがファイアウォールを別途に管理していない場合は、特別な処理なしで使用可能です。
 
+<a id="firewall-policy-settings-for-api-gateway-clients-api-gateway-vip-information"></a>
 #### API Gateway VIP情報
 
 | VIP | ポート |
