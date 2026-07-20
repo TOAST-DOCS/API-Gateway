@@ -1,10 +1,15 @@
-## Application Service > API Gateway > 콘솔 사용 가이드
+<!-- pre-align:aligned sig=f2193e652791 -->
 
-## API Gateway 서비스 
+<a id="application-service-api-gateway-console-user-guide"></a>
+## Application Service > API Gateway > 콘솔 사용 가이드 { #application-service-api-gateway-console-user-guide }
+
+<a id="api-gateway-service"></a>
+## API Gateway 서비스 { #api-gateway-service }
 API Gateway 서비스는 API Gateway를 통해 서비스할 API를 관리하는 단위입니다. 
 API Gateway 서비스마다 하나의 API 리소스와 여러 개의 스테이지를 관리할 수 있으며, 대시보드를 통해 API 지표를 확인할 수 있습니다.
 
-### API Gateway 서비스 생성 
+<a id="create-api-gateway-service"></a>
+### API Gateway 서비스 생성 { #create-api-gateway-service }
 API Gateway 서비스 정보를 입력한 후 생성 버튼을 클릭하면 API Gateway 서비스가 생성됩니다.
 
 * **서비스명**: 서비스의 이름입니다.
@@ -14,13 +19,15 @@ API Gateway 서비스 정보를 입력한 후 생성 버튼을 클릭하면 API 
 > **[참고] API Gateway 서비스 생성 개수 제한** <br>
 > API Gateway 서비스는 프로젝트당 **최대 10개**까지 생성 가능합니다.
 
-### API Gateway 서비스 조회 
+<a id="view-api-gateway-service"></a>
+### API Gateway 서비스 조회 { #view-api-gateway-service }
 * 등록된 API Gateway 서비스 목록이 표시됩니다.
 * 목록에서 서비스를 선택하면 등록된 스테이지 목록이 표시됩니다.
 * 리소스를 관리하려면 서비스 설정 열의 **리소스** 버튼을 클릭합니다.
 * 스테이지를 관리하려면 서비스 설정 열의 **스테이지** 버튼을 클릭합니다.
 
-### API Gateway 서비스 삭제
+<a id="delete-api-gateway-service"></a>
+### API Gateway 서비스 삭제 { #delete-api-gateway-service }
 * 등록된 API Gateway 서비스 목록이 표시됩니다.
 * **관리** 열의  휴지통 아이콘을 클릭합니다.
 * 확인 창에서 **확인** 버튼을 클릭합니다. 삭제된 데이터는 복구할 수 없습니다.
@@ -28,7 +35,8 @@ API Gateway 서비스 정보를 입력한 후 생성 버튼을 클릭하면 API 
 > **[주의] API Gateway 서비스를 삭제할 수 없는 경우** <br>
 > API Gateway 서비스의 스테이지와 연결된 사용량 계획이 존재하면 API Gateway 서비스를 삭제할 수 없습니다.
 
-## 리소스
+<a id="resource"></a>
+## 리소스 { #resource }
 리소스는 API Gateway를 통해 서비스할 API를 설계하는 화면입니다.
 모든 API 요청 클라이언트는 API Gateway 리소스에 정의된 API에 대해 요청을 할 수 있습니다.
 리소스는 API의 리소스 경로와 메서드를 관리합니다.
@@ -37,7 +45,8 @@ API Gateway 서비스 정보를 입력한 후 생성 버튼을 클릭하면 API 
 2. 리소스 메서드: HTTP 메서드 
 3. 플러그인: 리소스 경로 또는 메서드에 부가 기능을 추가합니다. 
 
-### 리소스 생성 
+<a id="create-resource"></a>
+### 리소스 생성 { #create-resource }
 1. 좌측 리소스 트리에서 리소스를 추가할 경로에 마우스를 올리면 **+** 버튼이 표시됩니다. 버튼을 클릭한 뒤 **리소스 생성**을 선택합니다.
 2. **리소스 경로**를 작성합니다. 작성된 리소스 경로를 포함하여 전체 경로는 255자 이내로 작성해야 합니다. 
     - 예: /products/, /products/{productsId}, /{proxy+}
@@ -54,7 +63,8 @@ API Gateway 서비스 정보를 입력한 후 생성 버튼을 클릭하면 API 
 - 리소스를 생성하면서 메서드도 같이 등록하려면 HTTP 메서드를 선택합니다.
 - 등록하지 않은 리소스 경로로 API Gateway에 요청하면 404 Not Found 응답을 반환합니다.
 
-### 리소스 가져오기
+<a id="import-resource"></a>
+### 리소스 가져오기 { #import-resource }
 Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형식의 파일로 리소스를 가져올 수 있습니다.
 1. **리소스 가져오기** 버튼을 클릭합니다.
 2. **JSON 파일 선택** 버튼을 클릭하여 파일을 선택하거나 Swagger 내용을 직접 입력합니다.
@@ -182,7 +192,8 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
 ```
 </details>
 
-### 메서드 생성 
+<a id="create-method"></a>
+### 메서드 생성 { #create-method }
 - 선택된 리소스 경로 하위에 **HTTP 메서드**를 생성합니다. 
     - 지원 HTTP 메서드: HEAD, OPTIONS, GET, POST, PUT, DELETE, PATCH
 - **메서드 이름**: 메서드의 별칭입니다. 이름은 리소스 트리 화면에 설명으로 표시됩니다.
@@ -207,7 +218,8 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
 > **[참고] 리소스 메서드 생성 제한 개수** <br>
 > 메서드는 모든 리소스 경로를 포함하여 **최대 100개**까지 생성 가능합니다.
 
-### 리소스와 메서드 수정
+<a id="modify-resources-and-methods"></a>
+### 리소스와 메서드 수정 { #modify-resources-and-methods }
 - 리소스 경로 수정
     - 리소스 경로는 수정이 불가합니다. 경로를 수정하려면 삭제 후 다시 생성해야 합니다.
 - 메서드 수정 
@@ -219,7 +231,8 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
 > **[참고] CORS 플러그인에 의해 등록된 OPTIONS 메서드의 수정** <br>
 > CORS 플러그인에 의해 등록된 OPTIONS 메서드는 수정할 수 없습니다. 
 
-### 리소스와 메서드 삭제 
+<a id="delete-resources-and-methods"></a>
+### 리소스와 메서드 삭제 { #delete-resources-and-methods }
 삭제할 리소스 경로 또는 메서드에 마우스를 올리면 휴지통 아이콘이 표시됩니다.
 휴지통 아이콘을 클릭하고 확인 창에서 **삭제**를 선택하면 리소스가 삭제되며, 삭제된 데이터는 복구할 수 없습니다.
 
@@ -230,7 +243,8 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
 > CORS 플러그인에 의해 등록된 OPTIONS 메서드는 삭제할 수 없습니다. 
 
 
-### 스테이지 적용 
+<a id="apply-stage-resource"></a>
+### 스테이지 적용 { #apply-stage-resource }
 리소스를 변경한 후 스테이지에 변경된 리소스를 적용하려면 **스테이지 적용**을 해야 합니다.
 
 1. 변경된 리소스를 스테이지에 적용하려면 **스테이지 적용** 버튼을 클릭합니다.
@@ -244,7 +258,8 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
 > - 이미 스테이지에 최신 리소스가 적용되어 있으면 스테이지 적용이 불가합니다.
 
 
-### 플러그인 추가와 삭제
+<a id="adddelete-plugin"></a>
+### 플러그인 추가와 삭제 { #adddelete-plugin }
 플러그인을 통해 API Gateway에서 제공하는 부가 기능을 추가할 수 있습니다.
 
 - **플러그인 적용 위치**
@@ -271,7 +286,8 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
 > 플러그인을 추가한 후 **저장** 버튼을 클릭해야 설정이 저장됩니다.
 
 
-### 요청 파라미터 
+<a id="request-parameters"></a>
+### 요청 파라미터 { #request-parameters }
 리소스 메서드별 요청 파라미터와 응답 형식, 콘텐츠 타입을 설정합니다.
 설정한 내용은 [API 설명서](./console-guide/#api_2)에 적용됩니다.
 
@@ -294,7 +310,8 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
         - 서버에 전송할 문서의 콘텐츠 타입(예: application/json)을 입력합니다. 
 4. 변경 내용 **저장** 버튼을 클릭합니다. 
 
-### 응답 
+<a id="response"></a>
+### 응답 { #response }
 HTTP 응답 상태 코드별 헤더와 요청 본문 항목과 콘텐츠 타입을 설정합니다.
 설정한 내용은 [API 설명서](./console-guide/#api_2)에 적용됩니다.
 
@@ -315,7 +332,8 @@ HTTP 응답 상태 코드별 헤더와 요청 본문 항목과 콘텐츠 타입�
     - 클라이언트에 응답되는 문서의 콘텐츠 타입(예: application/json)을 입력합니다. 
 9. **저장** 버튼을 클릭합니다. 
 
-## 컨텍스트 변수
+<a id="context-variables"></a>
+## 컨텍스트 변수 { #context-variables }
 리소스의 메서드 생성 및 플러그인 설정 시 아래 정의된 변수를 사용할 수 있습니다.
 
 | 컨텍스트 변수 | 설명 |
@@ -351,8 +369,10 @@ HTTP 응답 상태 코드별 헤더와 요청 본문 항목과 콘텐츠 타입�
 > 예시: /users?id=user1&id=user2 → /users/id=user1,user2
 
 
-## 리소스 플러그인 
-### CORS 
+<a id="plugin"></a>
+## 리소스 플러그인 { #plugin }
+<a id="cors"></a>
+### CORS { #cors }
 Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니다.
 
 - **플러그인 적용 가능한 위치**: 리소스 경로
@@ -376,7 +396,8 @@ Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니�
 > - CORS 플러그인을 통해 등록된 OPTIONS 메서드는 리소스 트리에서 선택이 불가하며, 수정과 삭제를 할 수 없습니다.
 > - CORS 플러그인을 삭제하면 CORS 플러그인에 의해 자동 생성된 OPTIONS 메서드는 일괄적으로 삭제됩니다. 
 
-### 요청 헤더 변경 
+<a id="change-request-header"></a>
+### 요청 헤더 변경 { #change-request-header }
 요청 헤더를 추가하거나 변경합니다. 
 
 - **플러그인 적용 가능한 위치**: 리소스 경로, 메서드
@@ -392,7 +413,8 @@ Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니�
 > - 원본 요청에 있는 헤더는 요청 헤더 변경 플러그인에 설정된 헤더값으로 대체됩니다.
 > - 원본 요청에 있는 헤더의 삭제는 불가합니다.
 
-### 요청 헤더 삭제 
+<a id="delete-request-header"></a>
+### 요청 헤더 삭제 { #delete-request-header }
 클라이언트 요청의 헤더에서 지정된 헤더를 삭제한 후 백엔드에 요청합니다.
 
 - **플러그인 적용 가능한 위치**: 리소스 경로, 메서드
@@ -404,7 +426,8 @@ Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니�
 > **[참고] 요청 헤더 변경과 삭제 설정** <br>
 > 요청 헤더 변경과 요청 헤더 삭제 플러그인을 동시에 설정하였을 경우, 요청 헤더 변경 적용 후 요청 헤더 삭제가 적용됩니다. 
 
-###  응답 헤더 변경 
+<a id="change-response-header"></a>
+###  응답 헤더 변경 { #change-response-header }
 응답 헤더 변경 플러그인은 백엔드 응답에 헤더를 추가하거나 변경합니다. 
 
 - **플러그인 적용 가능한 위치**: 리소스 경로, 메서드
@@ -418,7 +441,8 @@ Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니�
 > - 백엔드 엔드포인트의 응답에 있는 헤더는 요청 헤더 변경 플러그인에 설정된 헤더값으로 대체됩니다.
 
 
-### 응답 헤더 삭제 
+<a id="delete-response-header"></a>
+### 응답 헤더 삭제 { #delete-response-header }
 백엔드 응답 헤더에서 지정된 헤더를 삭제한 후 클라이언트에 응답합니다.
 
 - **플러그인 적용 가능한 위치**: 리소스 경로, 메서드
@@ -430,7 +454,8 @@ Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니�
 > **[참고] 응답 헤더 변경과 삭제 설정** <br>
 > 응답 헤더 변경과 응답 헤더 삭제 플러그인을 동시에 설정하였을 경우, 응답 헤더 변경 적용 후 응답 헤더 삭제가 적용됩니다. 
 
-### 요청 쿼리 문자열 파라미터 추가
+<a id="add-request-query-string-parameter"></a>
+### 요청 쿼리 문자열 파라미터 추가 { #add-request-query-string-parameter }
 백엔드 엔드포인트 요청에 쿼리 문자열 파라미터를 추가합니다.  
 예: 파라미터 이름과 값을 name, value로 설정하면 **name=value** 쿼리 문자열 파라미터가 백엔드 엔드포인트 요청 시 추가됩니다. 
 
@@ -445,13 +470,15 @@ Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니�
 > - 쿼리 문자열 파라미터의 값은 인코딩되어 백엔드 엔드포인트로 전달됩니다.
 
 
-## 스테이지 
+<a id="stage"></a>
+## 스테이지 { #stage }
 스테이지는 리소스를 배포하는 단계입니다. 
 
 - 스테이지별로 고유한 스테이지 URL 이 발급됩니다. 
 - 스테이지는 서비스별 또는 환경(Profile)별로 서비스를 구분하거나 그 외 용도로 활용이 가능합니다.
 
-### 스테이지 생성
+<a id="create-stage"></a>
+### 스테이지 생성 { #create-stage }
 
 1. API Gateway 서비스 목록에서 **스테이지**를 클릭합니다.
 2. 스테이지 탭에서 **+ 생성** 버튼을 클릭합니다. 
@@ -484,7 +511,8 @@ Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니�
 > - API Gateway로 수신된 요청을 백엔드 엔드포인트로 전달할 때 기본으로 스테이지에 정의된 백엔드 엔드포인트 URL로 요청을 전달합니다.
 
 
-### 스테이지 수정 
+<a id="modify-stage"></a>
+### 스테이지 수정 { #modify-stage }
 1. 수정할 스테이지를 선택합니다. 
 2. **수정** 버튼을 클릭합니다.
 3. 스테이지 정보를 수정합니다. 수정 가능한 항목은 스테이지 설명, 백엔드 엔드포인트 URL입니다.
@@ -494,7 +522,8 @@ Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니�
 > 수정된 백엔드 엔드포인트 URL을 API Gateway 서비스에 적용하려면 스테이지를 배포해야 합니다.
 
 
-### 스테이지 삭제
+<a id="delete-stage"></a>
+### 스테이지 삭제 { #delete-stage }
 1. 삭제할 스테이지를 선택합니다.
 2. **삭제** 버튼을 클릭합니다.
 3. 삭제 확인 창에서 **삭제**을 클릭하면 삭제됩니다. 이 작업은 취소할 수 없습니다. 
@@ -505,7 +534,8 @@ Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니�
 > - 스테이지와 연결된 사용량 계획이 존재하면 스테이지를 삭제할 수 없습니다.
 
 
-### 리소스 가져오기 
+<a id="stage-import-resource"></a>
+### 리소스 가져오기 { #stage-import-resource }
 리소스를 변경한 후 스테이지에 변경된 리소스를 적용하려면 스테이지 관리화면에서 리소스 가져오기를 진행합니다. 
 
 1. 변경된 리소스를 스테이지에 적용하려면 **리소스 가져오기** 버튼을 클릭합니다.
@@ -515,7 +545,8 @@ Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니�
 > - 리소스에 변경된 사항이 없는 경우 리소스 가져오기 버튼이 비활성화됩니다.
 
 
-### 스테이지 배포
+<a id="deploy-stage"></a>
+### 스테이지 배포 { #deploy-stage }
 스테이지에 설정된 리소스와 설정을 API Gateway 서비스에 적용하려면 스테이지를 배포해야 합니다. 
 
 1. **스테이지** 탭에서 배포할 스테이지를 선택합니다. 
@@ -527,7 +558,8 @@ Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니�
     -  아이콘이 초록색으로 표시되면 정상적으로 배포된 상태입니다.
     -  아이콘이 빨간색으로 표시되면 배포 중 작업 오류가 발생한 상태입니다. 배포 실패가 발생하면 배포를 재시도하세요. 지속적으로 실패하는 경우 고객 센터로 문의하세요.
     
-### 스테이지 배포 이력
+<a id="stage-deployment-history"></a>
+### 스테이지 배포 이력 { #stage-deployment-history }
 스테이지 배포 이후 배포된 이력들을 확인할 수 있으며, 이전 배포 설정으로 스테이지를 되돌릴 수 있습니다.
 
 1. **스테이지** 탭에서 스테이지를 선택합니다.
@@ -542,19 +574,23 @@ Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니�
 > - 스테이지 되돌리기를 사용할 경우, 이를 API Gateway 서비스에 적용하려면 스테이지를 배포해야 합니다.
 
 
-### 스테이지 내보내기 
+<a id="export-stage"></a>
+### 스테이지 내보내기 { #export-stage }
 1. **스테이지** 탭에서 스테이지를 선택합니다.
 2. **내보내기** 탭을 선택합니다. 
 3. **스테이지 내보내기** 버튼을 클릭하여 선택된 스테이지의 리소스를 Swagger 파일로 저장합니다.
 
 
-### API 설명서
+<a id="api-documentation"></a>
+### API 설명서 { #api-documentation }
 **스테이지 배포**를 통해 배포된 형상을 API 설명서에서 확인할 수 있습니다.
 자세한 내용은 [API 설명서](./console-guide/#api_2)를 참고합니다.
 
-## 스테이지 플러그인
+<a id="stage-plugin"></a>
+## 스테이지 플러그인 { #stage-plugin }
 
-### 백엔드 엔드포인트 URL 재정의 
+<a id="backend-endpoint-url-override"></a>
+### 백엔드 엔드포인트 URL 재정의 { #backend-endpoint-url-override }
 
 API Gateway로 수신된 요청을 백엔드 엔드포인트로 전달할 때 기본으로 스테이지에 정의된 백엔드 엔드포인트 URL로 요청을 전달합니다.
 특정 경로 또는 메서드에 대해 백엔드 엔드포인트 URL을 재정의하려면 백엔드 엔드포인트 URL 재정의를 설정합니다.
@@ -568,7 +604,8 @@ API Gateway로 수신된 요청을 백엔드 엔드포인트로 전달할 때 �
         - 예: https://api.nhn.com , https://api.nhn.com/apis
     - URL에 포트를 직접 지정하는 경우 80, 443, 10000~12000 포트만 사용 가능합니다.
 
-###  IP ACL
+<a id="ip-acl"></a>
+###  IP ACL { #ip-acl }
 IP ACL을 통해 지정된 클라이언트 IP에 대해 API Gateway 요청을 허용/거부할 수 있습니다.
 
 1. **스테이지** 탭에서 스테이지를 선택합니다.
@@ -590,7 +627,8 @@ IP ACL을 통해 지정된 클라이언트 IP에 대해 API Gateway 요청을 �
 > - IP ACL의 IP 접근 대상은 **최대 100개**까지 입력 가능합니다.
 > - 네트워크 주소 변환(NAT: Network Address Translation)에 의해 클라이언트의 Source IP가 변경된 경우, 변경된 IP를 기준으로 IP ACL을 체크하므로 주의하시기 바랍니다.
 
-### 인증 > HMAC
+<a id="authentication-hmac"></a>
+### 인증 > HMAC { #authentication-hmac }
 HMAC 인증을 사용하면 API Gateway로 수신된 요청이 중간 공격자에 의해 변조되는 것을 방지하며, 요청 유효 시간을 설정하여 Reply Attack 공격을 예방합니다.
 
 1. **스테이지** 탭에서 스테이지를 선택합니다.
@@ -616,6 +654,7 @@ HMAC 인증을 사용하면 API Gateway로 수신된 요청이 중간 공격자�
 > 설정 시 필수 검증 헤더가 요청과 singature 생성 시 포함되었는지 확인하시기 바랍니다.
 
 
+<a id="authentication-hmac-api-client-task-for-hmac-authentication"></a>
 #### HMAC 인증을 위한 API 클라이언트 작업 
 HMAC 인증을 하려면 API 요청 클라이언트는 다음의 인증 헤더와 요청 시간 헤더를 포함하여 요청해야 합니다.
 
@@ -638,6 +677,7 @@ HMAC 인증을 하려면 API 요청 클라이언트는 다음의 인증 헤더�
 | headers |  HMAC 인증 시 검증할 헤더 목록 <br> 콘솔에서 HMAC 필수 검증 헤더에 등록한 헤더는 반드시 포함해야 합니다.  |
 | signature |  SiginToString 문자열을 암호화한 후 Base64 인코딩한 값  |
 
+<a id="authentication-hmac-signtostring-format"></a>
 #### SignToString 형식
 ```
 [HTTP Method]\n
@@ -648,6 +688,7 @@ HMAC 인증을 하려면 API 요청 클라이언트는 다음의 인증 헤더�
 ...
 ```
 
+<a id="authentication-hmac-signtostring-example"></a>
 #### SignToString 예시 
 
 - HTTP 요청 원문
@@ -703,7 +744,8 @@ x-nhn-date:2021-02-23T00:00:00+09:00
 >   - 예: header1-name:header1-value1,header1-value2
 > - 헤더 이름과 값은 콜론(:)으로 구분하며, 값 구분 시 중간에 공백 문자를 포함하지 않습니다.
 
-### 인증 > JWT 
+<a id="authentication-jwt"></a>
+### 인증 > JWT { #authentication-jwt }
 JWT 토큰의 서명과 클레임을 검증합니다. 사용자 서비스에서는 토큰을 검증하지 않고 토큰값을 사용할 수 있습니다.
 
 1. **스테이지** 탭에서 스테이지를 선택합니다.
@@ -754,7 +796,8 @@ JWT 토큰의 서명과 클레임을 검증합니다. 사용자 서비스에서�
 > API Gateway는 JWKS URI의 응답을 5분간 캐싱합니다.
 > API Gateway의 캐싱으로 인해 JWKS 변경 사항이 API Gateway에 반영되기까지 최대 5분 이상 소요될 수 있습니다.
 
-### 액세스 로그
+<a id="access-log"></a>
+### 액세스 로그 { #access-log }
 API Gateway의 액세스 로그를 Log & Crash Search 서비스에 보관할 수 있는 기능입니다.
 
 1. **스테이지** 탭에서 스테이지를 선택합니다.
@@ -801,7 +844,8 @@ API Gateway의 액세스 로그를 Log & Crash Search 서비스에 보관할 수
 
 
 
-### 사전 호출 API(Pre-call API)
+<a id="pre-call-api"></a>
+### 사전 호출 API(Pre-call API) { #pre-call-api }
 사전 호출 API는 백엔드 엔드포인트를 호출하기 전에 사용자가 지정한 API를 호출하여 호출의 응답 코드에 따라 백엔드 엔드포인트 호출 여부를 결정합니다.
 API Gateway를 통해 들어온 요청 헤더를 포함하여 사전 호출 API를 호출하고, 사전 호출 API에서는 전달받은 헤더 내용에 따라 응답 코드를 반환합니다.
 
@@ -825,7 +869,8 @@ API Gateway를 통해 들어온 요청 헤더를 포함하여 사전 호출 API�
 > 사전 호출 API의 응답 결과 코드가 200일 경우에만 응답 결과가 캐싱됩니다.
 > 응답 결과 코드가 200이 아닌 경우, 캐시 유효 시간이 설정되어 있더라도 응답 결과가 캐싱되지 않습니다.
 
-### 요청 수 제한
+<a id="request-number-limit"></a>
+### 요청 수 제한 { #request-number-limit }
 
 요청 수 제한을 통해 API Gateway로 수신되는 요청들의 초당 요청 수를 조절할 수 있으며, 이를 통해 백엔드 엔드포인트를 보호할 수 있습니다.
 
@@ -855,7 +900,8 @@ API Gateway를 통해 들어온 요청 헤더를 포함하여 사전 호출 API�
 > - 설정된 초당 요청 수와 허용되는 실제 요청 수는 요청이 API Gateway에 수신된 시간, 요청 처리 시간 및 기타 요인에 따라 정확히 일치하지 않을 수 있습니다.  
 
 
-### 요청 유효성 검사 
+<a id="request-validation"></a>
+### 요청 유효성 검사 { #request-validation }
 API Gateway 리소스에 설정된 요청 파라미터 설정에 따라 클라이언트 요청의 유효성을 검증합니다.
 유효성 검증에 실패한 경우에는 오류 응답을 반환하고 요청을 백엔드 엔드포인트로 전달하지 않습니다.
 
@@ -893,7 +939,8 @@ API Gateway 리소스에 설정된 요청 파라미터 설정에 따라 클라�
 > 폼 데이터와 요청 본문은 동시에 설정할 수 없습니다.
 > 동일 리소스에 Content-Type으로 application/x-www-form-urlencoded와 application/json을 동시에 지원할 수 없으므로 콘텐츠 타입에 따라 리소스를 분리해야 합니다.
 
-### API Key
+<a id="api-key"></a>
+### API Key { #api-key }
 
 API Gateway에 API 요청 시 지정된 API Key만 요청할 수 있도록 제한합니다.
 
@@ -917,7 +964,8 @@ API Gateway에 API 요청 시 지정된 API Key만 요청할 수 있도록 제�
 | --- | --- |
 | x-nhn-apikey | <primary api key 또는 secondary api key\> |
 
-### 요청 제한 정책 
+<a id="request-restriction-policy"></a>
+### 요청 제한 정책 { #request-restriction-policy }
 
 등록된 요청 제한 정책을 스테이지 리소스 경로 또는 메서드에 적용합니다.
 자세한 내용은 [요청 제한 정책](./console-guide/#_34)을 참고하세요.
@@ -929,10 +977,12 @@ API Gateway에 API 요청 시 지정된 API Key만 요청할 수 있도록 제�
 5. 적용할 요청 제한 정책을 선택하고, **수정** 버튼을 클릭하여 저장합니다.
 6. **스테이지 배포**를 클릭합니다. 스테이지 배포가 완료되면 설정된 요청 제한 정책이 동작합니다.
 
-## 모델
+<a id="model"></a>
+## 모델 { #model }
 모델을 정의하여 요청 파라미터와 응답에서 사용 가능한 본문의 형태를 지정할 수 있습니다.
 
-### 모델 생성
+<a id="create-model"></a>
+### 모델 생성 { #create-model }
 1. API Gateway 서비스 목록에서 서비스 설정 열의 **리소스**를 클릭합니다.
 2. **모델** 탭에서 **모델 생성** 버튼을 클릭합니다.
 3. 모델 정보를 입력한 후 **생성** 버튼을 클릭합니다.
@@ -944,22 +994,26 @@ API Gateway에 API 요청 시 지정된 API Key만 요청할 수 있도록 제�
         - 모델이 가질 수 있는 구조를 정의합니다.
         - 모델 스키마 정의는 [JSON Schema](https://json-schema.org/) draft-04를 사용합니다.
 
-### 모델 수정
+<a id="edit-model"></a>
+### 모델 수정 { #edit-model }
 1. 모델 목록에서 수정할 모델을 선택합니다.
 2. **관리** 열의 연필 아이콘을 클릭합니다.
 3. 모델 정보를 수정합니다. 수정 가능한 항목은 모델 설명, 모델 스키마입니다.
 4. 설정을 변경한 후 **수정** 버튼을 클릭합니다.
 
-### 모델 삭제
+<a id="delete-model"></a>
+### 모델 삭제 { #delete-model }
 1. 모델 목록에서 삭제할 모델을 선택합니다.
 2. **관리** 열의 휴지통 아이콘을 클릭합니다.
     - 모델이 요청 파라미터 또는 응답에서 사용 중인 경우 삭제할 수 없습니다.
 3. 삭제 확인 창에서 **확인** 버튼을 클릭합니다. 삭제된 데이터는 복구할 수 없습니다.
 
-## 요청 제한 정책 
+<a id="request-restriction-policy-2"></a>
+## 요청 제한 정책 { #request-restriction-policy-2 }
 요청 제한 정책은 요청의 경로 변수 또는 요청 헤더 값에 따라 IP ACL과 요청 수 제한을 설정할 수 있는 기능입니다.
 
-### 요청 제한 정책 생성 
+<a id="create-request-restriction-policy"></a>
+### 요청 제한 정책 생성 { #create-request-restriction-policy }
 1. API Gateway 서비스 목록에서 서비스 설정 열의 **리소스**를 클릭합니다.
 2. **요청 제한 정책** 탭에서 **요청 제한 정책 생성** 버튼을 클릭합니다.
 3. 요청 제한 정책 정보를 입력합니다. 
@@ -979,7 +1033,8 @@ API Gateway에 API 요청 시 지정된 API Key만 요청할 수 있도록 제�
 > 요청 제한 정책은 API Gateway 서비스당 **최대 10개**까지 생성 가능합니다.
 
 
-### 스테이지 리소스에 요청 제한 정책 적용 
+<a id="apply-request-restriction-policy-to-stage-resources"></a>
+### 스테이지 리소스에 요청 제한 정책 적용 { #apply-request-restriction-policy-to-stage-resources }
 1. **스테이지** 탭에서 스테이지를 선택합니다.
 2. **설정** 탭을 선택합니다.
 3. 스테이지 트리 화면에서 요청 제한 정책을 적용할 경로나 메서드를 선택합니다.
@@ -988,7 +1043,8 @@ API Gateway에 API 요청 시 지정된 API Key만 요청할 수 있도록 제�
 6. **스테이지 배포**를 클릭합니다. 스테이지 배포가 성공하면 설정된 요청 제한 정책이 동작합니다.
 
 
-### 요청 제한 정책 수정 
+<a id="modify-request-restriction-policy"></a>
+### 요청 제한 정책 수정 { #modify-request-restriction-policy }
 요청 제한 정책 이름, 기본 초당 요청 제한 수, 잔여 토큰 수 응답 여부를 수정할 수 있습니다. 
 요청 제한 키 타입과 요청 제한 키는 수정이 불가합니다. 
 
@@ -996,7 +1052,8 @@ API Gateway에 API 요청 시 지정된 API Key만 요청할 수 있도록 제�
 2. 요청 제한 정책 정보를 변경한 뒤 **수정** 버튼을 클릭합니다.
 
 
-### 요청 제한 정책 삭제
+<a id="delete-request-restriction-policy"></a>
+### 요청 제한 정책 삭제 { #delete-request-restriction-policy }
 1. 요청 제한 목록에서 삭제할 요청 제한 정책의 **관리** 열에서 휴지통 아이콘을 클릭합니다.
 2. **삭제** 버튼을 클릭합니다.
 3. 확인 창에서 **확인** 버튼을 클릭합니다. 삭제된 데이터는 복구할 수 없습니다.
@@ -1006,7 +1063,8 @@ API Gateway에 API 요청 시 지정된 API Key만 요청할 수 있도록 제�
 > 삭제하려면 스테이지에 설정된 요청 제한 정책을 삭제하고 스테이지를 배포한 후 삭제하세요.
 
 
-### 요청 제한 키 값 생성
+<a id="create-request-restriction-key-value"></a>
+### 요청 제한 키 값 생성 { #create-request-restriction-key-value }
 요청 제한 정책의 제한 키의 값을 생성합니다. 제한 키 값에 따라 IP ACL과 요청 수 제한을 다르게 설정할 수 있습니다.
 
 1. 요청 제한 키 값을 추가할 요청 제한 정책을 선택합니다.
@@ -1026,7 +1084,8 @@ API Gateway에 API 요청 시 지정된 API Key만 요청할 수 있도록 제�
         - IP 접근 대상을 하나도 입력하지 않으면 IP ACL 접근 제어가 동작하지 않습니다.
 
 
-### 요청 제한 키 값 수정 
+<a id="modify-request-restriction-key-value"></a>
+### 요청 제한 키 값 수정 { #modify-request-restriction-key-value }
 초당 요청 수 제한, IP 접근 제어 타입과 IP 접근 대상을 수정합니다.
 요청 제한 키 값은 수정이 불가합니다. 
 
@@ -1034,16 +1093,19 @@ API Gateway에 API 요청 시 지정된 API Key만 요청할 수 있도록 제�
 2. **수정** 버튼을 클릭합니다.
 3. 요청 제한 정책 키 값 정보를 수정하고 **수정** 버튼을 클릭합니다.
 
-### 요청 제한 키 값 삭제  
+<a id="delete-request-restriction-key-value"></a>
+### 요청 제한 키 값 삭제 { #delete-request-restriction-key-value }
 1. 요청 제한 키 값 목록에서 삭제할 요청 제한 키 값을 선택합니다. 
 2. **삭제** 버튼을 클릭합니다.
 3. 확인 창에서 **삭제** 버튼을 클릭합니다. 삭제된 데이터는 복구할 수 없습니다.
 
 
-## 게이트웨이 응답
+<a id="gateway-response"></a>
+## 게이트웨이 응답 { #gateway-response }
 게이트웨이에서 정의된 오류 응답 설정을 사용자가 재정의할 수 있습니다. 
 
-### 게이트웨이 응답 재정의 
+<a id="redefine-gateway-response"></a>
+### 게이트웨이 응답 재정의 { #redefine-gateway-response }
 1. API Gateway 서비스 목록에서 서비스 설정 열의 **리소스**를 클릭합니다.
 2. **게이트웨이 응답**에서 설정할 게이트웨이 응답 유형의 **관리** 탭에서 연필 아이콘을 클릭합니다.
 3. 응답 정보를 입력합니다. 
@@ -1057,16 +1119,19 @@ API Gateway에 API 요청 시 지정된 API Key만 요청할 수 있도록 제�
 > **[참고] 게이트웨이 응답 적용** <br>
 > 변경된 게이트웨이 응답은 스테이지 배포 이후에 배포 시점의 형상으로 적용됩니다. 
 
-### 게이트웨이 응답 초기화
+<a id="reset-gateway-response"></a>
+### 게이트웨이 응답 초기화 { #reset-gateway-response }
 1. 게이트웨이 응답 목록에서 초기화할 오류 유형의 **응답** 열에 있는 **초기화** 버튼을 클릭합니다.
 2. 확인 창에서 **확인** 버튼을 클릭합니다. 초기화된 데이터는 복구할 수 없습니다.
 
-### 게이트웨이 응답 유형
+<a id="gateway-response-type"></a>
+### 게이트웨이 응답 유형 { #gateway-response-type }
 - 게이트웨이 응답 유형은 [게이트웨이 응답 유형 Enum 코드](./enum-code/#_8) 문서를 참고합니다. 
 - 게이트웨이 응답 유형에 따른 기본 본문 형태는 [Gateway 오류 코드](./error-code/) 문서를 참고합니다. 
 
 
-## API 호출 확인
+<a id="check-api-call"></a>
+## API 호출 확인 { #check-api-call }
 
 1. **스테이지** 탭 내 **설정** 탭에서 스테이지 트리의 메서드를 선택합니다.
 2. 우측의 스테이지 URL을 확인합니다.
@@ -1100,10 +1165,12 @@ API Gateway에 API 요청 시 지정된 API Key만 요청할 수 있도록 제�
 > - 정상적으로 운영 중인 상태가 아니거나 응답 지연(timeout)이 60초 이상이 지연이 발생하는 백엔드 엔드포인트는 연동하지 않는 것을 권장합니다.
 
 
-## API 설명서
+<a id="api-documentation-2"></a>
+## API 설명서 { #api-documentation-2 }
 API 설명서를 이용하면 API Gateway에 등록된 API의 명세를 웹페이지 문서로 관리할 수 있습니다.
 
-### API 설명서 게시
+<a id="publish-api-documentation"></a>
+### API 설명서 게시 { #publish-api-documentation }
 API 설명서를 게시하기 위한 절차를 안내합니다.
 
 1. 리소스 설정 페이지의 **모델** 탭을 클릭하여 요청, 본문의 모델을 등록합니다.
@@ -1129,11 +1196,13 @@ API 설명서를 게시하기 위한 절차를 안내합니다.
 > Access-Control-Allow-Headers: Authorization, x-nhn-apikey, x-nhn-date
 >
 
-## 대시보드 
+<a id="dashboard"></a>
+## 대시보드 { #dashboard }
 
 대시보드를 통해 API Gateway 서비스, API Key별 API 통계 지표를 확인할 수 있습니다.
 
-### 스테이지 탭
+<a id="stage-tab"></a>
+### 스테이지 탭 { #stage-tab }
 
 1. **대시보드** 탭으로 이동합니다. 
 2. **스테이지** 탭으로 이동합니다.   
@@ -1142,7 +1211,8 @@ API 설명서를 게시하기 위한 절차를 안내합니다.
 5. **스테이지 통계** 탭에서는 스테이지의 통계 지표를 확인할 수 있습니다. 
 6. **리소스 통계** 탭에서는 HTTP 메서드와 경로별 통계 지표를 확인할 수 있습니다. 
 
-### 통계 데이터 참고 사항 
+<a id="note-on-statistical-data"></a>
+### 통계 데이터 참고 사항 { #note-on-statistical-data }
 
 - **최대 검색 기간**
     - 최근 90일간의 통계 데이터만 조회가 가능합니다.
@@ -1150,7 +1220,8 @@ API 설명서를 게시하기 위한 절차를 안내합니다.
     - 모든 시간 단위(1분, 10분, 1시간, 1일)의 통계 데이터는 매 분 갱신됩니다. 
     - 통계 데이터는 수집되는 데이터 크기에 따라 생성이 지연될 수 있습니다.
         
-### 스테이지 통계
+<a id="stage-statistics"></a>
+### 스테이지 통계 { #stage-statistics }
 
 - **그래프 표시 기준**
     - 검색 기간에 따라 통계의 단위는 다음과 같이 표시됩니다.
@@ -1164,7 +1235,8 @@ API 설명서를 게시하기 위한 절차를 안내합니다.
     - 평균 응답 시간(ms): API Gateway로 요청이 인입된 후, API 요청 클라이언트에게 응답을 주기까지 소요된 평균 시간(ms)
     - 네트워크 아웃바운드 트래픽: API Gateway에서 API 요청 클라이언트로 응답된 데이터의 바이트 크기
 
-### 리소스 통계 
+<a id="resource-statistics"></a>
+### 리소스 통계 { #resource-statistics }
 리소스 경로와 HTTP 메서드별로 구분된 상세한 통계 지표를 확인할 수 있습니다. 
 
 - **HTTP 메서드**: 요청된 HTTP 메서드
@@ -1177,7 +1249,8 @@ API 설명서를 게시하기 위한 절차를 안내합니다.
 - **평균 응답 시간**: API Gateway로 요청이 인입된 후 API 요청 클라이언트에게 응답을 주기까지 소요된 평균 시간(ms)
 - **네트워크 아웃바운드 트래픽**: API Gateway에서 API 요청 클라이언트로 응답된 데이터의 바이트 크기
 
-### API Key 통계
+<a id="api-key-statistics"></a>
+### API Key 통계 { #api-key-statistics }
 각 API Key별 호출 수를 일 단위 그래프로 확인할 수 있습니다.
 
 1. **대시보드** 탭으로 이동합니다.
@@ -1189,14 +1262,16 @@ API 설명서를 게시하기 위한 절차를 안내합니다.
         - **API 호출 수**: API Key가 사용된 모든 API 호출 수
         - **API Gateway에서 바로 응답된 수**: API Gateway 플러그인이나 사용량 제한을 통과하지 못하고 API Gateway에서 응답이 된 API 호출 수
 
-## 사용량 계획
+<a id="usage-plan"></a>
+## 사용량 계획 { #usage-plan }
 사용량 계획의 스테이지에 연결된 API Key만 스테이지 API를 요청할 수 있도록 제한할 수 있으며, 사용량 제어 설정을 통해 연결된 API Key마다 공통 사용량 제한을 적용할 수 있습니다.
 
 - 사용량 계획을 API Gateway 서비스에 적용하기 위해서는 다음의 과정이 필요합니다.
 - `사용량 계획 생성 -> 사용량 계획에 스테이지 연결 -> 사용량 계획이 연결된 스테이지에 API Key 연결 -> 스테이지 설정에서 API Key 활성화`
 - 사용량 계획 생성 및 스테이지, API Key 연결 과정에 대한 자세한 내용은 아래를 참고하세요.
 
-### 사용량 계획 생성
+<a id="create-usage-plan"></a>
+### 사용량 계획 생성 { #create-usage-plan }
 1. 사용량 계획 목록에서 **사용량 계획 생성** 버튼을 클릭합니다.
 2. 사용량 계획 정보를 입력한 후 **생성** 버튼을 클릭합니다.
     - **사용량 계획 이름**: 사용량 계획의 이름입니다.
@@ -1208,7 +1283,8 @@ API 설명서를 게시하기 위한 절차를 안내합니다.
 > **[참고] 요청 할당량 한도 재설정** <br>
 > 요청 할당량은 매월 1일(월별 기간), 매일(일별 기간) UTC 00:00:00에 재설정됩니다.
 
-### 사용량 계획 수정
+<a id="edit-usage-plan"></a>
+### 사용량 계획 수정 { #edit-usage-plan }
 1. 사용량 계획 목록에서 수정할 사용량 계획의 관리 열에 있는 연필 아이콘을 클릭합니다.
 2. 사용량 계획 정보를 수정합니다.
 3. 변경한 내용을 저장하려면 **수정** 버튼을 클릭합니다.
@@ -1220,14 +1296,16 @@ API 설명서를 게시하기 위한 절차를 안내합니다.
 
 
 
-### 사용량 계획 삭제
+<a id="delete-usage-plan"></a>
+### 사용량 계획 삭제 { #delete-usage-plan }
 1. 사용량 계획 목록에서 삭제할 사용량 계획의 관리 열에 있는 휴지통 아이콘을 클릭합니다.
 2. 삭제 확인 창에서 **삭제** 버튼을 클릭합니다. 삭제된 데이터는 복구할 수 없습니다.
 
 > **[참고] 연결된 스테이지가 있는 경우 사용량 계획 삭제 불가** <br>
 > 사용량 계획과 연결된 스테이지들을 모두 해제한 후 사용량 계획을 삭제할 수 있습니다.
 
-### 사용량 계획에 스테이지 연결
+<a id="connect-stage-to-usage-plan"></a>
+### 사용량 계획에 스테이지 연결 { #connect-stage-to-usage-plan }
 API Key가 요청 가능한 스테이지들을 정의하기 위해 사용량 계획에 스테이지를 연결합니다.
 
 1. 사용량 계획 목록에서 사용량 계획 이름 열의 **이름** 링크를 클릭합니다.
@@ -1237,7 +1315,8 @@ API Key가 요청 가능한 스테이지들을 정의하기 위해 사용량 계
 > **[참고] 이미 연결된 스테이지** <br>
 > 이미 연결된 스테이지는 선택 목록에 노출되지 않습니다.
 
-### 사용량 계획에 연결된 스테이지 해제
+<a id="disable-stage-connected-to-the-usage-plan"></a>
+### 사용량 계획에 연결된 스테이지 해제 { #disable-stage-connected-to-the-usage-plan }
 1. 사용량 계획 목록에서 해제할 사용량 계획 이름 열의 이름 링크를 클릭합니다.
 2. 연결된 스테이지 목록에서 해제할 스테이지의 **연결 해제** 버튼을 클릭합니다.
 3. 확인 창에서 **확인** 버튼을 클릭합니다.
@@ -1245,7 +1324,8 @@ API Key가 요청 가능한 스테이지들을 정의하기 위해 사용량 계
 > **[참고] 연결된 API Key가 있는 경우 스테이지 해제 불가** <br>
 > 사용량 계획에 연결된 스테이지를 해제하기 위해서는 스테이지에 연결된 모든 API Key를 해제해야 합니다.
 
-### API Key 연결
+<a id="connect-api-key"></a>
+### API Key 연결 { #connect-api-key }
 사용량 계획에 연결된 스테이지의 API를 호출하기 위해서 API Key를 연결합니다.
 
 1. 사용량 계획 목록에서 사용량 계획 이름 열의 **이름** 링크를 클릭합니다.
@@ -1255,13 +1335,15 @@ API Key가 요청 가능한 스테이지들을 정의하기 위해 사용량 계
 
 > **[참고] 다른 사용량 계획의 동일 스테이지에 연결된 API Key는 선택할 수 있는 목록에 노출되지 않으며, 연결할 수 없습니다.** <br>
 
-### API Key 연결 해제
+<a id="disconnect-api-key"></a>
+### API Key 연결 해제 { #disconnect-api-key }
 1. 사용량 계획 목록에서 사용량 계획 이름 열의 **이름** 링크를 클릭합니다.
 2. 연결된 스테이지 목록에서 API Key를 연결 해제할 스테이지를 선택합니다.
 3. 하단 목록에서 연결 해제할 API Key를 선택한 후 **연결 해제** 버튼을 클릭합니다.
 4. 확인 창에서 **해제** 버튼을 클릭합니다.
 
-### API Key의 사용량 계획 변경
+<a id="change-the-usage-plan-of-api-key"></a>
+### API Key의 사용량 계획 변경 { #change-the-usage-plan-of-api-key }
 1. 사용량 계획 목록에서 사용량 계획 이름 열의 **이름** 링크를 클릭합니다.
 2. 연결된 스테이지 목록에서 사용량 계획을 변경할 API Key가 존재하는 스테이지를 선택합니다.
 3. 하단 목록에서 사용량 계획을 변경할 API Key의 **사용량 계획 변경** 버튼을 클릭합니다.
@@ -1275,11 +1357,13 @@ API Key가 요청 가능한 스테이지들을 정의하기 위해 사용량 계
 > 할당량 기간 단위가 '없음'인 사용량 계획으로 변경하면, 연결된 API Key 요청 할당량의 사용량은 초기화됩니다.
 
 
-## API Key
+<a id="api-key-2"></a>
+## API Key { #api-key-2 }
 - API Key에서는 사용량 계획, 스테이지와 연결되어 API Gateway 서비스 API 접근을 위한 문자열 값을 관리합니다.
 - API 요청 시 API Key 값으로 Primary API Key, Secondary API Key를 사용할 수 있습니다. 
 
-### API Key 생성
+<a id="create-api-key"></a>
+### API Key 생성 { #create-api-key }
 1. API Key 목록에서 **API Key 생성** 버튼을 클릭합니다.
 2. API Key 정보를 입력한 후 **생성** 버튼을 클릭합니다.
     - **API Key 이름**: API Key의 이름입니다.
@@ -1296,7 +1380,8 @@ API Key가 요청 가능한 스테이지들을 정의하기 위해 사용량 계
 > 외부에 노출되지 않도록 주의해야 하며 복잡하게 구성하는 것을 권장합니다.
 
 
-### API Key 내보내기 
+<a id="export-api-key"></a>
+### API Key 내보내기 { #export-api-key }
 등록된 API Key를 CSV 형식의 파일로 내보낼 수 있습니다.
 
 1. API Key 목록 페이지에서 **내보내기** 버튼을 클릭합니다.
@@ -1304,7 +1389,8 @@ API Key가 요청 가능한 스테이지들을 정의하기 위해 사용량 계
 
 > [참고] API Key 목록에 조회된 API Key만 파일로 내보냅니다. 
 
-### API Key 가져오기
+<a id="import-api-key"></a>
+### API Key 가져오기 { #import-api-key }
 CSV 형식의 파일로 API Key를 가져올 수 있습니다.
 
 1. API Key 목록 페이지에서 **가져오기** 버튼을 클릭한 후 **CSV 파일 선택** 버튼을 클릭하여 가져올 CSV 파일을 선택합니다.
@@ -1316,7 +1402,8 @@ CSV 형식의 파일로 API Key를 가져올 수 있습니다.
 > 중복된 Primary API Key, Sencondary API Key가 존재하면 모든 API Key 가져오기가 실패합니다. 중복된 API Key를 수정한 뒤 가져오기를 다시 시도하세요. 
 
 
-### API Key 수정
+<a id="edit-api-key"></a>
+### API Key 수정 { #edit-api-key }
 1. API Key 목록에서 수정할 API Key의 관리 열에 있는 연필 아이콘을 클릭합니다.
 2. API Key 정보를 수정합니다. 수정 가능한 항목은 API Key 이름, API Key 설명, API Key 상태입니다.
 3. 설정을 변경한 후 **수정** 버튼을 클릭합니다.
@@ -1324,14 +1411,16 @@ CSV 형식의 파일로 API Key를 가져올 수 있습니다.
 > **[주의] API Key 상태 변경** <br>
 > API Key 상태를 INACTIVE로 변경하면 해당 API Key를 사용할 수 없습니다.
 
-### API Key 삭제
+<a id="delete-api-key"></a>
+### API Key 삭제 { #delete-api-key }
 1. API Key 목록에서 삭제할 API Key의 관리 열에 있는 휴지통 아이콘을 클릭합니다.
 3. 확인 창에서 **삭제** 버튼을 클릭합니다. 삭제된 데이터는 복구할 수 없습니다.
 
 > **[참고] 연결된 사용량 계획, 스테이지가 있는 경우 삭제 불가** <br>
 > 연결된 사용량 계획, 스테이지가 있는 경우 API Key를 삭제할 수 없습니다.
 
-### API Key 재발급
+<a id="regenerate-api-key"></a>
+### API Key 재발급 { #regenerate-api-key }
 API 요청 시 API Key 값으로 사용되는 Primary API Key, Secondary API Key는 각각 재발급할 수 있습니다.
 
 1. API Key 목록에서 API Key를 선택합니다.
@@ -1341,19 +1430,22 @@ API 요청 시 API Key 값으로 사용되는 Primary API Key, Secondary API Key
     - 사용자 정의를 선택한 경우 직접 API Key 값을 입력하여 재발급합니다. 선택하지 않은 경우 임의 문자열로 자동 재발급됩니다.
     - 재발급할 경우 이전 API Key 값은 더 이상 유효하지 않게 됩니다.
 
-### API Key와 연결된 스테이지
+<a id="stage-connected-to-api-key"></a>
+### API Key와 연결된 스테이지 { #stage-connected-to-api-key }
 1. API Key 목록에서 API Key를 선택합니다.
 2. 하단의 **연결된 스테이지** 탭을 선택합니다.
 3. 연결된 스테이지 목록을 확인할 수 있습니다.
     - **스테이지 URL**: 연결되어 있는 스테이지 URL입니다.
     - **사용량 계획**: 연결되어 있는 사용량 계획 정보입니다.
 
-## 사용자 지정 도메인
+<a id="custom-domain"></a>
+## 사용자 지정 도메인 { #custom-domain }
 기본 스테이지 도메인은 {Region}-{ServiceId}-{StageName}.api.nhncloudservice.com 형식으로 임의로 발급됩니다.  
 사용자 지정 도메인으로 임의로 발급된 도메인 대신 사용자가 도메인의 Prefix를 지정하여 {CustomDomainPrefix}.capi.nhncloudservice.com 형식의 도메인을 생성할 수 있습니다. 
 
 
-### 사용자 지정 도메인 생성 
+<a id="create-custom-domain"></a>
+### 사용자 지정 도메인 생성 { #create-custom-domain }
 
 1. **사용자 지정 도메인** 메뉴로 이동합니다.
 2. **사용자 지정 도메인 생성** 버튼을 클릭합니다.
@@ -1366,7 +1458,8 @@ API 요청 시 API Key 값으로 사용되는 Primary API Key, Secondary API Key
 > API Gateway 전체 서비스에서 고유해야 합니다. 
 
 
-### 사용자 지정 도메인 삭제 
+<a id="delete-custom-domain"></a>
+### 사용자 지정 도메인 삭제 { #delete-custom-domain }
 
 1. **사용자 지정 도메인** 메뉴로 이동합니다.
 2. 삭제할 사용자 지정 도메인의 관리 열에 있는 휴지통 아이콘을 클릭합니다.
@@ -1378,13 +1471,15 @@ API 요청 시 API Key 값으로 사용되는 Primary API Key, Secondary API Key
 > 스테이지에서 사용자 지정 도메인을 연결 해제한 후 삭제하세요. 
 
 
-### 사용자 지정 도메인의 스테이지 연결
+<a id="connect-stage-of-custom-domain"></a>
+### 사용자 지정 도메인의 스테이지 연결 { #connect-stage-of-custom-domain }
 1. 사용자 지정 도메인을 연결할 스테이지로 이동합니다.
 2. **스테이지** 탭 > **사용자 지정 도메인** 탭으로 이동합니다. 
 3. 오른쪽의 미연결 도메인 목록에서 연결할 사용자 지정 도메인을 선택합니다. 
 4. 확인 창에서 **확인** 버튼을 클릭합니다. 연결된 도메인은 연결 도메인으로 이동됩니다.
 
-### 사용자 지정 도메인의 스테이지 연결 해제
+<a id="disconnect-stage-from-a-custom-domain"></a>
+### 사용자 지정 도메인의 스테이지 연결 해제 { #disconnect-stage-from-a-custom-domain }
 1. 사용자 지정 도메인을 연결 해제할 스테이지로 이동합니다.
 2. **스테이지** 탭 > **사용자 지정 도메인** 탭으로 이동합니다. 
 3. 왼쪽의 연결 도메인 목록에서 연결 해제할 사용자 지정 도메인을 선택합니다.
@@ -1396,13 +1491,15 @@ API 요청 시 API Key 값으로 사용되는 Primary API Key, Secondary API Key
 > 사용자 지정 도메인을 이용하여 API를 호출하는 클라이언트가 없는지 반드시 확인한 후 연결을 해제하세요. 
 
 
-## API Gateway 리전 이중화 
+<a id="api-gateway-region-redundancy"></a>
+## API Gateway 리전 이중화 { #api-gateway-region-redundancy }
 API Gateway가 위치한 리전에 장애가 발생하면 해당 리전의 API Gateway는 정상적으로 운영되지 않을 수 있습니다.  
 특정 리전 장애의 영향 없이 API Gateway 서비스를 운영하려면 복수 개의 리전에 API Gateway를 이중화로 구성하여 회피할 수 있습니다.  
 다음은 기존에 운영 중인 한국(판교) 리전과 신규로 한국(평촌) 리전에 API Gateway를 구성하여 리전을 이중화하는 시나리오입니다. 
 
 
-### 1. 한국(평촌) 리전의 서비스와 스테이지 생성 
+<a id="service-and-create-stage-in-korea-pyeongchon-region"></a>
+### 1. 한국(평촌) 리전의 서비스와 스테이지 생성 { #service-and-create-stage-in-korea-pyeongchon-region }
 1. 한국(평촌) 리전에 API Gateway 서비스를 생성합니다.
 2. 한국(평촌) 리전의 API Gateway 서비스에 운영 중인 한국(판교) 리전 스테이지와 동일한 리소스를 등록합니다.  
 쉽게 리소스를 이전하려면 [스테이지 > 리소스 가져오기](./console-guide/#_20)를 통해 스테이지에 등록된 리소스를 Swagger파일로 다운로드한 후, [리소스 > 리소스 가져오기](./console-guide/#_170)를 통해 다운로드한 Swagger 파일로 리소스를 등록할 수 있습니다. 
@@ -1412,7 +1509,8 @@ API Gateway가 위치한 리전에 장애가 발생하면 해당 리전의 API G
 > Swagger 파일로 리소스를 가져올 때 스테이지에 설정된 플러그인은 가져오지 않습니다. 필요한 플러그인은 스테이지 설정에서 별도로 추가하세요.
 
 
-### 2. GSLB 생성 
+<a id="create-gslb"></a>
+### 2. GSLB 생성 { #create-gslb }
 이 가이드는 NHN Cloud DNS Plus 서비스의 GSLB를 이용합니다.
 GSLB 설정에 대한 자세한 내용은 [DNS Plus 콘솔 사용 가이드](/Network/DNS%20Plus/ko/console-guide/)를 참고하세요.
 
@@ -1428,17 +1526,20 @@ GSLB 설정에 대한 자세한 내용은 [DNS Plus 콘솔 사용 가이드](/Ne
 5. GSLB와 연결된 Pool이 ACTIVE 상태인지 확인합니다. 
 
 
-### 3. 사용자 지정 도메인 생성 
+<a id="api-gateway-region-redundancy-create-custom-domain"></a>
+### 3. 사용자 지정 도메인 생성 { #api-gateway-region-redundancy-create-custom-domain }
 1. 한국(판교)와 한국(평촌) 리전에서 스테이지 API 호출 시 공통으로 이용할 사용자 지정 도메인을 생성합니다. 각 리전마다 사용자 지정 도메인을 생성해야 하며, 동일한 사용자 지정 도메인으로 생성해야 합니다. 
 2. 사용자 지정 도메인 생성 시 GSLB 도메인에 생성한 GSLB 도메인을 입력합니다. 
 
 
-### 4. 사용자 지정 도메인을 각 리전의 스테이지에 연결
+<a id="connect-custom-domain-to-stages-in-each-region"></a>
+### 4. 사용자 지정 도메인을 각 리전의 스테이지에 연결 { #connect-custom-domain-to-stages-in-each-region }
 1. 한국(판교)와 한국(평촌) 리전의 각 API Gateway 스테이지에 생성한 사용자 지정 도메인을 연결합니다. 자세한 방법은 [사용자 지정 도메인을 스테이지에 연결 가이드](./console-guide/#_53)를 참고하세요.
 2. 사용자 지정 도메인으로 API가 정상적으로 호출되는지와 GSLB 구성에 따라 트래픽이 분산되는지 확인합니다. 
 
 
-## API Gateway 서비스 게이트웨이 연동 
+<a id="api-gateway-service-gateway-integration"></a>
+## API Gateway 서비스 게이트웨이 연동 { #api-gateway-service-gateway-integration }
 서비스 게이트웨이를 이용하면 NHN Cloud 내부에서 클라이언트와 API Gateway가 통신할 때 외부 인터넷을 경유하지 않고, 내부 네트워크로 통신할 수 있습니다.
 API Gateway 서비스 게이트웨이를 연동하는 방법은 다음 가이드를 참고하세요.
 
