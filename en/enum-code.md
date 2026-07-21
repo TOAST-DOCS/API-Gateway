@@ -1,14 +1,9 @@
-<!-- pre-align:aligned sig=4c627ec8f307 -->
+## Application Service > API Gateway > Enum Code
 
-<a id="application-service-api-gateway-enum-code"></a>
-## Application Service > API Gateway > Enum Code { #application-service-api-gateway-enum-code }
-
-<a id="enum-code"></a>
-## Enum Code { #enum-code }
+## Enum Code
 This document describes Enum codes referenced in the API v1.0 guide.
 
-<a id="api-gateway-region"></a>
-### API Gateway Region { #api-gateway-region }
+### API Gateway Region
 - Indicates the region where the API Gateway server is located.
 
 | Name | Description |
@@ -17,8 +12,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | KR2 | Korea (Pyeongchon) Region |
 
 
-<a id="api-gateway-service-type"></a>
-### API Gateway Service Type { #api-gateway-service-type }
+### API Gateway Service Type
 - The service type of API Gateway according to the Shared or Dedicated type. 
 - Currently, only Shared API Gateway service type is supported. 
 
@@ -27,8 +21,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | SHARED | Shared API Gateway service type |
 
 
-<a id="http-method-type"></a>
-### HTTP Method Type { #http-method-type }
+### HTTP Method Type
 - Supported HTTP method types.
 
 | Name | Description |
@@ -42,8 +35,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | PATCH | HTTP PATCH method | 
 
 
-<a id="resource-plugin-type"></a>
-### Resource Plugin Type { #resource-plugin-type }
+### Resource Plugin Type
 - A plugin type that can be set for resources.
 
 | Name | Description | Where the plugin can be applied |
@@ -58,8 +50,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | ADD_REQUEST_QUERY_PARAMETER | Adds a query string parameter to the backend endpoint request. | Resource path, method |
 
 
-<a id="resource-requestresponse-parameter-data-type"></a>
-### Resource Request/Response Parameter Data Type { #resource-requestresponse-parameter-data-type }
+### Resource Request/Response Parameter Data Type
 - A data type that can be set in resource request/response parameters.
 
 | Name | Description |
@@ -73,8 +64,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | FILE | File data type. It can be set only in Request Parameters > Form Data. | 
 
 
-<a id="stage-resource-plugin-type"></a>
-### Stage Resource > Plugin Type { #stage-resource-plugin-type }
+### Stage Resource > Plugin Type
 - A plugin type that can be configured on the stage resource path or method. 
 
 | Name | Description | Where the plugin can be applied |
@@ -88,8 +78,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | RATE_LIMIT | Request number limit plugin | Method |
 
 
-<a id="jwt-encryption-algorithm"></a>
-### JWT > Encryption Algorithm { #jwt-encryption-algorithm }
+### JWT > Encryption Algorithm 
 - The encryption algorithm used to sign the JWT token.
 
 | Name | Description |
@@ -98,8 +87,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | RS256 | An asymmetric key algorithm, which uses public/private keys to sign tokens using the RSA256 (RSA Signature with SHA-256) algorithm. | 
 
 
-<a id="jwt-claim-data-type"></a>
-### JWT > Claim Data Type { #jwt-claim-data-type }
+### JWT > Claim Data Type 
 - The data type of the JWT claim.
 
 | Name | Description |
@@ -109,8 +97,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | NumericDate | A data type representing the number of seconds from 1970-01-01T00:00:00Z UTC to the specified UTC date/time, ignoring milliseconds. |
 
 
-<a id="jwt-rs256-encryption-algorithm-public-key-type"></a>
-### JWT > RS256 Encryption Algorithm > Public Key Type { #jwt-rs256-encryption-algorithm-public-key-type }
+### JWT > RS256 Encryption Algorithm > Public Key Type 
 - RS256 uses a public/private key based encryption algorithm. Set the public key setting method.
 
 | Name | Description |
@@ -119,8 +106,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | JWKS_URI | This method sets the JSON Web Key Set URI where public key can be queried.|
 
 
-<a id="request-number-limit-limit-key"></a>
-### Request Number Limit > Limit Key { #request-number-limit-limit-key }
+### Request Number Limit > Limit Key
 - The key to which the request number limit applies.
 
 | Name | Description |
@@ -131,8 +117,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | PATH_VARIABLE | Applies a limit on the number of requests for a resource method per path variable. |
 
 
-<a id="stage-deployment-deployment-status"></a>
-### Stage Deployment > Deployment Status { #stage-deployment-deployment-status }
+### Stage Deployment > Deployment Status
 - The status of the stage deployment job.
 
 | Name | Description |
@@ -142,8 +127,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | FAILURE | Deployment failed | 
 
 
-<a id="usage-plan-quota-period-unit"></a>
-### Usage Plan > Quota Period Unit { #usage-plan-quota-period-unit }
+### Usage Plan > Quota Period Unit
 - The unit of period for which the quota is initialized.
 
 | Name | Description |
@@ -152,8 +136,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | MONTH | Limit call volume on a monthly basis. Reset at 00:00:00 UTC on the 1st of every month. | 
 
 
-<a id="api-key-status"></a>
-### API Key Status { #api-key-status }
+### API Key Status
 - The status of the API Key.
 - A deactivated API key fails to authenticate the API key, making API calls impossible. 
 
@@ -163,8 +146,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | INACTIVE | Inactive status |
 
 
-<a id="api-key-type"></a>
-### API Key Type { #api-key-type }
+### API Key Type
 - The types of Primary API Key and Secondary API Key of the issued API Key. 
 
 | Name | Description |
@@ -173,16 +155,14 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | SECONDARY | Secondary API Key |
 
 
-<a id="api-key-subscription-status"></a>
-### API Key Subscription Status { #api-key-subscription-status }
+### API Key Subscription Status
 - The subscription status of the API Key.
 
 | Name | Description |
 | --- | --- |
 | APPROVAL | Approved status | 
 
-<a id="statistics-data-time-unit"></a>
-### Statistics Data Time Unit { #statistics-data-time-unit }
+### Statistics Data Time Unit
 - The unit of time for which statistics data is collected
 
 | Name | Description |
@@ -193,8 +173,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | ONE_DAYS | Collects statistics data at daily intervals | 
 
 
-<a id="statistics-sort-top-10-services-by"></a>
-### Statistics > Sort Top 10 Services By { #statistics-sort-top-10-services-by }
+### Statistics > Sort Top 10 Services By 
 | Name | Description |
 | --- | --- |
 | CALL_COUNT | Sort by total API calls in descending order | 
@@ -202,8 +181,7 @@ This document describes Enum codes referenced in the API v1.0 guide.
 | AVG_RESPONSE_TIME | Sort by average response time in descending order | 
 
 
-<a id="gateway-response-type"></a>
-### Gateway response type { #gateway-response-type }
+### Gateway response type
 | Gateway response type | Default status codes | Description |
 | ----------- | -------- | --- |
 | UpstreamServiceUnavailable | 503 | Response that occurs when the backend endpoint service is unresponsive or experiencing a persistent response delay (60 seconds or more). |

@@ -1,19 +1,14 @@
-<!-- pre-align:aligned sig=5880d78e09e9 -->
-
-<a id="application-service-api-gateway-overview"></a>
-## Application Service > API Gateway > 개요 { #application-service-api-gateway-overview }
+## Application Service > API Gateway > 개요
 
 
-<a id="api-gateway-overview"></a>
-## API Gateway 개요 { #api-gateway-overview }
+## API Gateway 개요
 
 - 여러 백엔드 엔드포인트 서비스들의 게이트웨이 역할을 하여 API의 엔드포인트를 하나로 통합할 수 있는 서비스입니다.
 - API Gateway에서 제공하는 플러그인으로 백엔드 엔드포인트 서비스의 변경/배포 없이 기능을 추가할 수 있습니다(HTTPS 통신, 인증, CORS, 요청/응답 가공 등).
 - 대시보드에서 API 인입 요청 수, 평균 응답 시간, HTTP 상태 코드 그룹(2xx, 5xx)별 응답 수 등의 지표를 확인할 수 있습니다.
 
 
-<a id="key-features"></a>
-## 주요 기능 { #key-features }
+## 주요 기능
 
 1. 유연한 API 설계
     - 백엔드 엔드포인트 서비스의 변경 없이 API Gateway에서 API를 설계할 수 있습니다.
@@ -37,8 +32,7 @@
     - API 호출 수, HTTP 상태 코드 그룹별(2xx, 3xx, 4xx, 5xx..) 응답 수, 평균 응답 시간(ms)의 통계 지표를 제공합니다.
 
 
-<a id="how-api-gateway-works"></a>
-## API Gateway 동작 방식 { #how-api-gateway-works }
+## API Gateway 동작 방식
 
 ![[그림1] API Gateway 동작 방식](https://static.toastoven.net/prod_apigateway/v2/apigw-v2-flow.png)
 1. 게이트웨이 클라이언트는 모든  요청(Request)을 API Gateway로 통합 요청합니다. API 게이트웨이는 요청과 매핑되는 리소스를 찾습니다. 
@@ -48,8 +42,7 @@
 5. 백엔드 엔드포인트의 응답에 플러그인을 적용합니다. 
 6. 게이트웨이 클라이언트로 응답을 전달합니다. 
 
-<a id="service-terms"></a>
-## 서비스 용어 { #service-terms }
+## 서비스 용어 
 
 | 용어 | 설명 |
 | --- | --- |

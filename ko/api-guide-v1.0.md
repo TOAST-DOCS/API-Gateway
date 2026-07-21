@@ -1,15 +1,10 @@
-<!-- pre-align:aligned sig=2aa8b378450a -->
-
-<a id="application-service-api-gateway-api-v10-guide"></a>
-## Application Service > API Gateway > API v1.0 가이드 { #application-service-api-gateway-api-v10-guide }
+## Application Service > API Gateway > API v1.0 가이드
 
 NHN Cloud API Gateway에서 제공하는 Public API v1.0을 설명합니다.
 
-<a id="api-common-information"></a>
-## API 공통 정보 { #api-common-information }
+## API 공통 정보
 
-<a id="api-endpoint"></a>
-### API 엔드포인트 { #api-endpoint }
+### API 엔드포인트
 
 API를 호출하기 위한 리전별 엔드포인트는 다음과 같습니다.
 
@@ -19,8 +14,7 @@ API를 호출하기 위한 리전별 엔드포인트는 다음과 같습니다.
 | 한국(평촌) 리전 | https://kr2-apigateway.api.nhncloudservice.com |
 | 한국(광주) 리전 | https://kr3-apigateway.api.nhncloudservice.com |
 
-<a id="authentication-and-authorization"></a>
-### 인증 및 권한 { #authentication-and-authorization }
+### 인증 및 권한
 
 API Gateway API를 사용하려면 Appkey 또는 프로젝트 통합 Appkey가 필요합니다.
 
@@ -28,10 +22,8 @@ Appkey는 NHN Cloud의 각 서비스별로 발급되는 고유 인증 키이며,
 
 Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/public-api/appkey)를 참고하세요. 프로젝트 통합 Appkey 생성 및 사용에 대한 자세한 내용은 [프로젝트 통합 Appkey](/nhncloud/ko/public-api/project-integrated-appkey)를 참고하세요.
 
-<a id="request-common-information"></a>
-### 요청 공통 정보 { #request-common-information }
+### 요청 공통 정보
 
-<a id="request-common-information-path-parameter"></a>
 #### Path Parameter
 
 모든 API는 앱 키를 Path Parameter로 지정해야 합니다.
@@ -41,8 +33,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | ------ | --------------------- |
 | appKey | 콘솔에서 발급받은 앱 키(Appkey) |
 
-<a id="response-common-information"></a>
-### 응답 공통 정보 { #response-common-information }
+### 응답 공통 정보
 
 모든 API 요청에 대해서 **200 OK**로 응답합니다. 자세한 응답 결과는 응답 본문의 헤더를 참고합니다.
 
@@ -102,14 +93,11 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 * 잘못된 API 요청을 한 경우, errorList 필드에 자세한 오류 원인과 필드 정보가 응답됩니다.
 
 
-<a id="api-gateway-service"></a>
-## API Gateway 서비스 { #api-gateway-service }
+## API Gateway 서비스
 
-<a id="list-api-gateway-services"></a>
-### API Gateway 서비스 목록 조회 { #list-api-gateway-services }
+### API Gateway 서비스 목록 조회 
 - API Gateway 서비스 목록을 조회합니다.
 
-<a id="list-api-gateway-services-request"></a>
 #### 요청
 
 [URI]
@@ -126,7 +114,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
 | limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 
-<a id="list-api-gateway-services-response"></a>
 #### 응답
 
 [Response]
@@ -188,11 +175,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 |apigwServiceList[0].updatedAt           |DateTime| API Gateway 서비스 수정 일시                                      |
 
 
-<a id="get-api-gateway-service"></a>
-### 단일 API Gateway 서비스 조회 { #get-api-gateway-service }
+### 단일 API Gateway 서비스 조회 
 - API Gateway 서비스 ID로 단일 API Gateway 서비스를 조회합니다.
 
-<a id="get-api-gateway-service-request"></a>
 #### 요청
 
 [URI]
@@ -208,7 +193,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 
 
-<a id="get-api-gateway-service-response"></a>
 #### 응답
 
 [Response]
@@ -260,14 +244,12 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 
 
-<a id="create-api-gateway-service"></a>
-### API Gateway 서비스 생성 { #create-api-gateway-service }
+### API Gateway 서비스 생성
 - API Gateway 서비스를 생성합니다.
 - API Gateway 서버가 생성될 리전을 선택할 수 있습니다. 현재는 한국(판교) 리전만 지원합니다.
 - API Gateway 서비스를 생성하면 API Gateway 서비스 ID가 자동 발급됩니다.
 
 
-<a id="create-api-gateway-service-request"></a>
 #### 요청
 
 [URI]
@@ -298,7 +280,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apigwServiceDescription | String | 선택 | 없음 | 최대 200자  | API Gateway 서비스 설명 |
 
 
-<a id="create-api-gateway-service-response"></a>
 #### 응답
 
 [Response]
@@ -349,11 +330,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 |apigwService.updatedAt           |DateTime| API Gateway 서비스 수정 일시                                      |
 
 
-<a id="modify-api-gateway-service"></a>
-### API Gateway 서비스 수정 { #modify-api-gateway-service }
+### API Gateway 서비스 수정
 - API Gateway 서비스의 이름과 설명을 수정합니다.
 
-<a id="modify-api-gateway-service-request"></a>
 #### 요청
 
 [URI]
@@ -389,7 +368,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apigwServiceDescription | String | 선택 | 없음 | 최대 200자  | API Gateway 서비스 설명 |
 
 
-<a id="modify-api-gateway-service-response"></a>
 #### 응답
 
 [Response]
@@ -439,14 +417,12 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 |apigwService.createdAt           |DateTime|서비스 생성 일시                                      |
 |apigwService.updatedAt           |DateTime|서비스 수정 일시                                      |
 
-<a id="delete-api-gateway-service"></a>
-### API Gateway 서비스 삭제 { #delete-api-gateway-service }
+### API Gateway 서비스 삭제
 - API Gateway 서비스를 삭제합니다.  
 - API Gateway 서비스를 삭제하면 모든 스테이지가 삭제됩니다.  
 - 삭제하려는 API Gateway 서비스의 스테이지가 사용량 계획과 연결된 경우, 삭제할 수 없습니다. 삭제하려면 사용량 계획에 연결된 스테이지를 모두 연결 해제한 후 삭제해 주세요.
 - 삭제된 API Gateway 서비스는 복구할 수 없으므로 주의해 주세요.
 
-<a id="delete-api-gateway-service-request"></a>
 #### 요청
 
 [URI]
@@ -461,7 +437,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | --- | --- | --- | --- | --- | --- |
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 
-<a id="delete-api-gateway-service-response"></a>
 #### 응답
 
 [Response]
@@ -481,15 +456,12 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 </details>
 
-<a id="resource"></a>
-## 리소스 { #resource }
+## 리소스
 
-<a id="list-resources"></a>
-### 리소스 조회 { #list-resources }
+### 리소스 조회
 
 - 리소스 목록을 조회합니다.
 
-<a id="list-resources-request"></a>
 #### 요청
 
 [URI]
@@ -504,7 +476,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | -------------- | ------ | ----- | --- | ----- | ------------------ |
 | apigwServiceId | String | 필수    | 없음  | 없음    | API Gateway 서비스 ID |
 
-<a id="list-resources-response"></a>
 #### 응답
 
 [Response]
@@ -590,15 +561,13 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | resourceList[2].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
 | resourceList[2].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
 
-<a id="create-resource-paths-and-methods"></a>
-### 리소스 경로와 메서드 생성 { #create-resource-paths-and-methods }
+### 리소스 경로와 메서드 생성
 - 여러 개의 리소스 경로와 메서드를 생성하고, 생성과 동시에 플러그인을 설정할 수 있습니다.
 - 리소스 메서드는 선택 입력입니다. 생성된 리소스 경로의 하위에 메서드를 추가하려면 [리소스 메서드 생성](./api-guide-v1.0/#_23) API를 사용해야합니다.
 - 리소스 메서드에는 HTTP 또는 MOCK 플러그인 중 반드시 하나가 설정되어야 합니다. HTTP와 MOCK 플러그인을 동시에 설정할 수 없습니다.
 - 생성된 리소스 경로는 수정이 불가합니다.
 - pathPluginList 필드에 정의된 리소스 경로 플러그인은 해당 경로의 하위 메서드에 적용되는 플러그인 목록입니다.
 
-<a id="create-resource-paths-and-methods-request"></a>
 #### 요청
 
 [URI]
@@ -715,7 +684,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | resourcePathList[0].methodList[0].methodPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 메서드에 설정 가능한 플러그인 타입 |
 | resourcePathList[0].methodList[0].methodPluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_37) 참고.|
 
-<a id="create-resource-paths-and-methods-response"></a>
 #### 응답
 
 [Response]
@@ -964,12 +932,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | resourceList[1].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
 
 
-<a id="create-resource-methods"></a>
-### 리소스 메서드 생성 { #create-resource-methods }
+### 리소스 메서드 생성
 - 생성된 리소스 경로의 하위에 리소스 메서드를 생성합니다.
 - 리소스 메서드에는 HTTP 또는 MOCK 플러그인 중 반드시 하나가 설정되어야 합니다. HTTP와 MOCK 플러그인을 동시에 설정할 수 없습니다.
 
-<a id="create-resource-methods-request"></a>
 #### 요청
 
 [URI]
@@ -1026,7 +992,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | methodList[0].methodPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 메서드에 설정 가능한 플러그인 타입 |
 | methodList[0].methodPluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_37) 참고.|
 
-<a id="create-resource-methods-response"></a>
 #### 응답
 
 [Response]
@@ -1106,8 +1071,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | resourceList[0].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
 
 
-<a id="modifydelete-resource-path-plugins"></a>
-### 리소스 경로 플러그인 수정/삭제 { #modifydelete-resource-path-plugins }
+### 리소스 경로 플러그인 수정/삭제
 - 리소스 경로 플러그인을 추가, 수정, 삭제합니다.
 - 리소스 경로에 추가되지 않은 플러그인을 설정하면 플러그인이 추가됩니다.
 - 리소스 경로에 추가된 플러그인을 설정하면 요청한 플러그인 설정으로 변경됩니다.
@@ -1117,7 +1081,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 - CORS 플러그인을 설정하면, 하위 메서드로 OPTIONS 메서드가 자동으로 생성됩니다. 만일 기존에 존재하는 OPTIONS 메서드가 있다면 삭제되고 대체되므로 주의해주세요.
 - 리소스 경로에 설정 가능한 플러그인만 설정할 수 있습니다. 자세한 내용은 [리소스 플러그인](./api-guide-v1.0/#_37)을 참고합니다.
 
-<a id="modifydelete-resource-path-plugins-request"></a>
 #### 요청
 
 [URI]
@@ -1183,7 +1146,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | pathPluginList[0].applyChildPath | Boolean | 선택 | false | true, false | 하위 경로와 메서드에 덮어쓰기 여부 |
 | pathPluginList[0].delete | Boolean | 선택 | false | true, false | 플러그인 삭제 여부 |
 
-<a id="modifydelete-resource-path-plugins-response"></a>
 #### 응답
 
 [Response]
@@ -1251,8 +1213,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | resourceList[0].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
 
 
-<a id="modifydelete-resource-method-information-and-plugins"></a>
-### 리소스 메서드 정보와 플러그인 수정/삭제 { #modifydelete-resource-method-information-and-plugins }
+### 리소스 메서드 정보와 플러그인 수정/삭제
 - 리소스 메서드의 이름, 설명을 수정할 수 있습니다.
 - 리소스 메서드 플러그인을 추가, 수정, 삭제합니다.
 - 리소스 메서드에 추가되지 않은 플러그인을 설정하면 플러그인이 추가됩니다.
@@ -1260,7 +1221,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 - delete 필드를 true로 설정하면, 요청한 플러그인 타입의 플러그인이 삭제됩니다. delete 필드가 true이면 pluginConfigJson 필드는 정의하지 않아도 됩니다.
 - 리소스 메서드에 설정 가능한 플러그인만 설정할 수 있습니다. 자세한 내용은 [리소스 플러그인](./api-guide-v1.0/#_37)을 참고합니다.
 
-<a id="modifydelete-resource-method-information-and-plugins-request"></a>
 #### 요청
 
 [URI]
@@ -1313,7 +1273,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | methodPluginList[0].pluginConfigJson | Object | 조건부 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v1.0/#_37) 참고, delete 필드가 false인 경우 필수 입력|
 | methodPluginList[0].delete | Boolean | 선택 | false | 없음 | 플러그인 삭제 여부 |
 
-<a id="modifydelete-resource-method-information-and-plugins-response"></a>
 #### 응답
 
 [Response]
@@ -1380,8 +1339,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | resourceList[0].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
 
 
-<a id="delete-resource"></a>
-### 리소스 삭제 { #delete-resource }
+### 리소스 삭제
 - 리소스를 삭제합니다.
 - 루트("/") 경로 리소스는 삭제가 불가합니다.
 - CORS 플러그인에 의해 생성된 OPTIONS 메서드는 삭제할 수 없습니다. 
@@ -1389,7 +1347,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 - 경로 리소스를 삭제하면 하위 경로와 메서드 리소스가 모두 삭제됩니다.
 - 삭제된 리소스는 복구가 불가합니다.
 
-<a id="delete-resource-request"></a>
 #### 요청
 
 [URI]
@@ -1405,7 +1362,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 | resourceId | String | 필수 | 없음 | 없음 | 리소스 ID |
 
-<a id="delete-resource-response"></a>
 #### 응답
 
 [Response Body]
@@ -1420,14 +1376,12 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 }
 ```
 
-<a id="import-resource"></a>
-### 리소스 가져오기 { #import-resource }
+### 리소스 가져오기
 - [Swagger v2.0 OpenAPI Specification](https://swagger.io/specification/v2/) 형식의 파일에서 리소스를 가져옵니다.
 - 리소스를 가져오면 해당 서비스에 생성되어 있던 기존의 리소스는 모두 삭제되고 가져온 리소스로 덮어씁니다.
 - 리소스를 가져오면 해당 서비스에 생성되어 있던 기존의 모델은 모두 삭제되고 가져온 모델로 덮어씁니다.
 - Swagger paths > path > operation에서 유효하지 않은 operation의 데이터는 무시되고 등록되지 않으므로 주의해 주세요.
 
-<a id="import-resource-request"></a>
 #### 요청
 
 [URI]
@@ -1561,11 +1515,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 
 
-<a id="resource-plugin"></a>
-## 리소스 플러그인 { #resource-plugin }
+## 리소스 플러그인
 
-<a id="http"></a>
-### HTTP { #http }
+### HTTP
 - API Gateway에서 요청을 수신할 리소스 경로에 대해 요청을 전달할 백엔드 엔드포인트 경로를 설정합니다.
 - 리소스 메서드에만 설정 가능합니다.
 - MOCK 플러그인과 동시에 설정이 불가합니다.
@@ -1582,8 +1534,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | frontendEndpointPath | String | 필수 | 없음 | 최대 255자 | API Gateway에서 요청을 수신할 리소스 경로 |
 | backendEndpointPath  | String | 필수 | 없음 | 최대 255자 | API Gateway에서 수신된 요청을 전달할 백엔드 엔드포인트 경로 |
 
-<a id="mock"></a>
-### MOCK { #mock }
+### MOCK
 - 수신된 요청에 대해 정의된 응답을 반환합니다.
 - 리소스 메서드에만 설정할 수 있습니다.
 - HTTP 플러그인과 동시에 설정이 불가합니다.
@@ -1604,8 +1555,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | headers[{HeaderName}] | Object | 필수 | 없음 | 없음 | 사용자 정의 응답 헤더의 Map Entry(Key: 헤더 이름, Value: 헤더 값) |
 | body                  | String | 선택 | 없음 | 없음 | 사용자 정의 응답 본문                         |
 
-<a id="cors"></a>
-### CORS { #cors }
+### CORS
 - Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니다.
 - 리소스 경로에만 설정할 수 있습니다.
 - CORS 플러그인이 설정된 경로 하위에는 OPTIONS 메서드가 자동으로 생성되며, 등록된 OPTIONS 메서드가 있는 경우 대체됩니다.
@@ -1635,8 +1585,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 
 
-<a id="setrequestheader"></a>
-### SET_REQUEST_HEADER { #setrequestheader }
+### SET_REQUEST_HEADER
 - 요청 헤더를 추가하거나 변경합니다. 
 - 리소스 경로, 메서드에 설정할 수 있습니다.
 ```json
@@ -1652,8 +1601,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | headers | Map | 필수 | 없음 | 없음 | 추가/변경할 요청 헤더 객체 영역 |
 | headers[{HeaderName}] | Object | 필수 | 없음 | 없음 | 추가 및 변경할 요청 헤더의 Map Entry(Key: 헤더 이름, Value: 헤더 값) |
 
-<a id="removerequestheader"></a>
-### REMOVE_REQUEST_HEADER { #removerequestheader }
+### REMOVE_REQUEST_HEADER
 - 요청 헤더를 삭제합니다.  
 - 리소스 경로, 메서드에 설정할 수 있습니다.
 ```json
@@ -1671,8 +1619,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | headers | List | 필수 | 없음 | 없음 | 삭제할 요청 헤더 목록 영역 |
 | headers[0] | String | 필수 | 없음 | 없음 | 삭제할 요청 헤더 이름 |
 
-<a id="setresponseheader"></a>
-### SET_RESPONSE_HEADER { #setresponseheader }
+### SET_RESPONSE_HEADER
 - 응답 헤더 변경 플러그인은 백엔드 응답에 헤더를 추가하거나 변경합니다. 
 - 리소스 경로, 메서드에 설정할 수 있습니다.
 ```json
@@ -1688,8 +1635,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | headers | Map | 필수 | 없음 | 없음 | 추가/변경할 응답 헤더 객체 영역 |
 | headers[{HeaderName}] | Object | 필수 | 없음 | 없음 | 추가 및 변경할 응답 헤더의 Map Entry(Key: 헤더 이름, Value: 헤더 값) |
 
-<a id="removeresponseheader"></a>
-### REMOVE_RESPONSE_HEADER { #removeresponseheader }
+### REMOVE_RESPONSE_HEADER
 - 응답 헤더를 삭제합니다.  
 - 리소스 경로, 메서드에 설정할 수 있습니다.
 ```json
@@ -1708,8 +1654,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | headers[0] | String | 필수 | 없음 | 없음 | 삭제할 응답 헤더 이름 |
 
 
-<a id="addrequestqueryparameter"></a>
-### ADD_REQUEST_QUERY_PARAMETER { #addrequestqueryparameter }
+### ADD_REQUEST_QUERY_PARAMETER
 - 백엔드 엔드포인트 요청에 쿼리 문자열 파라미터를 추가합니다.
 - 리소스 경로, 메서드에 설정할 수 있습니다.
 ```json
@@ -1725,14 +1670,11 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | parameters | Map| 필수 | 없음 | 없음 | 추가할 요청 쿼리 문자열 파라미터들 객체 영역 |
 | parameters[{QueryName}] | Object | 필수 | 없음 | 없음 | 추가할 쿼리 파라미터 문자열의 Map Entry(Key: 파라미터 이름, Value: 파라미터 값) |
 
-<a id="resource-parameter"></a>
-## 리소스 파라미터 { #resource-parameter }
+## 리소스 파라미터
 
-<a id="list-resource-parameters"></a>
-### 리소스 파라미터 조회 { #list-resource-parameters }
+### 리소스 파라미터 조회 
 - 리소스 파라미터의 목록을 조회합니다.
 
-<a id="list-resource-parameters-request"></a>
 #### 요청
 
 [URI]
@@ -1748,7 +1690,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apigwServiceId | String | 필수    | 없음  | 없음    | API Gateway 서비스 ID |
 | resourceId     | String | 필수    | 없음  | 없음    | API Gateway 리소스 ID |
 
-<a id="list-resource-parameters-response"></a>
 #### 응답
 
 [Response]
@@ -1839,12 +1780,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 
 
-<a id="create-resource-parameters"></a>
-### 리소스 파라미터 생성 { #create-resource-parameters }
+### 리소스 파라미터 생성
 - 리소스 메서드의 파라미터를 생성합니다.
 - 기존 리소스 파라미터들은 삭제되고, 요청된 리소스 파라미터들이 생성됩니다. 
 
-<a id="create-resource-parameters-request"></a>
 #### 요청
 
 [URI]
@@ -1932,7 +1871,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | contentTypeList                | List    | 선택    | Empty List    | 최대 10개                                              | 콘텐츠 타입 목록 영역                                         |
 | contentTypeList[0]             | String  | 필수    | 없음           | \*/\* 형식                                             | 콘텐츠 타입                                               |
 
-<a id="create-resource-parameters-response"></a>
 #### 응답
 
 [Response Body]
@@ -1947,14 +1885,11 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 }
 ```
 
-<a id="resource-response"></a>
-## 리소스 응답 { #resource-response }
+## 리소스 응답
 
-<a id="get-resource-response"></a>
-### 리소스 응답 조회 { #get-resource-response }
+### 리소스 응답 조회 
 - HTTP 응답 상태 코드별 헤더와 요청 본문 항목과 콘텐츠 타입을 조회합니다.
 
-<a id="get-resource-response-request"></a>
 #### 요청
 
 [URI]
@@ -1970,7 +1905,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apigwServiceId | String | 필수    | 없음  | 없음    | API Gateway 서비스 ID |
 | resourceId     | String | 필수    | 없음  | 없음    | API Gateway 리소스 ID |
 
-<a id="get-resource-response-response"></a>
 #### 응답
 
 [Response]
@@ -2028,11 +1962,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | contentTypeList[0]                        | String  | 콘텐츠 타입                                               |
 
 
-<a id="create-resource-responses"></a>
-### 리소스 응답 생성 { #create-resource-responses }
+### 리소스 응답 생성
 - 기존 리소스 응답들은 삭제되고, 요청한 HTTP 응답 상태 코드별 헤더와 요청 본문 항목과 콘텐츠 타입을 생성합니다.
 
-<a id="create-resource-responses-request"></a>
 #### 요청
 
 [URI]
@@ -2098,7 +2030,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | contentTypeList[0]                        | String  | 필수    | 없음           | \*/\* 형식                                        | 콘텐츠 타입                                               |
 
 
-<a id="create-resource-responses-response"></a>
 #### 응답
 
 [Response Body]
@@ -2113,14 +2044,11 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 }
 ```
 
-<a id="model"></a>
-## 모델 { #model }
+## 모델
 
-<a id="list-models"></a>
-### 모델 목록 조회 { #list-models }
+### 모델 목록 조회 
 - 모델 목록을 조회합니다.
 
-<a id="list-models-request"></a>
 #### 요청
 
 [URI]
@@ -2143,7 +2071,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 | modelName | String | 선택 | 없음 | 최대 50자  | 모델 이름 필터 조건. 모델 이름의 문자열을 포함해야 합니다.|
 
-<a id="list-models-response"></a>
 #### 응답
 
 [Response]
@@ -2211,12 +2138,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 
 
-<a id="create-model"></a>
-### 모델 생성 { #create-model }
+### 모델 생성
 - 모델을 JSON Schema 형식으로 생성합니다.
 - 모델 이름은 중복될 수 없습니다.
 
-<a id="create-model-request"></a>
 #### 요청
 
 [URI]
@@ -2268,7 +2193,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | modelDescription | String | 선택    | 없음  | 최대 200자 | 모델 설명                                                        |
 | modelSchema      | Object | 필수    | 없음  | 최대 65535자| 모델의 [JSON Schema](https://json-schema.org/) draft-04 JSON 객체 |
 
-<a id="create-model-response"></a>
 #### 응답
 
 [Response]
@@ -2324,12 +2248,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 |model.updatedAt       |DateTime|모델 수정 일시            |
 
 
-<a id="modify-model"></a>
-### 모델 수정 { #modify-model }
+### 모델 수정 
 - 모델의 설명과 스키마를 수정합니다. 
 - 모델 이름은 변경할 수 없습니다. 
 
-<a id="modify-model-request"></a>
 #### 요청
 
 [URI]
@@ -2380,7 +2302,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | modelSchema      | Object | 필수    | 없음  | 최대 65535자| 모델의 [JSON Schema](https://json-schema.org/) draft-04 JSON 객체 |
 
 
-<a id="modify-model-response"></a>
 #### 응답
 
 [Response]
@@ -2436,12 +2357,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 |model.updatedAt       |DateTime|모델 수정 일시            |
 
 
-<a id="delete-model"></a>
-### 모델 삭제 { #delete-model }
+### 모델 삭제
 - 모델을 삭제합니다.
 - 모델이 리소스의 요청 파라미터 또는 응답에서 참조된 경우에는 모델 삭제가 불가합니다. 모델을 삭제하려면 참조를 해제한 후 모델을 삭제해 주세요.
 
-<a id="delete-model-request"></a>
 #### 요청
 
 [URI]
@@ -2457,7 +2376,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 | modelId | String | 필수 | 없음 | 없음 | 모델 ID |
 
-<a id="delete-model-response"></a>
 #### 응답
 
 [Response]
@@ -2477,14 +2395,11 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 </details>
 
-<a id="stage"></a>
-## 스테이지 { #stage }
+## 스테이지
 
-<a id="list-stages"></a>
-### 스테이지 목록 조회 { #list-stages }
+### 스테이지 목록 조회 
 - 스테이지 목록을 조회합니다.
 
-<a id="list-stages-request"></a>
 #### 요청
 
 [URI]
@@ -2506,7 +2421,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
 | limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 
-<a id="list-stages-response"></a>
 #### 응답
 
 [Response]
@@ -2568,12 +2482,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 |stageList[0].updatedAt        |DateTime|스테이지 수정 일시           |
 
 
-<a id="swagger-export"></a>
-### Swagger Export { #swagger-export }
+### Swagger Export
 - Swagger 문서를 조회합니다. 
 - Swagger 문서는 API Gateway에 배포된 설정이 아닌 현재 스테이지 설정을 기준으로 추출됩니다.
 
-<a id="swagger-export-request"></a>
 #### 요청
 
 [URI]
@@ -2589,7 +2501,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 | stageId | String | 필수 | 없음 | 없음 | 스테이지 ID |
 
-<a id="swagger-export-response"></a>
 #### 응답
 
 ```json
@@ -2608,11 +2519,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 |swaggerData        |Object    | 현재 스테이지 기준 Swagger JSON 객체. [Swagger v2.0 OpenAPI Specification](https://swagger.io/specification/v2/) 참고. |
 
 
-<a id="create-stage"></a>
-### 스테이지 생성 { #create-stage }
+### 스테이지 생성
 - 스테이지를 생성합니다. 
 
-<a id="create-stage-request"></a>
 #### 요청
 
 [URI]
@@ -2656,7 +2565,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 
 
-<a id="create-stage-response"></a>
 #### 응답
 
 [Response]
@@ -2706,12 +2614,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 |stage.createdAt        |DateTime|스테이지 생성 일시           |
 |stage.updatedAt        |DateTime|스테이지 수정 일시           |
 
-<a id="modify-stage"></a>
-### 스테이지 수정 { #modify-stage }
+### 스테이지 수정 
 - 스테이지의 백엔드 엔드포인트 URL과 설명을 수정할 수 있습니다.
 - 스테이지 이름은 변경할 수 없습니다.
 
-<a id="modify-stage-request"></a>
 #### 요청
 
 [URI]
@@ -2748,7 +2654,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | stageDescription | String | 선택 | 없음 | 최대 200자  | 스테이지 설명 |
 
 
-<a id="modify-stage-response"></a>
 #### 응답
 
 [Response]
@@ -2799,13 +2704,11 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 |stage.updatedAt        |DateTime|스테이지 수정 일시           |
 
 
-<a id="delete-stage"></a>
-### 스테이지 삭제 { #delete-stage }
+### 스테이지 삭제
 - 스테이지를 삭제합니다.
 - 삭제하려는 스테이지가 사용량 계획에 연결된 경우 삭제가 불가합니다. 사용량 계획에서 스테이지 연결 해제 후 삭제하시기 바랍니다.
 - 삭제된 스테이지는 복구가 불가합니다.
 
-<a id="delete-stage-request"></a>
 #### 요청
 
 [URI]
@@ -2821,7 +2724,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 | stageId | String | 필수 | 없음 | 없음 | 스테이지 ID |
 
-<a id="delete-stage-response"></a>
 #### 응답
 
 [Response Body]
@@ -2837,13 +2739,11 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 ```
 
 
-<a id="list-stage-resources"></a>
-### 스테이지 리소스 목록 조회 { #list-stage-resources }
+### 스테이지 리소스 목록 조회 
 * 스테이지에 등록된 리소스 목록을 가져옵니다. 각 리소스에 설정된 스테이지 리소스 플러그인 정보가 포함됩니다.
 * 스테이지 리소스 플러그인에 대한 자세한 내용은 [스테이지 리소스 플러그인](./api-guide-v1.0/#_89)을 참고합니다.
 
 
-<a id="list-stage-resources-request"></a>
 #### 요청
 
 [URI]
@@ -2860,7 +2760,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | stageId | String | 필수 | 없음 | 없음 | 스테이지 ID |
 
 
-<a id="list-stage-resources-response"></a>
 #### 응답
 
 [Response]
@@ -2946,14 +2845,12 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 
 
-<a id="import-resources-to-stage"></a>
-### 스테이지에 리소스 가져오기 { #import-resources-to-stage }
+### 스테이지에 리소스 가져오기
 * API Gateway 서비스 > 리소스를 스테이지에 가져옵니다. 
 * 리소스를 가져오면 스테이지 리소스, 스테이지 리소스 플러그인은 모두 새로 생성됩니다. 
 * 기존 리소스 경로, 메서드에 설정된 스테이지 리소스 플러그인의 설정값은 그대로 유지됩니다. 
 * 리소스에 변경된 사항이 없는 경우, 수행되지 않습니다.
 
-<a id="import-resources-to-stage-request"></a>
 #### 요청
 
 [URI]
@@ -2970,7 +2867,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | stageId | String | 필수 | 없음 | 없음 | 스테이지 ID |
 
 
-<a id="import-resources-to-stage-response"></a>
 #### 응답
 
 [Response]
@@ -3056,13 +2952,11 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 
 
-<a id="modify-stage-resource"></a>
-### 스테이지 리소스 수정 { #modify-stage-resource }
+### 스테이지 리소스 수정
 * 리소스 경로 또는 리소스 메서드에 설정된 백엔드 엔드포인트 URL 재정의와 스테이지 리소스 플러그인을 수정합니다.
 * 스테이지 리소스를 수정하면 등록된 스테이지 리소스 플러그인은 모두 삭제되고, 요청한 리소스 플러그인만 새로 등록됩니다.
 * 스테이지 리소스 플러그인에 대한 자세한 정보는 [스테이지 리소스 플러그인](./api-guide-v1.0/#_89)을 참고합니다.
 
-<a id="modify-stage-resource-request"></a>
 #### 요청
 
 [URI]
@@ -3110,7 +3004,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 * customBackendEndpointUrl 필드는 루트(/) 리소스 경로에는 설정할 수 없습니다.
 
 
-<a id="modify-stage-resource-response"></a>
 #### 응답
 
 [Response]
@@ -3195,8 +3088,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
 
-<a id="stage-resource-plugin"></a>
-## 스테이지 리소스 플러그인 { #stage-resource-plugin }
+## 스테이지 리소스 플러그인
 * 스테이지의 리소스에는 접근 제한, 인증, 사용량 제어 등의 기능을 플러그인 형태로 설정할 수 있습니다. 
 * 플러그인은 상위에서 설정하면 하위 모든 메서드에 일괄 적용되며, 하위 경로/메서드에서 재정의할 수 있습니다. 
 
@@ -3223,8 +3115,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | 리소스 메서드  |백엔드 엔드포인트 URL 재정의, 사전 호출 API, 요청 수 제한, API Key |
 
 
-<a id="ip-acl"></a>
-### IP ACL { #ip-acl }
+### IP ACL 
 * IP ACL을 통해 지정된 클라이언트 IP에 대해 API Gateway 요청을 허용/거부할 수 있습니다.
 * 모든 리소스 경로, 메서드에 설정할 수 있습니다. 설정 내용은 하위 모든 리소스에 적용됩니다.
 
@@ -3257,8 +3148,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | pluginConfigJson.ipAclList[0].description | String | 선택 | 없음 | 최대 200자 | 설명을 설정합니다. |
 
 
-<a id="hmac"></a>
-### HMAC { #hmac }
+### HMAC
 * HMAC 서명 검증을 통해 클라이언트 요청의 변조를 검증하기 위한 설정입니다. 
 * 루트(/) 리소스 경로에만 설정할 수 있습니다. 설정 내용은 하위 모든 리소스에 적용됩니다.
 * HMAC 인증은 JWT 인증과 동시에 설정이 불가합니다. 
@@ -3289,8 +3179,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | pluginConfigJson.enforceHeaders[0] | String | 필수 | 없음 | 없음| 필수 검증 헤더의 문자열 |
 
 
-<a id="jwt"></a>
-### JWT { #jwt }
+### JWT 
 * JWT 토큰의 서명과 요청 클레임을 검증하기 위한 설정입니다.
 * 루트(/) 리소스 경로에만 설정할 수 있습니다. 설정 내용은 하위 모든 리소스에 적용됩니다.
 * JWT 인증은 HMAC 인증과 동시에 설정이 불가합니다.
@@ -3461,8 +3350,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | pluginConfigJson.claimValidationCondition | Object | 선택 | Default Object | 없음 | 클레임 검증 조건 영역 (암호화 알고리즘: HS256의 claimValidationCondition 필드 설명과 동일합니다.) |
 
 
-<a id="pre-call-api"></a>
-### 사전 호출 API { #pre-call-api }
+### 사전 호출 API 
 * 사전 호출 API는 백엔드 엔드포인트를 호출하기 전에 사용자가 지정한 API를 호출하여 호출의 응답 코드가 200 OK인 경우에만 백엔드 엔드포인트 호출하도록 합니다.
 * 모든 리소스 경로, 메서드에 설정할 수 있습니다. 
 
@@ -3486,8 +3374,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | pluginConfigJson.cacheTtl | Integer | 선택 | 0 | 0~86400 | 사전 호출 API의 응답 상태 코드의 캐시 시간을 설정합니다. <br/>응답 상태 코드가 200 OK인 경우에만 설정된 시간 동안 캐시되며, 캐시된 경우에는 사전 호출 API를 호출하지 않습니다. |
 
 
-<a id="request-number-limit"></a>
-### 요청 수 제한 { #request-number-limit }
+### 요청 수 제한 
 * 초당 요청 수를 제한합니다. 
 * 루트(/) 리소스 경로와 리소스 메서드에 설정할 수 있습니다. 
 * 요청 제한 키를 설정하여, IP, 헤더, 경로 변수 값마다 요청 수 제한을 설정할 수 있습니다.
@@ -3512,8 +3399,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | pluginConfigJson.requestPerSec | Integer | 필수 | 없음 | 1~5000 | 초당 최대 요청 가능한 수를 설정합니다. |
 
 
-<a id="api-key"></a>
-### API Key { #api-key }
+### API Key
 
 * API 호출 시 API Key가 유효한지 검증하고, 지정된 사용량 계획의 사용량을 초과했는지 검증합니다. 
 * 루트(/) 리소스 경로와 리소스 메서드에 설정할 수 있습니다. 
@@ -3535,8 +3421,7 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | pluginConfigJson.isActive | Boolean | 필수 | 없음 | true | API Key 검증 여부를 설정합니다. 반드시 true로 설정해야 합니다. |
 
 
-<a id="request-validator"></a>
-### 요청 유효성 검사기 { #request-validator }
+### 요청 유효성 검사기
 
 * 요청 파라미터에 정의된 설정에 따라 클라이언트의 요청을 검증합니다.
 * 모든 리소스 경로, 메서드에 설정할 수 있습니다. 설정 내용은 하위 모든 리소스에 적용됩니다.
@@ -3557,18 +3442,15 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | pluginConfigJson | Object | 필수 | 없음 | 없음 | 요청 유효성 검사기 플러그인 설정 영역 |
 | pluginConfigJson.isActive | Boolean | 필수 | 없음 | true | 요청 유효성 검사기 사용 여부를 설정합니다. 반드시 true로 설정해야 합니다. |
 
-<a id="deploy-stage"></a>
-## 스테이지 배포 { #deploy-stage }
+## 스테이지 배포
 
 
-<a id="deploy-stage-2"></a>
-### 스테이지 배포 { #deploy-stage-2 }
+### 스테이지 배포
 - 현재 스테이지 리소스와 설정을 API Gateway 서비스에 배포합니다. 
 - 변경된 설정 정보가 없는 경우, 스테이지 배포 요청이 실패합니다.
 - 스테이지 배포가 실패한 경우, 기존의 성공한 스테이지 배포 설정으로 되돌려집니다.
 - 스테이지 배포 요청 후, 스테이지 배포 성공 여부는 [최근 스테이지 배포 결과 조회](./api-guide-v1.0/#_95)에서 확인할 수 있습니다. 
 
-<a id="deploy-stage-2-request"></a>
 #### 요청
 
 [URI]
@@ -3601,7 +3483,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | deployDescription | String | 선택 | 없음 | 최대 200자 | 배포 설명 |
 
 
-<a id="deploy-stage-2-response"></a>
 #### 응답
 
 [Response]
@@ -3622,13 +3503,11 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 </details>
 
 
-<a id="query-result-of-recent-stage-deployment"></a>
-### 최근 스테이지 배포 결과 조회 { #query-result-of-recent-stage-deployment }
+### 최근 스테이지 배포 결과 조회 
 - [스테이지 배포](./api-guide-v1.0/#_92)의 결과를 조회할 수 있습니다. 
 - 스테이지 배포 요청 이후 배포 결과가 업데이트되기까지 최대 1분 정도까지 소요될 수 있습니다. 
 
 
-<a id="query-result-of-recent-stage-deployment-request"></a>
 #### 요청
 
 [URI]
@@ -3645,7 +3524,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | stageId | String | 필수 | 없음 | 없음 | 스테이지 ID |
 
 
-<a id="query-result-of-recent-stage-deployment-response"></a>
 #### 응답
 
 [Response]
@@ -3746,12 +3624,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
-<a id="delete-stage-deployment-history"></a>
-### 스테이지 배포 이력 삭제 { #delete-stage-deployment-history }
+### 스테이지 배포 이력 삭제
 - 스테이지 배포 이력을 삭제합니다.
 - 현재 스테이지의 기반 배포 이력(isBase가 true인 경우)과 현재 API Gateway 서비스의 배포 이력은 삭제할 수 없습니다.
 
-<a id="delete-stage-deployment-history-request"></a>
 #### 요청
 
 [URI]
@@ -3768,7 +3644,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | stageId | String | 필수 | 없음 | 없음 | 스테이지 ID |
 | deployId | String | 필수 | 없음 | 없음 | 삭제할 배포 ID |
 
-<a id="delete-stage-deployment-history-response"></a>
 #### 응답
 
 [Response]
@@ -3789,11 +3664,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 </details>
 
 
-<a id="query-stage-deployment-history"></a>
-### 스테이지 배포 이력 조회 { #query-stage-deployment-history }
+### 스테이지 배포 이력 조회 
 - 배포 성공 상태의 스테이지 배포 이력을 조회합니다. 
 
-<a id="query-stage-deployment-history-request"></a>
 #### 요청
 
 [URI]
@@ -3816,7 +3689,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
 | limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 
-<a id="query-stage-deployment-history-response"></a>
 #### 응답
 
 [Response]
@@ -3867,14 +3739,12 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 |stageDeployHistoryList[0].rollbackAt   |DateTime  | 스테이지 되돌리기 요청 일시 |
 
 
-<a id="rollback-stage"></a>
-### 스테이지 되돌리기 { #rollback-stage }
+### 스테이지 되돌리기
 - 배포된 스테이지 설정 이력으로 현재 스테이지 설정을 되돌립니다.  
 - 스테이지 되돌리기를 하면 현재 스테이지 설정은 모두 삭제되므로 유의하시기 바랍니다.  
 - 되돌려진 스테이지 설정을 API Gateway 서비스에 적용하려면 스테이지를 배포해야 합니다.
 - 배포 실패 상태의 배포 이력으로는 되돌리기를 할 수 없습니다.
 
-<a id="rollback-stage-request"></a>
 #### 요청
 
 [URI]
@@ -3891,7 +3761,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | stageId | String | 필수 | 없음 | 없음 | 스테이지 ID |
 | deployId | String | 필수 | 없음 | 없음 | 되돌릴 배포 ID |
 
-<a id="rollback-stage-response"></a>
 #### 응답
 
 [Response]
@@ -3954,14 +3823,11 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
 
-<a id="gateway-response"></a>
-## 게이트웨이 응답 { #gateway-response }
+## 게이트웨이 응답
 
-<a id="get-a-list-of-gateway-responses"></a>
-### 게이트웨이 응답 목록 조회 { #get-a-list-of-gateway-responses }
+### 게이트웨이 응답 목록 조회
 - 사용자가 재정의한 게이트웨이 응답 목록을 조회합니다.
 
-<a id="get-a-list-of-gateway-responses-request"></a>
 #### 요청
 
 [URI]
@@ -3976,7 +3842,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | --- | --- | --- | --- | --- | --- |
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 
-<a id="get-a-list-of-gateway-responses-response"></a>
 #### 응답
 
 [Response]
@@ -4022,11 +3887,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | gatewayResponseList[0].updatedAt         | DateTime | 게이트웨이 응답 수정 일시                                      |
 
 
-<a id="redefine-gateway-response"></a>
-### 게이트웨이 응답 재정의 { #redefine-gateway-response }
+### 게이트웨이 응답 재정의
 - 게이트웨이 응답을 사용자가 재정의합니다.
 
-<a id="redefine-gateway-response-request"></a>
 #### 요청
 
 [URI]
@@ -4065,7 +3928,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | headers[{HeaderName}] | Object   | 필수    | 없음  | 없음 | 게이트웨이 응답 헤더의 Map Entry(Key: 헤더 이름, Value: 헤더 값) |
 | body      | Map   | 선택    | 없음  | 없음 | 게이트웨이 응답 본문 객체 영역 |
 | body[{ContentType}] | Object   | 필수    | 없음  | 없음 | 게이트웨이 응답 본문의 Map Entry(Key: ContentType, Value: 응답 본문) |
-<a id="redefine-gateway-response-response"></a>
 #### 응답
 
 [Response]
@@ -4109,11 +3971,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | gatewayResponse.updatedAt         | DateTime | 게이트웨이 응답 수정 일시                                      |
 
 
-<a id="reset-gateway-response"></a>
-### 게이트웨이 응답 초기화 { #reset-gateway-response }
+### 게이트웨이 응답 초기화
 - 게이트웨이 응답을 기본 응답으로 초기화합니다.
 
-<a id="reset-gateway-response-request"></a>
 #### 요청
 
 [URI]
@@ -4129,7 +3989,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 | gatewayResponseId | String | 필수 | 없음 | 없음 | 게이트웨이 응답 ID |
 
-<a id="reset-gateway-response-response"></a>
 #### 응답
 
 [Response]
@@ -4150,17 +4009,14 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 </details>
 
 
-<a id="api-document"></a>
-## API 설명서 { #api-document }
+## API 설명서
 
-<a id="query-api-document"></a>
-### API 설명서 조회 { #query-api-document }
+### API 설명서 조회
 - 배포된 스테이지 설정 기준으로 API 설명서를 조회합니다. 
 - API 설명서는 [Swagger v2.0](https://swagger.io/specification/v2/)사양의 JSON 객체로 응답됩니다.
 - 배포되지 않은 스테이지에 대해서는 API 설명서를 조회할 수 없으며, 404 Not Found가 응답됩니다.
 
 
-<a id="query-api-document-request"></a>
 #### 요청
 
 [URI]
@@ -4176,7 +4032,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apigwServiceId | String | 필수 | 없음 | 없음 | API Gateway 서비스 ID |
 | stageId | String | 필수 | 없음 | 없음 | 스테이지 ID |
 
-<a id="query-api-document-response"></a>
 #### 응답
 
 [Response]
@@ -4386,15 +4241,12 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 |securityDefinitions          |Object    | 보안 정의 객체입니다. API Key, 인증(HMAC, JWT) 설정 시 API Gateway의 사용자 정의 설정이 포함됩니다. [Security Definitions Object](https://swagger.io/specification/v2/#securityDefinitionsObject) 참고|
 |definitions | Object | 요청 및 응답에서 사용되는 데이터 유형에 대한 영역. 요청 파라미터/응답에서 참조된 모델이 정의가 설정됩니다. [Definitions Object](https://swagger.io/specification/v2/#definitionsObject) 참고| 
 
-<a id="api-key-2"></a>
-## API Key { #api-key-2 }
+## API Key
 
-<a id="list-api-keys"></a>
-### API Key 목록 조회 { #list-api-keys }
+### API Key 목록 조회 
 - API Key 목록을 조회합니다.
 - 여러 요청 쿼리 파라미터들이 있는 경우 모든 조건을 만족하는 목록을 반환합니다.
 
-<a id="list-api-keys-request"></a>
 #### 요청
 
 [URI]
@@ -4414,7 +4266,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름  필터 조건. API Key 이름의 시작 문자열은 일치해야 합니다. |
 | apiKeyStatus | Enum | 선택 | 없음 | ACTIVE, INACTIVE | API Key 상태 필터 조건. [API Key 상태 Enum 코드](./enum-code/#api-key) 참고 |
 
-<a id="list-api-keys-response"></a>
 #### 응답
 
 [Response]
@@ -4470,11 +4321,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apiKeyList[0].createdAt         | DateTime | API Key 생성 일시                                      |
 | apiKeyList[0].updatedAt         | DateTime | API Key 수정 일시                                      |
 
-<a id="create-api-key"></a>
-### API Key 생성 { #create-api-key }
+### API Key 생성
 - API Key를 생성합니다. 
 
-<a id="create-api-key-request"></a>
 #### 요청
 
 [URI]
@@ -4508,7 +4357,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | primaryApiKey     | String   | 선택    | 없음  | 최소 10자, 최대 40자, 영문자, 숫자 | Primary Api Key 값, null이면 자동 발급 |
 | secondaryApiKey   | String   | 선택    | 없음  | 최소 10자, 최대 40자, 영문자, 숫자 | Secondary Api Key 값, null이면 자동 발급 |
 
-<a id="create-api-key-response"></a>
 #### 응답
 
 [Response]
@@ -4553,12 +4401,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apiKey.updatedAt         | DateTime | API Key 수정 일시                                      |
 
 
-<a id="modify-api-key"></a>
-### API Key 수정 { #modify-api-key }
+### API Key 수정
 - API Key의 이름, 설명, 상태를 수정합니다.
 - API Key 상태를 INACTIVE로 변경하면, API Key가 비활성화되며 API호출이 불가해집니다.
 
-<a id="modify-api-key-request"></a>
 #### 요청
 
 [URI]
@@ -4594,7 +4440,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apiKeyDescription | String | 선택    | 없음  | 최대 200자          | API Key 설명                                        |
 | apiKeyStatus      | Enum   | 필수    | 없음  | ACTIVE, INACTIVE | [API Key 상태 Enum 코드](./enum-code/#api-key) 참고 |
 
-<a id="modify-api-key-response"></a>
 #### 응답
 
 [Response]
@@ -4639,12 +4484,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apiKey.updatedAt         | DateTime | API Key 수정 일시                                      |
 
 
-<a id="delete-api-key"></a>
-### API Key 삭제 { #delete-api-key }
+### API Key 삭제
 - API Key를 삭제합니다. 삭제된 API Key는 복구할 수 없습니다.
 - 사용량 계획의 스테이지에 연결된 API Key가 있는 경우, API Key를 삭제할 수 없습니다. 삭제하려면 API Key를 연결 해제해야 합니다.
 
-<a id="delete-api-key-request"></a>
 #### 요청
 
 [URI]
@@ -4659,7 +4502,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | --- | --- | --- | --- | --- | --- |
 | apiKeyId | String | 필수 | 없음 | 없음 | API Key ID |
 
-<a id="delete-api-key-response"></a>
 #### 응답
 
 [Response]
@@ -4679,12 +4521,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 </details>
 
-<a id="reissue-api-key"></a>
-### API Key 재발급 { #reissue-api-key }
+### API Key 재발급
 - API Key 값으로 사용되는 Primary API Key, Secondary API Key는 각각 재발급할 수 있습니다.
 - 재발급할 경우 이전 API Key로는 API 호출이 불가합니다. 재발급 이전 API Key로 복구는 불가합니다.
 
-<a id="reissue-api-key-request"></a>
 #### 요청
 
 [URI]
@@ -4718,7 +4558,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apiKeyType      | Enum   | 필수    | 없음  | PRIMARY, SECONDARY | 변경하려는 API Key 타입. [API Key 타입 Enum 코드](./enum-code/#api-key_1) 참고 |
 | apiKeyValue     | String   | 선택    | 없음  | 최소 10자, 최대 40자, 영문자, 숫자 | Api Key 값, null이면 자동 발급 |
 
-<a id="reissue-api-key-response"></a>
 #### 응답
 
 [Response]
@@ -4762,12 +4601,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apiKey.createdAt         | DateTime | API Key 생성 일시                                      |
 | apiKey.updatedAt         | DateTime | API Key 수정 일시                                      |
 
-<a id="list-api-keys-that-can-be-connected-to-stage"></a>
-### 스테이지에 연결 가능한 API Key 목록 조회 { #list-api-keys-that-can-be-connected-to-stage }
+### 스테이지에 연결 가능한 API Key 목록 조회
 - 스테이지에 연결 가능한 API Key 목록을 조회합니다.
 - 여러 요청 쿼리 파라미터들이 있는 경우 모든 조건을 만족하는 목록을 반환합니다.
 
-<a id="list-api-keys-that-can-be-connected-to-stage-request"></a>
 #### 요청
 
 [URI]
@@ -4794,7 +4631,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름 시작 문자열 |
 | apiKeyStatus | Enum | 선택 | 없음 | ACTIVE, INACTIVE | [API Key 상태 Enum 코드](./enum-code/#api-key) 참고 |
 
-<a id="list-api-keys-that-can-be-connected-to-stage-response"></a>
 #### 응답
 
 [Response]
@@ -4851,14 +4687,11 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apiKeyList[0].updatedAt         | DateTime | API Key 수정 일시                                      |
 
 
-<a id="usage-plan"></a>
-## 사용량 계획 { #usage-plan }
+## 사용량 계획
 
-<a id="list-usage-plans"></a>
-### 사용량 계획 목록 조회 { #list-usage-plans }
+### 사용량 계획 목록 조회 
 - 사용량 계획 목록을 조회합니다.
 
-<a id="list-usage-plans-request"></a>
 #### 요청
 
 [URI]
@@ -4874,7 +4707,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
 | limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 
-<a id="list-usage-plans-response"></a>
 #### 응답
 
 [Response]
@@ -4932,11 +4764,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 
 
-<a id="get-usage-plan"></a>
-### 단일 사용량 계획 조회 { #get-usage-plan }
+### 단일 사용량 계획 조회
 - 단일 사용량 계획을 조회합니다.
 
-<a id="get-usage-plan-request"></a>
 #### 요청
 
 [URI]
@@ -4951,7 +4781,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | --- | --- | --- | --- | --- | --- |
 | usagePlanId | String | 필수 | 없음 | 없음 | 사용량 계획 ID |
 
-<a id="get-usage-plan-response"></a>
 #### 응답
 
 [Response]
@@ -4995,11 +4824,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | usagePlan.createdAt                 | DateTime | 사용량 계획 생성 일시                                       |
 | usagePlan.updatedAt                 | DateTime | 사용량 계획 수정 일시                                       |
 
-<a id="create-usage-plan"></a>
-### 사용량 계획 생성 { #create-usage-plan }
+### 사용량 계획 생성
 - 사용량 계획을 생성합니다.
 
-<a id="create-usage-plan-request"></a>
 #### 요청
 
 [URI]
@@ -5033,7 +4860,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | quotaLimitPeriodUnitCode  | Enum    | 선택    | 없음  | DAY, MONTH   | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#_6) 참고 |
 | quotaLimit                | Integer | 조건부 필수 | 없음  | 1~2147483647 | quotaLimitPeriodUnitCode가 설정된 경우 필수. 할당량 기간 단위 별 요청 할당량                                |
 
-<a id="create-usage-plan-response"></a>
 #### 응답
 
 [Response]
@@ -5078,12 +4904,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | usagePlan.updatedAt                 | DateTime | 사용량 계획 수정 일시                                       |
 
 
-<a id="modify-usage-plan"></a>
-### 사용량 계획 수정 { #modify-usage-plan }
+### 사용량 계획 수정
 - 사용량 계획을 수정합니다. 
 - 할당량 기간 단위를 '없음'으로 수정하면 연결된 API Key들의 요청 할당량 사용량은 초기화됩니다.
 
-<a id="modify-usage-plan-request"></a>
 #### 요청
 
 [URI]
@@ -5123,7 +4947,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | quotaLimitPeriodUnitCode  | Enum    | 선택    | 없음  | DAY, MONTH   | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#_6) 참고 |
 | quotaLimit                | Integer | 조건부 필수 | 없음  | 1~2147483647 | quotaLimitPeriodUnitCode가 설정된 경우 필수. 할당량 기간 단위 별 요청 할당량                                |
 
-<a id="modify-usage-plan-response"></a>
 #### 응답
 
 [Response]
@@ -5168,12 +4991,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | usagePlan.updatedAt                 | DateTime | 사용량 계획 수정 일시                                       |
 
 
-<a id="delete-usage-plan"></a>
-### 사용량 계획 삭제 { #delete-usage-plan }
+### 사용량 계획 삭제
 - 사용량 계획을 삭제합니다.
 - 사용량 계획에 연결된 스테이지들을 모두 해제한 후 사용량 계획을 삭제할 수 있습니다.
 
-<a id="delete-usage-plan-request"></a>
 #### 요청
 
 [URI]
@@ -5188,7 +5009,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | --- | --- | --- | --- | --- | --- |
 | usagePlanId | String | 필수 | 없음 | 없음 | 사용량 계획 ID |
 
-<a id="delete-usage-plan-response"></a>
 #### 응답
 
 [Response]
@@ -5209,11 +5029,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 </details>
 
 
-<a id="list-stages-associated-with-usage-plan"></a>
-### 사용량 계획에 연결된 스테이지 목록 조회 { #list-stages-associated-with-usage-plan }
+### 사용량 계획에 연결된 스테이지 목록 조회
 - 사용량 계획에 연결된 스테이지 목록을 조회합니다.
 
-<a id="list-stages-associated-with-usage-plan-request"></a>
 #### 요청
 
 [URI]
@@ -5228,7 +5046,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | --- | --- | --- | --- | --- | --- |
 | usagePlanId | String | 필수 | 없음 | 없음 | 사용량 계획 ID |
 
-<a id="list-stages-associated-with-usage-plan-response"></a>
 #### 응답
 
 [Response]
@@ -5287,11 +5104,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | usagePlanStageList[0].usagePlanName  | String  | 사용량 계획 이름              |
 
 
-<a id="connect-stage-to-usage-plan"></a>
-### 사용량 계획에 스테이지 연결 { #connect-stage-to-usage-plan }
+### 사용량 계획에 스테이지 연결
 - 사용량 계획에 스테이지를 연결합니다.
 
-<a id="connect-stage-to-usage-plan-request"></a>
 #### 요청
 
 [URI]
@@ -5307,7 +5122,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | usagePlanId | String | 필수 | 없음 | 없음 | 사용량 계획 ID |
 | stageId | String | 필수 | 없음 | 없음 | 스테이지 ID |
 
-<a id="connect-stage-to-usage-plan-response"></a>
 #### 응답
 
 [Response]
@@ -5327,12 +5141,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 </details>
 
-<a id="disconnect-stage-from-usage-plan"></a>
-### 사용량 계획에 연결된 스테이지 해제 { #disconnect-stage-from-usage-plan }
+### 사용량 계획에 연결된 스테이지 해제
 - 사용량 계획에 연결된 스테이지를 연결 해제합니다.
 - 스테이지에 연결된 API Key가 존재하면 연결을 해제할 수 없습니다.
 
-<a id="disconnect-stage-from-usage-plan-request"></a>
 #### 요청
 
 [URI]
@@ -5348,7 +5160,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | usagePlanId | String | 필수 | 없음 | 없음 | 사용량 계획 ID |
 | stageId | String | 필수 | 없음 | 없음 | 스테이지 ID |
 
-<a id="disconnect-stage-from-usage-plan-response"></a>
 #### 응답
 
 [Response]
@@ -5368,11 +5179,9 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 </details>
 
-<a id="list-usage-plans-associated-with-stage"></a>
-### 스테이지가 연결된 사용량 계획 목록 조회 { #list-usage-plans-associated-with-stage }
+### 스테이지가 연결된 사용량 계획 목록 조회
 - 스테이지가 연결된 사용량 계획 목록을 조회합니다.
 
-<a id="list-usage-plans-associated-with-stage-request"></a>
 #### 요청
 
 [URI]
@@ -5388,7 +5197,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
 | limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 
-<a id="list-usage-plans-associated-with-stage-response"></a>
 #### 응답
 
 [Response]
@@ -5444,14 +5252,11 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | usagePlanList[0].createdAt                 | DateTime | 사용량 계획 생성 일시                                       |
 | usagePlanList[0].updatedAt                 | DateTime | 사용량 계획 수정 일시                                       |
 
-<a id="api-key-subscription"></a>
-## API Key 구독 { #api-key-subscription }
+## API Key 구독
 
-<a id="list-api-key-subscriptions"></a>
-### API Key 구독 목록 조회 { #list-api-key-subscriptions }
+### API Key 구독 목록 조회
 - API Key가 연결된 스테이지와 사용량 계획 정보의 목록을 조회합니다.
 
-<a id="list-api-key-subscriptions-request"></a>
 #### 요청
 
 [URI]
@@ -5474,7 +5279,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 | stageUrl | String | 선택 | 없음 | 없음 | Stage Url 필터 조건 |
 
-<a id="list-api-key-subscriptions-response"></a>
 #### 응답
 
 [Response]
@@ -5543,12 +5347,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | subscribedStageAndUsagePlanList[0].quotaLimit                | Integer | 할당량 기간 단위 별 요청 할당량                                |
 
 
-<a id="list-api-keys-subscribing-to-a-stage-in-the-usage-plan"></a>
-### 사용량 계획의 스테이지를 구독 중인 API Key 목록 조회 { #list-api-keys-subscribing-to-a-stage-in-the-usage-plan }
+### 사용량 계획의 스테이지를 구독 중인 API Key 목록 조회
 - 사용량 계획의 스테이지에 연결된 API Key 목록을 조회합니다.
 - 여러 요청 쿼리 파라미터들이 있는 경우 모든 조건을 만족하는 목록을 반환합니다.
 
-<a id="list-api-keys-subscribing-to-a-stage-in-the-usage-plan-request"></a>
 #### 요청
 
 [URI]
@@ -5575,7 +5377,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름  필터 조건. API Key 이름의 시작 문자열은 일치해야 합니다.  |
 | apiSubscriptionStatus | Enum | 선택 | 없음 | APPROVAL | [API Key 구독 상태 Enum 코드](./enum-code/#api-key_2) 참고 |
 
-<a id="list-api-keys-subscribing-to-a-stage-in-the-usage-plan-response"></a>
 #### 응답
 
 [Response]
@@ -5632,13 +5433,11 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apiSubscriptionList[0].updatedAt               | DateTime | 구독 수정 일시                              |
 
 
-<a id="subscribe-to-api-key-connect-api-key"></a>
-### API Key 구독 (API Key 연결) { #subscribe-to-api-key-connect-api-key }
+### API Key 구독 (API Key 연결)
 - 사용량 계획의 스테이지에 요청한 API Key 목록을 연결합니다.
 - 연결된 API Key만 API Key 인증에 성공하고, 사용량 계획의 사용량 제한이 적용됩니다.
 - 다른 사용량 계획의 동일 스테이지에 연결된 API Key는 연결할 수 없습니다.
 
-<a id="subscribe-to-api-key-connect-api-key-request"></a>
 #### 요청
 
 [URI]
@@ -5674,7 +5473,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apiKeyIdList              | List  | 필수    | 없음  | 최대 100개       | API Key ID 목록 영역                                        |
 | apiKeyIdList[0]           | String  | 필수    | 없음  | 없음       | API Key ID                                        |
 
-<a id="subscribe-to-api-key-connect-api-key-response"></a>
 #### 응답
 
 [Response]
@@ -5722,12 +5520,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apiSubscriptionList[0].updatedAt               | DateTime | 구독 수정 일시                              |
 
 
-<a id="unsubscribe-from-api-key-disconnect-api-key"></a>
-### API Key 구독 취소 (API Key 연결 해제) { #unsubscribe-from-api-key-disconnect-api-key }
+### API Key 구독 취소 (API Key 연결 해제)
 - 사용량 계획의 스테이지에서 요청한 API Key 목록을 연결 해제합니다.
 - 연결 해제된 API Key는 API Key 인증에 실패하여 API 호출이 실패합니다. 
 
-<a id="unsubscribe-from-api-key-disconnect-api-key-request"></a>
 #### 요청
 
 [URI]
@@ -5763,7 +5559,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | apiSubscriptionIdList             | List  | 필수    | 없음  | 최대 100개       | 구독 ID 목록 영역                                        |
 | apiSubscriptionIdList[0]             | String  | 필수    | 없음  | 없음       | 구독 ID                                        |
 
-<a id="unsubscribe-from-api-key-disconnect-api-key-response"></a>
 #### 응답
 
 [Response]
@@ -5784,14 +5579,12 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 </details>
 
 
-<a id="change-usage-plan-of-api-key"></a>
-### API Key의 사용량 계획 변경 { #change-usage-plan-of-api-key }
+### API Key의 사용량 계획 변경
 - 선택한 스테이지가 연결된 다른 사용량 계획으로만 변경할 수 있습니다.
 - 사용량 계획 변경 시 API Key 요청 할당량의 사용량은 초기화됩니다.
     - 할당량 기간 단위가 '일' 또는 '월'인 사용량 계획으로 변경하면, 연결된 API Key 요청 할당량의 사용량은 유지됩니다. 요청 할당량 한도가 낮은 사용량 계획으로 변경 시 사용량이 초과될 수 있습니다. 
     - 할당량 기간 단위가 '없음'인 사용량 계획으로 변경하면, 연결된 API Key 요청 할당량의 사용량은 초기화됩니다.
   
-<a id="change-usage-plan-of-api-key-request"></a>
 #### 요청
 
 [URI]
@@ -5825,7 +5618,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
 | changeUsagePlanId            | String  | 필수    | 없음  | 없음       | 변경할 사용량 계획 ID                                        |
 
-<a id="change-usage-plan-of-api-key-response"></a>
 #### 응답
 
 [Response]
@@ -5845,15 +5637,12 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 
 </details>
 
-<a id="statistics"></a>
-## 통계 { #statistics }
+## 통계
 
-<a id="query-by-stage-resource"></a>
-### 스테이지 리소스별 조회 { #query-by-stage-resource }
+### 스테이지 리소스별 조회
 - 조회 기간 동안의 리소스별 통계 데이터를 조회합니다.
 
 
-<a id="query-by-stage-resource-request"></a>
 #### 요청
 
 [URI]
@@ -5884,7 +5673,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
     * UTC 기준 타임 오프셋 표기: yyyy-MM-dd'T'HH:mm:ss±hh:mm
 
 
-<a id="query-by-stage-resource-response"></a>
 #### 응답
 
 [Response]
@@ -5960,12 +5748,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 |metricsLatestUpdatedAt         | DateTime | 통계 데이터 최신 갱신 일시                             |
 
 
-<a id="query-by-api-key"></a>
-### API Key별 조회 { #query-by-api-key }
+### API Key별 조회
 - API Key별 일 단위 통계를 조회합니다.
 
 
-<a id="query-by-api-key-request"></a>
 #### 요청
 
 [URI]
@@ -5993,7 +5779,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
     * UTC 표기: yyyy-MM-dd'T'HH:mm:ssZ
     * UTC 기준 타임 오프셋 표기: yyyy-MM-dd'T'HH:mm:ss±hh:mm
 
-<a id="query-by-api-key-response"></a>
 #### 응답
 
 [Response]
@@ -6072,12 +5857,10 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 * 일 단위 통계 데이터는 각 일의 00:00:00의 시간 데이터에 집계됩니다.
 
 
-<a id="query-top-10-services"></a>
-### Top 10 서비스 조회 { #query-top-10-services }
+### Top 10 서비스 조회
 - 전체 API 호출 수, 실패 API 호출 수, 평균 응답 시간을 기준으로 상위 10개의 API Gateway 서비스 목록과 누적 통계를 조회할 수 있습니다.
 
 
-<a id="query-top-10-services-request"></a>
 #### 요청
 
 [URI]
@@ -6095,7 +5878,6 @@ Appkey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/pub
 | order | Enum | 선택 | CALL_COUNT | CALL_COUNT,FAIL_CALL_COUNT,AVG_RESPONSE_TIME | [통계 > Top10 서비스 정렬 기준](./enum-code/#top10)|
 
 
-<a id="query-top-10-services-response"></a>
 #### 응답
 
 [Response]

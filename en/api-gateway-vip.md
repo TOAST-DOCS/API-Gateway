@@ -1,16 +1,11 @@
-<!-- pre-align:aligned sig=d0ef1fa0366c -->
+## Application Service > API Gateway > Firewall Policy Settings for API Gateway Clients 
 
-<a id="application-service-api-gateway-firewall-policy-settings-for-api-gateway-clients"></a>
-## Application Service > API Gateway > Firewall Policy Settings for API Gateway Clients { #application-service-api-gateway-firewall-policy-settings-for-api-gateway-clients }
-
-<a id="firewall-policy-settings-for-api-gateway-clients"></a>
-### Firewall Policy Settings for API Gateway Clients { #firewall-policy-settings-for-api-gateway-clients }
+### Firewall Policy Settings for API Gateway Clients 
 
 If you use a firewall (Network ACL) when clients call the APIs provided through API Gateway, you must set up a firewall policy for the API Gateway VIP for normal communication. 
 If firewall policy settings are missing for the API Gateway VIP, API calls might fail based on the results of the domain query. 
 API Gateway is available without any processing if clients do not separately manage firewalls.
 
-<a id="firewall-policy-settings-for-api-gateway-clients-api-gateway-vip-information"></a>
 #### API Gateway VIP Information
 
 | VIP | Port | 

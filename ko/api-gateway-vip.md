@@ -1,16 +1,11 @@
-<!-- pre-align:aligned sig=d0ef1fa0366c -->
+## Application Service > API Gateway > API Gateway 클라이언트 방화벽 정책 설정 
 
-<a id="application-service-api-gateway-firewall-policy-settings-for-api-gateway-clients"></a>
-## Application Service > API Gateway > API Gateway 클라이언트 방화벽 정책 설정 { #application-service-api-gateway-firewall-policy-settings-for-api-gateway-clients }
-
-<a id="firewall-policy-settings-for-api-gateway-clients"></a>
-### API Gateway 클라이언트 방화벽 정책 설정 { #firewall-policy-settings-for-api-gateway-clients }
+### API Gateway 클라이언트 방화벽 정책 설정 
 
 클라이언트가 API Gateway를 통해 API를 호출할 때 방화벽(Network ACL)을 사용한다면, API Gateway의 VIP에 대해 방화벽 정책을 설정해야 합니다.
 그렇지 않을 경우, 도메인 질의 결과에 따라 API 호출이 실패할 수 있습니다.
 클라이언트가 방화벽을 별도로 관리하지 않는다면 추가적인 설정 없이 API를 사용할 수 있습니다.
 
-<a id="firewall-policy-settings-for-api-gateway-clients-api-gateway-vip-information"></a>
 #### API Gateway VIP 정보
 
 | VIP | 포트 |

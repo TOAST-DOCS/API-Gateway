@@ -1,10 +1,6 @@
-<!-- pre-align:aligned sig=e93aa67c657c -->
+## Application Service > API Gateway > 오류 코드
 
-<a id="application-service-api-gateway-error-code"></a>
-## Application Service > API Gateway > 오류 코드 { #application-service-api-gateway-error-code }
-
-<a id="ban-request"></a>
-## 요청 차단 { #ban-request }
+## 요청 차단 
 - 발생 원인: API Gateway 서비스와 백엔드 엔드포인트 서비스를 보호하는 목적으로 백엔드 엔드포인트 서비스가 응답을 하지 않거나 응답 지연(60초 이상)이 지속적으로 발생하는 경우, API Gateway 서비스는 해당 백엔드 엔드포인트 서비스에 대한 요청을 일시적으로 거부합니다. 
 - 응답 HTTP 상태: 503 Service  Unavailable 
 - 오류 응답 본문 
@@ -22,8 +18,7 @@
 > - 요청이 차단되면 요청 차단 오류 코드가 응답되며, 일정 시간 이후 차단이 해제됩니다.
 > - 정상적인 운영 상태가 아닌 백엔드 엔드 포인트 서비스를 연동하거나 응답 지연(timeout)이 60초 이상 발생된 경우 차단되므로, API는 연동하지 않는 것을 권장합니다.
 
-<a id="hmac"></a>
-## HMAC { #hmac }
+## HMAC
 - 발생 원인: HMAC 인증에 필요한 요청 정보가 없거나 인증에 실패하는 경우 다음의 응답이 전달됩니다.
 - 응답 HTTP 상태: 401 Unauthorized 
 - 오류 응답 본문 
@@ -51,8 +46,7 @@
 | 4011009              | Authorization header must start with the string hmac.      | Authorization 요청 헤더값이 hmac으로 시작하지 않아 유효하지 않습니다.|
 
 
-<a id="jwt"></a>
-## JWT { #jwt }
+## JWT
 - 발생 원인: JWT 인증에 필요한 요청 정보가 없거나 인증에 실패하는 경우 다음의 응답이 전달됩니다.
 - 응답 HTTP 상태: 401 Unauthorized 
 - 오류 응답 본문 
@@ -75,8 +69,7 @@
 | 5012002          | jwks format is invalid.      | JWKS URL의 응답이 JWKS 형식에 맞지 않습니다.|
 
     
-<a id="pre-call-api"></a>
-## 사전 호출 API(Pre-call API) { #pre-call-api }
+## 사전 호출 API(Pre-call API)
 - 발생 원인: 사전 호출 API 요청 실패 시 오류 응답이 반환됩니다.
 - 응답 HTTP 상태 : 502 Bad Gateway
 - 오류 응답 본문
@@ -90,8 +83,7 @@
 }
 ```
 
-<a id="ip-acl"></a>
-## IP ACL { #ip-acl }
+## IP ACL
 
 - 발생 원인: 접근이 허가되지 않은 IP의 요청을 거부할 때 오류 응답이 반환됩니다.
 - 응답 HTTP 상태: 403 Forbidden
@@ -106,8 +98,7 @@
 }
 ```
 
-<a id="request-size-exceeded"></a>
-## 요청 크기 초과 { #request-size-exceeded }
+## 요청 크기 초과 
 - 발생 원인: 요청 크기가 10MB를 초과한 경우 발생합니다.
 - 응답 HTTP 상태: 413 Request Entity Too Large
 - 오류 응답 본문 
@@ -121,8 +112,7 @@
 }
 ```
 
-<a id="response-size-exceeded"></a>
-## 응답 크기 초과 { #response-size-exceeded }
+## 응답 크기 초과
 - 발생 원인: 응답 크기가 10MB를 초과한 경우 발생합니다. 
 - 응답 크기 초과 시 API Gateway 서버는 클라이언트와의 연결을 끊습니다.
 - 액세스 로그에는 다음과 같이 기록됩니다.
@@ -131,8 +121,7 @@
     - 오류 메시지: The download size of the response body has been exceeded. the permissible limit is 10mb.
 
 
-<a id="request-number-limit"></a>
-## 요청 수 제한 { #request-number-limit }
+## 요청 수 제한
 - 발생 원인: 제한된 요청 수를 초과하는 요청을 거부할 때 오류 응답이 반환됩니다.
 - 응답 HTTP 상태: 429 Too Many Requests
 - 오류 응답 본문 
@@ -146,8 +135,7 @@
 }
 ```
 
-<a id="request-quota-limit"></a>
-## 요청 할당량 제한 { #request-quota-limit }
+## 요청 할당량 제한
 - 발생 원인: 제한된 요청 할당량을 초과하는 요청을 거부할 때 오류 응답이 반환됩니다.
 - 응답 HTTP 상태: 429 Too Many Requests
 - 오류 응답 본문
@@ -161,8 +149,7 @@
 }
 ```
 
-<a id="invalid-uri-error"></a>
-## 잘못된 URI 오류 { #invalid-uri-error }
+## 잘못된 URI 오류 
 - 발생 원인: 백엔드 엔드포인트의 URI 구성이 올바르지 않을 때 오류 응답이 반환됩니다. 
     - URI의 구성 요소인 경로 또는 쿼리 문자열의 값이 올바르지 않거나 인코딩할 수 없는 경우 발생할 수 있습니다.
 - 응답 HTTP 상태: 400 Bad Request
@@ -177,8 +164,7 @@
 }
 ```
 
-<a id="could-not-find-the-path-or-method"></a>
-## 경로 또는 메서드를 찾을 수 없음 { #could-not-find-the-path-or-method }
+## 경로 또는 메서드를 찾을 수 없음
 - 발생 원인: API 리소스에 등록되지 않은 API 경로 및 메서드로 요청한 경우 발생합니다.
 - 응답 HTTP 상태: 404 Not Found
 - 오류 응답 본문 
@@ -192,8 +178,7 @@
 }
 ```
 
-<a id="backend-endpoint-service-connection-error"></a>
-## 백엔드 엔드포인트 서비스 연결 오류 { #backend-endpoint-service-connection-error }
+## 백엔드 엔드포인트 서비스 연결 오류 
 - 발생 원인: 백엔드 엔드포인트가 응답하지 않거나 응답을 거부하는 경우 발생합니다.
 - 응답 HTTP 상태: 503 Service Unavailable 
 - 오류 응답 본문 
@@ -219,8 +204,7 @@
 }
 ```
 
-<a id="api-key"></a>
-## API Key { #api-key }
+## API Key 
 - 발생 원인: 요청의 API Key 정보가 없거나 잘못된 경우 다음의 응답이 전달됩니다.
 - 응답 HTTP 상태: 403 Forbidden
 - 오류 응답 본문
@@ -241,8 +225,7 @@
 | 4031012          | Request api key is invalid.      | 요청된 API Key 값이 유효하지 않습니다.|
 
 
-<a id="error-in-setting-context-variables"></a>
-## 컨텍스트 변수 설정 오류 { #error-in-setting-context-variables }
+## 컨텍스트 변수 설정 오류  
 - 발생 원인: API Gateway 설정에서 잘못된 컨텍스트 변수를 참조하거나 문법으로 사용할 때 Gateway에서 발생되는 오류입니다. 수정하려면 컨텍스트 변수 설정을 올바르게 수정한 후 스테이지를 배포해야 합니다. 
 - 응답 HTTP 상태: 500 Internal Error
 - 오류 응답 본문
@@ -256,11 +239,9 @@
 }
 ```
 
-<a id="invalid-client-request"></a>
-## 잘못된 클라이언트 요청 { #invalid-client-request }
+## 잘못된 클라이언트 요청 
 
-<a id="client-ip-header-x-forwarded-for"></a>
-### 클라이언트 IP 헤더(X-Forwarded-For) { #client-ip-header-x-forwarded-for }
+### 클라이언트 IP 헤더(X-Forwarded-For)
 - 발생 원인: 클라이언트가 전달한 X-Forwarded-For 요청 헤더 값의 형식이 잘못되어 클라이언트 IP를 확인할 수 없을 때 오류가 발생합니다. 
 - 응답 HTTP 상태: 400 Bad Request
 - 오류 응답 본문
@@ -274,8 +255,7 @@
 }
 ```
 
-<a id="failure-in-request-validation"></a>
-### 요청 유효성 검증 실패 { #failure-in-request-validation }
+### 요청 유효성 검증 실패 
 - 발생 원인: 요청 유효성 검사기에서 유효성 검증에 실패하였을 때 응답 오류가 반환됩니다.
 - 응답 HTTP 상태: 400 Bad Request
 - 오류 응답 본문
@@ -289,8 +269,7 @@
 }
 ```
 
-<a id="gateway-maximum-response-timeout"></a>
-## 게이트웨이 최대 응답 시간 초과 { #gateway-maximum-response-timeout }
+## 게이트웨이 최대 응답 시간 초과
 - 발생 원인: 게이트웨이의 최대 응답 시간(60초) 안에 백엔드 엔드포인트로부터 요청을 마치기 위해 필요한 응답을 받지 못할 경우 오류가 발생합니다.
 - 응답 HTTP 상태: 504 Gateway Timeout
 - 오류 응답 본문 

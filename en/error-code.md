@@ -1,10 +1,6 @@
-<!-- pre-align:aligned sig=e93aa67c657c -->
+## Application Service > API Gateway > Error Code
 
-<a id="application-service-api-gateway-error-code"></a>
-## Application Service > API Gateway > Error Code { #application-service-api-gateway-error-code }
-
-<a id="ban-request"></a>
-## Ban Request { #ban-request }
+## Ban Request 
 - Cause: If backend endpoint service does not respond or its response is delayed for more than 60 seconds to protect the API Gateway service and backend endpoint service, the API Gateway service will temporarily deny the backend endpoint service request. 
 - Response HTTP status: 503 Service Unavailable 
 - Error response body 
@@ -22,8 +18,7 @@
 > - If your request is banned, a ban request error code is returned, and the ban is disabled after a certain period of time.
 > - In the event that your request is banned if you link a backend endpoint service with abnormal operating condition or response (timeout) is delayed for more than 60 seconds, it is recommended to not link any APIs.
 
-<a id="hmac"></a>
-## HMAC { #hmac }
+## HMAC
 - Cause: The following response appears when there is no request information required for HMAC authentication or when authentication fails.
 - Response HTTP status: 401 Unauthorized 
 - Error response body 
@@ -50,8 +45,7 @@
 | 4011008              | Authorization is invalid.      | The authentication information of the  request is invalid.|
 | 4011009              | Authorization header must start with the string hmac.      | Invalid because the authorization request  header value does not start with hmac.|
 
-<a id="jwt"></a>
-## JWT { #jwt }
+## JWT
 - Cause: The following response is returned when there is no request information required for JWT authentication or when authentication fails.
 - Response HTTP Status: 401 Unauthorized
 - Error Response Body  
@@ -73,8 +67,7 @@
 | 5012001          | jwks url is unavailable.      | The JWKS URL is not in service.|
 | 5012002          | jwks format is invalid.      | The reply of JWKS URL does not match the form of JWKS.|
 
-<a id="pre-call-api"></a>
-## Pre-call API { #pre-call-api }
+## Pre-call API
 - Cause: Error response is returned when the request for Pre-call API fails.
 - Response HTTP Status: 502 Bad Gateway
 - Error Response Body
@@ -88,8 +81,7 @@
 }
 ```
 
-<a id="ip-acl"></a>
-## IP ACL { #ip-acl }
+## IP ACL
 
 - Cause: Returns an error response when denying requests from unauthorized IPs.
 - Response HTTP Status: 403 Forbidden
@@ -104,8 +96,7 @@
 }
 ```
 
-<a id="request-size-exceeded"></a>
-## Request Size Exceeded { #request-size-exceeded }
+## Request Size Exceeded
 - Cause: Occurs when the request size exceeds 10MB.
 - Response HTTP Status: 413 Request Entity Too Large
 - Error response body 
@@ -119,8 +110,7 @@
 }
 ```
 
-<a id="response-size-exceeded"></a>
-## Response Size Exceeded { #response-size-exceeded }
+## Response Size Exceeded
 - Cause: Occurs when the response size exceeds 10MB. 
 - When the response size exceeds 10MB, the API Gateway server disconnects the client.
 - The following items are recorded in the access log.
@@ -128,8 +118,7 @@
     - Error code: 500000001
     - Error message: The download size of the response body has been exceeded. the permissible limit is 10mb.
 
-<a id="request-number-limit"></a>
-## Request Number Limit { #request-number-limit }
+## Request Number Limit
 - Cause: Returns an error response when a request exceeding the request number limit is rejected.
 - Response HTTP Status: 429 Too Many Requests
 - Error Response Body  
@@ -143,8 +132,7 @@
 }
 ```
 
-<a id="request-quota-limit"></a>
-## Request Quota Limit { #request-quota-limit }
+## Request Quota Limit
 - Cause: Returns an error response when a request exceeding the request quota limit is rejected.
 - Response HTTP Status: 429 Too Many Requests
 - Error Response Body
@@ -158,8 +146,7 @@
 }
 ```
 
-<a id="invalid-uri-error"></a>
-## Invalid URI error { #invalid-uri-error }
+## Invalid URI error  
 - Cause: If the URI configuration of the backend endpoint is incorrect, an error response is returned.  
     - It might occur when the value of the path or query string, which is a part of the URI, is incorrect or the value cannot be encoded.
 - Response HTTP Status: 400 Bad Request
@@ -174,8 +161,7 @@
 }
 ```
 
-<a id="could-not-find-the-path-or-method"></a>
-## Could Not Find The Path Or Method { #could-not-find-the-path-or-method }
+## Could Not Find The Path Or Method
 - Cause: Occurs when a request is made with an API path and method not registered in API Resource.
 - Response HTTP Status: 404 Not Found
 - Error response body 
@@ -189,8 +175,7 @@
 }
 ```
 
-<a id="backend-endpoint-service-connection-error"></a>
-## Backend Endpoint Service Connection Error { #backend-endpoint-service-connection-error }
+## Backend Endpoint Service Connection Error 
 - Cause: Occurs when backend endpoint does not respond or refuses to respond.
 - Response HTTP Status: 503 Service Unavailable 
 - Error response body 
@@ -216,8 +201,7 @@
 }
 ```
 
-<a id="api-key"></a>
-## API Key { #api-key }
+## API Key 
 - Cause: The following response is sent when the API key information of the request is missing or incorrect.
 - Response HTTP Status: 403 Forbidden
 - Error Response Body
@@ -239,8 +223,7 @@
 
 
 
-<a id="error-in-setting-context-variables"></a>
-## Error in Setting Context Variables { #error-in-setting-context-variables }
+## Error in Setting Context Variables
 - An error that occurs in Gateway when an invalid context variable is referenced or syntactically used in the API Gateway settings. To fix, you need to modify the context variable settings correctly and then deploy the stage. 
 - Response HTTP Status: 500 Internal Error
 - Error response body
@@ -255,11 +238,9 @@
 ```
 
 
-<a id="invalid-client-request"></a>
-## Invalid Client Request { #invalid-client-request }
+## Invalid Client Request 
 
-<a id="client-ip-header-x-forwarded-for"></a>
-### Client IP Header (X-Forwarded-For) { #client-ip-header-x-forwarded-for }
+### Client IP Header (X-Forwarded-For)
 - Cause: Occurs when the client IP cannot be resolved because the X-Forwarded-For request header value passed by the client is incorrectly formatted. 
 - Response HTTP Status: 400 Bad Request
 - Error response body
@@ -273,8 +254,7 @@
 }
 ```
 
-<a id="failure-in-request-validation"></a>
-### Failure in Request Validation { #failure-in-request-validation }
+### Failure in Request Validation 
 - Cause: A response error is returned when validation fails in the request validator.
 - Response HTTP Status: 400 Bad Request
 - Error reponse body
@@ -288,8 +268,7 @@
 }
 ```
 
-<a id="gateway-maximum-response-timeout"></a>
-## Gateway maximum response timeout { #gateway-maximum-response-timeout }
+## Gateway maximum response timeout
 - Cause: A response error occurs when the response required to complete the request from the backend endpoint is not returned within the gateway maximum response.
 - Response HTTP Stats: 504 Gateway Timeout
 - Error reponse body

@@ -1,19 +1,14 @@
-<!-- pre-align:aligned sig=5880d78e09e9 -->
-
-<a id="application-service-api-gateway-overview"></a>
-## Application Service > API Gateway > Overview { #application-service-api-gateway-overview }
+## Application Service > API Gateway > Overview
 
 
-<a id="api-gateway-overview"></a>
-## API Gateway Overview { #api-gateway-overview }
+## API Gateway Overview
 
 - This service integrates the API endpoints into one by taking up the gateway role for a number of backend endpoint services.
 -  Various features including HTTPS communication, authentication, CORS, and request/response processing can be added without changing/deploying any backend endpoint services by utilizing the plugins provided by API Gateway.
 - Using the dashboard, you can view different indexes such as the number of API entry requests, average response time, number of responses per HTTP status code group (2xx, 5xx).
 
 
-<a id="key-features"></a>
-## Key Features { #key-features }
+## Key Features
 
 1. Flexible API design
     - APIs can be *designed* in API Gateway without changing the backend endpoint service.
@@ -37,8 +32,7 @@
     - Provides statistical indexes including API calls, responses per HTTP status code group (2xx, 3xx, 4xx, 5xx..), and average response time (ms).
 
 
-<a id="how-api-gateway-works"></a>
-## How API Gateway Works { #how-api-gateway-works }
+## How API Gateway Works
 
 ![[Figure 1] How API Gateway works](https://static.toastoven.net/prod_apigateway/v2/apigw-v2-flow.png)
 1. Gateway client makes a request by integrating all requests through API Gateway. API Gateway looks for the request and mapped resources.
@@ -48,8 +42,7 @@
 5. Apply the plugin to the response of the backend endpoint. 
 6. Pass the response to the gateway client.
 
-<a id="service-terms"></a>
-## Service Terms { #service-terms }
+## Service Terms 
 
 | Term | Description |
 | --- | --- |
