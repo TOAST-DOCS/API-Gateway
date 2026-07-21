@@ -589,10 +589,23 @@ Refer to [API documentation](./console-guide/#api-document_1) for details.
 <a id="stage-plugin"></a>
 ## Stage Plugin { #stage-plugin }
 
-<!-- TODO: translate body -->
-
 <a id="backend-endpoint-url-override"></a>
-###  IP ACL { #backend-endpoint-url-override }
+### Backend Endpoint URL Override { #backend-endpoint-url-override }
+
+When passing the requests received by the API Gateway to the backend endpoint, the requests are (by default) passed to the backend endpoint URL defined in the stage.
+To Override the backend endpoint URL concerning certain path or method, set up the redefinition of backend endpoint URL.
+
+1. On the **Stage** tab, select a stage.
+2. Select the **Setup** tab.
+3. Select the path or method to redefine the backend endpoint URL in the Stage Tree screen.
+4. Turn on override of the backend endpoint URL.
+    - Writes the backend endpoint URL to which the request received by API Gateway is to be pass.
+    - Can include the child path in it.
+        - e.g. https://api.nhn.com , https://api.nhn.com/apis
+    - If you specify the port directly in the URL, only ports 80, 443, 10000-12000 can be used.
+
+<a id="ip-acl"></a>
+###  IP ACL { #ip-acl }
 API Gateway requests can be allowed/denied for the client IDs specified through IP ACL.
 
 1. On the **Stage** tab, select a stage.
@@ -614,8 +627,8 @@ API Gateway requests can be allowed/denied for the client IDs specified through 
 > - For IP ACL, **up to 100** IP access targets can be entered.
 > - If the source IP of the client has been changed by network address translation (NAT), please note that the IP ACLs will be checked based on the changed IP.
 
-<a id="ip-acl"></a>
-### Authentication > HMAC { #ip-acl }
+<a id="authentication-hmac"></a>
+### Authentication > HMAC { #authentication-hmac }
 HMAC authentication prevents requests received by the API Gateway being tampered by middle attackers, and also prevents reply attack by setting the expiration period for the requests.
 
 1. On the **Stage** tab, select a stage.
@@ -639,7 +652,6 @@ HMAC authentication prevents requests received by the API Gateway being tampered
 > **[Note] Required validation header** <br>
 > If you have set the required validation header, it validates if the required validation header is included in the request and if it is the value containing the header in the signature while validating the API request.
 > During the setup, make sure the required validation header is included when creating a request and signature.
-
 
 <a id="authentication-hmac-api-client-actions-for-hmac-authentication"></a>
 #### API Client Actions For HMAC Authentication 
@@ -731,7 +743,8 @@ x-nhn-date:2021-02-23T00:00:00+09:00
 >   - e.g. header1-name:header1-value1,header1-value2
 > - The header names and values are separated by colon (:), and do not include space in-between when separating the values.
 
-### Authentication > JWT  
+<a id="authentication-jwt"></a>
+### Authentication > JWT { #authentication-jwt }
 Verifies the signature and claim of JWT token. Token values can be used without token verification for user services.
 
 1. On the **Stage** tab, select a stage.
@@ -782,8 +795,8 @@ Verifies the signature and claim of JWT token. Token values can be used without 
 > API Gateway caches JWKS URI's response for 5 minutes.
 > Due to caching by API Gateway, it may take a maximum of 5 minutes for modifications in JWKS to be reflected in API Gateway.
 
-<a id="authentication-jwt"></a>
-### Access Log { #authentication-jwt }
+<a id="access-log"></a>
+### Access Log { #access-log }
 This is a feature that lets you store API Gateway's access logs in the Log & Crash Search service.
 
 1. On the **Stage** tab, select a stage.
@@ -828,10 +841,8 @@ Access logs can be found in the Log & Crash Search service.
 > If you disable the Log & Crash Search service while using the access log feature, the access logs are no longer stored and the access log feature is automatically disabled.
 > To use the access log feature again, enable the Log & Crash Search service and then enable the access log feature again.
 
-
-
-<a id="access-log"></a>
-### Pre-call API { #access-log }
+<a id="pre-call-api"></a>
+### Pre-call API { #pre-call-api }
 Pre-call API determines whether or not to call the backend endpoint depending on the call response code after calling the user-designated API before calling the backend endpoint.
 Pre-call API including the request headers that came in through the API Gateway is called, and the Pre-call API will return the response code depending on the forwarded header content.
 
@@ -854,21 +865,6 @@ This can be used in a situation where authentication through a separate API call
 > **[Note] Response Result Caching for Pre-call API** <br>
 > Response results are only cached if Pre-call API’s response result code is 200.
 > If the response result code is not 200, response results will not be cached even if the cache time limit is set.
-
-<a id="pre-call-api"></a>
-### Backend Endpoint URL Override { #pre-call-api }
-
-When passing the requests received by the API Gateway to the backend endpoint, the requests are (by default) passed to the backend endpoint URL defined in the stage.
-To Override the backend endpoint URL concerning certain path or method, set up the redefinition of backend endpoint URL.
-
-1. On the **Stage** tab, select a stage.
-2. Select the **Setup** tab.
-3. Select the path or method to redefine the backend endpoint URL in the Stage Tree screen.
-4. Turn on override of the backend endpoint URL.
-    - Writes the backend endpoint URL to which the request received by API Gateway is to be pass.
-    - Can include the child path in it.
-        - e.g. https://api.nhn.com , https://api.nhn.com/apis
-    - If you specify the port directly in the URL, only ports 80, 443, 10000-12000 can be used.
 
 <a id="request-number-limit"></a>
 ### Request Number Limit { #request-number-limit }
@@ -901,43 +897,7 @@ Requests received by the API gateway every second can be adjusted using the requ
 > - The requests per seconds set and the actual number of requests could slightly differ depending on the time delivered to API Gateway, request processing time, and other factors.  
 
 <a id="validate-requests"></a>
-### Request Restriction Policy { #validate-requests }
-Applies registered request restriction policy to stage resource paths or methods. For more information, see [Request Restriction Policy](./console-guide/#request-restriction-policy_1).
-
-1. Select a stage on **Stage** tab.
-2. Select **Settings** tab.
-3. On Stage Tree screen, select a path or method you want to apply request restriction policy.
-4. **Enables (On)** request restriction policy.
-5. Select a request restriction policy to apply and click the **Modify** button to save it.
-6. Click the **Deploy Stage** button. When the stage deployment is complete, the set request restriction policy works.
-
-<a id="api-key"></a>
-### API Key { #api-key }
-
-When making an API request to API Gateway, it is restricted to only the specified API key to be requested.
-
-- Examines if it is a valid API key value.
-- Only the API key connected to the stage of the usage plan can request the API of the stage. (For details, refer to [Usage Plan > Connect Stage to Usage Plan](./console-guide/#connect-stage-to-usage-plan).)
-- Examines the request limit of the usage plan the API key is connected to. (For details on how to set the request limit of a usage plan, refer to [Usage Plan > Create Usage Plan](./console-guide/#create-usage-plan).)
-
-> **[Note] API key failure response** <br>
-> The API request is rejected when the API key value is not included in the requested header, of its invalid, or exceeds the usage limit.
-> For more information, see the [Gateway Error Code](./error-code/) document.
-
-1. On the **Stage** tab, select a stage.
-2. Select the **Settings** tab.
-3. Select the path or method to enable API key in the stage tree screen.
-   - The API key set in a path is applied to all child paths and method calls defined under the path.
-4. Select **Setup** from the API key and enable it (on).
-5. Deploy the stage.
-6. When requesting API, it is requested by adding the API key value to the x-nhn-apikey header.
-
-| Header name | Header value |
-| --- | --- |
-| x-nhn-apikey | <primary api key or secondary api key\> |
-
-<a id="request-restriction-policy"></a>
-### Validate Requests { #request-restriction-policy }
+### Validate Requests { #validate-requests }
 Validates the client request according to the request parameter settings set in the API Gateway resource.
 If validation fails, it returns an error response and does not forward the request to the backend endpoint.
 
@@ -974,6 +934,42 @@ If validation fails, it returns an error response and does not forward the reque
 > **[Caution] Setting form data and request body** <br>
 > You can't set form data and request body at the same time.
 > You cannot support application/x-www-form-urlencoded and application/json as Content-Type on the same resource at the same time, so you must separate resources based on content type.
+
+<a id="api-key"></a>
+### API Key { #api-key }
+
+When making an API request to API Gateway, it is restricted to only the specified API key to be requested.
+
+- Examines if it is a valid API key value.
+- Only the API key connected to the stage of the usage plan can request the API of the stage. (For details, refer to [Usage Plan > Connect Stage to Usage Plan](./console-guide/#connect-stage-to-usage-plan).)
+- Examines the request limit of the usage plan the API key is connected to. (For details on how to set the request limit of a usage plan, refer to [Usage Plan > Create Usage Plan](./console-guide/#create-usage-plan).)
+
+> **[Note] API key failure response** <br>
+> The API request is rejected when the API key value is not included in the requested header, of its invalid, or exceeds the usage limit.
+> For more information, see the [Gateway Error Code](./error-code/) document.
+
+1. On the **Stage** tab, select a stage.
+2. Select the **Settings** tab.
+3. Select the path or method to enable API key in the stage tree screen.
+   - The API key set in a path is applied to all child paths and method calls defined under the path.
+4. Select **Setup** from the API key and enable it (on).
+5. Deploy the stage.
+6. When requesting API, it is requested by adding the API key value to the x-nhn-apikey header.
+
+| Header name | Header value |
+| --- | --- |
+| x-nhn-apikey | <primary api key or secondary api key\> |
+
+<a id="request-restriction-policy"></a>
+### Request Restriction Policy { #request-restriction-policy }
+Applies registered request restriction policy to stage resource paths or methods. For more information, see [Request Restriction Policy](./console-guide/#request-restriction-policy_1).
+
+1. Select a stage on **Stage** tab.
+2. Select **Settings** tab.
+3. On Stage Tree screen, select a path or method you want to apply request restriction policy.
+4. **Enables (On)** request restriction policy.
+5. Select a request restriction policy to apply and click the **Modify** button to save it.
+6. Click the **Deploy Stage** button. When the stage deployment is complete, the set request restriction policy works.
 
 <a id="model"></a>
 ## Model { #model }
