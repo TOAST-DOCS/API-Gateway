@@ -1,15 +1,20 @@
+<!-- pre-align:aligned sig=5880d78e09e9 -->
+
 ﻿
-## Application Service > API Gateway > 概要
+<a id="application-service-api-gateway-overview"></a>
+## Application Service > API Gateway > 概要 { #application-service-api-gateway-overview }
 
 
-## API Gateway概要
+<a id="api-gateway-overview"></a>
+## API Gateway概要 { #api-gateway-overview }
 
 - 複数のバックエンドエンドポイントサービスのゲートウェイの役割を担い、APIのエンドポイントを1つに統合できるサービスです。
 - API Gatewayで提供するプラグインを通して、バックエンドエンドポイントサービスの変更/配布を行わずに機能を追加できます。(HTTPS通信、認証、CORS、リクエスト/レスポンス加工など)
 - ダッシュボードを通して、APIに入ったリクエスト数、平均レスポンス時間、 HTTPステータスコードグループ(2xx、5xx)別レスポンス数などの指標を確認できます。
 
 
-## 主な機能
+<a id="key-features"></a>
+## 主な機能 { #key-features }
 
 1. 柔軟なAPI設計
     - バックエンドエンドポイントサービスの変更を行わずにAPI GatewayでAPIを設計できます。
@@ -33,7 +38,8 @@
     - API呼び出し数、HTTPステータスコードグループ別(2xx,3xx,4xx,5xx..)レスポンス数、平均レスポンス時間(ms)の統計指標を提供します。
 
 
-## API Gateway動作方式
+<a id="how-api-gateway-works"></a>
+## API Gateway動作方式 { #how-api-gateway-works }
 
 ![[図1] API Gateway動作方式](https://static.toastoven.net/prod_apigateway/v2/apigw-v2-flow.png)
 1. ゲートウェイクライアントはすべてのリクエスト(Request)をAPI Gatewayへ統合リクエストします。APIゲートウェイはリクエストとマッピングするリソースを探します。
@@ -43,7 +49,8 @@
 5. バックエンドエンドポイントのレスポンスにプラグインを適用します。 
 6. ゲートウェイクライアントへレスポンスを伝達します。 
 
-## サービス用語 
+<a id="service-terms"></a>
+## サービス用語 { #service-terms }
 
 | 用語 | 説明 |
 | --- | --- |

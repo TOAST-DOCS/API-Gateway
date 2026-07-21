@@ -1,4 +1,7 @@
-## Application Service > API Gateway > API Error Code
+<!-- pre-align:aligned sig=96a6b92616a7 -->
+
+<a id="application-service-api-gateway-api-error-code"></a>
+## Application Service > API Gateway > API Error Code { #application-service-api-gateway-api-error-code }
 
 |Error Code|Error Message|Description|
 |---|---|---|

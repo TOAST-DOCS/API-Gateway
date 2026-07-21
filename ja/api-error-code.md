@@ -1,4 +1,7 @@
-## Application Service > API Gateway > APIエラーコード
+<!-- pre-align:aligned sig=96a6b92616a7 -->
+
+<a id="application-service-api-gateway-api-error-code"></a>
+## Application Service > API Gateway > APIエラーコード { #application-service-api-gateway-api-error-code }
 
 |エラーコード|エラーメッセージ|説明|
 |---|---|---|

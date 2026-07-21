@@ -1,10 +1,15 @@
-## Application Service > API Gateway > API v2.0 Guide
+<!-- pre-align:aligned sig=8719089df73c -->
+
+<a id="application-service-api-gateway-api-v20-guide"></a>
+## Application Service > API Gateway > API v2.0 Guide { #application-service-api-gateway-api-v20-guide }
 
 This guide describes Public API v2.0 provided by NHN Cloud API Gateway.
 
-## API Common Information
+<a id="api-common-information"></a>
+## API Common Information { #api-common-information }
 
-### API Endpoint
+<a id="api-endpoint"></a>
+### API Endpoint { #api-endpoint }
 
 The endpoints by region for calling the API are as follows.
 
@@ -14,12 +19,15 @@ The endpoints by region for calling the API are as follows.
 | Korea (Pyeongchon) | https://kr2-apigateway.api.nhncloudservice.com |
 | Korea (Gwangju) | https://kr3-apigateway.api.nhncloudservice.com |
 
-### Authentication and Authorization
+<a id="authentication-and-authorization"></a>
+### Authentication and Authorization { #authentication-and-authorization }
 
 API Gateway uses User Access Key tokens for authentication and authorization when making API calls. The User Access Key token is a temporary, Bearer-type access token issued from a User Access Key. For more information on issuing and using User Access Key tokens, please refer to the [User Access Key Token](/nhncloud/en/public-api/user-access-key-token).
 
-### Request Common Information
+<a id="request-common-information"></a>
+### Request Common Information { #request-common-information }
 
+<a id="request-common-information-path-parameter"></a>
 #### Path Parameter
 
 All APIs must specify the appkey as a path parameter.
@@ -29,7 +37,8 @@ All APIs must specify the appkey as a path parameter.
 | ------ | --------------------- |
 | appKey | Appkey issued from the console |
 
-### Response Common Information
+<a id="response-common-information"></a>
+### Response Common Information { #response-common-information }
 
 The service responds with **200 OK** to all API requests. For detailed response results, refer to the header of the response body as in the following example.
 
@@ -89,11 +98,14 @@ The service responds with **200 OK** to all API requests. For detailed response 
 * If an invalid API request is made, detailed error reason and field information is responded in the errorList field.
 
 
-## API Gateway Service
+<a id="api-gateway-service"></a>
+## API Gateway Service { #api-gateway-service }
 
-### List API Gateway Services 
+<a id="list-api-gateway-services"></a>
+### List API Gateway Services { #list-api-gateway-services }
 - Retrieves the list of API Gateway services.
 
+<a id="list-api-gateway-services-request"></a>
 #### Request
 
 [URI]
@@ -110,6 +122,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | page | Integer | Optional | 1 | N/A | Page |
 | limit | Integer | Optional | 10 | Max. 1000 | Count per page |
 
+<a id="list-api-gateway-services-response"></a>
 #### Response
 
 [Response]
@@ -171,9 +184,11 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |apigwServiceList[0].updatedAt           |DateTime| API Gateway service modification date and time                                      |
 
 
-### Get API Gateway Service 
+<a id="get-api-gateway-service"></a>
+### Get API Gateway Service { #get-api-gateway-service }
 - Retrieves a single API Gateway service with API Gateway service ID.
 
+<a id="get-api-gateway-service-request"></a>
 #### Request
 
 [URI]
@@ -189,6 +204,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
 
 
+<a id="get-api-gateway-service-response"></a>
 #### Response
 
 [Response]
@@ -240,12 +256,14 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 
-### Create API Gateway Service
+<a id="create-api-gateway-service"></a>
+### Create API Gateway Service { #create-api-gateway-service }
 - Creates an API Gateway service.
 - You can choose the region where the API Gateway server will be created. Currently, only the Korea (Pangyo) region is supported.
 - When you create an API Gateway service, an API Gateway service ID is automatically issued.
 
 
+<a id="create-api-gateway-service-request"></a>
 #### Request
 
 [URI]
@@ -276,6 +294,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apigwServiceDescription | String | Optional | N/A | Max. 200 characters  | API Gateway service alias |
 
 
+<a id="create-api-gateway-service-response"></a>
 #### Response
 
 [Response]
@@ -326,9 +345,11 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |apigwService.updatedAt           |DateTime| API Gateway service modification date and time                                      |
 
 
-### Modify API Gateway Service
+<a id="modify-api-gateway-service"></a>
+### Modify API Gateway Service { #modify-api-gateway-service }
 - Modifies the name and description of an API Gateway service.
 
+<a id="modify-api-gateway-service-request"></a>
 #### Request
 
 [URI]
@@ -364,6 +385,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apigwServiceDescription | String | Optional | N/A | Max. 200 characters  | API Gateway service alias |
 
 
+<a id="modify-api-gateway-service-response"></a>
 #### Response
 
 [Response]
@@ -413,12 +435,14 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |apigwService.createdAt           |DateTime|Service creation date and time                                      |
 |apigwService.updatedAt           |DateTime|Service modification date and time                                      |
 
-### Delete API Gateway Service
+<a id="delete-api-gateway-service"></a>
+### Delete API Gateway Service { #delete-api-gateway-service }
 - Deletes an API Gateway Service.  
 - Deleting the API Gateway service deletes all stages.  
 - If the stage of the API Gateway service you want to delete is associated with a usage plan, the service cannot be deleted. To delete the service, disassociate all stages associated with the usage plan and then delete it.
 - Please note that deleted API Gateway services cannot be recovered.
 
+<a id="delete-api-gateway-service-request"></a>
 #### Request
 
 [URI]
@@ -433,6 +457,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | --- | --- | --- | --- | --- | --- |
 | apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
 
+<a id="delete-api-gateway-service-response"></a>
 #### Response
 
 [Response]
@@ -452,12 +477,15 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 </details>
 
-## Resource
+<a id="resource"></a>
+## Resource { #resource }
 
-### List Resources
+<a id="list-resources"></a>
+### List Resources { #list-resources }
 
 - Retrieves a list of resources.
 
+<a id="list-resources-request"></a>
 #### Request
 
 [URI]
@@ -472,6 +500,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | -------------- | ------ | ----- | --- | ----- | ------------------ |
 | apigwServiceId | String | Required    | N/A  | N/A    | API Gateway service ID |
 
+<a id="list-resources-response"></a>
 #### Response
 
 [Response]
@@ -557,13 +586,15 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourceList[2].resourcePluginList[0].createdAt        | DateTime | Resource plugin creation date and time                                  |
 | resourceList[2].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
 
-### Create Resource Paths and Methods
+<a id="create-resource-paths-and-methods"></a>
+### Create Resource Paths and Methods { #create-resource-paths-and-methods }
 - You can create multiple resource paths and methods, and set the plugin at the time of creation.
 - Resource methods are optional input. To add a method under the created resource path, you need to use the [Create Resource Methods API](./api-guide-v2.0/#create-resource-methods).
 - Resource methods must have either HTTP or MOCK plugin set. HTTP and MOCK plugins cannot be set at the same time.
 - The created resource path cannot be modified.
 - The resource path plugins defined in the pathPluginList field are the list of plugins that are applied to child methods of that path.
 
+<a id="create-resource-paths-and-methods-request"></a>
 #### Request
 
 [URI]
@@ -680,6 +711,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourcePathList[0].methodList[0].methodPluginList[0].pluginType | Enum | Required | N/A | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | The plugin type that can be set in the resource method among [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type) |
 | resourcePathList[0].methodList[0].methodPluginList[0].pluginConfigJson | Object | Required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin)|
 
+<a id="create-resource-paths-and-methods-response"></a>
 #### Response
 
 [Response]
@@ -928,10 +960,12 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourceList[1].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
 
 
-### Create Resource Methods
+<a id="create-resource-methods"></a>
+### Create Resource Methods { #create-resource-methods }
 - Creates resource methods under the created resource path.
 - Resource methods must have either HTTP or MOCK plugin set. HTTP and MOCK plugins cannot be set at the same time.
 
+<a id="create-resource-methods-request"></a>
 #### Request
 
 [URI]
@@ -988,6 +1022,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | methodList[0].methodPluginList[0].pluginType | Enum | Required | N/A | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | The plugin type that can be set in the resource method among [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type) |
 | methodList[0].methodPluginList[0].pluginConfigJson | Object | Required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin)|
 
+<a id="create-resource-methods-response"></a>
 #### Response
 
 [Response]
@@ -1067,7 +1102,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourceList[0].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
 
 
-### Modify/Delete Resource Path Plugins
+<a id="modifydelete-resource-path-plugins"></a>
+### Modify/Delete Resource Path Plugins { #modifydelete-resource-path-plugins }
 - Adds, modifies, or deletes resource path plugins.
 - If you set a plugin that has not been added to the resource path, the plugin is added.
 - If you set a plugin that has been added to the resource path, it is changed to the requested plugin setting.
@@ -1077,6 +1113,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 - If the CORS plugin is set, the OPTIONS method is automatically created as a child method. Note that if there is an existing OPTIONS method, it will be deleted and replaced.
 - Only the plugins that can be set in the resource path can be set. For more information, see [Resource Plugins](./api-guide-v2.0/#resource-plugin).
 
+<a id="modifydelete-resource-path-plugins-request"></a>
 #### Request
 
 [URI]
@@ -1142,6 +1179,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | pathPluginList[0].applyChildPath | Boolean | Optional | false | true, false | Whether to overwrite child paths and methods |
 | pathPluginList[0].delete | Boolean | Optional | false | true, false | Whether to delete the plugin |
 
+<a id="modifydelete-resource-path-plugins-response"></a>
 #### Response
 
 [Response]
@@ -1209,7 +1247,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourceList[0].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
 
 
-### Modify/Delete Resource Method Information and Plugins
+<a id="modifydelete-resource-method-information-and-plugins"></a>
+### Modify/Delete Resource Method Information and Plugins { #modifydelete-resource-method-information-and-plugins }
 - You can modify the name and description of the resource method.
 - Adds, modifies, or deletes resource method plugins.
 - If you set a plugin that has not been added to the resource method, the plugin is added.
@@ -1217,6 +1256,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 - If the delete field is set to true, the plugin of the requested plugin type is deleted. If the delete field is true, the pluginConfigJson field does not need to be defined.
 - Only the plugins that can be set on resource methods can be set. For more information, see [Resource Plugins](./api-guide-v2.0/#resource-plugin).
 
+<a id="modifydelete-resource-method-information-and-plugins-request"></a>
 #### Request
 
 [URI]
@@ -1269,6 +1309,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | methodPluginList[0].pluginConfigJson | Object | Conditionally required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin), required input when the delete field is false.|
 | methodPluginList[0].delete | Boolean | Optional | false | N/A | Whether to delete the plugin |
 
+<a id="modifydelete-resource-method-information-and-plugins-response"></a>
 #### Response
 
 [Response]
@@ -1335,7 +1376,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourceList[0].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
 
 
-### Delete Resource
+<a id="delete-resource"></a>
+### Delete Resource { #delete-resource }
 - Deletes a resource.
 - The root ("/") path resource cannot be deleted.
 - The OPTIONS method created by the CORS plugin cannot be deleted. 
@@ -1343,6 +1385,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 - Deleting a path resource deletes all child paths and method resources.
 - Deleted resources cannot be recovered.
 
+<a id="delete-resource-request"></a>
 #### Request
 
 [URI]
@@ -1358,6 +1401,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
 | resourceId | String | Required | N/A | N/A | Resource ID |
 
+<a id="delete-resource-response"></a>
 #### Response
 
 [Response Body]
@@ -1372,12 +1416,14 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
-### Import Resource
+<a id="import-resource"></a>
+### Import Resource { #import-resource }
 - Imports resources from a file in the [Swagger v2.0 OpenAPI Specification](https://swagger.io/specification/v2/) format.
 - When resources are imported, all existing resources created in the service are deleted and overwritten with the imported resources.
 - When a resource is imported, all existing models created in the service are deleted and overwritten with the imported model.
 - Note that data of invalid operation in Swagger paths > path > operation will be ignored and not registered.
 
+<a id="import-resource-request"></a>
 #### Request
 
 [URI]
@@ -1511,9 +1557,11 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 
-## Resource Plugin
+<a id="resource-plugin"></a>
+## Resource Plugin { #resource-plugin }
 
-### HTTP
+<a id="http"></a>
+### HTTP { #http }
 - Sets the backend endpoint path to forward the request to for the resource path where API Gateway will receive the request.
 - It can only be set in resource methods.
 - It cannot be set at the same time as the MOCK plugin.
@@ -1530,7 +1578,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | frontendEndpointPath | String | Required | N/A | Max. 255 characters | The resource path where API Gateway will receive requests. |
 | backendEndpointPath  | String | Required | N/A | Max. 255 characters | Backend endpoint path to forward requests received from API Gateway |
 
-### MOCK
+<a id="mock"></a>
+### MOCK { #mock }
 - Returns a response defined for a received request.
 - It can only be set on resource methods.
 - It cannot be set at the same time as the HTTP plugin.
@@ -1551,7 +1600,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | headers[{HeaderName}] | Object | Required | N/A | N/A | Map Entry for custom response headers (Key: header name, Value: header value) |
 | body                  | String | Optional | N/A | N/A | Custom response body                         |
 
-### CORS
+<a id="cors"></a>
+### CORS { #cors }
 - Allows XMLHttpRequest API calls within a cross-site method.
 - It can only be set on resource paths.
 - The OPTIONS method is automatically created under the path where the CORS plugin is set, and if there is a registered OPTIONS method, it is replaced.
@@ -1581,7 +1631,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 
-### SET_REQUEST_HEADER
+<a id="setrequestheader"></a>
+### SET_REQUEST_HEADER { #setrequestheader }
 - Add or change the request header. 
 - It can be set in the resource path and method.
 ```json
@@ -1597,7 +1648,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | headers | Map | Required | N/A | N/A | Area for request header object to add or change |
 | headers[{HeaderName}] | Object | Required | N/A | N/A | Map Entry of request headers to add and change (Key: header name, Value: header value) |
 
-### REMOVE_REQUEST_HEADER
+<a id="removerequestheader"></a>
+### REMOVE_REQUEST_HEADER { #removerequestheader }
 - Deletes the request header.  
 - It can be set in the resource path and method.
 ```json
@@ -1616,7 +1668,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | headers[0] | Token ID | Required | None | N/A | Request header name to delete |
 
 
-### SET_RESPONSE_HEADER
+<a id="setresponseheader"></a>
+### SET_RESPONSE_HEADER { #setresponseheader }
 - The response header change plugin adds or changes a header to backend responses. 
 - It can be set in the resource path and method.
 ```json
@@ -1633,7 +1686,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | headers[{HeaderName}] | Object | Required | N/A | N/A | Map Entry of request headers to add and change (Key: header name, Value: header value) |
 
 
-### REMOVE_RESPONSE_HEADER
+<a id="removeresponseheader"></a>
+### REMOVE_RESPONSE_HEADER { #removeresponseheader }
 - Delete the response headers.  
 - It can be set in the resource path and method.
 ```json
@@ -1652,7 +1706,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | headers\[0] | Token ID | Required | None | N/A | Response header name to delete |
 
 
-### ADD_REQUEST_QUERY_PARAMETER
+<a id="addrequestqueryparameter"></a>
+### ADD_REQUEST_QUERY_PARAMETER { #addrequestqueryparameter }
 - Add a query string parameter to the backend endpoint request.
 - It can be set in the resource path and method.
 ```json
@@ -1668,11 +1723,14 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | parameters | Map| Required | N/A | N/A | Area for objects of request query string parameters to add |
 | parameters[{QueryName}] | Object | Required | N/A | N/A  | Map Entry of the query parameter string to add (Key: parameter name, Value: parameter value) |
 
-## Resource Parameter
+<a id="resource-parameter"></a>
+## Resource Parameter { #resource-parameter }
 
-### List Resource Parameters 
+<a id="list-resource-parameters"></a>
+### List Resource Parameters { #list-resource-parameters }
 - Retrieves a list of resource parameters.
 
+<a id="list-resource-parameters-request"></a>
 #### Request
 
 [URI]
@@ -1688,6 +1746,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apigwServiceId | String | Required    | N/A  | N/A    | API Gateway service ID |
 | resourceId     | String | Required    | N/A  | N/A    | API Gateway resource ID |
 
+<a id="list-resource-parameters-response"></a>
 #### Response
 
 [Response]
@@ -1778,10 +1837,12 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 
-### Create Resource Parameters
+<a id="create-resource-parameters"></a>
+### Create Resource Parameters { #create-resource-parameters }
 - Creates parameters of a resource method.
 - Existing resource parameters are deleted, and requested resource parameters are created. 
 
+<a id="create-resource-parameters-request"></a>
 #### Request
 
 [URI]
@@ -1869,6 +1930,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | contentTypeList                | List    | Optional    | Empty List    | Max. 10 items                                              | Content type list area                                         |
 | contentTypeList[0]             | String  | Required    | N/A           | \*/* format                                             | Enter the content type (e.g., application/json) of the documents to send to the server.                                               |
 
+<a id="create-resource-parameters-response"></a>
 #### Response
 
 [Response Body]
@@ -1883,11 +1945,14 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
-## Resource Response
+<a id="resource-response"></a>
+## Resource Response { #resource-response }
 
-### Get Resource Response 
+<a id="get-resource-response"></a>
+### Get Resource Response { #get-resource-response }
 - Retrieves the header, request body item, and content type for each HTTP response status code.
 
+<a id="get-resource-response-request"></a>
 #### Request
 
 [URI]
@@ -1903,6 +1968,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apigwServiceId | String | Required    | N/A  | N/A    | API Gateway service ID |
 | resourceId     | String | Required    | N/A  | N/A    | API Gateway resource ID |
 
+<a id="get-resource-response-response"></a>
 #### Response
 
 [Response]
@@ -1960,9 +2026,11 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | contentTypeList[0]                        | String  | Enter the content type (e.g., application/json) of the documents to send to the server.                                               |
 
 
-### Create Resource Responses
+<a id="create-resource-responses"></a>
+### Create Resource Responses { #create-resource-responses }
 - Existing resource responses are deleted, and header, request body items, and content type for each requested HTTP response status code are created.
 
+<a id="create-resource-responses-request"></a>
 #### Request
 
 [URI]
@@ -2028,6 +2096,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | contentTypeList[0]                        | String  | Required    | N/A           | \*/* format                                        | Enter the content type (e.g., application/json) of the documents to send to the server.                                               |
 
 
+<a id="create-resource-responses-response"></a>
 #### Response
 
 [Response Body]
@@ -2042,11 +2111,14 @@ The service responds with **200 OK** to all API requests. For detailed response 
 }
 ```
 
-## Model
+<a id="model"></a>
+## Model { #model }
 
-### List Models 
+<a id="list-models"></a>
+### List Models { #list-models }
 - Retrieves a list of models.
 
+<a id="list-models-request"></a>
 #### Request
 
 [URI]
@@ -2069,6 +2141,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | limit | Integer | Optional | 10 | Max. 1000 | Count per page |
 | modelName | String | Optional | N/A | Max. 50 characters  | Model name filter condition. It must contain a string of the model name.|
 
+<a id="list-models-response"></a>
 #### Response
 
 [Response]
@@ -2136,10 +2209,12 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 
-### Create Model
+<a id="create-model"></a>
+### Create Model { #create-model }
 - Creates a model in JSON Schema format.
 - Mode names cannot be duplicated.
 
+<a id="create-model-request"></a>
 #### Request
 
 [URI]
@@ -2191,6 +2266,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | modelDescription | String | Optional    | N/A  | Max. 200 characters | Model description                                                        |
 | modelSchema      | Object | Required    | N/A  | Max. 65535 characters| [JSON Schema](https://json-schema.org/) draft-04 JSON object of model |
 
+<a id="create-model-response"></a>
 #### Response
 
 [Response]
@@ -2246,10 +2322,12 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |model.updatedAt       |DateTime|Model modification date and time            |
 
 
-### Modify Model 
+<a id="modify-model"></a>
+### Modify Model { #modify-model }
 - Modifies the description and schema of model. 
 - Model name cannot be changed. 
 
+<a id="modify-model-request"></a>
 #### Request
 
 [URI]
@@ -2300,6 +2378,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | modelSchema      | Object | Required    | N/A  | Max. 65535 characters| [JSON Schema](https://json-schema.org/) draft-04 JSON object of model |
 
 
+<a id="modify-model-response"></a>
 #### Response
 
 [Response]
@@ -2355,10 +2434,12 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |model.updatedAt       |DateTime|Model modification date and time            |
 
 
-### Delete Model
+<a id="delete-model"></a>
+### Delete Model { #delete-model }
 - Deletes a model.
 - If the model is referenced in a request parameter or response of a resource, the model cannot be deleted. To delete a model, please release the reference and then delete the model.
 
+<a id="delete-model-request"></a>
 #### Request
 
 [URI]
@@ -2374,6 +2455,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
 | modelId | String | Required | N/A | N/A | Model ID |
 
+<a id="delete-model-response"></a>
 #### Response
 
 [Response]
@@ -2393,11 +2475,14 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 </details>
 
-## Stage
+<a id="stage"></a>
+## Stage { #stage }
 
-### List Stages 
+<a id="list-stages"></a>
+### List Stages { #list-stages }
 - Retrieves a list of stages.
 
+<a id="list-stages-request"></a>
 #### Request
 
 [URI]
@@ -2419,6 +2504,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | page | Integer | Optional | 1 | N/A | Page |
 | limit | Integer | Optional | 10 | Max. 1000 | Count per page |
 
+<a id="list-stages-response"></a>
 #### Response
 
 [Response]
@@ -2480,10 +2566,12 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stageList[0].updatedAt        |DateTime|Stage modification date and time           |
 
 
-### Swagger Export
+<a id="swagger-export"></a>
+### Swagger Export { #swagger-export }
 - Retrieves a Swagger document. 
 - Swagger documents are extracted based on the current stage settings, not the settings deployed in API Gateway.
 
+<a id="swagger-export-request"></a>
 #### Request
 
 [URI]
@@ -2499,6 +2587,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
 | stageId | String | Required | N/A | N/A | Stage ID |
 
+<a id="swagger-export-response"></a>
 #### Response
 
 ```json
@@ -2517,9 +2606,11 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |swaggerData        |Object    | A Swagger JSON object based on the current stage. See [Swagger v2.0 OpenAPI Specification](https://swagger.io/specification/v2/). |
 
 
-### Create Stage
+<a id="create-stage"></a>
+### Create Stage { #create-stage }
 - Creates a stage. 
 
+<a id="create-stage-request"></a>
 #### Request
 
 [URI]
@@ -2563,6 +2654,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 
+<a id="create-stage-response"></a>
 #### Response
 
 [Response]
@@ -2612,10 +2704,12 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stage.createdAt        |DateTime|Stage creation date and time           |
 |stage.updatedAt        |DateTime|Stage modification date and time           |
 
-### Modify Stage 
+<a id="modify-stage"></a>
+### Modify Stage { #modify-stage }
 - You can modify the backend endpoint URL and description of the stage.
 - Stage name cannot be changed.
 
+<a id="modify-stage-request"></a>
 #### Request
 
 [URI]
@@ -2652,6 +2746,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | stageDescription | String | Optional | N/A | Max. 200 characters  | Stage description |
 
 
+<a id="modify-stage-response"></a>
 #### Response
 
 [Response]
@@ -2702,11 +2797,13 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stage.updatedAt        |DateTime|Stage modification date and time           |
 
 
-### Delete Stage
+<a id="delete-stage"></a>
+### Delete Stage { #delete-stage }
 - Deletes a stage.
 - If the stage you want to delete is connected to a usage plan, it cannot be deleted. Disconnect the stage from the usage plan and delete it.
 - Deleted stages cannot be recovered.
 
+<a id="delete-stage-request"></a>
 #### Request
 
 [URI]
@@ -2722,6 +2819,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
 | stageId | String | Required | N/A | N/A | Stage ID |
 
+<a id="delete-stage-response"></a>
 #### Response
 
 [Response Body]
@@ -2737,11 +2835,13 @@ The service responds with **200 OK** to all API requests. For detailed response 
 ```
 
 
-### List Stage Resources 
+<a id="list-stage-resources"></a>
+### List Stage Resources { #list-stage-resources }
 * Retrieves a list of resources registered on the stage. The stage resource plugin information set for each resource is included.
 * For more information about the stage resource plugin, see [Stage Resource Plugin](./api-guide-v2.0/#stage-resource-plugin).
 
 
+<a id="list-stage-resources-request"></a>
 #### Request
 
 [URI]
@@ -2758,6 +2858,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | stageId | String | Required | N/A | N/A | Stage ID |
 
 
+<a id="list-stage-resources-response"></a>
 #### Response
 
 [Response]
@@ -2843,12 +2944,14 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 
-### Import Resources to Stage
+<a id="import-resources-to-stage"></a>
+### Import Resources to Stage { #import-resources-to-stage }
 * Imports API Gateway Service > Resources to stage. 
 * When a resource is imported, stage resources and stage resource plugins are all newly created. 
 * Existing resource paths and stage resource plugin settings set in methods are maintained. 
 * If no changes are found on the resource, no action is taken.
 
+<a id="import-resources-to-stage-request"></a>
 #### Request
 
 [URI]
@@ -2865,6 +2968,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | stageId | String | Required | N/A | N/A | Stage ID |
 
 
+<a id="import-resources-to-stage-response"></a>
 #### Response
 
 [Response]
@@ -2950,11 +3054,13 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 
-### Modify Stage Resource
+<a id="modify-stage-resource"></a>
+### Modify Stage Resource { #modify-stage-resource }
 * Modifies the backend endpoint URL override and stage resource plugin set in the resource path or resource method.
 * When a stage resource is modified, all registered stage resource plugins are deleted, and only the requested resource plugin is newly registered.
 * For more information about the Stage Resource Plugin, see [Stage Resource Plugin](./api-guide-v2.0/#stage-resource-plugin).
 
+<a id="modify-stage-resource-request"></a>
 #### Request
 
 [URI]
@@ -3002,6 +3108,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 * The customBackendEndpointUrl field cannot be set in the root (/) resource path.
 
 
+<a id="modify-stage-resource-response"></a>
 #### Response
 
 [Response]
@@ -3086,7 +3193,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
 
-## Stage Resource Plugin
+<a id="stage-resource-plugin"></a>
+## Stage Resource Plugin { #stage-resource-plugin }
 * For resources of the stage, features such as access control, authentication, and usage control can be set in the form of plug-ins. 
 * When a plugin is set in the upper level, it is applied to all child methods collectively, and can be overridden in child paths/methods. 
 
@@ -3113,7 +3221,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | Resource method  |Backend endpoint URL override, Pre-call API, Request number limit, API Key |
 
 
-### IP ACL 
+<a id="ip-acl"></a>
+### IP ACL { #ip-acl }
 * API Gateway requests can be allowed/denied for the client IDs specified through IP ACL.
 * It can be set on any resource path and method. The settings are applied to all child resources.
 
@@ -3146,7 +3255,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | pluginConfigJson.ipAclList[0].description | String | Optional | N/A | Max. 200 characters | Set the description. |
 
 
-### HMAC
+<a id="hmac"></a>
+### HMAC { #hmac }
 * Settings for validating the tampering of client requests through HMAC signature verification. 
 * It can only be set on the root (/) resource path. The settings are applied to all child resources.
 * HMAC authentication cannot be set at the same time as JWT authentication. 
@@ -3177,7 +3287,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | pluginConfigJson.enforceHeaders[0] | String | Required | N/A | N/A| String of required validation headers |
 
 
-### JWT 
+<a id="jwt"></a>
+### JWT { #jwt }
 * Settings for validating the signature of the JWT token and request claims.
 * It can only be set on the root (/) resource path. The settings are applied to all child resources.
 * JWT authentication cannot be set at the same time as HMAC authentication.
@@ -3348,7 +3459,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | pluginConfigJson.claimValidationCondition | Object | Optional | Default Object | N/A | Claim validation condition field (encryption algorithm: same as claimValidationCondition field description of HS256) |
 
 
-### Pre-call API 
+<a id="pre-call-api"></a>
+### Pre-call API { #pre-call-api }
 * The pre-call API calls the user-specified API before calling the backend endpoint to ensure that the backend endpoint is called only if the call's response code is 200 OK.
 * It can be set on any resource path and method. 
 
@@ -3372,7 +3484,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | pluginConfigJson.cacheTtl | Integer | Optional | 0 | 0~86400 | Set the cache period of the response status code of the pre-call API. <br/>The code is cached for the configured amount of time only if the response status code is 200 OK. If it is cached, the pre-call API is not called. |
 
 
-### Request Number Limit 
+<a id="request-number-limit"></a>
+### Request Number Limit { #request-number-limit }
 * Limits the number of requests per second. 
 * It can be set in the root (/) resource path and the resource method. 
 * By setting the request limit key, you can set a limit on the number of requests per IP, header, and path variable values.
@@ -3397,7 +3510,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | pluginConfigJson.requestPerSec | Integer | Required | N/A | 1~5000 | Set the maximum number of requests per second. |
 
 
-### API Key
+<a id="api-key"></a>
+### API Key { #api-key }
 
 * Validates that the API Key is valid when calling the API, and verify whether the usage of the specified usage plan has been exceeded. 
 * It can be set in the root (/) resource path and the resource method. 
@@ -3419,7 +3533,8 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | pluginConfigJson.isActive | Boolean | Required | N/A | true | Set whether to verify the API key. Must be set to true. |
 
 
-### Request Validator
+<a id="request-validator"></a>
+### Request Validator { #request-validator }
 
 * Validates the client's request according to the settings defined in the request parameters.
 * It can be set on any resource path and method. The settings are applied to all child resources.
@@ -3441,15 +3556,18 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | pluginConfigJson.isActive | Boolean | Required | N/A | true | Enable or disable the request validator. Must be set to true. |
 
 
-## Deploy Stage
+<a id="deploy-stage"></a>
+## Deploy Stage { #deploy-stage }
 
 
-### Deploy Stage
+<a id="deploy-stage-2"></a>
+### Deploy Stage { #deploy-stage-2 }
 - Deploys the current stage resources and configurations to the API Gateway service. 
 - If there is no changed configuration, the stage deployment request will fail.
 - If the stage deployment fails, it is restored to the previous successful stage deployment configuration.
 - After requesting stage deployment, you can check whether stage deployment was successful in [Query Result of Recent Stage Deployment](./api-guide-v2.0/#query-result-of-recent-stage-deployment). 
 
+<a id="deploy-stage-2-request"></a>
 #### Request
 
 [URI]
@@ -3482,6 +3600,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | deployDescription | String | Optional | N/A | Max. 200 characters | Deployment description |
 
 
+<a id="deploy-stage-2-response"></a>
 #### Response
 
 [Response]
@@ -3502,11 +3621,13 @@ The service responds with **200 OK** to all API requests. For detailed response 
 </details>
 
 
-### Query Result of Recent Stage Deployment 
+<a id="query-result-of-recent-stage-deployment"></a>
+### Query Result of Recent Stage Deployment { #query-result-of-recent-stage-deployment }
 - You can query the result of [Deploy Stage](./api-guide-v2.0/#deploy-stage_1). 
 - After a stage deployment request, it can take up to a minute for the deployment results to be updated. 
 
 
+<a id="query-result-of-recent-stage-deployment-request"></a>
 #### Request
 
 [URI]
@@ -3523,6 +3644,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | stageId | String | Required | N/A | N/A | Stage ID |
 
 
+<a id="query-result-of-recent-stage-deployment-response"></a>
 #### Response
 
 [Response]
@@ -3623,10 +3745,12 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
-### Delete Stage Deployment History
+<a id="delete-stage-deployment-history"></a>
+### Delete Stage Deployment History { #delete-stage-deployment-history }
 - Deletes stage deployment history.
 - You cannot delete the current stage's base deployment history (if isBase is true) and the current API Gateway service's deployment history.
 
+<a id="delete-stage-deployment-history-request"></a>
 #### Request
 
 [URI]
@@ -3643,6 +3767,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | stageId | String | Required | N/A | N/A | Stage ID |
 | deployId | String | Required | N/A | N/A | Deployment ID to delete |
 
+<a id="delete-stage-deployment-history-response"></a>
 #### Response
 
 [Response]
@@ -3663,9 +3788,11 @@ The service responds with **200 OK** to all API requests. For detailed response 
 </details>
 
 
-### Query Stage Deployment History 
+<a id="query-stage-deployment-history"></a>
+### Query Stage Deployment History { #query-stage-deployment-history }
 - Retrieves the history of stage deployment in deployment success status. 
 
+<a id="query-stage-deployment-history-request"></a>
 #### Request
 
 [URI]
@@ -3688,6 +3815,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | page | Integer | Optional | 1 | N/A | Page |
 | limit | Integer | Optional | 10 | Max. 1000 | Count per page |
 
+<a id="query-stage-deployment-history-response"></a>
 #### Response
 
 [Response]
@@ -3738,12 +3866,14 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stageDeployHistoryList[0].rollbackAt   |DateTime  | Stage rollback request date and time |
 
 
-### Rollback Stage
+<a id="rollback-stage"></a>
+### Rollback Stage { #rollback-stage }
 - Rollbacks the current stage configuration to the deployed stage configuration history.  
 - Note that all current stage configurations will be deleted when performing the stage rollback.  
 - To apply the rolled back stage configurations to the API Gateway service, you must deploy the stage.
 - You cannot perform rollback with the deployment history in deployment failure state.
 
+<a id="rollback-stage-request"></a>
 #### Request
 
 [URI]
@@ -3760,6 +3890,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | stageId | String | Required | N/A | N/A | Stage ID |
 | deployId | String | Required | N/A | N/A | Deployment ID to rollback |
 
+<a id="rollback-stage-response"></a>
 #### Response
 
 [Response]
@@ -3822,11 +3953,14 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
 
-## Gateway Response
+<a id="gateway-response"></a>
+## Gateway Response { #gateway-response }
 
-### Get a list of gateway responses
+<a id="get-a-list-of-gateway-responses"></a>
+### Get a list of gateway responses { #get-a-list-of-gateway-responses }
 - Retrieves the list of gateway responses redefined by the user.
 
+<a id="get-a-list-of-gateway-responses-request"></a>
 #### Request
 
 [URI]
@@ -3841,6 +3975,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | --- | --- | --- | --- | --- | --- |
 | apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
 
+<a id="get-a-list-of-gateway-responses-response"></a>
 #### Response
 
 [Response]
@@ -3886,9 +4021,11 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | gatewayResponseList[0].updatedAt         | DateTime | When the gateway response is updated                                      |
 
 
-### Redefine gateway response
+<a id="redefine-gateway-response"></a>
+### Redefine gateway response { #redefine-gateway-response }
 - Gateway responses are redefined by the user.
 
+<a id="redefine-gateway-response-request"></a>
 #### Request
 
 [URI]
@@ -3927,6 +4064,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | headers[{HeaderName}] | Object   | Required    | N/A  | N/A | Map Entry of Gateway response headers (Key: header name, Value: header value) |
 | body      | Map   | Optional    | N/A  | N/A | Gateway response body object area |
 | body[{ContentType}] | Object   | Required    | N/A  | N/A | Map entry in the gateway response body (Key: ContentType, Value: Response body) |
+<a id="redefine-gateway-response-response"></a>
 #### Response
 
 [Response]
@@ -3970,9 +4108,11 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | gatewayResponse.updatedAt         | DateTime | When the gateway response is updated                                      |
 
 
-### Reset gateway response
+<a id="reset-gateway-response"></a>
+### Reset gateway response { #reset-gateway-response }
 - Resets the gateway response to the default response.
 
+<a id="reset-gateway-response-request"></a>
 #### Request
 
 [URI]
@@ -3988,6 +4128,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
 |  | String | Required | N/A | N/A | Gateway response ID |
 
+<a id="reset-gateway-response-response"></a>
 #### Response
 
 [Response]
@@ -4007,14 +4148,17 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 </details>
 
-## API Document
+<a id="api-document"></a>
+## API Document { #api-document }
 
-### Query API Document
+<a id="query-api-document"></a>
+### Query API Document { #query-api-document }
 - Retrieves API document based on the deployed stage configuration. 
 - The API document is returned as a JSON object that follows the [Swagger v2.0](https://swagger.io/specification/v2/) specification.
 - API document cannot be queried for undeployed stages, and a 404 Not Found response is returned.
 
 
+<a id="query-api-document-request"></a>
 #### Request
 
 [URI]
@@ -4030,6 +4174,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
 | stageId | String | Required | N/A | N/A | Stage ID |
 
+<a id="query-api-document-response"></a>
 #### Response
 
 [Response]
@@ -4239,12 +4384,15 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |securityDefinitions          |Object    | A security definition object. When setting API Key and authentication (HMAC, JWT), custom settings of API Gateway are included. See [Security Definitions Object](https://swagger.io/specification/v2/#securityDefinitionsObject)|
 |definitions | Object | An area for data types used in requests and responses. The model referenced in the request parameter/response is defined. See [Definitions Object](https://swagger.io/specification/v2/#definitionsObject)| 
 
-## API Key
+<a id="api-key-2"></a>
+## API Key { #api-key-2 }
 
-### List API Keys 
+<a id="list-api-keys"></a>
+### List API Keys { #list-api-keys }
 - Retrieves the list of API keys.
 - If there are multiple request query parameters, a list that satisfies all conditions is returned.
 
+<a id="list-api-keys-request"></a>
 #### Request
 
 [URI]
@@ -4264,6 +4412,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apiKeyName | String | Optional | N/A | N/A | API Key name filter condition. The starting string of the API Key name must match. |
 | apiKeyStatus | Enum | Optional | N/A | ACTIVE, INACTIVE | API Key status filter condition. See [API Key Status Enum Code](./enum-code/#api-key-status) |
 
+<a id="list-api-keys-response"></a>
 #### Response
 
 [Response]
@@ -4319,9 +4468,11 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apiKeyList[0].createdAt         | DateTime | API Key creation date and time                                      |
 | apiKeyList[0].updatedAt         | DateTime | API Key modification date and time                                      |
 
-### Create API Key
+<a id="create-api-key"></a>
+### Create API Key { #create-api-key }
 - Generates an API Key. 
 
+<a id="create-api-key-request"></a>
 #### Request
 
 [URI]
@@ -4355,6 +4506,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | primaryApiKey     | String   | Optional    | N/A  | Min. 10 characters, Max. 40 characters, English letters, and numbers | Primary API key value, automatically issued when null |
 | secondaryApiKey   | String   | Optional    | N/A  | Min. 10 characters, Max. 40 characters, English letters, and numbers | Secondary API key value, automatically issued when null |
 
+<a id="create-api-key-response"></a>
 #### Response
 
 [Response]
@@ -4399,10 +4551,12 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apiKey.updatedAt         | DateTime | API Key modification date and time                                      |
 
 
-### Modify API Key
+<a id="modify-api-key"></a>
+### Modify API Key { #modify-api-key }
 - Modifies the name, description, and status of the API key.
 - If the API Key status is changed to INACTIVE, the API Key is deactivated and API calls are disabled.
 
+<a id="modify-api-key-request"></a>
 #### Request
 
 [URI]
@@ -4438,6 +4592,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apiKeyDescription | String | Optional    | N/A  | Max. 200 characters          | API Key description                                        |
 | apiKeyStatus      | Enum   | Required    | N/A  | ACTIVE, INACTIVE | See [API Key Status Enum Code](./enum-code/#api-key-status) |
 
+<a id="modify-api-key-response"></a>
 #### Response
 
 [Response]
@@ -4482,10 +4637,12 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apiKey.updatedAt         | DateTime | API Key modification date and time                                      |
 
 
-### Delete API Key
+<a id="delete-api-key"></a>
+### Delete API Key { #delete-api-key }
 - Deletes the API key. A deleted API key cannot be recovered.
 - If you have an API Key connected to a stage in your usage plan, you cannot delete the API Key. To delete it, you need to disconnect the API Key.
 
+<a id="delete-api-key-request"></a>
 #### Request
 
 [URI]
@@ -4500,6 +4657,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | --- | --- | --- | --- | --- | --- |
 | apiKeyId | String | Required | N/A | N/A | API Key ID |
 
+<a id="delete-api-key-response"></a>
 #### Response
 
 [Response]
@@ -4519,10 +4677,12 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 </details>
 
-### Reissue API Key
+<a id="reissue-api-key"></a>
+### Reissue API Key { #reissue-api-key }
 - Primary API Key and Secondary API Key used as API Key values can be reissued respectively.
 - In case of reissuance, API calls cannot be made with the old API Key. It is not possible to recover the API Key used before reissuance.
 
+<a id="reissue-api-key-request"></a>
 #### Request
 
 [URI]
@@ -4556,6 +4716,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apiKeyType      | Enum   | Required    | N/A  | PRIMARY, SECONDARY | The API Key type you want to change. See [API Key Type Enum Code](./enum-code/#api-key-type) |
 | apiKeyValue     | String   | Optional    | N/A  | Min. 10 characters, Max. 40 characters, English letters, and numbers | API key value, automatically issued when null |
 
+<a id="reissue-api-key-response"></a>
 #### Response
 
 [Response]
@@ -4599,10 +4760,12 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apiKey.createdAt         | DateTime | API Key creation date and time                                      |
 | apiKey.updatedAt         | DateTime | API Key modification date and time                                      |
 
-### List API Keys that can be connected to stage
+<a id="list-api-keys-that-can-be-connected-to-stage"></a>
+### List API Keys that can be connected to stage { #list-api-keys-that-can-be-connected-to-stage }
 - Retrieves the list of API keys that can be connected to the stage.
 - If there are multiple request query parameters, a list that satisfies all conditions is returned.
 
+<a id="list-api-keys-that-can-be-connected-to-stage-request"></a>
 #### Request
 
 [URI]
@@ -4629,6 +4792,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apiKeyName | String | Optional | N/A | N/A | API Key name start string |
 | apiKeyStatus | Enum | Optional | N/A | ACTIVE, INACTIVE | See [API Key Status Enum Code](./enum-code/#api-key-status) |
 
+<a id="list-api-keys-that-can-be-connected-to-stage-response"></a>
 #### Response
 
 [Response]
@@ -4685,11 +4849,14 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apiKeyList[0].updatedAt         | DateTime | API Key modification date and time                                      |
 
 
-## Usage Plan
+<a id="usage-plan"></a>
+## Usage Plan { #usage-plan }
 
-### List Usage Plans 
+<a id="list-usage-plans"></a>
+### List Usage Plans { #list-usage-plans }
 - Retrieves a list of usage plans.
 
+<a id="list-usage-plans-request"></a>
 #### Request
 
 [URI]
@@ -4705,6 +4872,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | page | Integer | Optional | 1 | N/A | Page |
 | limit | Integer | Optional | 10 | Max. 1000 | Count per page |
 
+<a id="list-usage-plans-response"></a>
 #### Response
 
 [Response]
@@ -4762,9 +4930,11 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 
 
-### Get Usage Plan
+<a id="get-usage-plan"></a>
+### Get Usage Plan { #get-usage-plan }
 - Retrieves a single usage plan.
 
+<a id="get-usage-plan-request"></a>
 #### Request
 
 [URI]
@@ -4779,6 +4949,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | --- | --- | --- | --- | --- | --- |
 | usagePlanId | String | Required | N/A | N/A | Usage plan ID |
 
+<a id="get-usage-plan-response"></a>
 #### Response
 
 [Response]
@@ -4822,9 +4993,11 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | usagePlan.createdAt                 | DateTime | Usage plan creation date and time                                       |
 | usagePlan.updatedAt                 | DateTime | Usage plan modification date and time                                       |
 
-### Create Usage Plan
+<a id="create-usage-plan"></a>
+### Create Usage Plan { #create-usage-plan }
 - Creates a usage plan.
 
+<a id="create-usage-plan-request"></a>
 #### Request
 
 [URI]
@@ -4858,6 +5031,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | quotaLimitPeriodUnitCode  | Enum    | Optional    | N/A  | DAY, MONTH   | See [Usage Plan > Quota Period Unit Enum Code](./enum-code/#usage-plan-quota-period-unit) |
 | quotaLimit                | Integer | Conditionally required | N/A  | 1~2147483647 | Required if quotaLimitPeriodUnitCode is set. Request quota per quota period unit                                |
 
+<a id="create-usage-plan-response"></a>
 #### Response
 
 [Response]
@@ -4902,10 +5076,12 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | usagePlan.updatedAt                 | DateTime | Usage plan modification date and time                                       |
 
 
-### Modify Usage Plan
+<a id="modify-usage-plan"></a>
+### Modify Usage Plan { #modify-usage-plan }
 - Modifies a usage plan. 
 - If you modify the quota period unit to 'None', the request quota usage of the connected API keys is initialized.
 
+<a id="modify-usage-plan-request"></a>
 #### Request
 
 [URI]
@@ -4945,6 +5121,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | quotaLimitPeriodUnitCode  | Enum    | Optional    | N/A  | DAY, MONTH   | See [Usage Plan > Quota Period Unit Enum Code](./enum-code/#usage-plan-quota-period-unit) |
 | quotaLimit                | Integer | Conditionally required | N/A  | 1~2147483647 | Required if quotaLimitPeriodUnitCode is set. Request quota per quota period unit                                |
 
+<a id="modify-usage-plan-response"></a>
 #### Response
 
 [Response]
@@ -4989,10 +5166,12 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | usagePlan.updatedAt                 | DateTime | Usage plan modification date and time                                       |
 
 
-### Delete Usage Plan
+<a id="delete-usage-plan"></a>
+### Delete Usage Plan { #delete-usage-plan }
 - Deletes a usage plan.
 - You can delete a usage plan after releasing all stages associated with the usage plan.
 
+<a id="delete-usage-plan-request"></a>
 #### Request
 
 [URI]
@@ -5007,6 +5186,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | --- | --- | --- | --- | --- | --- |
 | usagePlanId | String | Required | N/A | N/A | Usage plan ID |
 
+<a id="delete-usage-plan-response"></a>
 #### Response
 
 [Response]
@@ -5027,9 +5207,11 @@ The service responds with **200 OK** to all API requests. For detailed response 
 </details>
 
 
-### List Stages Associated with Usage Plan
+<a id="list-stages-associated-with-usage-plan"></a>
+### List Stages Associated with Usage Plan { #list-stages-associated-with-usage-plan }
 - Retrieves a list of stages associated with the usage plan.
 
+<a id="list-stages-associated-with-usage-plan-request"></a>
 #### Request
 
 [URI]
@@ -5044,6 +5226,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | --- | --- | --- | --- | --- | --- |
 | usagePlanId | String | Required | N/A | N/A | Usage plan ID |
 
+<a id="list-stages-associated-with-usage-plan-response"></a>
 #### Response
 
 [Response]
@@ -5102,9 +5285,11 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | usagePlanStageList[0].usagePlanName  | String  | Usage plan name              |
 
 
-### Connect Stage to Usage Plan
+<a id="connect-stage-to-usage-plan"></a>
+### Connect Stage to Usage Plan { #connect-stage-to-usage-plan }
 - Associates a stage with the usage plan.
 
+<a id="connect-stage-to-usage-plan-request"></a>
 #### Request
 
 [URI]
@@ -5120,6 +5305,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | usagePlanId | String | Required | N/A | N/A | Usage plan ID |
 | stageId | String | Required | N/A | N/A | Stage ID |
 
+<a id="connect-stage-to-usage-plan-response"></a>
 #### Response
 
 [Response]
@@ -5139,10 +5325,12 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 </details>
 
-### Disconnect Stage from Usage Plan
+<a id="disconnect-stage-from-usage-plan"></a>
+### Disconnect Stage from Usage Plan { #disconnect-stage-from-usage-plan }
 - Disassociates the stage associated with the usage plan.
 - If an API Key connected to the stage exists, the stage cannot be disassociated.
 
+<a id="disconnect-stage-from-usage-plan-request"></a>
 #### Request
 
 [URI]
@@ -5158,6 +5346,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | usagePlanId | String | Required | N/A | N/A | Usage plan ID |
 | stageId | String | Required | N/A | N/A | Stage ID |
 
+<a id="disconnect-stage-from-usage-plan-response"></a>
 #### Response
 
 [Response]
@@ -5177,9 +5366,11 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 </details>
 
-### List Usage Plans Associated with Stage
+<a id="list-usage-plans-associated-with-stage"></a>
+### List Usage Plans Associated with Stage { #list-usage-plans-associated-with-stage }
 - Retrieves the list of usage plans associated with the stage.
 
+<a id="list-usage-plans-associated-with-stage-request"></a>
 #### Request
 
 [URI]
@@ -5195,6 +5386,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | page | Integer | Optional | 1 | N/A | Page |
 | limit | Integer | Optional | 10 | Max. 1000 | Count per page |
 
+<a id="list-usage-plans-associated-with-stage-response"></a>
 #### Response
 
 [Response]
@@ -5250,11 +5442,14 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | usagePlanList[0].createdAt                 | DateTime | Usage plan creation date and time                                       |
 | usagePlanList[0].updatedAt                 | DateTime | Usage plan modification date and time                                       |
 
-## API Key Subscription
+<a id="api-key-subscription"></a>
+## API Key Subscription { #api-key-subscription }
 
-### List API Key Subscriptions
+<a id="list-api-key-subscriptions"></a>
+### List API Key Subscriptions { #list-api-key-subscriptions }
 - Retrieves the list of stage and usage plan connected with API Key.
 
+<a id="list-api-key-subscriptions-request"></a>
 #### Request
 
 [URI]
@@ -5277,6 +5472,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | limit | Integer | Optional | 10 | Max. 1000 | Count per page |
 | stageUrl | String | Optional | N/A | N/A | Stage URL filter condition |
 
+<a id="list-api-key-subscriptions-response"></a>
 #### Response
 
 [Response]
@@ -5345,10 +5541,12 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | subscribedStageAndUsagePlanList[0].quotaLimit                | Integer | Request quota per quota period unit                                |
 
 
-### List API Keys Subscribing to a Stage in the Usage Plan
+<a id="list-api-keys-subscribing-to-a-stage-in-the-usage-plan"></a>
+### List API Keys Subscribing to a Stage in the Usage Plan { #list-api-keys-subscribing-to-a-stage-in-the-usage-plan }
 - Retrieves the list of API Keys connected to the stage of the usage plan.
 - If there are multiple request query parameters, a list that satisfies all conditions is returned.
 
+<a id="list-api-keys-subscribing-to-a-stage-in-the-usage-plan-request"></a>
 #### Request
 
 [URI]
@@ -5375,6 +5573,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apiKeyName | String | Optional | N/A | N/A | API Key name filter condition. The starting string of the API Key name must match.  |
 | apiSubscriptionStatus | Enum | Optional | N/A | APPROVAL | See [API Key Subscription Status Enum Code](./enum-code/#api-key-subscription-status) |
 
+<a id="list-api-keys-subscribing-to-a-stage-in-the-usage-plan-response"></a>
 #### Response
 
 [Response]
@@ -5431,11 +5630,13 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apiSubscriptionList[0].updatedAt               | DateTime | Subscription modification date and time                              |
 
 
-### Subscribe to API Key (Connect API Key)
+<a id="subscribe-to-api-key-connect-api-key"></a>
+### Subscribe to API Key (Connect API Key) { #subscribe-to-api-key-connect-api-key }
 - Connects the requested API Key list to the stage of your usage plan.
 - Only the connected API Key will succeed in API Key authentication, and the usage limit of the usage plan will be applied.
 - API Keys connected to the same stage in different usage plans cannot be connected.
 
+<a id="subscribe-to-api-key-connect-api-key-request"></a>
 #### Request
 
 [URI]
@@ -5471,6 +5672,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apiKeyIdList              | List  | Required    | N/A  | Max. 100 items       | API Key ID list area                                        |
 | apiKeyIdList[0]           | String  | Required    | N/A  | N/A       | API Key ID                                        |
 
+<a id="subscribe-to-api-key-connect-api-key-response"></a>
 #### Response
 
 [Response]
@@ -5518,10 +5720,12 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apiSubscriptionList[0].updatedAt               | DateTime | Subscription modification date and time                              |
 
 
-### Unsubscribe from API Key (Disconnect API Key)
+<a id="unsubscribe-from-api-key-disconnect-api-key"></a>
+### Unsubscribe from API Key (Disconnect API Key) { #unsubscribe-from-api-key-disconnect-api-key }
 - Disconnects the requested API Key list from the stage of your usage plan.
 - Disconnected API Key fails API Key authentication, causing API calls to fail. 
 
+<a id="unsubscribe-from-api-key-disconnect-api-key-request"></a>
 #### Request
 
 [URI]
@@ -5557,6 +5761,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | apiSubscriptionIdList             | List  | Required    | N/A  | Max. 100 items       | Subscription ID list area                                        |
 | apiSubscriptionIdList[0]             | String  | Required    | N/A  | N/A       | Subscription ID                                        |
 
+<a id="unsubscribe-from-api-key-disconnect-api-key-response"></a>
 #### Response
 
 [Response]
@@ -5577,12 +5782,14 @@ The service responds with **200 OK** to all API requests. For detailed response 
 </details>
 
 
-### Change Usage Plan of API Key
+<a id="change-usage-plan-of-api-key"></a>
+### Change Usage Plan of API Key { #change-usage-plan-of-api-key }
 - You can only change to a different usage plan associated with the selected stage.
 - When the usage plan is changed, the usage of the API Key request quota is initialized.
     - If you change to a usage plan with a quota period unit of 'day' or 'month', the usage of the connected API Key request quota is maintained. If you change to a usage plan with a lower request quota limit, your usage may be exceeded. 
     - If you change to a usage plan with a quota period unit of 'None', the usage of the connected API Key request quota is initialized.
   
+<a id="change-usage-plan-of-api-key-request"></a>
 #### Request
 
 [URI]
@@ -5616,6 +5823,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | ------------------------- | ------- | ----- | --- | ------------ | ------------------------------------------------- |
 | changeUsagePlanId            | String  | Required    | N/A  | N/A       | ID of the usage plan to change                                        |
 
+<a id="change-usage-plan-of-api-key-response"></a>
 #### Response
 
 [Response]
@@ -5635,12 +5843,15 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 </details>
 
-## Statistics
+<a id="statistics"></a>
+## Statistics { #statistics }
 
-### Query by Stage Resource
+<a id="query-by-stage-resource"></a>
+### Query by Stage Resource { #query-by-stage-resource }
 - Retrieves statistics data for each resource during the query period.
 
 
+<a id="query-by-stage-resource-request"></a>
 #### Request
 
 [URI]
@@ -5671,6 +5882,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
     * UTC-based time offset notation: yyyy-MM-dd'T'HH:mm:ss±hh:mm
 
 
+<a id="query-by-stage-resource-response"></a>
 #### Response
 
 [Response]
@@ -5746,10 +5958,12 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |metricsLatestUpdatedAt         | DateTime | Statistics data last updated date                             |
 
 
-### Query by API Key
+<a id="query-by-api-key"></a>
+### Query by API Key { #query-by-api-key }
 - Retrieves daily statistics by API Key.
 
 
+<a id="query-by-api-key-request"></a>
 #### Request
 
 [URI]
@@ -5777,6 +5991,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
     * UTC notation: yyyy-MM-dd'T'HH:mm:ssZ
     * UTC-based time offset notation: yyyy-MM-dd'T'HH:mm:ss±hh:mm
 
+<a id="query-by-api-key-response"></a>
 #### Response
 
 [Response]
@@ -5855,10 +6070,12 @@ The service responds with **200 OK** to all API requests. For detailed response 
 * Daily statistics data is aggregated into time data at 00:00:00 for each day.
 
 
-### Query Top 10 Services
+<a id="query-top-10-services"></a>
+### Query Top 10 Services { #query-top-10-services }
 - You can view a list of the top 10 API Gateway services and their cumulative statistics based on the number of total API calls, number of failed API calls, and average response time.
 
 
+<a id="query-top-10-services-request"></a>
 #### Request
 
 [URI]
@@ -5876,6 +6093,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | order | Enum | Optional | CALL_COUNT | CALL_COUNT,FAIL_CALL_COUNT,AVG_RESPONSE_TIME | [Statistics > Sort Top10 Services by](./enum-code/#statistics-sort-top-10-services-by)|
 
 
+<a id="query-top-10-services-response"></a>
 #### Response
 
 [Response]

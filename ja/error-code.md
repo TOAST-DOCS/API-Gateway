@@ -1,6 +1,10 @@
-## Application Service > API Gateway > エラーコード
+<!-- pre-align:aligned sig=e93aa67c657c -->
 
-## リクエスト遮断 
+<a id="application-service-api-gateway-error-code"></a>
+## Application Service > API Gateway > エラーコード { #application-service-api-gateway-error-code }
+
+<a id="ban-request"></a>
+## リクエスト遮断 { #ban-request }
 - 発生原因：API Gatewayサービスとバックエンドエンドポイントサービスを保護する目的でバックエンドエンドポイントサービスがレスポンスを行わなかったり、レスポンス遅延(60秒以上)が継続的に発生する場合、API Gatewayサービスは該当バックエンドエンドポイントサービスに対するリクエストを一時的に拒否します。 
 - レスポンスHTTP状態：503 Service  Unavailable
 - エラーレスポンス本文 
@@ -18,7 +22,8 @@
 > - リクエストが遮断されるとリクエスト遮断エラーコードが返され、一定時間が経過すると遮断が解除されます。
 > - 正常に稼働中の状態ではないバックエンドエンドポイントサービスを連携したり、レスポンス遅延(Timeout)が60秒以上発生する場合、遮断が発生するため、APIは連携しないことを推奨します。
 
-## HMAC
+<a id="hmac"></a>
+## HMAC { #hmac }
 - 発生原因：HMAC認証に必要なリクエスト情報がない場合や、認証に失敗した場合、次のレスポンスが伝達されます。
 - レスポンスHTTP状態：401 Unauthorized 
 - エラーレスポンス本文 
@@ -46,7 +51,8 @@
 | 4011009              | Authorization header must start with the string hmac.      | Authorizationリクエストヘッダ値がhmacで始まっていないため有効ではありません。|
 
 
-## JWT
+<a id="jwt"></a>
+## JWT { #jwt }
 - 発生原因：JWT認証に必要なリクエスト情報がない場合や、認証に失敗した場合、次のレスポンスが返されます。
 - レスポンスHTTP状態：401 Unauthorized 
 - エラーレスポンス本文
@@ -68,7 +74,8 @@
 | 5012001          | jwks url is unavailable.      | JWKS URLがサービス中ではありません。|
 | 5012002          | jwks format is invalid.      | JWKS URLのレスポンスがJWKS形式に一致しません。|
 
-## 事前呼び出しAPI(Pre-call API)
+<a id="pre-call-api"></a>
+## 事前呼び出しAPI(Pre-call API) { #pre-call-api }
 - 発生原因：事前呼び出しAPIのリクエストに失敗すると、エラーレスポンスが返されます。
 - レスポンスHTTP状態: 502 Bad Gateway
 - エラーレスポンス本文
@@ -82,7 +89,8 @@
 }
 ```
 
-## IP ACL
+<a id="ip-acl"></a>
+## IP ACL { #ip-acl }
 
 - 発生原因：アクセスが許可されていないIPのリクエストを拒否する時、エラーレスポンスが返されます。
 - レスポンスHTTP状態：403 Forbidden
@@ -97,7 +105,8 @@
 }
 ```
 
-## リクエストサイズ超過
+<a id="request-size-exceeded"></a>
+## リクエストサイズ超過 { #request-size-exceeded }
 - 発生原因：リクエストのサイズが10MB制限を超えた場合に発生します。
 - レスポンスHTTP状態：413 Request Entity Too Large
 - エラーレスポンス本文 
@@ -111,7 +120,8 @@
 }
 ```
 
-## レスポンスサイズ超過
+<a id="response-size-exceeded"></a>
+## レスポンスサイズ超過 { #response-size-exceeded }
 - 発生原因：レスポンスサイズが10MBを超えた場合に発生します。 
 '- レスポンスサイズが超過した場合、API Gatewayサーバーはクライアントとの接続を切ります。
 '- アクセスログには次のように記録されます。
@@ -120,7 +130,8 @@
     - エラーメッセージ：The download size of the response body has been exceeded. the permissible limit is 10mb.
 
 
-## リクエスト数制限
+<a id="request-number-limit"></a>
+## リクエスト数制限 { #request-number-limit }
 - 発生原因：制限されたリクエスト数を超過するリクエストを拒否した時、エラーレスポンスが返されます。
 - レスポンスHTTP状態：429 Too Many Requests
 - エラーレスポンス本文
@@ -134,7 +145,8 @@
 }
 ```
 
-## リクエスト割り当て量制限
+<a id="request-quota-limit"></a>
+## リクエスト割り当て量制限 { #request-quota-limit }
 - 発生原因：制限されたリクエスト割り当て量を超過するリクエストを拒否する時にエラーレスポンスが返されます。
 - レスポンスHTTPステータス：429 Too Many Requests
 - エラーレスポンス本文
@@ -148,7 +160,8 @@
 }
 ```
 
-## 無効なURIエラー 
+<a id="invalid-uri-error"></a>
+## 無効なURIエラー { #invalid-uri-error }
 - 発生原因：バックエンドエンドポイントのURI構成が正しくない時、エラーレスポンスが返されます。
     - URIの構成要素であるパスまたはクエリ文字列の値が正しくないか、エンコードできない場合に発生することがあります。
 - レスポンスHTTPステータス：400 Bad Request
@@ -163,7 +176,8 @@
 }
 ```
 
-## パスまたはメソッドが見つからない
+<a id="could-not-find-the-path-or-method"></a>
+## パスまたはメソッドが見つからない { #could-not-find-the-path-or-method }
 - 発生原因：APIリソースに登録されていないAPIパスおよびメソッドでリクエストした場合に発生します。
 - レスポンスHTTP状態：404 Not Found
 - エラーレスポンス本文 
@@ -177,7 +191,8 @@
 }
 ```
 
-## バックエンドエンドポイントサービス接続エラー 
+<a id="backend-endpoint-service-connection-error"></a>
+## バックエンドエンドポイントサービス接続エラー { #backend-endpoint-service-connection-error }
 - 発生原因：バックエンドエンドポイントが応答しなかったり、応答を拒否した場合に発生します。
 - レスポンスHTTP状態：503 Service Unavailable 
 - エラーレスポンス本文 
@@ -202,7 +217,8 @@
     }
 }
 ```
-## API Key 
+<a id="api-key"></a>
+## API Key { #api-key }
 - 発生原因：リクエストのAPI Key情報がないか、無効の場合、次のレスポンスが渡されます。
 - レスポンスHTTPステータス：403 Forbidden
 - エラーレスポンス本文
@@ -223,7 +239,8 @@
 | 4031012          | Request api key is invalid.      | リクエストされたAPI Key値が有効ではありません。|
 
 
-## コンテキスト変数設定エラー 
+<a id="error-in-setting-context-variables"></a>
+## コンテキスト変数設定エラー { #error-in-setting-context-variables }
 - 発生原因: API Gatewayの設定で間違ったコンテキスト変数を参照したり、文法で使用した場合にGatewayで発生するエラーです。修正するにはコンテキスト変数の設定を正しく修正した後,、テージを展開する必要があります。
 - レスポンスHTTP状態: 500 Internal Error
 - エラーレスポンス本文
@@ -237,9 +254,11 @@
 }
 ```
 
-## 誤ったクライアントリクエスト 
+<a id="invalid-client-request"></a>
+## 誤ったクライアントリクエスト { #invalid-client-request }
 
-### クライアントIPヘッダ(X-Forwarded-For)
+<a id="client-ip-header-x-forwarded-for"></a>
+### クライアントIPヘッダ(X-Forwarded-For) { #client-ip-header-x-forwarded-for }
 - 発生原因：クライアントが渡したX-Forwarded-Forリクエストヘッダ値の形式が正しくないため、クライアントIPを確認できない場合にエラーが発生します。 
 - レスポンスHTTP状態: 400 Bad Request
 - エラーレスポンス本文
@@ -253,7 +272,8 @@
 }
 ```
 
-### リクエスト有効性検証失敗 
+<a id="failure-in-request-validation"></a>
+### リクエスト有効性検証失敗 { #failure-in-request-validation }
 - 発生原因：リクエストバリデーターで有効性検証に失敗した場合、レスポンスエラーが返されます。
 - レスポンスHTTP状態：400 Bad Request
 - エラーレスポンス本文
@@ -267,7 +287,8 @@
 }
 ```
 
-## ゲートウェイ最大レスポンスタイムアウト
+<a id="gateway-maximum-response-timeout"></a>
+## ゲートウェイ最大レスポンスタイムアウト { #gateway-maximum-response-timeout }
 - 発生原因: ゲートウェイの最大応答時間(60秒)内にバックエンドエンドポイントからリクエストを完了するために必要なレスポンスを受信できない場合、エラーが発生します。
 - レスポンスHTTP状態: 504 Gateway Timeout
 - エラーレスポンス本文 
