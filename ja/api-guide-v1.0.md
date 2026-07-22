@@ -59,14 +59,14 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 }
 ```
 
+</details>
+
 | フィールド | タイプ | 説明 |
 | --- | --- | --- |
 | header               | Object  | ヘッダ領域 |
 | header.isSuccessful  | Boolean | 成否 |
 | header.resultCode    | Integer | 結果コード |
 | header.resultMessage | String  | 結果メッセージ |
-
-</details>
 
 <details>
   <summary><strong>失敗レスポンス</strong></summary>
@@ -89,6 +89,8 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 }
 ```
 
+</details>
+
 | フィールド | タイプ | 説明 |
 | --- | --- | --- |
 | errorList            | List  | エラーリスト領域 |
@@ -96,8 +98,6 @@ Appkeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-
 | errorList[0].errorProperty | String | エラープロパティ(モデル) |
 | errorList[0].errorField | String  | エラー詳細フィールド |
 | errorList[0].errorMessage | String  | エラーメッセージ |
-
-</details>
 
 * 無効なAPIリクエストを行った場合、 errorListフィールドに詳細なエラー原因とフィールド情報がレスポンスされます。
 

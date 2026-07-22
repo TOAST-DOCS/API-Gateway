@@ -834,8 +834,8 @@ API GatewayのアクセスログをLog & Crash Searchサービスに保管でき
 > **[参考]Log & Crash Search利用料金案内** <br>
 > アクセスログはLog & Crash Searchサービスに保存され、Log & Crash Searchサービス利用料金が別途請求されます。
 > Log & Crash Searchサービス紹介と利用料金は以下のリンクを参照してください。
-> <a class='text-guide' target='_blank' href='https://www.nhncloud.com/kr/service/analytics/log-crash-search'>Log & Crash Searchサービス紹介へ</a>
-> <a class='text-guide' target='_blank' href='https://www.nhncloud.com/kr/service/analytics/log-crash-search#price'>Log & Crash Search利用料金へ</a>
+> <a class='text-guide' target='_blank' href='https://www.nhncloud.com/kr/service/data-analytics/log-crash-search'>Log & Crash Searchサービス紹介へ</a>
+> <a class='text-guide' target='_blank' href='https://www.nhncloud.com/kr/service/data-analytics/log-crash-search#price'>Log & Crash Search利用料金へ</a>
 > 
 > **[注意]アクセスログ機能利用中におけるLog & Crash Searchサービス無効化時の注意事項** <br>
 > アクセスログ機能利用中にLog & Crash Searchサービスを無効化すると、アクセスログは保存されなくなり、アクセスログ機能は自動的に無効になります。

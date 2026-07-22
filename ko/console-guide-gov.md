@@ -815,7 +815,7 @@ API Gateway의 액세스 로그를 Log & Crash Search 서비스에 보관할 수
 > **[참고] Log & Crash Search 이용 요금 안내** <br>
 > 액세스 로그는 Log & Crash Search 서비스에 저장되며, Log & Crash Search 서비스 이용 요금이 별도 청구됩니다.
 > Log & Crash Search 서비스 소개와 이용 요금은 아래 링크를 참고하세요.
-> <a class='text-guide' target='_blank' href='https://www.nhncloud.com/kr/service/analytics/log-crash-search'>Log & Crash Search 서비스 소개 바로 가기</a>
+> <a class='text-guide' target='_blank' href='https://www.gov-nhncloud.com/kr/service/data-analytics/log-crash-search'>Log & Crash Search 서비스 소개 바로 가기</a>
 > <a class='text-guide' target='_blank' href='https://www.nhncloud.com/kr/service/analytics/log-crash-search#price'>Log & Crash Search 이용 요금 바로 가기</a>
 > 
 > **[주의] 액세스 로그 기능 이용 중 Log & Crash Search 서비스 비활성화 시 유의 사항** <br>

@@ -55,14 +55,14 @@ API Gatewayは、API呼び出し時の認証/認可のためにUser Access Key�
 }
 ```
 
+</details>
+
 | フィールド | タイプ | 説明 |
 | --- | --- | --- |
 | header               | Object  | ヘッダ領域 |
 | header.isSuccessful  | Boolean | 成否 |
 | header.resultCode    | Integer | 結果コード |
 | header.resultMessage | String  | 結果メッセージ |
-
-</details>
 
 <details>
   <summary><strong>失敗レスポンス</strong></summary>
@@ -85,6 +85,8 @@ API Gatewayは、API呼び出し時の認証/認可のためにUser Access Key�
 }
 ```
 
+</details>
+
 | フィールド | タイプ | 説明 |
 | --- | --- | --- |
 | errorList            | List  | エラーリスト領域 |
@@ -92,8 +94,6 @@ API Gatewayは、API呼び出し時の認証/認可のためにUser Access Key�
 | errorList[0].errorProperty | String | エラープロパティ(モデル) |
 | errorList[0].errorField | String  | エラー詳細フィールド |
 | errorList[0].errorMessage | String  | エラーメッセージ |
-
-</details>
 
 * 無効なAPIリクエストを行った場合、 errorListフィールドに詳細なエラー原因とフィールド情報がレスポンスされます。
 

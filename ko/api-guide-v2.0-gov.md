@@ -51,6 +51,8 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 }
 ```
 
+</details>
+
 | 필드 | 타입 | 설명 |
 | --- | --- | --- |
 | header               | Object  | 헤더 영역  |
@@ -58,7 +60,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | header.resultCode    | Integer | 결과 코드  |
 | header.resultMessage | String  | 결과 메시지 |
 
-</details>
+
 
 <details>
   <summary><strong>실패 응답</strong></summary>
@@ -81,6 +83,8 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 }
 ```
 
+</details>
+
 | 필드 | 타입 | 설명 |
 | --- | --- | --- |
 | errorList            | List  | 오류 목록 영역  |
@@ -89,7 +93,6 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | errorList[0].errorField | String  | 오류 상세 필드 |
 | errorList[0].errorMessage | String  | 오류 메시지 |
 
-</details>
 
 * 잘못된 API 요청을 한 경우, errorList 필드에 자세한 오류 원인과 필드 정보가 응답됩니다.
 

@@ -834,8 +834,8 @@ Access logs can be found in the Log & Crash Search service.
 > **[Note] Log & Crash Search usage fee information** <br>
 > Access logs are stored in the Log & Crash Search service, and the Log & Crash Search service usage fee is charged separately.
 > Refer to the links below for the Log & Crash Search service introduction and usage fee.
-> <a class='text-guide' target='_blank' href='https://www.nhncloud.com/kr/service/analytics/log-crash-search'>Go to the Log & Crash Search service introduction</a>
-> <a class='text-guide' target='_blank' href='https://www.nhncloud.com/kr/service/analytics/log-crash-search#price'>Go to the Log & Crash Search usage fee</a>
+> <a class='text-guide' target='_blank' href='https://www.nhncloud.com/kr/service/data-analytics/log-crash-search'>Go to the Log & Crash Search service introduction</a>
+> <a class='text-guide' target='_blank' href='https://www.nhncloud.com/kr/service/data-analytics/log-crash-search#price'>Go to the Log & Crash Search usage fee</a>
 > 
 > **[Caution] Notification on disabling the Log & Crash Search service while using the access log feature** <br>
 > If you disable the Log & Crash Search service while using the access log feature, the access logs are no longer stored and the access log feature is automatically disabled.
