@@ -3551,7 +3551,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | Required | N/A | REQUEST_VALIDATOR | Note REQUEST_VALIDATOR in the [Stage Resource > Plugin Type Enum Code](./enum-code/#_3) |
+| pluginType | Enum | Required | N/A | REQUEST_VALIDATOR | Note REQUEST_VALIDATOR in the [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type) |
 | pluginConfigJson | Object | Required | None | N/A | Request Validator plugin settings area |
 | pluginConfigJson.isActive | Boolean | Required | N/A | true | Enable or disable the request validator. Must be set to true. |
 
@@ -3623,7 +3623,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 <a id="query-result-of-recent-stage-deployment"></a>
 ### Query Result of Recent Stage Deployment { #query-result-of-recent-stage-deployment }
-- You can query the result of [Deploy Stage](./api-guide-v2.0/#deploy-stage_1). 
+- You can query the result of [Deploy Stage](./api-guide-v2.0/#deploy-stage). 
 - After a stage deployment request, it can take up to a minute for the deployment results to be updated. 
 
 

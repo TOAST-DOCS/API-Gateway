@@ -118,7 +118,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | Enum | 필수 | 없음 | KR1, KR2 | [API Gateway 리전 Enum 코드](./enum-code/#api-gateway) 참고 |
+| regionCode | Enum | 필수 | 없음 | KR1, KR2 | [API Gateway 리전 Enum 코드](./enum-code/#api-gateway-region) 참고 |
 | page | Integer | 선택 | 1 | 없음 | 페이지 |
 | limit | Integer | 선택 | 10 | 최대 1000 | 페이지당 건 수 |
 
@@ -173,12 +173,12 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 |apigwServiceList[0].apigwDomain         |String  | API Gateway 서비스 도메인                  |
 |apigwServiceList[0].apigwServiceAlias   |String  | API Gateway 서비스 별칭               |
 |apigwServiceList[0].apigwServiceId      |String  | API Gateway 서비스 ID                  |
-|apigwServiceList[0].apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드](./enum-code/#api-gateway_1) 참고|
+|apigwServiceList[0].apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드](./enum-code/#api-gateway-service-type) 참고|
 |apigwServiceList[0].appKey              |String  | AppKey                                        |
 |apigwServiceList[0].dedicatedId         |String  | 전용 API Gateway 서비스의 ID                        |
 |apigwServiceList[0].apigwServiceDescription         |String  | API Gateway 서비스 설명                                        |
 |apigwServiceList[0].apigwServiceName                |String  | API Gateway 서비스 이름                                        |
-|apigwServiceList[0].regionCode          |Enum    | [API Gateway 리전 Enum 코드](./enum-code/#api-gateway) 참고 |
+|apigwServiceList[0].regionCode          |Enum    | [API Gateway 리전 Enum 코드](./enum-code/#api-gateway-region) 참고 |
 |apigwServiceList[0].serverGroupId       |String  | API Gateway 서비스가 속한 서버 그룹 ID                              |
 |apigwServiceList[0].createdAt           |DateTime| API Gateway 서비스 생성 일시                                      |
 |apigwServiceList[0].updatedAt           |DateTime| API Gateway 서비스 수정 일시                                      |
@@ -244,12 +244,12 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 |apigwService.apigwDomain         |String  | API Gateway 서비스 도메인                  |
 |apigwService.apigwServiceAlias   |String  | API Gateway 서비스 별칭                            |
 |apigwService.apigwServiceId      |String  | API Gateway 서비스 ID                            |
-|apigwService.apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드](./enum-code/#api-gateway_1) 참고 |
+|apigwService.apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드](./enum-code/#api-gateway-service-type) 참고 |
 |apigwService.appKey              |String  | AppKey                                        |
 |apigwService.dedicatedId         |String  | 전용 API Gateway 서비스의 ID                        |
 |apigwService.apigwServiceDescription         |String  | API Gateway 서비스 설명                                        |
 |apigwService.apigwServiceName                |String  | API Gateway 서비스 이름                                        |
-|apigwService.regionCode          |Enum    |[API Gateway 리전 Enum 코드](./enum-code/#api-gateway) 참고|
+|apigwService.regionCode          |Enum    |[API Gateway 리전 Enum 코드](./enum-code/#api-gateway-region) 참고|
 |apigwService.serverGroupId       |String  | API Gateway 서비스가 속한 서버 그룹 ID                              |
 |apigwService.createdAt           |DateTime| API Gateway 서비스 생성 일시                                      |
 |apigwService.updatedAt           |DateTime| API Gateway 서비스 수정 일시                                      |
@@ -289,7 +289,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| regionCode | Enum | 필수 | 없음 | KR1, KR2 | [API Gateway 리전 Enum 코드](./enum-code/#api-gateway) 참고|
+| regionCode | Enum | 필수 | 없음 | KR1, KR2 | [API Gateway 리전 Enum 코드](./enum-code/#api-gateway-region) 참고|
 | apigwServiceName | String | 필수 | 없음 | 최대 50자  | API Gateway 서비스 이름 |
 | apigwServiceDescription | String | 선택 | 없음 | 최대 200자  | API Gateway 서비스 설명 |
 
@@ -334,12 +334,12 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 |apigwService.apigwDomain         |String  | API Gateway 서비스 도메인                  |
 |apigwService.apigwServiceAlias   |String  | API Gateway 서비스 별칭                            |
 |apigwService.apigwServiceId      |String  | API Gateway 서비스 ID                            |
-|apigwService.apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드](./enum-code/#api-gateway_1) 참고 |
+|apigwService.apigwServiceTypeCode|Enum    | [API Gateway 서비스 타입 Enum 코드](./enum-code/#api-gateway-service-type) 참고 |
 |apigwService.appKey              |String  | AppKey                                        |
 |apigwService.dedicatedId         |String  | 전용 API Gateway 서비스의 ID                        |
 |apigwService.apigwServiceDescription         |String  | 서비스 설명                                        |
 |apigwService.apigwServiceName    |String  | API Gateway 서비스 이름                                        |
-|apigwService.regionCode          |Enum    | [API Gateway 리전 Enum 코드](./enum-code/#api-gateway) 참고|
+|apigwService.regionCode          |Enum    | [API Gateway 리전 Enum 코드](./enum-code/#api-gateway-region) 참고|
 |apigwService.serverGroupId       |String  | API Gateway 서비스가 속한 서버 그룹 ID                              |
 |apigwService.createdAt           |DateTime| API Gateway 서비스 생성 일시                                      |
 |apigwService.updatedAt           |DateTime| API Gateway 서비스 수정 일시                                      |
@@ -425,12 +425,12 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 |apigwService.apigwDomain         |String  |API Gateway 서비스 도메인                  |
 |apigwService.apigwServiceAlias   |String  |API Gateway 서비스 별칭                            |
 |apigwService.apigwServiceId      |String  |API Gateway 서비스 ID                            |
-|apigwService.apigwServiceTypeCode|Enum    |[API Gateway 서비스 타입 Enum 코드](./enum-code/#api-gateway_1) 참고|
+|apigwService.apigwServiceTypeCode|Enum    |[API Gateway 서비스 타입 Enum 코드](./enum-code/#api-gateway-service-type) 참고|
 |apigwService.appKey              |String  |AppKey                                        |
 |apigwService.dedicatedId         |String  |전용 API Gateway 서비스의 ID                        |
 |apigwService.apigwServiceDescription         |String  |서비스 설명                                        |
 |apigwService.apigwServiceName                |String  |서비스 이름                                        |
-|apigwService.regionCode          |Enum    |[API Gateway 리전 Enum 코드](./enum-code/#api-gateway) 참고|
+|apigwService.regionCode          |Enum    |[API Gateway 리전 Enum 코드](./enum-code/#api-gateway-region) 참고|
 |apigwService.serverGroupId       |String  |서비스가 속한 서버 그룹 ID                              |
 |apigwService.createdAt           |DateTime|서비스 생성 일시                                      |
 |apigwService.updatedAt           |DateTime|서비스 수정 일시                                      |
@@ -575,21 +575,21 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | resourceList[0].path                                   | String   | 리소스 경로                                         |
 | resourceList[0].createdAt                              | DateTime | 리소스 생성 일시                                       |
 | resourceList[0].updatedAt                              | DateTime | 리소스 수정 일시                                       |
-| resourceList[2].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
+| resourceList[2].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#http-method-type) 참고 |
 | resourceList[2].methodName                             | String   | 메서드 리소스 이름                                     |
 | resourceList[2].methodDescription                      | String   | 메서드 리소스 설명                                     |
 | resourceList[2].resourcePluginList                     | List     | 리소스 플러그인 목록 영역                                 |
 | resourceList[2].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
 | resourceList[2].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
-| resourceList[2].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고    |
-| resourceList[2].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고                   |
+| resourceList[2].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#resource-plugin-type) 참고    |
+| resourceList[2].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#resource-plugin) 참고                   |
 | resourceList[2].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
 | resourceList[2].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
 
 <a id="create-resource-paths-and-methods"></a>
 ### 리소스 경로와 메서드 생성 { #create-resource-paths-and-methods }
 - 여러 개의 리소스 경로와 메서드를 생성하고, 생성과 동시에 플러그인을 설정할 수 있습니다.
-- 리소스 메서드는 선택 입력입니다. 생성된 리소스 경로의 하위에 메서드를 추가하려면 [리소스 메서드 생성](./api-guide-v2.0/#_23) API를 사용해야합니다.
+- 리소스 메서드는 선택 입력입니다. 생성된 리소스 경로의 하위에 메서드를 추가하려면 [리소스 메서드 생성](./api-guide-v2.0/#create-resource-methods) API를 사용해야합니다.
 - 리소스 메서드에는 HTTP 또는 MOCK 플러그인 중 반드시 하나가 설정되어야 합니다. HTTP와 MOCK 플러그인을 동시에 설정할 수 없습니다.
 - 생성된 리소스 경로는 수정이 불가합니다.
 - pathPluginList 필드에 정의된 리소스 경로 플러그인은 해당 경로의 하위 메서드에 적용되는 플러그인 목록입니다.
@@ -699,17 +699,17 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | resourcePathList[0].path | Object | 필수 | 없음 | 영문자, 숫자, 경로 변수, 제한된 문자(. + - /)로 구성된 유효한 경로  | 리소스 경로 |
 | resourcePathList[0].pathPluginList | List | 선택 | 없음 | 없음 | 리소스 경로 플러그인 목록 |
 | resourcePathList[0].pathPluginList[0] | Object | 선택 | 없음 | 없음 | 리소스 경로 플러그인 영역 |
-| resourcePathList[0].pathPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 경로에 설정 가능한 플러그인 타입 |
-| resourcePathList[0].pathPluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고.|
+| resourcePathList[0].pathPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#resource-plugin-type) 중 리소스 경로에 설정 가능한 플러그인 타입 |
+| resourcePathList[0].pathPluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#resource-plugin) 참고.|
 | resourcePathList[0].methodList | List | 선택 | 없음 | 없음 | 리소스 경로 하위의 메서드 목록 |
 | resourcePathList[0].methodList[0] | Object | 선택 | 없음 | 없음 | 리소스 경로 하위의 메서드 영역 |
-| resourcePathList[0].methodList[0].methodType | Enum | 필수 | 없음 | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
+| resourcePathList[0].methodList[0].methodType | Enum | 필수 | 없음 | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTP 메서드 타입 Enum 코드](./enum-code/#http-method-type) 참고 |
 | resourcePathList[0].methodList[0].methodName | String | 필수 | 없음 | 최대 50자 | 메서드 이름 |
 | resourcePathList[0].methodList[0].methodDescription | String | 선택 | 없음 | 최대 200자 | 메서드 설명 |
 | resourcePathList[0].methodList[0].methodPluginList | List | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 목록 |
 | resourcePathList[0].methodList[0].methodPluginList[0] | Object | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 영역, 'HTTP' 또는 'MOCK' 중 하나의 플러그인은 필수 입력 |
-| resourcePathList[0].methodList[0].methodPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 메서드에 설정 가능한 플러그인 타입 |
-| resourcePathList[0].methodList[0].methodPluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고.|
+| resourcePathList[0].methodList[0].methodPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#resource-plugin-type) 중 리소스 메서드에 설정 가능한 플러그인 타입 |
+| resourcePathList[0].methodList[0].methodPluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#resource-plugin) 참고.|
 
 <a id="create-resource-paths-and-methods-response"></a>
 #### 응답
@@ -948,14 +948,14 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | resourceList[1].parentPath                             | String   | 부모 리소스 경로                                         |
 | resourceList[1].createdAt                              | DateTime | 리소스 생성 일시                                       |
 | resourceList[1].updatedAt                              | DateTime | 리소스 수정 일시                                       |
-| resourceList[1].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
+| resourceList[1].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#http-method-type) 참고 |
 | resourceList[1].methodName                             | String   | 메서드 리소스 이름                                     |
 | resourceList[1].methodDescription                      | String   | 메서드 리소스 설명                                     |
 | resourceList[1].resourcePluginList                     | List     | 리소스 플러그인 목록 영역                                 |
 | resourceList[1].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
 | resourceList[1].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
-| resourceList[1].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고    |
-| resourceList[1].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고                   |
+| resourceList[1].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#resource-plugin-type) 참고    |
+| resourceList[1].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#resource-plugin) 참고                   |
 | resourceList[1].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
 | resourceList[1].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
 
@@ -1014,13 +1014,13 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | --- | --- | --- | --- | --- | --- |
 | methodList | List | 필수 | 없음 | 없음 | 리소스 경로 하위의 메서드 목록 |
 | methodList[0] | Object | 필수 | 없음 | 없음 | 리소스 경로 하위의 메서드 영역 |
-| methodList[0].methodType | Enum | 필수 | 없음 | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
+| methodList[0].methodType | Enum | 필수 | 없음 | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTP 메서드 타입 Enum 코드](./enum-code/#http-method-type) 참고 |
 | methodList[0].methodName | String | 필수 | 없음 | 최대 50자 | 메서드 이름 |
 | methodList[0].methodDescription | String | 선택 | 없음 | 최대 200자 | 메서드 설명 |
 | methodList[0].methodPluginList | List | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 목록 |
 | methodList[0].methodPluginList[0] | Object | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 영역, 'HTTP' 또는 'MOCK' 중 하나의 플러그인은 필수 입력 |
-| methodList[0].methodPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 메서드에 설정 가능한 플러그인 타입 |
-| methodList[0].methodPluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고.|
+| methodList[0].methodPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#resource-plugin-type) 중 리소스 메서드에 설정 가능한 플러그인 타입 |
+| methodList[0].methodPluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#resource-plugin) 참고.|
 
 <a id="create-resource-methods-response"></a>
 #### 응답
@@ -1090,14 +1090,14 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | resourceList[0].parentPath                             | String   | 부모 리소스 경로                                         |
 | resourceList[0].createdAt                              | DateTime | 리소스 생성 일시                                       |
 | resourceList[0].updatedAt                              | DateTime | 리소스 수정 일시                                       |
-| resourceList[0].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
+| resourceList[0].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#http-method-type) 참고 |
 | resourceList[0].methodName                             | String   | 메서드 리소스 이름                                     |
 | resourceList[0].methodDescription                      | String   | 메서드 리소스 설명                                     |
 | resourceList[0].resourcePluginList                     | List     | 리소스 플러그인 목록 영역                                 |
 | resourceList[0].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
 | resourceList[0].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
-| resourceList[0].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고    |
-| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고                   |
+| resourceList[0].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#resource-plugin-type) 참고    |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#resource-plugin) 참고                   |
 | resourceList[0].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
 | resourceList[0].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
 
@@ -1111,7 +1111,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 - applyChildPath 필드를 true로 설정하면 리소스 경로 하위의 모든 경로와 메서드에 플러그인이 설정됩니다.
 - applyChildPath와 delete 필드 모두를 true로 설정하면 리소스 경로 하위의 모든 경로와 메서드에 플러그인이 삭제됩니다.
 - CORS 플러그인을 설정하면, 하위 메서드로 OPTIONS 메서드가 자동으로 생성됩니다. 만일 기존에 존재하는 OPTIONS 메서드가 있다면 삭제되고 대체되므로 주의해주세요.
-- 리소스 경로에 설정 가능한 플러그인만 설정할 수 있습니다. 자세한 내용은 [리소스 플러그인](./api-guide-v2.0/#_37)을 참고합니다.
+- 리소스 경로에 설정 가능한 플러그인만 설정할 수 있습니다. 자세한 내용은 [리소스 플러그인](./api-guide-v2.0/#resource-plugin)을 참고합니다.
 
 <a id="modifydelete-resource-path-plugins-request"></a>
 #### 요청
@@ -1174,8 +1174,8 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | --- | --- | --- | --- | --- | --- |
 | pathPluginList | List | 선택 | 없음 | 없음 | 리소스 경로 플러그인 목록 |
 | pathPluginList[0] | Object | 선택 | 없음 | 없음 | 리소스 경로 플러그인 영역 |
-| pathPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER,ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 경로에 설정 가능한 플러그인 타입 |
-| pathPluginList[0].pluginConfigJson | Object | 조건부 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고, delete 필드가 false인 경우 필수 입력|
+| pathPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER,ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#resource-plugin-type) 중 리소스 경로에 설정 가능한 플러그인 타입 |
+| pathPluginList[0].pluginConfigJson | Object | 조건부 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#resource-plugin) 참고, delete 필드가 false인 경우 필수 입력|
 | pathPluginList[0].applyChildPath | Boolean | 선택 | false | true, false | 하위 경로와 메서드에 덮어쓰기 여부 |
 | pathPluginList[0].delete | Boolean | 선택 | false | true, false | 플러그인 삭제 여부 |
 
@@ -1235,14 +1235,14 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | resourceList[0].parentPath                             | String   | 부모 리소스 경로                                         |
 | resourceList[0].createdAt                              | DateTime | 리소스 생성 일시                                       |
 | resourceList[0].updatedAt                              | DateTime | 리소스 수정 일시                                       |
-| resourceList[0].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
+| resourceList[0].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#http-method-type) 참고 |
 | resourceList[0].methodName                             | String   | 메서드 리소스 이름                                     |
 | resourceList[0].methodDescription                      | String   | 메서드 리소스 설명                                     |
 | resourceList[0].resourcePluginList                     | List     | 리소스 플러그인 목록 영역                                 |
 | resourceList[0].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
 | resourceList[0].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
-| resourceList[0].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고    |
-| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고                   |
+| resourceList[0].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#resource-plugin-type) 참고    |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#resource-plugin) 참고                   |
 | resourceList[0].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
 | resourceList[0].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
 
@@ -1254,7 +1254,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 - 리소스 메서드에 추가되지 않은 플러그인을 설정하면 플러그인이 추가됩니다.
 - 리소스 메서드에 추가된 플러그인을 설정하면 요청한 플러그인 설정으로 변경됩니다.
 - delete 필드를 true로 설정하면, 요청한 플러그인 타입의 플러그인이 삭제됩니다. delete 필드가 true이면 pluginConfigJson 필드는 정의하지 않아도 됩니다.
-- 리소스 메서드에 설정 가능한 플러그인만 설정할 수 있습니다. 자세한 내용은 [리소스 플러그인](./api-guide-v2.0/#_37)을 참고합니다.
+- 리소스 메서드에 설정 가능한 플러그인만 설정할 수 있습니다. 자세한 내용은 [리소스 플러그인](./api-guide-v2.0/#resource-plugin)을 참고합니다.
 
 <a id="modifydelete-resource-method-information-and-plugins-request"></a>
 #### 요청
@@ -1305,8 +1305,8 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | methodDescription | String | 선택 | 없음 | 최대 200자 | 메서드 설명 |
 | methodPluginList | List | 선택 | 없음 | 없음 | 리소스 메서드 플러그인 목록 |
 | methodPluginList[0] | Object | 필수 | 없음 | 없음 | 리소스 메서드 플러그인 영역 |
-| methodPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 중 리소스 메서드에 설정 가능한 플러그인 타입 |
-| methodPluginList[0].pluginConfigJson | Object | 조건부 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고, delete 필드가 false인 경우 필수 입력|
+| methodPluginList[0].pluginType | Enum | 필수 | 없음 | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#resource-plugin-type) 중 리소스 메서드에 설정 가능한 플러그인 타입 |
+| methodPluginList[0].pluginConfigJson | Object | 조건부 필수 | 없음 | 없음 | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#resource-plugin) 참고, delete 필드가 false인 경우 필수 입력|
 | methodPluginList[0].delete | Boolean | 선택 | false | 없음 | 플러그인 삭제 여부 |
 
 <a id="modifydelete-resource-method-information-and-plugins-response"></a>
@@ -1364,14 +1364,14 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | resourceList[0].parentPath                             | String   | 부모 리소스 경로                                         |
 | resourceList[0].createdAt                              | DateTime | 리소스 생성 일시                                       |
 | resourceList[0].updatedAt                              | DateTime | 리소스 수정 일시                                       |
-| resourceList[0].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
+| resourceList[0].methodType                             | Enum     | [HTTP 메서드 타입 Enum 코드](./enum-code/#http-method-type) 참고 |
 | resourceList[0].methodName                             | String   | 메서드 리소스 이름                                     |
 | resourceList[0].methodDescription                      | String   | 메서드 리소스 설명                                     |
 | resourceList[0].resourcePluginList                     | List     | 리소스 플러그인 목록 영역                                 |
 | resourceList[0].resourcePluginList[0].resourcePluginId | String   | 리소스 플러그인 ID                                    |
 | resourceList[0].resourcePluginList[0].resourceId       | String   | 리소스 ID                                         |
-| resourceList[0].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고    |
-| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고                   |
+| resourceList[0].resourcePluginList[0].pluginType       | Enum     | [리소스 플러그인 타입 Enum 코드](./enum-code/#resource-plugin-type) 참고    |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#resource-plugin) 참고                   |
 | resourceList[0].resourcePluginList[0].createdAt        | DateTime | 리소스 플러그인 생성 일시                                  |
 | resourceList[0].resourcePluginList[0].updatedAt        | DateTime | 리소스 플러그인 수정 일시                                  |
 
@@ -1551,7 +1551,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.schema.$ref | String | 필수 | 없음 | Swagger definitions에 선언된 객체 | API Gateway 리소스 응답 > 응답 HTTP 상태 코드 > 응답 본문 > 모델. |
 | swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway | Object | 선택 | 없음 | 없음 | API Gateway 제공 기능 정의 객체 영역. |
 | swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins | Object | 필수 | 없음 | 없음 | API Gateway 사용자 정의 플러그인 객체 영역. |
-| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins.{pluginCode} | Object | 필수 | 없음 | {pluginCode} HTTP, MOCK, CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#_1) 참고. [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#_37) 참고. |
+| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins.{pluginCode} | Object | 필수 | 없음 | {pluginCode} HTTP, MOCK, CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | [리소스 플러그인 타입 Enum 코드](./enum-code/#resource-plugin-type) 참고. [리소스 플러그인 타입별 JSON 설정값](./api-guide-v2.0/#resource-plugin) 참고. |
 | swaggerData.definitions | Object | 선택 | 없음 | 없음 | API Gateway 리소스 요청 파라미터, 응답에서 사용되는 본문 객체 정의 영역. [Definitions Object](https://swagger.io/specification/v2/#definitionsObject) 참고 |
 
 
@@ -1619,7 +1619,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | allowedMethods | List | 필수 | 없음 | 없음 | 리소스 접근에 허용할 메서드 목록 영역 |
-| allowedMethods[0] | Enum | 필수 | 없음 | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고 |
+| allowedMethods[0] | Enum | 필수 | 없음 | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTP 메서드 타입 Enum 코드](./enum-code/#http-method-type) 참고 |
 | allowedHeaders | List | 필수 | 없음 | 없음 | 요청에서 사용할 수 있는 HTTP 헤더 목록 영역 |
 | allowedHeaders[0] | String | 필수 | 없음 | 없음 | 요청에서 사용할 수 있는 HTTP 헤더(예시: 와일드카드 형식: '\*' 또는 'X-NHN-HEADER, Content-Type') |
 | allowedOrigins    | List | 필수 | 없음 | 없음 | 리소스에 액세스할 수 있는 원본 서버의 도메인 목록 영역 |
@@ -1811,19 +1811,19 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | queryStringList                | List    | 쿼리 문자열 목록 영역                                         |
 | queryStringList[0].name        | String  | 쿼리 문자열 이름                                            |
 | queryStringList[0].description | String  | 쿼리 문자열 설명                                            |
-| queryStringList[0].dataType    | Enum    | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#_2) 참고|
+| queryStringList[0].dataType    | Enum    | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#resource-requestresponse-parameter-data-type) 참고|
 | queryStringList[0].required    | Boolean | 쿼리 문자열 필수 여부                                         |
 | queryStringList[0].isArray     | Boolean | 쿼리 문자열 Array 여부                                      |
 | headerList                     | List    | 헤더 목록 영역                                             |
 | headerList[0].name             | String  | 헤더 이름                                                |
 | headerList[0].description      | String  | 헤더 설명                                                |
-| headerList[0].dataType         | Enum    | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#_2) 참고 |
+| headerList[0].dataType         | Enum    | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#resource-requestresponse-parameter-data-type) 참고 |
 | headerList[0].required         | Boolean | 헤더 필수 여부                                             |
 | headerList[0].isArray          | null    | 해더 Array 여부 미제공                                      |
 | formDataList                   | List    | 폼 데이터 목록 영역                                          |
 | formDataList[0].name           | String  | 폼 데이터 이름                                             |
 | formDataList[0].description    | String  | 폼 데이터 설명                                             |
-| formDataList[0].dataType       | Enum    | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#_2) 참고 |
+| formDataList[0].dataType       | Enum    | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#resource-requestresponse-parameter-data-type) 참고 |
 | formDataList[0].required       | Boolean | 폼 데이터 필수 여부                                          |
 | formDataList[0].isArray        | Boolean | 폼 데이터 Array 여부                                       |
 | requestBody                    | Object  | 요청 본문 영역                                             |
@@ -1907,18 +1907,18 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | queryStringList                | List    | 선택    | Empty List    | 최대 50개                                              | 쿼리 문자열 목록 영역                                         |
 | queryStringList[0].name        | String  | 필수    | 없음           | 최대 50자                                              | 쿼리 문자열 이름                                            |
 | queryStringList[0].description | String  | 선택    | 없음           | 최대 200자                                             | 쿼리 문자열 설명                                            |
-| queryStringList[0].dataType    | Enum    | 필수    | 없음           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE        | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#_2) 참고|
+| queryStringList[0].dataType    | Enum    | 필수    | 없음           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE        | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#resource-requestresponse-parameter-data-type) 참고|
 | queryStringList[0].required    | Boolean | 필수    | 없음           | true, false                                          | 쿼리 문자열 필수 여부                                         |
 | queryStringList[0].isArray     | Boolean | 필수    | 없음           | true, false                                          | 쿼리 문자열 Array 여부                                      |
 | headerList                     | List    | 선택    | Empty List    | 최대 50개                                              | 헤더 목록 영역                                             |
 | headerList[0].name             | String  | 필수    | 없음           | 최대 50자                                              | 헤더 이름                                                |
 | headerList[0].description      | String  | 선택    | 없음           | 최대 200자                                             | 헤더 설명                                                |
-| headerList[0].dataType         | Enum    | 필수    | 없음           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE        | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#_2) 참고|
+| headerList[0].dataType         | Enum    | 필수    | 없음           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE        | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#resource-requestresponse-parameter-data-type) 참고|
 | headerList[0].required         | Boolean | 필수    | 없음           | true, false                                          | 헤더 필수 여부                                             |
 | formDataList                   | List    | 선택    | Empty List    | 최대 50개                                              | 폼 데이터 목록 영역                                          |
 | formDataList[0].name           | String  | 필수    | 없음           | 최대 50자                                              | 폼 데이터 이름                                             |
 | formDataList[0].description    | String  | 선택    | 없음           | 최대 200자                                             | 폼 데이터 설명                                             |
-| formDataList[0].dataType       | Enum    | 필수    | 없음           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE, FILE  | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#_2) 참고|
+| formDataList[0].dataType       | Enum    | 필수    | 없음           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE, FILE  | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#resource-requestresponse-parameter-data-type) 참고|
 | formDataList[0].required       | Boolean | 필수    | 없음           | true, false                                          | 폼 데이터 필수 여부                                          |
 | formDataList[0].isArray        | Boolean | 필수    | 없음           | true, false                                          | 폼 데이터 Array 여부. dataType이 FILE인 경우 false.            |
 | requestBody                    | Object  | 선택    | Empty Object  | 없음                                                  | 요청 본문 객체 영역                                          |
@@ -2015,7 +2015,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | responseList[0].headerList                | List    | HTTP 응답 헤더 목록 영역                                     |
 | responseList[0].headerList[0].name        | String  | 응답 헤더 이름                                             |
 | responseList[0].headerList[0].description | String  | 응답 헤더 설명                                             |
-| responseList[0].headerList[0].dataType    | Enum    | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#_2) 참고|
+| responseList[0].headerList[0].dataType    | Enum    | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#resource-requestresponse-parameter-data-type) 참고|
 | responseList[0].responseBody              | Object  | HTTP 응답 본문 객체 영역                                     |
 | responseList[0].responseBody.name         | String  | 응답 본문 이름                                             |
 | responseList[0].responseBody.description  | String  | 응답 본문 설명                                             |
@@ -2085,7 +2085,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | responseList[0].headerList                | List    | 선택    | Empty List   | 최대 50개                                        | HTTP 응답 헤더 목록 영역                                     |
 | responseList[0].headerList[0].name        | String  | 필수    | 없음           | 최대 50자                                        | 응답 헤더 이름                                             |
 | responseList[0].headerList[0].description | String  | 선택    | 없음         | 최대 200자                                       | 응답 헤더 설명                                             |
-| responseList[0].headerList[0].dataType    | Enum    | 필수    | 없음           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#_2) 참고 |
+| responseList[0].headerList[0].dataType    | Enum    | 필수    | 없음           | STRING, BOOLEAN, INTEGER, LONG, FLOAT, DOUBLE | [리소스 요청/응답 파라미터 데이터 타입 Enum 코드](./enum-code/#resource-requestresponse-parameter-data-type) 참고 |
 | responseList[0].responseBody              | Object  | 선택    | Empty Object | 없음                                            | HTTP 응답 본문 객체 영역                                     |
 | responseList[0].responseBody.name         | String  | 필수    | 없음           | 최대 50자                                        | 응답 본문 이름                                             |
 | responseList[0].responseBody.description  | String  | 선택    | 없음         | 최대 200자                                       | 응답 본문 설명                                             |
@@ -2549,7 +2549,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 |paging.limit                         |Integer | 페이지당 건 수                                  |
 |paging.totalCount                    |Integer | 전체 건 수                                        |
 |stageList        |List    | 스테이지 목록 영역 |
-|stageList[0].regionCode       |Enum    |[API Gateway 리전 Enum 코드](./enum-code/#api-gateway) 참고                |
+|stageList[0].regionCode       |Enum    |[API Gateway 리전 Enum 코드](./enum-code/#api-gateway-region) 참고                |
 |stageList[0].apigwServiceId   |String  |API Gateway 서비스 ID  |
 |stageList[0].stageId          |String  |스테이지 ID             |
 |stageList[0].stageName        |String  |스테이지 이름             |
@@ -2688,7 +2688,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |stage        |Object    | 스테이지 영역 |
-|stage.regionCode       |Enum    |[API Gateway 리전 Enum 코드](./enum-code/#api-gateway) 참고                |
+|stage.regionCode       |Enum    |[API Gateway 리전 Enum 코드](./enum-code/#api-gateway-region) 참고                |
 |stage.apigwServiceId   |String  |API Gateway 서비스 ID  |
 |stage.stageId          |String  |스테이지 ID             |
 |stage.stageName        |String  |스테이지 이름             |
@@ -2780,7 +2780,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 |필드                                   |타입      |설명                                            |
 |-------------------------------------|--------|----------------------------------------------|
 |stage        |Object    | 스테이지 영역 |
-|stage.regionCode       |Enum    |[API Gateway 리전 Enum 코드](./enum-code/#api-gateway) 참고                |
+|stage.regionCode       |Enum    |[API Gateway 리전 Enum 코드](./enum-code/#api-gateway-region) 참고                |
 |stage.apigwServiceId   |String  |API Gateway 서비스 ID  |
 |stage.stageId          |String  |스테이지 ID             |
 |stage.stageName        |String  |스테이지 이름             |
@@ -2836,7 +2836,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 <a id="list-stage-resources"></a>
 ### 스테이지 리소스 목록 조회 { #list-stage-resources }
 * 스테이지에 등록된 리소스 목록을 가져옵니다. 각 리소스에 설정된 스테이지 리소스 플러그인 정보가 포함됩니다.
-* 스테이지 리소스 플러그인에 대한 자세한 내용은 [스테이지 리소스 플러그인](./api-guide-v2.0/#_89)을 참고합니다.
+* 스테이지 리소스 플러그인에 대한 자세한 내용은 [스테이지 리소스 플러그인](./api-guide-v2.0/#stage-resource-plugin)을 참고합니다.
 
 
 <a id="list-stage-resources-request"></a>
@@ -2926,7 +2926,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 |stageResourceList[0].parentPath             |String  |스테이지 상위 리소스 경로 (루트(/) 경로의 parentPath는 null)|
 |stageResourceList[0].stageId                |String  |스테이지 ID                                    |
 |stageResourceList[0].customBackendEndpointUrl      |String  |백엔드 엔드포인트 재정의 URL                          |
-|stageResourceList[0].methodType             |Enum    |[HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고  |
+|stageResourceList[0].methodType             |Enum    |[HTTP 메서드 타입 Enum 코드](./enum-code/#http-method-type) 참고  |
 |stageResourceList[0].methodName             |String  |메서드 이름                                     |
 |stageResourceList[0].methodDescription      |String  |메서드 설명                                     |
 |stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성 일시                              |
@@ -2935,8 +2935,8 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 |stageResourceList[0].stageResourcePluginList[0]|Object    |스테이지 리소스의 플러그인 영역                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입 Enum 코드](./enum-code/#_1), [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v2.0/#_37), [스테이지 플러그인 타입](./api-guide-v2.0/#_89)별 설정 JSON 참고            |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입 Enum 코드](./enum-code/#resource-plugin-type), [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#stage-resource-plugin-type) 참고                        |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v2.0/#resource-plugin), [스테이지 플러그인 타입](./api-guide-v2.0/#stage-resource-plugin)별 설정 JSON 참고            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
@@ -3036,7 +3036,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 |stageResourceList[0].parentPath             |String  |스테이지 상위 리소스 경로 (루트(/) 경로의 parentPath는 null)|
 |stageResourceList[0].stageId                |String  |스테이지 ID                                    |
 |stageResourceList[0].customBackendEndpointUrl      |String  |백엔드 엔드포인트 재정의 URL                          |
-|stageResourceList[0].methodType             |Enum    |[HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고               |
+|stageResourceList[0].methodType             |Enum    |[HTTP 메서드 타입 Enum 코드](./enum-code/#http-method-type) 참고               |
 |stageResourceList[0].methodName             |String  |메서드 이름                                     |
 |stageResourceList[0].methodDescription      |String  |메서드 설명                                     |
 |stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성 일시                              |
@@ -3045,8 +3045,8 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 |stageResourceList[0].stageResourcePluginList[0]|Object    |스테이지 리소스의 플러그인 영역                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입 Enum 코드](./enum-code/#_1), [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v2.0/#_37), [스테이지 플러그인 타입](./api-guide-v2.0/#_89)별 설정 JSON 참고            |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입 Enum 코드](./enum-code/#resource-plugin-type), [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#stage-resource-plugin-type) 참고                        |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v2.0/#resource-plugin), [스테이지 플러그인 타입](./api-guide-v2.0/#stage-resource-plugin)별 설정 JSON 참고            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
@@ -3056,7 +3056,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 ### 스테이지 리소스 수정 { #modify-stage-resource }
 * 리소스 경로 또는 리소스 메서드에 설정된 백엔드 엔드포인트 URL 재정의와 스테이지 리소스 플러그인을 수정합니다.
 * 스테이지 리소스를 수정하면 등록된 스테이지 리소스 플러그인은 모두 삭제되고, 요청한 리소스 플러그인만 새로 등록됩니다.
-* 스테이지 리소스 플러그인에 대한 자세한 정보는 [스테이지 리소스 플러그인](./api-guide-v2.0/#_89)을 참고합니다.
+* 스테이지 리소스 플러그인에 대한 자세한 정보는 [스테이지 리소스 플러그인](./api-guide-v2.0/#stage-resource-plugin)을 참고합니다.
 
 <a id="modify-stage-resource-request"></a>
 #### 요청
@@ -3100,8 +3100,8 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | customBackendEndpointUrl | String | 선택 | 없음 | 최대 150자, URL 형식 | 백엔드 엔드포인트 재정의 URL |
 | stageResourcePluginList | List | 필수 | 없음 | 없음 | 스테이지 리소스 플러그인 목록 영역 |
 | stageResourcePluginList[0] | Object | 필수 | 없음 | 없음 | 스테이지 리소스의 플러그인 영역 |
-| stageResourcePluginList[0].pluginType  | Enum | 필수 | 없음 | IP_ACL, HMAC, JWT, API_KEY, PRE_API, RATE_LIMIT | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고|
-| stageResourcePluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | 스테이지 리소스 플러그인 별 JSON 형식의 객체<br>[스테이지 플러그인 타입](./api-guide-v2.0/#_89) 참고|
+| stageResourcePluginList[0].pluginType  | Enum | 필수 | 없음 | IP_ACL, HMAC, JWT, API_KEY, PRE_API, RATE_LIMIT | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#stage-resource-plugin-type) 참고|
+| stageResourcePluginList[0].pluginConfigJson | Object | 필수 | 없음 | 없음 | 스테이지 리소스 플러그인 별 JSON 형식의 객체<br>[스테이지 플러그인 타입](./api-guide-v2.0/#stage-resource-plugin) 참고|
 
 * customBackendEndpointUrl 필드는 루트(/) 리소스 경로에는 설정할 수 없습니다.
 
@@ -3176,7 +3176,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 |stageResourceList[0].parentPath             |String  |스테이지 상위 리소스 경로 (루트(/) 경로의 parentPath는 null)|
 |stageResourceList[0].stageId                |String  |스테이지 ID                                    |
 |stageResourceList[0].customBackendEndpointUrl      |String  |백엔드 엔드포인트 재정의 URL                          |
-|stageResourceList[0].methodType             |Enum    |[HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고               |
+|stageResourceList[0].methodType             |Enum    |[HTTP 메서드 타입 Enum 코드](./enum-code/#http-method-type) 참고               |
 |stageResourceList[0].methodName             |String  |메서드 이름                                     |
 |stageResourceList[0].methodDescription      |String  |메서드 설명                                     |
 |stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성 일시                              |
@@ -3185,8 +3185,8 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 |stageResourceList[0].stageResourcePluginList[0]|Object    |스테이지 리소스의 플러그인 영역                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입 Enum 코드](./enum-code/#_1), [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v2.0/#_37), [스테이지 플러그인 타입](./api-guide-v2.0/#_89)별 설정 JSON 참고            |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입 Enum 코드](./enum-code/#resource-plugin-type), [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#stage-resource-plugin-type) 참고                        |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v2.0/#resource-plugin), [스테이지 플러그인 타입](./api-guide-v2.0/#stage-resource-plugin)별 설정 JSON 참고            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
@@ -3245,7 +3245,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 필수 | 없음 | IP_ACL | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 중 IP_ACL 참고 |
+| pluginType | Enum | 필수 | 없음 | IP_ACL | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#stage-resource-plugin-type) 중 IP_ACL 참고 |
 | pluginConfigJson | Object | 필수 | 없음 | 없음 | IP ACL 플러그인 설정 영역 |
 | pluginConfigJson.isPermit | Boolean | 필수 | 없음 | true, false | false로 설정하면 설정된 IP/CIDR에 대해 요청을 거부하고, true로 설정하면 설정된 IP/CIDR만 요청을 허용합니다.  |
 | pluginConfigJson.ipAclList | List | 필수 | 없음 | 1~100개 | 요청을 허용/거부할 IP 또는 CIDR 목록 영역 |
@@ -3277,7 +3277,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 필수 | 없음 | HMAC | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 중 HMAC 참고 |
+| pluginType | Enum | 필수 | 없음 | HMAC | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#stage-resource-plugin-type) 중 HMAC 참고 |
 | pluginConfigJson | Object | 필수 | 없음 | 없음 | HMAC 플러그인 설정 영역 |
 | pluginConfigJson.secretKey | String | 필수 | 없음 | 없음 | 서명에 사용되는 비밀키를 설정합니다. 최소 32바이트 이상 문자열로 설정하는 것을 권장합니다.|
 | pluginConfigJson.clockSkewSeconds | Integer | 선택 | 0 | 0~86400 | 요청 유효 시간(단위: 초)을 지정합니다. |
@@ -3353,9 +3353,9 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 필수 | 없음 | JWT | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 중 JWT 참고 |
+| pluginType | Enum | 필수 | 없음 | JWT | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#stage-resource-plugin-type) 중 JWT 참고 |
 | pluginConfigJson | Object | 필수 | 없음  | 없음 | JWT 플러그인 설정 영역 |
-| pluginConfigJson.encryptAlgorithm | Enum | 필수 | HS256 | HS256 | [JWT > 암호화 알고리즘 Enum 코드](./enum-code/#jwt) 참고  |
+| pluginConfigJson.encryptAlgorithm | Enum | 필수 | HS256 | HS256 | [JWT > 암호화 알고리즘 Enum 코드](./enum-code/#jwt-encryption-algorithm) 참고  |
 | pluginConfigJson.hs256 | Object | 필수 | 없음 | 없음 | HS256 설정 영역 |
 | pluginConfigJson.hs256.secretKey | String | 필수 | 없음 | 없음 | 서명에 사용되는 비밀키를 설정합니다. 최소 32바이트 이상 문자열로 설정하는 것을 권장합니다.|
 | pluginConfigJson.clockSkew | Integer | 선택 | 0 | 0~86400 | exp, nbf 클레임의 검증 유효 시간(단위: 초)을 지정합니다. |
@@ -3363,35 +3363,35 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | pluginConfigJson.claimValidationCondition.iss | Object | 선택 | Default Object | 없음 | iss 클레임 검증 조건 영역. 요청하지 않는 경우 각 필드의 기본값으로 저장됩니다. |
 | pluginConfigJson.claimValidationCondition.iss.value | Array | 필수 | Empty Array | 없음 |  iss 요청 클레임의 값 중 허용할 클레임 값을 문자열 배열로 설정합니다. |
 | pluginConfigJson.claimValidationCondition.iss.value[0] | String | 선택 | 없음 | 없음 |  iss 요청 클레임의 값 중 허용할 문자열을 설정합니다. |
-| pluginConfigJson.claimValidationCondition.iss.dataType | Enum | 선택 | Array | Array | iss 클레임의 데이터 타입을 설정합니다. Array만 유효합니다. <br/>[JWT > 클레임 데이터 타입 Enum 코드](./enum-code/#jwt_1) 참고 |
+| pluginConfigJson.claimValidationCondition.iss.dataType | Enum | 선택 | Array | Array | iss 클레임의 데이터 타입을 설정합니다. Array만 유효합니다. <br/>[JWT > 클레임 데이터 타입 Enum 코드](./enum-code/#jwt-claim-data-type) 참고 |
 | pluginConfigJson.claimValidationCondition.iss.required | Boolean | 필수 | false | true, false | iss 요청 클레임 값의 필수 검증 여부를 설정합니다. |
 | pluginConfigJson.claimValidationCondition.iss.validate | Boolean | 필수 | false | true, false | iss 요청 클레임 값의 검증 여부를 설정합니다. |
 | pluginConfigJson.claimValidationCondition.aud | Object | 선택 | Default Object | 없음 | aud 클레임 검증 조건 영역. 요청하지 않는 경우 각 필드의 기본값으로 저장됩니다.  |
 | pluginConfigJson.claimValidationCondition.aud.value | Array | 필수 | Empty Array | 없음 |  aud 요청 클레임의 값 중 허용할 클레임 값을 문자열 배열로 설정합니다. |
 | pluginConfigJson.claimValidationCondition.aud.value[0] | String | 선택 | 없음 | 없음 |  aud 요청 클레임의 값 중 허용할 문자열을 설정합니다. |
-| pluginConfigJson.claimValidationCondition.aud.dataType | Enum | 선택 | Array | Array | aud 클레임의 데이터 타입을 설정합니다. Array만 유효합니다. <br/>[JWT > 클레임 데이터 타입 Enum 코드](./enum-code/#jwt_1) 참고 |
+| pluginConfigJson.claimValidationCondition.aud.dataType | Enum | 선택 | Array | Array | aud 클레임의 데이터 타입을 설정합니다. Array만 유효합니다. <br/>[JWT > 클레임 데이터 타입 Enum 코드](./enum-code/#jwt-claim-data-type) 참고 |
 | pluginConfigJson.claimValidationCondition.aud.required | Boolean | 필수 | false | true, false | aud 요청 클레임 값의 필수 검증 여부를 설정합니다. |
 | pluginConfigJson.claimValidationCondition.aud.validate | Boolean | 필수 | true | true | aud 요청 클레임 값의 검증 여부를 설정합니다. true만 유효합니다. |
 | pluginConfigJson.claimValidationCondition.sub | Object | 선택 | Default Object | 없음 | sub 클레임 검증 조건 영역. 요청하지 않는 경우 각 필드의 기본값으로 저장됩니다. |
 | pluginConfigJson.claimValidationCondition.sub.value | String | 필수 | Empty String | 없음 |  sub 요청 클레임의 값 중 허용할 클레임 문자열 값을 설정합니다. |
-| pluginConfigJson.claimValidationCondition.sub.dataType | Enum | 선택 | String | String | sub 클레임의 데이터 타입을 설정합니다. String만 유효합니다.<br/>[JWT > 클레임 데이터 타입 Enum 코드](./enum-code/#jwt_1) 참고|
+| pluginConfigJson.claimValidationCondition.sub.dataType | Enum | 선택 | String | String | sub 클레임의 데이터 타입을 설정합니다. String만 유효합니다.<br/>[JWT > 클레임 데이터 타입 Enum 코드](./enum-code/#jwt-claim-data-type) 참고|
 | pluginConfigJson.claimValidationCondition.sub.required | Boolean | 필수 | false | true, false | sub 요청 클레임 값의 필수 검증 여부를 설정합니다. <br/> validate 필드값이 true인 경우, required는 반드시 true로 설정되어야 합니다.  |
 | pluginConfigJson.claimValidationCondition.sub.validate | Boolean | 필수 | false | true, false | sub 요청 클레임 값의 검증 여부를 설정합니다. |
 | pluginConfigJson.claimValidationCondition.jti | Object | 선택 | Default Object | 없음 | jti 클레임 검증 조건 영역. 요청하지 않는 경우 각 필드의 기본값으로 저장됩니다. |
 | pluginConfigJson.claimValidationCondition.jti.value | String | 필수 | Empty String | 없음 | jti 클레임은 허용할 검증 값 설정을 요구하지 않으므로 빈 문자열로 설정합니다. |
-| pluginConfigJson.claimValidationCondition.jti.dataType | Enum | 선택 | String | String | jti 클레임의 데이터 타입을 설정합니다. <br/>[JWT > 클레임 데이터 타입 Enum 코드](./enum-code/#jwt_1) 참고|
+| pluginConfigJson.claimValidationCondition.jti.dataType | Enum | 선택 | String | String | jti 클레임의 데이터 타입을 설정합니다. <br/>[JWT > 클레임 데이터 타입 Enum 코드](./enum-code/#jwt-claim-data-type) 참고|
 | pluginConfigJson.claimValidationCondition.jti.required | Boolean | 필수 | false | true, false | jti 요청 클레임 값의 필수 검증 여부를 설정합니다. |
 | pluginConfigJson.claimValidationCondition.jti.validate | Boolean | 필수 | false | false | jti 요청 클레임 값의 검증 여부를 설정합니다. false만 유효합니다.|
 | pluginConfigJson.claimValidationCondition.exp | Object | 선택 | Default Object | 없음 | exp 클레임 검증 조건 영역. 요청하지 않는 경우 각 필드의 기본값으로 저장됩니다. |
-| pluginConfigJson.claimValidationCondition.exp.dataType | Enum | 선택 | NumericDate | NumericDate | exp 클레임의 데이터 타입을 설정합니다. NumericDate만 유효합니다. <br/>[JWT > 클레임 데이터 타입 Enum 코드](./enum-code/#jwt_1) 참고 |
+| pluginConfigJson.claimValidationCondition.exp.dataType | Enum | 선택 | NumericDate | NumericDate | exp 클레임의 데이터 타입을 설정합니다. NumericDate만 유효합니다. <br/>[JWT > 클레임 데이터 타입 Enum 코드](./enum-code/#jwt-claim-data-type) 참고 |
 | pluginConfigJson.claimValidationCondition.exp.required | Boolean | 필수 | false | true, false | exp 요청 클레임 값의 필수 검증 여부를 설정합니다. |
 | pluginConfigJson.claimValidationCondition.exp.validate | Boolean | 선택 | true | true | exp 요청 클레임 값의 검증 여부를 설정합니다. true만 유효합니다. |
 | pluginConfigJson.claimValidationCondition.iat | Object | 선택 | Default Object | 없음 | iat 클레임 검증 조건 영역. 요청하지 않는 경우 각 필드의 기본값으로 저장됩니다. |
-| pluginConfigJson.claimValidationCondition.iat.dataType | Enum | 선택 | NumericDate | NumericDate | iat 클레임의 데이터 타입을 설정합니다. NumericDate만 유효합니다. <br/>[JWT > 클레임 데이터 타입 Enum 코드](./enum-code/#jwt_1) 참고 |
+| pluginConfigJson.claimValidationCondition.iat.dataType | Enum | 선택 | NumericDate | NumericDate | iat 클레임의 데이터 타입을 설정합니다. NumericDate만 유효합니다. <br/>[JWT > 클레임 데이터 타입 Enum 코드](./enum-code/#jwt-claim-data-type) 참고 |
 | pluginConfigJson.claimValidationCondition.iat.required | Boolean | 필수 | false | true, false | iat 요청 클레임 값의 필수 검증 여부를 설정합니다. |
 | pluginConfigJson.claimValidationCondition.iat.validate | Boolean | 선택 | true | true | iat 요청 클레임 값의 검증 여부를 설정합니다. true만 유효합니다. |
 | pluginConfigJson.claimValidationCondition.nbf | Object | 선택 | Default Object | 없음 | nbf 클레임 검증 조건 영역. 요청하지 않는 경우 각 필드의 기본값으로 저장됩니다. |
-| pluginConfigJson.claimValidationCondition.nbf.dataType | Enum | 선택 | NumericDate | NumericDate | nbf 클레임의 데이터 타입을 설정합니다. NumericDate만 유효합니다. <br/>[JWT > 클레임 데이터 타입 Enum 코드](./enum-code/#jwt_1) 참고|
+| pluginConfigJson.claimValidationCondition.nbf.dataType | Enum | 선택 | NumericDate | NumericDate | nbf 클레임의 데이터 타입을 설정합니다. NumericDate만 유효합니다. <br/>[JWT > 클레임 데이터 타입 Enum 코드](./enum-code/#jwt-claim-data-type) 참고|
 | pluginConfigJson.claimValidationCondition.nbf.required | Boolean | 필수 | false | true, false | nbf 요청 클레임 값의 필수 검증 여부를 설정합니다. |
 | pluginConfigJson.claimValidationCondition.nbf.validate | Boolean | 선택 | true | true | nbf 요청 클레임 값의 검증 여부를 설정합니다. true만 유효합니다. |
 
@@ -3417,11 +3417,11 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 필수 | 없음 | JWT | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 중 JWT 참고 |
+| pluginType | Enum | 필수 | 없음 | JWT | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#stage-resource-plugin-type) 중 JWT 참고 |
 | pluginConfigJson | Object | 필수 | 없음  | 없음 | JWT 플러그인 설정 영역 |
-| pluginConfigJson.encryptAlgorithm | Enum | 필수 | RS256 | RS256 | [JWT > 암호화 알고리즘 Enum 코드](./enum-code/#jwt) 참고  |
+| pluginConfigJson.encryptAlgorithm | Enum | 필수 | RS256 | RS256 | [JWT > 암호화 알고리즘 Enum 코드](./enum-code/#jwt-encryption-algorithm) 참고  |
 | pluginConfigJson.rs256 | Object | 필수 | 없음 | 없음 | RS256 설정 영역 |
-| pluginConfigJson.rs256.publicKeyType | Enum | 필수 | 없음 | RSA_PUBLIC_KEY | PEM 형식의 공개키 설정 [JWT > RS256 암호화 알고리즘 > Public Key Type Enum 코드](./enum-code/#jwt-rs256-public-key-type) 참고 |
+| pluginConfigJson.rs256.publicKeyType | Enum | 필수 | 없음 | RSA_PUBLIC_KEY | PEM 형식의 공개키 설정 [JWT > RS256 암호화 알고리즘 > Public Key Type Enum 코드](./enum-code/#jwt-rs256-encryption-algorithm-public-key-type) 참고 |
 | pluginConfigJson.rs256.rsaPublicKey | String | 필수 | 없음 | PEM 형식의 공개키 | PEM 형식의 공개키 값을 설정합니다.  개행 문자(\n)를 포함하여 입력해야 합니다. |
 | pluginConfigJson.clockSkew | Integer | 선택 | 0 | 0~86400 | exp, nbf 클레임의 검증 유효 시간(단위: 초)을 지정합니다. |
 | pluginConfigJson.claimValidationCondition | Object | 선택 | Default Object | 없음 | 클레임 검증 조건 영역 (암호화 알고리즘: HS256의 claimValidationCondition 필드 설명과 동일합니다.) |
@@ -3447,11 +3447,11 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 필수 | 없음 | JWT | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 중 JWT 참고 |
+| pluginType | Enum | 필수 | 없음 | JWT | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#stage-resource-plugin-type) 중 JWT 참고 |
 | pluginConfigJson | Object | 필수 | 없음  | 없음 | JWT 플러그인 설정 영역 |
-| pluginConfigJson.encryptAlgorithm | Enum | 필수 | RS256 | RS256 |[JWT > 암호화 알고리즘 Enum 코드](./enum-code/#jwt) 참고  |
+| pluginConfigJson.encryptAlgorithm | Enum | 필수 | RS256 | RS256 |[JWT > 암호화 알고리즘 Enum 코드](./enum-code/#jwt-encryption-algorithm) 참고  |
 | pluginConfigJson.rs256 | Object | 필수 | 없음 | 없음 | RS256 설정 영역 |
-| pluginConfigJson.rs256.publicKeyType | String | 필수 | 없음 | JWKS_URI | JWKS(JSON Web Key Sets) URI 형식으로 공개키를 설정합니다. [JWT > RS256 암호화 알고리즘 > Public Key Type Enum 코드](./enum-code/#jwt-rs256-public-key-type) 참고 |
+| pluginConfigJson.rs256.publicKeyType | String | 필수 | 없음 | JWKS_URI | JWKS(JSON Web Key Sets) URI 형식으로 공개키를 설정합니다. [JWT > RS256 암호화 알고리즘 > Public Key Type Enum 코드](./enum-code/#jwt-rs256-encryption-algorithm-public-key-type) 참고 |
 | pluginConfigJson.rs256.rsaPublicKey | String | 필수 | 없음 | 없음 | JSON Web Key Set URI를 설정합니다. |
 | pluginConfigJson.clockSkew | Integer | 선택 | 0 | 0~86400 | exp, nbf 클레임의 검증 유효 시간(단위: 초)을 지정합니다. |
 | pluginConfigJson.claimValidationCondition | Object | 선택 | Default Object | 없음 | 클레임 검증 조건 영역 (암호화 알고리즘: HS256의 claimValidationCondition 필드 설명과 동일합니다.) |
@@ -3475,9 +3475,9 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 필수 | 없음 | PRE_API | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 중 PRE_API 참고 |
+| pluginType | Enum | 필수 | 없음 | PRE_API | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#stage-resource-plugin-type) 중 PRE_API 참고 |
 | pluginConfigJson | Object | 필수 | 없음 | 없음 | 사전 호출 API 플러그인 설정 영역 |
-| pluginConfigJson.httpMethod | Enum | 필수 | 없음 | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고  |
+| pluginConfigJson.httpMethod | Enum | 필수 | 없음 | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | [HTTP 메서드 타입 Enum 코드](./enum-code/#http-method-type) 참고  |
 | pluginConfigJson.url | String | 필수 | 없음 | URL 형식 | 사전 호출 API의 URL을 입력합니다. |
 | pluginConfigJson.cacheTtl | Integer | 선택 | 0 | 0~86400 | 사전 호출 API의 응답 상태 코드의 캐시 시간을 설정합니다. <br/>응답 상태 코드가 200 OK인 경우에만 설정된 시간 동안 캐시되며, 캐시된 경우에는 사전 호출 API를 호출하지 않습니다. |
 
@@ -3501,9 +3501,9 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 필수 | 없음 | RATE_LIMIT | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 중 RATE_LIMIT 참고 |
+| pluginType | Enum | 필수 | 없음 | RATE_LIMIT | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#stage-resource-plugin-type) 중 RATE_LIMIT 참고 |
 | pluginConfigJson | Object | 필수 | 없음 | 없음 | 요청 수 제한 플러그인 설정 영역 |
-| pluginConfigJson.keyType | Enum | 필수 | 없음 | DEFAULT, IP, HEADER, PATH_VARIABLE | [요청 수 제한 > 제한 키 Enum 코드](./enum-code/#_4) 참고  |
+| pluginConfigJson.keyType | Enum | 필수 | 없음 | DEFAULT, IP, HEADER, PATH_VARIABLE | [요청 수 제한 > 제한 키 Enum 코드](./enum-code/#request-number-limit-limit-key) 참고  |
 | pluginConfigJson.extraKeyValue | String | 조건부 필수 | 없음 | 없음 | keyType이 HEADER인 경우, 헤더 이름을 반드시 설정해야 합니다.<br/> keyType이 PATH_VARIABLE인 경우, ${request.path.variable-name} 형식의 경로 변수를 반드시 설정해야 합니다. |
 | pluginConfigJson.requestPerSec | Integer | 필수 | 없음 | 1~5000 | 초당 최대 요청 가능한 수를 설정합니다. |
 
@@ -3526,7 +3526,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 필수 | 없음 | API_KEY | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 중 API_KEY 참고 |
+| pluginType | Enum | 필수 | 없음 | API_KEY | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#stage-resource-plugin-type) 중 API_KEY 참고 |
 | pluginConfigJson | Object | 필수 | 없음 | 없음 | API Key 플러그인 설정 영역 |
 | pluginConfigJson.isActive | Boolean | 필수 | 없음 | true | API Key 검증 여부를 설정합니다. 반드시 true로 설정해야 합니다. |
 
@@ -3549,7 +3549,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| pluginType | Enum | 필수 | 없음 | REQUEST_VALIDATOR | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 중 REQUEST_VALIDATOR 참고 |
+| pluginType | Enum | 필수 | 없음 | REQUEST_VALIDATOR | [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#stage-resource-plugin-type) 중 REQUEST_VALIDATOR 참고 |
 | pluginConfigJson | Object | 필수 | 없음 | 없음 | 요청 유효성 검사기 플러그인 설정 영역 |
 | pluginConfigJson.isActive | Boolean | 필수 | 없음 | true | 요청 유효성 검사기 사용 여부를 설정합니다. 반드시 true로 설정해야 합니다. |
 
@@ -3562,7 +3562,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 - 현재 스테이지 리소스와 설정을 API Gateway 서비스에 배포합니다. 
 - 변경된 설정 정보가 없는 경우, 스테이지 배포 요청이 실패합니다.
 - 스테이지 배포가 실패한 경우, 기존의 성공한 스테이지 배포 설정으로 되돌려집니다.
-- 스테이지 배포 요청 후, 스테이지 배포 성공 여부는 [최근 스테이지 배포 결과 조회](./api-guide-v2.0/#_95)에서 확인할 수 있습니다. 
+- 스테이지 배포 요청 후, 스테이지 배포 성공 여부는 [최근 스테이지 배포 결과 조회](./api-guide-v2.0/#query-result-of-recent-stage-deployment)에서 확인할 수 있습니다. 
 
 <a id="deploy-stage-2-request"></a>
 #### 요청
@@ -3620,7 +3620,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 
 <a id="query-result-of-recent-stage-deployment"></a>
 ### 최근 스테이지 배포 결과 조회 { #query-result-of-recent-stage-deployment }
-- [스테이지 배포](./api-guide-v2.0/#_92)의 결과를 조회할 수 있습니다. 
+- [스테이지 배포](./api-guide-v2.0/#deploy-stage)의 결과를 조회할 수 있습니다. 
 - 스테이지 배포 요청 이후 배포 결과가 업데이트되기까지 최대 1분 정도까지 소요될 수 있습니다. 
 
 
@@ -3717,7 +3717,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 |latestStageDeployResult.deployId       |String    | 배포 ID |
 |latestStageDeployResult.stageId   |String  | 스테이지 ID  |
 |latestStageDeployResult.deployDescription        |String  | 배포 설명  |
-|latestStageDeployResult.deployStatus        |Enum  | [스테이지 배포 > 배포 상태 Enum 코드](./enum-code/#_5) 참고 |
+|latestStageDeployResult.deployStatus        |Enum  | [스테이지 배포 > 배포 상태 Enum 코드](./enum-code/#stage-deployment-deployment-status) 참고 |
 |latestStageDeployResult.isBase         |String  | 현재 스테이지 설정의 기반이 되는 배포 이력 여부 |
 |latestStageDeployResult.deployedAt          |DateTime  | 배포 요청 일시 |
 |latestStageDeployResult.rollbackAt   |DateTime  | 스테이지 되돌리기 요청 일시 |
@@ -3728,7 +3728,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 |latestStageDeployResult.stageResourceList[0].parentPath             |String  |스테이지 상위 리소스 경로 (루트(/) 경로의 parentPath는 null)|
 |latestStageDeployResult.stageResourceList[0].stageId                |String  |스테이지 ID                                    |
 |latestStageDeployResult.stageResourceList[0].customBackendEndpointUrl      |String  |백엔드 엔드포인트 재정의 URL                          |
-|latestStageDeployResult.stageResourceList[0].methodType             |Enum    |[HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고               |
+|latestStageDeployResult.stageResourceList[0].methodType             |Enum    |[HTTP 메서드 타입 Enum 코드](./enum-code/#http-method-type) 참고               |
 |latestStageDeployResult.stageResourceList[0].methodName             |String  |메서드 이름                                     |
 |latestStageDeployResult.stageResourceList[0].methodDescription      |String  |메서드 설명                                     |
 |latestStageDeployResult.stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성 일시                              |
@@ -3737,8 +3737,8 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0]|Object    |스테이지 리소스의 플러그인 영역                       |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입 Enum 코드](./enum-code/#_1), [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고                       |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v2.0/#_37), [스테이지 플러그인 타입](./api-guide-v2.0/#_89)별 설정 JSON 참고          |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입 Enum 코드](./enum-code/#resource-plugin-type), [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#stage-resource-plugin-type) 참고                       |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v2.0/#resource-plugin), [스테이지 플러그인 타입](./api-guide-v2.0/#stage-resource-plugin)별 설정 JSON 참고          |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
@@ -3935,7 +3935,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 |stageResourceList[0].parentPath             |String  |스테이지 상위 리소스 경로 (루트(/) 경로의 parentPath는 null)|
 |stageResourceList[0].stageId                |String  |스테이지 ID                                    |
 |stageResourceList[0].customBackendEndpointUrl      |String  |백엔드 엔드포인트 재정의 URL                          |
-|stageResourceList[0].methodType             |Enum    |[HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고               |
+|stageResourceList[0].methodType             |Enum    |[HTTP 메서드 타입 Enum 코드](./enum-code/#http-method-type) 참고               |
 |stageResourceList[0].methodName             |String  |메서드 이름                                     |
 |stageResourceList[0].methodDescription      |String  |메서드 설명                                     |
 |stageResourceList[0].createdAt              |DateTime|스테이지 리소스 생성 일시                              |
@@ -3944,8 +3944,8 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 |stageResourceList[0].stageResourcePluginList[0]|Object    |스테이지 리소스의 플러그인 영역                       |
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |스테이지 리소스 플러그인 ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |스테이지 리소스 ID                                |
-|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입 Enum 코드](./enum-code/#_1), [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#_3) 참고                       |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v2.0/#_37), [스테이지 플러그인 타입](./api-guide-v2.0/#_89)별 설정 JSON 참고         |
+|stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |[리소스 플러그인 타입 Enum 코드](./enum-code/#resource-plugin-type), [스테이지 리소스 > 플러그인 타입 Enum 코드](./enum-code/#stage-resource-plugin-type) 참고                       |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |[리소스 플러그인 타입](./api-guide-v2.0/#resource-plugin), [스테이지 플러그인 타입](./api-guide-v2.0/#stage-resource-plugin)별 설정 JSON 참고         |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|스테이지 리소스 플러그인 생성 일시                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|스테이지 리소스 플러그인 수정 일시                         |
 
@@ -4008,7 +4008,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | gatewayResponseList                      | List     | 게이트웨이 응답 목록 영역 |
 | gatewayResponseList[0]                   | Object   |  게이트웨이 응답 영역 |
 | gatewayResponseList[0].gatewayResponseId  | String   | 게이트웨이 응답 ID |
-| gatewayResponseList[0].gatewayResponseType | Enum   | [게이트웨이 응답 유형 Enum 코드](./enum-code/#_8) 참고 |
+| gatewayResponseList[0].gatewayResponseType | Enum   | [게이트웨이 응답 유형 Enum 코드](./enum-code/#gateway-response-type) 참고 |
 | gatewayResponseList[0].httpStatusCode        | Integer   | 게이트웨이 응답 HTTP 상태 코드 |
 | gatewayResponseList[0].headers | Map   | 게이트웨이 응답 헤더 객체 영역 |
 | gatewayResponseList[0].headers[{HeaderName}] | Object   | 게이트웨이 응답 헤더의 Map Entry(Key: 헤더 이름, Value: 헤더 값) |
@@ -4055,7 +4055,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 
 | 이름                | 타입     | 필수 여부 | 기본값 | 유효 범위            | 설명                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
-| gatewayResponseType        | Enum | 필수    | 없음  | [게이트웨이 응답 유형 Enum 코드](./enum-code/#_8) |  |
+| gatewayResponseType        | Enum | 필수    | 없음  | [게이트웨이 응답 유형 Enum 코드](./enum-code/#gateway-response-type) |  |
 | httpStatusCode | Integer | 필수    | 없음  | 100~599 | 게이트웨이 응답 HTTP 상태 코드 |
 | headers      | Map   | 선택    | 없음  | 없음 | 사용자 정의 응답 헤더 객체 영역 |
 | headers[{HeaderName}] | Object   | 필수    | 없음  | 없음 | 게이트웨이 응답 헤더의 Map Entry(Key: 헤더 이름, Value: 헤더 값) |
@@ -4095,7 +4095,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | ------------------------------- | -------- | ------------------------------------------------- |
 | gatewayResponse                   | Object   |  게이트웨이 응답 영역 |
 | gatewayResponse.gatewayResponseId  | String   | 게이트웨이 응답 ID |
-| gatewayResponse.gatewayResponseType | Enum   | [게이트웨이 응답 유형 Enum 코드](./enum-code/#_8) 참고 |
+| gatewayResponse.gatewayResponseType | Enum   | [게이트웨이 응답 유형 Enum 코드](./enum-code/#gateway-response-type) 참고 |
 | gatewayResponse.httpStatusCode        | Integer   | 게이트웨이 응답 HTTP 상태 코드 |
 | gatewayResponse.headers | Map   | 게이트웨이 응답 헤더 객체 영역 |
 | gatewayResponse.headers[{HeaderName}] | Object   | 게이트웨이 응답 헤더의 Map Entry(Key: 헤더 이름, Value: 헤더 값) |
@@ -4408,7 +4408,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | apiKey | String | 선택 | 없음 | 없음 | Primary 또는 Secondary API Key 필터 조건 |
 | apiKeyId | String | 선택 | 없음 | 없음 | API Key ID 필터 조건 |
 | apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름  필터 조건. API Key 이름의 시작 문자열은 일치해야 합니다. |
-| apiKeyStatus | Enum | 선택 | 없음 | ACTIVE, INACTIVE | API Key 상태 필터 조건. [API Key 상태 Enum 코드](./enum-code/#api-key) 참고 |
+| apiKeyStatus | Enum | 선택 | 없음 | ACTIVE, INACTIVE | API Key 상태 필터 조건. [API Key 상태 Enum 코드](./enum-code/#api-key-status) 참고 |
 
 <a id="list-api-keys-response"></a>
 #### 응답
@@ -4462,7 +4462,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | apiKeyList[0].apiKeyDescription | String   | API Key 설명                                        |
 | apiKeyList[0].primaryApiKey     | String   | Primary API Key 값                                 |
 | apiKeyList[0].secondaryApiKey   | String   | Secondary API Key 값                               |
-| apiKeyList[0].apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#api-key) 참고 |
+| apiKeyList[0].apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#api-key-status) 참고 |
 | apiKeyList[0].createdAt         | DateTime | API Key 생성 일시                                      |
 | apiKeyList[0].updatedAt         | DateTime | API Key 수정 일시                                      |
 
@@ -4500,7 +4500,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
 | apiKeyName        | String | 필수    | 없음  | 최대 50자           | API Key 이름                                        |
 | apiKeyDescription | String | 선택    | 없음  | 최대 200자          | API Key 설명                                        |
-| apiKeyStatus      | Enum   | 필수    | 없음  | ACTIVE, INACTIVE | [API Key 상태 Enum 코드](./enum-code/#api-key) 참고 |
+| apiKeyStatus      | Enum   | 필수    | 없음  | ACTIVE, INACTIVE | [API Key 상태 Enum 코드](./enum-code/#api-key-status) 참고 |
 | primaryApiKey     | String   | 선택    | 없음  | 최소 10자, 최대 40자, 영문자, 숫자 | Primary Api Key 값, null이면 자동 발급 |
 | secondaryApiKey   | String   | 선택    | 없음  | 최소 10자, 최대 40자, 영문자, 숫자 | Secondary Api Key 값, null이면 자동 발급 |
 
@@ -4544,7 +4544,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | apiKey.apiKeyDescription | String   | API Key 설명                                        |
 | apiKey.primaryApiKey     | String   | Primary API Key 값                                 |
 | apiKey.secondaryApiKey   | String   | Secondary API Key 값                               |
-| apiKey.apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#api-key) 참고 |
+| apiKey.apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#api-key-status) 참고 |
 | apiKey.createdAt         | DateTime | API Key 생성 일시                                      |
 | apiKey.updatedAt         | DateTime | API Key 수정 일시                                      |
 
@@ -4588,7 +4588,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
 | apiKeyName        | String | 필수    | 없음  | 최대 50자           | API Key 이름                                        |
 | apiKeyDescription | String | 선택    | 없음  | 최대 200자          | API Key 설명                                        |
-| apiKeyStatus      | Enum   | 필수    | 없음  | ACTIVE, INACTIVE | [API Key 상태 Enum 코드](./enum-code/#api-key) 참고 |
+| apiKeyStatus      | Enum   | 필수    | 없음  | ACTIVE, INACTIVE | [API Key 상태 Enum 코드](./enum-code/#api-key-status) 참고 |
 
 <a id="modify-api-key-response"></a>
 #### 응답
@@ -4630,7 +4630,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | apiKey.apiKeyDescription | String   | API Key 설명                                        |
 | apiKey.primaryApiKey     | String   | Primary API Key 값                                 |
 | apiKey.secondaryApiKey   | String   | Secondary API Key 값                               |
-| apiKey.apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#api-key) 참고 |
+| apiKey.apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#api-key-status) 참고 |
 | apiKey.createdAt         | DateTime | API Key 생성 일시                                      |
 | apiKey.updatedAt         | DateTime | API Key 수정 일시                                      |
 
@@ -4711,7 +4711,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 
 | 이름                | 타입     | 필수 여부 | 기본값 | 유효 범위            | 설명                                                |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
-| apiKeyType      | Enum   | 필수    | 없음  | PRIMARY, SECONDARY | 변경하려는 API Key 타입. [API Key 타입 Enum 코드](./enum-code/#api-key_1) 참고 |
+| apiKeyType      | Enum   | 필수    | 없음  | PRIMARY, SECONDARY | 변경하려는 API Key 타입. [API Key 타입 Enum 코드](./enum-code/#api-key-type) 참고 |
 | apiKeyValue     | String   | 선택    | 없음  | 최소 10자, 최대 40자, 영문자, 숫자 | Api Key 값, null이면 자동 발급 |
 
 <a id="reissue-api-key-response"></a>
@@ -4754,7 +4754,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | apiKey.apiKeyDescription | String   | API Key 설명                                        |
 | apiKey.primaryApiKey     | String   | Primary API Key 값                                 |
 | apiKey.secondaryApiKey   | String   | Secondary API Key 값                               |
-| apiKey.apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#api-key) 참고 |
+| apiKey.apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#api-key-status) 참고 |
 | apiKey.createdAt         | DateTime | API Key 생성 일시                                      |
 | apiKey.updatedAt         | DateTime | API Key 수정 일시                                      |
 
@@ -4788,7 +4788,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | apiKey | String | 선택 | 없음 | 없음 | primary 또는 secondary API Key 값 |
 | apiKeyId | String | 선택 | 없음 | 없음 | API Key ID |
 | apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름 시작 문자열 |
-| apiKeyStatus | Enum | 선택 | 없음 | ACTIVE, INACTIVE | [API Key 상태 Enum 코드](./enum-code/#api-key) 참고 |
+| apiKeyStatus | Enum | 선택 | 없음 | ACTIVE, INACTIVE | [API Key 상태 Enum 코드](./enum-code/#api-key-status) 참고 |
 
 <a id="list-api-keys-that-can-be-connected-to-stage-response"></a>
 #### 응답
@@ -4842,7 +4842,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | apiKeyList[0].apiKeyDescription | String   | API Key 설명                                        |
 | apiKeyList[0].primaryApiKey     | String   | Primary API Key 값                                 |
 | apiKeyList[0].secondaryApiKey   | String   | Secondary API Key 값                               |
-| apiKeyList[0].apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#api-key) 참고 |
+| apiKeyList[0].apiKeyStatus      | Enum     | [API Key 상태 Enum 코드](./enum-code/#api-key-status) 참고 |
 | apiKeyList[0].createdAt         | DateTime | API Key 생성 일시                                      |
 | apiKeyList[0].updatedAt         | DateTime | API Key 수정 일시                                      |
 
@@ -4921,7 +4921,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | usagePlanList[0].usagePlanName             | String   | 사용량 계획 이름                                         |
 | usagePlanList[0].usagePlanDescription      | String   | 사용량 계획 설명                                         |
 | usagePlanList[0].rateLimitRequestPerSecond | Integer  | 초당 요청 수 제한                                        |
-| usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#_6) 참고 |
+| usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#usage-plan-quota-period-unit) 참고 |
 | usagePlanList[0].quotaLimit                | Integer  | 할당량 기간 단위 별 요청 할당량                                |
 | usagePlanList[0].createdAt                 | DateTime | 사용량 계획 생성 일시                                       |
 | usagePlanList[0].updatedAt                 | DateTime | 사용량 계획 수정 일시                                       |
@@ -4986,7 +4986,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | usagePlan.usagePlanName             | String   | 사용량 계획 이름                                         |
 | usagePlan.usagePlanDescription      | String   | 사용량 계획 설명                                         |
 | usagePlan.rateLimitRequestPerSecond | Integer  | 초당 요청 수 제한                                        |
-| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#_6) 참고 |
+| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#usage-plan-quota-period-unit) 참고 |
 | usagePlan.quotaLimit                | Integer  | 할당량 기간 단위 별 요청 할당량                                |
 | usagePlan.createdAt                 | DateTime | 사용량 계획 생성 일시                                       |
 | usagePlan.updatedAt                 | DateTime | 사용량 계획 수정 일시                                       |
@@ -5026,7 +5026,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | usagePlanName             | String  | 필수    | 없음  | 최대 50자       | 사용량 계획 이름                                         |
 | usagePlanDescription      | String  | 선택    | 없음  | 최대 200자      | 사용량 계획 설명                                         |
 | rateLimitRequestPerSecond | Integer | 선택    | 없음  | 1~5000       | 초당 요청 수 제한                                        |
-| quotaLimitPeriodUnitCode  | Enum    | 선택    | 없음  | DAY, MONTH   | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#_6) 참고 |
+| quotaLimitPeriodUnitCode  | Enum    | 선택    | 없음  | DAY, MONTH   | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#usage-plan-quota-period-unit) 참고 |
 | quotaLimit                | Integer | 조건부 필수 | 없음  | 1~2147483647 | quotaLimitPeriodUnitCode가 설정된 경우 필수. 할당량 기간 단위 별 요청 할당량                                |
 
 <a id="create-usage-plan-response"></a>
@@ -5068,7 +5068,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | usagePlan.usagePlanName             | String   | 사용량 계획 이름                                         |
 | usagePlan.usagePlanDescription      | String   | 사용량 계획 설명                                         |
 | usagePlan.rateLimitRequestPerSecond | Integer  | 초당 요청 수 제한                                        |
-| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#_6) 참고 |
+| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#usage-plan-quota-period-unit) 참고 |
 | usagePlan.quotaLimit                | Integer  | 할당량 기간 단위 별 요청 할당량                                |
 | usagePlan.createdAt                 | DateTime | 사용량 계획 생성 일시                                       |
 | usagePlan.updatedAt                 | DateTime | 사용량 계획 수정 일시                                       |
@@ -5116,7 +5116,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | usagePlanName             | String  | 필수    | 없음  | 최대 50자       | 사용량 계획 이름                                         |
 | usagePlanName             | String  | 선택    | 없음  | 최대 200자      | 사용량 계획 설명                                         |
 | rateLimitRequestPerSecond | Integer | 선택    | 없음  | 1~5000       | 초당 요청 수 제한                                        |
-| quotaLimitPeriodUnitCode  | Enum    | 선택    | 없음  | DAY, MONTH   | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#_6) 참고 |
+| quotaLimitPeriodUnitCode  | Enum    | 선택    | 없음  | DAY, MONTH   | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#usage-plan-quota-period-unit) 참고 |
 | quotaLimit                | Integer | 조건부 필수 | 없음  | 1~2147483647 | quotaLimitPeriodUnitCode가 설정된 경우 필수. 할당량 기간 단위 별 요청 할당량                                |
 
 <a id="modify-usage-plan-response"></a>
@@ -5158,7 +5158,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | usagePlan.usagePlanName             | String   | 사용량 계획 이름                                         |
 | usagePlan.usagePlanDescription      | String   | 사용량 계획 설명                                         |
 | usagePlan.rateLimitRequestPerSecond | Integer  | 초당 요청 수 제한                                        |
-| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#_6) 참고 |
+| usagePlan.quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#usage-plan-quota-period-unit) 참고 |
 | usagePlan.quotaLimit                | Integer  | 할당량 기간 단위 별 요청 할당량                                |
 | usagePlan.createdAt                 | DateTime | 사용량 계획 생성 일시                                       |
 | usagePlan.updatedAt                 | DateTime | 사용량 계획 수정 일시                                       |
@@ -5270,7 +5270,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | paging.totalCount                     | Integer | 전체 건 수                 |
 | usagePlanStageList                    | List    | 사용량 계획과 연결된 스테이지 목록 영역 |
 | usagePlanStageList[0]                | Object  | 사용량 계획과 연결된 스테이지 영역    |
-| usagePlanStageList[0].regionCode | Enum    | [API Gateway 리전 Enum 코드](./enum-code/#api-gateway) 참고 |
+| usagePlanStageList[0].regionCode | Enum    | [API Gateway 리전 Enum 코드](./enum-code/#api-gateway-region) 참고 |
 | usagePlanStageList[0].apigwServiceId | String  | API Gateway 서비스 ID     |
 | usagePlanStageList[0].apigwServiceName      | String  | API Gateway 서비스 이름     |
 | usagePlanStageList[0].stageId        | String  | 스테이지 ID                |
@@ -5435,7 +5435,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | usagePlanList[0].usagePlanName             | String   | 사용량 계획 이름                                         |
 | usagePlanList[0].usagePlanDescription      | String   | 사용량 계획 설명                                         |
 | usagePlanList[0].rateLimitRequestPerSecond | Integer  | 초당 요청 수 제한                                        |
-| usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#_6) 참고 |
+| usagePlanList[0].quotaLimitPeriodUnitCode  | Enum     | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#usage-plan-quota-period-unit) 참고 |
 | usagePlanList[0].quotaLimit                | Integer  | 할당량 기간 단위 별 요청 할당량                                |
 | usagePlanList[0].createdAt                 | DateTime | 사용량 계획 생성 일시                                       |
 | usagePlanList[0].updatedAt                 | DateTime | 사용량 계획 수정 일시                                       |
@@ -5522,7 +5522,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | subscribedStageAndUsagePlanList                              | List    | API Key가 연결된 스테이지와 사용량 계획 목록 영역                |
 | subscribedStageAndUsagePlanList[0]                           | Object    | API Key가 연결된 스테이지와 사용량 계획 영역                |
 | subscribedStageAndUsagePlanList[0].subscriptionId            | String  | 구독 ID                                     |
-| subscribedStageAndUsagePlanList[0].subscriptionStatus        | Enum    | [API Key 구독 상태 Enum 코드](./enum-code/#api-key_2) 참고              |
+| subscribedStageAndUsagePlanList[0].subscriptionStatus        | Enum    | [API Key 구독 상태 Enum 코드](./enum-code/#api-key-subscription-status) 참고              |
 | subscribedStageAndUsagePlanList[0].apiKeyId                  | String  | API Key ID                                        |
 | subscribedStageAndUsagePlanList[0].apigwServiceName          | String  | API Gateway 서비스 이름                                |
 | subscribedStageAndUsagePlanList[0].stageId                   | String  | 스테이지 ID                                           |
@@ -5535,7 +5535,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | subscribedStageAndUsagePlanList[0].usagePlanName             | String  | 사용량 계획 이름                                         |
 | subscribedStageAndUsagePlanList[0].usagePlanDescription      | String  | 사용량 계획 설명                                         |
 | subscribedStageAndUsagePlanList[0].rateLimitRequestPerSecond | Integer | 초당 요청 수 제한                                        |
-| subscribedStageAndUsagePlanList[0].quotaLimitPeriodUnitCode  | Enum    | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#_6) 참고 |
+| subscribedStageAndUsagePlanList[0].quotaLimitPeriodUnitCode  | Enum    | [사용량 계획 > 할당량 기간 단위 Enum 코드](./enum-code/#usage-plan-quota-period-unit) 참고 |
 | subscribedStageAndUsagePlanList[0].quotaLimit                | Integer | 할당량 기간 단위 별 요청 할당량                                |
 
 
@@ -5569,7 +5569,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | apiKey | String | 선택 | 없음 | 없음 | Primary 또는 Secondary API Key 필터 조건 |
 | apiKeyId | String | 선택 | 없음 | 없음 | API Key ID 필터 조건 |
 | apiKeyName | String | 선택 | 없음 | 없음 | API Key 이름  필터 조건. API Key 이름의 시작 문자열은 일치해야 합니다.  |
-| apiSubscriptionStatus | Enum | 선택 | 없음 | APPROVAL | [API Key 구독 상태 Enum 코드](./enum-code/#api-key_2) 참고 |
+| apiSubscriptionStatus | Enum | 선택 | 없음 | APPROVAL | [API Key 구독 상태 Enum 코드](./enum-code/#api-key-subscription-status) 참고 |
 
 <a id="list-api-keys-subscribing-to-a-stage-in-the-usage-plan-response"></a>
 #### 응답
@@ -5618,7 +5618,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | apiSubscriptionList                            | List     | 구독 정보 목록 영역      |
 | apiSubscriptionList[0]                         | Object   | 구독 정보 영역      |
 | apiSubscriptionList[0].subscriptionId          | String   | 구독 ID                                |
-| apiSubscriptionList[0].subscriptionStatus      | Enum     | [API Key 구독 상태 Enum 코드](./enum-code/#api-key_2) 참고 |
+| apiSubscriptionList[0].subscriptionStatus      | Enum     | [API Key 구독 상태 Enum 코드](./enum-code/#api-key-subscription-status) 참고 |
 | apiSubscriptionList[0].subscriptionDescription | String   | 구독 설명                                |
 | apiSubscriptionList[0].stageId                 | String   | 스테이지 ID                              |
 | apiSubscriptionList[0].usagePlanId             | String   | 사용량 계획 ID                            |
@@ -5708,7 +5708,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | apiSubscriptionList                            | List     | 구독 정보 목록 영역                          |
 | apiSubscriptionList[0]                         | Object   | 구독 정보 영역                        |
 | apiSubscriptionList[0].subscriptionId          | String   | 구독 ID                                |
-| apiSubscriptionList[0].subscriptionStatus      | Enum     | [API Key 구독 상태 Enum 코드](./enum-code/#api-key_2) 참고 |
+| apiSubscriptionList[0].subscriptionStatus      | Enum     | [API Key 구독 상태 Enum 코드](./enum-code/#api-key-subscription-status) 참고 |
 | apiSubscriptionList[0].subscriptionDescription | String   | 구독 설명                                |
 | apiSubscriptionList[0].stageId                 | String   | 스테이지 ID                              |
 | apiSubscriptionList[0].usagePlanId             | String   | 사용량 계획 ID                            |
@@ -5943,7 +5943,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 |data                                 |List    | 리소스별 통계 데이터 목록 영역                      |
 |data[0]                              |Object    | 리소스별 통계 데이터 영역                      |
 |data[0].uriPattern                   |String  | 리소스 경로 또는 경로 패턴                         |
-|data[0].httpMethodType               |Enum  | [HTTP 메서드 타입 Enum 코드](./enum-code/#http) 참고                             |
+|data[0].httpMethodType               |Enum  | [HTTP 메서드 타입 Enum 코드](./enum-code/#http-method-type) 참고                             |
 |data[0].successCount                 |Long    | API 성공 수(응답 HTTP 상태 코드가 2xx, 3xx인 경우) |
 |data[0].failCount               |Long    | API 실패 수(응답 HTTP 상태 코드가 4xx, 5xx인 경우) |
 |data[0].status2xxCount               |Long    | 응답 HTTP 상태 코드가 2xx인 API 호출 수 |
@@ -6062,7 +6062,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].dateTime   |Long    | 통계 시간(Unix time 형식) |
 |data.{requestApigwEndpoint}.apiKeyMetricsTimeSeries.callCount[0].count      |Long    | 통계 시간 동안의 총 API 호출 수 |
 |metricsLatestUpdatedAt         | DateTime | 통계 데이터 최신 갱신 일시                             |
-|timeUnit          |Enum    | [통계 데이터 시간 단위 Enum 코드](./enum-code/#_7) ONE_DAYS 참고 |
+|timeUnit          |Enum    | [통계 데이터 시간 단위 Enum 코드](./enum-code/#statistics-data-time-unit) ONE_DAYS 참고 |
 
 
 * 일 단위 통계 데이터는 각 일의 00:00:00의 시간 데이터에 집계됩니다.
@@ -6088,7 +6088,7 @@ API Gateway은(는) API 호출 시 인증/인가를 위해 User Access Key 토�
 | 이름 | 타입 | 필수 여부 | 기본값 | 유효 범위 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | lastDays | Integer | 선택 | 7 | 1~30 | 조회 기간의 일 수(당일 포함)  |
-| order | Enum | 선택 | CALL_COUNT | CALL_COUNT,FAIL_CALL_COUNT,AVG_RESPONSE_TIME | [통계 > Top10 서비스 정렬 기준](./enum-code/#top10)|
+| order | Enum | 선택 | CALL_COUNT | CALL_COUNT,FAIL_CALL_COUNT,AVG_RESPONSE_TIME | [통계 > Top10 서비스 정렬 기준](./enum-code/#statistics-sort-top-10-services-by)|
 
 
 <a id="query-top-10-services-response"></a>

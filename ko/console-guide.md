@@ -202,13 +202,13 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
 - **백엔드 엔드포인트 타입: HTTP(S)**
     - 백엔드 엔드포인트 URL 경로: 수신된 API 요청을 전달할 백엔드 엔드포인트 서비스의 API URL을 설정합니다.
         - 루트(/)로 시작해야 합니다.
-        - 경로에는 리소스에서 생성한 [컨텍스트 변수](./console-guide/#_11)를 설정할 수 있습니다.
+        - 경로에는 리소스에서 생성한 [컨텍스트 변수](./console-guide/#context-variables)를 설정할 수 있습니다.
 - **백엔드 엔드포인트 타입: 사용자 정의 응답**
     - 사용자 정의 응답을 설정합니다. 
     - HTTP 상태 코드: 응답 HTTP 상태 코드를 입력합니다. (필수)
     - 헤더: 응답 헤더의 이름과 값을 입력합니다.
     - 응답: 응답 본문을 입력합니다.
-    - 헤더와 응답 본문에는 리소스에서 생성한 [컨텍스트 변수](./console-guide/#_11)를 설정할 수 있습니다.
+    - 헤더와 응답 본문에는 리소스에서 생성한 [컨텍스트 변수](./console-guide/#context-variables)를 설정할 수 있습니다.
 
 - **플러그인**: 선택된 경로에 추가된 플러그인을 생성된 메서드에도 추가하려면 체크합니다.
 - 등록하지 않은 HTTP 메서드를 API Gateway에 요청하면 404 Not Found 응답을 반환합니다.
@@ -287,7 +287,7 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
 <a id="request-parameters"></a>
 ### 요청 파라미터 { #request-parameters }
 리소스 메서드별 요청 파라미터와 응답 형식, 콘텐츠 타입을 설정합니다.
-설정한 내용은 [API 설명서](./console-guide/#api_2)에 적용됩니다.
+설정한 내용은 [API 설명서](./console-guide/#api-documentation)에 적용됩니다.
 
 1. 리소스 메서드를 선택합니다.
 2. **요청 파라미터** 메뉴를 클릭합니다.
@@ -303,7 +303,7 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
     - Raw 데이터
         - 이름: 요청 본문 파라미터의 이름을 입력합니다. 
         - 설명: 파라미터의 설명을 입력합니다.
-        - 모델: 요청 본문의 [모델](./console-guide/#_27)을 선택합니다.
+        - 모델: 요청 본문의 [모델](./console-guide/#model)을 선택합니다.
     - 콘텐츠 타입
         - 서버에 전송할 문서의 콘텐츠 타입(예: application/json)을 입력합니다. 
 4. 변경 내용 **저장** 버튼을 클릭합니다. 
@@ -311,7 +311,7 @@ Swagger v2.0 [OpenAPI Specification](https://swagger.io/specification/v2/) 형�
 <a id="response"></a>
 ### 응답 { #response }
 HTTP 응답 상태 코드별 헤더와 요청 본문 항목과 콘텐츠 타입을 설정합니다.
-설정한 내용은 [API 설명서](./console-guide/#api_2)에 적용됩니다.
+설정한 내용은 [API 설명서](./console-guide/#api-documentation)에 적용됩니다.
 
 1. 리소스 메서드를 선택합니다.
 2. **응답** 섹션을 클릭해 펼칩니다.
@@ -403,7 +403,7 @@ Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니�
 - **요청 헤더 변경 설정** 
     - **\+ 추가** 버튼을 클릭하면 헤더 목록을 추가할 수 있습니다.
     - 헤더 이름과 값을 입력합니다. 
-    - 헤더값에는 리소스에서 선언한 [컨텍스트 변수](./console-guide/#_11)를 설정할 수 있습니다.
+    - 헤더값에는 리소스에서 선언한 [컨텍스트 변수](./console-guide/#context-variables)를 설정할 수 있습니다.
     
 
 > **[참고] 요청 헤더 추가와 변경** <br>
@@ -432,7 +432,7 @@ Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니�
 - **플러그인 적용 단계**: 프런트엔드 응답 사전 작업
 - **+ 추가** 버튼을 클릭하면 헤더 목록을 추가할 수 있습니다.
 - 헤더 이름과 값을 입력합니다. 
-- 헤더값에는 리소스에서 선언된 [컨텍스트 변수](./console-guide/#_11)를 설정할 수 있습니다.
+- 헤더값에는 리소스에서 선언된 [컨텍스트 변수](./console-guide/#context-variables)를 설정할 수 있습니다.
 
 > **[참고] 응답 헤더 추가와 변경** <br>
 > - 백엔드 엔드포인트의 응답에 없는 헤더는 추가됩니다.
@@ -461,7 +461,7 @@ Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니�
 - **플러그인 적용 단계**: 백엔드 요청 사전 작업
 - **+ 추가** 버튼을 클릭하면 파라미터 목록을 추가할 수 있습니다.
 - 파라미터 이름과 값을 입력합니다. 
-- 파라미터 값에는 리소스에서 선언된 [컨텍스트 변수](./console-guide/#_11)를 설정할 수 있습니다.
+- 파라미터 값에는 리소스에서 선언된 [컨텍스트 변수](./console-guide/#context-variables)를 설정할 수 있습니다.
 
 > **[참고] 요청 쿼리 문자열 파라미터** <br>
 > - '원본 요청의 쿼리 문자열 파라미터'와 같은 키를 갖는 '요청 쿼리 문자열 파라미터'는, '원본 요청의 쿼리 문자열'을 대체하지 않고 추가됩니다.
@@ -582,7 +582,7 @@ Cross-Site 방식 내에서 XMLHttpRequest API 호출을 할 수 있게 합니�
 <a id="api-documentation"></a>
 ### API 설명서 { #api-documentation }
 **스테이지 배포**를 통해 배포된 형상을 API 설명서에서 확인할 수 있습니다.
-자세한 내용은 [API 설명서](./console-guide/#api_2)를 참고합니다.
+자세한 내용은 [API 설명서](./console-guide/#api-documentation)를 참고합니다.
 
 <a id="stage-plugin"></a>
 ## 스테이지 플러그인 { #stage-plugin }
@@ -943,8 +943,8 @@ API Gateway 리소스에 설정된 요청 파라미터 설정에 따라 클라�
 API Gateway에 API 요청 시 지정된 API Key만 요청할 수 있도록 제한합니다.
 
 - 유효한 API Key 값인지 검사합니다.
-- 사용량 계획의 스테이지에 연결된 API Key만 스테이지의 API를 요청할 수 있습니다. 자세한 방법은 [사용량 계획 > 사용량 계획에 스테이지 연결](./console-guide/#_48)을 참고하세요.
-- API Key가 연결된 사용량 계획의 요청 한도를 검사합니다. 사용량 계획의 요청 한도를 설정하는 자세한 방법은 [사용량 계획 > 사용량 계획 생성](./console-guide/#_45)을 참고하세요.
+- 사용량 계획의 스테이지에 연결된 API Key만 스테이지의 API를 요청할 수 있습니다. 자세한 방법은 [사용량 계획 > 사용량 계획에 스테이지 연결](./console-guide/#connect-stage-to-usage-plan)을 참고하세요.
+- API Key가 연결된 사용량 계획의 요청 한도를 검사합니다. 사용량 계획의 요청 한도를 설정하는 자세한 방법은 [사용량 계획 > 사용량 계획 생성](./console-guide/#create-usage-plan)을 참고하세요.
 
 > **[참고] API Key 실패 응답** <br>
 > API Key 값이 요청 헤더에 포함되지 않거나, 유효하지 않거나, 사용량 한도를 초과할 경우 API 요청이 거부됩니다.
@@ -966,7 +966,7 @@ API Gateway에 API 요청 시 지정된 API Key만 요청할 수 있도록 제�
 ### 요청 제한 정책 { #request-restriction-policy }
 
 등록된 요청 제한 정책을 스테이지 리소스 경로 또는 메서드에 적용합니다.
-자세한 내용은 [요청 제한 정책](./console-guide/#_34)을 참고하세요.
+자세한 내용은 [요청 제한 정책](./console-guide/#request-restriction-policy)을 참고하세요.
 
 1. **스테이지** 탭에서 스테이지를 선택합니다.
 2. **설정** 탭을 선택합니다.
@@ -1112,7 +1112,7 @@ API Gateway에 API 요청 시 지정된 API Key만 요청할 수 있도록 제�
     - **응답 본문 템플릿**: 콘텐츠 타입과 그에 대응되는 응답 본문을 입력합니다.
         - 콘텐츠 타입: 사용자가 요청하는 콘텐츠 타입 즉, 요청의 Accept 헤더 값을 입력합니다.
         - 응답 본문: 요청의 Accept 헤더 값에 대응하여 반환할 게이트웨이 응답 본문을 입력합니다.
-    - 헤더 값과 응답 본문에는 컨텍스트 변수를 설정할 수 있습니다(사용 가능한 컨텍스트 변수는 [컨텍스트 변수](./console-guide/#_11)를 참고하세요.).
+    - 헤더 값과 응답 본문에는 컨텍스트 변수를 설정할 수 있습니다(사용 가능한 컨텍스트 변수는 [컨텍스트 변수](./console-guide/#context-variables)를 참고하세요.).
     
 > **[참고] 게이트웨이 응답 적용** <br>
 > 변경된 게이트웨이 응답은 스테이지 배포 이후에 배포 시점의 형상으로 적용됩니다. 
@@ -1124,7 +1124,7 @@ API Gateway에 API 요청 시 지정된 API Key만 요청할 수 있도록 제�
 
 <a id="gateway-response-type"></a>
 ### 게이트웨이 응답 유형 { #gateway-response-type }
-- 게이트웨이 응답 유형은 [게이트웨이 응답 유형 Enum 코드](./enum-code/#_8) 문서를 참고합니다. 
+- 게이트웨이 응답 유형은 [게이트웨이 응답 유형 Enum 코드](./enum-code/#gateway-response-type) 문서를 참고합니다. 
 - 게이트웨이 응답 유형에 따른 기본 본문 형태는 [Gateway 오류 코드](./error-code/) 문서를 참고합니다. 
 
 
@@ -1448,7 +1448,7 @@ API 요청 시 API Key 값으로 사용되는 Primary API Key, Secondary API Key
 1. **사용자 지정 도메인** 메뉴로 이동합니다.
 2. **사용자 지정 도메인 생성** 버튼을 클릭합니다.
 3. 사용자 지정 도메인: 사용자 지정 도메인에 생성할 도메인의 Prefix를 입력합니다. 입력한 값은 {CustomDomainPrefix}.capi.nhncloudservice.com 도메인에서 {CustomDomainPrefix} 부분에 지정됩니다.
-4. GSLB 도메인: API Gateway 리전 이중화 구성을 하려면 GSLB 도메인을 입력합니다. API Gateway 리전 이중화 가이드에 대한 자세한 내용은 [API Gateway 리전 이중화 가이드](./console-guide/#api-gateway_4)를 참고합니다. 
+4. GSLB 도메인: API Gateway 리전 이중화 구성을 하려면 GSLB 도메인을 입력합니다. API Gateway 리전 이중화 가이드에 대한 자세한 내용은 [API Gateway 리전 이중화 가이드](./console-guide/#api-gateway-region-redundancy)를 참고합니다. 
 5. **생성** 버튼을 클릭하면 {CustomDomainPrefix}.capi.nhncloudservice.com 형식의 사용자 지정 도메인이 생성됩니다. 
 
 > **[주의] 사용자 지정 도메인** <br>
@@ -1500,7 +1500,7 @@ API Gateway가 위치한 리전에 장애가 발생하면 해당 리전의 API G
 ### 1. 한국(평촌) 리전의 서비스와 스테이지 생성 { #service-and-create-stage-in-korea-pyeongchon-region }
 1. 한국(평촌) 리전에 API Gateway 서비스를 생성합니다.
 2. 한국(평촌) 리전의 API Gateway 서비스에 운영 중인 한국(판교) 리전 스테이지와 동일한 리소스를 등록합니다.  
-쉽게 리소스를 이전하려면 [스테이지 > 리소스 가져오기](./console-guide/#_20)를 통해 스테이지에 등록된 리소스를 Swagger파일로 다운로드한 후, [리소스 > 리소스 가져오기](./console-guide/#_170)를 통해 다운로드한 Swagger 파일로 리소스를 등록할 수 있습니다. 
+쉽게 리소스를 이전하려면 [스테이지 > 리소스 가져오기](./console-guide/#import-resource)를 통해 스테이지에 등록된 리소스를 Swagger파일로 다운로드한 후, [리소스 > 리소스 가져오기](./console-guide/#import-resource)를 통해 다운로드한 Swagger 파일로 리소스를 등록할 수 있습니다. 
 3. 한국(평촌) 리전의 스테이지를 생성하고, 필요한 스테이지 설정이 있다면 수정 후 스테이지를 배포합니다. 
 
 > [참고] 리소스 > 리소스 가져오기 시 스테이지 플러그인 설정
@@ -1532,7 +1532,7 @@ GSLB 설정에 대한 자세한 내용은 [DNS Plus 콘솔 사용 가이드](/Ne
 
 <a id="connect-custom-domain-to-stages-in-each-region"></a>
 ### 4. 사용자 지정 도메인을 각 리전의 스테이지에 연결 { #connect-custom-domain-to-stages-in-each-region }
-1. 한국(판교)와 한국(평촌) 리전의 각 API Gateway 스테이지에 생성한 사용자 지정 도메인을 연결합니다. 자세한 방법은 [사용자 지정 도메인을 스테이지에 연결 가이드](./console-guide/#_53)를 참고하세요.
+1. 한국(판교)와 한국(평촌) 리전의 각 API Gateway 스테이지에 생성한 사용자 지정 도메인을 연결합니다. 자세한 방법은 [사용자 지정 도메인을 스테이지에 연결 가이드](./console-guide/#connect-custom-domain-to-stages-in-each-region)를 참고하세요.
 2. 사용자 지정 도메인으로 API가 정상적으로 호출되는지와 GSLB 구성에 따라 트래픽이 분산되는지 확인합니다. 
 
 
