@@ -289,7 +289,7 @@ Plugin allows you to add additional functions provided by API Gateway.
 <a id="request-parameters"></a>
 ### Request Parameters { #request-parameters }
 Set request parameters, response types, and content type for each resource method.  
-Settings are applied to [API documentation](./console-guide/#api-document_1).
+Settings are applied to [API documentation](./console-guide/#api-documentation).
 
 1. Select the resource method.
 2. Click the **Request parameter** tab.
@@ -313,7 +313,7 @@ Settings are applied to [API documentation](./console-guide/#api-document_1).
 <a id="response"></a>
 ### Response { #response }
 Set header, request body, and content type for each HTTP response status code.
-Settings are applied to [API documentation](./console-guide/#api-document_1).
+Settings are applied to [API documentation](./console-guide/#api-documentation).
 
 1. Select the resource method.
 2. Click the **Response** tab.
@@ -584,7 +584,7 @@ You can verify deployment history after stage deployment, and go back stages by 
 <a id="api-documentation"></a>
 ### API Documentation { #api-documentation }
 You can check the configuration deployed through **stage deployment** with the API documentation.
-Refer to [API documentation](./console-guide/#api-document_1) for details.
+Refer to [API documentation](./console-guide/#api-documentation) for details.
 
 <a id="stage-plugin"></a>
 ## Stage Plugin { #stage-plugin }
@@ -962,7 +962,7 @@ When making an API request to API Gateway, it is restricted to only the specifie
 
 <a id="request-restriction-policy"></a>
 ### Request Restriction Policy { #request-restriction-policy }
-Applies registered request restriction policy to stage resource paths or methods. For more information, see [Request Restriction Policy](./console-guide/#request-restriction-policy_1).
+Applies registered request restriction policy to stage resource paths or methods. For more information, see [Request Restriction Policy](./console-guide/#request-restriction-policy).
 
 1. Select a stage on **Stage** tab.
 2. Select **Settings** tab.
@@ -1481,7 +1481,7 @@ The following is a scenario in which API Gateway is newly configured in the exis
 ### 1. Service and Create stage in Korea (Pyeongchon) Region { #service-and-create-stage-in-korea-pyeongchon-region }
 1. Create API Gateway service in Korea (Pangyo) Region.
 2. Registers the same resources as the Korea (Pangyo) Region Stage in operation with the API Gateway service in Korea (Pyeongchon) Region.  
-In order to transfer easily, download the resources registered on the stage through [Stage > Import Resource](./console-guide/#import-resource_1) as Swagger file, then you can register a resource with the downloaded Swagger file through [Resource > Import Resource](./console-guide/#import-resource). 
+In order to transfer easily, download the resources registered on the stage through [Stage > Import Resource](./console-guide/#stage-import-resource) as Swagger file, then you can register a resource with the downloaded Swagger file through [Resource > Import Resource](./console-guide/#import-resource). 
 3. Create a stage for Korea (Pyeongchon) Region and if there is a stage setting required, modify and deploy the stage. 
 
 > [Note] Resources > Stage plug-in settings when importing resources. 

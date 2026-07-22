@@ -24,7 +24,7 @@
 #### 기능 개선/변경 
 * 게이트웨이 응답 기능 추가
     * 게이트웨이에서 정의된 오류 응답 설정을 사용자가 재정의할 수 있습니다. 
-    * 자세한 내용은 [콘솔 가이드 > 게이트웨이 응답](./console-guide/#_42)을 참고하세요.
+    * 자세한 내용은 [콘솔 가이드 > 게이트웨이 응답](./console-guide/#gateway-response)을 참고하세요.
 * 서비스 게이트웨이 연동 
     * 서비스 게이트웨이를 통해 NHN Cloud 내부 네트워크 내 클라이언트가 인터넷을 경유하지 않고 API Gateway와 통신할 수 있습니다.
 * 게이트웨이 <-> 백엔드 엔드포인트 구간에서 백엔드 엔드포인트가 TLS 1.2 미만만 지원하는 경우, 통신이 더 이상 지원되지 않습니다.
@@ -35,7 +35,7 @@
 <a id="july-23-2024-feature-updates"></a>
 #### 기능 개선/변경 
 * 요청 유효성 검사기 플러그인 추가 
-    * 요청 유효성 검사기는 리소스의 요청 파라미터에 정의된 설정에 따라 클라이언트의 요청을 검증하는 기능입니다. 자세한 내용은 [콘솔 가이드 > 요청 유효성 검사기](./console-guide/#_29)를 참고하세요.
+    * 요청 유효성 검사기는 리소스의 요청 파라미터에 정의된 설정에 따라 클라이언트의 요청을 검증하는 기능입니다. 자세한 내용은 [콘솔 가이드 > 요청 유효성 검사기](./console-guide/#validate-requests)를 참고하세요.
 * 컨텍스트 변수 이름에 하이픈(-)이 포함되었을 때 API 호출이 실패하는 현상을 개선하였습니다. 
 * 요청 헤더 삭제, 응답 헤더 삭제 기능 추가
 
@@ -47,7 +47,7 @@
 
 * 컨텍스트 변수 확장
     * 요청과 응답과 관련된 다양한 컨텍스트 변수가 추가되었습니다. 추가된 컨텍스트 변수는 리소스와 스테이지 설정에서 활용 가능합니다.
-    * 자세한 내용은 [콘솔 가이드 > 컨텍스트 변수](./console-guide/#_11)를 참고하세요.
+    * 자세한 내용은 [콘솔 가이드 > 컨텍스트 변수](./console-guide/#context-variables)를 참고하세요.
 
 
 <a id="august-29-2023"></a>
@@ -56,20 +56,20 @@
 #### 기능 개선/변경 
 * 요청 제한 정책 기능 추가 
     * 요청 제한 정책은 요청의 경로 변수 또는 요청 헤더의 값별로 IP ACL과 요청 수 제한을 설정할 수 있는 기능입니다.
-    * 자세한 내용은 [콘솔 사용 가이드 > 요청 제한 정책](./console-guide/#_34)을 참고하세요.
+    * 자세한 내용은 [콘솔 사용 가이드 > 요청 제한 정책](./console-guide/#request-restriction-policy)을 참고하세요.
 * 사용자 지정 도메인 기능 추가
     * 스테이지 도메인의 Prefix를 사용자가 지정한 값으로 설정하여 도메인을 지정할 수 있는 기능입니다.
-    * 자세한 내용은 [콘솔 사용 가이드 > 사용자 지정 도메인](./console-guide/#_57)을 참고하세요.
+    * 자세한 내용은 [콘솔 사용 가이드 > 사용자 지정 도메인](./console-guide/#custom-domain)을 참고하세요.
     * API 응답에 사용자 지정 도메인 관련 필드명이 stageAliasDomainList에서 stageCustomDomainList로 변경되었습니다.
 * API Key 가져오기/내보내기 기능 추가 
     * CSV 파일을 통해 API Key를 가져오거나 등록된 API Key를 내보낼 수 있습니다.
-    * 자세한 내용은 [콘솔 사용 가이드 > API Key 가져오기](./console-guide/#api-key_8)와 [콘솔 사용 가이드 > API Key 내보내기](./console-guide/#api-key_7)를 참고하세요.
+    * 자세한 내용은 [콘솔 사용 가이드 > API Key 가져오기](./console-guide/#import-api-key)와 [콘솔 사용 가이드 > API Key 내보내기](./console-guide/#export-api-key)를 참고하세요.
 * 사용자 지정 Primary/Secondary API Key로 API Key 생성 
     * 사용자가 지정한 Primary/Sencodary API Key로 API Key를 생성할 수 있습니다.
-    * 자세한 내용은 [콘솔 사용 가이드 > API Key 생성](./console-guide/#api-key_6)을 참고하세요.
+    * 자세한 내용은 [콘솔 사용 가이드 > API Key 생성](./console-guide/#create-api-key)을 참고하세요.
 * Top 10 서비스 조회 통계 API 추가 
     * 전체 API 호출 수, 실패 API 호출 수, 평균 응답 시간을 기준으로 상위 10개의 API Gateway 서비스 목록과 누적 통계를 조회할 수 있습니다.
-    * 자세한 내용은 [API v1.0 가이드 > Top 10 서비스 조회](./api-guide-v1.0/#top-10)를 참고하세요.
+    * 자세한 내용은 [API v1.0 가이드 > Top 10 서비스 조회](./api-guide-v1.0/#query-top-10-services)를 참고하세요.
 
 <a id="july-26-2022"></a>
 ### 2022. 07. 26. { #july-26-2022 }
@@ -85,7 +85,7 @@
 <a id="may-24-2022-feature-updates"></a>
 #### 기능 개선/변경 
 * 액세스 로그 기능 추가 
-    * API Gateway의 액세스 로그를 Log & Crash Search 서비스에 보관할 수 있는 기능입니다. 자세한 내용은 [액세스 로그](./console-guide/#_24)를 참고하세요.
+    * API Gateway의 액세스 로그를 Log & Crash Search 서비스에 보관할 수 있는 기능입니다. 자세한 내용은 [액세스 로그](./console-guide/#access-log)를 참고하세요.
 
 
 <a id="january-25-2022"></a>
@@ -94,14 +94,14 @@
 #### 기능 개선/변경
 * 리소스 경로에 설정된 플러그인이 있을 경우, 하위 메서드를 생성하면 리소스 경로에 설정된 플러그인이 추가되도록 변경되었습니다.
 * 리소스 생성 및 수정과 관련된 Public API가 추가되었습니다.
-    * [리소스 경로와 메서드 생성 API](./api-guide-v1.0/#_20)
-    * [리소스 메서드 생성 API](./api-guide-v1.0/#_23)
-    * [리소스 경로의 플러그인 수정/삭제 API](./api-guide-v1.0/#_26)
-    * [리소스 메서드 정보 수정 및 플러그인 수정/삭제 API](./api-guide-v1.0/#_29)
+    * [리소스 경로와 메서드 생성 API](./api-guide-v1.0/#create-resource-paths-and-methods)
+    * [리소스 메서드 생성 API](./api-guide-v1.0/#create-resource-methods)
+    * [리소스 경로의 플러그인 수정/삭제 API](./api-guide-v1.0/#modifydelete-resource-path-plugins)
+    * [리소스 메서드 정보 수정 및 플러그인 수정/삭제 API](./api-guide-v1.0/#modifydelete-resource-method-information-and-plugins)
 * 통계 API 응답 필드 추가
     * 통계 API의 응답에 최근 통계 데이터의 갱신일시에 대한 metricsLatestUpdatedAt 필드가 추가되었습니다.
     * API Key별 조회 API의 응답에 통계 데이터의 시간 단위에 대한 timeUnit 필드가 추가되었습니다.
-    * 자세한 내용은 [API v1.0 가이드 > 통계 > 스테이지 리소스별 조회](./api-guide-v1.0/#_160), [API v1.0 가이드 > 통계 > API Key별 조회](./api-guide-v1.0/#api-key_12)를 참고하세요.
+    * 자세한 내용은 [API v1.0 가이드 > 통계 > 스테이지 리소스별 조회](./api-guide-v1.0/#query-by-stage-resource), [API v1.0 가이드 > 통계 > API Key별 조회](./api-guide-v1.0/#query-by-api-key)를 참고하세요.
 * 사전 호출 API의 엔드포인트, 백엔드 엔드포인트에 사용 가능한 포트 범위가 제한되었습니다.
     * 사용 가능한 포트 번호: 80, 443, 5000~12000
 
@@ -118,51 +118,51 @@
 <a id="august-24-2021-feature-updates"></a>
 #### 기능 개선/변경 
 * API 설명서 추가
-    * 자세한 내용은 [콘솔 가이드 > API 설명서](./console-guide/#api_2)를 참고하세요.
+    * 자세한 내용은 [콘솔 가이드 > API 설명서](./console-guide/#api-documentation)를 참고하세요.
 
 <a id="july-6-2021"></a>
 ### 2021. 07. 06. { #july-6-2021 }
 <a id="july-6-2021-feature-updates"></a>
 #### 기능 개선/변경 
 * 요청 쿼리 문자열 파라미터 추가 플러그인 추가
-    * 자세한 내용은 [콘솔 가이드 > 플러그인 > 요청 쿼리 문자열 파라미터 추가](./console-guide/#_15)를 참고하세요.
+    * 자세한 내용은 [콘솔 가이드 > 플러그인 > 요청 쿼리 문자열 파라미터 추가](./console-guide/#add-request-query-string-parameter)를 참고하세요.
 
 <a id="june-29-2021"></a>
 ### 2021. 06. 29. { #june-29-2021 }
 <a id="june-29-2021-feature-updates"></a>
 #### 기능 개선/변경
 * 사용량 계획, API Key 기능 추가
-    * 자세한 내용은 [콘솔 가이드 > 사용량 계획](./console-guide/#_44), [콘솔 가이드 > API Key](./console-guide/#api-key_5), [콘솔 가이드 > 스테이지 > API Key](./console-guide/#api-key)를 참고하세요.
+    * 자세한 내용은 [콘솔 가이드 > 사용량 계획](./console-guide/#usage-plan), [콘솔 가이드 > API Key](./console-guide/#api-key), [콘솔 가이드 > 스테이지 > API Key](./console-guide/#api-key)를 참고하세요.
 
 <a id="may-25-2021"></a>
 ### 2021. 05. 25. { #may-25-2021 }
 <a id="may-25-2021-feature-updates"></a>
 #### 기능 개선/변경
 * 스테이지 경로에서 백엔드 엔드포인트 URL 재정의 기능 추가
-    * 자세한 내용은 [콘솔 가이드 > 백엔드 엔드포인트 URL 재정의](./console-guide/#url)를 참고하세요.
+    * 자세한 내용은 [콘솔 가이드 > 백엔드 엔드포인트 URL 재정의](./console-guide/#backend-endpoint-url-override)를 참고하세요.
 * 배포 이력 확인 및 배포 이력의 스테이지 설정으로 현재 스테이지 설정을 변경하는 기능 추가
-    * 자세한 내용은 [콘솔 가이드 > 스테이지 배포 이력](./console-guide/#_22)를 참고하세요.
+    * 자세한 내용은 [콘솔 가이드 > 스테이지 배포 이력](./console-guide/#stage-deployment-history)를 참고하세요.
 * 통계 데이터 생성 주기 변경
-    * 자세한 내용은 [콘솔 가이드 > 통계 데이터 참고 사항](./console-guide/#_41)의 통계 데이터 생성 주기 내용을 참고하세요.
+    * 자세한 내용은 [콘솔 가이드 > 통계 데이터 참고 사항](./console-guide/#note-on-statistical-data)의 통계 데이터 생성 주기 내용을 참고하세요.
 * Swagger 파일로 리소스 가져오기와 스테이지 내보내기 기능 추가 
     * Swagger 파일로 리소스를 가져올 수 있습니다.
     * 스테이지의 리소스를 Swagger 파일로 내보낼 수 있습니다. 
-    * 자세한 내용은 [콘솔 가이드 > 리소스 > 리소스 가져오기](./console-guide/#_170)와 [콘솔 가이드 > 스테이지 내보내기](./console-guide/#_25)를 참고하세요.
+    * 자세한 내용은 [콘솔 가이드 > 리소스 > 리소스 가져오기](./console-guide/#import-resource)와 [콘솔 가이드 > 스테이지 내보내기](./console-guide/#export-stage)를 참고하세요.
 * JWT 플러그인의 JSON Web Key Sets URI 지원
-    * 자세한 내용은 [콘솔 가이드 > JWT](./console-guide/#jwt)를 참고하세요.
+    * 자세한 내용은 [콘솔 가이드 > JWT](./console-guide/#authentication-jwt)를 참고하세요.
 
 <a id="march-23-2021"></a>
 ### 2021. 03. 23. { #march-23-2021 }
 <a id="march-23-2021-feature-updates"></a>
 #### 기능 개선/변경
 * 사전 호출 API(Pre-call API) 플러그인 기능 추가
-    * 자세한 내용은 [콘솔 가이드 > 사전 호출 API](./console-guide/#apipre-call-api)를 참고하세요.
+    * 자세한 내용은 [콘솔 가이드 > 사전 호출 API](./console-guide/#pre-call-api)를 참고하세요.
 * 요청 수 제한 플러그인 기능 추가
-    * 자세한 내용은 [콘솔 가이드 > 요청 수 제한](./console-guide/#_25)을 참고하세요.
+    * 자세한 내용은 [콘솔 가이드 > 요청 수 제한](./console-guide/#request-number-limit)을 참고하세요.
 * 인증 > JWT 플러그인 기능 추가
-    * 자세한 내용은 [콘솔 가이드 > 인증 > JWT](./console-guide/#jwt)를 참고하세요.
+    * 자세한 내용은 [콘솔 가이드 > 인증 > JWT](./console-guide/#authentication-jwt)를 참고하세요.
 * 컨텍스트 변수 ${request.clientIp} 추가
-    * 자세한 내용은 [콘솔 가이드 > 컨텍스트 변수](./console-guide/#_11)를 참고하세요.
+    * 자세한 내용은 [콘솔 가이드 > 컨텍스트 변수](./console-guide/#context-variables)를 참고하세요.
 
 <a id="february-23-2021"></a>
 ### 2021. 02. 23. { #february-23-2021 }

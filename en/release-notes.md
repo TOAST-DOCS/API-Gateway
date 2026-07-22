@@ -56,7 +56,7 @@
 #### Feature Updates 
 * Added the request restriction policy 
     * This is a feature that lets you set IP ACL and request number limit for each request path variable or request header value.
-    * For more information, see [Console Guide > Request Restriction Policy](./console-guide/#request-restriction-policy_1).
+    * For more information, see [Console Guide > Request Restriction Policy](./console-guide/#delete-request-restriction-policy).
 * Added the custom domain feature
     * This is a feature that lets you specify a domain by setting the prefix of the stage domain to a value specified by the user.
     * For more information, see [Console Guide > Custom Domain](./console-guide/#custom-domain).
@@ -118,7 +118,7 @@
 <a id="august-24-2021-feature-updates"></a>
 #### Feature Updates 
 * Added API document
-    * Refer to [Console Guide > API Document](./console-guide/#api-document_1) for details.
+    * Refer to [Console Guide > API Document](./console-guide/#api-documentation) for details.
 
 <a id="july-6-2021"></a>
 ### July 6, 2021 { #july-6-2021 }
@@ -132,7 +132,7 @@
 <a id="june-29-2021-feature-updates"></a>
 #### Feature Updates
 * Added API key feature and usage plan
-    * For more information, see [Console Guide > Usage Plan](./console-guide/#usage-plan), [Console Guide > API Key](./console-guide/#api-key_1), [Console Guide > Stage > API Key](./console-guide/#api-key).
+    * For more information, see [Console Guide > Usage Plan](./console-guide/#usage-plan), [Console Guide > API Key](./console-guide/#delete-api-key), [Console Guide > Stage > API Key](./console-guide/#api-key).
 
 <a id="may-25-2021"></a>
 ### May 25, 2021 { #may-25-2021 }

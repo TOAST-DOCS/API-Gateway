@@ -1,16 +1,20 @@
-## Application Service > API Gateway > Enum 코드
+<a id="application-service-api-gateway-enum-code"></a>
+## Application Service > API Gateway > Enum 코드 { #application-service-api-gateway-enum-code }
 
-## Enum 코드
+<a id="enum-code"></a>
+## Enum 코드 { #enum-code }
 API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 
-### API Gateway 리전
+<a id="api-gateway-region"></a>
+### API Gateway 리전 { #api-gateway-region }
 - API Gateway 서버가 위치하는 리전을 의미합니다.
 
 | 이름 | 설명 |
 | --- | --- |
 | KR1 | 한국(판교) 리전 |
 
-### API Gateway 서비스 타입
+<a id="api-gateway-service-type"></a>
+### API Gateway 서비스 타입 { #api-gateway-service-type }
 - 공용(Shared) 또는 전용(Dedicated) 구분에 따른 API Gateway의 서비스 타입입니다. 
 - 현재는 공용 API Gateway 서비스 타입만 지원됩니다. 
 
@@ -19,7 +23,8 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | SHARED | 공용 API Gateway 서비스 타입 |
 
 
-### HTTP 메서드 타입
+<a id="http-method-type"></a>
+### HTTP 메서드 타입 { #http-method-type }
 - 지원되는 HTTP 메서드 타입입니다.
 
 | 이름 | 설명 |
@@ -33,7 +38,8 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | PATCH | HTTP PATCH 메서드 | 
 
 
-### 리소스 플러그인 타입
+<a id="resource-plugin-type"></a>
+### 리소스 플러그인 타입 { #resource-plugin-type }
 - 리소스에 설정 가능한 플러그인 타입입니다.
 
 | 이름 | 설명 | 플러그인 적용 가능한 위치 |
@@ -48,7 +54,8 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | ADD_REQUEST_QUERY_PARAMETER | 백엔드 엔드포인트 요청에 쿼리 문자열 파라미터를 추가합니다. | 리소스 경로, 메서드 |
 
 
-### 리소스 요청/응답 파라미터 데이터 타입
+<a id="resource-requestresponse-parameter-data-type"></a>
+### 리소스 요청/응답 파라미터 데이터 타입 { #resource-requestresponse-parameter-data-type }
 - 리소스 요청/응답 파라미터에서 설정할 수 있는 데이터 타입입니다.
 
 | 이름 | 설명 |
@@ -62,7 +69,8 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | FILE | File 데이터 타입. 요청 파라미터 > 폼 데이터에서만 설정 가능. | 
 
 
-### 스테이지 리소스 > 플러그인 타입
+<a id="stage-resource-plugin-type"></a>
+### 스테이지 리소스 > 플러그인 타입 { #stage-resource-plugin-type }
 - 스테이지 리소스 경로 또는 메서드에 설정 가능한 플러그인 타입입니다. 
 
 | 이름 | 설명 | 플러그인 적용 가능한 위치 |
@@ -76,7 +84,8 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | RATE_LIMIT | 요청 수 제한 플러그인 | 메서드 |
 
 
-### JWT > 암호화 알고리즘 
+<a id="jwt-encryption-algorithm"></a>
+### JWT > 암호화 알고리즘  { #jwt-encryption-algorithm }
 - JWT 토큰 서명에 사용하는 암호화 알고리즘입니다.
 
 | 이름 | 설명 |
@@ -85,7 +94,8 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | RS256 | 비대칭키 알고리즘이며, 공개/개인키를 사용하여 RSA256(RSA Signature with SHA-256) 알고리즘을 사용하여 토큰을 서명합니다. | 
 
 
-### JWT > 클레임 데이터 타입 
+<a id="jwt-claim-data-type"></a>
+### JWT > 클레임 데이터 타입  { #jwt-claim-data-type }
 - JWT 클레임의 데이터 타입입니다.
 
 | 이름 | 설명 |
@@ -95,7 +105,8 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | NumericDate | 밀리초를 무시하고 1970-01-01T00:00:00Z UTC부터 지정된 UTC 날짜/시간까지의 초 수를 나타내는 데이터 타입입니다. |
 
 
-### JWT > RS256 암호화 알고리즘 > Public Key Type 
+<a id="jwt-rs256-encryption-algorithm-public-key-type"></a>
+### JWT > RS256 암호화 알고리즘 > Public Key Type  { #jwt-rs256-encryption-algorithm-public-key-type }
 - RS256는 공개키/개인키 기반 암호화 알고리즘을 사용합니다. 공개키 설정 방식을 설정합니다.
 
 | 이름 | 설명 |
@@ -104,7 +115,8 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | JWKS_URI | 공개키를 조회할 수 있는 Json Web Key Sets URI로 설정하는 방식입니다.|
 
 
-### 요청 수 제한 > 제한 키
+<a id="request-number-limit-limit-key"></a>
+### 요청 수 제한 > 제한 키 { #request-number-limit-limit-key }
 - 요청 수 제한이 적용되는 키입니다.
 
 | 이름 | 설명 |
@@ -115,7 +127,8 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | PATH_VARIABLE | 경로 변수마다 리소스 메서드의 요청 수 제한을 적용합니다. |
 
 
-### 스테이지 배포 > 배포 상태
+<a id="stage-deployment-deployment-status"></a>
+### 스테이지 배포 > 배포 상태 { #stage-deployment-deployment-status }
 - 스테이지 배포 작업의 상태입니다.
 
 | 이름 | 설명 |
@@ -125,7 +138,8 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | FAILURE | 배포 실패 | 
 
 
-### 사용량 계획 > 할당량 기간 단위
+<a id="usage-plan-quota-period-unit"></a>
+### 사용량 계획 > 할당량 기간 단위 { #usage-plan-quota-period-unit }
 - 할당량이 초기화되는 기간 단위 입니다.
 
 | 이름 | 설명 |
@@ -134,7 +148,8 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | MONTH | 월 단위로 호출량 제한. 매월 1일 UTC 00:00:00에 초기화. | 
 
 
-### API Key 상태
+<a id="api-key-status"></a>
+### API Key 상태 { #api-key-status }
 - API Key의 상태입니다.
 - 비활성화된 API Key는 API Key 인증에 실패하여 API 호출이 불가합니다. 
 
@@ -144,7 +159,8 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | INACTIVE | 비활성화 상태 |
 
 
-### API Key 타입
+<a id="api-key-type"></a>
+### API Key 타입 { #api-key-type }
 - 발급된 API Key의 Primary API Key와 Secondary API Key의 타입입니다. 
 
 | 이름 | 설명 |
@@ -153,14 +169,16 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | SECONDARY | Secondary API Key |
 
 
-### API Key 구독 상태
+<a id="api-key-subscription-status"></a>
+### API Key 구독 상태 { #api-key-subscription-status }
 - API Key의 구독 상태입니다.
 
 | 이름 | 설명 |
 | --- | --- |
 | APPROVAL | 승인 상태 | 
 
-### 통계 데이터 시간 단위
+<a id="statistics-data-time-unit"></a>
+### 통계 데이터 시간 단위 { #statistics-data-time-unit }
 - 통계 데이터가 수집되는 시간 단위
 
 | 이름 | 설명 |
@@ -171,7 +189,8 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | ONE_DAYS | 하루 간격으로 통계 데이터 수집 | 
 
 
-### 통계 > Top10 서비스 정렬 기준 
+<a id="statistics-sort-top-10-services-by"></a>
+### 통계 > Top10 서비스 정렬 기준  { #statistics-sort-top-10-services-by }
 | 이름 | 설명 |
 | --- | --- |
 | CALL_COUNT | 전체 API 호출 수 기준 내림차순 정렬 | 
@@ -179,7 +198,8 @@ API v1.0 가이드 문서에서 참조되는 Enum 코드 문서입니다.
 | AVG_RESPONSE_TIME | 평균 응답 시간 기준 내림차순 정렬 | 
 
 
-### 게이트웨이 응답 유형
+<a id="gateway-response-type"></a>
+### 게이트웨이 응답 유형 { #gateway-response-type }
 | 게이트웨이 응답 유형 | 기본 상태 코드 | 설명 |
 | ----------- | -------- | --- |
 | UpstreamServiceUnavailable | 503 | 백엔드 엔드포인트 서비스가 응답을 하지 않거나 응답 지연(60초 이상)이 지속적으로 발생하는 경우의 응답입니다. |
