@@ -22,7 +22,7 @@ APIを呼び出すためのリージョン別エンドポイントは次のと�
 <a id="authentication-and-authorization"></a>
 ### 認証と権限 { #authentication-and-authorization }
 
-API Gatewayは、API呼び出し時の認証/認可のためにUser Access Keyトークンを使用します。User Access Keyトークンは、User Access Keyに基づいて発行されるBearerタイプの一時的なアクセストークンです。User Access Keyトークンの発行及び使用に関する詳細は、[User Access Keyトークン](/ja/nhncloud/ja/public-api/user-access-key-token/)を参照してください。
+API Gatewayは、API呼び出し時の認証/認可のためにUser Access Keyトークンを使用します。User Access Keyトークンは、User Access Keyに基づいて発行されるBearerタイプの一時的なアクセストークンです。User Access Keyトークンの発行及び使用に関する詳細は、[User Access Keyトークン](/nhncloud/ja/public-api/user-access-key-token/)を参照してください。
 
 <a id="request-common-information"></a>
 ### リクエスト共通情報 { #request-common-information }

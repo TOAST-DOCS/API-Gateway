@@ -22,7 +22,7 @@ The endpoints by region for calling the API are as follows.
 <a id="authentication-and-authorization"></a>
 ### Authentication and Authorization { #authentication-and-authorization }
 
-API Gateway uses User Access Key tokens for authentication and authorization when making API calls. The User Access Key token is a temporary, Bearer-type access token issued from a User Access Key. For more information on issuing and using User Access Key tokens, please refer to the [User Access Key Token](/en/nhncloud/en/public-api/user-access-key-token/).
+API Gateway uses User Access Key tokens for authentication and authorization when making API calls. The User Access Key token is a temporary, Bearer-type access token issued from a User Access Key. For more information on issuing and using User Access Key tokens, please refer to the [User Access Key Token](/nhncloud/en/public-api/user-access-key-token/).
 
 <a id="request-common-information"></a>
 ### Request Common Information { #request-common-information }

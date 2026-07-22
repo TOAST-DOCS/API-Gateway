@@ -26,7 +26,7 @@ An AppKey or a Project Integrated Appkey is required to use the API Gateway API.
 
 An AppKey is a unique authentication key issued for each individual NHN Cloud service, while a Project Integrated Appkey is a common authentication key that can be shared across multiple services within a single NHN Cloud project. 
 
-For more information on checking and using Appkeys, please refer to the [Appkey](/en/nhncloud/en/public-api/appkey/). For more information on creating and using Project Integrated Appkeys, please refer to the [Project Integrated Appkey](/en/nhncloud/en/public-api/project-integrated-appkey/).
+For more information on checking and using Appkeys, please refer to the [Appkey](/nhncloud/en/public-api/appkey/). For more information on creating and using Project Integrated Appkeys, please refer to the [Project Integrated Appkey](/nhncloud/en/public-api/project-integrated-appkey/).
 
 <a id="request-common-information"></a>
 ### Request Common Information { #request-common-information }
