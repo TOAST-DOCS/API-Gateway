@@ -1481,7 +1481,7 @@ The following is a scenario in which API Gateway is newly configured in the exis
 ### 1. Service and Create stage in Korea (Pyeongchon) Region { #service-and-create-stage-in-korea-pyeongchon-region }
 1. Create API Gateway service in Korea (Pangyo) Region.
 2. Registers the same resources as the Korea (Pangyo) Region Stage in operation with the API Gateway service in Korea (Pyeongchon) Region.  
-In order to transfer easily, download the resources registered on the stage through [Stage > Import Resource](./console-guide/#import-resource) as Swagger file, then you can register a resource with the downloaded Swagger file through [Resource > Import Resource](./console-guide/#import-resource). 
+In order to transfer easily, download the resources registered on the stage through [Stage > Import Resource](./console-guide/#stage-import-resource) as Swagger file, then you can register a resource with the downloaded Swagger file through [Resource > Import Resource](./console-guide/#import-resource). 
 3. Create a stage for Korea (Pyeongchon) Region and if there is a stage setting required, modify and deploy the stage. 
 
 > [Note] Resources > Stage plug-in settings when importing resources. 

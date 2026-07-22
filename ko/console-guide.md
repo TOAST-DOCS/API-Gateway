@@ -1500,7 +1500,7 @@ API Gateway가 위치한 리전에 장애가 발생하면 해당 리전의 API G
 ### 1. 한국(평촌) 리전의 서비스와 스테이지 생성 { #service-and-create-stage-in-korea-pyeongchon-region }
 1. 한국(평촌) 리전에 API Gateway 서비스를 생성합니다.
 2. 한국(평촌) 리전의 API Gateway 서비스에 운영 중인 한국(판교) 리전 스테이지와 동일한 리소스를 등록합니다.  
-쉽게 리소스를 이전하려면 [스테이지 > 리소스 가져오기](./console-guide/#import-resource)를 통해 스테이지에 등록된 리소스를 Swagger파일로 다운로드한 후, [리소스 > 리소스 가져오기](./console-guide/#import-resource)를 통해 다운로드한 Swagger 파일로 리소스를 등록할 수 있습니다. 
+쉽게 리소스를 이전하려면 [스테이지 > 리소스 가져오기](./console-guide/#stage-import-resource)를 통해 스테이지에 등록된 리소스를 Swagger파일로 다운로드한 후, [리소스 > 리소스 가져오기](./console-guide/#import-resource)를 통해 다운로드한 Swagger 파일로 리소스를 등록할 수 있습니다. 
 3. 한국(평촌) 리전의 스테이지를 생성하고, 필요한 스테이지 설정이 있다면 수정 후 스테이지를 배포합니다. 
 
 > [참고] 리소스 > 리소스 가져오기 시 스테이지 플러그인 설정
