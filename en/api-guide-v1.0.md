@@ -49,6 +49,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
     }
 }
 ```
+</details>
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -57,7 +58,6 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | header.resultCode    | Integer | Result code  |
 | header.resultMessage | String  | Result message |
 
-</details>
 
 <details>
   <summary><strong>Failure Response</strong></summary>
@@ -79,6 +79,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
   ]
 }
 ```
+</details>
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -88,7 +89,6 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | errorList[0].errorField | String  | Error details field |
 | errorList[0].errorMessage | String  | Error Message |
 
-</details>
 
 * If an invalid API request is made, detailed error reason and field information is responded in the errorList field.
 
