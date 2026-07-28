@@ -6,12 +6,10 @@
 <a id="july-28-2026"></a>
 ### July 28, 2026 { #july-28-2026 }
 
-<!-- TODO: translate body -->
-
 <a id="july-28-2026-added-features"></a>
 #### Added Features
-
-<!-- TODO: translate body -->
+*  Added API v2.0
+    * Added support for User Access Key tokens.
 
 <a id="november-11-2025"></a>
 ### November 11, 2025 { #november-11-2025 }

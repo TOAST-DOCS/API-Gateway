@@ -6,12 +6,10 @@
 <a id="july-28-2026"></a>
 ### 2026. 07. 28. { #july-28-2026 }
 
-<!-- TODO: translate body -->
-
 <a id="july-28-2026-added-features"></a>
 #### 機能追加
-
-<!-- TODO: translate body -->
+* API v2.0を追加
+    * User Access Keyトークンをサポートします。
 
 <a id="november-11-2025"></a>
 ### 2025. 11. 11. { #november-11-2025 }
