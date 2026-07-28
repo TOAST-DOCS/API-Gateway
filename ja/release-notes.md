@@ -1,5 +1,10 @@
 ## Application Service > API Gateway > リリースノート
 
+### 2026. 07. 28.
+#### 機能追加
+* API v2.0を追加
+    * User Access Keyトークンをサポートします。
+    
 ### 2025. 11. 11.
 #### 機能改善・変更
 * ユーザーコンソールのUI/UX改善

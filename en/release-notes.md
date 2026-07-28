@@ -1,5 +1,12 @@
 ## Application Service > API Gateway > Release Note
 
+
+
+### July 28, 2026
+#### Added Features
+*  Added API v2.0
+    * Added support for User Access Key tokens.
+
 ### November 11, 2025
 #### Feature Updates
 * Improved user console UI/UX
