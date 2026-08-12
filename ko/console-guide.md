@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=6628de25cdfb -->
+
 <a id="application-service-api-gateway-console-user-guide"></a>
 ## Application Service > API Gateway > 콘솔 사용 가이드 { #application-service-api-gateway-console-user-guide }
 
