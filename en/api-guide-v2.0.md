@@ -582,14 +582,14 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourceList[2].resourcePluginList[0].resourcePluginId | String   | Resource plugin ID                                    |
 | resourceList[2].resourcePluginList[0].resourceId       | String   | Resource ID                                         |
 | resourceList[2].resourcePluginList[0].pluginType       | Enum     | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type)    |
-| resourceList[2].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin)                   |
+| resourceList[2].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](#resource-plugin)                   |
 | resourceList[2].resourcePluginList[0].createdAt        | DateTime | Resource plugin creation date and time                                  |
 | resourceList[2].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
 
 <a id="create-resource-paths-and-methods"></a>
 ### Create Resource Paths and Methods { #create-resource-paths-and-methods }
 - You can create multiple resource paths and methods, and set the plugin at the time of creation.
-- Resource methods are optional input. To add a method under the created resource path, you need to use the [Create Resource Methods API](./api-guide-v2.0/#create-resource-methods).
+- Resource methods are optional input. To add a method under the created resource path, you need to use the [Create Resource Methods API](#create-resource-methods).
 - Resource methods must have either HTTP or MOCK plugin set. HTTP and MOCK plugins cannot be set at the same time.
 - The created resource path cannot be modified.
 - The resource path plugins defined in the pathPluginList field are the list of plugins that are applied to child methods of that path.
@@ -700,7 +700,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourcePathList[0].pathPluginList | List | Optional | N/A | N/A | Resource path plugin list |
 | resourcePathList[0].pathPluginList[0] | Object | Optional | N/A | N/A | Resource path plugin area |
 | resourcePathList[0].pathPluginList[0].pluginType | Enum | Required | N/A | {pluginCode} CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | The plugin type that can be set in the resource path among [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type) |
-| resourcePathList[0].pathPluginList[0].pluginConfigJson | Object | Required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin)|
+| resourcePathList[0].pathPluginList[0].pluginConfigJson | Object | Required | N/A | N/A | See [JSON setting value by resource plugin type](#resource-plugin)|
 | resourcePathList[0].methodList | List | Optional | N/A | N/A | List of methods under the resource path |
 | resourcePathList[0].methodList[0] | Object | Optional | N/A | N/A | Area for methods under the resource path |
 | resourcePathList[0].methodList[0].methodType | Enum | Required | N/A | GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH | See [HTTP Method Type Enum Code](./enum-code/#http-method-type) |
@@ -709,7 +709,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourcePathList[0].methodList[0].methodPluginList | List | Required | N/A | N/A | Resource method plugin list |
 | resourcePathList[0].methodList[0].methodPluginList[0] | Object | Required | N/A | N/A | Resource method plugin area, requires input of one of the 'HTTP' or 'MOCK' plugin |
 | resourcePathList[0].methodList[0].methodPluginList[0].pluginType | Enum | Required | N/A | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | The plugin type that can be set in the resource method among [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type) |
-| resourcePathList[0].methodList[0].methodPluginList[0].pluginConfigJson | Object | Required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin)|
+| resourcePathList[0].methodList[0].methodPluginList[0].pluginConfigJson | Object | Required | N/A | N/A | See [JSON setting value by resource plugin type](#resource-plugin)|
 
 <a id="create-resource-paths-and-methods-response"></a>
 #### Response
@@ -955,7 +955,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourceList[1].resourcePluginList[0].resourcePluginId | String   | Resource plugin ID                                    |
 | resourceList[1].resourcePluginList[0].resourceId       | String   | Resource ID                                         |
 | resourceList[1].resourcePluginList[0].pluginType       | Enum     | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type)    |
-| resourceList[1].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin)                   |
+| resourceList[1].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](#resource-plugin)                   |
 | resourceList[1].resourcePluginList[0].createdAt        | DateTime | Resource plugin creation date and time                                  |
 | resourceList[1].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
 
@@ -1020,7 +1020,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | methodList[0].methodPluginList | List | Required | N/A | N/A | Resource method plugin list |
 | methodList[0].methodPluginList[0] | Object | Required | N/A | N/A | Resource method plugin area, requires input of one of the 'HTTP' or 'MOCK' plugin |
 | methodList[0].methodPluginList[0].pluginType | Enum | Required | N/A | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | The plugin type that can be set in the resource method among [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type) |
-| methodList[0].methodPluginList[0].pluginConfigJson | Object | Required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin)|
+| methodList[0].methodPluginList[0].pluginConfigJson | Object | Required | N/A | N/A | See [JSON setting value by resource plugin type](#resource-plugin)|
 
 <a id="create-resource-methods-response"></a>
 #### Response
@@ -1097,7 +1097,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourceList[0].resourcePluginList[0].resourcePluginId | String   | Resource plugin ID                                    |
 | resourceList[0].resourcePluginList[0].resourceId       | String   | Resource ID                                         |
 | resourceList[0].resourcePluginList[0].pluginType       | Enum     | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type)    |
-| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin)                   |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](#resource-plugin)                   |
 | resourceList[0].resourcePluginList[0].createdAt        | DateTime | Resource plugin creation date and time                                  |
 | resourceList[0].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
 
@@ -1111,7 +1111,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 - If the applyChildPath field is set to true, the plugin is set on all paths and methods under the resource path.
 - If both applyChildPath and delete fields are set to true, the plugin will be deleted for all paths and methods under the resource path.
 - If the CORS plugin is set, the OPTIONS method is automatically created as a child method. Note that if there is an existing OPTIONS method, it will be deleted and replaced.
-- Only the plugins that can be set in the resource path can be set. For more information, see [Resource Plugins](./api-guide-v2.0/#resource-plugin).
+- Only the plugins that can be set in the resource path can be set. For more information, see [Resource Plugins](#resource-plugin).
 
 <a id="modifydelete-resource-path-plugins-request"></a>
 #### Request
@@ -1175,7 +1175,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | pathPluginList | List | Optional | N/A | N/A | Resource path plugin list |
 | pathPluginList[0] | Object | Optional | N/A | N/A | Resource path plugin area |
 | pathPluginList[0].pluginType | Enum | Required | N/A | {pluginCode} CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER,ADD_REQUEST_QUERY_PARAMETER | The plugin type that can be set in the resource path among [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type) |
-| pathPluginList[0].pluginConfigJson | Object | Conditionally required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin), required input when the delete field is false.|
+| pathPluginList[0].pluginConfigJson | Object | Conditionally required | N/A | N/A | See [JSON setting value by resource plugin type](#resource-plugin), required input when the delete field is false.|
 | pathPluginList[0].applyChildPath | Boolean | Optional | false | true, false | Whether to overwrite child paths and methods |
 | pathPluginList[0].delete | Boolean | Optional | false | true, false | Whether to delete the plugin |
 
@@ -1242,7 +1242,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourceList[0].resourcePluginList[0].resourcePluginId | String   | Resource plugin ID                                    |
 | resourceList[0].resourcePluginList[0].resourceId       | String   | Resource ID                                         |
 | resourceList[0].resourcePluginList[0].pluginType       | Enum     | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type)    |
-| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin)                   |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](#resource-plugin)                   |
 | resourceList[0].resourcePluginList[0].createdAt        | DateTime | Resource plugin creation date and time                                  |
 | resourceList[0].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
 
@@ -1254,7 +1254,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 - If you set a plugin that has not been added to the resource method, the plugin is added.
 - If you set a plugin that has been added to the resource method, it is changed to the requested plugin setting.
 - If the delete field is set to true, the plugin of the requested plugin type is deleted. If the delete field is true, the pluginConfigJson field does not need to be defined.
-- Only the plugins that can be set on resource methods can be set. For more information, see [Resource Plugins](./api-guide-v2.0/#resource-plugin).
+- Only the plugins that can be set on resource methods can be set. For more information, see [Resource Plugins](#resource-plugin).
 
 <a id="modifydelete-resource-method-information-and-plugins-request"></a>
 #### Request
@@ -1306,7 +1306,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | methodPluginList | List | Optional | N/A | N/A | Resource method plugin list |
 | methodPluginList[0] | Object | Required | N/A | N/A | Resource method plugin area |
 | methodPluginList[0].pluginType | Enum | Required | N/A | {pluginCode} HTTP, MOCK, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | The plugin type that can be set in the resource method among [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type) |
-| methodPluginList[0].pluginConfigJson | Object | Conditionally required | N/A | N/A | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin), required input when the delete field is false.|
+| methodPluginList[0].pluginConfigJson | Object | Conditionally required | N/A | N/A | See [JSON setting value by resource plugin type](#resource-plugin), required input when the delete field is false.|
 | methodPluginList[0].delete | Boolean | Optional | false | N/A | Whether to delete the plugin |
 
 <a id="modifydelete-resource-method-information-and-plugins-response"></a>
@@ -1371,7 +1371,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | resourceList[0].resourcePluginList[0].resourcePluginId | String   | Resource plugin ID                                    |
 | resourceList[0].resourcePluginList[0].resourceId       | String   | Resource ID                                         |
 | resourceList[0].resourcePluginList[0].pluginType       | Enum     | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type)    |
-| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin)                   |
+| resourceList[0].resourcePluginList[0].pluginConfigJson | Object   | See [JSON setting value by resource plugin type](#resource-plugin)                   |
 | resourceList[0].resourcePluginList[0].createdAt        | DateTime | Resource plugin creation date and time                                  |
 | resourceList[0].resourcePluginList[0].updatedAt        | DateTime | Resource plugin modification date and time                                  |
 
@@ -1551,7 +1551,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | swaggerData.paths.{path}.{operation}.responses.{httpStatusCode}.schema.$ref | String | Required | N/A | Objects declared in Swagger definitions | API Gateway resource response > Response HTTP status code > Response Body > Model. |
 | swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway | Object | Optional | N/A | N/A | API Gateway-provided feature definition object area. |
 | swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins | Object | Required | N/A | N/A | API Gateway custom plugin object area. |
-| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins.{pluginCode} | Object | Required | N/A | {pluginCode} HTTP, MOCK, CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type). See [JSON setting value by resource plugin type](./api-guide-v2.0/#resource-plugin). |
+| swaggerData.paths.{path}.{operation}.x-nhncloud-apigateway.plugins.{pluginCode} | Object | Required | N/A | {pluginCode} HTTP, MOCK, CORS, SET_REQUEST_HEADER, SET_RESPONSE_HEADER, ADD_REQUEST_QUERY_PARAMETER | See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type). See [JSON setting value by resource plugin type](#resource-plugin). |
 | swaggerData.definitions | Object | Optional | N/A | N/A | API Gateway resource request parameters, body object definition area used in response. See [Definitions Object](https://swagger.io/specification/v2/#definitionsObject) |
 
 
@@ -2838,7 +2838,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 <a id="list-stage-resources"></a>
 ### List Stage Resources { #list-stage-resources }
 * Retrieves a list of resources registered on the stage. The stage resource plugin information set for each resource is included.
-* For more information about the stage resource plugin, see [Stage Resource Plugin](./api-guide-v2.0/#stage-resource-plugin).
+* For more information about the stage resource plugin, see [Stage Resource Plugin](#stage-resource-plugin).
 
 
 <a id="list-stage-resources-request"></a>
@@ -2938,7 +2938,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v2.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v2.0/#stage-resource-plugin)            |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](#resource-plugin), [Stage Resource Plugin](#stage-resource-plugin)            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -3048,7 +3048,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v2.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v2.0/#stage-resource-plugin)            |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](#resource-plugin), [Stage Resource Plugin](#stage-resource-plugin)            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -3058,7 +3058,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 ### Modify Stage Resource { #modify-stage-resource }
 * Modifies the backend endpoint URL override and stage resource plugin set in the resource path or resource method.
 * When a stage resource is modified, all registered stage resource plugins are deleted, and only the requested resource plugin is newly registered.
-* For more information about the Stage Resource Plugin, see [Stage Resource Plugin](./api-guide-v2.0/#stage-resource-plugin).
+* For more information about the Stage Resource Plugin, see [Stage Resource Plugin](#stage-resource-plugin).
 
 <a id="modify-stage-resource-request"></a>
 #### Request
@@ -3103,7 +3103,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | stageResourcePluginList | List | Required | N/A | N/A | Stage resource's plugin list area |
 | stageResourcePluginList[0] | Object | Required | N/A | N/A | Stage resource's plugin area |
 | stageResourcePluginList[0].pluginType  | Enum | Required | N/A | IP_ACL, HMAC, JWT, API_KEY, PRE_API, RATE_LIMIT | See [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)|
-| stageResourcePluginList[0].pluginConfigJson | Object | Required | N/A | N/A | JSON-format object for each stage resource plugin<br>See configuration JSON by [Stage Resource Plugin](./api-guide-v2.0/#stage-resource-plugin)|
+| stageResourcePluginList[0].pluginConfigJson | Object | Required | N/A | N/A | JSON-format object for each stage resource plugin<br>See configuration JSON by [Stage Resource Plugin](#stage-resource-plugin)|
 
 * The customBackendEndpointUrl field cannot be set in the root (/) resource path.
 
@@ -3188,7 +3188,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                        |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v2.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v2.0/#stage-resource-plugin)            |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](#resource-plugin), [Stage Resource Plugin](#stage-resource-plugin)            |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -3565,7 +3565,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 - Deploys the current stage resources and configurations to the API Gateway service. 
 - If there is no changed configuration, the stage deployment request will fail.
 - If the stage deployment fails, it is restored to the previous successful stage deployment configuration.
-- After requesting stage deployment, you can check whether stage deployment was successful in [Query Result of Recent Stage Deployment](./api-guide-v2.0/#query-result-of-recent-stage-deployment). 
+- After requesting stage deployment, you can check whether stage deployment was successful in [Query Result of Recent Stage Deployment](#query-result-of-recent-stage-deployment). 
 
 <a id="deploy-stage-2-request"></a>
 #### Request
@@ -3623,7 +3623,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 
 <a id="query-result-of-recent-stage-deployment"></a>
 ### Query Result of Recent Stage Deployment { #query-result-of-recent-stage-deployment }
-- You can query the result of [Deploy Stage](./api-guide-v2.0/#deploy-stage). 
+- You can query the result of [Deploy Stage](#deploy-stage). 
 - After a stage deployment request, it can take up to a minute for the deployment results to be updated. 
 
 
@@ -3741,7 +3741,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                       |
-|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v2.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v2.0/#stage-resource-plugin)          |
+|latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](#resource-plugin), [Stage Resource Plugin](#stage-resource-plugin)          |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |latestStageDeployResult.stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
@@ -3948,7 +3948,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 |stageResourceList[0].stageResourcePluginList[0].stageResourcePluginId  |String  |Stage resource's plugin ID                           |
 |stageResourceList[0].stageResourcePluginList[0].stageResourceId        |String  |Stage resource ID                                |
 |stageResourceList[0].stageResourcePluginList[0].pluginType             |Enum    |See [Resource Plugin Type Enum Code](./enum-code/#resource-plugin-type), [Stage Resource > Plugin Type Enum Code](./enum-code/#stage-resource-plugin-type)                       |
-|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](./api-guide-v2.0/#resource-plugin), [Stage Resource Plugin](./api-guide-v2.0/#stage-resource-plugin)         |
+|stageResourceList[0].stageResourcePluginList[0].pluginConfigJson       |Object  |See configuration JSON by [Resource Plugin Type](#resource-plugin), [Stage Resource Plugin](#stage-resource-plugin)         |
 |stageResourceList[0].stageResourcePluginList[0].createdAt              |DateTime|Stage resource plugin creation date and time                         |
 |stageResourceList[0].stageResourcePluginList[0].updatedAt              |DateTime|Stage resource plugin modification date and time                         |
 
