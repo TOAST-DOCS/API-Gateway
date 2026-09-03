@@ -204,13 +204,13 @@ You can bring the resource through the file format of Swagger v2.0 [OpenAPI Spec
 - **Backend endpoint type: HTTP(S)**
     - Backend endpoint URL path: Sets the API URL of the backend endpoint service where the received API request should be forwarded to.
         - Must begin with the root (/).
-        - [Context Variables](#context-variables) created by the resources can be set for the path.
+        - [Context Variables](./console-guide/#context-variables) created by the resources can be set for the path.
 - **Backend endpoint type: custom response**
     - Set the custom response.
     - Response status code: Enter the response HTTP status code. (required)
     - Header: Enter the name and value of the response header.
     - Response body: Enter the response body.
-    - [Context Variables](#context-variables) created by the resources can be set for the header.
+    - [Context Variables](./console-guide/#context-variables) created by the resources can be set for the header.
 
 - **Plugin**: Select this option if you want to add a plugin that is added to the selected path to the created method as well.
 - If you request an unregistered HTTP method to API Gateway, 404 Not Found response is returned.
@@ -291,7 +291,7 @@ Plugin allows you to add additional functions provided by API Gateway.
 <a id="request-parameters"></a>
 ### Request Parameters { #request-parameters }
 Set request parameters, response types, and content type for each resource method.  
-Settings are applied to [API documentation](#api-documentation).
+Settings are applied to [API documentation](./console-guide/#api-documentation).
 
 1. Select the resource method.
 2. Click the **Request parameter** tab.
@@ -307,7 +307,7 @@ Settings are applied to [API documentation](#api-documentation).
     - Request Body parameter
         - Name: Enter the name of the request body parameter. 
         - Description: Enter the parameter description.
-        - Model: Select the [Model](#model) of the request body.
+        - Model: Select the [Model](./console-guide/#model) of the request body.
     - Content Type
         - Enter the content type (e.g., application/json) of the documents to send to the server.
 4. Click the **Save Changes** button.
@@ -315,7 +315,7 @@ Settings are applied to [API documentation](#api-documentation).
 <a id="response"></a>
 ### Response { #response }
 Set header, request body, and content type for each HTTP response status code.
-Settings are applied to [API documentation](#api-documentation).
+Settings are applied to [API documentation](./console-guide/#api-documentation).
 
 1. Select the resource method.
 2. Click the **Response** tab.
@@ -406,7 +406,7 @@ Adds or changes the request header.
 - **Change Request Header Settings**
     - You can click the **\+** button to add a header list.
     - Enter the header name and value.
-    - [Context Variables](#context-variables) declared by the resources can be set for the header value.
+    - [Context Variables](./console-guide/#context-variables) declared by the resources can be set for the header value.
       
       
 > **[Note] Adding and changing the request header** <br>
@@ -435,7 +435,7 @@ Change response header plugin adds the header to the backend response or changes
 - **Steps for applying plugins**: Frontend response pre-task
 - You can click the **\+** button to add a header list.
 - Enter the header name and value. 
-- [Context Variables](#context-variables) declared by the resources can be set for the header value.
+- [Context Variables](./console-guide/#context-variables) declared by the resources can be set for the header value.
 
 
 > **[Note] Adding and changing the response header** <br>
@@ -465,7 +465,7 @@ Example: If the parameter name and value are set to 'name' and 'value', **name=v
 - **Steps for applying plugins**: Backend request pre-task
 - **\+** button allows you to add a parameter list.
 - Enter the parameter name and value. 
-- [Context Variables](#context-variables) declared by the resources can be set for the parameter value.
+- [Context Variables](./console-guide/#context-variables) declared by the resources can be set for the parameter value.
 
 > **[Note] Request Query String Parameter** <br>
 > - The requested query string parameter that has the same key as the originally requested query string parameter does not replace the originally requested query string but instead adds the query string parameter. 
@@ -586,7 +586,7 @@ You can verify deployment history after stage deployment, and go back stages by 
 <a id="api-documentation"></a>
 ### API Documentation { #api-documentation }
 You can check the configuration deployed through **stage deployment** with the API documentation.
-Refer to [API documentation](#api-documentation) for details.
+Refer to [API documentation](./console-guide/#api-documentation) for details.
 
 <a id="stage-plugin"></a>
 ## Stage Plugin { #stage-plugin }
@@ -943,8 +943,8 @@ If validation fails, it returns an error response and does not forward the reque
 When making an API request to API Gateway, it is restricted to only the specified API key to be requested.
 
 - Examines if it is a valid API key value.
-- Only the API key connected to the stage of the usage plan can request the API of the stage. (For details, refer to [Usage Plan > Connect Stage to Usage Plan](#connect-stage-to-usage-plan).)
-- Examines the request limit of the usage plan the API key is connected to. (For details on how to set the request limit of a usage plan, refer to [Usage Plan > Create Usage Plan](#create-usage-plan).)
+- Only the API key connected to the stage of the usage plan can request the API of the stage. (For details, refer to [Usage Plan > Connect Stage to Usage Plan](./console-guide/#connect-stage-to-usage-plan).)
+- Examines the request limit of the usage plan the API key is connected to. (For details on how to set the request limit of a usage plan, refer to [Usage Plan > Create Usage Plan](./console-guide/#create-usage-plan).)
 
 > **[Note] API key failure response** <br>
 > The API request is rejected when the API key value is not included in the requested header, of its invalid, or exceeds the usage limit.
@@ -964,7 +964,7 @@ When making an API request to API Gateway, it is restricted to only the specifie
 
 <a id="request-restriction-policy"></a>
 ### Request Restriction Policy { #request-restriction-policy }
-Applies registered request restriction policy to stage resource paths or methods. For more information, see [Request Restriction Policy](#request-restriction-policy).
+Applies registered request restriction policy to stage resource paths or methods. For more information, see [Request Restriction Policy](./console-guide/#request-restriction-policy).
 
 1. Select a stage on **Stage** tab.
 2. Select **Settings** tab.
@@ -1104,7 +1104,7 @@ Allows users to redefine the error response settings defined by the gateway.
     - **Response body template**: Enter the content type and corresponding response body.
         - Content type: Enter the type of content the user is requesting, that is, the value of the Accept header in the request.
         - Response body: Enter the body of the gateway response to return in response to the value of the Accept header in the request.
-    - You can set [context variables](#context-variables) in the header value and response body.
+    - You can set [context variables](./console-guide/#context-variables) in the header value and response body.
 
 > **[Note] Apply gateway responses** <br>
 Changed gateway responses are applied after a stage deployment in the shape they were in at the time of deployment. 
@@ -1438,7 +1438,7 @@ Instead of domains randomly issued as custom domains, users can create domains i
 1. Go to **Custom Domain**
 2. Click **Create Custom Domain**.
 3. Custom domain: Enter the prefix of domain that you want to create in custom domain. The entered value is specified in {CustomDomainPrefix} part of {CustomDomainPrefix}.capi.nhncloudservice.com domain.
-4. GSLB Domain: Enter the GSLB domain to configure API Gateway region redundancy. For more information about API Gateway Region Redundancy Guide, see [API Gateway Region Redundancy Guide](#api-gateway-region-redundancy). 
+4. GSLB Domain: Enter the GSLB domain to configure API Gateway region redundancy. For more information about API Gateway Region Redundancy Guide, see [API Gateway Region Redundancy Guide](./console-guide/#api-gateway-region-redundancy). 
 5. Click **Create** button to create a custom domain in {CustomDomainPrefix}.capi.nhncloudservice.com format. 
 
 > **[Note] Custom domain** <br>
@@ -1483,7 +1483,7 @@ The following is a scenario in which API Gateway is newly configured in the exis
 ### 1. Service and Create stage in Korea (Pyeongchon) Region { #service-and-create-stage-in-korea-pyeongchon-region }
 1. Create API Gateway service in Korea (Pangyo) Region.
 2. Registers the same resources as the Korea (Pangyo) Region Stage in operation with the API Gateway service in Korea (Pyeongchon) Region.  
-In order to transfer easily, download the resources registered on the stage through [Stage > Import Resource](#stage-import-resource) as Swagger file, then you can register a resource with the downloaded Swagger file through [Resource > Import Resource](#import-resource). 
+In order to transfer easily, download the resources registered on the stage through [Stage > Import Resource](./console-guide/#stage-import-resource) as Swagger file, then you can register a resource with the downloaded Swagger file through [Resource > Import Resource](./console-guide/#import-resource). 
 3. Create a stage for Korea (Pyeongchon) Region and if there is a stage setting required, modify and deploy the stage. 
 
 > [Note] Resources > Stage plug-in settings when importing resources. 
@@ -1511,7 +1511,7 @@ This guide uses the GSLB of NHN Cloud DNS Plus service. For more information on 
 
 <a id="connect-custom-domain-to-stages-in-each-region"></a>
 ### 4. Connect custom domain to stages in each region { #connect-custom-domain-to-stages-in-each-region }
-1. Connect the custom domains you created to each API Gateway stage in Korea (Pangyo) and Korea (Pyeongchon) Region. For more information, refer to [Guide to connect Custom Domain with stage](#connect-stage-of-custom-domain).
+1. Connect the custom domains you created to each API Gateway stage in Korea (Pangyo) and Korea (Pyeongchon) Region. For more information, refer to [Guide to connect Custom Domain with stage](./console-guide/#connect-stage-of-custom-domain).
 2. Check whether or not the API is successfully called to the custom domain and that traffic is distributed according to GSLB configuration. 
 
 
