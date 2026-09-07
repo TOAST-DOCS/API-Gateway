@@ -303,3 +303,18 @@
     }
 }
 ```
+
+<a id="streaming-response-max-gap-exceeded"></a>
+## 스트리밍 응답 최대 무전송 간격 초과 { #streaming-response-max-gap-exceeded }
+- 발생 원인: HTTP Streaming(SSE/chunked) 응답에서 백엔드 엔드포인트가 데이터를 전송하지 않는 간격이 최대 허용 무전송 간격(60초)을 초과할 경우 오류가 발생합니다.
+- 응답 HTTP 상태: 504 Gateway Timeout
+- 오류 응답 본문 
+``` 
+{
+    "header": {
+        "isSuccessful": false,
+        "resultCode": 5040002,
+        "resultMessage": "Streaming response max gap exceeded. the permissible limit is 60s."
+    }
+}
+```

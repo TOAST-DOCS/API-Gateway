@@ -4,6 +4,14 @@
 ## Application Service > API Gateway > 릴리스 노트 { #application-service-api-gateway-release-note }
 
 
+<a id="august-25-2026"></a>
+### 2026. 08. 25. { #august-25-2026 }
+<a id="august-25-2026-added-features"></a>
+#### 신규 기능 추가
+* HTTP Streaming 응답 지원
+    * HTTP Streaming(SSE/chunked) 응답을 지원하며, 기본 제약 사항이 적용됩니다.
+    * 전체 응답 시간은 최대 10분이며, 백엔드 엔드포인트가 데이터를 전송하지 않는 간격은 최대 60초입니다. 두 제한 중 하나라도 초과하면 연결이 종료됩니다.
+
 <a id="july-28-2026"></a>
 ### 2026. 07. 28. { #july-28-2026 }
 <a id="july-28-2026-added-features"></a>
