@@ -1,3 +1,5 @@
+<!-- machine_translated: true -->
+
 <!-- pre-align:aligned sig=59cfa82951f4 -->
 
 <a id="application-service-api-gateway-release-note"></a>
@@ -128,8 +130,8 @@
 ### 2021.06.29. { #june-29-2021 }
 <a id="june-29-2021-feature-updates"></a>
 #### 機能改善・変更
-* 使用量計画、 API Key機能を追加
-    * 詳細な内容は[コンソールガイド > 使用量計画](./console-guide/#usage-plan)、[コンソールガイド > API Key](./console-guide/#api-key-2), [コンソールガイド > ステージ > API Key](./console-guide/#api-key)を参照してください。
+* 使用量計画、API Key機能の追加
+    * 詳細については、[コンソールガイド > 使用量計画](./console-guide/#usage-plan)、[コンソールガイド > API Key](./console-guide/#api-key-2)、[コンソールガイド > ステージ > API Key](./console-guide/#api-key)を参照してください。
 
 <a id="may-25-2021"></a>
 ### 2021.05.25. { #may-25-2021 }
