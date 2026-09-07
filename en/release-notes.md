@@ -1,3 +1,5 @@
+<!-- machine_translated: true -->
+
 <!-- pre-align:aligned sig=59cfa82951f4 -->
 
 <a id="application-service-api-gateway-release-note"></a>
@@ -129,8 +131,8 @@
 ### June 29, 2021 { #june-29-2021 }
 <a id="june-29-2021-feature-updates"></a>
 #### Feature Updates
-* Added API key feature and usage plan
-    * For more information, see [Console Guide > Usage Plan](./console-guide/#usage-plan), [Console Guide > API Key](./console-guide/#api-key-2), [Console Guide > Stage > API Key](./console-guide/#api-key).
+* Added Usage Plan and API Key features
+    * For more details, refer to [Console Guide > Usage Plan](./console-guide/#usage-plan), [Console Guide > API Key](./console-guide/#api-key-2), and [Console Guide > Stage > API Key](./console-guide/#api-key).
 
 <a id="may-25-2021"></a>
 ### May 25, 2021 { #may-25-2021 }
