@@ -3101,7 +3101,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | --- | --- | --- | --- | --- | --- |
 | customBackendEndpointUrl | String | 任意 | なし | 最大150文字、 URL形式 | バックエンドエンドポイント再定義URL |
 | stageResourcePluginList | List | 必須 | なし | なし | ステージリソースプラグインリスト領域 |
-| stageResourcePluginList[0] | Object | 必須 | なし | なし | ステージリソースプラグイン別JSON形式のオブジェクト<br>[ステージリソースプラグイン](#stage-resource-plugin)参考|
+| stageResourcePluginList[0] | Object | 必須 | なし | なし | ステージリソースのプラグイン領域 |
+| stageResourcePluginList[0].pluginType  | Enum | 必須 | なし | IP_ACL, HMAC, JWT, API_KEY, PRE_API, RATE_LIMIT | [ステージリソース > プラグインタイプEnumコード](./enum-code/#stage-resource-plugin-type)参考|
+| stageResourcePluginList[0].pluginConfigJson | Object | 必須 | なし | なし | ステージリソースプラグイン別JSON形式のオブジェクト<br>[ステージリソースプラグイン](#stage-resource-plugin)参考|
 
 * customBackendEndpointUrlフィールドはルート(/)リソースパスには設定できません。
 
