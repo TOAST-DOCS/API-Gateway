@@ -2695,9 +2695,9 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 |stage.stageId          |String  |ステージID             |
 |stage.stageName        |String  |ステージ名           |
 |stage.stageUrl         |String  |ステージURL            |
-|stageCustomDomainList   |List  |ステージユーザー指定ドメインリスト領域 |
-|stageCustomDomainList[0].customDomain   |String  |ユーザー指定ドメイン |
-|stageCustomDomainList[0].createdAt   |DateTime  |ユーザー指定ドメイン接続日時  |
+|stage.stageCustomDomainList   |List  |ステージユーザー指定ドメインリスト領域 |
+|stage.stageCustomDomainList[0].customDomain   |String  |ユーザー指定ドメイン |
+|stage.stageCustomDomainList[0].createdAt   |DateTime  |ユーザー指定ドメイン接続日時  |
 |stage.stageDescription |String  |ステージの説明           |
 |stage.backendEndpointUrl      |String  |バックエンドエンドポイントURL       |
 |stage.resourceUpdatedAt|DateTime|最近ステージにリソースをインポートした日時 |
@@ -4501,6 +4501,8 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | apiKeyName        | String | 必須  | なし | 最大50文字         | API Key名                                      |
 | apiKeyDescription | String | 任意  | なし | 最大200文字        | API Keyの説明                                      |
 | apiKeyStatus      | Enum   | 必須  | なし | ACTIVE, INACTIVE | [API Keyの状態Enumコード](./enum-code/#api-key-status)参考 |
+| primaryApiKey     | String | 任意  | なし | 最小10文字、最大40文字、英字、数字 | Primary Api Key の値。null の場合は自動発行 |
+| secondaryApiKey   | String | 任意  | なし | 最小10文字、最大40文字、英字、数字 | Secondary Api Key の値。null の場合は自動発行 |
 
 <a id="create-api-key-response"></a>
 #### レスポンス
@@ -4709,6 +4711,7 @@ CORSプラグインにより作成されたOPTIONSメソッドは、CORSプラ�
 | 名前              | タイプ   | 必須かどうか | デフォルト値 | 有効範囲          | 説明                                              |
 | ----------------- | ------ | ----- | --- | ---------------- | ------------------------------------------------- |
 | apiKeyType      | Enum   | 必須  | なし | PRIMARY、SECONDARY | 変更したいAPI Keyタイプ。 [API KeyタイプEnumコード](./enum-code/#api-key-type)参考 |
+| apiKeyValue     | String   | 任意  | なし | 最小 10 文字、最大 40 文字、英字、数字 | API Key の値。nullの場合は自動発行 |
 
 <a id="reissue-api-key-response"></a>
 #### レスポンス
