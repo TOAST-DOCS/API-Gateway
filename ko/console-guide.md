@@ -1534,7 +1534,7 @@ GSLB 설정에 대한 자세한 내용은 [DNS Plus 콘솔 사용 가이드](/Ne
 
 <a id="connect-custom-domain-to-stages-in-each-region"></a>
 ### 4. 사용자 지정 도메인을 각 리전의 스테이지에 연결 { #connect-custom-domain-to-stages-in-each-region }
-1. 한국(판교)와 한국(평촌) 리전의 각 API Gateway 스테이지에 생성한 사용자 지정 도메인을 연결합니다. 자세한 방법은 [사용자 지정 도메인을 스테이지에 연결 가이드](#connect-custom-domain-to-stages-in-each-region)를 참고하세요.
+1. 한국(판교)와 한국(평촌) 리전의 각 API Gateway 스테이지에 생성한 사용자 지정 도메인을 연결합니다. 자세한 방법은 [사용자 지정 도메인을 스테이지에 연결 가이드](./console-guide/#connect-stage-of-custom-domain)를 참고하세요.
 2. 사용자 지정 도메인으로 API가 정상적으로 호출되는지와 GSLB 구성에 따라 트래픽이 분산되는지 확인합니다. 
 
 

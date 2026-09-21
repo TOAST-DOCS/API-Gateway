@@ -1515,7 +1515,7 @@ GSLB設定の詳細は、[DNS Plusコンソール使用ガイド](/Network/DNS%2
 
 <a id="connect-custom-domain-to-stages-in-each-region"></a>
 ### 4. ユーザー指定ドメインを各リージョンのステージに接続 { #connect-custom-domain-to-stages-in-each-region }
-1. 韓国(パンギョ)と韓国(ピョンチョン)リージョンの各API Gatewayステージに作成したユーザー指定ドメインを接続します。詳細な方法は[ユーザー指定ドメインをステージに接続ガイド](#connect-custom-domain-to-stages-in-each-region)を参照してください。
+1. 韓国(パンギョ)と韓国(ピョンチョン)リージョンの各API Gatewayステージに作成したユーザー指定ドメインを接続します。詳細な方法は[ユーザー指定ドメインをステージに接続ガイド](./console-guide/#connect-stage-of-custom-domain)を参照してください。
 2. ユーザー指定ドメインでAPIが正常に呼び出されるか、GSLB構成によってトラフィックが分散されるかを確認します。 
 
 

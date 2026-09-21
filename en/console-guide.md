@@ -1511,7 +1511,7 @@ This guide uses the GSLB of NHN Cloud DNS Plus service. For more information on 
 
 <a id="connect-custom-domain-to-stages-in-each-region"></a>
 ### 4. Connect custom domain to stages in each region { #connect-custom-domain-to-stages-in-each-region }
-1. Connect the custom domains you created to each API Gateway stage in Korea (Pangyo) and Korea (Pyeongchon) Region. For more information, refer to [Guide to connect Custom Domain with stage](#connect-stage-of-custom-domain).
+1. Connect the custom domains you created to each API Gateway stage in Korea (Pangyo) and Korea (Pyeongchon) Region. For more information, refer to [Guide to connect Custom Domain with stage](./console-guide/#connect-stage-of-custom-domain).
 2. Check whether or not the API is successfully called to the custom domain and that traffic is distributed according to GSLB configuration. 
 
 
