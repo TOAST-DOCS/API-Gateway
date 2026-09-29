@@ -4130,7 +4130,7 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | Name | Type | Required | Default value | Valid range | Description |
 | --- | --- | --- | --- | --- | --- |
 | apigwServiceId | String | Required | N/A | N/A | API Gateway service ID |
-|  | String | Required | N/A | N/A | Gateway response ID |
+| gatewayResponseId | String | Required | N/A | N/A | Gateway response ID |
 
 <a id="reset-gateway-response-response"></a>
 #### Response
