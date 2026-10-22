@@ -3201,10 +3201,10 @@ The service responds with **200 OK** to all API requests. For detailed response 
 * [Example]: Plugin configuration override
     ```
     /
-  /members
-    - GET
-    - POST
-        ```
+      /members
+        - GET
+        - POST
+    ```
     * Configuration 
         1. Limit the request number limit on the root (/) resource path to 100 per second
         2. Limit the request number limit on the POST resource method to 10 per second (override)
